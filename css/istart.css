@@ -1,0 +1,131 @@
+@import url('reset.css');
+body {
+/*	background: #E2E2E2 url(img/Juan_Weiss.jpg) repeat 0 0; */
+	background: #E2E2E2;
+	font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;
+}
+a:visited,
+a {
+	color: #1C7FDB;
+}
+.fs10 {
+	font-size: 10px;
+	float: right;	
+}
+.dN {
+	display: none;
+}
+#header {	
+	background:-moz-linear-gradient(center top , #444444, #111111) repeat scroll 0 0 transparent;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#111));
+	background: url(img/header_bg.png) repeat-x 0 bottom;
+	height:80px;
+	margin-bottom: 10px;	
+	}
+	#logo {
+		padding-top: 25px;
+		color: #E2E2E2;
+        font-family: 'Tangerine', serif;
+        font-size: 48px;
+        font-weight: bold;
+        text-indent: 10%;
+        text-shadow: 0px 2px 0px #000;
+	}
+.board_wrap {
+	margin: 0 auto;
+	width: 90%;	
+}
+.ta_da_board,
+.board {	
+	float: left;
+	width: 20%;
+	margin-right: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	background-color:#FFFFFF;
+	border:1px solid #CCCCCC;
+}
+.ta_da_board h2,
+.board h2 {
+	/*font-family: 'Inconsolata';*/
+	font-size: 18px;
+	font-weight: bold;
+	padding: 8px;
+	border-bottom: 1px solid #CCC;
+	cursor: move;
+}
+.board ul {	
+	padding: 5px 0;
+}
+.board ul li {	
+	font-size: 12px;
+	width: 100%;
+	line-height: 24px;
+	height: 24px;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+.board ul li a:visited,
+.board ul li a:active,	
+.board ul li a{	
+	text-indent: 2em;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.board ul li a:hover {		
+  background-image:url("img/button_bg.png");
+}
+.ta_da_board {
+	padding: 0 0 5px 0;
+	width: 34%;
+}
+	
+.ta_da_board h2 .new_list_ele {
+	cursor: pointer;
+}
+
+.ta_da_board form {	
+	padding-left: 1em;
+	padding-top: 5px;	
+	background: #ECF4FD;
+	border-bottom: 1px solid #C5D7EF;
+	}
+	.ta_da_board form.suc {
+		background-color: #77C735;
+		border-bottom: 1px solid #88C369;
+	}	
+	.ta_da_board form.error {
+		background-color: #FED6D2;
+		border-bottom: 1px solid #E5ADA7;
+	}	
+	.ta_da_board form input {
+		margin-bottom: 5px;
+	}
+	.ta_da_board form input.ta_name {
+		height: 20px;
+		padding: 2px;
+		width: 70%;		
+	}
+	
+
+.ta_da_board ul {
+	cursor: text;
+	padding-left: 1em;	
+	font-size: 12px;	
+}
+.ta_da_board li p{
+	line-height: 24px;	
+	font-size: 14px;
+}
+.ta_da_board li ul li {
+	line-height: 16px;
+	padding-right: 10px;
+	margin-bottom: 4px;
+	padding-bottom: 2px;
+	width: 90%;
+	border-bottom: 1px dotted #CCC;
+}

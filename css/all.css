@@ -1,0 +1,65 @@
+@import url('reset.css');
+/*@import url('awesome.css');
+@import url('styles/ui-lightness/jquery-ui-1.8.2.custom.css');*/
+@import url('jScrollPane.css');
+@import url('tree.css');
+@import url('panel.css');
+.crP {
+	cursor: pointer;
+}
+.highlight_selected {
+	background: orange;
+}
+#leaf_articles_wrap {
+	overflow: auto;	
+	height: 400px;
+}
+#content {
+	width: 800px;
+	height: 400px;	
+}
+#tree_root,
+.tree_div,
+#tree_content {	
+	height: 400px;
+}
+.actions {
+	width: 100%;
+	background: red;	
+	height: 60px;	
+	height: 47px;
+	line-height: 47px;
+	text-align: center;
+	background: url('panel_images/column_item_gray.png') repeat-x 0 0;
+}
+.actions li {
+	float: left;
+	height: 60px;
+	line-height: 60px;		
+	padding: 0 5px;
+	text-align: center;
+	height: 47px;
+	line-height: 47px;
+}
+.actions li.hover:hover {
+	background: url('panel_images/column_item.png') repeat-x 0 0;
+}
+.actions li:hover {
+}
+.actions li.seperate {
+	width:1px;
+	padding:0;
+	border-right: 1px solid #666666;
+}
+.actions li a {
+	cursor: text;
+}
+.actions li img {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	
+}
+.actions li.hover img {
+	cursor: pointer;	
+}

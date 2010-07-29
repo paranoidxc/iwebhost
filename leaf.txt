@@ -1,0 +1,56 @@
+ SELECT node.id AS id, 
+        node.name, (COUNT(parent.name) - 1) AS depth
+        FROM category AS node,         
+        category AS parent 
+        WHERE node.lft BETWEEN parent.lft AND parent.rgt 
+        GROUP BY node.id 
+        ORDER BY node.lft 
+        
+        
+        
+        
+        
+        
+echo '<div id="tree_splitter" style="width: 500px; border: 2px solid red;">';
+		echo '<div id="tree_root">';
+		echo "<ul class='tree' id='top_tree' >";
+		$temp_depth = 0;
+		foreach( $leafs as $leaf ) {
+			$id = $leaf->id;
+			$name = $leaf->name;
+			$depth = $leaf->depth;
+			if( $depth == 0 ) {
+				echo '<li class="'.$class.'" >';
+  		  echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+   			echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
+   			echo' <span class="leaf">';
+			}else if( $depth > $temp_depth ) {
+				echo '<ul><li class="'.$class.'">';
+    		echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+    		echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
+    		echo '<span class="leaf"  >';
+			}else if( $depth < $temp_depth ) {
+				for($i=0; $i < $temp_depth - $depth ; $i ++ ) {
+      		echo '</li></ul>';
+    		}
+    		echo '<li class="'.$class.'">';
+    		echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+    		echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
+    		echo '<span class="leaf">';
+  		}else if( $depth == $temp_depth ){
+    		echo '</li><li class="'.$class.'">';
+    		echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+    		echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
+    		echo '<span class="leaf">';
+  		}
+			echo $name;
+  		echo '</span>';
+  		echo ' <a href="?r=admin/category/create&id='.$id.'" target="_blank">A</a>';
+ 			echo ' <a href="?r=admin/category/tree&id=$id" target="_blank">D</a> ';
+  		$temp_depth = $depth;
+		}
+		for($i=0; $i < $temp_depth; $i ++ ) {
+	  	echo "</li>\r\n</ul>";
+		}
+		echo "</li>\r\n</ul>";
+		echo '</div>';
