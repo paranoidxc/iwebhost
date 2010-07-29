@@ -35,6 +35,24 @@ $(document).ready(function(){
 		$(this).toggleClass('highlight_selected', !$(this).hasClass('highlight_selected'));
 		renderArticlesActions();
 	});
+	/*
+	* double click mouse pop the article 
+	*/
+	$('dl.thumbnail').live('dblclick',function(){
+		$.ajax({
+			url:	$(this).attr('rel_href'),
+			type:	'get',
+			cache:	false,
+			success:	function(html){
+				var pop = $("<div title='view article' ></div").html(html);
+				pop.insertAfter($('body')).dialog( {			
+					width: 600, 
+					minWidth: 600
+				});
+				render();
+			}
+		});
+	});
 	
 	$('#artiles_all').click(function(){
 		$('dl.thumbnail').addClass('highlight_selected');				

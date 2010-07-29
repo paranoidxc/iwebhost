@@ -154,14 +154,26 @@ class ArticleController extends controller
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				if( isset($_GET['ajax']) ) {
+					echo 'update article suc';
+					exit;
+				}else {
+					$this->redirect(array('view','id'=>$model->id));	
+				}	
+			}							
 		}
-
-		$this->render('update',array(
-			'model'	=>	$model,
-			'leafs'	=>	$leafs
-		));
+		if( isset($_GET['ajax']) ) {
+			$this->renderPartial('update',array(
+				'model'	=>	$model,
+				'leafs'	=>	$leafs
+			),false,true);
+		}else {			
+			$this->render('update',array(
+				'model'	=>	$model,
+				'leafs'	=>	$leafs
+			));
+		}
 	}
 
 	/**

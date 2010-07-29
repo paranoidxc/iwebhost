@@ -4,6 +4,8 @@
     <dict>
         <key>fileTriggers</key>
         <dict>
+            <key>AJAX</key>
+            <string>protected\modules\admin\views\category\ajaxview.php</string>
             <key>MatchMo</key>
             <string>..\live-yii-project\protected\controllers\MatchMockupController.php</string>
             <key>_form</key>
@@ -26,6 +28,8 @@
             <string>..\live-yii-project\css\app.css</string>
             <key>appa</key>
             <string>..\live-yii-project\protected\controllers\AppraiseStatisticsController.php</string>
+            <key>appo</key>
+            <string>..\livenew\protected\controllers\AppraiseStatisticsController.php</string>
             <key>article</key>
             <string>protected\modules\admin\controllers\ArticleController.php</string>
             <key>article.php</key>
@@ -78,6 +82,10 @@
             <string>..\live-yii-project\protected\controllers\CountryController.php</string>
             <key>country.php</key>
             <string>..\live-yii-project\protected\models\Country.php</string>
+            <key>countryc</key>
+            <string>..\livenew\protected\controllers\CountryController.php</string>
+            <key>countrycontroller</key>
+            <string>..\livenew\protected\controllers\CountryController.php</string>
             <key>countyr</key>
             <string>..\livenew\protected\controllers\CountryController.php</string>
             <key>ectemplates_class.php</key>
@@ -134,6 +142,8 @@
             <string>..\live-yii-project\protected\controllers\LeagueController.php</string>
             <key>league.php</key>
             <string>..\live-yii-project\protected\models\League.php</string>
+            <key>legue</key>
+            <string>..\livenew\protected\controllers\LeagueController.php</string>
             <key>main.css</key>
             <string>assets\f48350f4\css\main.css</string>
             <key>main.php</key>
@@ -144,8 +154,14 @@
             <string>..\live-yii-project\protected\controllers\MatchPlanController.php</string>
             <key>matchm</key>
             <string>..\live-yii-project\protected\models\MatchMockup.php</string>
+            <key>matchmockp</key>
+            <string>..\livenew\protected\models\MatchMockup.php</string>
             <key>matchp</key>
             <string>..\live-yii-project\protected\models\MatchPlan.php</string>
+            <key>matchplan</key>
+            <string>..\livenew\protected\models\MatchPlan.php</string>
+            <key>math</key>
+            <string>..\livenew\protected\controllers\MatchMockupController.php</string>
             <key>mathc</key>
             <string>..\live-yii-project\protected\models\MatchMockup.php</string>
             <key>mock</key>
@@ -158,6 +174,10 @@
             <string>..\live-yii-project\protected\controllers\PlayerController.php</string>
             <key>player.php</key>
             <string>..\live-yii-project\protected\models\Player.php</string>
+            <key>remind</key>
+            <string>..\livenew\protected\controllers\RemindController.php</string>
+            <key>remind.php</key>
+            <string>..\livenew\protected\models\Remind.php</string>
             <key>reset.css</key>
             <string>css\reset.css</string>
             <key>sam</key>

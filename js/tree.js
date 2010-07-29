@@ -58,11 +58,13 @@ $(document).ready(function(){
       
       //resetTreeScroll();
 
+      /*
        $.ajax({
             type: "POST",
             url: 'leaf.php',
             data: 'class_name='+class_name+'&id='+data_id,
           });
+          */
 
     });
   });
@@ -74,6 +76,8 @@ $(document).ready(function(){
         $(this).addClass('current');
       }      
       $('#leaf_id').val($(this).attr('data_id'));      
+      
+      if( ev.detail == 1 ) {
       $.ajax({
         type      : 'get',
         dataType  : 'html',
@@ -83,9 +87,22 @@ $(document).ready(function(){
          $('#leaf_articles').html(html);
         }
       });      
+    }
     }).dblclick(function(ev){
       clear_leaf_class();
       $(this).addClass('current');
+      if( $(this).prev().hasClass('f_fold' ) ) {
+      	if( $(this).prev().hasClass('f_fold') ) {
+      		$(this).prev().removeClass('f_fold').addClass('f_open');	
+      	}
+        $(this).parent().removeClass('fold').addClass('open');
+      }else{
+      	if( $(this).prev().hasClass('f_open') ){
+      		$(this).prev().removeClass('f_open').addClass('f_fold');	
+      	}        
+        $(this).parent().removeClass('open').addClass('fold');
+      }      
+      /*
       if( $(this).prev().prev().hasClass('f_fold' ) ) {
         $(this).prev().prev().removeClass('f_fold').addClass('f_open');
         $(this).parent().removeClass('fold').addClass('open');
@@ -93,6 +110,7 @@ $(document).ready(function(){
         $(this).prev().prev().removeClass('f_open').addClass('f_fold');
         $(this).parent().removeClass('open').addClass('fold');
       }                      
+      */
      // resetTreeScroll();
     });
   });

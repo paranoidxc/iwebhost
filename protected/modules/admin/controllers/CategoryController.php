@@ -51,7 +51,7 @@ class CategoryController extends controller
 
 	public function actionLeafs() {		
 		$sql = 	" SELECT node.id AS id, ".
-      		 	" node.name, (COUNT(parent.name) - 1) AS depth ".
+      		 	" node.name, (COUNT(parent.name) - 1) AS depth, node.lft, node.rgt ".
         		" FROM category AS node,".
         		" category AS parent ".
         		" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".

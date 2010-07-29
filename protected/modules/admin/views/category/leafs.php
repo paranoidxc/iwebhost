@@ -20,18 +20,24 @@ $this->beginWidget('application.extensions.Sidebarpanel');
 		$class="open";
 		$handle_class = 'f_'.$class;
 		foreach( $leafs as $leaf ) {
+			$class="open";
+			$handle_class = 'f_'.$class;
 			$id = $leaf->id;
 			$name = $leaf->name;
 			$depth = $leaf->depth;
+			if( $leaf->lft +1 == $leaf->rgt ) {
+				$handle_class = '';
+			}
 			if( $depth == 0 ) {
 				echo '<li class="'.$class.'" >';
-  		  		echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
-   				echo '<span class="'.$class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+  		  	//	echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+  		  	echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+   				//echo '<span class="'.$class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
    				echo' <span class="leaf" data_id="'.$id.'">';
 			}else if( $depth > $temp_depth ) {
 				echo '<ul><li class="'.$class.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
-    			echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+    			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
     			echo '<span class="leaf" data_id="'.$id.'" >';
 			}else if( $depth < $temp_depth ) {
 				for($i=0; $i < $temp_depth - $depth ; $i ++ ) {
@@ -39,12 +45,12 @@ $this->beginWidget('application.extensions.Sidebarpanel');
     			}
     			echo '<li class="'.$class.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
-    			echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+    			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
     			echo '<span class="leaf" data_id="'.$id.'">';
   			}else if( $depth == $temp_depth ){
     			echo '</li><li class="'.$class.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
-    			echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+    			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
     			echo '<span class="leaf" data_id="'.$id.'">';
   			}
 			echo $name;
