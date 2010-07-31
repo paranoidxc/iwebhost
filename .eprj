@@ -57,7 +57,7 @@
             <key>categor</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>category</key>
-            <string>protected\modules\admin\models\Category.php</string>
+            <string>protected\modules\admin\controllers\CategoryController.php</string>
             <key>category.ph</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>category.php</key>

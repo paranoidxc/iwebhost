@@ -43,7 +43,7 @@ class Category extends CActiveRecord
 				" AND sub_parent.name = sub_tree.name ".
 				" GROUP BY node.id ".
 				" HAVING depth <= $depth ".
-				" ORDER BY node.lft ";
+				" ORDER BY node.lft, node.sort_id desc ";
 		 return $this->findAllBySql($sql);	
 	}
 	

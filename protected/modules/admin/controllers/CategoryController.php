@@ -59,6 +59,8 @@ class CategoryController extends controller
 	        	" ORDER BY node.lft ";        
 		$leafs =Category::model()->findAllBySql($sql);
 		
+		
+		
 		$this->render('leafs',array(
 			'leafs'=> $leafs
 		));		
