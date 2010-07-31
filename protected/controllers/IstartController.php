@@ -10,7 +10,8 @@ class IstartController extends Controller
 		Yii::app()->theme='istart';		
 		//Yii::import('application.modules.admin.article');
 	//	$article = Yii::app()->getModule('article');
-	//	$data = $article::model()->find(1);
+	//	$data = $article::model()->find(1);			
+	
 		$data = Article::model()->findAll();
 		$this->render('index', array(
 			'data' => $data

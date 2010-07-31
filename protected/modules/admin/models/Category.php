@@ -18,8 +18,14 @@ class Category extends CActiveRecord
 	public $parent_leaf_id;
 	public $parent_leaf;
 	
+	/**
+	 * undocumented function
+	 *
+	 * @return html
+	 * @author paranoid
+	 **/	
 	public function vleafs($name='root',$depth=1){
-		$sql =  " SELECT node.id as id , node.name, (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
+		$sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
 				" FROM category AS node, ".
 				" category AS parent, ".
 				" category AS sub_parent, ".

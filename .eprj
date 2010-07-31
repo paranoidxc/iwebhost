@@ -57,7 +57,7 @@
             <key>categor</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>category</key>
-            <string>protected\modules\admin\controllers\CategoryController.php</string>
+            <string>protected\modules\admin\models\Category.php</string>
             <key>category.ph</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>category.php</key>
@@ -123,11 +123,13 @@
             <key>in_base.php</key>
             <string>..\easy\upload\interface\base\in_base.php</string>
             <key>inde.php</key>
-            <string>..\showcase\index.php</string>
+            <string>index.php</string>
             <key>index.php</key>
             <string>index.php</string>
             <key>istart</key>
-            <string>js\istart.js</string>
+            <string>protected\controllers\IstartController.php</string>
+            <key>istart.css</key>
+            <string>css\istart.css</string>
             <key>istart.js</key>
             <string>js\istart.js</string>
             <key>istartcon</key>

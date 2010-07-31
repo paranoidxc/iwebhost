@@ -15,17 +15,18 @@
 		}
 	?>
 	</ul>
-</div>		
+</div>
 <?php
 	}
 }
 ?>
+</div>
 <div class=" ta_da_board">
 	<h2><?php echo colorful("Ta-da List"); ?><span class="fs10 new_list_ele">new Ta-da list</span></h2>	
 	<form class="new_list_form dN" method="POST" action="<?php echo CController::createUrl('istart/Tada');?>">
 		<input type="hidden" name="Category[parent_leaf_id]" value="41"/>
 		<input type="text" name="Category[name]" id="Category_name" class="ta_name" /><br/>
-		<input type="submit" value=" create this list " class="button" />
+		<input type="submit" value=" create this list " class="ibtn" />
 	</form>
 	<ul>
 	<?php 
@@ -47,5 +48,4 @@
 		}
 	?>
 	</ul>
-</div>
 </div>

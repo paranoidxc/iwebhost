@@ -27,5 +27,19 @@ function colorfulV($s='my love--!'){
 	global $colorful_array;	
 	return $colorful_array[rand(0,count($colorful_array)-1)];	
 }
+
+
+/**
+ * undocumented function
+ *
+ * @return sort value ( 0 , 1, -1 )
+ * @author paranoid
+ **/
+function leaf_sort($a,$b) {
+	 if ($a->sort_id == $b->sort_id) {
+        return 0;
+    }
+    return ($a->sort_id < $b->sort_id) ? -1 : 1;
+}
 require_once($yii);
 Yii::createWebApplication($config)->run();
