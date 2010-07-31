@@ -57,19 +57,12 @@ $(document).ready(function(){
       }
       
       //resetTreeScroll();
-
-      /*
-       $.ajax({
-            type: "POST",
-            url: 'leaf.php',
-            data: 'class_name='+class_name+'&id='+data_id,
-          });
-          */
-
     });
   });
 
-  $('span.leaf').each(function(item){
+
+var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
+  $('span.leaf').each(function(item){  	
     $(this).click(function(ev){
       if( ev.detail == 1 || ev.detail == undefined) {
         clear_leaf_class();
@@ -78,13 +71,15 @@ $(document).ready(function(){
       $('#leaf_id').val($(this).attr('data_id'));      
       
       if( ev.detail == 1 ) {
+      $('.actions').append(loading);
       $.ajax({
         type      : 'get',
         dataType  : 'html',
         cache     : false,
         url       : '/index.php?r=admin/category/view&ajax=ajax&id='+$(this).attr('data_id'),
-        success   : function(html) {         
-         $('#leaf_articles').html(html);
+        success   : function(html) {       
+        	$('.loading').remove(); 
+        	$('#leaf_articles').html(html);
         }
       });      
     }

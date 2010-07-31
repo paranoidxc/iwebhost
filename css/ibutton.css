@@ -1,0 +1,38 @@
+.ibtn {
+  border:1px solid #4592AD;
+  color:#FFFFFF;
+  cursor:pointer;
+  font-size:13px;
+  font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;
+  font-weight:bold;
+  padding:3px 15px;
+  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
+
+  -moz-border-radius:5px 5px 5px 5px;
+  -moz-box-shadow:0 1px 1px rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(255, 255, 255, 0.1) inset, 0 0 0 #0F3E75, 0 0 2px rgba(0, 0, 0, 0.5);
+  background:-moz-linear-gradient(center top , #62C8EC 20%, #319ABF 100%) repeat scroll 0 0 transparent;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.398438) 0px 1px 1px inset, rgba(255, 255, 255, 0.0976563) 0px -1px 0px inset, #0F3F75 0px 0px 0px, rgba(0, 0, 0, 0.496094) 0px 0px 2px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.2, #62C8EC), to(#319ABF));
+  
+  border-bottom-left-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  -moz-border-radius: 15px;
+ 
+  text-shadow: rgba(0, 0, 0, 0.199219) 0px -1px 0px;
+  -moz-outline-style:none;
+}
+
+
+input.ibtn:hover {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.0976563) 0px 1px 1px inset, rgba(255, 255, 255, 0.296875) 0px -1px 0px inset, #0F3F75 0px 0px 0px, rgba(0, 0, 0, 0.296875) 0px 0px 5px;
+	background: #4EB1D4;
+}
+
+input.ibtn:active {
+	-moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.2) inset, 0 -1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 0 #0F3E75, 0 0 5px rgba(0, 0, 0, 0.2);
+	outline:medium none;
+	text-shadow:0 1px 0 rgba(0, 0, 0, 0.5);
+}

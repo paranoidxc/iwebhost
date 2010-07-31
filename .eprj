@@ -31,7 +31,7 @@
             <key>appo</key>
             <string>..\livenew\protected\controllers\AppraiseStatisticsController.php</string>
             <key>article</key>
-            <string>protected\modules\admin\controllers\ArticleController.php</string>
+            <string>protected\modules\admin\models\Article.php</string>
             <key>article.php</key>
             <string>protected\modules\admin\models\Article.php</string>
             <key>awe</key>
@@ -61,7 +61,7 @@
             <key>category.ph</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>category.php</key>
-            <string>protected\modules\admin\models\Category.php</string>
+            <string>protected\modules\admin\controllers\CategoryController.php</string>
             <key>categorycon</key>
             <string>..\showcase\protected\controllers\CategoryController.php</string>
             <key>categoryp</key>

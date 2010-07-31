@@ -42,6 +42,23 @@ class ArticleController extends controller
 		}
 	}
 	/**
+	*  Copy a list of article in same category
+	*/
+	public function actionCopy(){
+		if( isset($_POST['ids']) ){			
+			$ids = explode(',',$_POST['ids']);
+			foreach( $ids as $id ){
+				$at = Article::model()->findByPk($id);
+				$new = new Article();							
+				$new->attributes =$at->attributes;
+				unset($new->attributes['id']);			
+				$new->title = $new->title .' - copy';							
+				$new->save();
+			}
+			echo count($ids)." record(s) are copy done! ";			
+		}
+	}
+	/**
 	*  Move a list of article to another category
 	*/
 	public function actionMove() {		
@@ -79,7 +96,7 @@ class ArticleController extends controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','test', 'move'),
+				'actions'=>array('create','update','test', 'move', 'copy'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions

@@ -2,6 +2,7 @@
 	class Tmacpanel extends CWidget {
 		public function init() {
 			$r=<<<EOT
+	<div class='mac_panel_wrap'>
      <table class="mac_panel tree_mac_panel">
        <tr class="panel_top">
          <td class="left"></td>
@@ -34,7 +35,8 @@ EOT;
          </td>
          <td class="right"></td>
        </tr>
-      </table>      
+      </table>
+     </div>
 EOT;
 			echo $r;
 		}

@@ -316,13 +316,10 @@ class CategoryController extends controller
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
 	public function actionDelete()
-	{
-		
-		
+	{		
 		$cmodel = Category::model();
 		$transaction = $cmodel->dbConnection->beginTransaction();		
-		try {
-			
+		try {			
 			$model = $this->loadModel();	
 			$width = $model->rgt - $model->lft + 1;
 			
@@ -340,7 +337,8 @@ class CategoryController extends controller
 
 			$transaction->commit();	
 			
-			$this->redirect(array('leafs'));
+			//$this->redirect(array('leafs'));
+			echo 'delete suc';
 			
 		}catch(Exception $e) {
 			_debug($e);
@@ -370,6 +368,8 @@ class CategoryController extends controller
 	 */
 	public function actionIndex()
 	{
+		$this->redirect( array('leafs') );
+		exit;
 		$dataProvider=new CActiveDataProvider('Category');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

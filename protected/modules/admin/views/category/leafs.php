@@ -2,12 +2,12 @@
 $this->breadcrumbs=array(
 	'Categories',
 );
-
+/*
 $this->menu=array(
 	array('label'=>'Create Category', 'url'=>array('create')),
 	array('label'=>'Manage Category', 'url'=>array('admin')),
 );
-
+*/
 
 
 echo '<div id="content">';
@@ -78,7 +78,7 @@ $this->beginWidget('application.extensions.Siderbarmain');
 <ul class="actions">
 
 	<li class="hover">
-		<a href="<?php echo CController::createUrl('article/create') ?>" title="New Dir" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
+		<a href="<?php echo CController::createUrl('category/create') ?>" title="New Dir" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
  	</li>	
  	
  	<li class="hover">
@@ -86,7 +86,7 @@ $this->beginWidget('application.extensions.Siderbarmain');
  	</li> 	 	
 	
  	<li class="hover">
-		<a href="<?php echo CController::createUrl('category/update') ?>" title="Update Dir" class="ele_update_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
+		<a href="<?php echo CController::createUrl('category/delete') ?>" title="Delete Dir" class="ele_del_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
  	</li> 	
  	<li class="seperate"></li>
  	 	
@@ -107,7 +107,7 @@ $this->beginWidget('application.extensions.Siderbarmain');
 	</li>
 	
 	<li class="iactions">
-		<a  href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_move" title="Move Articles">
+		<a  href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles">
 			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Copy.png" title="Copy Articles" />
 		</a>		
 	</li>
