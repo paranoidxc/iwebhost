@@ -16,7 +16,13 @@
 		<?php echo $form->labelEx($model,'parent_leaf_id'); ?>
 		parent_leaf_name :<?php echo $model->parent_leaf->name; ?><br/>
 		parent_leaf_id :<?php echo $model->parent_leaf_id ?>
-		<?php echo $form->hiddenField($model,'parent_leaf_id') ?>		
+		<?php echo $form->hiddenField($model,'parent_leaf_id') ?>	
+		<?php 
+			if ( isset( $leafs ) ) {
+				echo $form->listbox($model, 'parent_leaf_id', $leafs, array( 'size' => 1)  ) ;
+			}
+		?>			
+		
 	</div>
 	
 	<div class="row">

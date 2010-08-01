@@ -1,8 +1,9 @@
 @import url('ibutton.css');
+/*/
 ::-moz-focus-inner{
  	border:none;padding:0;
 }
-  
+ */ 
 body {
 	/*
 	font-family:"Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti !important;

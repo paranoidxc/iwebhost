@@ -2,7 +2,7 @@
 @import url('ibutton.css');
 body {
 /*	background: #E2E2E2 url(img/Juan_Weiss.jpg) repeat 0 0; */
-	background: #E2E2E2;
+	background: #E2E2E2 url(img/background.png) repeat 0 0; 
 	font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;
 }
 a:visited,

@@ -20,7 +20,15 @@ function init_article_sort() {
 			}
 		});
 }
-$(document).ready(function(){
+
+
+
+$(document).ready(function(){		
+	$('.tree ul').sortable({
+		
+	});
+	
+	
 	/*
 	* draggble the mac panel
 	*/
@@ -195,10 +203,11 @@ $(document).ready(function(){
 	})
 	
 	/* create new leaf */
-	$('.ele_update_leaf').live('click', function() {
+	$('.ele_update_leaf').live('click', function() {		
+		
 		$.ajax({
 			type:		"get",
-			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
+			url:		$(this).attr('href')+'&ajax=ajax&id='+$('#leaf_id').val(),
 			success:	function(html) {
 				var pop = $("<div title='my god' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			

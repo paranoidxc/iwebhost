@@ -49,6 +49,12 @@ class CategoryController extends controller
 		);
 	}
 
+	public function getRelData() {		
+		$_data = Category::model()->getTreeById();
+		$leafs = CHtml::listdata($_data, 'id','name');
+		return array( $leafs );
+	}
+	
 	public function actionLeafs() {		
 		$sql = 	" SELECT node.id AS id, ".
       		 	" node.name, (COUNT(parent.name) - 1) AS depth, node.lft, node.rgt ".
@@ -187,10 +193,29 @@ class CategoryController extends controller
 	{
 		$model=$this->loadModel();
 
-		
-		if( isset( $_GET['leaf_id'] ) ) {
-			$model->parent_leaf_id = $_GET['leaf_id'];
-			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
+		list( $leafs  )= $this->getRelData();		
+
+		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {
+			//$model->parent_leaf_id = $_GET['leaf_id'];
+			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);
+			$model->parent_leaf_id = $model->parent_leaf->id;
+		} else {			
+			$sql = 	" SELECT parent.name, parent.id ".
+				 	" FROM category AS node,".
+					" category AS parent ".
+					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+					" AND node.id = $model->id ".
+					" ORDER BY parent.lft ";
+					echo $sql;
+			$path = Category::model()->findAllBysql($sql);
+			$temp_parent;
+			foreach( $path as $obj ) {								
+				if( $obj->id  == $model->id ) {					
+					break;
+				}
+				$model->parent_leaf = $obj;
+				$model->parent_leaf_id = $obj->id;
+			}
 		}
 		
 		
@@ -272,6 +297,7 @@ class CategoryController extends controller
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('update', array(
 				'model' => $model,
+				'leafs'	=> $leafs,
 				'ajax'	=> 'ajax'
 				),false,true);
 		}else {					
