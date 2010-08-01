@@ -65,8 +65,6 @@ class CategoryController extends controller
 	        	" ORDER BY node.lft ";        
 		$leafs =Category::model()->findAllBySql($sql);
 		
-		
-		
 		$this->render('leafs',array(
 			'leafs'=> $leafs
 		));		
@@ -195,10 +193,9 @@ class CategoryController extends controller
 
 		list( $leafs  )= $this->getRelData();		
 
-		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {
-			//$model->parent_leaf_id = $_GET['leaf_id'];
-			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);
-			$model->parent_leaf_id = $model->parent_leaf->id;
+		if( isset( $_POST['']['leaf_id'] ) ) {
+			$model->parent_leaf_id = $_GET['leaf_id'];
+			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
 		} else {			
 			$sql = 	" SELECT parent.name, parent.id ".
 				 	" FROM category AS node,".

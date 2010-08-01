@@ -49,6 +49,7 @@
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Category', 'url'=>array('/admin/category/leafs')),
 				array('label'=>'article', 'url'=>array('/admin/article/index')),
+				array('label'=>'datablock', 'url'=>array('/admin/datablock/hierarchical')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

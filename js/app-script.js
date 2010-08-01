@@ -20,19 +20,64 @@ function init_article_sort() {
 			}
 		});
 }
-
+	
+	/*
+	* drag the datablock and sort it in real-time	
+	*/
+	function init_datablock_sort() {	
+	$('.data_block_hir').sortable({
+		update: function(event, ui) {			
+			var serial = $(this).sortable('serialize');			
+			var that = $(this);					
+			$.ajax({
+					type: "post",
+					url:   that.attr('href'),
+					data: 	serial,
+					success: function(html) { 							
+						that.effect("highlight", {}, 1000);			
+					}		
+			});
+		}		
+	});
+};
 
 
 $(document).ready(function(){		
 	$('.tree ul').sortable({
 		
 	});
+
+	init_datablock_sort();
+	
+	/*
+	* display the children datablock 
+	*/
+	$('.data_block_hir>li').live('click',function(){
+		var that = $(this);		
+		$.ajax({
+			type: 'get',
+			url: $(this).attr('href'),
+			cache: false,
+			success: function(html){				
+				if( that.parent().find('li.selected').length  == 0 || that.parent().next().length == 0 ) {
+					that.parent().nextAll('ul.data_block_hir').remove();
+					that.parent().after( html );	
+				} else {
+					that.parent().next().replaceWith( html );					
+				}				
+				that.parent().find('li').removeClass('selected');
+				that.addClass('selected');
+			}
+		});
+		
+	})
+	
 	
 	
 	/*
 	* draggble the mac panel
 	*/
-	$('.mac_panel_wrap').draggable({
+	$('.mac_panel_wrap,').draggable({
     	handle: ".drag_handle",
     	cursor: "move"
 	 });

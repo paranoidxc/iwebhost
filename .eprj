@@ -31,7 +31,7 @@
             <key>appo</key>
             <string>..\livenew\protected\controllers\AppraiseStatisticsController.php</string>
             <key>article</key>
-            <string>protected\modules\admin\models\Article.php</string>
+            <string>protected\modules\admin\controllers\ArticleController.php</string>
             <key>article.</key>
             <string>protected\modules\admin\controllers\ArticleController.php</string>
             <key>article.php</key>
@@ -90,6 +90,12 @@
             <string>..\livenew\protected\controllers\CountryController.php</string>
             <key>countyr</key>
             <string>..\livenew\protected\controllers\CountryController.php</string>
+            <key>data</key>
+            <string>protected\modules\admin\controllers\DatablockController.php</string>
+            <key>datab</key>
+            <string>protected\modules\admin\models\Datablock.php</string>
+            <key>databloc</key>
+            <string>protected\modules\admin\models\Datablock.php</string>
             <key>ectemplates_class.php</key>
             <string>..\easy\upload\public\ectemplates\ectemplates_class.php</string>
             <key>event.php</key>
@@ -151,7 +157,7 @@
             <key>main.css</key>
             <string>assets\f48350f4\css\main.css</string>
             <key>main.php</key>
-            <string>protected\views\layouts\main.php</string>
+            <string>themes\classic\views\layouts\main.php</string>
             <key>mainphp</key>
             <string>themes\classic\views\layouts\main.php</string>
             <key>match</key>
