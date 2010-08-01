@@ -26,6 +26,7 @@ function init_article_sort() {
 	*/
 	function init_datablock_sort() {	
 	$('.data_block_hir').sortable({
+		/*
 		update: function(event, ui) {			
 			var serial = $(this).sortable('serialize');			
 			var that = $(this);					
@@ -38,9 +39,64 @@ function init_article_sort() {
 					}		
 			});
 		}		
-	});
-};
+		*/
+	});	
+	};
 
+	function init_datablock_droppable() {			
+	$(".data_block_hir li").droppable({
+			accept: ".data_block_hir li",		
+			hoverClass: "ui-state-hover",
+			drop: function(ev, ui) {
+				var $item = $(this);
+				//console.log( $(this).html() );
+				
+				ui.draggable.hide('slow', function() {				
+					//$item.parent().append					
+					//$(this).appendTo($item.parent()).show('slow');					
+					//$(this).after(  ).show('slow');				
+					
+					//拖拽的父元素
+					$drag_parent = $(this).parent();
+					
+					//拖拽到父元素
+					$parent = $item.parent();
+					
+					if( $drag_parent.attr('id') == $parent.attr('id') ) {						
+					}else {	
+						if( $(this).hasClass('selected') ){
+							$(this).show();
+							return ;
+						}
+						
+						$.ajax({
+							type: 	"post",
+							url: 	$parent.attr('move_href'),
+							data: 	"&p_id="+$parent.attr('rel_id')+'&id='+$(this).attr('rel_id'),
+							success:	function(html){
+								console.log( html );
+							}
+						})
+						
+					}
+					$(this).insertAfter( $item ).show('slow');					
+					var serial = $parent.sortable('serialize');									
+					$.ajax({
+						type: "post",
+						url:   $parent.attr('href'),
+						data: 	serial,
+						success: function(html) { 							
+							$parent.effect("highlight", {}, 1000);			
+						}		
+					});
+						
+				});
+				//console.log( $item );
+				//var $list = $($item.find('a').attr('href')).find('.connectedSortable');			
+			}
+		});
+	}
+	
 
 $(document).ready(function(){		
 	$('.tree ul').sortable({
@@ -48,7 +104,7 @@ $(document).ready(function(){
 	});
 
 	init_datablock_sort();
-	
+	init_datablock_droppable();
 	/*
 	* display the children datablock 
 	*/
@@ -61,7 +117,8 @@ $(document).ready(function(){
 			success: function(html){				
 				if( that.parent().find('li.selected').length  == 0 || that.parent().next().length == 0 ) {
 					that.parent().nextAll('ul.data_block_hir').remove();
-					that.parent().after( html );	
+					//that.parent().after( html ).show('slow');	
+					$(html).insertAfter( that.parent() ).show('slow');
 				} else {
 					that.parent().next().replaceWith( html );					
 				}				

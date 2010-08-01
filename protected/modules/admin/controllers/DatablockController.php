@@ -36,7 +36,7 @@ class DatablockController extends controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','hierarchical','hnext','isort'),
+				'actions'=>array('create','update','hierarchical','hnext','isort','imove'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -49,7 +49,15 @@ class DatablockController extends controller
 		);
 	}
 
-
+	public function actionImove() {						
+		$data = Datablock::model()->findByPk($_POST['id']);
+		echo $data->p_id;
+		$data->p_id = $_POST['p_id'];		
+		$data->save();
+		echo $data->p_id;
+		echo 'suc';
+	}
+	
 	public function actionIsort() {		
 		$sort = $_POST['sort'];
 		for( $i=0; $i<count($sort); $i++ ) {			
@@ -88,7 +96,7 @@ class DatablockController extends controller
 			':p_id' => $p_id
 		);
 		$datas = Datablock::model()->findAll($criteria);		
-		$this->renderPartial('hierarchical',array( 'datas' => $datas, 'ajax' => 'ajax' ), false, true );
+		$this->renderPartial('hierarchical',array( 'datas' => $datas, 'ajax' => 'ajax', 'p_id' => $p_id ), false, true );
 	}
 	public function actionHierarchical()
 	{
@@ -102,7 +110,7 @@ class DatablockController extends controller
 		$datas = Datablock::model()->findall($criteria);
 		//$datas = Datablock::model()->findall(' p_id = :p_id ', array(':p_id' => $p_id)  ,' id asc ');	
 		$this->render('hierarchical',
-			array( 'datas' => $datas ) );
+			array( 'datas' => $datas, 'p_id' => 0 ) );
 	}
 	
 	/**

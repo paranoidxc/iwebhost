@@ -9,6 +9,7 @@
 	width: 120px;
 	float: left;		
 	background: #FFF;	
+	height: 500px;
 }
 .data_block_hir li {
 	text-indent: 2em;
@@ -35,7 +36,9 @@
 	background: #313131;
 	background: url(panel_images/column_item.png) repeat-x 0 0 ;	
 }
-
+.data_block_hir li.ui-state-hover {
+	background: orange;
+}
 body {
 	/*
 	font-family:"Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti !important;
