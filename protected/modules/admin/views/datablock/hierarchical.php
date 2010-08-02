@@ -15,6 +15,7 @@ echo "<div class='mac_panel_wrap' >";
 $this->beginWidget('application.extensions.Smacpanel');
 }
 echo "<ul class='data_block_hir' id='data_block_$p_id' rel_id='$p_id' move_href='".CController::createurl('datablock/imove')."' href='".CController::createurl('datablock/isort')."' >";
+echo "<h2 class='ibtn'>Datablock <span>+</span></h2>";
 if( count($datas) > 0 ) {
 	foreach( $datas as $db ) {
 		echo "<li id='sort_$db->id' rel_id='$db->id' href='".CController::createurl('datablock/hnext', array( 'p_id' => $db->id ) )."' >";

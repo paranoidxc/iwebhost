@@ -41,6 +41,11 @@
 <div class="container" id="page">
 	<div id="header">
 		<div id="logo"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/istartpage.png" title="<?php echo CHtml::encode(Yii::app()->name);?>"/></div>
+		<?php 
+		if( !Yii::app()->user->isGuest ) {
+			echo CHtml::link( 'Go to Conosle Page', CController::createurl('admin/category/leafs') , array('target' => '_blank', 'class' => 'ibtn console') );
+		}
+		?>
 	</div><!-- header -->
 
 	<?php echo $content; ?>	

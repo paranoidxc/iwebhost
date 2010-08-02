@@ -12,6 +12,10 @@
             <string>protected\modules\admin\views\category\_form.php</string>
             <key>a</key>
             <string>..\easy\upload\js\awe.js</string>
+            <key>about.css</key>
+            <string>..\easy\upload\templates\default\style\about.css</string>
+            <key>admin</key>
+            <string>..\livenew\themes\classic\views\country\admin.php</string>
             <key>admin.php</key>
             <string>..\showcase\protected\views\category\admin.php</string>
             <key>al.css</key>
@@ -24,11 +28,15 @@
             <string>js\app-script.js</string>
             <key>app</key>
             <string>css\app-css.css</string>
+            <key>app-scr</key>
+            <string>..\livenew\js\app-script.js</string>
             <key>app.css</key>
             <string>..\live-yii-project\css\app.css</string>
             <key>appa</key>
             <string>..\live-yii-project\protected\controllers\AppraiseStatisticsController.php</string>
             <key>appo</key>
+            <string>..\livenew\protected\controllers\AppraiseStatisticsController.php</string>
+            <key>apprai</key>
             <string>..\livenew\protected\controllers\AppraiseStatisticsController.php</string>
             <key>article</key>
             <string>protected\modules\admin\controllers\ArticleController.php</string>
@@ -90,6 +98,8 @@
             <string>..\livenew\protected\controllers\CountryController.php</string>
             <key>countyr</key>
             <string>..\livenew\protected\controllers\CountryController.php</string>
+            <key>css.css</key>
+            <string>..\livenew\css\css.css</string>
             <key>data</key>
             <string>protected\modules\admin\controllers\DatablockController.php</string>
             <key>datab</key>
@@ -102,6 +112,10 @@
             <string>..\live-yii-project\protected\models\Event.php</string>
             <key>fix</key>
             <string>..\livenew\css\fix.css</string>
+            <key>fix.css</key>
+            <string>..\livenew\css\fix.css</string>
+            <key>form.php</key>
+            <string>..\livenew\themes\classic\views\country\_form.php</string>
             <key>glo</key>
             <string>..\easy\upload\templates\default\style\global.css</string>
             <key>glob</key>
@@ -114,6 +128,10 @@
             <string>..\easy\upload\templates\default\style\global.css</string>
             <key>group</key>
             <string>..\live-yii-project\protected\models\Ugroup.php</string>
+            <key>hier</key>
+            <string>protected\modules\admin\views\datablock\hierarchical.php</string>
+            <key>ibutton.css</key>
+            <string>css\ibutton.css</string>
             <key>ilogin.c</key>
             <string>..\easy\upload\templates\default\style\ilogin.css</string>
             <key>ilogin.css</key>
@@ -135,7 +153,7 @@
             <key>index.php</key>
             <string>index.php</string>
             <key>istart</key>
-            <string>protected\controllers\IstartController.php</string>
+            <string>css\istart.css</string>
             <key>istart.css</key>
             <string>css\istart.css</string>
             <key>istart.js</key>
@@ -164,6 +182,8 @@
             <string>..\live-yii-project\protected\controllers\MatchPlanController.php</string>
             <key>matchm</key>
             <string>..\live-yii-project\protected\models\MatchMockup.php</string>
+            <key>matchmock</key>
+            <string>..\livenew\protected\models\MatchMockup.php</string>
             <key>matchmockp</key>
             <string>..\livenew\protected\models\MatchMockup.php</string>
             <key>matchp</key>
@@ -184,6 +204,8 @@
             <string>..\live-yii-project\protected\controllers\PlayerController.php</string>
             <key>player.php</key>
             <string>..\live-yii-project\protected\models\Player.php</string>
+            <key>remin</key>
+            <string>..\livenew\protected\controllers\RemindController.php</string>
             <key>remind</key>
             <string>..\livenew\protected\controllers\RemindController.php</string>
             <key>remind.php</key>
@@ -210,6 +232,8 @@
             <string>..\easy\upload\adminmanager\templates\styles\table.css</string>
             <key>table.css</key>
             <string>..\easy\upload\adminmanager\templates\styles\table.css</string>
+            <key>ter</key>
+            <string>..\livenew\protected\models\Terminfo.php</string>
             <key>termin</key>
             <string>..\live-yii-project\protected\controllers\TerminfoController.php</string>
             <key>terminfo</key>
@@ -220,6 +244,8 @@
             <string>css\tree.css</string>
             <key>tree.js</key>
             <string>js\tree.js</string>
+            <key>view.php</key>
+            <string>..\livenew\themes\classic\views\league\view.php</string>
         </dict>
     </dict>
 </plist>

@@ -4082,3 +4082,39 @@ Stack trace:
 #15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #16 H:\projects\iwebhost\index.php(32): CApplication->run()
 #17 {main} REQUEST_URI=/index.php?r=admin/datablock/hierarchical
+2010/08/01 11:37:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('category')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(32): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=category
+2010/08/01 11:37:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('category')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(32): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=category
+2010/08/02 02:47:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('category')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(32): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=category
+2010/08/02 02:48:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('category')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(32): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=category
+2010/08/02 08:12:48 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (53)
+in H:\projects\iwebhost\index.php (32)
+2010/08/02 08:12:48 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (53)
+in H:\projects\iwebhost\index.php (32)
+2010/08/02 15:51:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category/leafs".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('category/leafs')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(32): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=category/leafs

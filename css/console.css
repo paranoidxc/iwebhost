@@ -9,9 +9,74 @@
 	width: 120px;
 	float: left;		
 	background: #FFF;	
-	height: 500px;
-}
+	height: 420px;	
+	margin: 10px;	
+	
+	float: left;		
+	-webkit-border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	background-color:#FFFFFF;
+	border:1px solid #CCCCCC;
+	padding: 5px 0;
+	
+	
+	float: left;
+	width: 20%;
+	margin-right: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.2);
+	background-color:#FFFFFF;
+	border:1px solid #CCCCCC;
+	
+	}
+	.data_block_hir h2 {
+		font-size: 14px;
+		margin: 5px;
+		font-weight: bold;
+		}
+		.data_block_hir h2 span {
+			background: #FFF;
+			color: #ccc;
+			float: right;
+			display: block;
+			-moz-border-radius: 15px;
+			width: 15px;
+			text-align: center;
+			height: 15px;
+			line-height: 15px;
+			margin-top: 1px;
+			margin-right: -4px;
+		}
+
 .data_block_hir li {
+	font-size: 12px;
+	width: 100%;
+	line-height: 24px;
+	height: 24px;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.data_block_hir li:visited,
+.data_block_hir li:active,	
+.data_block_hir li{	
+	text-indent: 2em;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.board ul li:hover {		
+	background-color: orange;
+  background-image:url("img/button_bg.png");
+}
+
+.data_block_hir li {
+	/*
 	text-indent: 2em;
 	line-height: 24px;	
 	cursor: pointer;
@@ -22,20 +87,24 @@
   	color: #606060;
     text-shadow: #FFF 0 1px 1px;
     border-right: 1px solid #CBCBCB;
+    */
 }
+/*
 .data_block_hir li:hover {
 	color: #FFF;
     text-shadow: #2186ff 0 1px 1px;
     text-shadow: blue 0 1px 0px;
 	background: url(panel_images/column_item.png) repeat-x 0 0 ;
 }
+*/
 .data_block_hir li.selected {
 	color: #FFF;
-    text-shadow: #2186ff 0 1px 1px;
-    text-shadow: blue 0 1px 0px;
+  text-shadow: #2186ff 0 1px 1px;
+  text-shadow: blue 0 1px 0px;
 	background: #313131;
 	background: url(panel_images/column_item.png) repeat-x 0 0 ;	
 }
+/*
 .data_block_hir li.ui-state-hover {
 	background: orange;
 }
