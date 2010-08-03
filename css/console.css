@@ -1,9 +1,8 @@
 @import url('ibutton.css');
-/*/
+
 ::-moz-focus-inner{
  	border:none;padding:0;
-}
- */ 
+} 
  
 .data_block_hir {
 	width: 120px;
@@ -51,63 +50,61 @@
 			margin-top: 1px;
 			margin-right: -4px;
 		}
+		.data_block_hir li {			
+			text-indent: 5px;
+			display: block;
+			text-decoration: none;
+			font-weight: bold;
+			text-transform: capitalize;
+			font-size: 12px;
+			width: 100%;
+			line-height: 24px;
+			height: 24px;
+			overflow: hidden;
+			text-overflow: ellipsis;			
+		}		
+		
+		.data_block_hir li.selected {
+			color: #FFF;
+  		text-shadow: #2186ff 0 1px 1px;
+  		text-shadow: blue 0 1px 0px;
+			background: #313131;
+			background: url(panel_images/column_item.png) repeat-x 0 0 ;	
+			}		
+			.data_block_hir li.selected span.handle {
+				background-image: url(img/grippy_white.png);
+			}
+		.data_block_hir li.temp {
+			text-indent: 2em;
+		}			
+		.data_block_hir li.ui-state-hover {
+			background: url(panel_images/column_item_gray.png) repeat-x 0 0;			
+			border: none;
+			color: #606060;
+			color: #FFF;
+			background: #CA0B0B;
+			}
+			.data_block_hir li.ui-state-hover span.handle {
+				background-image: url(img/grippy_dark.png);
+				background-image: url(img/grippy_white.png);
+			}
+		.data_block_hir li span.handle {
+			cursor: url(img/openhand.cur), default !important;
+			background: url(img/grippy.png) no-repeat 0 0;
+			margin-right: 5px;
+		}
+		.data_block_hir li span.block_ele {
+			cursor: pointer;
+		}		
+		.data_block_hir li .block_ele:hover {
+			color:green;
+		}
+		.data_block_hir li.selected .block_ele:hover {
+			color: #FFF;
+		}
 
-.data_block_hir li {
-	font-size: 12px;
-	width: 100%;
-	line-height: 24px;
-	height: 24px;
-	overflow: hidden;
-	text-overflow: ellipsis;	
-}
-
-.data_block_hir li:visited,
-.data_block_hir li:active,	
-.data_block_hir li{	
-	text-indent: 2em;
-	display: block;
-	text-decoration: none;
-	font-weight: bold;
-	text-transform: capitalize;
-}
-.board ul li:hover {		
-	background-color: orange;
-  background-image:url("img/button_bg.png");
-}
-
-.data_block_hir li {
-	/*
-	text-indent: 2em;
-	line-height: 24px;	
-	cursor: pointer;
-    line-height: 26px;
-    height: 26px;
-    color: #FFF;
-    background: #D1D7E2 url(panel_images/column_item_gray.png) repeat-x 0 0; 
-  	color: #606060;
-    text-shadow: #FFF 0 1px 1px;
-    border-right: 1px solid #CBCBCB;
-    */
-}
 /*
-.data_block_hir li:hover {
-	color: #FFF;
-    text-shadow: #2186ff 0 1px 1px;
-    text-shadow: blue 0 1px 0px;
-	background: url(panel_images/column_item.png) repeat-x 0 0 ;
-}
-*/
-.data_block_hir li.selected {
-	color: #FFF;
-  text-shadow: #2186ff 0 1px 1px;
-  text-shadow: blue 0 1px 0px;
-	background: #313131;
-	background: url(panel_images/column_item.png) repeat-x 0 0 ;	
-}
-/*
-.data_block_hir li.ui-state-hover {
-	background: orange;
-}
+
 body {
 	/*
 	font-family:"Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti !important;

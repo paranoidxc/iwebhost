@@ -25,7 +25,8 @@ function init_article_sort() {
 	* drag the datablock and sort it in real-time	
 	*/
 	function init_datablock_sort() {	
-	$('.data_block_hir').sortable({
+	$('.data_block_hir').sortable({		 
+		handle: 'span.handle'
 		/*
 		update: function(event, ui) {			
 			var serial = $(this).sortable('serialize');			
@@ -41,16 +42,16 @@ function init_article_sort() {
 		}		
 		*/
 	});	
-	};
-
+	};	
+		
 	function init_datablock_droppable() {			
 	$(".data_block_hir li").droppable({
-			accept: ".data_block_hir li",		
+			accept: ".data_block_hir li, data_block_hir h2",					
 			hoverClass: "ui-state-hover",
 			drop: function(ev, ui) {
 				var $item = $(this);
 				//console.log( $(this).html() );
-				
+				$darg_parent = '';				
 				ui.draggable.hide('slow', function() {				
 					//$item.parent().append					
 					//$(this).appendTo($item.parent()).show('slow');					
@@ -79,7 +80,16 @@ function init_article_sort() {
 						})
 						
 					}
-					$(this).insertAfter( $item ).show('slow');					
+					$(this).insertAfter( $item ).show();
+					
+					$drag_parent.find('.temp').hide();
+					$parent.find('.temp').hide();										
+					
+					if( $drag_parent.find('li[id*=sort]').length == 0 ) {						
+						$drag_parent.nextAll('.data_block_hir').remove();						
+						$drag_parent.find('.temp').show();
+					}
+					
 					var serial = $parent.sortable('serialize');									
 					$.ajax({
 						type: "post",
@@ -91,6 +101,7 @@ function init_article_sort() {
 					});
 						
 				});
+								
 				//console.log( $item );
 				//var $list = $($item.find('a').attr('href')).find('.connectedSortable');			
 			}
@@ -108,11 +119,13 @@ $(document).ready(function(){
 	/*
 	* display the children datablock 
 	*/
-	$('.data_block_hir>li').live('click',function(){
-		var that = $(this);		
+	//$('.data_block_hir>li[id*=sort]').live('click',function(){
+		$('.data_block_hir>li>span.block_ele').live('click',function(){	
+		//var that = $(this);		
+		var that = $(this).parent();
 		$.ajax({
 			type: 'get',
-			url: $(this).attr('href'),
+			url: that.attr('href'),
 			cache: false,
 			success: function(html){				
 				if( that.parent().find('li.selected').length  == 0 || that.parent().next().length == 0 ) {
@@ -121,7 +134,7 @@ $(document).ready(function(){
 					$(html).insertAfter( that.parent() ).show('slow');
 				} else {
 					that.parent().next().replaceWith( html );					
-				}				
+				}
 				that.parent().find('li').removeClass('selected');
 				that.addClass('selected');
 			}

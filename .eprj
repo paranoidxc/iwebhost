@@ -27,7 +27,7 @@
             <key>ap</key>
             <string>js\app-script.js</string>
             <key>app</key>
-            <string>css\app-css.css</string>
+            <string>js\app-script.js</string>
             <key>app-scr</key>
             <string>..\livenew\js\app-script.js</string>
             <key>app.css</key>
