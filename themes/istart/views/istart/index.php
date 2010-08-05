@@ -1,3 +1,13 @@
+<div  class="board" id="google_board">
+  <form action="http://www.google.com/search" method="get" target="_blank">
+		<input type="hidden" value="1" name="forid">
+		<input type="hidden" value="UTF-8" name="ie">
+		<input type="hidden" value="en-US" name="hl">
+		<input type="text" id="gkw" name="q"> <input type="submit" class="ibtn igsearch" value="Google Search">
+  </form>
+</div>
+
+
 <div class="board_wrap">
 <?php
 	foreach( Category::model()->vleafs('istart',1) as $_leafs ) {		
