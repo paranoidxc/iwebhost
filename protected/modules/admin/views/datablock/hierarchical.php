@@ -13,12 +13,14 @@ $this->menu=array(
 if( !isset($ajax) ) {
 echo "<div class='mac_panel_wrap' >";
 $this->beginWidget('application.extensions.Smacpanel');
+echo "<div style='width: 700px; overflow: scroll; ' >";
+echo "<div style='width: 12000px; height: 500px; ' >";
 }
 echo "<ul class='data_block_hir' id='data_block_$p_id' rel_id='$p_id' move_href='".CController::createurl('datablock/imove')."' href='".CController::createurl('datablock/isort')."' >";
-echo "<h2 class='ibtn'>Datablock <span>+</span></h2>";
+echo "<h2 class='ibtn' create_href ='".CController::createurl('datablock/create', array('ajax' => 'ajax' ,'p_id' => $p_id) )."' >Datablock <span>+</span></h2>";
 if( count($datas) > 0 ) {
 	foreach( $datas as $db ) {
-		echo "<li id='sort_$db->id'  rel_id='$db->id' href='".CController::createurl('datablock/hnext', array( 'p_id' => $db->id ) )."' >";		
+		echo "<li id='sort_$db->id'  edit_href='".CController::createurl('datablock/update', array('ajax' =>'ajax',  'id' => $db->id ) )."' rel_id='$db->id' href='".CController::createurl('datablock/hnext', array( 'p_id' => $db->id ) )."' >";		
 		//echo '<a href="#">';
 		echo '<span class="handle">&nbsp;&nbsp;</span>';
 		echo '<span class="block_ele" >'.$db->name.'</span>';
@@ -33,8 +35,10 @@ if( count($datas) > 0 ) {
 echo "</ul>";
 
 if( !isset($ajax) ) {
-	echo "</div>";
+	echo "</div>";	
+	echo "</div>";	
 	$this->endWidget('application.extensions.Smacpanel');	
+	echo "</div>";
 }
 ?>
 <script type="text/javascript">	

@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Update Datablock <?php echo $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'data_block_tree' => $data_block_tree)); ?>

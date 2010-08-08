@@ -137,16 +137,30 @@ class DatablockController extends controller
 		if(isset($_POST['Datablock']))
 		{
 			$model->attributes=$_POST['Datablock'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				if( isset($_GET['ajax']) ) {
+					echo 'datablock create suc';
+					exit;
+				}else {
+					$this->redirect(array('view','id'=>$model->id));	
+				}				
+			}				
 		}
 		
 		list( $data_block_tree )  = $this->getRelData();
 		
-		$this->render('create',array(
-			'model'				=> $model,
-			'data_block_tree'	=> $data_block_tree
-		));
+		$model->p_id = $_GET['p_id'];
+		if( isset($_GET['ajax']) ) {
+			$this->renderPartial('create',array(
+				'model'				=> $model,
+				'data_block_tree'	=> $data_block_tree
+			),false,true);
+		}else{					
+			$this->render('create',array(
+				'model'				=> $model,
+				'data_block_tree'	=> $data_block_tree
+			));
+		}
 	}
 
 	/**
@@ -163,13 +177,28 @@ class DatablockController extends controller
 		if(isset($_POST['Datablock']))
 		{
 			$model->attributes=$_POST['Datablock'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				if( isset( $_GET['ajax'] ) ){
+					echo 'datablock update';
+					exit;
+				}else{
+					$this->redirect(array('view','id'=>$model->id));
+				}
+			}
+				
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		list( $data_block_tree )  = $this->getRelData();
+		if( isset($_GET['ajax']) ){
+			$this->renderPartial('update',array(
+				'model'=>$model,
+				'data_block_tree'	=> $data_block_tree
+			),false,true);
+		}else{					
+			$this->render('update',array(
+				'model'=>$model,
+				'data_block_tree'	=> $data_block_tree
+			));
+		}
 	}
 
 	/**

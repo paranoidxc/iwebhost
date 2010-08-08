@@ -3,6 +3,10 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'datablock-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+		'class' => 'ajax_form datablock_ajax_form','p_id' => $model->p_id,
+		'parent_href' => CController::createurl('datablock/hnext', array('p_id' => $model->p_id) )
+	)
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>

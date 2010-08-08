@@ -135,13 +135,14 @@ class ArticleController extends controller
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
-			if($model->save())
+			if($model->save()){
 				if( isset($_GET['ajax']) ) {
 					echo 'create article suc';
 					exit;
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
-				}				
+				}			
+			}	
 		}
 		
 		if( isset($_GET['ajax']) ) {

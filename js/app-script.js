@@ -114,6 +114,44 @@ $(document).ready(function(){
 		
 	});
 
+	/*
+	* create hierarchicla node
+	*/
+	$('.data_block_hir h2').live('click', function(){
+		$that = $(this);
+		$.ajax({
+			type:	'get',
+			url:	$that.attr('create_href'),
+			cache: 	false,
+			success:	function(html){
+				var pop = $("<div title='view article' ></div").html(html);
+				pop.insertAfter($('body')).dialog( {			
+					width: 600, 
+					minWidth: 600
+				});	
+			}
+		});
+	});
+	/*
+	* edit hierarchicla node
+	*/
+	$('.data_block_hir>li>span.block_ele').live('dblclick',function(){
+		$that = $(this).parent();
+		$.ajax({			
+			url:	$that.attr('edit_href'),
+			type:	'get',
+			cache:	false,
+			success:	function(html){
+				var pop = $("<div title='edit note ' ></div").html(html);
+				pop.insertAfter($('body')).dialog( {			
+					width: 600, 
+					minWidth: 600
+				});			
+			}
+		});
+	});
+	
+	
 	init_datablock_sort();
 	init_datablock_droppable();
 	/*
@@ -350,7 +388,19 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-	
+	function renderDataBlock(ele){
+		
+		$.ajax({
+			type:	'get',
+			url:	ele.attr('parent_href'),
+			cache:	false,
+			success: function(html){				
+				$('#data_block_'+ele.attr('p_id')).replaceWith( html );
+				$('#data_block_'+ele.attr('p_id')).effect("highlight", {}, 1000)
+			}			
+		})
+		
+	}
 	function render() {
 	$.ajax({
         type      : 'get',
@@ -373,9 +423,13 @@ $(document).ready(function(){
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
 			success:	function(html) {
-				console.log(html);
+				console.log(html);				
+				if( that.hasClass('datablock_ajax_form') ) {					
+					renderDataBlock(that);
+				}else{
+					render();		
+				}
 				dialog.html(html);
-				render();
 			}
 		});
 		return false;

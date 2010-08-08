@@ -144,22 +144,24 @@
  
    /* panel middle start */
   .panel_middle .right ,
-  .panel_middle .left {
+  .panel_middle .left {  	
   }
 
   .panel_middle .left {
     width: 16px;
+    min-width:16px;
     background: url(panel_images/panel_middle_left.png) repeat-y 0 0;
   }
     .panel_middle .right {
     width: 12px;
-    background: url(panel_images/panel_middle_right.png) repeat-y 0 0;
+    min-width:12px;
+    background: url(panel_images/panel_middle_right.png) repeat-y 0 0;        
   }
   /* panel middle end */
 
   .panel_middle .middle {
     background: #e2e2e2;
-    
+    overflow: auto;
   }
 
 

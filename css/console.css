@@ -5,7 +5,7 @@
 } 
  
 .data_block_hir {
-	width: 120px;
+
 	float: left;		
 	background: #FFF;	
 	height: 420px;	
@@ -22,7 +22,7 @@
 	
 	
 	float: left;
-	width: 20%;
+	width: 160px;
 	margin-right: 10px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius:5px;
