@@ -7,19 +7,20 @@
 		background-color: rgba(0,0,0,0.2);
 		padding: 5px;		
 		float: left;
-		margin-right: 10px;
-		border: 1px solid #CCC;				
+		margin-right: 15px;		
 		}
 		.books-wrap .books p {
 			background: #FFF;
 			padding: 0 5px;
+			border: 1px solid #a0a0a0;
 		}
 		.books-wrap .books p.thumb {
 			padding-top: 5px;
+			border-bottom:none;
 		}
 		.books-wrap .books .title {			
+			border-top:none;
 			font-size: 12px;
 			text-align: center;
 			line-height: 20px;
-		}
-		
+		}		
