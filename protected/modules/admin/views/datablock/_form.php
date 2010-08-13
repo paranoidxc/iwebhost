@@ -20,7 +20,20 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'label'); ?>
+		<?php echo $form->textField($model,'label',array('size'=>60,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'label'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'p_id'); ?>		
+		<?php		
+		if( $model->p_id != 0 ) {
+			echo $model->parent->name;
+		}else{
+			echo 'Data-Block-Top';
+		}
+		?>
 		<?php echo $form->listbox($model, 'p_id', $data_block_tree, array( 'size' => 1)  ) ; ?>
 		<?php echo $form->error($model,'p_id'); ?>
 	</div>

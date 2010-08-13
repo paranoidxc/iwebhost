@@ -46,7 +46,7 @@ function init_article_sort() {
 		
 	function init_datablock_droppable() {			
 	$(".data_block_hir li").droppable({
-			accept: ".data_block_hir li, data_block_hir h2",					
+			accept: ".data_block_hir li",					
 			hoverClass: "ui-state-hover",
 			drop: function(ev, ui) {
 				var $item = $(this);
@@ -63,9 +63,9 @@ function init_article_sort() {
 					//拖拽到父元素
 					$parent = $item.parent();
 					
-					if( $drag_parent.attr('id') == $parent.attr('id') ) {						
+					if( $drag_parent.attr('id') == $parent.attr('id') ) {												;
 					}else {	
-						if( $(this).hasClass('selected') ){
+						if( $(this).hasClass('selected') ){							
 							$(this).show();
 							return ;
 						}

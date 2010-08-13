@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This is the model class for table "datablock".
  *
@@ -14,6 +13,67 @@
  */
 class Datablock extends CActiveRecord
 {
+	public function pushChild($obj,&$r,$i,$depth){		
+		if( $i > $depth ){
+			return;
+		}
+		$i++;
+		foreach( $obj->children as $t){
+			$r[] = array('name' => $t->name , 'depth' => $i);
+			if( $t->children ){			
+				$this->pushChild($t,$r,$i,$depth);
+			}			
+		}
+	}
+	
+	public function iNav($options){
+		$_r = $this->find(' label = :label', array( ':label' => $options['label'] ) );
+		$r = array();
+		$i = 0;
+		foreach( $_r->children as $obj ){
+			$r[] = array('name' => $obj->name , 'depth' => $i);
+			if( $options['depth'] >= 1 ){				
+				$this->pushChild($obj,&$r,$i,$options['depth']);
+			}			
+		}
+		return $r;
+	}
+	/*public function pushChild($obj,&$r=array()){		
+		
+		foreach($obj->children as $t ){
+			$temp = array(
+				'name'	 	=> $t->name,
+				'label'		=> $t->label,
+				'p_id'		=> $t->p_id				
+			);
+			if( $t->children ){
+				$temp['children'] = $this->pushChild($t);
+			}
+			$r[] = $temp;
+		}
+		return $r;
+	}
+	
+	public function iNav($options){
+		print_r($options);		
+		$r = $this->find(' label = :label', array( ':label' => $options['label'] ) );
+		$_r = array();
+		foreach( $r->children as $obj ){
+			//$_r[] = $obj;
+			$temp = array(
+				'name'	 	=> $obj->name,
+				'label'		=> $obj->label,
+				'p_id'		=> $obj->p_id				
+			);
+			
+			if( $options['depth'] > 1 ){
+				$temp['children'] = $this->pushChild($obj);
+			}			
+			$_r[] = $temp;
+		}		
+		return $_r;
+	}
+	*/
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Datablock the static model class
@@ -39,7 +99,8 @@ class Datablock extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
+			array('name,label', 'required'),			
+			array('label', 'unique'),
 			array('p_id, sort_id', 'numerical', 'integerOnly'=>true),
 			array('name, rel_value, template', 'length', 'max'=>100),
 			array('type', 'length', 'max'=>45),
@@ -57,8 +118,8 @@ class Datablock extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'parent' 	=> array( self::BELONGS_TO, 'Datablcok', 'p_id' ),
-			'children' 	=> array( self::HAS_MANY, 'Datablcok', 'p_id', 'order' => ' sort_id asc ' ),
+			'parent' 	=> array( self::BELONGS_TO, 'Datablock', 'p_id' ),
+			'children' 	=> array( self::HAS_MANY, 	'Datablock', 'p_id', 'order' => ' sort_id asc ' ),
 		);
 	}
 

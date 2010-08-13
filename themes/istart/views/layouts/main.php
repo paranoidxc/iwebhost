@@ -46,6 +46,12 @@
 			echo CHtml::link( 'Go to Conosle Page', CController::createurl('admin/category/leafs') , array('target' => '_blank', 'class' => 'console_link') );
 		}
 		?>
+		<div id="navigation">
+			<ul>
+				<li><a href="<?php echo CController::createurl('istart/inav', array('id' =>31) )?>">Books</a></li>
+				<li><a href="#">cappuccino</a></li>
+			</ul>
+		</div>
 	</div><!-- header -->
 
 	<?php echo $content; ?>	
