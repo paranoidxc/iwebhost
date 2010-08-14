@@ -32,7 +32,7 @@ class CategoryController extends controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs'),
+				'actions'=>array('index','view','leafs','exchange'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -53,6 +53,93 @@ class CategoryController extends controller
 		$_data = Category::model()->getTreeById();
 		$leafs = CHtml::listdata($_data, 'id','name');
 		return array( $leafs );
+	}
+	public function actionExchange() {
+		$leaf1 = Category::model()->findByPk($_GET['id2']);
+		$leaf1_dis = $leaf1->rgt - $leaf1->lft;
+		$leaf2 = Category::model()->findByPk($_GET['id1']);
+		$leaf2_dis = $leaf2->rgt - $leaf2->lft;
+				
+		echo $_GET['id1'];
+		echo '--';
+		echo $_GET['id2'];
+		echo '---';
+		echo $leaf1->lft;
+		echo '---';
+		echo $leaf2->lft;
+		$cmodel = Category::model();
+		$transaction = $cmodel->dbConnection->beginTransaction();	
+		try{
+		if( $leaf1->lft < $leaf2->lft ){
+			 echo "<";
+			
+			$width = $leaf2_dis - $leaf1_dis;
+			
+			$middle_lft = $leaf1->rgt +1;
+			$middle_rgt = $leaf2->lft -1;				
+			$middle_rgt_final = $middle_rgt + $width;
+			$middle_lft_final = $middle_lft + $width;
+			$leaf1_width = $middle_rgt_final+1 - $leaf1->lft;
+			$leaf2_width = $leaf2->rgt - ($middle_lft_final-1);
+			
+			$leaf1_rgt = $leaf1->rgt;
+			$leaf1_lft = $leaf1->lft;
+			
+			$leaf2_rgt = $leaf2->rgt;
+			$leaf2_lft = $leaf2->lft;
+			
+			echo "temp leaf2";
+			 //temp the leaf2
+			 $sql 	 = " UPDATE category ";
+    		 $sql	.= " SET lft = -lft, rgt = -rgt ";
+    		 $sql	.= " WHERE lft >= $leaf2->lft AND rgt <= $leaf2->rgt ";
+    		 $cmodel->dbConnection->createCommand($sql)->execute();
+    		
+    		 echo "temp leaf1";
+    		 //temp the leaf1
+			 $sql 	 = " UPDATE category ";
+    		 $sql	.= " SET lft = -lft, rgt = -rgt ";
+    		 $sql	.= " WHERE lft >= $leaf1->lft AND rgt <= $leaf1->rgt ";
+    		 $cmodel->dbConnection->createCommand($sql)->execute();
+    		 
+			//更新中间部分
+			$sql = " UPDATE category  SET lft = lft  +  $width , rgt = rgt + $width WHERE lft BETWEEN $leaf1_rgt+1 AND $leaf2_lft-1 ";	
+			echo $sql;
+			echo "\n";
+			$cmodel->dbConnection->createCommand($sql)->execute();
+			
+			//跟新leaf1			
+			$sql = " UPDATE category  SET lft = -lft  +  $leaf1_width , rgt = -rgt + $leaf1_width WHERE lft BETWEEN -$leaf1_rgt  AND -$leaf1_lft";
+			echo $sql;
+			echo "\n";
+			$cmodel->dbConnection->createCommand($sql)->execute();		
+							
+			//跟新leaf2			
+			$sql = " UPDATE category  SET lft = -lft  -  $leaf2_width , rgt = -rgt - $leaf2_width WHERE lft BETWEEN -$leaf2_rgt AND -$leaf2_lft ";
+			echo $sql;
+			echo "\n";
+			$cmodel->dbConnection->createCommand($sql)->execute();		
+			$transaction->commit();
+		}else{
+			echo ">";
+			$width = $leaf2_dis - $leaf1_dis;
+		}	
+		}catch(Exception $e) {							
+			$transaction->rollBack();
+		}	
+			
+		
+		
+		echo "ID1:";
+		echo $_GET['id1'];
+		echo $leaf1->name;		
+		
+		
+		echo '--';
+		echo "ID2:";
+		echo $_GET['id2'];
+		echo $leaf2->name;
+		
 	}
 	
 	public function actionLeafs() {		
@@ -193,9 +280,15 @@ class CategoryController extends controller
 
 		list( $leafs  )= $this->getRelData();		
 
-		if( isset( $_POST['']['leaf_id'] ) ) {
-			$model->parent_leaf_id = $_GET['leaf_id'];
-			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
+		//if( isset( $_POST['']['leaf_id'] ) ) {
+		//if( isset( $_GET['leaf_id'] ) ) {
+		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {
+			print("!!!!!!!");
+			print_r($_GET['leaf_id']);
+			//$model->parent_leaf_id = $_GET['leaf_id'];
+			//$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
+			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];
+			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);			
 		} else {			
 			$sql = 	" SELECT parent.name, parent.id ".
 				 	" FROM category AS node,".
@@ -210,11 +303,14 @@ class CategoryController extends controller
 				if( $obj->id  == $model->id ) {					
 					break;
 				}
+				print("222!");
 				$model->parent_leaf = $obj;
 				$model->parent_leaf_id = $obj->id;
 			}
 		}
 		
+		print_r($model->parent_leaf_id);
+		//exit;
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

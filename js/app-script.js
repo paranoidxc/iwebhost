@@ -110,10 +110,37 @@ function init_article_sort() {
 	
 
 $(document).ready(function(){		
-	$('.tree ul').sortable({
+	$('.tree ul li').sortable({
 		
 	});
 
+	$(".tree ul li span.leaf").droppable({
+		accept: ".tree ul li span.leaf",
+		drop: function(ev, ui) {						
+			// 拖动到 $item 元素的下方
+			$item = $(this);
+			//alert($(this).html());			
+			ui.draggable.hide('slow', function() {
+				//拖拽的父元素
+			//	alert( $(this).html() );
+				$drag_parent = $(this).parent();					
+				//拖拽到 $item的父元素
+				$parent = $item.parent();
+				if( $(this).attr('exchange_url') ){						
+					$(this).show();
+				$.ajax({
+					type: 	'get', 
+					url:	$(this).attr('exchange_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
+					cache:	false,
+					success:	function(html){
+						//alert(html);
+					}					
+				})				
+				}
+			});
+		}
+	});
+	
 	/*
 	* create hierarchicla node
 	*/
