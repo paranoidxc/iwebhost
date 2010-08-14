@@ -3,20 +3,58 @@
 class IstartController extends Controller
 {
 	//public $layout='//layouts/column2';
-
-	public function genUl($nav,&$r=''){
-		foreach( $nav['children'] as $child ){
-			print_r($child['name']);
+	public function actionChapter(){
+		if(isset($_GET['id'])){
+			Yii::app()->name = 'iStartPage v0.2 beta';
+			Yii::app()->theme='istart';	
+			$chapter = Article::model()->findbyPk($_GET['id']);
+			$this->renderPartial('chapter', array('chapter' => $chapter),false,true );
+		}else {
+			echo 'invalid';
+			exit;
+		}
+	}
+	
+	public function getLocation($nav,&$r=array()){		
+		array_unshift($r, $nav->name);
+		if( $nav->parent ) {
+			$this->getLocation($nav->parent,$r);
+		}
+		return $r;
+	}
+	
+	
+	
+	public function actionBook(){
+		if(isset($_GET['category_id'])){
+			Yii::app()->name = 'iReadBook v0.2 beta';
+			Yii::app()->theme='book';	
+			$book = Category::model()->findbyPk($_GET['category_id']);					
+			$nav  = Datablock::model()->findbyPk($_GET['datablock_id']);			
+			$location = $this->getLocation($nav);			
+			for( $i=0; $i<count($location); $i++){
+				if( $i== 0 ) {
+					$this->location.= "<li class='home'><a href='#'>$location[$i]</a></li>";
+				}else{
+					$this->location.= "<li><a href='#'>$location[$i]</a></li>";
+				}
+			}			
+			$this->render('book', array('book' => $book) );
 		}
 	}
 	
 	public function actionInav(){
-		if(isset($_GET['id'])){
+		if(isset($_GET['db_id'])){
 			Yii::app()->name = 'iStartPage v0.2 beta';
 			Yii::app()->theme='istart';		
-			$nav = Datablock::model()->findbyPk($_GET['id']);
+			$nav = Datablock::model()->findbyPk($_GET['db_id']);
+			$this->page_navigation= Datablock::model()->iNav(array('label' => 'istart','depth'	=> 0));	
 			$inav_list = Datablock::model()->iNav(array('label' => $nav->label,'depth'	=> 0));
-			$this->render( 'inav', array('inav_list'=>$inav_list) );
+			if( strlen($nav->template) > 0 ) {
+				$this->render( $nav->template, array('inav_list'=>$inav_list) );	
+			}else{
+				$this->render( 'inav', array('inav_list'=>$inav_list) );	
+			}			
 		}
 	}
 	
@@ -26,9 +64,8 @@ class IstartController extends Controller
 		Yii::app()->theme='istart';		
 		//Yii::import('application.modules.admin.article');
 	//	$article = Yii::app()->getModule('article');
-	//	$data = $article::model()->find(1);		
+	//	$data = $article::model()->find(1);					
 	
-		$inav_list = Datablock::model()->iNav(array('label' => 'istart','depth'	=> '4'));
 		//print_r("<pre>");
 		//print_r($inav_list);		
 		//print_r("</pre>");
@@ -57,9 +94,11 @@ class IstartController extends Controller
 		}
 		echo "</ul>";
 		*/				
+		//$this->render( 'inav', array('inav_list'=>$inav_list) );
+		$this->page_navigation= Datablock::model()->iNav(array('label' => 'istart','depth'	=> 0));		
 		$data = Article::model()->findAll();
 		$this->render('index', array(
-			'data' => $data
+			'data' => $data			
 		));
 	}
 	
@@ -116,7 +155,7 @@ class IstartController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','inav'),
+				'actions'=>array('index','inav','book','chapter'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

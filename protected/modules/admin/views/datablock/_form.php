@@ -45,6 +45,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'category_id'); ?>
+		<?php echo $form->textField($model,'category_id',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'category_id'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'rel_value'); ?>
 		<?php echo $form->textField($model,'rel_value',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'rel_value'); ?>

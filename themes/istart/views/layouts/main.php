@@ -48,8 +48,16 @@
 		?>
 		<div id="navigation">
 			<ul>
-				<li><a href="<?php echo CController::createurl('istart/inav', array('id' =>31) )?>">Books</a></li>
-				<li><a href="#">cappuccino</a></li>
+				<li><a href="/">Home</a></li>								
+				<?php 
+					if( $this->page_navigation ){					
+					foreach( $this->page_navigation as $nav ){					
+					echo '<li><a href="'.CController::createurl('istart/inav', array('db_id' => $nav['id'], 'category_id' => $nav['category_id'] ) ).'">';
+					echo $nav['name'];
+					echo '</a></li>';
+					echo "\n";
+					}
+				}?>				
 			</ul>
 		</div>
 	</div><!-- header -->

@@ -175,7 +175,7 @@ class DatablockController extends controller
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Datablock']))
-		{
+		{			
 			$model->attributes=$_POST['Datablock'];
 			if($model->save()){
 				if( isset( $_GET['ajax'] ) ){

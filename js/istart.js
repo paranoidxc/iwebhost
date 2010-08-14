@@ -1,4 +1,15 @@
 $(document).ready(function(){	
+	$('.chapters ul li a').click(function(){
+		$.ajax({
+			type: 	'get',
+			url:	$(this).attr('href'),
+			cache: 	false,
+			success:	function(html){
+				$('#chapter').replaceWith(html);
+			}
+		})
+		return false;
+	})
 	
 	$('.new_list_form').submit(function(){
 		var that = $(this);		

@@ -19,7 +19,11 @@ class Datablock extends CActiveRecord
 		}
 		$i++;
 		foreach( $obj->children as $t){
-			$r[] = array('name' => $t->name , 'depth' => $i);
+			$r[] = array(	'id' 		=> $t->id,
+							'name' 		=> $t->name , 
+							'depth' 	=> $i,
+							'template'	=> $t->template,
+							'category_id' => $t->category_id);
 			if( $t->children ){			
 				$this->pushChild($t,$r,$i,$depth);
 			}			
@@ -30,8 +34,12 @@ class Datablock extends CActiveRecord
 		$_r = $this->find(' label = :label', array( ':label' => $options['label'] ) );
 		$r = array();
 		$i = 0;
-		foreach( $_r->children as $obj ){
-			$r[] = array('name' => $obj->name , 'depth' => $i);
+		foreach( $_r->children as $obj ){			
+			$r[] = array(	'id' 		=> $obj->id, 
+							'name' 		=> $obj->name , 
+							'depth' 	=> $i, 
+							'template'	=> $obj->template,
+							'category_id' => $obj->category_id);
 			if( $options['depth'] >= 1 ){				
 				$this->pushChild($obj,&$r,$i,$options['depth']);
 			}			
@@ -99,8 +107,9 @@ class Datablock extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name,label', 'required'),			
-			array('label', 'unique'),
+			array('category_id', 'default'),
+			array('name', 'required'),			
+			array('label', 'unique', 'allowEmpty' => true),
 			array('p_id, sort_id', 'numerical', 'integerOnly'=>true),
 			array('name, rel_value, template', 'length', 'max'=>100),
 			array('type', 'length', 'max'=>45),
