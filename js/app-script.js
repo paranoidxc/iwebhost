@@ -119,11 +119,12 @@ $(document).ready(function(){
 		drop: function(ev, ui) {						
 			// 拖动到 $item 元素的下方
 			$item = $(this);
-			//alert($(this).html());			
+			//alert($(this).html());						
 			ui.draggable.hide('slow', function() {
 				//拖拽的父元素
 			//	alert( $(this).html() );
 				$drag_parent = $(this).parent();					
+				$_this = $(this);
 				//拖拽到 $item的父元素
 				$parent = $item.parent();
 				if( $(this).attr('exchange_url') ){						
@@ -134,6 +135,13 @@ $(document).ready(function(){
 					cache:	false,
 					success:	function(html){
 						//alert(html);
+						if( html.indexOf('STOP') != -1 ){
+							$_this.show().attr('style','');
+							
+						}
+					},
+					error:		function(){
+						
 					}					
 				})				
 				}

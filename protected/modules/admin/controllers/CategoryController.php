@@ -59,7 +59,19 @@ class CategoryController extends controller
 		$leaf1_dis = $leaf1->rgt - $leaf1->lft;
 		$leaf2 = Category::model()->findByPk($_GET['id1']);
 		$leaf2_dis = $leaf2->rgt - $leaf2->lft;
-				
+		
+		$cmodel = Category::model();		
+		$leaf1_parent = $cmodel->directParent($leaf1->id);
+		$leaf2_parent = $cmodel->directParent($leaf2->id);
+		echo "LEAF 1 ID: ";
+		echo $leaf1_parent->id;
+		echo "\n LEAF 2 ID: ";
+		echo $leaf2_parent->id;
+		if( $leaf1_parent->id != $leaf2_parent-> id ){
+			//echo 'cancel not the same parent!';
+			echo 'STOP';
+			exit;
+		}
 		echo $_GET['id1'];
 		echo '--';
 		echo $_GET['id2'];
@@ -67,7 +79,7 @@ class CategoryController extends controller
 		echo $leaf1->lft;
 		echo '---';
 		echo $leaf2->lft;
-		$cmodel = Category::model();
+		
 		$transaction = $cmodel->dbConnection->beginTransaction();	
 		try{
 		if( $leaf1->lft < $leaf2->lft ){
@@ -282,9 +294,7 @@ class CategoryController extends controller
 
 		//if( isset( $_POST['']['leaf_id'] ) ) {
 		//if( isset( $_GET['leaf_id'] ) ) {
-		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {
-			print("!!!!!!!");
-			print_r($_GET['leaf_id']);
+		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {			
 			//$model->parent_leaf_id = $_GET['leaf_id'];
 			//$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
 			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];
@@ -302,14 +312,13 @@ class CategoryController extends controller
 			foreach( $path as $obj ) {								
 				if( $obj->id  == $model->id ) {					
 					break;
-				}
-				print("222!");
+				}				
 				$model->parent_leaf = $obj;
 				$model->parent_leaf_id = $obj->id;
 			}
 		}
 		
-		print_r($model->parent_leaf_id);
+		//print_r($model->parent_leaf_id);
 		//exit;
 		
 		// Uncomment the following line if AJAX validation is needed

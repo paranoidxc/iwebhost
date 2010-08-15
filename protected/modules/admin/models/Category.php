@@ -18,6 +18,26 @@ class Category extends CActiveRecord
 	public $parent_leaf_id;
 	public $parent_leaf;
 	
+	
+	public function directParent($id){
+		$sql = 	" SELECT parent.name, parent.id ".
+				 	" FROM category AS node,".
+					" category AS parent ".
+					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+					" AND node.id = $id ".
+					" ORDER BY parent.lft ";					
+		
+		$parents = $this->findAllBySql($sql);		
+		$parent;
+		foreach( $parents as $obj ) {								
+			if( $obj->id  == $id ) {					
+				break;
+			}
+			$parent = $obj;			
+		}
+		return $parent;
+		
+	}
 	/**
 	 * undocumented function
 	 *
