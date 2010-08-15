@@ -111,7 +111,9 @@ function init_article_sort() {
 
 $(document).ready(function(){		
 	$('.tree ul li').sortable({
-		
+		//update: function(event,ui){
+		//	ui.item.unbind('click');
+		//}
 	});
 
 	$(".tree ul li span.leaf").droppable({
@@ -136,8 +138,7 @@ $(document).ready(function(){
 					success:	function(html){
 						//alert(html);
 						if( html.indexOf('STOP') != -1 ){
-							$_this.show().attr('style','');
-							
+							$_this.show().attr('style','');							
 						}
 					},
 					error:		function(){

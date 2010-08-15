@@ -1,4 +1,51 @@
 @import url('reset.css');
 @import url('ibutton.css');
 @import url('istart_home.css');
-@import url('books.css');
+.books-wrap {	
+	width: 80%;
+	margin: auto;
+}
+	.books-wrap .books{
+		background-color: rgba(0,0,0,0.2);
+		padding: 5px;		
+		float: left;
+		margin-right: 15px;		
+		}
+	.books-wrap .books:hover{
+		background-color: rgba(255,0,0,0.2);
+		padding: 5px;		
+		float: left;
+		margin-right: 15px;		
+		}
+		.books-wrap .books:hover p {
+			background: #FFF;
+			padding: 0 5px;
+			border: 1px solid red;
+		}
+		.books-wrap .books p {
+			background: #FFF;
+			padding: 0 5px;
+			border: 1px solid #a0a0a0;
+		}
+		.books-wrap .books:hover p.thumb {		
+			border-bottom:none;			
+		}
+		.books-wrap .books p.thumb {
+			padding-top: 5px;
+			border-bottom:none;			
+		}
+		.books-wrap .books:hover .title {
+				border-top:none;
+		}
+		.books-wrap .books .title {					
+			border-top:none;
+			font-size: 12px;
+			text-align: center;
+			line-height: 20px;
+			}		
+			.books-wrap .books .title a:visited,
+			.books-wrap .books .title a {
+				width: 100%;				
+				display: block;	
+				text-decoration: none;
+			}

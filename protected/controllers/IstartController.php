@@ -16,7 +16,7 @@ class IstartController extends Controller
 	}
 	
 	public function getLocation($nav,&$r=array()){		
-		array_unshift($r, $nav->name);
+		array_unshift($r, array('name'=>$nav->name, 'id' => $nav->id) );
 		if( $nav->parent ) {
 			$this->getLocation($nav->parent,$r);
 		}
@@ -31,13 +31,20 @@ class IstartController extends Controller
 			Yii::app()->theme='book';	
 			$book = Category::model()->findbyPk($_GET['category_id']);					
 			$nav  = Datablock::model()->findbyPk($_GET['datablock_id']);			
-			$location = $this->getLocation($nav);			
-			for( $i=0; $i<count($location); $i++){
+			$location = $this->getLocation($nav);						
+			for( $i=0; $i<count($location); $i++){								
 				if( $i== 0 ) {
-					$this->location.= "<li class='home'><a href='#'>$location[$i]</a></li>";
-				}else{
-					$this->location.= "<li><a href='#'>$location[$i]</a></li>";
+					$this->location.= "<li class='home'><a href='/'>".$location[$i]['name']."</a></li>";
+					$this->location.= "<li><span>»</span></li>";
 				}
+				else if( $i == count($location)-1 ){
+					$this->location.= "<li class='link'><span>".$location[$i]['name']."</span></li>";					
+				}
+				else{
+					$this->location.= "<li class='link'><a href='".CController::createUrl('istart/inav', array( 'db_id' => $location[$i]['id']) )."'>".$location[$i]['name']."</a></li>";
+					$this->location.= "<li><span>»</span></li>";					
+				}
+					
 			}			
 			$this->render('book', array('book' => $book) );
 		}

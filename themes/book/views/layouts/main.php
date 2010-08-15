@@ -30,7 +30,7 @@
 <div class="container" id="page">
 	<div id="header">
 		<ul id="location">
-			<?php echo $this->location ?>			
+			<?php echo $this->location ?>
 		</ul>
 	</div><!-- header -->
 

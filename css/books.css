@@ -1,15 +1,44 @@
 @import url('reset.css');
 @import url('istart_home.css');
-#location  li {
-	display: inline-block;
-	line-height: 80px;
-}
 #location {
 	position: absolute;
-	top: 0;
+	top: 0px;
 	left: 0;
-	height: 80px;	
-}
+	height: 47px;	
+	}
+	#location  li.home {	
+		padding-left: 30px;
+	}
+	#location  li {
+			display: inline-block;
+			line-height: 47px;
+			height: 47px;				
+			color: #FFF;		
+		}
+		#location  li.link {
+				//padding: 0 5px;
+		}
+		#location  li span,
+		#location  li a {
+			color: #FFF;	
+			text-decoration: none;
+			font-weight: bold;
+			font-size: 12px;						
+			height: 20px;				
+			line-height: 47px;	
+		}
+		#location  li span {
+			padding: 5px 5px;
+		}
+		#location  li.home a ,
+		#location  li.link a {
+			padding: 5px 5px;
+		}
+		#location li a:hover {
+			-webkit-border-radius: 5px;
+			-moz-border-radius:5px;
+			background: #005ddb;
+		}
 
 @font-face {
  	font-family: "Soopafresh";
@@ -21,16 +50,18 @@
  	src:url(font/Nathaniel.ttf);
 }
 #header {
-	margin-bottom: 0;		
+	margin-bottom: 0;	
+	height: 47px;	
 }
 .books-wrap{
 	width: 100%;
 	margin: auto;	
 	}
 	.books-wrap .chapters {		
-		position: fixed;
+		position: absolute;
 		width: 20%;			
-		top: 80px;	
+		top: 47px;	
+		left: -2px;
 		padding-right: 12px;
 		z-index: 100000;		
 		
@@ -48,16 +79,17 @@
 	.books-wrap  .chapters ul li a:active,	
 	.books-wrap  .chapters ul li a{	
 		text-indent: 2em;
-  		padding-right: 1em;  		
-  		width: 100%;  		
+  	padding-right: 1em;  		
+  	width: 100%;  		
 		display: block;
 		text-decoration: none;
 		font-weight: bold;
 		text-transform: capitalize;
+		color: #005ddb;
 	}
 	.books-wrap .chapters ul li a:hover {	
 		color: #FFF;			
-  		background: red url(panel_images/column_item.png) 0 bottom;  		
+  	background: red url(panel_images/column_item.png) 0 bottom;  		  	  	
 	}
 
 	.books-wrap .chapters h2 {
@@ -67,18 +99,17 @@
 
 	/* book detail start */
 	.books-wrap .chapter {			
-		position: absolute;		
+		position: absolute;
 		z-index: 99999;
-		left: 20%;
-		top: 80px;
-		width: 79%;		
-		font-size: 12px;
-		border-left: 2px solid blue;		
+		right: 0px;
+		top: 47px;
+		width: 80%;		
+		font-size: 12px;		
 	}
 	.books-wrap .chapter h2 {		
 			font-family: Soopafresh, Arial, Helvetica, sans-serif;
-			font-size: 40px;						
-			font-weight:normal;
+			font-size: 20px;
+			padding: 10px;			
 	}
 	.books-wrap .chapter .content {	
 		color: black;		
@@ -86,9 +117,7 @@
 		line-height: 180%;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		padding: 10px;
-		width: 80%;
-		border: 1px solid red;
+		padding: 10px;				
 	}
 	.books-wrap .books{
 		background-color: rgba(0,0,0,0.2);
