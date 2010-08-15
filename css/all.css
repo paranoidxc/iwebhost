@@ -4,15 +4,20 @@
 @import url('jScrollPane.css');
 @import url('tree.css');
 @import url('panel.css');
+/*@import url('itable.css');*/
 .crP {
 	cursor: pointer;
 }
-.highlight_selected {
-	background: orange;
+.highlight_selected {	
+	background: gray;
+	background-color: rgba(0,0,0,0.2);
 }
 #leaf_articles_wrap {
+	
+}
+#leaf_articles{
 	overflow: auto;	
-	height: 400px;
+	height: 353px;
 }
 #content {
 	width: 800px;
