@@ -45,8 +45,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'category_id'); ?>
-		<?php echo $form->textField($model,'category_id',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->labelEx($model,'category_id'); ?>						
+		<?php echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ;?>
 		<?php echo $form->error($model,'category_id'); ?>
 	</div>
 	

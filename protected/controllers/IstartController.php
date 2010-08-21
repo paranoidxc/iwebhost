@@ -18,14 +18,53 @@ class IstartController extends Controller
 	public function getLocation($nav,&$r=array()){		
 		array_unshift($r, array('name'=>$nav->name, 'id' => $nav->id) );
 		if( $nav->parent ) {
-			$this->getLocation($nav->parent,$r);
+			$this->getLocation($nav->parent,$r);			
 		}
-		return $r;
+		return $r;		
 	}
 	
+	/**
+	 * Category function
+	 *
+	 * @return void
+	 * @author paranoid
+	 **/
+	public function actionCategory(){		
+		Yii::app()->name = 'iStartPage v0.2 beta';
+		Yii::app()->theme='istart';
+		$category = Category::model()->findbyPk($_GET['id']);
+		$path = Category::model()->getPath($category->id);				
+		for( $i=0; $i<count($path); $i++){	
+			if( $i== 0 ) {
+				if($path[$i])
+				$this->location.= "<li class='home'><a href='/'>".$path[$i]['name']."</a></li>";
+				$this->location.= "<li><span>»</span></li>";
+			}
+			else if( $i == count($path)-1 ){
+				$this->location.= "<li class='link'><span>".$path[$i]['name']."</span></li>";					
+			}
+			else{
+				$this->location.= "<li class='link'><a href='".CController::createUrl('istart/category', array( 'id' => $path[$i]['id']) )."'>".$path[$i]['name']."</a></li>";
+				$this->location.= "<li><span>»</span></li>";					
+			}
+		}		
+		
+		if(strlen(trim($category->template)) > 0){
+			if( $category->partial ){
+				$this->renderPartial($category->template, array( 'category' => $category ) ,false,true);	
+			}else{
+				$this->render($category->template, array( 'category' => $category ) );	
+			}			
+		}else{
+			if( $category->partial ){				
+				$this->renderPartial('category',array( 'category' => $category ),false,true );
+			}else{				
+				$this->render('category',array( 'category' => $category ) );
+			}			
+		}		
+	}
 	
-	
-	public function actionBook(){
+	public function actionxBook(){
 		if(isset($_GET['category_id'])){
 			Yii::app()->name = 'iReadBook v0.2 beta';
 			Yii::app()->theme='book';	
@@ -55,7 +94,7 @@ class IstartController extends Controller
 			Yii::app()->name = 'iStartPage v0.2 beta';
 			Yii::app()->theme='istart';		
 			$nav = Datablock::model()->findbyPk($_GET['db_id']);
-			$this->page_navigation= Datablock::model()->iNav(array('label' => 'istart','depth'	=> 0));	
+			$this->page_navigation= Datablock::model()->iNav(array('label' => 'istart','depth'	=> 0));
 			$inav_list = Datablock::model()->iNav(array('label' => $nav->label,'depth'	=> 0));
 			if( strlen($nav->template) > 0 ) {
 				$this->render( $nav->template, array('inav_list'=>$inav_list) );	
@@ -162,7 +201,7 @@ class IstartController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','inav','book','chapter'),
+				'actions'=>array('index','inav','book','chapter','category'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

@@ -10,7 +10,7 @@
 
 <div class="board_wrap">
 <?php
-	foreach( Category::model()->vleafs('istart',1) as $_leafs ) {		
+	foreach( Category::model()->vleafs(37,1) as $_leafs ) {		
 		if( $_leafs->depth != 0 ) {
 ?>		
 <div class="board">
@@ -40,7 +40,7 @@
 	</form>
 	<ul>
 	<?php 
-	foreach( Category::model()->vleafs('Ta-da list',1) as $_leafs ) {
+	foreach( Category::model()->vleafs(41,1) as $_leafs ) {
 		if( $_leafs->depth != 0 ) {
 	?>
 		<li>

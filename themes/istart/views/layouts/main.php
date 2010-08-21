@@ -52,7 +52,8 @@
 				<?php 
 					if( $this->page_navigation ){					
 					foreach( $this->page_navigation as $nav ){					
-					echo '<li><a href="'.CController::createurl('istart/inav', array('db_id' => $nav['id'], 'category_id' => $nav['category_id'] ) ).'">';
+					//echo '<li><a href="'.CController::createurl('istart/inav', array('db_id' => $nav['id'], 'category_id' => $nav['category_id'] ) ).'">';
+					echo '<li><a href="'.CController::createurl('istart/category', array('id' => $nav['category_id'] ) ).'">';
 					echo $nav['name'];
 					echo '</a></li>';
 					echo "\n";

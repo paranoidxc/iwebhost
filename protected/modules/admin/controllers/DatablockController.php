@@ -148,17 +148,20 @@ class DatablockController extends controller
 		}
 		
 		list( $data_block_tree )  = $this->getRelData();
-		
+		$leafs = Category::model()->getCategorySelectData();
 		$model->p_id = $_GET['p_id'];
+		
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('create',array(
 				'model'				=> $model,
-				'data_block_tree'	=> $data_block_tree
+				'data_block_tree'	=> $data_block_tree,
+				'leafs'				=> $leafs
 			),false,true);
 		}else{					
 			$this->render('create',array(
 				'model'				=> $model,
-				'data_block_tree'	=> $data_block_tree
+				'data_block_tree'	=> $data_block_tree,
+				'leafs'				=> $leafs
 			));
 		}
 	}
@@ -188,15 +191,19 @@ class DatablockController extends controller
 				
 		}
 		list( $data_block_tree )  = $this->getRelData();
+		$leafs = Category::model()->getCategorySelectData();
+		
 		if( isset($_GET['ajax']) ){
 			$this->renderPartial('update',array(
 				'model'=>$model,
-				'data_block_tree'	=> $data_block_tree
+				'data_block_tree'	=> $data_block_tree,
+				'leafs'				=> $leafs
 			),false,true);
 		}else{					
 			$this->render('update',array(
 				'model'=>$model,
-				'data_block_tree'	=> $data_block_tree
+				'data_block_tree'	=> $data_block_tree,
+				'leafs'				=> $leafs
 			));
 		}
 	}

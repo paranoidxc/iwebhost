@@ -4,7 +4,7 @@
 @import url('jScrollPane.css');
 @import url('tree.css');
 @import url('panel.css');
-/*@import url('itable.css');*/
+@import url('itable.css');
 .crP {
 	cursor: pointer;
 }

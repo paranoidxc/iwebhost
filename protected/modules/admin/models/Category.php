@@ -16,8 +16,41 @@ class Category extends CActiveRecord
 {
 	public $depth;
 	public $parent_leaf_id;
-	public $parent_leaf;
+	public $parent_leaf;	
 	
+	public function getNavigationBlock($nav,&$r=array()){				
+		if( $nav->category ){					
+			array_unshift($r, array('name'=>$nav->name, 'id' => $nav->category->id, 'type' => 'category') );
+		}else{
+			array_unshift($r, array('name'=>$nav->name, 'id' => $nav->id, 'type' => 'nav') );
+		}
+		if( $nav->parent  ) {
+			$this->getNavigationBlock($nav->parent,$r);
+		}		
+		return $r;
+	}
+	
+	public function getPath($id){
+		$sql = 	" SELECT parent.name, parent.id ".
+				 	" FROM category AS node,".
+					" category AS parent ".
+					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+					" AND node.id = $id ".
+					" ORDER BY parent.lft DESC";						
+		$parents = $this->findAllBySql($sql);		
+		$path = array();
+		foreach( $parents as $obj )	{			
+			
+			if( $obj->datablock ){				
+				$path = $this->getNavigationBlock($obj->datablock,$path);
+				//array_push($path, array('name'=>$obj->name, 'id'=>$obj->id, 'type' => 'category'));	
+				break;
+			}else{
+				array_push($path, array('name'=>$obj->name, 'id'=>$obj->id, 'type' => 'category'));
+			}
+		}		
+		return $path;
+	}
 	
 	public function directParent($id){
 		$sql = 	" SELECT parent.name, parent.id ".
@@ -44,7 +77,7 @@ class Category extends CActiveRecord
 	 * @return html
 	 * @author paranoid
 	 **/	
-	public function vleafs($name='root',$depth=1){
+	public function vleafs($id=1,$depth=1){
 		$sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
 				" FROM category AS node, ".
 				" category AS parent, ".
@@ -54,7 +87,7 @@ class Category extends CActiveRecord
 				" FROM category AS node, ".
 				" category AS parent ".
 				" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
-				" AND node.name = '$name' ".
+				" AND node.id = $id ".
 				" GROUP BY node.name ".
 				" ORDER BY node.lft ".
 				" ) AS sub_tree ".
@@ -73,6 +106,18 @@ class Category extends CActiveRecord
 			$r .= $article->title . '<br/>';
 		}
 		return $r;
+	}
+	
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author paranoid
+	 **/
+	public static function getCategorySelectData() {
+		$_data = Category::model()->getTreeById();
+		$leafs = CHtml::listdata($_data, 'id','name');
+		return $leafs;
 	}
 	
 	/**
@@ -110,6 +155,7 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('template,partial', 'default'),
 			array('name,parent_leaf_id', 'required'),
 			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),
@@ -128,7 +174,8 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'articles' => array( self::HAS_MANY, 'Article', 'category_id' , 'order'=>'articles.sort_id asc ',)
+			'articles' 	=> array( self::HAS_MANY, 'Article', 'category_id' , 'order'=>'articles.sort_id asc '),
+			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' )
 		);
 	}
 

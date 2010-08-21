@@ -10,7 +10,7 @@
 	<!-- <p class="note">Fields with <span class="required">*</span> are required.</p> -->
 	<?php //echo $form->errorSummary($model); ?>
 	<table class='itable'>
-	
+	<tbody>
 	<tr>
 		<th class='alt leftborder'><?php echo $form->labelEx($model,'title'); ?></th>
 		<td>
@@ -55,9 +55,10 @@
 	<tr>
 		<th class='leftborder alt'></th>
 		<td>
-			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'button')); ?>
 		</td>
 	</tr>
+	</tbody>
 	</table>
 <?php $this->endWidget(); ?>
 
