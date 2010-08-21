@@ -116,9 +116,7 @@ class CategoryController extends controller
 					// temp the middle
 					$sql 	 = " UPDATE category ";
     		 	$sql	.= " SET lft = -lft, rgt = -rgt ";
-    		 	$sql	.= " WHERE lft >= $middle_leaf_lft AND rgt <= $middle_leaf_rgt ";
-    		 	print_r($sql);
-    		 	print_r("\n");
+    		 	$sql	.= " WHERE lft >= $middle_leaf_lft AND rgt <= $middle_leaf_rgt ";    		 	
     		 	$cmodel->dbConnection->createCommand($sql)->execute();					
 					
 					// move drag forward width step
@@ -126,16 +124,12 @@ class CategoryController extends controller
     		 	$sql	.= " SET lft = lft-$width, rgt = rgt-$width ";
     		 	$sql 	.= " WHERE lft BETWEEN $drag_leaf->lft AND $drag_leaf->rgt-1 ";    		 	
     		 	$cmodel->dbConnection->createCommand($sql)->execute();
-    		 	print_r($sql);
-    		 	print_r("\n");
+    		 	
     		 	// reset the middle
     		 	$sql = " UPDATE category ";
     		 	$sql.= " SET lft = -lft + $middle_final_width , rgt = -rgt + $middle_final_width ";
     		 	$sql.= " WHERE lft BETWEEN -$middle_leaf_rgt AND -$middle_leaf_lft";    		 	    		 	    		 	
-    		 	$cmodel->dbConnection->createCommand($sql)->execute();	 
-    		 	print_r($sql);
-    		 	print_r("\n");	
-    		 	
+    		 	$cmodel->dbConnection->createCommand($sql)->execute();	     		 	
     		 	$transaction->commit();	 	
 					
 				}catch(Exception $e) {							
