@@ -33,12 +33,12 @@ $this->beginWidget('application.extensions.Sidebarpanel');
   		  	//	echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
   		  		echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
    				//echo '<span class="'.$class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
-   				echo' <span class="leaf" data_id="'.$id.'" exchange_url="'.CController::createUrl('category/exchange').'">';
+   				echo' <span class="leaf" data_id="'.$id.'" sort_url="'.CController::createUrl('category/sort').'">';
 			}else if( $depth > $temp_depth ) {
 				echo '<ul><li class="'.$class.' handle" data_id="'.$id.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
     			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';    			
-    			echo' <span class="leaf" data_id="'.$id.'" exchange_url="'.CController::createUrl('category/exchange').'">';
+    			echo' <span class="leaf" data_id="'.$id.'" sort_url="'.CController::createUrl('category/sort').'">';
 			}else if( $depth < $temp_depth ) {
 				for($i=0; $i < $temp_depth - $depth ; $i ++ ) {
       				echo '</li></ul>';
@@ -46,12 +46,12 @@ $this->beginWidget('application.extensions.Sidebarpanel');
     			echo '<li class="'.$class.' handle" data_id="'.$id.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
     			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';    			
-    			echo' <span class="leaf" data_id="'.$id.'" exchange_url="'.CController::createUrl('category/exchange').'">';
+    			echo' <span class="leaf" data_id="'.$id.'" sort_url="'.CController::createUrl('category/sort').'">';
   			}else if( $depth == $temp_depth ){
     			echo '</li><li class="'.$class.' handle" data_id="'.$id.'">';
     			echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
     			//echo '<span class="'.$class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';    			
-    			echo' <span class="leaf" data_id="'.$id.'" exchange_url="'.CController::createUrl('category/exchange').'">';
+    			echo' <span class="leaf" data_id="'.$id.'" sort_url="'.CController::createUrl('category/sort').'">';
   			}
 			echo $name;
   			echo '</span>';

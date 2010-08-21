@@ -6658,3 +6658,101 @@ Stack trace:
 #15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #16 H:\projects\iwebhost\index.php(32): CApplication->run()
 #17 {main} REQUEST_URI=/index.php?r=istart/category&id=31
+2010/08/21 16:28:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "sort" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('sort')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(32): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=4&id2=3&_=1282408139031
+2010/08/21 16:52:55 [error] [exception.CException] exception 'CException' with message '属性 "Category." 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php(73): CActiveRecord->__get('')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): CategoryController->actionSort()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(32): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=30&id2=52&_=1282409575504
+2010/08/21 16:53:20 [error] [exception.CException] exception 'CException' with message '属性 "Category." 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php(73): CActiveRecord->__get('')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): CategoryController->actionSort()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(32): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=28&id2=55&_=1282409599992
+2010/08/21 16:57:12 [error] [exception.CException] exception 'CException' with message '属性 "Category." 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php(73): CActiveRecord->__get('')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): CategoryController->actionSort()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(32): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=49&id2=29&_=1282409832309
+2010/08/21 16:58:44 [error] [exception.CException] exception 'CException' with message '属性 "Category." 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php(73): CActiveRecord->__get('')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): CategoryController->actionSort()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(32): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=49&id2=29&_=1282409924577
+2010/08/21 16:58:49 [error] [exception.CException] exception 'CException' with message '属性 "Category." 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php(73): CActiveRecord->__get('')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): CategoryController->actionSort()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('sort')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(32): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/category/sort&ajax=ajax&id1=49&id2=29&_=1282409929740

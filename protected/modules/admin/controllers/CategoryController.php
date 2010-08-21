@@ -32,7 +32,7 @@ class CategoryController extends controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange'),
+				'actions'=>array('index','view','leafs','exchange','sort'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -54,6 +54,75 @@ class CategoryController extends controller
 		$leafs = CHtml::listdata($_data, 'id','name');
 		return array( $leafs );
 	}
+	/**
+	 * Category sort function
+	 * id1 => destination category/leaf
+	 * id2 => drag/source category/leaf
+	 * id1, id2 must in the same hiierarchical
+	 * darg < sort , sort like this : middle_leaf, sort_leaf, drag_leaf
+	 * darg > sort , sort like this : sort_leaf, drag_leaf, midle_leaf
+	 * @return void
+	 * @author paranoid
+	 **/
+	public function actionSort() {		
+		$dest_leaf = Category::model()->findByPk($_GET['id1']);
+		$drag_leaf = Category::model()->findByPk($_GET['id2']);
+		$cmodel = Category::model();
+		$dest_parent = $cmodel->directParent($dest_leaf->id);
+		$drag_parent = $cmodel->directParent($drag_leaf->id);
+		if( $dest_parent->id != $drag_parent->id ){	
+			echo 'STOP';
+			exit;
+		}else{
+			
+			if( $drag_leaf->lft < $dest_leaf->lft ){
+				$transaction = $cmodel->dbConnection->beginTransaction();
+				try{
+				  $drag_lft = $drag_leaf->lft;
+				  $drag_rgt = $drag_leaf->rgt;
+					$middle_leaf_lft = $drag_leaf->rgt+1;
+					$middle_leaf_rgt = $dest_leaf->lft-1;
+					$width = $middle_leaf_lft - $drag_leaf->lft;										
+					$drag_final_width = $dest_leaf->rgt-$width + 1 - $drag_leaf->lft;
+										
+					//temp the drag_leaf			
+					$sql 	 = " UPDATE category ";
+    		 	$sql	.= " SET lft = -lft, rgt = -rgt ";
+    		 	$sql	.= " WHERE lft >= $drag_leaf->lft AND rgt <= $drag_leaf->rgt ";
+    		 	$cmodel->dbConnection->createCommand($sql)->execute();
+    		 	print_r($sql);
+    		 	print_r("\n");
+    		 	// move middle, dest leaf forward width step
+    		 	$sql 	 = " UPDATE category ";
+    		 	$sql	.= " SET lft = lft-$width, rgt = rgt-$width ";
+    		 	$sql 	.= " WHERE lft BETWEEN $middle_leaf_lft AND $dest_leaf->rgt-1 ";
+    		 	$cmodel->dbConnection->createCommand($sql)->execute();
+    		 	print_r($sql);
+    		 	print_r("\n");
+    		 	// move the drag below the dest 
+    		 	$sql = " UPDATE category ";
+    		 	$sql.= " SET lft = -lft + $drag_final_width , rgt = -rgt + $drag_final_width ";
+    		 	$sql.= " WHERE lft BETWEEN -$drag_rgt AND -$drag_lft";
+    		 	$cmodel->dbConnection->createCommand($sql)->execute();
+    		 	print_r($sql);
+    		 	print_r("\n");    	
+    		 	$transaction->commit();	 	    		 	
+				}catch(Exception $e) {
+				  print('exception');
+					$transaction->rollBack();
+				}
+			}else{				
+				$transaction = $cmodel->dbConnection->beginTransaction();	
+				try{
+					
+				}catch(Exception $e) {							
+				$transaction->rollBack();
+				}	
+			}
+			
+		}	
+	}
+	
 	public function actionExchange() {
 		$leaf1 = Category::model()->findByPk($_GET['id2']);
 		$leaf1_dis = $leaf1->rgt - $leaf1->lft;
@@ -67,7 +136,7 @@ class CategoryController extends controller
 		echo $leaf1_parent->id;
 		echo "\n LEAF 2 ID: ";
 		echo $leaf2_parent->id;
-		if( $leaf1_parent->id != $leaf2_parent-> id ){
+		if( $leaf1_parent->id != $leaf2_parent-> $id ){
 			//echo 'cancel not the same parent!';
 			echo 'STOP';
 			exit;

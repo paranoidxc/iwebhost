@@ -129,11 +129,11 @@ $(document).ready(function(){
 				$_this = $(this);
 				//拖拽到 $item的父元素
 				$parent = $item.parent();
-				if( $(this).attr('exchange_url') ){						
+				if( $(this).attr('sort_url') ){						
 					$(this).show();
 				$.ajax({
 					type: 	'get', 
-					url:	$(this).attr('exchange_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
+					url:	$(this).attr('sort_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
 					cache:	false,
 					success:	function(html){
 						//alert(html);
