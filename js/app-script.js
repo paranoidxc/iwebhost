@@ -460,11 +460,20 @@ $(document).ready(function(){
       });  
 	}
 	
+	function parentOne(ele,exp){
+    if( ele.parent().find(exp) ) {
+      return ele.parent();
+    }else{
+      parentOne(ele.parent(), exp);
+    }	  
+	}
+	
 	$('.ajax_form').live('submit',function(){
 		console.log( 'ajax_form submit');		
 		var that = $(this);
 		var leaf_id = $('#Article_category_id').val();
-		var dialog = $(this).parents().find('.ui-dialog-content');
+		$dialog = parentOne(that,'.ui-dialog-content');		
+		//$dialog = $(this).parents().find('.ui-dialog-content');		
 		$.ajax({
 			type:		"post",
 			url:		$(this).attr('action'),
@@ -476,9 +485,9 @@ $(document).ready(function(){
 				}else{
 					render();		
 				}
-				dialog.html(html);
+				$dialog.html(html);
 			}
-		});
+		});		
 		return false;
 	});
 	
