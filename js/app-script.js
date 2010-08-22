@@ -115,16 +115,25 @@ $(document).ready(function(){
 		//	ui.item.unbind('click');
 		//}
 	});
-
+  function renderCategoryLeafs() {    
+    $.ajax({
+      type: 'get',
+      cache:  false,
+      url:  $('#top_tree').attr('render_url'),
+      success:  function(html){
+        $('#top_tree').replaceWith(html);
+      }
+    });    
+  }
+  
 	$(".tree ul li span.leaf").droppable({
 		accept: ".tree ul li span.leaf",
+		hoverClass: "touch",
 		drop: function(ev, ui) {						
 			// 拖动到 $item 元素的下方
-			$item = $(this);
-			//alert($(this).html());						
+			$item = $(this);			
 			ui.draggable.hide('slow', function() {
-				//拖拽的父元素
-			//	alert( $(this).html() );
+				//拖拽的父元素			
 				$drag_parent = $(this).parent();					
 				$_this = $(this);
 				//拖拽到 $item的父元素
@@ -135,11 +144,13 @@ $(document).ready(function(){
 					type: 	'get', 
 					url:	$(this).attr('sort_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
 					cache:	false,
-					success:	function(html){
-						//alert(html);
+					success:	function(html){						
 						if( html.indexOf('STOP') != -1 ){
-							$_this.show().attr('style','');							
-						}
+							$_this.show().attr('style','');										
+						}else{
+						  /* render the partial leafs */
+						  renderCategoryLeafs();
+						}						
 					},
 					error:		function(){
 						

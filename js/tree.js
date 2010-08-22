@@ -40,6 +40,7 @@ $(document).ready(function(){
       }
     });
  */
+ 
   $('span.f_open,span.f_fold').each(function(i){
 
     $(this).click(function(){

@@ -162,6 +162,10 @@ body {
       */
       background: url(tree/leaf-hover.gif) repeat-x 0 0;
     }
+    .tree li span.touch {           
+      background: purple;
+      color: #FFF;
+    }
     .tree li span.current {
       color: #FFF;
       /*

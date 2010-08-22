@@ -249,10 +249,15 @@ class CategoryController extends controller
         		" GROUP BY node.id ".
 	        	" ORDER BY node.lft ";        
 		$leafs =Category::model()->findAllBySql($sql);
-		
-		$this->render('leafs',array(
-			'leafs'=> $leafs
-		));		
+		if($_GET['ajax'] == 'ajax') {
+		  $this->renderPartial('_leafs',array(
+				'leafs'=> $leafs
+			),false,true);		
+		}else{		
+			$this->render('leafs',array(
+				'leafs'=> $leafs
+			));		
+		}
 	}
 	
 	
