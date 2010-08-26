@@ -19,10 +19,11 @@
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
 	Yii::app()->clientScript->registerCoreScript('jquery');  
-	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
-	$cs->registerScriptFile($baseUrl.'/js/tree.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
-	$cs->registerCssFile($baseUrl.'/css/app-css.css');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
+	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
+	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
+	$cs->registerScriptFile($baseUrl.'/js/tree.js');		
 	$cs->registerCssFile($baseUrl.'/css/all.css');
 ?>	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

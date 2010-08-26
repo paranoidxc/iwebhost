@@ -5,6 +5,7 @@
 @import url('tree.css');
 @import url('panel.css');
 @import url('itable.css');
+@import url('jScrollPane.css');
 .crP {
 	cursor: pointer;
 }
@@ -17,7 +18,7 @@
 }
 #leaf_articles{
 	overflow: auto;	
-	height: 353px;
+	height: 353px;	
 }
 #content {
 	width: 800px;

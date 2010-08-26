@@ -1,4 +1,5 @@
-function init_article_sort() {	
+function init_article_sort() {  
+  
 		$("#article_drag_ele").sortable({
 			update: function(event, ui) {
 
@@ -455,7 +456,7 @@ $(document).ready(function(){
         cache     : false,
         url       : '/index.php?r=admin/category/view&ajax=ajax&id='+$('#leaf_id').val(),
         success   : function(html) {         
-         $('#leaf_articles').html(html);
+         $('#leaf_articles').html(html);                  
         }
       });  
 	}
@@ -506,7 +507,7 @@ $(document).ready(function(){
 			'cache'		:false,
 			'url'		:'/index.php?r=admin/category/view&ajax=ajax&id='+that.attr('data'),
 			'success'	:function(html) { 				
-				$('#leaf_articles').html(html);
+				$('#leaf_articles').html(html);				
 			}
 			//'data'		:that.serialize(),						
 		});				

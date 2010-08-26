@@ -1,28 +1,34 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-/*
+    
   function removeTreeScroll() {
-    $('#top_tree').jScrollPaneRemove();
+    //alert("remove");
+    $('#leaf_articles').jScrollPaneRemove();
   };
 
   function initTreeScroll() {
-    $('#top_tree').jScrollPane({
-      scrollbarWidth: 10,
-      scrollbarMargin: 10,
-      showArrows: false
-    });
+    //$('#top_tree').jScrollPane({
+    //  scrollbarWidth: 10,
+    //  scrollbarMargin: 10,
+    //  showArrows: false
+    //});    
+    $("#leaf_articles").jScrollPane({showArrows:true, scrollbarWidth: 17, arrowSize: 21,reinitialiseOnImageLoad: true});    
   };
-  function resetTreeScroll() {
+  
+  function resetTreeScroll() {    
     removeTreeScroll();
     initTreeScroll();
   };
-  initTreeScroll();
-*/
   
-  function clear_leaf_class() {
-    $('span.leaf').removeClass('current');
-  };
-/*
+  initTreeScroll();
+
+  
+   
+    
+    function clear_leaf_class() {
+        $('span.leaf').removeClass('current');
+    };
+    /*
     $("#tree_root").resizable({
       maxWidth: '500',
       minWidth: '300',
@@ -40,65 +46,66 @@ $(document).ready(function(){
       }
     });
  */
- 
-  $('span.f_open,span.f_fold').each(function(i){
 
-    $(this).click(function(){
-      var data_id = $(this).attr('data_id');
-      var class_name = '';
+    $('span.f_open,span.f_fold').each(function(i) {
 
-      if( $(this).hasClass('f_fold') ) {
-        $(this).removeClass('f_fold').addClass('f_open');
-        $(this).parent().removeClass('fold').addClass('open');
-        class_name = 'open';
-      }else{
-        $(this).removeClass('f_open').addClass('f_fold');
-        $(this).parent().removeClass('open').addClass('fold');
-        class_name = 'fold';
-      }
-      
-      //resetTreeScroll();
+        $(this).click(function() {
+            var data_id = $(this).attr('data_id');
+            var class_name = '';
+
+            if ($(this).hasClass('f_fold')) {
+                $(this).removeClass('f_fold').addClass('f_open');
+                $(this).parent().removeClass('fold').addClass('open');
+                class_name = 'open';
+            } else {
+                $(this).removeClass('f_open').addClass('f_fold');
+                $(this).parent().removeClass('open').addClass('fold');
+                class_name = 'fold';
+            }
+
+            //resetTreeScroll();
+        });
     });
-  });
 
 
-var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
-  $('span.leaf').each(function(item){  	
-    $(this).click(function(ev){
-      if( ev.detail == 1 || ev.detail == undefined) {
-        clear_leaf_class();
-        $(this).addClass('current');
-      }      
-      $('#leaf_id').val($(this).attr('data_id'));      
-      
-      if( ev.detail == 1 ) {
-      $('.actions').append(loading);
-      $.ajax({
-        type      : 'get',
-        dataType  : 'html',
-        cache     : false,
-        url       : '/index.php?r=admin/category/view&ajax=ajax&id='+$(this).attr('data_id'),
-        success   : function(html) {       
-        	$('.loading').remove(); 
-        	$('#leaf_articles').html(html);
-        }
-      });      
-    }
-    }).dblclick(function(ev){
-      clear_leaf_class();
-      $(this).addClass('current');
-      if( $(this).prev().hasClass('f_fold' ) ) {
-      	if( $(this).prev().hasClass('f_fold') ) {
-      		$(this).prev().removeClass('f_fold').addClass('f_open');	
-      	}
-        $(this).parent().removeClass('fold').addClass('open');
-      }else{
-      	if( $(this).prev().hasClass('f_open') ){
-      		$(this).prev().removeClass('f_open').addClass('f_fold');	
-      	}        
-        $(this).parent().removeClass('open').addClass('fold');
-      }      
-      /*
+    var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
+    $('span.leaf').each(function(item) {
+        $(this).click(function(ev) {
+            if (ev.detail == 1 || ev.detail == undefined) {
+                clear_leaf_class();
+                $(this).addClass('current');
+            }
+            $('#leaf_id').val($(this).attr('data_id'));
+
+            if (ev.detail == 1) {
+                $('.actions').append(loading);
+                $.ajax({
+                    type: 'get',
+                    dataType: 'html',
+                    cache: false,
+                    url: '/index.php?r=admin/category/view&ajax=ajax&id=' + $(this).attr('data_id'),
+                    success: function(html) {
+                        $('.loading').remove();
+                        $('#leaf_articles').html(html);
+                        resetTreeScroll();                     
+                    }
+                });
+            }
+        }).dblclick(function(ev) {
+            clear_leaf_class();
+            $(this).addClass('current');
+            if ($(this).prev().hasClass('f_fold')) {
+                if ($(this).prev().hasClass('f_fold')) {
+                    $(this).prev().removeClass('f_fold').addClass('f_open');
+                }
+                $(this).parent().removeClass('fold').addClass('open');
+            } else {
+                if ($(this).prev().hasClass('f_open')) {
+                    $(this).prev().removeClass('f_open').addClass('f_fold');
+                }
+                $(this).parent().removeClass('open').addClass('fold');
+            }
+            /*
       if( $(this).prev().prev().hasClass('f_fold' ) ) {
         $(this).prev().prev().removeClass('f_fold').addClass('f_open');
         $(this).parent().removeClass('fold').addClass('open');
@@ -107,7 +114,7 @@ var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>'
         $(this).parent().removeClass('open').addClass('fold');
       }                      
       */
-     // resetTreeScroll();
+            // resetTreeScroll();
+        });
     });
-  });
 });

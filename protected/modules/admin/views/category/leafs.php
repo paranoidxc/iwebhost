@@ -20,7 +20,7 @@ $this->endWidget('application.extensions.Sidebarpanel');
 $this->beginWidget('application.extensions.Siderbarmain');
 
 ?>
-<div id="leaf_articles_wrap">
+<div id="leaf_articles_wrap"  class="osX">
 <input type="hidden" name='leaf_id' value="1"  id="leaf_id"/>
 <ul class="actions">
 
@@ -88,6 +88,9 @@ $this->beginWidget('application.extensions.Siderbarmain');
 </ul>
 <?php
 echo '<div id="leaf_articles">';
+for($i=0; $i< 50; $i++){
+echo "<p>1111111111111111111111111111111111111111111111111</p>";
+}
 echo "</div>";
 echo '</div>';
 $this->endWidget('application.extensions.Siderbarmain');

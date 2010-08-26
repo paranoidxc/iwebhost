@@ -161,6 +161,7 @@
 
   .panel_middle .middle {
     background: #e2e2e2;
+    background: red;
     overflow: auto;
   }
 
@@ -356,7 +357,7 @@
     */
     background: #FFF;
     overflow: scroll;
-    height: 300px;
+    height: 300px;    
   }
 
   .tree_mac_panel .panel_top .left {
