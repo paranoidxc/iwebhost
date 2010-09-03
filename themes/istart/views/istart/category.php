@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />
+	<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" /> -->
 	
 <?php  
 	$baseUrl = Yii::app()->baseUrl; 
@@ -12,7 +12,8 @@
 	Yii::app()->clientScript->registerCoreScript('jquery');  
 	$cs->registerScriptFile($baseUrl.'/js/istart.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');	
-	$cs->registerCssFile($baseUrl.'/css/books.css');	
+	$cs->registerCssFile($baseUrl.'/css/nbooks.css');	
+	//$cs->registerCssFile($baseUrl.'/css/books.css');	
 	
 ?>	
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
@@ -27,6 +28,8 @@
 			<?php echo $this->location ?>
 		</ul>
 	</div><!-- header -->
+	<div id="header_shadow">
+	</div>
 
 
 <div class="books-wrap">
@@ -39,6 +42,8 @@
 				}			
 		}?>		
 	</ul>
+</div>
+<div class="chapter_handle">
 </div>
 <?php
 	if( $article ){		

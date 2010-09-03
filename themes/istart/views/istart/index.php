@@ -1,3 +1,4 @@
+<!--
 <div  class="board" id="google_board">
   <form action="http://www.google.com/search" method="get" target="_blank">
 		<input type="hidden" value="1" name="forid">
@@ -6,7 +7,7 @@
 		<input autocomplete="off" type="text" id="gkw" name="q"> <input type="submit" class="ibtn igsearch" value="Google Search">
   </form>
 </div>
-
+-->
 
 <div class="board_wrap">
 <?php
@@ -31,6 +32,32 @@
 }
 ?>
 </div>
+<!--
+<script>
+
+function storeUserScribble(id) {
+  var scribble = document.getElementById('scribble').innerHTML;
+  localStorage.setItem('userScribble',scribble);
+}
+
+function getUserScribble() {
+  if ( localStorage.getItem('userScribble')) {
+    var scribble = localStorage.getItem('userScribble');
+  }
+  else {
+    var scribble = '<font color=blue face="Geneva, Arial" size=5><i>You can scribble directly on this sticky... and I will also remember your message the next time you visit my blog!</i></font>';
+  }
+  document.getElementById('scribble').innerHTML = scribble;
+}
+
+</script>
+
+<div class="ta_da_board" contenteditable="true" id="scribble" onkeyup="storeUserScribble(this.id)">
+</div>
+
+<script>
+getUserScribble();
+</script>
 <div class=" ta_da_board">
 	<h2><?php echo colorful("Ta-da List"); ?><span class="fs10 new_list_ele">new Ta-da list</span></h2>	
 	<form class="new_list_form dN" method="POST" action="<?php echo CController::createUrl('istart/Tada');?>">
@@ -57,5 +84,6 @@
 			}
 		}
 	?>
-	</ul>
+  </ul>
 </div>
+-->

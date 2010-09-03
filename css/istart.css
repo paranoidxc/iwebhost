@@ -1,6 +1,16 @@
 @import url('reset.css');
 @import url('ibutton.css');
 @import url('istart_home.css');
+#scribble{
+  background: url(stickynote.jpg) 0 0;  
+  padding: 62px;
+  border: none;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 10px;
+  -webkit-box-shadow:none;
+}
+ 
 .books-wrap {	
 	width: 80%;
 	margin: auto;

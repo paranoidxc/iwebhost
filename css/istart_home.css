@@ -118,6 +118,7 @@ a {
  
 .board_wrap {	
 	width: 60%;	
+  width: 100%;
 	float: left;
 	padding-left: 10px;	
 }

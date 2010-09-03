@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />
+<!--	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" /> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />
 <?php  
 	$baseUrl = Yii::app()->baseUrl; 
@@ -22,6 +23,7 @@
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
+	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	$cs->registerScriptFile($baseUrl.'/js/tree.js');		
 	$cs->registerCssFile($baseUrl.'/css/all.css');

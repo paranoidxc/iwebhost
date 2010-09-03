@@ -1,5 +1,26 @@
+/*
+ *
+ *1. import reset
+ *2. import home css
+ *3. 
+*/
+
 @import url('reset.css');
 @import url('istart_home.css');
+
+.chapter_handle {
+  width: 6px;
+  position: absolute;
+	z-index: 99999;	
+	top: 47px;	
+	left: 20%;	
+	margin-left: -6px;	
+	font-size: 12px;	
+	height: 100%;	
+	background: #FFF;	
+	background: red;
+}
+
 #location {
 	position: absolute;
 	top: 0px;
@@ -104,7 +125,8 @@
 		right: 0px;
 		top: 47px;
 		width: 80%;		
-		font-size: 12px;		
+		font-size: 12px;			
+		background: #FFF;
 	}
 	.books-wrap .chapter h2 {		
 			font-family: Soopafresh, Arial, Helvetica, sans-serif;

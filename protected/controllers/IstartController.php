@@ -41,7 +41,7 @@ class IstartController extends Controller
 				$this->location.= "<li><span>»</span></li>";
 			}
 			else if( $i == count($path)-1 ){
-				$this->location.= "<li class='link'><span>".$path[$i]['name']."</span></li>";					
+				$this->location.= "<li class='link last'><span>".$path[$i]['name']."</span></li>";					
 			}
 			else{
 				$this->location.= "<li class='link'><a href='".CController::createUrl('istart/category', array( 'id' => $path[$i]['id']) )."'>".$path[$i]['name']."</a></li>";
@@ -49,16 +49,16 @@ class IstartController extends Controller
 			}
 		}		
 		
-		if(strlen(trim($category->template)) > 0){
+		if(strlen(trim($category->template)) > 0){		  
 			if( $category->partial ){
 				$this->renderPartial($category->template, array( 'category' => $category ) ,false,true);	
 			}else{
 				$this->render($category->template, array( 'category' => $category ) );	
 			}			
-		}else{
-			if( $category->partial ){				
+		}else{		  
+			if( $category->partial ){					  
 				$this->renderPartial('category',array( 'category' => $category ),false,true );
-			}else{				
+			}else{							  
 				$this->render('category',array( 'category' => $category ) );
 			}			
 		}		

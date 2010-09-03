@@ -13,7 +13,8 @@ $this->menu=array(
 if( !isset($ajax) ) {
 echo "<div class='mac_panel_wrap' >";
 $this->beginWidget('application.extensions.Smacpanel');
-echo "<div style='width: 700px; overflow: scroll; ' >";
+echo "<div class='osX' >";
+echo "<div style='width: 700px; height: 400px; overflow: scroll; ' id='hir_wrap'>";
 echo "<div style='width: 12000px; height: 500px; ' >";
 }
 echo "<ul class='data_block_hir' id='data_block_$p_id' rel_id='$p_id' move_href='".CController::createurl('datablock/imove')."' href='".CController::createurl('datablock/isort')."' >";
@@ -35,6 +36,7 @@ if( count($datas) > 0 ) {
 echo "</ul>";
 
 if( !isset($ajax) ) {
+	echo "</div>";	
 	echo "</div>";	
 	echo "</div>";	
 	$this->endWidget('application.extensions.Smacpanel');	

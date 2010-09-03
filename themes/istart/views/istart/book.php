@@ -9,6 +9,7 @@
 		}?>		
 	</ul>
 </div>
+
 <?php
 	if( $chapter ){		
 		$this->renderPartial('chapter', array('chapter' => $chapter ));

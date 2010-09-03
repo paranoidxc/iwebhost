@@ -174,7 +174,7 @@ $(document).ready(function(){
 			success:	function(html){
 				var pop = $("<div title='view article' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});	
 			}
@@ -192,7 +192,7 @@ $(document).ready(function(){
 			success:	function(html){
 				var pop = $("<div title='edit note ' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});			
 			}
@@ -200,6 +200,20 @@ $(document).ready(function(){
 	});
 	
 	
+  function removeDataScroll() {
+     $('#("#hir_wrap"').jScrollPaneRemove();
+  }
+  function initDataScroll(){
+//    $('#hir_wrap').jScrollHorizontalPane();
+    $("#hir_wrap").jScrollPane({showArrows:true, scrollbarWidth: 17, arrowSize: 21,reinitialiseOnImageLoad: true}); 
+  }
+  function resetDataScroll() {
+    removeDataScroll();
+    initDataScroll();
+  }
+
+  initDataScroll();
+
 	init_datablock_sort();
 	init_datablock_droppable();
 	/*
@@ -223,6 +237,7 @@ $(document).ready(function(){
 				}
 				that.parent().find('li').removeClass('selected');
 				that.addClass('selected');
+        resetDataScroll();
 			}
 		});
 		
@@ -263,7 +278,7 @@ $(document).ready(function(){
 			success:	function(html){
 				var pop = $("<div title='view article' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});
 				render();
@@ -311,7 +326,7 @@ $(document).ready(function(){
 			success:	function(html){
 				var pop = $("<div title='move articles' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});		
 			}
@@ -412,7 +427,7 @@ $(document).ready(function(){
 			success:	function(html) {
 				var pop = $("<div title='my god' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});		
 				console.log( 'ajax update new leaf get suc' );
@@ -428,7 +443,7 @@ $(document).ready(function(){
 			success:	function(html) {
 				var pop = $("<div title='my god' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
+					width: 1000, 
 					minWidth: 600
 				});		
 				console.log( 'ajax create new leaf get suc' );
