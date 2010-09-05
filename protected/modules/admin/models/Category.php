@@ -18,6 +18,18 @@ class Category extends CActiveRecord
 	public $parent_leaf_id;
 	public $parent_leaf;	
 	
+	public function firstArticle()
+  {
+    $this->articles->getDbCriteria()->mergeWith(array(
+      'order' => 'sort_id asc',
+      'limit' => 1
+      //'condition'=>'CreatedAt BETWEEN :start AND :end',
+      //'params'=>array(':start'=>$start, ':end'=>$end)
+        ));
+    return $this->articles;
+  }
+    
+	
 	public function getNavigationBlock($nav,&$r=array()){				
 		if( $nav->category ){					
 			array_unshift($r, array('name'=>$nav->name, 'id' => $nav->category->id, 'type' => 'category') );
@@ -166,6 +178,20 @@ class Category extends CActiveRecord
 		);
 	}
 
+  public function first_article() {    
+    return  Article::model()->find(array(    
+          'condition'=>'category_id=:category_id',
+          'order'    => 'sort_id asc',
+          'params'=>array(':category_id'=>$this->id),
+    ));        
+  }
+  public function last_article(){
+    return  Article::model()->find(array(    
+          'condition'=>'category_id=:category_id',
+          'order'    => 'sort_id desc',
+          'params'=>array(':category_id'=>$this->id),
+    ));
+  }
 	/**
 	 * @return array relational rules.
 	 */
@@ -174,11 +200,12 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'articles' 	=> array( self::HAS_MANY, 'Article', 'category_id' , 'order'=>'articles.sort_id asc '),
+			'articles' 	     => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id asc '),
+			//'first_article'  => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id asc' ),
+			//'last_article' 	 => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id desc' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' )
 		);
 	}
-
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

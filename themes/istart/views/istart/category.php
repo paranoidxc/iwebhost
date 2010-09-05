@@ -33,22 +33,40 @@
 
 
 <div class="books-wrap">
-<div class="chapters">	
+<div class="chapters">
+  <?php 
+    echo API::articles(array(
+      'type'    => 'obj',
+      'obj'     => $category,      
+      'dom'     => 'ul',
+      'url'     => 'istart/chapter',
+      'url_option' => array( 'ajax' => 'ajax' )    
+    ));
+  ?>
 	<ul>
-		<?php
+		<?php		
 			if( $category->articles ){	
 				foreach( $category->articles as $article ){
-					echo '<li><a href="'.CController::createurl('istart/chapter', array('id' => $article->id, 'ajax' => 'ajax' )). '">'.$article->title.'</a></li>';
+		//			echo '<li><a href="'.CController::createurl('istart/chapter', array('id' => $article->id, 'ajax' => 'ajax' )).'"
+			//		title="'.$article->title.'" >'.$article->title.'</a></li>';
 				}			
-		}?>		
+		}		
+		?>		
 	</ul>
 </div>
 <div class="chapter_handle">
+
 </div>
 <?php
+  
+  if( $category->first_article() ){
+    $this->renderPartial('chapter', array('chapter' => $category->first_article() ));
+  }  
+  /*
 	if( $article ){		
 		$this->renderPartial('chapter', array('chapter' => $article ));
 	}
+	*/
 ?>		
 </div>
 </div><!-- page -->

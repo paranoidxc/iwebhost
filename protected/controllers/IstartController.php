@@ -6,7 +6,7 @@ class IstartController extends Controller
 	public function actionChapter(){
 		if(isset($_GET['id'])){
 			Yii::app()->name = 'iStartPage v0.2 beta';
-			Yii::app()->theme='istart';	
+			Yii::app()->theme='istart';
 			$chapter = Article::model()->findbyPk($_GET['id']);
 			$this->renderPartial('chapter', array('chapter' => $chapter),false,true );
 		}else {
@@ -32,6 +32,8 @@ class IstartController extends Controller
 	public function actionCategory(){		
 		Yii::app()->name = 'iStartPage v0.2 beta';
 		Yii::app()->theme='istart';
+				
+		
 		$category = Category::model()->findbyPk($_GET['id']);
 		$path = Category::model()->getPath($category->id);				
 		for( $i=0; $i<count($path); $i++){	

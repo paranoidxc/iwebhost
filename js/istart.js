@@ -1,10 +1,25 @@
 $(document).ready(function(){	  
   
   function setChapterHeight(){
-    $remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();    
+    //$remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();    
+    $remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();
+    $content_height = $remind_height - $('#chapter h2').height() - 40;
+//alert( $content_height);
+//alert( parseInt($('#chapter .content').css('height')) );
+    //remind_height$content_height = parseInt( $('#chapter .content').css('height'));
+  //  $content_height = $content_height - 300;
+    //alert( $content_height);
+    $('.chapter,.chapters').css({
+      'height': $remind_height
+    });
+    $('#chapter .content').css({
+      'height': $content_height
+    });
+    /*
     $('.chapter,.chapters').css({
       'height': $remind_height
     }); 
+    */
     
   }
   setChapterHeight();

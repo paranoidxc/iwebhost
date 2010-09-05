@@ -17,6 +17,26 @@
 class Article extends CActiveRecord
 {
 
+ // public function first()
+ // {
+    //echo '!!!!!!!!';
+   //$this->getDbCriteria()->mergeWith(array(
+     // 'order' => 'sort_id asc',
+      //'limit' => 1
+      //'condition'=>'CreatedAt BETWEEN :start AND :end',
+      //'params'=>array(':start'=>$start, ':end'=>$end)
+        //));
+    //return $this;
+ // }
+  
+  public function scopes(){
+    return array(
+      'first' => array(
+        'order' => ' sort_id asc ',
+        'limit' => 1
+      )
+    );            
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Article the static model class

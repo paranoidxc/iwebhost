@@ -59,8 +59,11 @@ body {
 		
 		#location li.last span,
 		#location li a:hover {			
-		  z-index: 0;
+		  z-index: 0;		 	
 			background: url(books/location_dot.png) no-repeat 50% 39px;			
+		}
+		#location li a:hover{		  
+		  color: #E0C9E2;
 		}
 		
 		
@@ -89,9 +92,7 @@ body {
   		font-size: 80%;
   		width: 100%;
   		line-height: 24px;
-  		height: 24px;
-  		overflow: hidden;
-  		text-overflow: ellipsis;	  		
+  		height: 24px;  		 		
 	    }
 	    .books-wrap  .chapters ul li:hover {
 	      
@@ -100,21 +101,30 @@ body {
     	.books-wrap  .chapters ul li a:active,	
     	.books-wrap  .chapters ul li a{	
     		text-indent: 1em;
-      	width: 100%;  		
+      	width: 95%;      
+      	padding-right: 5%;
     		display: block;
     		text-decoration: none;
     		font-weight: bold;
     		text-transform: capitalize;
     		color: #005ddb;
     		color: #818181;
+    		height: 24px;
+    		overflow: hidden;    		
+    		text-overflow: ellipsis;
     	}
-    	    	
-    	.books-wrap .chapters ul li a.current,
     	.books-wrap .chapters ul li a:hover {	 
+    	    color: #63284D;
+    	    background: none;
+  	  }
+  	  
+    	.books-wrap .chapters ul li a.current {
       		color: #913e96;			      		      		
       		z-index: 100004;      		          		
         	background:  url(books/xp.png) no-repeat right 50%;        	
     	}    	
+
+    	
 	.chapter_handle {
     width: 7px;
     position: absolute;  	
@@ -138,9 +148,9 @@ body {
 		top: 57px;
 		width: 80%;
 		height: 86%;
-		font-size: 12px;												
-  	overflow: scroll;	
+		font-size: 12px;												  	
   	z-index:9999;
+  	overflow: hidden;
 	}
 	.books-wrap .chapter h2 {		
 			/*font-family: Soopafresh, Arial, Helvetica, sans-serif;*/
@@ -153,7 +163,9 @@ body {
 		color: black;		
 		font-size: 14px;
 		line-height: 180%;
+		height: 100%;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		padding: 10px;						
+		padding: 10px;			
+		overflow: auto;		
 	}
