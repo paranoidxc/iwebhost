@@ -58,10 +58,10 @@ return array(
      */
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=iwebhost',
+			'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'parano2_parano2',
+			'password' => 'pa55w0rd',
 			'charset' => 'utf8',
 		),
 

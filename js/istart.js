@@ -28,7 +28,7 @@ $(document).ready(function(){
     setChapterHeight();  
   }); 
   
-  $('.chapters ul li:last-child a').addClass('current');  
+  $('.chapters ul li:first-child a').addClass('current');  
   $('.chapter_handle').toggle(
     function(){
       $('.chapters').animate({'width': '0px'},500);            

@@ -39,15 +39,15 @@ class IstartController extends Controller
 		for( $i=0; $i<count($path); $i++){	
 			if( $i== 0 ) {
 				if($path[$i])
-				$this->location.= "<li class='home'><a href='/'>".$path[$i]['name']."</a></li>";
-				$this->location.= "<li><span>»</span></li>";
+				$this->location.= "<li class='home'><span class='location_left'></span><a class='location_middle' href='/'>".$path[$i]['name']."</a><span class='location_right' ></span></li>";
+				$this->location.= "<li><span class='symbol'>»</span></li>";
 			}
 			else if( $i == count($path)-1 ){
 				$this->location.= "<li class='link last'><span>".$path[$i]['name']."</span></li>";					
 			}
 			else{
-				$this->location.= "<li class='link'><a href='".CController::createUrl('istart/category', array( 'id' => $path[$i]['id']) )."'>".$path[$i]['name']."</a></li>";
-				$this->location.= "<li><span>»</span></li>";					
+				$this->location.= "<li class='link'><span class='location_left'></span><a class='location_middle' href='".CController::createUrl('istart/category', array( 'id' => $path[$i]['id']) )."'>".$path[$i]['name']."</a><span class='location_right' ></span></li>";
+				$this->location.= "<li><span class='symbol'>»</span></li>";					
 			}
 		}		
 		
