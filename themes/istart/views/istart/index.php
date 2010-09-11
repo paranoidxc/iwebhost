@@ -19,8 +19,10 @@
 	<ul>
 	<?php				
 		foreach( Category::model()->findByPk($_leafs->id)->articles as $obj) {			
-			echo "<li>".CHtml::link(
-				$obj->title, 
+			echo "<li>";
+			$icon = '<img class="gfavorite" src="'.FetchFavIcon::fetch($obj->subtitle).'" > ';
+			echo CHtml::link(
+				$icon.$obj->title, 
 				$obj->subtitle , 
 				array( 'title' => $obj->subtitle, 'target' => '_blank','style' => 'color: '.colorfulV().';'  ))."</li>";
 		}

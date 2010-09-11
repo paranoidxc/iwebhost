@@ -3,7 +3,17 @@
 @import url('ibutton.css');
 
 @import url('istart_home.css');
-@import url('api_categorys.css');
+@import url('api.categorys.css');
+
+.gfavorite {
+  vertical-align: top;
+  line-height:16px;
+  height: 16px;
+  width:16px;
+  font-size:12px;  
+  line-height:20px;
+  margin-top:4px;
+}
 
 #scribble{
   background: url(stickynote.jpg) 0 0;  

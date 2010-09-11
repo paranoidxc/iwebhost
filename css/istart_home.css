@@ -193,7 +193,7 @@ a {
 .board ul li a:visited,
 .board ul li a:active,	
 .board ul li a{	
-	text-indent: 2em;
+	text-indent: 1.2em;
   padding-right: 1em;
 	display: block;
 	text-decoration: none;
