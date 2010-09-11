@@ -1,13 +1,12 @@
-
 ul.api_categorys_ul li p {    	
-  padding: 3px 0px 1px;
-  border: 1px solid #FFF;
-  background-repeat:repeat-x;
-  background-color:#d8edff;
-  padding: 3px 0px 1px;
-  margin-left: 0px;
-  border:solid 1px #c3e2fd;
   color:#000;
+  padding: 3px 0px 1px;  
+  margin-left: 0px;  
+  font-size: 12px;
+  cursor: pointer;    
+  background-repeat:repeat-x;
+  background-color:#d8edff;    
+  border:solid 1px #c3e2fd;  
   background-position:0px 0px;
   background-repeat:repeat-x;
   border-color: rgba(118,157,192,0);
@@ -15,9 +14,8 @@ ul.api_categorys_ul li p {
   -webkit-transition-property:background-color, border-color;
   -webkit-transition-duration:.25s ;
   -webkit-transition-timing-function: ease-out;  
-  font-size: 12px;
-  cursor: pointer;
 }
+
 ul.api_categorys_ul li p:hover {  
   color:#000;
   padding: 3px 0px 1px;    
@@ -77,6 +75,15 @@ ul.api_categorys_ul span.fold{
 	width: 16px;
   line-height: 16px;
   display: inline-block;
+}
+ul.api_categorys_ul span.leaf {
+  display: inline-block;  
+  height: 12px;
+  line-height: 12px;
+  width: 40%;
+  overflow: hidden;
+  text-indent: 0;
+  text-overflow: ellipsis;  
 }
 
 ul.api_categorys_ul span.open {    	
