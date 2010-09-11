@@ -32,9 +32,19 @@ class IstartController extends Controller
 	public function actionCategory(){		
 		Yii::app()->name = 'iStartPage v0.2 beta';
 		Yii::app()->theme='istart';
-				
 		
-		$category = Category::model()->findbyPk($_GET['id']);
+		
+		$category = Category::model()->findbyPk($_GET['id']);				
+		/*
+		$nodes = API::categorys(array( 
+		  'id'          => $_GET['id'],
+		  'depth'       => 10000,
+		  'recursion'   => true
+		));						
+		
+		$this->render('node',array( 'nodes' => $nodes ) );
+		*/	
+		
 		$path = Category::model()->getPath($category->id);				
 		for( $i=0; $i<count($path); $i++){	
 			if( $i== 0 ) {

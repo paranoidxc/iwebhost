@@ -1,25 +1,14 @@
 $(document).ready(function(){	  
   
-  function setChapterHeight(){
-    //$remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();    
+  function setChapterHeight(){    
     $remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();
     $content_height = $remind_height - $('#chapter h2').height() - 40;
-//alert( $content_height);
-//alert( parseInt($('#chapter .content').css('height')) );
-    //remind_height$content_height = parseInt( $('#chapter .content').css('height'));
-  //  $content_height = $content_height - 300;
-    //alert( $content_height);
     $('.chapter,.chapters').css({
       'height': $remind_height
     });
     $('#chapter .content').css({
       'height': $content_height
-    });
-    /*
-    $('.chapter,.chapters').css({
-      'height': $remind_height
-    }); 
-    */
+    });    
     
   }
   setChapterHeight();
@@ -28,7 +17,7 @@ $(document).ready(function(){
     setChapterHeight();  
   }); 
   
-  $('.chapters ul li:first-child a').addClass('current');  
+  /*$('.chapters ul li:first-child a').addClass('current');  */
   $('.chapter_handle').toggle(
     function(){
       $('.chapters').animate({'width': '0px'},500);            
@@ -44,6 +33,7 @@ $(document).ready(function(){
   );
   
 	$('.chapters ul li a').click(function(){
+	  $.fn.imasker({'z-index': '10000000', 'background' : '#000 url(/js/load.gif) no-repeat 50% 50% '});
 	  $('.chapters ul li a.current').removeClass('current');
 	  $that = $(this);
 		$.ajax({
@@ -54,6 +44,7 @@ $(document).ready(function(){
 				$('#chapter').replaceWith(html);
 				$that.addClass('current');
 				setChapterHeight();
+				$.fn.imasker_hide();
 			}
 		})
 		return false;

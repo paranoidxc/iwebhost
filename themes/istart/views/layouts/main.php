@@ -28,6 +28,7 @@
 	$cs = Yii::app()->getClientScript();
 	Yii::app()->clientScript->registerCoreScript('jquery');  
 	$cs->registerScriptFile($baseUrl.'/js/istart.js');
+	$cs->registerScriptFile($baseUrl.'/js/api.categorys.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');	
 	$cs->registerCssFile($baseUrl.'/css/istart.css');	
 	

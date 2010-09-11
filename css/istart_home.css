@@ -1,12 +1,14 @@
+
 body {
-/*	background: #E2E2E2 url(img/Juan_Weiss.jpg) repeat 0 0; */
 	background: #E2E2E2 url(img/background.png) repeat 0 0; 
 	font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;
 }
+
 a:visited,
 a {
 	color: #1C7FDB;
 }
+
 .fs10 {
 	font-size: 10px;
 	float: right;	
@@ -14,6 +16,7 @@ a {
 .dN {
 	display: none;
 }
+
 
 .console_link:visited,
 .console_link {
@@ -59,9 +62,13 @@ a {
 }
 
 #header {	
+  
 	background:-moz-linear-gradient(center top , #444444, #111111) repeat scroll 0 0 transparent;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#111));
 	background: url(img/header_bg.png) repeat-x 0 bottom;
+	background: #000 url(books/colorful_circle.jpg) no-repeat 0 0;
+	-webkit-box-shadow: 0px 2px 6px #000;
+	
 	height:80px;
 	margin-bottom: 10px;	
 	}
@@ -118,9 +125,10 @@ a {
  
 .board_wrap {	
 	width: 60%;	
-  width: 100%;
-	float: left;
-	padding-left: 10px;	
+  width: 90%;
+  /*padding-left: 10%;
+	float: left;*/
+	margin:auto;
 }
 .ta_da_board,
 .board {	

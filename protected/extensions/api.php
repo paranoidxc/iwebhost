@@ -1,7 +1,7 @@
 <?php
 class API {
   public static function articles_ul($category, $option){
-    $r = '<ul>';    
+    $r = '<ul class="api_chapters_ul" style="text-indent: '.$option['text_indent'].'">';
     if( $category->articles ) {
       foreach( $category->articles as $article ) {                
         $r .= '<li><a href="'.Yii::app()->urlManager->createUrl($option['url'],array('id' => $article->id, 'ajax' => 'ajax' )).'" title="'.$article->title.'" >';
@@ -37,5 +37,20 @@ class API {
       exit;
     }    
   }
+  /**
+   * get category recursion
+   *
+   * @return data
+   * @author paranoid
+   **/
+  public static function categorys($option){
+    if( is_array( $option) ){            
+     $id = $option['id'];
+     $depth = $option['depth'];
+     $r = Category::model()->vleafs($id, $depth);
+     return $r;
+    }    
+  }
+  
 }
 ?>

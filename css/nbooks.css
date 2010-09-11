@@ -134,7 +134,7 @@ body {
   		margin-left: -6px;  
   		overflow: auto;		
 	  }
-	  
+	  /*
 	  .books-wrap  .chapters ul li {	
   		font-size: 80%;
   		width: 100%;
@@ -168,9 +168,9 @@ body {
     	.books-wrap .chapters ul li a.current {
       		color: #913e96;			      		      		
       		z-index: 100004;      		          		
-          background: #C1C1C1;
-        	/*background:  url(books/xp.png) no-repeat right 50%;*/
+          background: #C1C1C1;                  	
     	}    	
+    	*/
 
     	
 	.chapter_handle {
