@@ -1,3 +1,6 @@
+ul.api_categorys_ul{
+  width:100%;
+}
 ul.api_categorys_ul li p {    	
   color:#000;
   padding: 3px 0px 1px;  
@@ -13,7 +16,7 @@ ul.api_categorys_ul li p {
   background-color: rgba(171,214,255,0);
   -webkit-transition-property:background-color, border-color;
   -webkit-transition-duration:.25s ;
-  -webkit-transition-timing-function: ease-out;  
+  -webkit-transition-timing-function: ease-out;    
 }
 
 ul.api_categorys_ul li p:hover {  
@@ -79,8 +82,7 @@ ul.api_categorys_ul span.fold{
 ul.api_categorys_ul span.leaf {
   display: inline-block;  
   height: 12px;
-  line-height: 12px;
-  width: 40%;
+  line-height: 12px;  
   overflow: hidden;
   text-indent: 0;
   text-overflow: ellipsis;  
