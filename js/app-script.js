@@ -111,6 +111,13 @@ function init_article_sort() {
 	
 
 $(document).ready(function(){		
+  $('.lightbox').lightBox({		
+		imageLoading: '/images/lightbox-ico-loading.gif',
+		imageBtnClose:'/images/lightbox-btn-close.gif',
+		imageBtnPrev: '/images/lightbox-btn-prev.gif',
+		imageBtnNext: '/images/lightbox-btn-next.gif',		
+   });
+   	
 	$('.tree ul li').sortable({
 		//update: function(event,ui){
 		//	ui.item.unbind('click');

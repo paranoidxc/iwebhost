@@ -45,7 +45,8 @@ Notes:
 	}
 
 	session_start();
-
+	ini_set("html_errors", "0");
+	
 // Check post_max_size (http://us3.php.net/manual/en/features.file-upload.php#73762)
 	$POST_MAX_SIZE = ini_get('post_max_size');
 	$unit = strtoupper(substr($POST_MAX_SIZE, -1));

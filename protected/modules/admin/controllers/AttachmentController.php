@@ -32,7 +32,7 @@ class AttachmentController extends controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','upload'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,6 +49,52 @@ class AttachmentController extends controller
 		);
 	}
 
+  /**
+   * undocumented function
+   *
+   * @return void
+   * @author paranoid
+   **/
+  public function actionUpload()
+  {
+    if (isset($_POST["PHPSESSID"])) {
+		  session_id($_POST["PHPSESSID"]);
+	  } else if (isset($_GET["PHPSESSID"])) {
+		  session_id($_GET["PHPSESSID"]);
+	  }
+	  session_start();	    
+    //$save_path = WEBSITE_DIR.'/upfiles/';
+    //$save_path = "H:/projects/iwebhost/upfiles/";        	
+    $upload_name = "Filedata";
+    $path_info = pathinfo($_FILES[$upload_name]['name']);
+	  $file_extension = $path_info["extension"];
+    $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';				// Characters allowed in the file name (in a Regular Expression format)
+    //$screen_name = preg_replace('/[^'.$valid_chars_regex.']|\.+$/i', "", basename($_FILES[$upload_name]['name']));
+    $screen_name  =  basename($_FILES[$upload_name]['name']);
+    $file_name = time().'.'.$file_extension;
+    if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], ATMS_SAVE_DIR.$file_name)) {	  	
+		  exit(0);
+	  }
+	  $model=new Attachment;
+	  $ati = array(
+	    'screen_name' => $screen_name,
+	    'path'        => $file_name,
+	    'w' => '1',
+	    'h' => '1'
+    );
+	  $model->attributes=$ati;
+	  if($model->save()){	    
+	    $file_path_t = ATMS_SAVE_DIR.'t'.$file_name;
+      $file_path_s = ATMS_SAVE_DIR.'s'.$file_name;
+      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$file_name);      
+      $image->resize(800, 600);
+      $image->save();      
+      $image->resize(160, 120,Image::NONE);
+      $image->save($file_path_s);    
+	  }	  	  
+	  
+  }
+  
 	/**
 	 * Displays a particular model.
 	 */
@@ -64,7 +110,8 @@ class AttachmentController extends controller
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
-	{
+	{	  
+    
 		$model=new Attachment;
 
 		// Uncomment the following line if AJAX validation is needed

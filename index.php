@@ -1,10 +1,15 @@
 <?php
 
 // change the following paths if necessary
+$website_dir = dirname(__FILE__);
+$atms_dave_dir = $website_dir.'/upfiles/';
+
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 
 // remove the following lines when in production mode
+define('WEBSITE_DIR',$website_dir);
+define('ATMS_SAVE_DIR',$atms_dave_dir);
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 // specify how many levels of call stack should be shown in each log message
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);

@@ -52,7 +52,7 @@ input[disabled]{ border: 1px solid #ccc } /* FF 2 Fix */
 .progressWrapper {
 	width: 357px;
 	width: 100%;
-	width: 160px;
+	width: 300px;
 	overflow: hidden;
 }
 

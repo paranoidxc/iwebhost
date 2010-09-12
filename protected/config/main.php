@@ -18,8 +18,8 @@ return array(
 		'application.models.*',		
 		'application.components.*',
 		'application.extensions.*',
-		'application.modules.admin.models.*',
-		
+		'application.modules.admin.models.*',	
+		'application.helpers.*',	
 	),
 
 	'modules'=>array(
@@ -33,6 +33,11 @@ return array(
 	'language'	=> 'zh-cn',
 	// application components
 	'components'=>array(
+	  'image'=>array(
+      'class'=>'application.extensions.image.CImageComponent',            
+      'driver'=>'GD',
+      ),
+        
 		'coreMessages'	=> array( 
 			'basePath' => 'protected/messages' 
 		 ),

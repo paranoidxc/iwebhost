@@ -4,7 +4,7 @@
 		window.onload = function() {
 			var settings = {
 				flash_url : "/swfupload/swfupload.swf",
-				upload_url: "/upload.php",
+				upload_url: "<?php echo CController::createurl('attachment/upload') ?>",				
 				post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
 				file_size_limit : "100 MB",
 				file_types : "*.*",
@@ -46,12 +46,22 @@
 <table width="100%">
   <tr>
     <td width="150" class="blue">remind for categorys</td>
-    <td class="green"> remind for content </td>
+    <td class="green">
+      <?php
+       $atts = Attachment::model()->findAll();
+	      foreach($atts as $t){	     	        
+	        echo "<a class='lightbox' href='".Yii::app()->request->baseUrl.'/upfiles/'.$t->path."' >";
+	        echo "<img src='/upfiles/s".$t->path."' /> ";
+	        echo '</a>';
+	      }	
+      ?>
+    </td>
     <td width="200" class="red">
       <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
         <div>
 				  <span id="spanButtonPlaceHolder">Upload Attachment</span>
-			  	<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
+			  	<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();"
+			  	disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
 			  </div>
 			  <div id="divStatus">0 Files Uploaded</div>
 			  <div class="fieldset flash" id="fsUploadProgress">

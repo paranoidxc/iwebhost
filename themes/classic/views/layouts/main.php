@@ -33,9 +33,11 @@
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');			
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	$cs->registerScriptFile($baseUrl.'/js/tree.js');		
 	
+	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');
 	$cs->registerCssFile($baseUrl.'/css/all.css');
 	
 ?>	
