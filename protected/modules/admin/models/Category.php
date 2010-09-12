@@ -203,7 +203,8 @@ class Category extends CActiveRecord
 			'articles' 	     => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id asc '),
 			//'first_article'  => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id asc' ),
 			//'last_article' 	 => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id desc' ),			
-			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' )
+			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),
+			'images'    => array( self::HAS_MANY, 'Attachment', 'category_id' )
 		);
 	}
 	/**
