@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
+  
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
@@ -11,14 +11,23 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />
 <!--	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" /> -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />	
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.css" />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.queue.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/fileprogress.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/handlers.js"></script>
+	
+
 <?php  
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
+	
 	Yii::app()->clientScript->registerCoreScript('jquery');  
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
@@ -26,7 +35,9 @@
 	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	$cs->registerScriptFile($baseUrl.'/js/tree.js');		
+	
 	$cs->registerCssFile($baseUrl.'/css/all.css');
+	
 ?>	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -45,14 +56,15 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-			//	array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Home', 'url'=>array('/site/index')),		
+					//	array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 		//		array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Category', 'url'=>array('/admin/category/leafs')),
 				array('label'=>'article', 'url'=>array('/admin/article/index')),
 				array('label'=>'datablock', 'url'=>array('/admin/datablock/hierarchical')),
+				array('label'=>'attachement', 'url'=>array('/admin/attachment/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

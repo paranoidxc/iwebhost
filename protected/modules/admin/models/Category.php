@@ -167,7 +167,7 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('template,partial', 'default'),
+			array('template,partial,memo', 'default'),
 			array('name,parent_leaf_id', 'required'),
 			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),

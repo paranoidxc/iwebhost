@@ -13,16 +13,15 @@
 
 .itable tbody th {	
 	color: #4f6b72;	
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	padding: 6px 6px 6px 12px;
+	text-transform: capitalize;
+	padding: 6px 0px 6px 12px;
 	text-align: right;	
-	vertical-align: top;
+	vertical-align: middle;
 }
 .itable tbody td {	
 	text-align: left;
 	vertical-align: top;
-	padding: 6px 6px 6px 12px;	
+	padding: 6px 6px 6px 6px;	
 	color: #4f6b72;
 }
 .itable tbody td input[type='text'] {
@@ -31,10 +30,9 @@
 	border-width: 1px 0px 0px 1px;
 	color: #333;
 	display: block;
-	font-size: 14px;
-	height: 29px;	
-	padding-left: 10px;
+	font-size: 12px;	
 	width: 400px;
+	padding:2px;
 }
 .itable tbody td textarea {
 	border: solid #B1B1B1;
@@ -42,10 +40,10 @@
 	border-width: 1px 0px 0px 1px;
 	width: 400px;
   height: 50px;
-	padding-left: 10px;
-	font-size: 14px;
+  padding: 2px;	
+	font-size: 12px;
 }
 .itable tbody td textarea[name*=content] {
-  height: 600px;
-	width: 600px;
+  height: 100px;
+	width: 400px;
 }

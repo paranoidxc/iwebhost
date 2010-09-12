@@ -32,7 +32,7 @@
 	<tr>
 		<th><?php echo $form->labelEx($model,'name'); ?></th>
 		<td>
-			<?php echo $form->textField($model,'name',array('size'=>20,'maxlength'=>20)); ?>
+			<?php echo $form->textField($model,'name',array('size'=>20,'maxlength'=>250)); ?>
 			<?php echo $form->error($model,'name'); ?>
 		</td>
 	</tr>
@@ -40,12 +40,16 @@
 	<tr>
 		<th><?php echo $form->labelEx($model,'template'); ?></th>
 		<td>
-			<?php echo $form->textField($model,'template',array('size'=>60,'maxlength'=>100)); ?>
+			<?php echo $form->textField($model,'template',array('size'=>60,'maxlength'=>250)); ?>
 			<?php echo $form->error($model,'template'); ?>
 		</td>
 	</tr>
+	<tr>
+	  <th><?php echo $form->labelEx($model,'memo'); ?></th>
+	  <td><?php echo $form->textArea($model,'memo',array('rows'=>6, 'cols'=>50)); ?></td>
+	</tr>
 	
-		<tr>
+	<tr>
 		<th><?php echo $form->labelEx($model,'partial'); ?></th>
 		<td>
 			<?php echo $form->checkbox($model,'partial'); ?>
