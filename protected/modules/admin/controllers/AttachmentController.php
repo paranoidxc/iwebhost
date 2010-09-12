@@ -80,7 +80,8 @@ class AttachmentController extends controller
 	    'screen_name' => $screen_name,
 	    'path'        => $file_name,
 	    'w' => '1',
-	    'h' => '1'
+	    'h' => '1',
+	    'category_id' => 67
     );
 	  $model->attributes=$ati;
 	  if($model->save()){	    
