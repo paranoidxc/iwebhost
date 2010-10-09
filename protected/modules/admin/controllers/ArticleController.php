@@ -129,6 +129,8 @@ class ArticleController extends Controller
 		$model->category_id = $_GET['leaf_id'];
 		list( $leafs ) = $this->getRelData();
 				
+		$leaf  = Category::model()->findByPk($_GET['leaf_id']);
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -148,12 +150,14 @@ class ArticleController extends Controller
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('create', array(
 				'model' => $model,
-				'leafs'	=> $leafs
+				'leafs'	=> $leafs,
+				'leaf'	=> $leaf
 					),false,ture);
 		}else {					
 			$this->render('create',array(
 				'model'	=>	$model,
-				'leafs' => 	$leafs
+				'leafs' => 	$leafs,
+				'leaf'	=> $leaf
 			));
 		}
 	}

@@ -6,6 +6,25 @@
 @import url('panel.css');
 @import url('itable.css');
 @import url('jScrollPane.css');
+
+.atm_photos li{
+  overflow: hidden;
+  float: left;
+  width: 152px;
+  height: 141px;    
+  background: url(api_categorys_img/single-bg.png) no-repeat 0 0;
+  text-align: center;
+  margin: 10px;  
+  opacity: 0.9;
+}
+.atm_photos li:hover{
+   opacity: 1;
+}
+.atm_photos li img{
+  margin-top: 10px;  
+  width: 130px;  
+  height: 102px;
+}
 .crP {
 	cursor: pointer;
 }

@@ -49,25 +49,35 @@
     <td class="green">
       <?php
        $atts = Attachment::model()->findAll();
-	      foreach($atts as $t){	     	        
+        echo "<ul class='atm_photos' >";
+	      foreach($atts as $t){	     	        	        
+	        echo '<li>';
 	        echo "<a class='lightbox' href='".Yii::app()->request->baseUrl.'/upfiles/'.$t->path."' >";
-	        echo "<img src='/upfiles/s".$t->path."' /> ";
+	        echo "<img src='/upfiles/s".$t->path."' /> ";	        
 	        echo '</a>';
+	        echo '<p>'.$t->screen_name.'</p>';
+?>
+			<input type="text" value="<?php echo $t->screen_name; ?>" size="5" >
+			<input type="text" value="<?php echo $t->id; ?>" size="3">
+
+<?php
+	        echo '</li>';
 	      }	
+	      echo "</ul>";
       ?>
     </td>
     <td width="200" class="red">
       <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
         <div>
-				  <span id="spanButtonPlaceHolder">Upload Attachment</span>
-			  	<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();"
+			<span id="spanButtonPlaceHolder">Upload Attachment</span>
+			<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();"
 			  	disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
-			  </div>
-			  <div id="divStatus">0 Files Uploaded</div>
-			  <div class="fieldset flash" id="fsUploadProgress">
-			    <span class="legend">Upload Queue</span>
-			  </div>
-	    </form>    
+		</div>
+		<div id="divStatus">0 Files Uploaded</div>
+		<div class="fieldset flash" id="fsUploadProgress">
+			<span class="legend">Upload Queue</span>
+		</div>
+	  </form>    
     </td>
   </tr>
 </table>

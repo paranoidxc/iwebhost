@@ -110,7 +110,36 @@ function init_article_sort() {
 	}
 	
 
-$(document).ready(function(){		
+$(document).ready(function(){	
+	// pick handle
+	$('.pick').live('click',function(){
+		var uri = $(this).attr('attchment-uri');		
+		$.ajax({
+			type: 'get',
+			cache: false,
+			url: uri,
+			success:function(html){
+				var pop = $("<div title='view article' ></div").html(html);
+				pop.insertAfter($('body')).dialog( {			
+					width: 800, 
+					minWidth: 600
+				});	
+			}
+		});
+	});
+
+	$('.rpick').live('click',function(){
+		var return_ele = $('#'+$(this).attr('return_id'));
+		var rel_at = return_ele.next();
+		rel_at.attr('value',$(this).attr('rel_id'));
+		if( rel_at.next() ){
+			rel_at.next().next().remove();
+			rel_at.next().remove();
+		}
+		$('<p>').html($(this).attr('rel_screen_name')).insertAfter(rel_at);
+		$('<img>').attr('src', '/upfiles/s'+$(this).attr('rel_path') ).insertAfter(rel_at);
+	});
+	
   $('.lightbox').lightBox({		
 		imageLoading: '/images/lightbox-ico-loading.gif',
 		imageBtnClose:'/images/lightbox-btn-close.gif',

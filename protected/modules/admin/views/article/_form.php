@@ -12,6 +12,14 @@
 	<table class='itable'>
 	<tbody>
 	<tr>
+		<th class='alt '>Attachment</th>
+		<td>
+			<span class="pick" id="pick<?php echo time(); ?>" attchment-uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick</span>
+			<?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255)); ?>
+		</td>
+
+	</tr>
+	<tr>
 		<th class='alt leftborder'><?php echo $form->labelEx($model,'title'); ?></th>
 		<td>
 			<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
@@ -25,15 +33,7 @@
 			<?php echo $form->textField($model,'subtitle',array('size'=>60,'maxlength'=>255)); ?>
 			<?php echo $form->error($model,'subtitle'); ?>
 		</td>
-	</tr>
-
-	<tr>
-		<th class='alt leftborder'><?php echo $form->labelEx($model,'desc'); ?></th>
-		<td>
-			<?php echo $form->textArea($model,'desc',array('rows'=>6, 'cols'=>50)); ?>
-			<?php echo $form->error($model,'desc'); ?>
-		</td>
-	</tr>
+	</tr>	
 
 	<tr>
 		<th class='alt leftborder'><?php echo $form->labelEx($model,'content'); ?></th>
@@ -46,9 +46,12 @@
 	<tr>
 		<th class='alt leftborder'><?php echo $form->labelEx($model,'category_id'); ?></th>
 		<td>
-			<?php echo $form->textField($model,'category_id'); ?>
-			<?php echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ?>
-			<?php echo $form->error($model,'category_id'); ?>
+			<?php echo $form->hiddenField($model,'category_id'); ?>	
+			Name:<?php echo $leaf->name ?>
+			ID:<?php echo $leaf->id ?>
+			<?php //echo $form->textField($model,'category_id'); ?>
+			<?php //echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ?>
+			<?php //echo $form->error($model,'category_id'); ?>
 		</td>
 	</tr>
 

@@ -32,7 +32,7 @@ class AttachmentController extends controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','upload'),
+				'actions'=>array('index','view','upload','pick'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,6 +49,10 @@ class AttachmentController extends controller
 		);
 	}
 
+	public function actionPick(){		
+		$return_id = $_GET['return_id'];
+		$this->renderPartial('pick',array('return_id' => $return_id),false,true);
+	}
   /**
    * undocumented function
    *
