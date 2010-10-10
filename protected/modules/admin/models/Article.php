@@ -62,7 +62,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('attachment_id','default'),
+			array('attachment_id, gallery_id','default'),
 			array('title, content, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
@@ -83,7 +83,9 @@ class Article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'leaf' => array( self::BELONGS_TO , 'Category', 'category_id' )
+			'leaf' 			=> array( self::BELONGS_TO , 'Category', 	'category_id' ),
+			'attachment'	=> array( self::BELONGS_TO,  'Attachment',	'attachment_id'),
+			'gallery'		=> array( self::BELONGS_TO,  'Category',	'gallery_id')
 		);
 	}
 

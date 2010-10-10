@@ -111,15 +111,15 @@ function init_article_sort() {
 	
 
 $(document).ready(function(){	
-	// pick handle
+	//attachment pick handle
 	$('.pick').live('click',function(){
-		var uri = $(this).attr('attchment-uri');		
+		var uri = $(this).attr('uri');		
 		$.ajax({
 			type: 'get',
 			cache: false,
 			url: uri,
 			success:function(html){
-				var pop = $("<div title='view article' ></div").html(html);
+				var pop = $("<div title='Pick' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
 					width: 800, 
 					minWidth: 600
@@ -128,16 +128,30 @@ $(document).ready(function(){
 		});
 	});
 
+	//gallery return pick
+	$('.gallery_return_pick').live('click',function(){
+		var return_ele = $('#'+$(this).attr('return_id'));
+		var rel_at = return_ele.next();
+		rel_at.attr('value',$(this).attr('rel_id'));		
+		if( rel_at.next().length > 0 ){			
+			rel_at.next().html( $(this).attr('rel_name') );
+		}else{			
+			$('<p>').html($(this).attr('rel_name')).insertAfter(rel_at);
+		}			
+	});
+
 	$('.rpick').live('click',function(){
 		var return_ele = $('#'+$(this).attr('return_id'));
 		var rel_at = return_ele.next();
 		rel_at.attr('value',$(this).attr('rel_id'));
-		if( rel_at.next() ){
-			rel_at.next().next().remove();
-			rel_at.next().remove();
+		if( rel_at.next().length > 0  ){			
+			rel_at.next().attr('src', '/upfiles/s'+$(this).attr('rel_path') );
+			rel_at.next().next().html( $(this).attr('rel_screen_name') );			
+		}else{
+			$('<p>').html($(this).attr('rel_screen_name')).insertAfter(rel_at);
+			$('<img>').attr('src', '/upfiles/s'+$(this).attr('rel_path') ).insertAfter(rel_at);	
 		}
-		$('<p>').html($(this).attr('rel_screen_name')).insertAfter(rel_at);
-		$('<img>').attr('src', '/upfiles/s'+$(this).attr('rel_path') ).insertAfter(rel_at);
+		
 	});
 	
   $('.lightbox').lightBox({		

@@ -32,7 +32,7 @@ class CategoryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange','sort'),
+				'actions'=>array('index','view','leafs','exchange','sort','pick'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -53,6 +53,11 @@ class CategoryController extends Controller
 		$_data = Category::model()->getTreeById();
 		$leafs = CHtml::listdata($_data, 'id','name');
 		return array( $leafs );
+	}
+
+	public function actionPick(){
+		$return_id = $_GET['return_id'];
+		$this->renderPartial('pick',array('return_id' => $return_id),false,true);	
 	}
 	/**
 	 * Category sort function

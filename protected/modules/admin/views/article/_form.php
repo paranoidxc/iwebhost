@@ -14,11 +14,40 @@
 	<tr>
 		<th class='alt '>Attachment</th>
 		<td>
-			<span class="pick" id="pick<?php echo time(); ?>" attchment-uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick</span>
+			<?php 
+			if( $model->attachment ) {
+				?>
+				<div>
+					<img src="/upfiles/s<?php echo $model->attachment->path?>" />
+					<p><?php echo $model->attachment->screen_name?></p>
+				</div>
+			<?php
+			}
+			?>			
+			<span class="pick" id="pick<?php echo time(); ?>" uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick</span>
 			<?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255)); ?>
 		</td>
-
 	</tr>
+
+	<tr>
+		<th class='alt '>Gallery</th>
+		<td>
+			<?php 
+			if( $model->gallery ) {
+				?>
+				<div>					
+					<p><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></p>
+				</div>
+			<?php
+			}
+			?>
+
+			<span class="pick" id="gallery_pick<?php echo time(); ?>" 
+			uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick</span>
+			<?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255)); ?>		
+		</td>
+	</tr>
+
 	<tr>
 		<th class='alt leftborder'><?php echo $form->labelEx($model,'title'); ?></th>
 		<td>
