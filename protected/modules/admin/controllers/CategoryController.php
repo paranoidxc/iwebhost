@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
 	public function getRelData() {		
 		$_data = Category::model()->getTreeById();
-		$leafs = CHtml::listdata($_data, 'id','name');
+		$leafs = CHtml::listdata($_data, 'id','name');		
 		return array( $leafs );
 	}
 
@@ -366,9 +366,13 @@ class CategoryController extends Controller
 			//	$this->redirect(array('view','id'=>$model->id));
 		}
 
+		
+		
+
+		
 		if( $_GET['ajax'] == 'ajax' ) {
 			$this->renderPartial('create', array(
-				'model' => $model,
+				'model' => $model,				
 				'ajax'  => true
 			), false, true );
 		}else {					
@@ -492,6 +496,7 @@ class CategoryController extends Controller
 			//$this->redirect(array('view','id'=>$model->id));
 	}
 
+				
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('update', array(
 				'model' => $model,

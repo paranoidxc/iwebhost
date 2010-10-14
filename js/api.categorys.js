@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $('.api_categorys_ul p').click(function(){    
+
+  $('.api_categorys_ul p').live('click',function(){        
     if( $(this).next() ){
       if( $(this).next().css('display') == 'block' ){                
         $(this).children('.f_open,.f_fold').addClass('f_fold').removeClass('f_open');

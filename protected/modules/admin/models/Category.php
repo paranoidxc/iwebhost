@@ -17,6 +17,14 @@ class Category extends CActiveRecord
 	public $depth;
 	public $parent_leaf_id;
 	public $parent_leaf;	
+	public $content_types  = array(  0 => 'Album Art Collect'  ,
+								1 => 'Include Sub Block Topics', 
+								2 => 'Just Self Topics',
+								3 => 'Outside Category Topics',
+								4 => 'Self First Topic',
+								5 => 'Outside Single Topic',
+								6 => 'Internation Link ( URL )',
+								7 => 'Empty' );
 	
 	public function firstArticle()
   {
@@ -167,7 +175,7 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('template,partial,memo', 'default'),
+			array('template,partial,memo, home_tpl,list_tpl,single_tpl,content_type', 'default'),
 			array('name,parent_leaf_id', 'required'),
 			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),

@@ -52,5 +52,18 @@ class API {
     }    
   }
   
+
+  public static function NAV($opt) {
+    if( is_array( $opt ) ) {
+      if( strlen($opt['id']) > 0 ) {
+        // get nav by category id 
+      }else if( strlen($opt['identify']) > 0 ){
+        // get nav by category identify label
+      }
+    }else{
+      echo " API ERROR in Nav ";
+      exit;
+    }
+  }
 }
 ?>
