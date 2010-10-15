@@ -186,6 +186,23 @@ class Category extends CActiveRecord
 		);
 	}
 
+  public function first() {
+    return  Article::model()->find(array(    
+      'condition'=>'category_id=:category_id',
+      'order'    => 'sort_id DESC',
+      'params'=>array(':category_id'=>$this->id),
+    ));
+  }
+  
+  public function last() {
+    return  Article::model()->find(array(    
+      'condition'=>'category_id=:category_id',
+      'order'    => 'sort_id ASC',
+      'params'=>array(':category_id'=>$this->id),
+    ));
+  }
+  
+  
   public function first_article() {    
     return  Article::model()->find(array(    
           'condition'=>'category_id=:category_id',
@@ -208,7 +225,7 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'articles' 	     => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id asc '),
+			'articles' 	     => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id DESC '),
 			//'first_article'  => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id asc' ),
 			//'last_article' 	 => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id desc' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),

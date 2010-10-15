@@ -374,6 +374,7 @@
     width: 80px;
     height: 110px;
     float: left;
+    position: relative;
     text-align: center;
     margin-top: 5px;
     margin-left: 5px;
@@ -391,7 +392,7 @@
     -moz-box-shadow: 0 0px 10px #1A77E8;
     */
     cursor: pointer;
-  }
+  }  
   .thumbnail dt img{
   	/*
 	  display: inline-block;	  
@@ -403,6 +404,12 @@
   	box-shadow: 0 0px 7px rgba(0, 0, 0, .4);
   	*/
   }
+  .thumbnail .item_checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
   .thumbnail:hover dt img{
   	/*
     -webkit-box-shadow: 0 0px 10px #1A77E8;

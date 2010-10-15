@@ -19,10 +19,7 @@
 
 <!--	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" /> -->
 
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />	
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/api.categorys.css" />	
-
-<script type="text/javascript" src="/js/api.categorys.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />	  
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.css" />
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.js"></script>
@@ -44,11 +41,12 @@
 	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');			
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	$cs->registerScriptFile($baseUrl.'/js/tree.js');		
-  
-  $cs->registerScriptFile($baseUrl.'/js/api.categorys.js');		
+  $cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
 
-	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');
-	$cs->registerCssFile($baseUrl.'/css/all.css');
+	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
+	$cs->registerCssFile($baseUrl.'/css/all.css');	
+	$cs->registerCssFile($baseUrl.'/css/console.api.categorys.css');
+	
 	
 ?>	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

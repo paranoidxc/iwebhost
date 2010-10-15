@@ -273,9 +273,10 @@ class CategoryController extends Controller
 	{
 			//$model = Category::model()->with('articles')->findByPk($_GET['id']);
 			//' t.id = :id ',
-				//array(':id' => $_GET['id'] )
+			//array(':id' => $_GET['id'] )
+			
 			$criteria = new CDbCriteria;
-			$criteria->order=" articles.sort_id asc ";
+			$criteria->order=" articles.sort_id DESC ";
 			$criteria->condition = " t.id = :id ";
 			$criteria->params = array(
 				':id' => $_GET['id']
@@ -323,7 +324,7 @@ class CategoryController extends Controller
 
 		if(isset($_POST['Category']))
 		{
-			$model->attributes=$_POST['Category'];
+		  $model->attributes=$_POST['Category'];
 			// ==2 is pass the validate 
 			// validate reutrn "[]" string
 			if( strlen(CActiveForm::validate($model)) == 2 ) {
@@ -334,7 +335,7 @@ class CategoryController extends Controller
 
 					$leaf_model = Category::model();										
 					$parent_leaf = $leaf_model->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
-										
+					
 					$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
 					$cmodel->dbConnection->createCommand($update_rgt)->execute();
 
@@ -385,8 +386,9 @@ class CategoryController extends Controller
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionUpdate()
+	 */	
+	
+	public function actionxUpdate()
 	{
 		$model=$this->loadModel();
 
@@ -511,35 +513,55 @@ class CategoryController extends Controller
 	}
 	
 	
-	public function actionxUpdate()
+	public function actionUpdate()
 	{
 		$model=$this->loadModel();
-
 		
-		if( isset( $_GET['leaf_id'] ) ) {
-			$model->parent_leaf_id = $_GET['leaf_id'];
-			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
-		}
-		
-		
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {		
+			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];
+			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);			
+		} else {			
+			$sql = 	" SELECT parent.name, parent.id ".
+				 	" FROM category AS node,".
+					" category AS parent ".
+					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+					" AND node.id = $model->id ".
+					" ORDER BY parent.lft ";					
+			$path = Category::model()->findAllBysql($sql);
+			$temp_parent;
+			foreach( $path as $obj ) {								
+				if( $obj->id  == $model->id ) {					
+					break;
+				}				
+				$model->parent_leaf = $obj;		
+			}
+		}		
 
 		if(isset($_POST['Category']))
-		{
-			
-			
-			$model->attributes=$_POST['Category'];
-			
-			exit;
-			
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+		{						
+			$model->attributes=$_POST['Category'];		
+			if($model->save()){
+			  if( isset($_GET['ajax']) ) {
+      	  echo 'update leaf suc';
+    	    exit;
+        }else {
+    	    $this->redirect(array('view','id'=>$model->id));
+        }
+			}
+		}    
+    
+		if( isset($_GET['ajax']) ) {
+			$this->renderPartial('update', array(
+				'model' => $model,
+		//		'leafs'	=> $leafs,
+				'ajax'	=> 'ajax'
+				),false,true);
+		}else {					
+			$this->render('update',array(
+				'model'=>$model,
+			));
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+				
 	}
 
 	/**

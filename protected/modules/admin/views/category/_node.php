@@ -1,7 +1,7 @@
 <?php
 	echo "<ul class='api_categorys_ul' id='top_tree' render_url='".CController::createurl('category/leafs', array('ajax' => 'ajax'))."'>";
 		$temp_depth = 0;			
-		$class="open";
+		$class="fold";
 		$handle_class = 'f_'.$class;
 		foreach( $nodes as $leaf ) {
 			//$class="fold";
@@ -25,7 +25,7 @@
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo' <span class="leaf">';    				
 			}else if( $depth > $temp_depth ) {
-			  echo '<ul><li class="'.$class.'">';
+			  echo '<ul class="'.$class.'"><li class="'.$class.'">';
         echo '<p 
               class="gallery_return_pick" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';

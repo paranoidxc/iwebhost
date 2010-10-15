@@ -17,15 +17,22 @@
 			<?php 
 			if( $model->attachment ) {
 				?>
-				<div>
+				<div class="orgin_thumbnail">
 					<img src="/upfiles/s<?php echo $model->attachment->path?>" />
 					<p><?php echo $model->attachment->screen_name?></p>
 				</div>
+				<span class="exchange_symbol"> >> </span>
 			<?php
 			}
-			?>			
-			<span class="pick" id="pick<?php echo time(); ?>" uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick</span>
-			<?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255)); ?>
+			?>
+			<p class="clear">
+			  <span class="pick"
+			        id="pick<?php echo time(); ?>"			        
+			        uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick
+			  </span>
+			  <?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>
+			</p>
+			
 		</td>
 	</tr>
 
@@ -35,16 +42,20 @@
 			<?php 
 			if( $model->gallery ) {
 				?>
-				<div>					
+				<div class="origin_gallery">
 					<p><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></p>
 				</div>
+				<span class="exchange_symbol"> >> </span>
 			<?php
 			}
 			?>
-
-			<span class="pick" id="gallery_pick<?php echo time(); ?>" 
-			uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick</span>
-			<?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255)); ?>		
+			<p class="clear">
+			  <span class="pick" 
+			        id="gallery_pick<?php echo time(); ?>" 
+			        uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick
+			  </span>
+			  <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>		
+			</p>
 		</td>
 	</tr>
 

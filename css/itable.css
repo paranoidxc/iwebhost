@@ -1,3 +1,7 @@
+.clear {
+  clear: both;
+}
+
 .itable {
  	border-collapse: collapse;
 	margin: 0;
@@ -40,10 +44,10 @@
 	width: 100px;
 }
 .itable tbody td p {
-	clear: both;	
-	line-height: 26px;
+	/*clear: both;	
+	line-height: 26px;*/
 }
-.itable tbody td p label.normal {
+.itable tbody td p label.normal {  
 	height: 100%;
 	display: inline;
 	text-align: right;		
@@ -63,4 +67,49 @@
 .itable tbody td textarea[name*=content] {
   height: 100px;
 	width: 400px;
+}
+
+
+.pick {
+  cursor: pointer;  
+}
+.pick:hover {
+  background: #DED07F;
+}
+.origin_gallery,
+.dest_gallery,
+.orgin_thumbnail,
+.dest_thumbnail {
+  float: left;
+  text-align: center;
+  width: 200px;  
+  padding: 5px;
+  border: 2px solid #CCC;
+  margin-right: 10px;
+  background: #FFF;
+  padding: #CCC;
+  position: relative;
+}
+.dest_gallery_close,
+.dest_thumbnail_close {
+  position: absolute;		
+  top: 0;
+  right: 0;	
+	display: block;
+	height:20px;
+	width:20px;	
+	cursor: pointer;
+}
+.dest_gallery_close:hover,
+.dest_thumbnail_close:hover {
+  background: #CCC;
+  color: red;
+}
+
+.exchange_symbol {
+  float: left;  
+  margin-right: 10px;  
+}
+.orgin_thumbnail p,
+.dest_thumbnail p {   
 }

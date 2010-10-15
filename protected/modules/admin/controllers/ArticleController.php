@@ -133,10 +133,18 @@ class ArticleController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+    
+    
 		if(isset($_POST['Article']))
 		{
-			$model->attributes=$_POST['Article'];
+		  $model->attributes=$_POST['Article'];
+		  $_sort_id = $leaf->first()->sort_id;
+		  if( $_sort_id > 0 ){
+		    $model->sort_id = $_sort_id +1;
+		  }else{
+		    $model->sort_id = 1;
+		  }
+		  
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
 					echo 'create article suc';
@@ -153,7 +161,7 @@ class ArticleController extends Controller
 				'leafs'	=> $leafs,
 				'leaf'	=> $leaf
 					),false,ture);
-		}else {					
+		}else {
 			$this->render('create',array(
 				'model'	=>	$model,
 				'leafs' => 	$leafs,
