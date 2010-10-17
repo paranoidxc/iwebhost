@@ -2,9 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />  		
-
+	<meta name="language" content="en" />
   
+	<!-- blueprint CSS framework -->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+	<![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />
   
@@ -32,14 +39,11 @@
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');			
-	$cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
-	
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	//$cs->registerScriptFile($baseUrl.'/js/tree.js');		
-  
+  $cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
 
 	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
-	$cs->registerCssFile($baseUrl.'/css/main.css');	
 	$cs->registerCssFile($baseUrl.'/css/all.css');	
 	$cs->registerCssFile($baseUrl.'/css/console.api.categorys.css');
 	
@@ -52,23 +56,41 @@
 
 <div class="container" id="page">
 
+	<div id="header">
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+	</div><!-- header -->
+		<!--
+		<input type="button" value="Real Button" class="button"/>
+		<a href="#" class="button" >Button Like</a>
+		-->
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),		
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'ROOT', 'url'=>array('/admin/category/iroot')),
-				array('label'=>'Navigation', 'url'=>array('/admin/category/inavigation')),
-				array('label'=>'Category', 'url'=>array('/admin/category/icategory')),
-				array('label'=>'Attachment', 'url'=>array('/admin/category/iattachment')),
-				array('label'=>'Settings', 'url'=>array('/admin/attachment/index')),				
+				array('label'=>'Navigation', 'url'=>array('/admin/category/itest')),
+				array('label'=>'Navigation', 'url'=>array('/admin/category/leafs&ident=navigation')),
+				array('label'=>'Category', 'url'=>array('/admin/category/leafs')),
+				array('label'=>'article', 'url'=>array('/admin/article/index')),
+				array('label'=>'datablock', 'url'=>array('/admin/datablock/hierarchical')),
+				array('label'=>'attachement', 'url'=>array('/admin/attachment/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
 
+	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+		'links'=>$this->breadcrumbs,
+	)); ?><!-- breadcrumbs -->
+
 	<?php echo $content; ?>
-	
+
+	<div id="footer">
+		<!--Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+		All Rights Reserved.<br/>
+		<?php echo Yii::powered(); ?>
+		-->
+	</div><!-- footer -->
 
 </div><!-- page -->
 

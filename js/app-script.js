@@ -178,7 +178,8 @@ $(document).ready(function(){
 		  
 		}	
 	});
-		
+	
+	
 	$('.gallery_return_pick').live('click',function(){
 		var return_ele = $('#'+$(this).attr('return_id'));
 		return_ele.next().attr('origin_value', return_ele.next().attr('value') );
@@ -195,18 +196,82 @@ $(document).ready(function(){
 		    return_ele.next().attr('value',return_ele.next().attr('origin_value') );		    
 		  });		  
 		  $('<p>').html($(this).attr('rel_name')).appendTo(dest_ele_wrap);		
-		}
-		/*
-		var rel_at = return_ele.next();
-		rel_at.attr('value',$(this).attr('rel_id'));		
-		if( rel_at.next().length > 0 ){			
-			rel_at.next().html( $(this).attr('rel_name') );
-		}else{			
-			$('<p>').html($(this).attr('rel_name')).insertAfter(rel_at);
-		}	
-		*/		
+		}		
 	});
+	
+	
+	function cct_option_div_hide(that){
+	  that.parent().find('.uri').hide();	 
+	  that.parent().find('.oct').hide();	 
+	  that.parent().find('.ost').hide();
+	}
+	
+	$('.cct_pick').live('change',function(){	  	  
+	  switch($(this).val()){
+	    case '3': 	      
+	      cct_option_div_hide($(this));
+	      $(this).parent().find('.oct').show();
+        break;
+      case '5':        
+        cct_option_div_hide($(this));
+        $(this).parent().find('.ost').show();
+        break;
+      case '6':              
+        $(this).parent().find('.uri').show();
+        break;
+      default:
+        cct_option_div_hide($(this));
+	  }
+  });
+	
+  
+  
 
+  // fun7	    
+	$(".category_sortable").sortable({
+	  placeholder: 'ui-state-highlight',
+	  start: function() {
+	    prevPagesOrder = $(this).sortable('toArray');
+	  },
+	  update: function(event, ui){
+	    var first = ui.item;
+	    var second = first.prev();	    
+	    	    
+	    $.ajax({
+				type: 'get', 
+				url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+second.attr('data_id'),
+				cache:	false,
+				success:	function(html){						
+					if( html.indexOf('STOP') != -1 ){
+						$_this.show().attr('style','');										
+					}else{
+					}						
+				},
+				error:		function(){		
+				}					
+			})
+	  }
+	});
+	// fun8
+	var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
+	$('.category_sortable p span.leaf').each(function(item) {
+	  $(this).click(function(ev) {	    
+	    $('#leaf_id').val($(this).attr('data_id'));	    
+	    $('.actions').append(loading);
+	    $.ajax({
+          type: 'get',
+          dataType: 'html',
+          cache: false,
+          url: '/index.php?r=admin/category/view&ajax=ajax&id=' + $(this).attr('data_id'),
+          success: function(html) {
+              $('.loading').remove();
+              $('#leaf_articles').html(html);                             
+          }
+      });
+	  });
+  });
+	
+	
 	
 	
   $('.lightbox').lightBox({		
@@ -246,6 +311,7 @@ $(document).ready(function(){
 				$parent = $item.parent();
 				if( $(this).attr('sort_url') ){						
 					$(this).show();
+					/* TODO
 				$.ajax({
 					type: 	'get', 
 					url:	$(this).attr('sort_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
@@ -254,14 +320,16 @@ $(document).ready(function(){
 						if( html.indexOf('STOP') != -1 ){
 							$_this.show().attr('style','');										
 						}else{
-						  /* render the partial leafs */
+						  */
+						  /*  render the partial leafs */
+						  /*
 						  renderCategoryLeafs();
 						}						
 					},
 					error:		function(){
 						
 					}					
-				})				
+				})				*/
 				}
 			});
 		}

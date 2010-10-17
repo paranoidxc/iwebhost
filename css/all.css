@@ -7,6 +7,57 @@
 @import url('itable.css');
 @import url('jScrollPane.css');
 
+body {
+  background: #EFEFEF url(osx.jpg) 50% 50%;
+  
+}
+
+
+.ilogin_wrap {
+  margin: auto;
+}
+
+#mainmenu {
+  background: url(api_categorys_img/mac-menu-bar.png) no-repeat 0 0px;
+}
+#mainmenu ul
+{
+  height: 38px;  
+	margin:0px;
+	padding-left: 10px;
+}
+#mainmenu ul li {
+  height: 38px;      
+}
+
+#mainmenu ul li a
+{
+	color: #000;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;			
+	line-height: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	margin-top: 1px;
+	margin-right: 1px;
+	padding: 0px 10px;	
+	text-shadow: 0px 1px 0px #ccc;
+	
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+  color: #FFF;    
+  text-shadow: 0px 1px 0px #000;
+  background: url(panel_images/column_item.png) no-repeat 0 bottom;  
+	text-decoration:none;
+}
+
+
+
 .atm_photos li{
   overflow: hidden;
   float: left;
@@ -33,11 +84,14 @@
 	background-color: rgba(0,0,0,0.2);
 }
 #leaf_articles_wrap {
-	
+	float: left;
+  width: 522px;;	
+	height: 400px;		
 }
 #leaf_articles{
-	overflow: auto;	
-	height: 353px;	
+  overflow: auto;	
+  width: 522px;;
+  height: 353px;
 }
 #content {
 	width: 800px;

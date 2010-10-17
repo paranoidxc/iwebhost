@@ -35,6 +35,14 @@
 	</tr>
 	
 	<tr>
+		<th><?php echo $form->labelEx($model,'ident_label'); ?></th>
+		<td>
+			<?php echo $form->textField($model,'ident_label',array('size'=>20,'maxlength'=>250)); ?>
+			<?php echo $form->error($model,'ident_label'); ?>
+		</td>
+	</tr>
+	
+	<tr>
 		<th><?php echo $form->labelEx($model,'template'); ?></th>
 		<td>
 			<?php echo $form->textField($model,'template',array('size'=>60,'maxlength'=>250)); ?>
@@ -58,9 +66,9 @@
 		<th>Tpl</th>
 		<td>
 			<p>				
-				<?php echo $form->textField($model,'home_tpl', array('class' => 'small' )); ?>.php
-				<?php echo $form->labelEx($model,'home_tpl', array('class' => 'normal' )); ?>
-				<?php echo $form->error($model,'home_tpl'); ?>
+				<?php echo $form->textField($model,'album_tpl', array('class' => 'small' )); ?>.php
+				<?php echo $form->labelEx($model,'album_tpl', array('class' => 'normal' )); ?>
+				<?php echo $form->error($model,'album_tpl'); ?>
 			</p>
 
 			<p>				
@@ -70,9 +78,9 @@
 			</p>
 
 			<p>				
-				<?php echo $form->textField($model,'single_tpl', array('class' => 'small' )); ?>.php
-				<?php echo $form->labelEx($model,'single_tpl', array('class' => 'normal' )); ?>
-				<?php echo $form->error($model,'single_tpl'); ?>
+				<?php echo $form->textField($model,'topic_tpl', array('class' => 'small' )); ?>.php
+				<?php echo $form->labelEx($model,'topic_tpl', array('class' => 'normal' )); ?>
+				<?php echo $form->error($model,'topic_tpl'); ?>
 			</p>
 		</td>
 	</tr>
@@ -80,12 +88,39 @@
 	<tr>
 		<th><?php echo $form->labelEx($model,'content_type'); ?></th>
 		<td>			
-			<?php echo $form->hiddenField($model,'parent_leaf_id') ?>	
+			<?php echo $form->hiddenField($model,'content_type') ?>	
 			<?php 
 				if ( isset( $model->content_types ) ) {
-					echo $form->listbox($model, 'parent_leaf_id', $model->content_types, array( 'size' => 1)  ) ;
+					echo $form->listbox($model, 'content_type', $model->content_types, array( 'size' => 1, 'class' => 'cct_pick' , 'id'=> 'cct'.time() )  ) ;
 				}
-			?>				
+			?>
+			<div class="uri <?php echo $model->content_type==6 ? '' : 'dN'?>"  >
+			  <p>
+			    <?php echo $form->labelEx($model,'uri', array('class' => 'normal' )); ?>		
+			    <?php echo $form->textField($model,'uri'); ?>				
+			  </p>
+			</div>
+							
+			<div  class="oct <?php echo  $model->content_type==3 ? '' : 'dN'?>" >
+			  <p>
+			    <span class="pick"
+			          id = "<?php echo 'oct_pick'.time(); ?>" 
+			          uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'oct_pick'.time() ) ); ?>"			             
+			    >Pick OutSide Category Topics</span>			    
+			    <?php echo $form->textField($model,'oct_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>		
+			  </p>
+			</div>
+			
+			<div class="ost <?php echo $model->content_type==5 ? '' : 'dN'?>" >			
+			  <p>
+			    <span class="pick"
+			          id = "<?php echo 'ost_pick'.time(); ?>" 
+			          uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'ost_pick'.time() ) ); ?>"			             
+			    >Pick OutSide Single Topics</span>			    
+			    <?php echo $form->textField($model,'ost_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>		
+			  </p>
+			</div>
+			
 		</td>
 	</tr>
 	

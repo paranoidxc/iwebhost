@@ -25,7 +25,56 @@ class Category extends CActiveRecord
 								5 => 'Outside Single Topic',
 								6 => 'Internation Link ( URL )',
 								7 => 'Empty' );
-	
+
+  /**
+  * PHP getter magic method.
+  * This method is overridden here so that ActiveRecord will look first
+  * for a custom getter() method in the model, THEN look for an attribute
+  * (table column) if it doesn't find a custom getter().
+  * @param string property name
+  * @return mixed property value
+  * @see getAttribute
+  */
+  /*
+  public function getParent_leaf_id(){
+    return $model->parent_leaf->parent_leaf_id;
+  }
+  */
+  
+  public function getUrl(){      
+    switch ( $this->content_type ){
+      case 0:
+      case 1:
+      case 2:
+      case 4:
+        $r = Yii::app()->urlManager->createUrl('mw/category', array('id' => $this->id) );
+        break;
+      case 3:
+        $r = Yii::app()->urlManager->createUrl('mw/category', array('id' => $this->oct_id) );
+        break;
+      case 5:
+        $r = 'http://www.jp.com';        
+        break;
+      case 7:
+        $r = '#';
+        break;
+      case 6: 
+        $r = $this->uri;
+        break;
+      default:
+        $r = "http://www.google.com";
+    }
+    return $r;
+  }
+  public function __get($name)
+  {    
+    $getter='get'.$name;
+    if(method_exists($this,$getter))
+      return $this->$getter();
+      
+    return parent::__get($name);
+  }
+  
 	public function firstArticle()
   {
     $this->articles->getDbCriteria()->mergeWith(array(
@@ -97,6 +146,39 @@ class Category extends CActiveRecord
 	 * @return html
 	 * @author paranoid
 	 **/	
+	public function ileafs($opt) {	  
+	  $sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
+				" FROM category AS node, ".
+				" category AS parent, ".
+				" category AS sub_parent, ".
+				" ( ".
+				" SELECT node.name, (COUNT(parent.name) - 1) AS depth ".
+				" FROM category AS node, ".
+				" category AS parent ".
+  			" WHERE node.lft BETWEEN parent.lft AND parent.rgt ";
+			if( $opt['id'] > 0 ) {
+			  $sql .= " AND node.id = '$opt[id]' ";
+			}else if( strlen( $opt['ident'] ) > 0  ){
+			  $sql .= " AND node.ident = '$opt[ident]' ";
+			}else if( strlen( $opt['ident_label'] ) > 0 ){
+			  $sql .= " AND node.ident_label = '$opt[ident_label]' ";
+			}
+			$sql .= " GROUP BY node.name ".
+				" ORDER BY node.lft ".
+				" ) AS sub_tree ".
+				" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+				" AND node.lft BETWEEN sub_parent.lft AND sub_parent.rgt ".
+  			" AND sub_parent.name = sub_tree.name ";
+  		$sql.= " GROUP BY node.id ";
+  		if( $opt['include'] ) {  		  
+  		}else{  		  
+  		  $sql .= " HAVING depth > 0 ";
+  		}
+				//" HAVING depth <= $depth ".
+				$sql .= " ORDER BY node.lft, node.sort_id desc ";
+		 return $this->findAllBySql($sql);
+	}
+	
 	public function vleafs($id=1,$depth=1){
 		$sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
 				" FROM category AS node, ".
@@ -175,8 +257,9 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('template,partial,memo, home_tpl,list_tpl,single_tpl,content_type', 'default'),
-			array('name,parent_leaf_id', 'required'),
+			array('template,partial,memo, album_tpl,list_tpl,topic_tpl,content_type,uri,oct_id,ost_id,ident,ident_label', 'default'),
+			array('ident_label','unique','allowEmpty' => true, 'caseSensitive' => false ),
+			array('name', 'required'),
 			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),
 			array('create_time, update_time', 'safe'),

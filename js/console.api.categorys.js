@@ -11,8 +11,7 @@ $(document).ready(function(){
         parent.children('.open,.fold').addClass('open').removeClass('fold');                
         parent.parent().children('ul').show();
       }      
-    };
-    //alert( $(this).attr('class') );
+    };    
     if( $(this).hasClass('f_open') || $(this).hasClass('f_fold') ){
       return false;  
     }

@@ -5,7 +5,6 @@
 			<?php echo $content; ?>
 		</div><!-- content -->
 	</div>
-	<!--
 	<div class="span-5 last">
 		<div id="sidebar">
 		<?php
@@ -18,7 +17,7 @@
 			));
 			$this->endWidget();
 		?>
-		</div>
-	</div> --> 
+		</div><!-- sidebar -->
+	</div>
 </div>
 <?php $this->endContent(); ?>

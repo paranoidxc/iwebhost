@@ -1,7 +1,9 @@
 .clear {
   clear: both;
 }
-
+.dN {
+  display: none;
+}
 .itable {
  	border-collapse: collapse;
 	margin: 0;

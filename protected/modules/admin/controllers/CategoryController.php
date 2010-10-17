@@ -32,11 +32,11 @@ class CategoryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange','sort','pick'),
+				'actions'=>array('index','view','leafs','exchange','sort','pick','itest'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'iroot', 'inavigation', 'icategory', 'iattachment'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,8 +70,8 @@ class CategoryController extends Controller
 	 * @author paranoid
 	 **/
 	public function actionSort() {		
-		$dest_leaf = Category::model()->findByPk($_GET['id1']);
-		$drag_leaf = Category::model()->findByPk($_GET['id2']);
+		$dest_leaf = Category::model()->findByPk($_GET['id2']);
+		$drag_leaf = Category::model()->findByPk($_GET['id1']);
 		$cmodel = Category::model();
 		$dest_parent = $cmodel->directParent($dest_leaf->id);
 		$drag_parent = $cmodel->directParent($drag_leaf->id);
@@ -245,7 +245,69 @@ class CategoryController extends Controller
 		
 	}
 	
-	public function actionLeafs() {		
+	
+	public function actionIroot(){
+	  $this->irun('ROOT');
+	}
+	public function actionInavigation(){
+	  $this->irun('navigation');
+	}
+	public function actionIcategory(){
+	  $this->irun('category');
+	}
+	public function actionIattachment(){
+	  $this->irun('attachment');
+	}
+	
+	public function irun($ident) {	  
+	  $leafs = Category::model()->ileafs(
+        array( 'ident' => $ident ,'include' => true )
+	  );
+	  if( $_GET['ajax'] == 'ajax' ){
+	    $this->renderPartial('_leafs',array(
+				'leafs'=> $leafs
+			),false,true);
+	  }else{
+	    $this->render('itest',array(
+				'leafs'=> $leafs
+			));
+	  }
+	}
+	
+	public function actionItest() {
+	  $ident = $_GET['ident'] ? $_GET['ident'] : 'ROOT';
+	  $leafs = Category::model()->ileafs(
+        array( 'ident' => $ident ,'include' => true )
+	  );
+	  if( $_GET['ajax'] == 'ajax' ){
+	    $this->renderPartial('_leafs',array(
+				'leafs'=> $leafs
+			),false,true);
+	  }else{
+	    $this->render('itest',array(
+				'leafs'=> $leafs
+			));
+	  }
+	}
+	
+	public function actionLeafs() {	  
+	  $ident = $_GET['ident'] ? $_GET['ident'] : 'ROOT';
+	  $leafs = Category::model()->ileafs(
+        array( 'ident' => $ident ,'include' => true )
+	  );
+	  if( $_GET['ajax'] == 'ajax' ){
+	    $this->renderPartial('_leafs',array(
+				'leafs'=> $leafs
+			),false,true);
+	  }else{
+	    $this->render('leafs',array(
+				'leafs'=> $leafs
+			));
+	  }
+	}
+	
+	
+	public function actionLeafsBak() {			  
 		$sql = 	" SELECT node.id AS id, ".
       		 	" node.name, (COUNT(parent.name) - 1) AS depth, node.lft, node.rgt ".
         		" FROM category AS node,".
@@ -258,7 +320,7 @@ class CategoryController extends Controller
 		  $this->renderPartial('_leafs',array(
 				'leafs'=> $leafs
 			),false,true);		
-		}else{		
+		}else{
 			$this->render('leafs',array(
 				'leafs'=> $leafs
 			));		
@@ -313,14 +375,11 @@ class CategoryController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Category;
+		$model=new Category();
 		if( isset( $_GET['leaf_id'] ) ) {
 			$model->parent_leaf_id = $_GET['leaf_id'];
 			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
-		}
-		
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		}		
 
 		if(isset($_POST['Category']))
 		{
@@ -331,21 +390,22 @@ class CategoryController extends Controller
 				
 				$cmodel = Category::model();
 				$transaction = $cmodel->dbConnection->beginTransaction();				
-				try {
-
-					$leaf_model = Category::model();										
-					$parent_leaf = $leaf_model->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
+				try {          
+					$leaf_model = Category::model();								
 					
+					$parent_leaf = $leaf_model->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
+										
 					$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
 					$cmodel->dbConnection->createCommand($update_rgt)->execute();
-
+          
 					$update_lft = " UPDATE category SET lft = lft + 2 WHERE  lft > $parent_leaf->lft ";					
 					$cmodel->dbConnection->createCommand($update_lft)->execute();					
 				
 					$model->lft = $parent_leaf->lft + 1;
 					$model->rgt = $parent_leaf->lft + 2;
-					
+				
 					$model->create_time = date("Y-m-d H:i:s");
+				
 					$model->save();
 					$transaction->commit();	
 					
@@ -355,22 +415,16 @@ class CategoryController extends Controller
 					}else {							
 						$this->redirect(array('leafs'));
 					}
-//					$this->redirect(array('view','id'=>$model->id));
 								
 				}catch(Exception $e) {
 				//	print($e);
 					print(" exception ");					
 					$transaction->rollBack();
 				}				
-			}											
-			//if($model->save())
-			//	$this->redirect(array('view','id'=>$model->id));
+			}			
 		}
-
-		
-		
-
-		
+    
+		$model->content_type = 1;
 		if( $_GET['ajax'] == 'ajax' ) {
 			$this->renderPartial('create', array(
 				'model' => $model,				
