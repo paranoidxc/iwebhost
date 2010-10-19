@@ -27,6 +27,11 @@ ul.api_categorys_ul li p {
   -webkit-transition-duration:.25s ;
   -webkit-transition-timing-function: ease-out;    
 }
+ul.api_categorys_ul li p.tree_leaf_current:hover,
+ul.api_categorys_ul li p.tree_leaf_current {
+  color: #FFF;
+  background: url(panel_images/column_item.png) repeat-x 0 0;
+}
 
 ul.api_categorys_ul li p:hover {  
   color:#000;

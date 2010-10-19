@@ -70,6 +70,47 @@ class CategoryController extends Controller
 	 * @author paranoid
 	 **/
 	public function actionSort() {		
+	  if( $_GET['id2'] == -1 ){
+	    
+	    $drag_leaf = Category::model()->findByPk($_GET['id1']);  
+	    $cmodel = Category::model();	    	    
+	    $drag_parent = $cmodel->directParent($drag_leaf->id);
+	    
+	    $transaction = $cmodel->dbConnection->beginTransaction();
+	    try{	      
+	      $drag_leaf_width = $drag_leaf->rgt + 1 - $drag_leaf->lft;        
+        $drag_lft = $drag_leaf->lft;
+				$drag_rgt = $drag_leaf->rgt;      
+        
+        $drag_final_width =  ($drag_parent->lft+ 1) -$drag_leaf->lft;
+                
+      	//temp the drag_leaf			
+				$sql 	 = " UPDATE category ";
+  		 	$sql	.= " SET lft = -lft, rgt = -rgt ";
+  		 	$sql	.= " WHERE lft >= $drag_leaf->lft AND rgt <= $drag_leaf->rgt ";  		 	
+  		 	$cmodel->dbConnection->createCommand($sql)->execute();
+  		 	
+  		 	$sql  = " UPDATE category ";
+  		 	$sql .= " SET lft = lft + $drag_leaf_width, rgt = rgt + $drag_leaf_width";
+    		$sql .= " WHERE lft > $drag_parent->lft AND rgt <= $drag_rgt";  		 	
+    		
+    		$cmodel->dbConnection->createCommand($sql)->execute();
+    		
+    		
+    		//reset the drag_leaf
+    		
+		 		$sql = " UPDATE category ";
+  		 	$sql.= " SET lft = -lft + $drag_final_width , rgt = -rgt + $drag_final_width ";
+  		 	$sql.= " WHERE lft BETWEEN -$drag_rgt AND -$drag_lft";
+  		 	
+  		 	$cmodel->dbConnection->createCommand($sql)->execute();    		 	
+  		 	$transaction->commit();	 	 
+      }catch(Exception $e) {
+        echo "FFFFF";
+      }
+	    exit;
+	  }
+	  
 		$dest_leaf = Category::model()->findByPk($_GET['id2']);
 		$drag_leaf = Category::model()->findByPk($_GET['id1']);
 		$cmodel = Category::model();

@@ -12,13 +12,13 @@ body {
   
 }
 
-
 .ilogin_wrap {
   margin: auto;
 }
 
 #mainmenu {
   background: url(api_categorys_img/mac-menu-bar.png) no-repeat 0 0px;
+  background: url(api_categorys_img/mac-menu-bar.png) repeat-x 0 0px;
 }
 #mainmenu ul
 {
@@ -94,8 +94,10 @@ body {
   height: 353px;
 }
 #content {
+  /*
 	width: 800px;
 	height: 400px;	
+	*/
 }
 #tree_root,
 .tree_div,

@@ -53,7 +53,7 @@ class Category extends CActiveRecord
         $r = Yii::app()->urlManager->createUrl('mw/category', array('id' => $this->oct_id) );
         break;
       case 5:
-        $r = 'http://www.jp.com';        
+        $r = 'http://www';        
         break;
       case 7:
         $r = '#';
@@ -122,7 +122,7 @@ class Category extends CActiveRecord
 	}
 	
 	public function directParent($id){
-		$sql = 	" SELECT parent.name, parent.id ".
+		$sql = 	" SELECT parent.name, parent.id,parent.rgt,parent.lft ".
 				 	" FROM category AS node,".
 					" category AS parent ".
 					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
@@ -136,7 +136,7 @@ class Category extends CActiveRecord
 				break;
 			}
 			$parent = $obj;			
-		}
+		}		
 		return $parent;
 		
 	}

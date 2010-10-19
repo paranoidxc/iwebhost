@@ -1,6 +1,10 @@
 .dN {
 	display: none;
 }
+.mac_panel_wrap {
+  width: 800px;
+  margin: auto;
+}
 .mac_panel {
     border: 3px solid purpel;
     width: 100%;

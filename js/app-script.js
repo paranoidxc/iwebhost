@@ -228,6 +228,7 @@ $(document).ready(function(){
   
 
   // fun7	    
+
 	$(".category_sortable").sortable({
 	  placeholder: 'ui-state-highlight',
 	  start: function() {
@@ -235,11 +236,16 @@ $(document).ready(function(){
 	  },
 	  update: function(event, ui){
 	    var first = ui.item;
-	    var second = first.prev();	    
-	    	    
+	    var second = first.prev();
+	    if( second.length > 0 ){
+	      var id2 = second.attr('data_id');
+	    }else{
+	      id2 = -1;
+	    }
+	    
 	    $.ajax({
 				type: 'get', 
-				url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+second.attr('data_id'),
+				url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+id2,
 				cache:	false,
 				success:	function(html){						
 					if( html.indexOf('STOP') != -1 ){
@@ -252,11 +258,14 @@ $(document).ready(function(){
 			})
 	  }
 	});
+	
 	// fun8
 	var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
 	$('.category_sortable p span.leaf').each(function(item) {
 	  $(this).click(function(ev) {	    
-	    $('#leaf_id').val($(this).attr('data_id'));	    
+	    $('#leaf_id').val($(this).attr('data_id'));	
+	    $('.category_sortable p.tree_leaf_current').removeClass('tree_leaf_current');
+	    $(this).parent().addClass('tree_leaf_current');
 	    $('.actions').append(loading);
 	    $.ajax({
           type: 'get',
