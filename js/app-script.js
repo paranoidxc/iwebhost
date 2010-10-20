@@ -111,7 +111,18 @@ function init_article_sort() {
 	
 
 $(document).ready(function(){	
-    
+  // fun1 login function
+  $('.ilogin_wrap .column_main').hide();
+  $($('.ilogin_wrap .column_main')[0]).show();
+  $($('.ilogin_wrap .column_nav li')[0]).addClass('current');
+  $('.ilogin_wrap .column_nav>ul>li').each(function(){
+		$(this).click(function(){
+			$($('.column_nav>ul>li.current').removeClass('current').find('a').attr('data')).stop(true,true).slideUp();
+			$($(this).addClass('current').find('a').attr('data')).stop(true,true).slideDown();
+			return false;
+		});
+	});
+	
 	
 	//var articels_action = false;	
 	function renderArticlesActions() {
@@ -232,7 +243,11 @@ $(document).ready(function(){
 	$(".category_sortable").sortable({
 	  placeholder: 'ui-state-highlight',
 	  start: function() {
+	    $(".category_sortable p span.leaf").unbind();
 	    prevPagesOrder = $(this).sortable('toArray');
+	  },
+	  stop: function() {
+	    bindLeafClick();
 	  },
 	  update: function(event, ui){
 	    var first = ui.item;
@@ -241,8 +256,7 @@ $(document).ready(function(){
 	      var id2 = second.attr('data_id');
 	    }else{
 	      id2 = -1;
-	    }
-	    
+	    }	    
 	    $.ajax({
 				type: 'get', 
 				url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+id2,
@@ -251,7 +265,8 @@ $(document).ready(function(){
 					if( html.indexOf('STOP') != -1 ){
 						$_this.show().attr('style','');										
 					}else{
-					}						
+					}			
+					bindLeafClick();			
 				},
 				error:		function(){		
 				}					
@@ -261,25 +276,27 @@ $(document).ready(function(){
 	
 	// fun8
 	var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
-	$('.category_sortable p span.leaf').each(function(item) {
-	  $(this).click(function(ev) {	    
-	    $('#leaf_id').val($(this).attr('data_id'));	
-	    $('.category_sortable p.tree_leaf_current').removeClass('tree_leaf_current');
-	    $(this).parent().addClass('tree_leaf_current');
-	    $('.actions').append(loading);
-	    $.ajax({
-          type: 'get',
-          dataType: 'html',
-          cache: false,
-          url: '/index.php?r=admin/category/view&ajax=ajax&id=' + $(this).attr('data_id'),
-          success: function(html) {
-              $('.loading').remove();
-              $('#leaf_articles').html(html);                             
-          }
-      });
-	  });
-  });
-	
+	function bindLeafClick(){
+  	$('.category_sortable p span.leaf').each(function(item) {
+  	  $(this).click(function(ev) {	    
+  	    $('#leaf_id').val($(this).attr('data_id'));	
+  	    $('.category_sortable p.tree_leaf_current').removeClass('tree_leaf_current');
+  	    $(this).parent().addClass('tree_leaf_current');
+  	    $('.actions').append(loading);
+  	    $.ajax({
+            type: 'get',
+            dataType: 'html',
+            cache: false,
+            url: '/index.php?r=admin/category/view&ajax=ajax&id=' + $(this).attr('data_id'),
+            success: function(html) {
+                $('.loading').remove();
+                $('#leaf_articles').html(html);                             
+            }
+        });
+  	  });
+    });
+  };
+	bindLeafClick();
 	
 	
 	

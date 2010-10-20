@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <?php
   echo "<div class='mac_panel_wrap' >";
   $this->beginWidget('application.extensions.Smacpanel');
@@ -15,8 +9,11 @@
   
   // top actions 
 ?>
-  <div id="leaf_articles_wrap"  class="osX">
+
 <input type="hidden" name='leaf_id' value="1"  id="leaf_id"/>
+<input type="hidden" name='ident'   value="<?php echo $top_leaf->content_type; ?>"  id="content_type"/>
+<div id="leaf_articles_wrap"  class="osX">
+
 <ul class="actions">
 
 	<li class="hover">

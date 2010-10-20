@@ -303,14 +303,19 @@ class CategoryController extends Controller
 	public function irun($ident) {	  
 	  $leafs = Category::model()->ileafs(
         array( 'ident' => $ident ,'include' => true )
-	  );
+	  );	  
+	  
+	  $top_leaf = $model = Category::model()->find('ident = :ident', array( ':ident' => $ident) );	  
+	  
 	  if( $_GET['ajax'] == 'ajax' ){
 	    $this->renderPartial('_leafs',array(
-				'leafs'=> $leafs
+				'leafs'     => $leafs,
+				'top_leaf'  => $top_leaf
 			),false,true);
 	  }else{
 	    $this->render('itest',array(
-				'leafs'=> $leafs
+				'leafs'     => $leafs,
+				'top_leaf'  => $top_leaf
 			));
 	  }
 	}

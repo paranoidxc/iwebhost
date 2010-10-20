@@ -8,13 +8,55 @@
 @import url('jScrollPane.css');
 
 body {
-  background: #EFEFEF url(osx.jpg) 50% 50%;
-  
+  background: #EFEFEF url(osx.jpg) 50% 0;
 }
 
 .ilogin_wrap {
   margin: auto;
-}
+  margin-top: 60px;
+  width: 600px;  
+  }
+  .ilogin_wrap .icolor {
+    background: #D1D7E2;
+    
+  }
+  .ilogin_wrap .column_nav {
+    width: 200px;
+    float: left;
+    
+  }
+  .ilogin_wrap #sign_in {
+    padding:10px;
+  }
+  .ilogin_wrap .column_main {
+    margin-left: 200px;    
+    background: #F2F2F2;
+  }
+  .column_main h3 {
+    background: url(http://www.iparanoid.co.cc/styles/panel_images/column_item_normal.png) repeat-x 0px 0px;    
+    color: black;
+    font-size: 2em;
+    height: 61px;
+    line-height: 61px;
+    padding: 0px 1em;
+    text-shadow: white 0px 1px 0px;
+    }
+    .column_main h3 strong {
+      margin-left: 0.5em;
+    }
+    .column_main  h3 img {
+      vertical-align: middle;
+    }
+  .column_main p {
+    color: #666;
+    font-size: 1.2em;
+    line-height: 26px;
+    padding: 0px 1em;
+    text-indent: 2em;
+    text-shadow: white 0px 1px 0px;
+    word-wrap: break-word;
+  }
+
 
 #mainmenu {
   background: url(api_categorys_img/mac-menu-bar.png) no-repeat 0 0px;
