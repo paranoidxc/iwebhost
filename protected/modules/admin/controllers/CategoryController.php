@@ -32,7 +32,7 @@ class CategoryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange','sort','pick','itest'),
+				'actions'=>array('index','view','leafs','exchange','sort','pick','itest','part_leafs'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -54,6 +54,15 @@ class CategoryController extends Controller
 		$leafs = CHtml::listdata($_data, 'id','name');		
 		return array( $leafs );
 	}
+  
+	public function actionPart_leafs(){
+		$id = $_GET['top_leaf_id'];		
+		$leafs = Category::model()->ileafs(
+        array( 'id' => $id ,'include' => true )
+	  );
+		$this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
+	}
+	
 
 	public function actionPick(){
 		$return_id = $_GET['return_id'];
@@ -296,14 +305,14 @@ class CategoryController extends Controller
 	public function actionIcategory(){
 	  $this->irun('category');
 	}
-	public function actionIattachment(){
+	public function actionIattachment(){	  
 	  $this->irun('attachment');
 	}
 	
 	public function irun($ident) {	  
 	  $leafs = Category::model()->ileafs(
         array( 'ident' => $ident ,'include' => true )
-	  );	  
+	  );
 	  
 	  $top_leaf = $model = Category::model()->find('ident = :ident', array( ':ident' => $ident) );	  
 	  
@@ -384,22 +393,38 @@ class CategoryController extends Controller
 			//array(':id' => $_GET['id'] )
 			
 			$criteria = new CDbCriteria;
-			$criteria->order=" articles.sort_id DESC ";
+			if( $_GET['model_type'] == '' ) {
+			  $criteria->order=" articles.sort_id DESC ";  
+			}else {
+			  
+			}
+			
 			$criteria->condition = " t.id = :id ";
 			$criteria->params = array(
 				':id' => $_GET['id']
 			);
-			//$model = Category::model()->with('articles')->findByPk( 21 , $criteria );
-			$model = Category::model()->with('articles')->find( $criteria );
+			//$model = Category::model()->with('articles')->findByPk( 21 , $criteria );			
+			
+			if( $_GET['model_type'] == '' ) {
+			  $model = Category::model()->with('articles')->find( $criteria );
+		  }else{
+		    $model = Category::model()->with('attachments')->find( $criteria );
+		  }
 			//$model = Category::model()->with('articles')->findByPk(21 , array(
 			//	'order' => ' articles.sort_id asc'
 			//));
-			
-			$this->renderPartial( 'ajaxview', array(
-				'model'=> $model,
-				false,true
-			));
-			exit;
+			if( $_GET['model_type'] == '' ) {			  
+  			$this->renderPartial( 'ajaxview', array(
+  				'model'=> $model,
+  				false,true
+  			));
+			}else{
+			  $this->renderPartial( 'ajaxview_attachment', array(
+  				'model'=> $model,
+  				false,true
+  			)); 
+			}
+  		exit;
 		if(isset($_GET['ajax'])) {
 			
 			$model = Category::model()->with('articles')->findByPk($_GET['id']);
@@ -473,7 +498,8 @@ class CategoryController extends Controller
 		$model->content_type = 1;
 		if( $_GET['ajax'] == 'ajax' ) {
 			$this->renderPartial('create', array(
-				'model' => $model,				
+				'model' => $model,
+				'model_type' => $_GET['model_type'],
 				'ajax'  => true
 			), false, true );
 		}else {					
@@ -652,9 +678,9 @@ class CategoryController extends Controller
     
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('update', array(
-				'model' => $model,
-		//		'leafs'	=> $leafs,
-				'ajax'	=> 'ajax'
+				'model'       => $model,
+				'model_type'	=> $_GET['model_type'],
+				'ajax'	      => 'ajax'
 				),false,true);
 		}else {					
 			$this->render('update',array(

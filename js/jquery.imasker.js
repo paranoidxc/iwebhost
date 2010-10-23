@@ -6,7 +6,12 @@
   };
   
 	$.fn.imasker = function(options){			  	  
-    $height = document.body.scrollHeight == 0 ? $(window).height() : document.body.scrollHeight;
+	  //console.log( $(window).height() );
+	  //console.log( document.body.scrollHeight );	  
+    //$height = document.body.scrollHeight == 0 ? $(window).height() : document.body.scrollHeight;    
+    //console.log( $height );
+        
+    $height = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
     $width = $(window).width();    
     
 		if( $.fn.imasker.defaults.masker == null ) {			

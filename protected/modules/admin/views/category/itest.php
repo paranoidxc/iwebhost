@@ -4,21 +4,44 @@
   
   echo "<div class='icategory_tree'>";
   $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
-  echo "</div>";
-  
-  
+  echo "</div>";    
   // top actions 
 ?>
 
-<input type="hidden" name='leaf_id' value="1"  id="leaf_id"/>
-<input type="hidden" name='ident'   value="<?php echo $top_leaf->content_type; ?>"  id="content_type"/>
+<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="top_leaf_id"/>
+<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="cur_leaf_id"/>
+
+
+<input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />
+<input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type; ?>"   id="model_type" />
+
+<input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax') ) ?>" id="leaf_content_view_url" />
+
+<input type="hidden"  value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
+
+<?php 
+  if( $top_leaf->model_type == 'attachment' ) {
+    ?>
+    <input type="hidden"  value="<?php echo CController::createUrl('attachment/move') ?>"   id="leaf_content_move_url"/>
+    <input type="hidden"  value="<?php echo CController::createUrl('attachment/delete') ?>" id="leaf_content_del_url"/>
+    <?php
+  }
+  else{
+    ?>
+    <input type="hidden"  value="<?php echo CController::createUrl('article/move') ?>"    id="leaf_content_move_url"/>
+    <input type="hidden"  value="<?php echo CController::createUrl('article/delete') ?>"  id="leaf_content_del_url"/>
+    <?
+  }
+?>
+
+
 <div id="leaf_articles_wrap"  class="osX">
 
 <ul class="actions">
 
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('category/create') ?>" 		
-	      title="New Dir" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
+	      title="New Dir" class="ele_create_category"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
  	</li>	
  	
  	<li class="hover">
@@ -43,31 +66,32 @@
 	</li>
 	
 	<li class="iactions">
-		<a  href="<?php echo CController::createUrl('article/move') ?>" id="artiles_move" title="Move Articles">
+		<a id="artiles_move" title="Move Articles">
 			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Move.png" title="Move Articles" />
 		</a>		
 	</li>
-	
+  <?php
+	if( $top_leaf->model_type != 'attachment' ) {
+  ?>
 	<li class="iactions">
 		<a  href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles">
 			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Copy.png" title="Copy Articles" />
 		</a>		
 	</li>
-	
-	<li>Select</li>
+	<?php
+    }
+  ?>
+	<li></li>
 	<li>
-		<span class="crP" id="artiles_all">All</span>
-		<span class="crP" id="artiles_none">None</span>		
+	  <div id="cb_all_wrap">
+	    Select(ALL/None):<input type="checkbox" id="cb_all" />
+	  </div>		
 	</li>			
 </ul>
 
 <?php
   echo '<div id="leaf_articles">';
-  for($i=0; $i< 50; $i++){
-    echo "<p>1111111111111111111111111111111111111111111111111</p>";
-  }
-  echo "</div>";
-  
+  echo "</div>";  
   $this->endWidget('application.extensions.Smacpanel');	  
   echo "</div>";
 ?>

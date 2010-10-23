@@ -33,6 +33,9 @@
 			<?php echo $form->error($model,'name'); ?>
 		</td>
 	</tr>
+	<?php
+	if( $model_type != 'attachment') {
+	?>
 	
 	<tr>
 		<th><?php echo $form->labelEx($model,'ident_label'); ?></th>
@@ -40,7 +43,7 @@
 			<?php echo $form->textField($model,'ident_label',array('size'=>20,'maxlength'=>250)); ?>
 			<?php echo $form->error($model,'ident_label'); ?>
 		</td>
-	</tr>
+	</tr>	
 	
 	<tr>
 		<th><?php echo $form->labelEx($model,'template'); ?></th>
@@ -49,11 +52,18 @@
 			<?php echo $form->error($model,'template'); ?>
 		</td>
 	</tr>
+  <?php
+	}
+	?>
+	
 	<tr>
 	  <th><?php echo $form->labelEx($model,'memo'); ?></th>
 	  <td><?php echo $form->textArea($model,'memo',array('rows'=>6, 'cols'=>50)); ?></td>
 	</tr>
 	
+	<?php
+	  if( $model_type != 'attachment') {
+	?>
 	<tr>
 		<th><?php echo $form->labelEx($model,'partial'); ?></th>
 		<td>
@@ -123,7 +133,9 @@
 			
 		</td>
 	</tr>
-	
+  <?php
+  }
+  ?>
 
 	<tr>
 		<th></th>

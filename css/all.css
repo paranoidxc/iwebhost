@@ -6,56 +6,28 @@
 @import url('panel.css');
 @import url('itable.css');
 @import url('jScrollPane.css');
+@import url('console.login.css');
+
+@import url('console.attachment.css');
 
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
 }
 
-.ilogin_wrap {
-  margin: auto;
-  margin-top: 60px;
-  width: 600px;  
-  }
-  .ilogin_wrap .icolor {
-    background: #D1D7E2;
-    
-  }
-  .ilogin_wrap .column_nav {
-    width: 200px;
-    float: left;
-    
-  }
-  .ilogin_wrap #sign_in {
-    padding:10px;
-  }
-  .ilogin_wrap .column_main {
-    margin-left: 200px;    
-    background: #F2F2F2;
-  }
-  .column_main h3 {
-    background: url(http://www.iparanoid.co.cc/styles/panel_images/column_item_normal.png) repeat-x 0px 0px;    
-    color: black;
-    font-size: 2em;
-    height: 61px;
-    line-height: 61px;
-    padding: 0px 1em;
-    text-shadow: white 0px 1px 0px;
-    }
-    .column_main h3 strong {
-      margin-left: 0.5em;
-    }
-    .column_main  h3 img {
-      vertical-align: middle;
-    }
-  .column_main p {
-    color: #666;
-    font-size: 1.2em;
-    line-height: 26px;
-    padding: 0px 1em;
-    text-indent: 2em;
-    text-shadow: white 0px 1px 0px;
-    word-wrap: break-word;
-  }
+.atm_photos {
+  /*
+  height: 400px;
+  overflow: auto;
+  */
+}
+#cb_all_wrap {  
+  height: 47px;
+  line-height: 47px;
+}
+#cb_all_wrap input {  
+  
+  vertical-align: middle;
+}
 
 
 #mainmenu {
@@ -100,24 +72,6 @@ body {
 
 
 
-.atm_photos li{
-  overflow: hidden;
-  float: left;
-  width: 152px;
-  height: 141px;    
-  background: url(api_categorys_img/single-bg.png) no-repeat 0 0;
-  text-align: center;
-  margin: 10px;  
-  opacity: 0.9;
-}
-.atm_photos li:hover{
-   opacity: 1;
-}
-.atm_photos li img{
-  margin-top: 10px;  
-  width: 130px;  
-  height: 102px;
-}
 .crP {
 	cursor: pointer;
 }

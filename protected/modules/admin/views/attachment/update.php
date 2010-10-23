@@ -15,4 +15,38 @@ $this->menu=array(
 
 <h1>Update Attachment <?php echo $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'article-form',
+	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+		'class' => 'ajax_form'
+	)
+)); ?>
+
+  <img src='/upfiles/s<?php echo $model->path; ?>' />
+
+  <div class="row">
+		<?php echo $form->labelEx($model,'screen_name'); ?>
+		<?php echo $form->textField($model,'screen_name',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'screen_name'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'w'); ?>
+		<?php echo $form->textField($model,'w',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'w'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'h'); ?>
+		<?php echo $form->textField($model,'h',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'h'); ?>
+	</div>
+	
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+<?php //echo $this->renderPartial('_form', array('model'=>$model)); ?>

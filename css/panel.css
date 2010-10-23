@@ -415,6 +415,7 @@
   }
   
   .thumbnail:hover dt img{
+    cursor: url(img/openhand.cur), default !important;
   	/*
     -webkit-box-shadow: 0 0px 10px #1A77E8;
     -moz-box-shadow: 0 0px 10px #1A77E8;
@@ -427,6 +428,9 @@
     font-size: 12px;    
     overflow: hidden;           
     /*margin-left: 10px;*/
+  }
+  .thumbnail dt.title:hover {
+    color: blue;
   }
   .thumbnail dd.summary {
     display: none;

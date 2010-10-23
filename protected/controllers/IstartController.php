@@ -62,7 +62,7 @@ class IstartController extends Controller
 		}		
 		
 		if(strlen(trim($category->template)) > 0){		  
-			if( $category->partial ){
+			if( $category->partial ){			  
 				$this->renderPartial($category->template, array( 'category' => $category ) ,false,true);	
 			}else{
 				$this->render($category->template, array( 'category' => $category ) );	
@@ -118,6 +118,8 @@ class IstartController extends Controller
 	
 	public function actionIndex()
 	{		
+	  //$this->redirect( array( 'site/login' ));
+	  
 		Yii::app()->name = 'iStartPage v0.2 beta';
 		Yii::app()->theme='istart';		
 		//Yii::import('application.modules.admin.article');

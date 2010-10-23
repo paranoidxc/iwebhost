@@ -1,6 +1,6 @@
 <?php
 
-class AttachmentController extends controller
+class AttachmentController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class AttachmentController extends controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','upload','pick'),
+				'actions'=>array('index','view','upload','pick','move'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,6 +49,37 @@ class AttachmentController extends controller
 		);
 	}
 
+	public function actionMove() {		
+		
+		if( isset($_POST['category_id']) ){			
+			$category_id = $_POST['category_id'];
+			$category = Category::model()->findByPk($category_id);
+			$ids = explode(',',$_POST['ids']);
+			foreach( $ids as $id) {				
+				$at = Attachment::model()->findByPk($id);
+				if( $at ) {									
+					$at->category_id = $category->id;
+					$at->save();				
+				}
+			}			
+			echo count($ids)." record(s) are move to ";
+			echo $category->name;			
+			exit;
+		}
+		
+		//$_data = Category::model()->getTreeById();
+		//$leafs = CHtml::listdata($_data, 'id','name');
+		
+		$leafs = Category::model()->ileafs(
+        array( 'id' => $_GET['top_leaf_id'],'include' => true )
+	  );	  
+				
+		$this->renderPartial('move', array(
+			'leafs' => $leafs
+		),false, true);
+	}
+	
+	
 	public function actionPick(){		
 		$return_id = $_GET['return_id'];
 		$this->renderPartial('pick',array('return_id' => $return_id),false,true);
@@ -61,14 +92,17 @@ class AttachmentController extends controller
    **/
   public function actionUpload()
   {
+  
+  
     if (isset($_POST["PHPSESSID"])) {
 		  session_id($_POST["PHPSESSID"]);
 	  } else if (isset($_GET["PHPSESSID"])) {
 		  session_id($_GET["PHPSESSID"]);
 	  }
-	  session_start();	    
-    //$save_path = WEBSITE_DIR.'/upfiles/';
-    //$save_path = "H:/projects/iwebhost/upfiles/";        	
+	  session_start();
+	  ini_set("html_errors", "0");
+		  
+    
     $upload_name = "Filedata";
     $path_info = pathinfo($_FILES[$upload_name]['name']);
 	  $file_extension = $path_info["extension"];
@@ -85,7 +119,7 @@ class AttachmentController extends controller
 	    'path'        => $file_name,
 	    'w' => '1',
 	    'h' => '1',
-	    'category_id' => 67
+	    'category_id' => $_GET['category_id']
     );
 	  $model->attributes=$ati;
 	  if($model->save()){	    
@@ -96,8 +130,8 @@ class AttachmentController extends controller
       $image->save();      
       $image->resize(160, 120,Image::NONE);
       $image->save($file_path_s);    
-	  }	  	  
-	  
+	  }
+	 
   }
   
 	/**
@@ -128,9 +162,14 @@ class AttachmentController extends controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
+		
+		$leafs = Category::model()->ileafs(
+      array( 'ident' => 'attachment' ,'include' => true )
+	  );	
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model' => $model,
+			'leafs' => $leafs
 		));
 	}
 
@@ -149,12 +188,23 @@ class AttachmentController extends controller
 		{
 			$model->attributes=$_POST['Attachment'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if( isset($_GET['ajax']) ) {
+					echo 'update attachment suc';
+					exit;
+				}else {
+					$this->redirect(array('view','id'=>$model->id));	
+				}	
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+    if( $_GET['ajax'] == 'ajax' ){      
+      $this->renderPartial('update',array(
+			  'model'=>$model,
+		  ),false,true);
+    }else{
+		  $this->render('update',array(
+			  'model'=>$model,
+		  ));
+		}
 	}
 
 	/**
@@ -165,12 +215,19 @@ class AttachmentController extends controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
+		  if( strlen($_POST['ids']) >0 ) {
+	    	$ids = explode(',',$_POST['ids']);
+			  foreach( $ids as $id) {
+				  $a = Attachment::model()->findByPk($id);
+			  	$a->delete();					
+			  }
+		  }
 			// we only allow deletion via POST request
-			$this->loadModel()->delete();
+			//$this->loadModel()->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			//if(!isset($_GET['ajax']))
+				//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

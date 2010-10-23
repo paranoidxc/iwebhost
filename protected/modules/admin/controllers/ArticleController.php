@@ -35,9 +35,10 @@ class ArticleController extends Controller
 	
 	public function actionSortarticle() {
 		$sort = $_POST['sort'];
-		for( $i=0; $i<count($sort); $i++ ) {			
+		for( $i=0; $i<count($sort); $i++ ) {		
+		  echo $sort[$i];
 			$at = Article::model()->findByPk($sort[$i]);
-			$at->sort_id = $i+1;
+			$at->sort_id = count($sort)-$i;
 			$at->save();
 		}
 	}
@@ -66,7 +67,7 @@ class ArticleController extends Controller
 		if( isset($_POST['category_id']) ){			
 			$category_id = $_POST['category_id'];
 			$category = Category::model()->findByPk($category_id);
-			$ids = explode(',',$_POST['ids']);
+			$ids = explode(',',$_POST['ids']);			
 			foreach( $ids as $id) {				
 				$at = Article::model()->findByPk($id);
 				if( $at ) {									
@@ -76,9 +77,13 @@ class ArticleController extends Controller
 			}			
 			echo count($ids)." record(s) are move to ";
 			echo $category->name;
-			
+			exit;
 		}
-		list($leafs) = $this->getRelData();
+		
+		$leafs = Category::model()->ileafs(
+        array( 'id' => $_GET['top_leaf_id'],'include' => true )
+	  );	  
+	  
 		$this->renderPartial('move', array(
 			'leafs' => $leafs
 		),false, true);

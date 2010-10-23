@@ -26,6 +26,7 @@ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), color-stop(0.4
 }
 
 .ibtn {
+
   border:1px solid #4592AD;
   color:#FFFFFF;
   cursor:pointer;
@@ -50,6 +51,37 @@ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), color-stop(0.4
  
   text-shadow: rgba(0, 0, 0, 0.199219) 0px -1px 0px;
   -moz-outline-style:none;
+
+  /*
+  border-bottom-left-radius: 14px 14px;
+border-bottom-right-radius: 14px 14px;
+border-top: 1px solid rgba(255, 255, 255, 0.199219);
+border-top-left-radius: 14px 14px;
+border-top-right-radius: 14px 14px;
+display: block;
+line-height: 1;
+padding: 4px 15px 6px;
+*/
+
+/*
+border-bottom-left-radius: 14px 14px;
+border-bottom-right-radius: 14px 14px;
+border-top: 1px solid rgba(255, 255, 255, 0.199219);
+border-top-left-radius: 14px 14px;
+border-top-right-radius: 14px 14px;
+display: block;
+line-height: 1;
+padding: 4px 15px 6px;
+
+
+background-image: url(http://ifotus.appspot.com/static/images/super-button-overlay.png);
+border: 1px solid rgba(0, 0, 0, 0.246094);
+border-bottom-left-radius: 15px 15px;
+border-bottom-right-radius: 15px 15px;
+border-top-left-radius: 15px 15px;
+border-top-right-radius: 15px 15px;
+font-size: 13px;
+*/
 }
 
 

@@ -4,6 +4,8 @@
 $website_dir = dirname(__FILE__);
 $atms_dave_dir = $website_dir.'/upfiles/';
 
+//$atms_dave_dir = '/home/huangxc/upfiles/';
+
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 
@@ -32,6 +34,38 @@ function colorfulV($s='my love--!'){
 	global $colorful_array;	
 	return $colorful_array[rand(0,count($colorful_array)-1)];	
 }
+
+
+
+
+function cnSubstr($str, $start, $len) { 
+  //$str_tmp = $len - $start; 
+  $tmpstr = ""; 
+  $strlen = $start + $len; 
+  $i = 0;  
+  $n = 0;   
+  while( $n < $strlen ){   
+    $ascnum = ord(substr($str, $i, 1)) ;      
+    if( $ascnum > 224) { 
+      $step = 3;
+    }elseif ($ascnum>=192) {
+      $step = 2;      
+    }else{
+      $step = 1;      
+    }
+    if( $n >= $start ){
+      $tmpstr .= substr($str, $i, $step); 
+    }
+    $i += $step;    
+    $n ++ ; 
+  }
+  if( $i<strlen($str) ){
+    $tmpstr .= "…";   
+  }   
+  
+  return $tmpstr; 
+}
+
 
 require_once($yii);
 Yii::createWebApplication($config)->run();

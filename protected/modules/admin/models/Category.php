@@ -257,7 +257,7 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('template,partial,memo, album_tpl,list_tpl,topic_tpl,content_type,uri,oct_id,ost_id,ident,ident_label', 'default'),
+			array('template,partial,memo, album_tpl,list_tpl,topic_tpl,content_type,uri,oct_id,ost_id,ident,ident_label,model_type', 'default'),
 			array('ident_label','unique','allowEmpty' => true, 'caseSensitive' => false ),
 			array('name', 'required'),
 			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
@@ -308,7 +308,8 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'articles' 	     => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id DESC '),
+			'articles' 	      => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id DESC '),
+			'attachments'     => array( self::HAS_MANY,     'Attachment','category_id' ),
 			//'first_article'  => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id asc' ),
 			//'last_article' 	 => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id desc' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),

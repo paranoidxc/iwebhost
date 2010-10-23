@@ -22,7 +22,7 @@ ul.api_categorys_ul li p {
   background-position:0px 0px;
   background-repeat:repeat-x;
   border-color: rgba(118,157,192,0);
-  background-color: rgba(171,214,255,0);
+  background-color: rgba(171,214,255,0);  
   -webkit-transition-property:background-color, border-color;
   -webkit-transition-duration:.25s ;
   -webkit-transition-timing-function: ease-out;    
@@ -37,9 +37,12 @@ ul.api_categorys_ul li p:hover {
   color:#000;
   padding: 3px 0px 1px;    
   margin-left: 0px;  
-  border:solid 1px #FF9BFF;    
+  /*border-top:solid 1px #FF9BFF;    
+  border-bottom:solid 1px #FF9BFF;
+  */
   -webkit-transition-duration:.25s;
-  background: #FFC5FF url(api_categorys_img/commonHighlight.png) repeat-x ;
+  background: #7FB3F2;
+  /*url(api_categorys_img/commonHighlight.png) repeat-x ;*/
 }
 ul.category_sortable li a:active,
 ul.api_categorys_ul li p:active {
@@ -47,7 +50,9 @@ ul.api_categorys_ul li p:active {
   background-position:0px -177px;
   padding: 3px 0px 1px;
   margin-left: 0px;
+  /*
   border:solid 1px #769dc0;
+  */
   color:#000;  
 }
 ul.api_categorys_ul li p.select {
@@ -102,10 +107,10 @@ ul.api_categorys_ul span.fold{
   line-height: 16px;
   display: inline-block;
 }
-ul.api_categorys_ul span.leaf {
-  display: inline-block;  
-  height: 12px;
-  line-height: 12px;  
+ul.api_categorys_ul span.leaf { 
+  height: 14px;
+  display: inline;
+  line-height: 14px;  
   overflow: hidden;
   text-indent: 0;  
   text-overflow: ellipsis;  

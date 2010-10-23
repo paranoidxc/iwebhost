@@ -44,17 +44,19 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			
 		),
 		// uncomment the following to enable URLs in path-format
 		
-		//'urlManager'=>array(
-		//	'urlFormat'=>'path',
-		//	'rules'=>array(
+		'urlManager'=>array(
+		//	'urlFormat'=>'path',				
+			'rules'=>array(
+			  'ilogin' => 'site/login',
 		//		'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 		//		'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 		//		'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-		//	),
-		//),
+			),
+		),
 		
     /*
 		'db'=>array(
@@ -65,8 +67,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
 			'emulatePrepare' => true,
-			'username' => 'parano2_parano2',
-			'password' => 'pa55w0rd',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 

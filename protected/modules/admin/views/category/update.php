@@ -13,4 +13,4 @@ $this->menu=array(
 );
 ?>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'leafs' => $leafs)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'leafs' => $leafs, 'model_type' => $model_type)); ?>
