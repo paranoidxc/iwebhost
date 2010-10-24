@@ -2017,3 +2017,39 @@ Stack trace:
 #3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 H:\projects\iwebhost\index.php(71): CApplication->run()
 #5 {main} REQUEST_URI=/index.php?r=admin/category/part_leafs&top_leaf_id=1&_=1287855128291
+2010/10/24 09:38:55 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:38:55 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:38:56 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:38:56 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)
+2010/10/24 09:39:01 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (54)
+in H:\projects\iwebhost\index.php (71)

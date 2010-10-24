@@ -28,7 +28,7 @@
   <?php
     foreach($category->images as $t){	     	        
 	        echo "<div class='img_wrap'><a class='vlightbox' href='".Yii::app()->request->baseUrl.'/upfiles/'.$t->path."' title='$t->screen_name' >";
-	        echo "<img src='/upfiles/s".$t->path."' title='' /> ";
+	        echo "<img src='/upfiles/s".$t->path."' title='' alt='' /> ";
           echo '</a>';
           echo '<p>'.$t->screen_name.'</p>';
           echo '</div>';

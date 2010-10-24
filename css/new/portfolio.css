@@ -56,7 +56,9 @@ div.img_wrap p {
 #foot {
   margin: 0;
   padding: 0;
+  margin-top: 20px;
   background: #000 url(images/foot.jpg) no-repeat 0 0;
+  position: relative;
   }
   #w3c {
     background: #000;
@@ -69,7 +71,7 @@ div.img_wrap p {
     padding: 5px;
     position: absolute;
     z-index: 2;
-    left: 850px;
+    right: 15px;
   }
   #w3c a, #w3c a:visited {
     color: #666;

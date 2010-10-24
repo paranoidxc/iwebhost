@@ -578,7 +578,8 @@ $(document).ready(function(){
 	* simple copy articles to same category
 	*/
 	$('#artiles_copy').live('click',function(){		
-		var ids = '';
+		var ids = get_ids();
+		/*
 		$('dl.highlight_selected').each(function(){
 			if( ids == "") {
 				ids += $(this).attr('rel_id');
@@ -586,7 +587,7 @@ $(document).ready(function(){
 				ids += ','+$(this).attr('rel_id');
 			}			
 		});
-		
+		*/
 		$.ajax({
 			type:	"post",
 			cache: 	false,
