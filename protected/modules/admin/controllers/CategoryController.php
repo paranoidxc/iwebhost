@@ -32,7 +32,7 @@ class CategoryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange','sort','pick','itest','part_leafs'),
+				'actions'=>array('index','view','leafs','exchange','move','sort','pick','itest','part_leafs'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -63,7 +63,104 @@ class CategoryController extends Controller
 		$this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
 	}
 	
+	public function actionMove() {
+	  if(Yii::app()->request->isPostRequest){	    	    
+      if( Category::model()->leafMoveToAnother($_POST['cur_leaf_id'],$_POST['category_id']) ){
+        echo "leaf move suc !" ;        
+      }else{
+        echo 'leaf move error !';       
+      }
+      exit;
+	  }else{
+	    
+	     $leafs = Category::model()->ileafs(
+        array( 'id' => $_GET['top_leaf_id'],'include' => true )
+	    );	  
+	  
+		  $this->renderPartial('move', array(
+			  'leafs' => $leafs
+		  ),false, true);
+		  
+	  }
+	}
+	
+	
+  public function actionxMove(){
+    if(Yii::app()->request->isPostRequest){            
+      $source_id  = $_POST['cur_leaf_id'];
+      $dest_id    = $_POST['category_id'];      
+      
+      $model = Category::model()->findByPk($source_id);
+      //$dest_leaf = Category::model()->findByPk($dest_id);
+      $model->parent_leaf = Category::model()->findByPk($dest_id);      
+			
+			$width = $model->rgt - $model->lft + 1;
+			$pwidth = $model->parent_leaf->rgt - $model->parent_leaf->lft ;
+			
+			if( $pwidth < $width ) {
+				$pwidth = $pwidth + $width;
+			}
+			
+			$cmodel = Category::model();
+			$transaction = $cmodel->dbConnection->beginTransaction();		
+      try{
+				// step 1: temporary "remove" moving node
+		    $sql 	 = " UPDATE category ";
+  			$sql	.= " SET lft = -lft, rgt = -rgt ";
+  			$sql	.= " WHERE lft >= $model->lft AND rgt <= $model->rgt ";
+  			_debug($sql);
+  			$cmodel->dbConnection->createCommand($sql)->execute(); 	    			
+ 
+  			// step 2: decrease left and/or right position values of currently 'lower' items (and parents)
+  			$width = abs($width);
+  			$pwidth = abs($pwidth);
+      	$sql = " UPDATE category  SET lft = lft  -  $width WHERE lft > $model->rgt ";	   
+      	$cmodel->dbConnection->createCommand($sql)->execute(); 	
+  	    $sql = " UPDATE category SET rgt = rgt- $width WHERE rgt >  $model->rgt ";
+  	    $cmodel->dbConnection->createCommand($sql)->execute();
+  	    
+  	    //// step 3: increase left and/or right position values of future 'lower' items (and parents)
+  			$parent_rgt = $model->parent_leaf->rgt;
+  			$parent_lft = $model->parent_leaf->lft;
+			
+			  $t1 = $parent_rgt > $model->rgt ? $parent_rgt -$width : $parent_rgt;
+			  $sql = " UPDATE category SET lft = lft + $width  WHERE lft >= $t1 ";
+    	  _debug($sql);
+    	  _debug( " t1 = ".$t1);
+    	  $cmodel->dbConnection->createCommand($sql)->execute();    	    	    	
+    	
+      	$t2 = $parent_rgt > $model->rgt ? $parent_rgt - $width : $parent_rgt;
+      	_debug( " t2 = ".$t2);
+      	$sql = " UPDATE category  SET rgt = rgt +  $width WHERE rgt >=  $t2";
+      	$cmodel->dbConnection->createCommand($sql)->execute();	    	    	    	    
+      	
+      	// step 4 move the temporary "remove" leaf to parent
+      	$_lft = $parent_rgt > $model->rgt ? $parent_rgt - $model->rgt -1 : $parent_rgt-$model->rgt -1 + $width;
+      	$_rgt = $parent_rgt > $model->rgt ? $parent_rgt - $model->rgt -1 : $parent_rgt-$model->rgt -1 + $width;
+      	$sql = " UPDATE category SET lft = -lft + $_lft , rgt = -rgt + $_rgt WHERE lft < 0 ";    	    	
+      	_debug( $sql );
 
+      	$cmodel->dbConnection->createCommand($sql)->execute();
+  	    $transaction->commit();		
+	      
+      }catch(Exception $e) {
+    	  _debug($e);
+      	$transaction->rollBack();
+      }
+      
+    }else{      
+      $leafs = Category::model()->ileafs(
+        array( 'id' => $_GET['top_leaf_id'],'include' => true )
+	    );	  
+	  
+		  $this->renderPartial('move', array(
+			  'leafs' => $leafs
+		  ),false, true);
+    }
+    
+  }
+  
+  
 	public function actionPick(){
 		$return_id = $_GET['return_id'];
 		$this->renderPartial('pick',array('return_id' => $return_id),false,true);	
@@ -195,7 +292,8 @@ class CategoryController extends Controller
 		}	
 	}
 	
-	public function actionExchange() {
+	public function actionExchange() {	 
+
 		$leaf1 = Category::model()->findByPk($_GET['id2']);
 		$leaf1_dis = $leaf1->rgt - $leaf1->lft;
 		$leaf2 = Category::model()->findByPk($_GET['id1']);
@@ -586,6 +684,7 @@ class CategoryController extends Controller
 	    $cmodel->dbConnection->createCommand($sql)->execute();
 			
 	  
+	    //// step 3: increase left and/or right position values of future 'lower' items (and parents)
 			$parent_rgt = $model->parent_leaf->rgt;
 			$parent_lft = $model->parent_leaf->lft;
 			

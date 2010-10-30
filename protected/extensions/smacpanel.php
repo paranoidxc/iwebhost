@@ -1,5 +1,7 @@
 <?php
 	class Smacpanel extends CWidget {
+	  public $title="Untitled";
+	  
 		public function init() {
 			$r=<<<EOT
      <table class="mac_panel">
@@ -11,7 +13,7 @@
            <span class="ct max">max</span>
          </td>
          <td class="middle drag_handle">
-           <span class="title">xiaochuan Huang's vCard</span></td>
+           <span class="title">$this->title</span></td>
          <td class="right"></td>
        </tr>
       </table>

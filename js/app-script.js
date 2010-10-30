@@ -859,4 +859,42 @@ $(document).ready(function(){
 	});
 	
 	
+	//98f13708210194c475687be6106a3b84
+	$('.ele_move_leaf').live('click',function(){
+	  $.ajax({
+	    type: 'get',
+	    cache: false,
+	    url:    $(this).attr('href')+'&top_leaf_id='+$('#top_leaf_id').val(),
+	    success: function(html){
+	      var pop = $("<div title='Move Content' id='dialog_move_content' ></div").html(html);
+				pop.insertAfter($('body')).dialog( {			
+					width: 400, 
+					minWidth: 600
+				});
+	    }	    
+	  });
+	  return false;
+	})
+	$('#category_ajax_move').live('submit',function(){
+	  var dialog = $(this).parents().find('.ui-dialog-content');
+	  $.ajax({
+			type: "post",
+			cache: false,
+			data:		$(this).serialize()+"&cur_leaf_id="+$('#cur_leaf_id').val(),
+			url: $(this).attr('action'),
+			success:	function(html){
+				dialog.html(html);
+        renderPartLeafs();
+			}
+		});
+		return false;
+	});
+		
+	$('.leaf_pick').live('click',function(){	  
+	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
+	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
+	})
+	
+	
+	
 });

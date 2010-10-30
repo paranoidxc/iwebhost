@@ -361,4 +361,65 @@ class Category extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	
+	
+	public function leafMoveToAnother($s,$t){
+	  $s_leaf = Category::model()->findByPk($s);
+    $t_leaf = Category::model()->findByPk($t);         
+    if( $s_leaf->id == $t_leaf->id ){      
+      return false;
+    }
+		$width  = $s_leaf->rgt - $s_leaf->lft + 1;
+		$pwidth = $t_leaf->rgt - $t_leaf->lft ;
+			
+		if( $pwidth < $width ) {
+			$pwidth = $pwidth + $width;
+		}
+		
+		$width = abs($width);
+		$pwidth = abs($pwidth);
+			
+		$cmodel = Category::model();
+		$transaction = $cmodel->dbConnection->beginTransaction();		
+    try{
+			// step 1: temporary "remove" moving node
+	    $sql 	 = " UPDATE category ";
+			$sql	.= " SET lft = -lft, rgt = -rgt ";
+			$sql	.= " WHERE lft >= $s_leaf->lft AND rgt <= $s_leaf->rgt ";
+			_debug($sql);
+			$cmodel->dbConnection->createCommand($sql)->execute(); 	    			
+
+			// step 2: decrease left and/or right position values of currently 'lower' items (and parents)			
+    	$sql = " UPDATE category  SET lft = lft  -  $width WHERE lft > $s_leaf->rgt ";	   
+    	$cmodel->dbConnection->createCommand($sql)->execute(); 	
+	    $sql = " UPDATE category SET rgt = rgt- $width WHERE rgt >  $s_leaf->rgt ";
+	    $cmodel->dbConnection->createCommand($sql)->execute();
+	    
+	    //// step 3: increase left and/or right position values of future 'lower' items (and parents)
+			$parent_rgt = $t_leaf->rgt;
+			$parent_lft = $t_leaf->lft;
+		
+		  $t1 = $parent_rgt > $s_leaf->rgt ? $parent_rgt -$width : $parent_rgt;
+		  $sql = " UPDATE category SET lft = lft + $width  WHERE lft >= $t1 ";  	    	  
+  	  $cmodel->dbConnection->createCommand($sql)->execute();    	    	    	  	
+    	$sql = " UPDATE category  SET rgt = rgt +  $width WHERE rgt >=  $t1";
+    	$cmodel->dbConnection->createCommand($sql)->execute();	    	    	    	    
+    	
+    	// step 4 move the temporary "remove" leaf to parent
+    	$_lft = $parent_rgt > $s_leaf->rgt ? $parent_rgt - $s_leaf->rgt -1 : $parent_rgt-$s_leaf->rgt -1 + $width;
+    	$_rgt = $parent_rgt > $s_leaf->rgt ? $parent_rgt - $s_leaf->rgt -1 : $parent_rgt-$s_leaf->rgt -1 + $width;
+    	$sql = " UPDATE category SET lft = -lft + $_lft , rgt = -rgt + $_rgt WHERE lft < 0 ";    	    	
+    	_debug( $sql );
+    	$cmodel->dbConnection->createCommand($sql)->execute();
+	    $transaction->commit();		
+	      
+    }catch(Exception $e) {
+  	  _debug($e);
+    	$transaction->rollBack();
+    	return false;
+    }
+    return true;
+	}
+	
 }

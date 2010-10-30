@@ -52,6 +52,23 @@ class API {
     }    
   }
   
+  /**
+   * move the leaf to another 
+   * @parameter $opt['from] => the id of moving leaf ; $opt['to'] => the parent leaf id 
+   * WARNNING: can't move leaf to self
+   * @return boolean
+   * @author paranoid
+   **/
+  public static function category_move($opt){
+    if( is_array($option) && is_numeric($opt['from']) && is_numeric($opt['to']) ){      
+      return Category::model()->leafMoveToAnother($opt['from'], $opt['to'])
+    }else{
+      echo "ERROR PHP File:".dirname(__FILE__).'/API.php';
+      echo "ERROR Fuction category_move";
+      exit:
+    }
+  }
+  
 
   public static function NAV($opt) {    
     if( is_array( $opt ) ) {      

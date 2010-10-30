@@ -1,6 +1,7 @@
 <?php
   echo "<div class='mac_panel_wrap' >";
-  $this->beginWidget('application.extensions.Smacpanel');
+  $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
+  $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
   echo "<div class='icategory_tree'>";
   $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
@@ -41,19 +42,26 @@
 
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('category/create') ?>" 		
-	      title="New Dir" class="ele_create_category"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
+	      title="create new leaf inside current leaf" class="ele_create_category"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
  	</li>	
  	
  	<li class="hover">
 		<a href="<?php echo CController::createUrl('category/update') ?>" 		
- 	     title="Update Dir" class="ele_update_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Update.png" /></a>
+ 	     title="update the current leaf" class="ele_update_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Update.png" /></a>
  	</li> 	 	
 	
  	<li class="hover">
+		<a href="<?php echo CController::createUrl('category/move') ?>" 		
+ 	     title="move the current leaf to another" class="ele_move_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Move.png" /></a>
+ 	</li> 	 	
+ 	
+ 	<li class="hover">
  	 <a  href="<?php echo CController::createUrl('category/delete') ?>"		
- 	     title="Delete Dir" class="ele_del_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
+ 	     title="delete current leaf" class="ele_del_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
  	</li> 	
+ 	
  	<li class="seperate"></li> 	 	
+ 	
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
 	      title="Create Article" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Writing.png" /></a>

@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'iWebhost version 0.1 beta',
+	'name'=>'iWebhost version 0.2 beta',
 	'theme'=>'classic',
 	'defaultController' => 'istart',
 	// preloading 'log' component
@@ -65,8 +65,8 @@ return array(
      */
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			//'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
-			'connectionString' => 'mysql:host=localhost;dbname=huangxc_iwebhost',
+			'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
+			//'connectionString' => 'mysql:host=localhost;dbname=huangxc_iwebhost',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
