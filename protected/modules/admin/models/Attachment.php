@@ -11,7 +11,7 @@
  * @property integer $h
  */
 class Attachment extends CActiveRecord
-{
+{    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Attachment the static model class
@@ -20,7 +20,7 @@ class Attachment extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -28,7 +28,12 @@ class Attachment extends CActiveRecord
 	{
 		return 'attachment';
 	}
-
+  
+	
+  public function is_image(){
+    return in_array($this->extension,$img_ext);
+  }
+  
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -37,7 +42,7 @@ class Attachment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('category_id', 'default'),
+		  array('category_id,extension', 'default'),
 			array('screen_name, path, w, h', 'required'),
 			array('w, h', 'numerical', 'integerOnly'=>true),
 			array('screen_name, path', 'length', 'max'=>255),

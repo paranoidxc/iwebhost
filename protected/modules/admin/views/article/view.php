@@ -15,6 +15,21 @@ $this->menu=array(
 
 <h1>View Article #<?php echo $model->id; ?></h1>
 
+<div style="background: #FFF; padding: 10px; font-size: 12px;">
+<?php
+//echo "nl2br\n";
+//echo nl2br($model->content);
+
+//echo "chtml encode\n";
+//echo nl2br(CHtml::encode( $model->content ));
+
+echo "markdown\n";
+
+
+$my_html = Markdown($model->content);
+echo $my_html;
+?>
+</div>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

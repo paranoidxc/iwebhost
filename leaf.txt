@@ -1,3 +1,25 @@
+ 
+ 
+ 
+ /**自动转为超链接*/
+function autolink($foo) 
+{
+    // Modified from:  http://www.szcpost.com
+    $foo = eregi_replace('(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', '<a href="\\1" target=_blank rel=nofollow>\\1</a>', $foo);
+    if( strpos($foo, "http") === FALSE )
+    {
+        $foo = eregi_replace('(www.[-a-zA-Z0-9@:%_\+.~#?&//=]+)', '<a href="http://\\1" target=_blank rel=nofollow >\\1</a>', $foo);
+    }
+    else
+    {
+        $foo = eregi_replace('([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&//=]+)', '\\1<a href="http://\\2" target=_blank rel=nofollow >\\2</a>', $foo);
+    }
+    return $foo; 
+}
+ 
+ 
+ 
+ 
  SELECT node.id AS id, 
         node.name, (COUNT(parent.name) - 1) AS depth
         FROM category AS node,         

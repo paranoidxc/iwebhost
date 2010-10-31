@@ -23,6 +23,10 @@ class ArticleController extends Controller
 		);
 	}
 
+  public function actionPreview() {
+    echo ereg_replace('<script.*</script>', '', Markdown($_POST['content']));
+  }
+  
 	public function actionTest() {
 		echo "!";
 	}
@@ -97,7 +101,7 @@ class ArticleController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','Sortarticle'),
+				'actions'=>array('index','view','preview','Sortarticle'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

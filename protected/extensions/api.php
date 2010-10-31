@@ -52,6 +52,19 @@ class API {
     }    
   }
   
+  
+  public static function leaf(){
+    
+  }
+  
+  public static function leafs() {
+    
+  }
+  
+  public static function leaf_tree(){
+    
+  }  
+  
   /**
    * move the leaf to another 
    * @parameter $opt['from] => the id of moving leaf ; $opt['to'] => the parent leaf id 
@@ -59,7 +72,7 @@ class API {
    * @return boolean
    * @author paranoid
    **/
-  public static function category_move($opt){
+  public static function leaf_move($opt){
     if( is_array($option) && is_numeric($opt['from']) && is_numeric($opt['to']) ){      
       return Category::model()->leafMoveToAnother($opt['from'], $opt['to'])
     }else{

@@ -13,7 +13,9 @@
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
 }
-
+.dN {
+  display: none;
+}
 .atm_photos {
   /*
   height: 400px;

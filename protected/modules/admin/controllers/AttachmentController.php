@@ -114,22 +114,35 @@ class AttachmentController extends Controller
 		  exit(0);
 	  }
 	  $model=new Attachment;
+	  
+	  $img_ext = array("jpg", "jpeg", "png", "gif");
+	  $is_image = false;
+	  if( in_array($file_extension,$img_ext) ){
+	    $image = Yii::app()->image->load(ATMS_SAVE_DIR.$file_name);
+	    $w = $image->width;	    
+	    $h = $image->height;
+	    $is_image = true;
+	  }
+	  
 	  $ati = array(
 	    'screen_name' => $screen_name,
 	    'path'        => $file_name,
-	    'w' => '1',
-	    'h' => '1',
+	    'w' => $w,
+	    'h' => $h,
+  	  'extension' => $file_extension,
 	    'category_id' => $_GET['category_id']
     );
 	  $model->attributes=$ati;
-	  if($model->save()){	    
-	    $file_path_t = ATMS_SAVE_DIR.'t'.$file_name;
-      $file_path_s = ATMS_SAVE_DIR.'s'.$file_name;
-      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$file_name);      
-      $image->resize(800, 600);
-      $image->save();      
-      $image->resize(160, 120,Image::NONE);
-      $image->save($file_path_s);    
+	  if($model->save()){
+	    if( $is_image ){
+  	    $file_path_t = ATMS_SAVE_DIR.'t'.$file_name;
+        $file_path_s = ATMS_SAVE_DIR.'s'.$file_name;
+        $image->resize(800, 600);
+        $image->save();      
+        $image->resize(160, 120);
+        //,Image::NONE);
+        $image->save($file_path_s);
+      }
 	  }
 	 
   }

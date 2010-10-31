@@ -511,7 +511,7 @@ $(document).ready(function(){
 			success:	function(html){
 				var pop = $("<div title='view article' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 1000, 
+					width: 600, 
 					minWidth: 600
 				});
 				render();
@@ -728,7 +728,7 @@ $(document).ready(function(){
 			success:	function(html) {
 				var pop = $("<div title='my god' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 1000, 
+					width: 600, 
 					minWidth: 600
 				});		
 				//console.log( 'ajax update new leaf get suc' );
@@ -744,7 +744,7 @@ $(document).ready(function(){
 			success:	function(html) {
 				var pop = $("<div title='my god' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
-					width: 1000, 
+					width: 600, 
 					minWidth: 600
 				});		
 				//console.log( 'ajax create new leaf get suc' );
@@ -894,6 +894,41 @@ $(document).ready(function(){
 	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
 	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
 	})
+	
+	
+	//fun21 表单tab事件
+	//$('.form .form_field_wrap').hide();
+	$('.iform_field_wrap').hide();		
+	$($('.iform .form_field_wrap')[0]).show();
+	$('.form_tab').live('click',function(){	  
+	  $('.form_tab_selected').removeClass('form_tab_selected');
+	  $(this).addClass('form_tab_selected');
+	  
+	  $('.iform .form_field_wrap').hide();
+	  $('.'+$(this).attr('data')).show();
+	  return false;
+	});
+	
+	$('.inner_tab').live('click',function(){
+	  $('.inner_wrap').hide();
+	  $('.inner_tab_selected').removeClass('inner_tab_selected');
+	  $(this).addClass('inner_tab_selected');
+	  var that =  $('.'+$(this).attr('data') );
+	  if( $(this).attr('data') == 'preview' ){
+	    that.html('loading...');	    
+	    $.ajax({
+	      type: 'post',
+	      cache: false,
+	      url: $(this).attr('url'),
+	      data: "&content="+$('#Article_content').val(),
+	      success: function(html){
+	        that.html( html );
+	      }
+	    })
+	  }
+	  $('.'+$(this).attr('data')).show();
+	});
+	
 	
 	
 	

@@ -15,7 +15,7 @@ define('ATMS_SAVE_DIR',$atms_dave_dir);
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 // specify how many levels of call stack should be shown in each log message
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
-
+include_once "markdown.php";
 function _debug($s) {
 	print_r($s);
 	print_r("<br/>");
@@ -23,6 +23,8 @@ function _debug($s) {
 
 $colorful = "#093 #639 #693 #606 #669 #066 #033 #339 #999 #4588CE #9C0909 #171717 #CA0B0B #5FB509 #363636 #FF5900";
 $colorful_array = explode(' ',$colorful);
+$img_ext = array("jpg", "jpeg", "png", "gif");
+
 
 function colorful($s='my love--!'){
 	global $colorful_array;	
