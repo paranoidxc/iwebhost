@@ -125,7 +125,25 @@
     height: 32px;
     line-height: 32px;
   }
-
+  .flat_panel_bottom .right ,
+  .flat_panel_bottom .middle ,
+  .flat_panel_bottom .left {
+    height: 5px;
+    line-height: 5px;
+  }
+  .flat_panel_bottom .left {
+    width: 26px;
+    background: url(panel_images/flat_bottom_left.png) no-repeat 0 bottom;
+  }
+  .flat_panel_bottom .middle {
+    color: #666;    
+    background: url(panel_images/flat_bottom_middle.png) repeat-x 0 bottom;
+  }
+  .flat_panel_bottom .right {
+    width: 26px;
+    background: url(panel_images/flat_bottom_right.png) no-repeat 0 bottom;
+  }
+  
   .panel_bottom .left {
     width: 26px;
     background: url(panel_images/panel_bottom_left.png) no-repeat 0 0;

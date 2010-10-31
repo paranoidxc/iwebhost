@@ -114,7 +114,7 @@ font-size: 13px;
   border-top-left-radius: 15px 15px;
   border-top-right-radius: 15px 15px;  
   -moz-border-radius: 3px 3px  0 0 ;
-  
+
   font-size: 13px;
   padding: 0px;
   color: #CCC;
@@ -136,7 +136,9 @@ font-size: 13px;
   background-color: #696969;
   color: #FFF;
 }
-
+.form_tab:hover span {
+   color: #FFF;
+}
 .form_tab span {
   border-bottom-left-radius: 14px 14px;
   border-bottom-right-radius: 14px 14px;  
@@ -147,6 +149,7 @@ font-size: 13px;
   display: inline-block;
   line-height: 1;
   padding: 4px 15px 6px;
+  color:#696969;
 }
 .form_tab_selected span {
   color: #FFF;

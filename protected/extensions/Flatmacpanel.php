@@ -1,43 +1,48 @@
 <?php
-	class Tmacpanel extends CWidget {
+	class Flatmacpanel extends CWidget {
 	  public $title="Untitled";
+	  
 		public function init() {
 			$r=<<<EOT
-	<div class='mac_panel_wrap'>
-     <table class="mac_panel tree_mac_panel">
+     <table class="mac_panel">
        <tr class="panel_top">
          <td class="left"></td>
          <td class="left_ct" >
            <span class="ct close">close</span>
            <span class="ct min">min</span>
            <span class="ct max">max</span>
-           <span class="ct inactive">inactive</span>
          </td>
          <td class="middle drag_handle">
            <span class="title">$this->title</span></td>
-         </td>
-         <td class="right_ct">
-         		<span class="ct mb">panel</span>
-         </td>
          <td class="right"></td>
        </tr>
-      </table> 
+      </table>
+    	<!-- mac panel middle start -->
+     <table class="mac_panel" id="content">
+       <tr class="panel_middle">
+         <td class="left"></td>
+         <td class="middle">        
 EOT;
     echo $r;
 		}	
 		
 		public function run() {
 			$r = <<<EOT
-    <table class="mac_panel tree_mac_panel">
-       <tr class="panel_bottom">
+			         </td>
+         <td class="right"></td>
+       </tr>
+      </table>      
+ <!-- mac panel bot
+ tom start -->
+     <table class="mac_panel">
+       <tr class="flat_panel_bottom">
          <td class="left"></td>
-         <td class="middle">
-           <span class="title">&copy; xiaochuang Huang 1985-‘10 </span>
+         <td class="middle">           
          </td>
          <td class="right"></td>
        </tr>
       </table>
-     </div>
+      <!-- mac panel bottom end -->
 EOT;
 			echo $r;
 		}

@@ -13,6 +13,9 @@
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
 }
+.w600p {
+  width: 600px;
+}
 .dN {
   display: none;
 }

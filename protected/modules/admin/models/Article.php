@@ -63,7 +63,7 @@ class Article extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('attachment_id, gallery_id','default'),
-			array('title, content, category_id', 'required'),
+			array('title, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('subtitle', 'length', 'max'=>255),

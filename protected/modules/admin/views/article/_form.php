@@ -4,7 +4,7 @@
 	'id'=>'article-form',
 	'enableAjaxValidation'=>false,
 	'htmlOptions' => array(
-		'class' => 'ajax_form'
+		'class' => 'article_ajax_form'
 	)
 )); ?>	
 	<?php //echo $form->errorSummary($model); ?>	
@@ -118,4 +118,4 @@
   </div> 
 <?php $this->endWidget(); ?>
 
-</tr><!-- form -->
+<!-- form -->

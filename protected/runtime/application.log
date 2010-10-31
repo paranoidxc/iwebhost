@@ -2527,3 +2527,132 @@ REQUEST_URI=/index.php?r=admin/article/view&id=1
 in H:\projects\iwebhost\protected\modules\admin\views\article\view.php (24)
 in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (124)
 in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:00:04 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:25:05 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:25:45 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:29:45 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:31:08 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:31:53 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:34:04 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:35:55 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:36:24 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:36:40 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:37:19 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:37:48 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:38:26 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:39:15 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:39:43 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:40:24 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:00 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:22 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:24 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:25 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:26 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:41:48 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:42:31 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:42:53 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 10:43:09 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 11:28:40 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
+2010/10/31 11:47:05 [error] [exception.CException] exception 'CException' with message '属性 "Tmacpanel.title" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWidgetFactory.php(162): CComponent->__set('title', NULL)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(139): CWidgetFactory->createWidget(Object(ArticleController), 'application.ext...', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(182): CBaseController->createWidget('application.ext...', Array)
+#3 H:\projects\iwebhost\protected\modules\admin\views\article\create.php(3): CBaseController->beginWidget('application.ext...', Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(172): CController->renderPartial('create', Array, false, 'ture')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionCreate()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('create')
+#18 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/c...')
+#19 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#20 H:\projects\iwebhost\index.php(73): CApplication->run()
+#21 {main} REQUEST_URI=/index.php?r=admin/article/create&ajax=ajax&id=1&leaf_id=97
+2010/10/31 11:47:17 [error] [exception.CException] exception 'CException' with message '属性 "Tmacpanel.title" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWidgetFactory.php(162): CComponent->__set('title', NULL)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(139): CWidgetFactory->createWidget(Object(ArticleController), 'application.ext...', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(182): CBaseController->createWidget('application.ext...', Array)
+#3 H:\projects\iwebhost\protected\modules\admin\views\article\create.php(3): CBaseController->beginWidget('application.ext...', Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(172): CController->renderPartial('create', Array, false, 'ture')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionCreate()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('create')
+#18 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/c...')
+#19 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#20 H:\projects\iwebhost\index.php(73): CApplication->run()
+#21 {main} REQUEST_URI=/index.php?r=admin/article/create&ajax=ajax&id=1&leaf_id=97
+2010/10/31 11:53:06 [warning] [application] Failed to set unsafe attribute "content".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (149)
+in H:\projects\iwebhost\index.php (73)
