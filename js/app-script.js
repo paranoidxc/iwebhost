@@ -513,11 +513,15 @@ $(document).ready(function(){
 			type:	'get',
 			cache:	false,
 			success:	function(html){
+			  $('body').append( $(html) );
+			  init_mac_panel_drag();
+			  /*
 				var pop = $("<div title='view article' ></div").html(html);
 				pop.insertAfter($('body')).dialog( {			
 					width: 600, 
 					minWidth: 600
 				});
+				*/
 				render();
 			}
 		});
@@ -649,12 +653,13 @@ $(document).ready(function(){
 	    $('#attachment_form_wrap').toggle();
 	    return false;
 	  }
-	  
+	  //article_create_wrap
 		$.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
 			success:	function (html) {
-			  $(html).insertAfter( $('body') );
+			  //$(html).insertAfter( $('body') );
+			  $('body').append( $(html) );
 			  init_mac_panel_drag();
 			  /*
 				var pop = $("<div title='new article'></div>").html(html);
@@ -943,7 +948,8 @@ $(document).ready(function(){
 	$('.article_ajax_form').live('submit',function(){			  
 		var that = $(this);
 		var leaf_id = $('#Article_category_id').val();
-		var dialog = parentOne(that,'.mac_panel_wrap');		
+		var wrap = parentOne(that,'.mac_panel_wrap');		
+		dialog = wrap.find('.panel_middle .middle');
 		$.ajax({
 			type:		"post",
 			url:		$(this).attr('action'),
@@ -959,7 +965,24 @@ $(document).ready(function(){
 		});		
 		return false;
 	});
+		
+  function getPanel(that){
+    return parentOne(that,'.mac_panel_wrap');
+  }
+  
+  
+	$('.mac_panel_wrap .close').live('click',function(){
+	  getPanel($(this)).remove();	  
+	});
 	
-	
+	$('.mac_panel_wrap .min').live('click',function(){
+	  getPanel($(this)).slideUp();
+	});
+	$('.mac_panel_wrap .max').live('click',function(){	  
+	  getPanel($(this)).css({
+	    width: '100%',
+	    height: '100%'
+	  })
+	});
 	
 });
