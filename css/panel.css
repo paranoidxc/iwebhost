@@ -184,7 +184,7 @@
   .panel_middle .middle {
     background: #e2e2e2;
     background: red;
-    overflow: auto;
+    overflow: auto;    
   }
 
 
@@ -448,7 +448,8 @@
     /*margin-left: 10px;*/
   }
   .thumbnail dt.title:hover {
-    color: blue;
+    color: #FFF;
+    background:#73A6FF;
   }
   .thumbnail dd.summary {
     display: none;

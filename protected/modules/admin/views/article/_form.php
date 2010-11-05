@@ -1,5 +1,4 @@
 <div class="iform">
-
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'article-form',
 	'enableAjaxValidation'=>false,
@@ -9,7 +8,11 @@
 )); ?>	
 	<?php //echo $form->errorSummary($model); ?>	
 	
-	<div style="margin-left: 20px">
+	
+  <div class="feedback">
+	</div>
+	
+	<div class="ml20P pt10P">
 	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
 	  <a data="field_content" class="form_tab"><span>Content Field</span></a>
 	</div>
@@ -113,9 +116,11 @@
   	</div>
   </div>
   
-  <div>
+  <div class="taR h30P pr10P">
   		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn')); ?>
   </div> 
 <?php $this->endWidget(); ?>
+  <div class="ajax_overlay" />
+</div>
 
 <!-- form -->

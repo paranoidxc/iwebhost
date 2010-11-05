@@ -38,9 +38,14 @@
 	/*display: block;*/
 	font-size: 12px;	
 	width: 400px;
-	padding:2px;
-	background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;
+	padding:5px;
+	/*background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;*/
 	border:1px solid #BFBFBF;
+	background: #FFF;
+	border: 2px solid #73A6FF;
+}
+.itable tbody td input[type='text']:hover {
+  /*border: 2px solid #73A6FF;*/
 }
 .itable tbody td input[type='text'].small {
 	width: 100px;
@@ -61,9 +66,11 @@
 	background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;
 	border-width: 1px 0px 0px 1px;
 	border:1px solid #BFBFBF;	
+	background: #FFF;
+	border: 2px solid #73A6FF;
 	width: 400px;
-  	height: 50px;
-  	padding: 2px;	
+  height: 50px;
+  padding: 2px;	
 	font-size: 12px;
 }
 .itable tbody td textarea[name*=content] {

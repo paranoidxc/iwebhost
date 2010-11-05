@@ -12,6 +12,7 @@
 
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
+  background: #EFEFEF url(bg_40x40.png) repeat 0 0;
 }
 .w600p {
   width: 600px;
@@ -19,12 +20,51 @@ body {
 .dN {
   display: none;
 }
+.taL {
+  text-align: left;
+}
+
+.h20P { height: 20px; }
+.h30P { height: 30px; }
+.h40P { height: 40px; }
+.h50P { height: 50px; }
+
+.pt10P { padding-top: 10px; }
+
+.pr5P { padding-right: 5px; }
+.pr10P { padding-right: 10px; }
+
+
+.mt10P { margin-top: 10px; }
+
+.ml20P{ margin-left: 20px; }
+
+
+.taR {
+  text-align: right;
+}
 .atm_photos {
   /*
   height: 400px;
   overflow: auto;
   */
 }
+
+.iform {
+  position: relative;
+}
+
+.ajax_overlay {
+  width: 100%;
+  height: 100%;  
+  opacity: .6;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000 url(load.gif) no-repeat 50% 50%;
+}
+
 #cb_all_wrap {  
   height: 47px;
   line-height: 47px;
@@ -34,6 +74,13 @@ body {
   vertical-align: middle;
 }
 
+.feedback_on {
+  border: 2px solid #A5DA94;
+  background: #DBF1D4;
+  padding: 5px;
+  margin: 3px;
+  font-size: 12px;
+}
 
 #mainmenu {
   background: url(api_categorys_img/mac-menu-bar.png) no-repeat 0 0px;
