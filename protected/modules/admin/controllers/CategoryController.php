@@ -72,11 +72,9 @@ class CategoryController extends Controller
       }
       exit;
 	  }else{
-	    
 	     $leafs = Category::model()->ileafs(
         array( 'id' => $_GET['top_leaf_id'],'include' => true )
-	    );	  
-	  
+	    );
 		  $this->renderPartial('move', array(
 			  'leafs' => $leafs
 		  ),false, true);

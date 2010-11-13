@@ -1,13 +1,11 @@
+<div class='mac_panel_wrap w600p' >
 <?php
-$this->breadcrumbs=array(
-	'Categories'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List Category', 'url'=>array('index')),
-	array('label'=>'Manage Category', 'url'=>array('admin')),
-);
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create Node") )
 ?>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'model_type' => $model_type)); ?>
+
+<?php
+  $this->endWidget('application.extensions.Flatmacpanel');	 
+?>
+</div>

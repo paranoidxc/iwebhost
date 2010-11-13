@@ -304,26 +304,25 @@ $(document).ready(function(){
   	  }
   	});
   };
-  category_sortable();
+  category_sortable(); 
 	
-	// fun8
+	/* 3c0d364a98ce192722f577cf3227c2eb 点击节点显示内容 */
 	var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
 	function bindLeafClick(){
   	$('.api_categorys_ul p span.leaf').each(function(item) {
-  	  $(this).click(function(ev) {	    
+  	  $(this).click(function(ev) {	 
+  	    wrap = getPanel($(this));  	    
   	    $('#leaf_id').val($(this).attr('data_id'));	
   	    $('#cur_leaf_id').val( $(this).attr('data_id') );
   	    $('.api_categorys_ul p.tree_leaf_current').removeClass('tree_leaf_current');
-  	    $(this).parent().addClass('tree_leaf_current');
-  	    $('.actions').append(loading);
+  	    $(this).parent().addClass('tree_leaf_current');  	    
   	    $.ajax({
             type: 'get',
             dataType: 'html',
             cache: false,
             url: '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id'),
-            success: function(html) {
-                $('.loading').remove();
-                $('#leaf_articles').html(html);                             
+            success: function(html) {                
+              $('#leaf_articles').html(html);                             
             }
         });
   	  });
@@ -495,87 +494,17 @@ $(document).ready(function(){
 	
 	
 	
-	//fun12
-	$('#article_ajax_move').live('submit',function(){
-		var dialog = $(this).parents().find('.ui-dialog-content');
-		var ids = '';
-		
-		$('.cb_article').each(function(){
-		  if( $(this).is(":checked") ){
-		    if( ids == "") {
-				  ids += $(this).attr('rel_id');
-			  }else {
-				  ids += ','+$(this).attr('rel_id');
-			  }	
-		  }
-		});			
-		
-		$.ajax({
-			type: "post",
-			cache: false,
-			data:		$(this).serialize()+"&ids="+ids,
-			url: $(this).attr('action'),
-			success:	function(html){
-				dialog.html(html);
-				render();
-			}
-		});
-		return false;
-	});
 	
 	
-	$('#artiles_move').click(function(){		
-		$.ajax({
-			type:	'get',
-			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val(),
-			cache:	false,
-			success:	function(html){			  			  
-			  if( $('#dialog_move_content').length > 0 ){
-			    $('#dialog_move_content').dialog("destroy");
-			    $('#dialog_move_content').remove();
-			  }
-				var pop = $("<div title='Move Content' id='dialog_move_content' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 400, 
-					minWidth: 600
-				});		
-			}
-		})		
-		return false;
-	});
+	
 	
 	//fun17
 	$('.to_dest').live('click',function(){	  
 	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
 	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
 	})
-	/*
-	* simple copy articles to same category
-	*/
-	$('#artiles_copy').live('click',function(){		
-		var ids = get_ids();
-		/*
-		$('dl.highlight_selected').each(function(){
-			if( ids == "") {
-				ids += $(this).attr('rel_id');
-			}else {
-				ids += ','+$(this).attr('rel_id');
-			}			
-		});
-		*/
-		$.ajax({
-			type:	"post",
-			cache: 	false,
-			data: 	"ids="+ids,
-			url: 	$(this).attr('href'),
-			success:	function(html){				
-				render();
-			}
-		});
-		return false;
+	
 		
-		
-	});
 	
 	
 	//fun16
@@ -613,20 +542,41 @@ $(document).ready(function(){
 	
 	
 	
-	//fun10	
-	$('.ele_create_category').live('click',function () {
+	/*accb8413de43b01d42bc9f1af5aceab0 添加节点*/
+	$('.ele_create_category').live('click',function () {	  
+	  wrap = getPanel($(this));
 	  $.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&model_type='+$('#model_type').val()+'&ajax=ajax&id=1&leaf_id='+$('#cur_leaf_id').val(),
 			success:	function (html) {
+			  popup_panel( $(html) );
+			  
+			  /*
 				var pop = $("<div title='new article'></div>").html(html);
 				pop.insertAfter($('body')).dialog({
 					width: 550
 				});
+				*/
 			}			
 		});
 		return false;
-  });	
+  });
+  /*d7c8386e98d5b2185c276b93b32c84e3 更新节点*/	
+	$('.ele_update_leaf').live('click', function() {		
+		wrap = getPanel($(this));
+		$.ajax({
+			type:		"get",
+			url:		$(this).attr('href')+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val(),
+			success:	function(html) {
+			  popup_panel( $(html) );
+			}
+		});
+		return false;
+	});
+	
+  
+  
+  
 	/* create new article end */
 	//fun11
 	$('.atts').live('click',function(){
@@ -670,23 +620,8 @@ $(document).ready(function(){
 		return false;				
 	})
 	
-	/* create new leaf */
-	$('.ele_update_leaf').live('click', function() {		
-		
-		$.ajax({
-			type:		"get",
-			url:		$(this).attr('href')+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val(),
-			success:	function(html) {
-				var pop = $("<div title='my god' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
-					minWidth: 600
-				});		
-				//console.log( 'ajax update new leaf get suc' );
-			}
-		});
-		return false;
-	});
+
+	
 	$('.ele_create_new_leaf').live('click', function() {		
 		//console.log( $(this).attr('href') );
 		$.ajax({
@@ -804,54 +739,72 @@ $(document).ready(function(){
 	});
 	
 	
-	//98f13708210194c475687be6106a3b84
+	//98f13708210194c475687be6106a3b84  移动节点
 	$('.ele_move_leaf').live('click',function(){
+	  wrap = getPanel($(this));
 	  $.ajax({
 	    type: 'get',
 	    cache: false,
 	    url:    $(this).attr('href')+'&top_leaf_id='+$('#top_leaf_id').val(),
-	    success: function(html){
-	      var pop = $("<div title='Move Content' id='dialog_move_content' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 400, 
-					minWidth: 600
-				});
+	    success: function(html){	      
+	      popup_panel( $(html) );	      
 	    }	    
 	  });
 	  return false;
 	})
-	$('#category_ajax_move').live('submit',function(){
-	  var dialog = $(this).parents().find('.ui-dialog-content');
+	//98f13708210194c475687be6106a3b84  提交移动节点
+	$('#category_ajax_move').live('submit',function(){	  
+	  wrap = getPanel($(this));
+	  dialog = wrap.find('.panel_middle .middle .feedback');
+		dialog.html('');
+		
 	  $.ajax({
 			type: "post",
 			cache: false,
 			data:		$(this).serialize()+"&cur_leaf_id="+$('#cur_leaf_id').val(),
 			url: $(this).attr('action'),
 			success:	function(html){
-				dialog.html(html);
+			   if( html.indexOf('mac_panel_wrap') != -1 ){
+			    wrap.html( html);
+			  }else{
+			    dialog.addClass('feedback_on').html(html).show();
+			    setTimeout( "dialog.slideUp()" , 3000 );			    
+			  }
         renderPartLeafs();
 			}
 		});
 		return false;
 	});
-		
+
 	$('.leaf_pick').live('click',function(){	  
 	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
 	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
 	})
-	
-	
-	
-	
-	
-	
-	
+		
   
+	
+	/* JAVASCRIPT_START */
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, distance = 50, wrap=null;
-	function reset_panel_postion(){
+	var x =y = 0, distance = 25, wrap=null;
+	function reset_panel_postion(){	  	  
+	  if( x >= 250 ){
+	    x = y = 0;	    
+	  }	  
 	  x = y += distance;
 	}
+
+	function popup_panel(ele) {
+	  $('body').append( ele );
+	  reset_panel_postion();	  
+	  ele.css({
+	    top: x+'px',
+	    left: y+'px',
+	    position: 'absolute'
+	  })
+	  init_mac_panel_drag();
+	}
+	
+	
 	
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局方法定义*/
 	$(document).ajaxStart(ajaxOnStart).ajaxSuccess(ajaxOnSuccess).ajaxError(ajaxOnError);
@@ -878,17 +831,6 @@ $(document).ready(function(){
     */
   }
 
-
-	function popup_panel(ele) {
-	  $('body').append( ele );
-	  reset_panel_postion();	  
-	  ele.css({
-	    top: x+'px',
-	    left: y+'px',
-	    position: 'absolute'
-	  })
-	}
-	
 	
 	function idebug(obj) {
 	  if( $.browser.mozilla ){
@@ -896,7 +838,7 @@ $(document).ready(function(){
 	  }
 	}
 	
-	/*8a8bb7cd343aa2ad99b7d762030857a2  a1 */
+	/*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
 	function parentOne(ele,exp){	  
     if( ele.parent().find('.mac_panel_wrap').length > 0  ) {      
       return ele;      
@@ -904,7 +846,7 @@ $(document).ready(function(){
       return parentOne(ele.parent(), exp);
     }	      
 	}
-	/*693a9fdd4c2fd0700968fba0d07ff3c0 a2 */
+	/*693a9fdd4c2fd0700968fba0d07ff3c0 取得当前DOM的父元素中含有类mac_panel_wrap */
 	function getPanel(that){
     return parentOne(that,'.mac_panel_wrap');
   }
@@ -924,7 +866,7 @@ $(document).ready(function(){
   }
   
   
-  /*9d607a663f3e9b0a90c3c8d4426640dc a3 */
+  /*9d607a663f3e9b0a90c3c8d4426640dc 类mac_panel_wrap DOM的 关闭 , 最小化, 最大化事件 */
 	$('.mac_panel_wrap .close').live('click',function(){
 	  getPanel($(this)).remove();	  
 	});	
@@ -939,7 +881,7 @@ $(document).ready(function(){
 	});
 		
 		
-	/* 32cfe6c19200b67afb7c3d0e1c43eadb a5 */
+	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建文章  */
 	$('.ele_create_article').live('click',function () {
 	  if( $('#model_type').val() == "attachment" ){
 	    $('#attachment_form_wrap').toggle();
@@ -955,8 +897,67 @@ $(document).ready(function(){
 			}			
 		});
 		return false;
+	});		
+	
+	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
+	$('#artiles_move').click(function(){		
+	  wrap = getPanel($(this));
+		$.ajax({
+			type:	'get',
+			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val(),
+			cache:	false,
+			success:	function(html){
+			  popup_panel( $(html) );	
+			}
+		})		
+		return false;
 	});
-		
+	
+	/* eeab0810def3336d891534c6bf06c26e  提交移动文章*/
+	$('#article_ajax_move').live('submit',function(){
+	  wrap = getPanel($(this));		
+	  dialog = wrap.find('.panel_middle .middle .feedback');
+		dialog.html('');
+		var ids = get_ids();			
+		$.ajax({
+			type: "post",
+			cache: false,
+			data:		$(this).serialize()+"&ids="+ids,
+			url: $(this).attr('action'),
+			success:	function(html){				
+				if( html.indexOf('mac_panel_wrap') != -1 ){
+			    wrap.html( html);
+			  }else{
+			    dialog.addClass('feedback_on').html(html).show();
+			    setTimeout( "dialog.slideUp()" , 3000 );			    
+			  }
+				render();
+			}
+		});
+		return false;
+	});
+	
+	/* 445a7cc846392ddd2a897553267de1ca 拷贝文章*/
+	$('#artiles_copy').live('click',function(){		
+	  if( confirm('Are you really want to copy this content ?') ){
+	    var ids = get_ids();	
+	    wrap = getPanel($(this));
+  		$.ajax({
+  			type:	"post",
+  			cache: 	false,
+  			data: 	"ids="+ids,
+  			url: 	$(this).attr('href'),
+  			success:	function(html){				
+  				render();
+  			}
+  		});
+	  }
+		return false;
+	});
+	
+	
+	
+	
 	$('dl.thumbnail .title').live('click',function(){
 	  var url = $(this).parent().attr('rel_href');
 	  wrap = getPanel($(this));
