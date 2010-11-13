@@ -13,6 +13,7 @@
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
   background: #EFEFEF url(bg_40x40.png) repeat 0 0;
+  font-size: 12px;
 }
 .w600p {
   width: 600px;
@@ -72,6 +73,13 @@ body {
 #cb_all_wrap input {  
   
   vertical-align: middle;
+}
+
+div.errorSummary {
+	border: 2px solid #E5ADA7;
+	background: #FED6D2;
+	padding: 5px;
+  margin: 3px;
 }
 
 .feedback_on {

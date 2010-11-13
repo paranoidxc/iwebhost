@@ -99,7 +99,8 @@
 
 <?php
   echo '<div id="leaf_articles">';
-  echo "</div>";  
+  echo '</div>';    
+  echo '<div class="ajax_overlay" />';
   $this->endWidget('application.extensions.Smacpanel');	  
   echo "</div>";
 ?>

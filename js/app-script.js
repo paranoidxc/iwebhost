@@ -110,20 +110,6 @@ function init_article_sort() {
 	}
 	
 
-//$(document).ajaxStart(ajaxOnStart).ajaxSuccess(ajaxOnSuccess).ajaxError(ajaxOnError);
-
-
-function ajaxOnStart() {
-  $.fn.imasker({
-    'z-index'	   : 1000000000
-  });
-}
-function ajaxOnSuccess() {
-  $.fn.imasker_hide();
-}
-function ajaxOnError() {
-  $.fn.imasker_hide();
-}
 
 
 $(document).ready(function(){	
@@ -862,11 +848,37 @@ $(document).ready(function(){
 	
   
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, distance = 50;
+	var x =y = 0, distance = 50, wrap=null;
 	function reset_panel_postion(){
 	  x = y += distance;
 	}
 	
+	/* 881518a1d877c78958dd6f7e7fe11f8c 全局方法定义*/
+	$(document).ajaxStart(ajaxOnStart).ajaxSuccess(ajaxOnSuccess).ajaxError(ajaxOnError);
+  function ajaxOnStart() {
+    if (wrap != null){ 
+      formLay(wrap);
+      formError(wrap);
+     }
+    /*$.fn.imasker({
+      'z-index'	   : 1000000000
+    });
+    */
+  }
+  function ajaxOnSuccess() {
+    if( wrap != null ) { formLay(wrap,'h'); wrap = null;}
+    /*
+    $.fn.imasker_hide();
+    */
+  }
+  function ajaxOnError() {
+    if( wrap != null ) { formLay(wrap,'h'); wrap = null;}
+    /*
+    $.fn.imasker_hide();
+    */
+  }
+
+
 	function popup_panel(ele) {
 	  $('body').append( ele );
 	  reset_panel_postion();	  
@@ -906,6 +918,11 @@ $(document).ready(function(){
       wrap.find('.ajax_overlay').show();
     }
   }
+  function formError(wrap){
+    wrap.find('.errorSummary').hide();
+    wrap.find('.errorMessage').hide();
+  }
+  
   
   /*9d607a663f3e9b0a90c3c8d4426640dc a3 */
 	$('.mac_panel_wrap .close').live('click',function(){
@@ -927,7 +944,8 @@ $(document).ready(function(){
 	  if( $('#model_type').val() == "attachment" ){
 	    $('#attachment_form_wrap').toggle();
 	    return false;
-	  }	  
+	  }
+	  wrap = getPanel($(this));
 		$.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
@@ -941,19 +959,22 @@ $(document).ready(function(){
 		
 	$('dl.thumbnail .title').live('click',function(){
 	  var url = $(this).parent().attr('rel_href');
+	  wrap = getPanel($(this));
+	  formLay(wrap);
 		$.ajax({
 			url:	url,
 			type:	'get',
 			cache:	false,
 			success:	function(html){
-			  popup_panel( $(html) );
-			  init_mac_panel_drag();			 				
+			  popup_panel( $(html) );		
+			  init_mac_panel_drag();
 			}
 		});
-	});		
+	});
+	
 	$('.form_tab').live('click',function(){	
 	  if( !$(this).hasClass('form_tab_selected') ){
-  	  var wrap = getPanel($(this));	  
+  	  var wrap = getPanel($(this)); 
   	  wrap.find('.form_tab_selected').removeClass('form_tab_selected');	  	  
   	  $(this).addClass('form_tab_selected');
   	  wrap.find('.form_field_wrap').hide();
@@ -964,20 +985,18 @@ $(document).ready(function(){
 	
 	$('.inner_tab').live('click',function(){
 	  if( !$(this).hasClass('inner_tab_selected') ){
-  	  var wrap = getPanel($(this));
+  	  wrap = getPanel($(this));
   	  wrap.find('.inner_wrap').hide();
   	  wrap.find('.inner_tab_selected').removeClass('inner_tab_selected');	  
   	  $(this).addClass('inner_tab_selected');	  
   	  var that =  wrap.find('.'+$(this).attr('data') );
-  	  if( $(this).attr('data') == 'preview' ){	    
-  	    formLay(wrap)	    
+  	  if( $(this).attr('data') == 'preview' ){
   	    $.ajax({
   	      type: 'post',
   	      cache: false,
   	      url: $(this).attr('url'),
   	      data: "&content="+wrap.find('#Article_content').val(),
-  	      success: function(html){	        
-  	        formLay(wrap,'h');
+  	      success: function(html){
   	        that.html( html );
   	      }
   	    })
@@ -991,23 +1010,20 @@ $(document).ready(function(){
 	/* 894f782a148b33af1e39a0efed952d69 a4 */
 	$('.article_ajax_form').live('submit',function(){			  
 		var that = $(this);
-		var leaf_id = $('#Article_category_id').val();
-		var wrap = parentOne(that,'.mac_panel_wrap');				
+		var leaf_id = $('#Article_category_id').val();		
+		wrap = getPanel($(this));
 		dialog = wrap.find('.panel_middle .middle .feedback');
 		dialog.html('');
-		wrap.find('.ajax_overlay').show();
 		$.ajax({
 			type:		"post",
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
-			success:	function(html) {
-			  wrap.find('.ajax_overlay').hide();
+			success:	function(html) {			  
 			  idebug(html);
 			  if( html.indexOf('mac_panel_wrap') != -1 ){
 			    wrap.html( html);
 			  }else{
 			    dialog.addClass('feedback_on').html(html).show();
-			    wrap.find('.errorMessage').hide();
 			    setTimeout( "dialog.slideUp()" , 3000 );
 			    render();  
 			  }

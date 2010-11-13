@@ -109,10 +109,10 @@ font-size: 13px;
   background-color: #F9FCF9;
   border: 1px solid rgba(0, 0, 0, 0.246094);
   border-bottom: none;
-  border-bottom-left-radius: 15px 15px;
-  border-bottom-right-radius: 15px 15px;
-  border-top-left-radius: 15px 15px;
-  border-top-right-radius: 15px 15px;  
+  border-bottom-left-radius: 0px 0px;
+  border-bottom-right-radius: 0px 0px;
+  border-top-left-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;  
   -moz-border-radius: 3px 3px  0 0 ;
 
   font-size: 13px;

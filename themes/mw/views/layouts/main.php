@@ -17,7 +17,7 @@
 	<div id="header">		
 		<div id="navigation">			
 		  <?php		    		    
-		    $this->renderPartial('navigation', array( 'nodes' => API::NAV( array('ident_label' => 'mw_major_nav','depth' => '' ) ) ) );
+		    $this->renderPartial('navigation', array( 'nodes' => API::INODE( array('ident_label' => 'mw_major_nav','depth' => '' ) ) ) );
 		  ?>
 		</div>
 	</div><!-- header -->
@@ -27,7 +27,7 @@
 	<div id="footer">
 	  <div id="foot_nav">
 	  <?php		    		    
-		    $this->renderPartial('navigation', array( 'nodes' => API::NAV( array('ident_label' => 'mw_foot_nav','depth' => '') ) ) );
+		    $this->renderPartial('navigation', array( 'nodes' => API::INODE( array('ident_label' => 'mw_foot_nav','depth' => '') ) ) );
 		?>
 		</div>
 	</div>

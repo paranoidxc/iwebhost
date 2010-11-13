@@ -1,5 +1,23 @@
 $(document).ready(function(){	  
   
+  $('#istart_form_tab_wrap a:first').addClass('form_tab_selected');
+  
+  $('.istart_form_field_wrap ').hide();
+  $($('.istart_form_field_wrap')[0]).show();
+  
+  $('#istart_form_tab_wrap a').click(function(){
+    console.log( $(this).attr('class') );
+    if( !$(this).hasClass('form_tab_selected') ){      
+      $('.istart_form_field_wrap ').stop(true,true).hide();
+      $('#istart_form_tab_wrap .form_tab_selected').removeClass('form_tab_selected');
+      $(this).addClass('form_tab_selected');
+      
+      var field_wrap = $('#'+$(this).attr('data'));
+      field_wrap.stop(true,true).slideDown();  
+    }
+    return false;
+  })
+  
   function setChapterHeight(){    
     $remind_height = $(window).height() - $('#header').height()-$('#header_shadow').height();
     $content_height = $remind_height - $('#chapter h2').height() - 40;
@@ -83,7 +101,7 @@ $(document).ready(function(){
 	
 	$(".board_wrap").sortable({ handle: 'h2' });
 	
-	$('.board ul li a').hover(
+	$('.istart_form_field_wrap ul li a,.board ul li a').hover(
 		function() {
 			var fcolor = $(this).css('color');						
 			$(this).css({

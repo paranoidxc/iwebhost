@@ -2665,3 +2665,21 @@ in H:\projects\iwebhost\index.php (73)
 2010/11/03 02:35:39 [warning] [application] Failed to set unsafe attribute "create_datetime".
 in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
 in H:\projects\iwebhost\index.php (73)
+2010/11/11 02:56:54 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)
+2010/11/11 02:56:54 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)
+2010/11/11 07:50:23 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)
+2010/11/11 07:50:23 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)
+2010/11/11 07:54:13 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)
+2010/11/11 07:54:13 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (73)

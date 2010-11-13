@@ -1,91 +1,38 @@
-<!--
-<div  class="board" id="google_board">
-  <form action="http://www.google.com/search" method="get" target="_blank">
-		<input type="hidden" value="1" name="forid">
-		<input type="hidden" value="UTF-8" name="ie">
-		<input type="hidden" value="en-US" name="hl">
-		<input autocomplete="off" type="text" id="gkw" name="q"> <input type="submit" class="ibtn igsearch" value="Google Search">
-  </form>
-</div>
--->
-
-<div class="board_wrap">
-<?php
-	foreach( Category::model()->vleafs(37,1) as $_leafs ) {		
-		if( $_leafs->depth != 0 ) {
-?>		
-<div class="board">
-	<h2><?php echo colorful($_leafs->name); ?></h2>
-	<ul>
-	<?php				
-		foreach( Category::model()->findByPk($_leafs->id)->articles as $obj) {			
-			echo "<li>";
-			$icon = '<img class="gfavorite" src="'.FetchFavIcon::fetch($obj->subtitle).'" > ';
-			echo CHtml::link(
-				$icon.$obj->title, 
-				$obj->subtitle , 
-				array( 'title' => $obj->subtitle, 'target' => '_blank','style' => 'color: '.colorfulV().';'  ))."</li>";
-		}
-	?>
-	</ul>
-</div>
-<?php
-	}
-}
-?>
-</div>
-<!--
-<script>
-
-function storeUserScribble(id) {
-  var scribble = document.getElementById('scribble').innerHTML;
-  localStorage.setItem('userScribble',scribble);
-}
-
-function getUserScribble() {
-  if ( localStorage.getItem('userScribble')) {
-    var scribble = localStorage.getItem('userScribble');
+<div style="width: 80%; margin: auto">
+  <?php
+  $istart = API::INODE(array(
+    'ident_label' => 'istart'
+  ));
+  echo '<div id="istart_form_tab_wrap" >';
+  foreach( $istart as $o ){
+    ?>
+      <a href="#" data="form_<?php echo $o->id?>" class="form_tab">  
+        <span><?php echo $o->name ?></span>
+      </a>	      
+    <?php
   }
-  else {
-    var scribble = '<font color=blue face="Geneva, Arial" size=5><i>You can scribble directly on this sticky... and I will also remember your message the next time you visit my blog!</i></font>';
+  echo '</div>';
+  ?>
+    
+  <?php
+  foreach( $istart as $o ){
+    ?>
+    <div id="form_<?php echo $o->id?>" class="istart_form_field_wrap form_field_wrap field_normal">
+      <?php        
+        echo '<ul>';
+        foreach( $o->articles as $article ){
+        echo '<li>';        
+        //$icon = '<img class="gfavorite" src="'.FetchFavIcon::fetch($article->subtitle).'" > ';
+        echo CHtml::link(
+				$icon.cnSubstr($article->title,0,14), 
+				$article->subtitle, 
+				array( 'title' => $article->subtitle, 'target' => '_blank','style' => 'color: '.colorfulV().';'  ));        
+        echo '</li>';
+        }
+      ?>
+    </div>
+    <?php
+    echo '</ul>';
   }
-  document.getElementById('scribble').innerHTML = scribble;
-}
-
-</script>
-
-<div class="ta_da_board" contenteditable="true" id="scribble" onkeyup="storeUserScribble(this.id)">
+  ?>
 </div>
-
-<script>
-getUserScribble();
-</script>
-<div class=" ta_da_board">
-	<h2><?php echo colorful("Ta-da List"); ?><span class="fs10 new_list_ele">new Ta-da list</span></h2>	
-	<form class="new_list_form dN" method="POST" action="<?php echo CController::createUrl('istart/Tada');?>">
-		<input type="hidden" name="Category[parent_leaf_id]" value="41"/>
-		<input type="text" name="Category[name]" id="Category_name" class="ta_name" /><br/>
-		<input type="submit" value=" create this list " class="ibtn" />
-	</form>
-	<ul>
-	<?php 
-	foreach( Category::model()->vleafs(41,1) as $_leafs ) {
-		if( $_leafs->depth != 0 ) {
-	?>
-		<li>
-			<p><?php echo colorful($_leafs->name); ?></p>
-			<ul>
-	<?php			
-	foreach( Category::model()->findByPk($_leafs->id)->articles as $obj) {						
-		echo "<li>$obj->content</li>";
-	}
-	?>
-			</ul>
-		</li>
-	<?php
-			}
-		}
-	?>
-  </ul>
-</div>
--->

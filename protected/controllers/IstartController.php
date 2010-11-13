@@ -5,7 +5,7 @@ class IstartController extends Controller
 	//public $layout='//layouts/column2';
 	public function actionChapter(){
 		if(isset($_GET['id'])){
-			Yii::app()->name = 'iStartPage v0.2 beta';
+			Yii::app()->name = 'iStartPage v0.3 beta';
 			Yii::app()->theme='istart';
 			$chapter = Article::model()->findbyPk($_GET['id']);
 			$this->renderPartial('chapter', array('chapter' => $chapter),false,true );

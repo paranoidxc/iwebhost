@@ -3,26 +3,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
-	<!-- blueprint CSS framework -->
-	<!--
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	-->
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
-	<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />-->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />
 
 	<!--
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">	
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
 	-->
+	
 <?php  
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
@@ -53,8 +41,7 @@
 				<?php 
 					if( $this->page_navigation ){					
 					foreach( $this->page_navigation as $nav ){					
-					//echo '<li><a href="'.CController::createurl('istart/inav', array('db_id' => $nav['id'], 'category_id' => $nav['category_id'] ) ).'">';
-					echo '<li><a href="'.CController::createurl('istart/category', array('id' => $nav['category_id'] ) ).'">';
+					echo '<li><a href="'.CController::createurl('istart/category', array('id' => $nav['category_id'] ) ).'" >';
 					echo $nav['name'];
 					echo '</a></li>';
 					echo "\n";

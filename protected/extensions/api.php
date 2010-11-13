@@ -53,10 +53,6 @@ class API {
   }
   
   
-  public static function leaf(){
-    
-  }
-  
   public static function leafs() {
     
   }
@@ -74,21 +70,28 @@ class API {
    **/
   public static function leaf_move($opt){
     if( is_array($option) && is_numeric($opt['from']) && is_numeric($opt['to']) ){      
-      return Category::model()->leafMoveToAnother($opt['from'], $opt['to'])
+      return Category::model()->leafMoveToAnother($opt['from'], $opt['to']);
     }else{
       echo "ERROR PHP File:".dirname(__FILE__).'/API.php';
       echo "ERROR Fuction category_move";
-      exit:
+      exit;
     }
-  }
-  
+  }    
 
-  public static function NAV($opt) {    
+  /**
+   * get category recursion
+   * @parameter $opt
+   * 
+   * @return boolean
+   * @author paranoid
+   **/
+  public static function INODE($opt) {
     if( is_array( $opt ) ) {      
       $opt = array_merge($opt, array('include' => false ) );      
-      return Category::model()->ileafs($opt);            
+      return Category::model()->ileafs($opt);        
     }else{
-      echo " API ERROR in Nav ";
+      echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      
+      echo "ERROR Fuction INODE";
       exit;
     }
   }

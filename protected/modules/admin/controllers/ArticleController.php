@@ -191,8 +191,7 @@ class ArticleController extends Controller
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Article']))
-		{
-		  print_r($_POST['Article']);
+		{		  
 			$model->attributes=$_POST['Article'];
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {

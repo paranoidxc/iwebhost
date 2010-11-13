@@ -6,11 +6,10 @@
 		'class' => 'article_ajax_form'
 	)
 )); ?>	
-	<?php //echo $form->errorSummary($model); ?>	
-	
-	
   <div class="feedback">
 	</div>
+	
+	<?php echo $form->errorSummary($model); ?>		  
 	
 	<div class="ml20P pt10P">
 	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
