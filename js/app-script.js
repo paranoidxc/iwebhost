@@ -507,38 +507,8 @@ $(document).ready(function(){
 		
 	
 	
-	//fun16
-	function get_ids(){
-	  var _temp_ids = '';
-	  $('.cb_article').each(function(){
-		  if( $(this).is(":checked") ){
-		    if( _temp_ids == "") {
-				  _temp_ids += $(this).attr('rel_id');
-			  }else {
-				  _temp_ids += ','+$(this).attr('rel_id');
-			  }	
-		  }
-		});
-		return _temp_ids;
-	}
+
 	
-	//fun15
-	$('#ele_delete_articles').click(function(){	  
-		if( window.confirm('Really want to delete record(s) ?') ){					
-		  var ids = get_ids();
-		  var url = $("#leaf_content_del_url").val();		
-  		$.ajax({
-  			type 		: 	"POST",
-  			url	 		: 	url,
-  			data		: 	"ids="+ids,
-  			dataType 	:	'html',
-  			success		:	function(html){
-  				render();
-  			}			
-  		});
-		}
-		return false;
-	});
 	
 	
 	
@@ -838,6 +808,21 @@ $(document).ready(function(){
 	  }
 	}
 	
+	/*4e134a399e16e6edf848985f4b93e107 取得当前的文章ids*/
+	function get_ids(){
+	  var _temp_ids = '';
+	  $('.cb_article').each(function(){
+		  if( $(this).is(":checked") ){
+		    if( _temp_ids == "") {
+				  _temp_ids += $(this).attr('rel_id');
+			  }else {
+				  _temp_ids += ','+$(this).attr('rel_id');
+			  }	
+		  }
+		});
+		return _temp_ids;
+	}
+	
 	/*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
 	function parentOne(ele,exp){	  
     if( ele.parent().find('.mac_panel_wrap').length > 0  ) {      
@@ -937,6 +922,25 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	/*f1ce042a27aa18b121377beab2615c57 删除文章*/
+	$('#ele_delete_articles').click(function(){	  
+		if( window.confirm('Really want to delete record(s) ?') ){				
+		  wrap = getPanel($(this));
+		  var ids = get_ids();
+		  var url = $("#leaf_content_del_url").val();		
+  		$.ajax({
+  			type 		: 	"POST",
+  			url	 		: 	url,
+  			data		: 	"ids="+ids,
+  			dataType 	:	'html',
+  			success		:	function(html){
+  				render();
+  			}			
+  		});
+		}
+		return false;
+	});
+		
 	/* 445a7cc846392ddd2a897553267de1ca 拷贝文章*/
 	$('#artiles_copy').live('click',function(){		
 	  if( confirm('Are you really want to copy this content ?') ){

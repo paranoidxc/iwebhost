@@ -3101,3 +3101,15 @@ in H:\projects\iwebhost\index.php (73)
 2010/11/13 18:11:38 [warning] [application] Failed to set unsafe attribute "create_datetime".
 in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
 in H:\projects\iwebhost\index.php (73)
+2010/11/13 18:31:49 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (553)
+in H:\projects\iwebhost\index.php (73)
+2010/11/13 18:31:49 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (556)
+in H:\projects\iwebhost\index.php (73)
+2010/11/13 18:31:56 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (553)
+in H:\projects\iwebhost\index.php (73)
+2010/11/13 18:31:56 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (556)
+in H:\projects\iwebhost\index.php (73)
