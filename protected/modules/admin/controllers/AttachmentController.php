@@ -137,11 +137,14 @@ class AttachmentController extends Controller
 	    if( $is_image ){
   	    $file_path_t = ATMS_SAVE_DIR.'t'.$file_name;
         $file_path_s = ATMS_SAVE_DIR.'s'.$file_name;
+        $file_path_g = ATMS_SAVE_DIR.'g'.$file_name;
         $image->resize(800, 600);
         $image->save();      
         $image->resize(160, 120);
         //,Image::NONE);
         $image->save($file_path_s);
+        $image->resize(48, 48);
+        $image->save($file_path_g);
       }
 	  }
 	 

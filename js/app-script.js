@@ -194,6 +194,50 @@ $(document).ready(function(){
 	});
 	
 	$('.rpick').live('click',function(){
+	  var wrap = getPanel($(this));
+	  wrap.find('tr').css({
+	    background: 'none'
+	  })
+	  var tr_ele = parentOne( $(this), 'tr');
+	  tr_ele.css({
+	    background: 'green'
+	  });
+	  wrap.find('.rel_id').val( $(this).attr('rel_id') );
+	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
+	  wrap.find('.rel_path').val( $(this).attr('rel_path') );	  
+	});
+	
+	$('.rpick_submit').live('click',function(){
+	  var wrap = getPanel($(this));	  
+	  var return_ele = $('#'+wrap.find('.return_id').val());
+	  
+	  var rel_path        = wrap.find('.rel_path').val();
+	  var rel_id          = wrap.find('.rel_id').val();
+	  var rel_screen_name = wrap.find('.rel_screen_name').val();
+	  
+	  return_ele.next().attr('origin_value', return_ele.next().attr('value') );
+		return_ele.next().attr('value',rel_id);
+		var return_ele_p = return_ele.parent();
+		
+		if( return_ele_p.prev().hasClass('dest_thumbnail')  ){
+		  var dest_ele_wrap = return_ele_p.prev();
+		  dest_ele_wrap.find('img').attr('src','/upfiles/s'+rel_path );
+		  dest_ele_wrap.find('p').html( rel_screen_name );
+		}else{
+		  var dest_ele_wrap = $('<div class="dest_thumbnail" />').insertBefore(return_ele_p);		  
+		  $('<span />').html('x').addClass('dest_thumbnail_close').appendTo(dest_ele_wrap).click(function(){
+		    dest_ele_wrap.remove();
+		    return_ele.next().attr('value',return_ele.next().attr('origin_value') );
+		    
+		  });
+		  $('<img>').attr('src', '/upfiles/s'+rel_path ).appendTo(dest_ele_wrap);
+		  $('<p>').html( rel_screen_name ).appendTo(dest_ele_wrap);
+		}	
+		wrap.remove();
+	})
+	
+	/*
+	$('.rpick').live('click',function(){
 		var return_ele = $('#'+$(this).attr('return_id'));		
 		return_ele.next().attr('origin_value', return_ele.next().attr('value') );
 		return_ele.next().attr('value',$(this).attr('rel_id'));
@@ -212,10 +256,9 @@ $(document).ready(function(){
 		  });
 		  $('<img>').attr('src', '/upfiles/s'+$(this).attr('rel_path') ).appendTo(dest_ele_wrap);
 		  $('<p>').html($(this).attr('rel_screen_name')).appendTo(dest_ele_wrap);
-		  
 		}	
 	});
-	
+	*/
 	
 	$('.gallery_return_pick').live('click',function(){
 		var return_ele = $('#'+$(this).attr('return_id'));
@@ -838,7 +881,7 @@ $(document).ready(function(){
 	
 	/*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
 	function parentOne(ele,exp){	  
-    if( ele.parent().find('.mac_panel_wrap').length > 0  ) {      
+    if( ele.parent().find(exp).length > 0  ) {      
       return ele;      
     }else{
       return parentOne(ele.parent(), exp);
