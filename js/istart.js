@@ -5,8 +5,7 @@ $(document).ready(function(){
   $('.istart_form_field_wrap ').hide();
   $($('.istart_form_field_wrap')[0]).show();
   
-  $('#istart_form_tab_wrap a').click(function(){
-    console.log( $(this).attr('class') );
+  $('#istart_form_tab_wrap a').click(function(){    
     if( !$(this).hasClass('form_tab_selected') ){      
       $('.istart_form_field_wrap ').stop(true,true).hide();
       $('#istart_form_tab_wrap .form_tab_selected').removeClass('form_tab_selected');
@@ -16,6 +15,11 @@ $(document).ready(function(){
       field_wrap.stop(true,true).slideDown();  
     }
     return false;
+  })
+  $('#expand_all').click(function(){
+    $('.istart_form_field_wrap ').show();
+    $('#istart_form_tab_wrap .form_tab_selected').removeClass('form_tab_selected');
+    $(this).addClass('form_tab_selected');
   })
   
   function setChapterHeight(){    

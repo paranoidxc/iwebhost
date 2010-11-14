@@ -1,0 +1,28 @@
+<div class='mac_panel_wrap w600p' >
+<?php
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
+?>
+
+<?php
+$atts = Attachment::model()->findAll();
+foreach($atts as $t){	     
+?>
+<p>
+  ID: <?php echo $t->id ?> --
+  Name: <?php echo $t->screen_name ?>  
+  <img src='/upfiles/s<?php echo $t->path?>' />
+  ---- <span  class='rpick'
+        return_id="<?php echo $return_id;?>"
+        rel_id="<?php echo $t->id; ?>"
+        rel_screen_name="<?php echo $t->screen_name; ?>"
+        rel_path="<?php echo $t->path; ?>"
+       >return Pick</span>
+</p>
+<?
+}
+?>
+
+<?php
+  $this->endWidget('application.extensions.Flatmacpanel');	 
+?>
+</div>

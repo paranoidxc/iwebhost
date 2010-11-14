@@ -36,7 +36,7 @@
   			<p class="clear">
   			  <span class="pick"
   			        id="pick<?php echo time(); ?>"			        
-  			        uri="<?php echo CController::createUrl('attachment/pick', array('return_id'=>'pick'.time() ) ); ?>" >Pick
+  			        uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>" >Pick
   			  </span>
   			  <?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>
   			</p>
@@ -60,7 +60,7 @@
   			<p class="clear">
   			  <span class="pick" 
   			        id="gallery_pick<?php echo time(); ?>" 
-  			        uri="<?php echo CController::createUrl('category/pick', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick
+  			        uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick
   			  </span>
   			  <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>		
   			</p>

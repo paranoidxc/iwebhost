@@ -179,19 +179,16 @@ $(document).ready(function(){
 		*/
 	});
 	
-	//attachment pick handle
+	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/
 	$('.pick').live('click',function(){
 		var uri = $(this).attr('uri');		
+		wrap = getPanel($(this));
 		$.ajax({
 			type: 'get',
 			cache: false,
 			url: uri,
 			success:function(html){
-				var pop = $("<div title='Pick' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 400, 
-					minWidth: 400
-				});	
+			  popup_panel( $(html) );
 			}
 		});
 	});
@@ -483,8 +480,22 @@ $(document).ready(function(){
     	handle: ".drag_handle",
     	cursor: "move"
 	 });
+	
+	$('.mac_panel_wrap').live('click',function(){
+	  z++;  
+	  $(this).css( { 'z-index':z } );
+	});
+	
 	function init_mac_panel_drag() {
 	  $('.mac_panel_wrap').draggable({
+	    start: function(event, ui) { 	      
+	      idebug( ' global z = ' +z);
+	      z++;
+	      wrap = getPanel($(this));
+	      wrap.css({
+	        'z-index' :z
+	      });	      
+	    },
     	handle: ".drag_handle",
     	cursor: "move"
 	  });  
@@ -755,8 +766,9 @@ $(document).ready(function(){
 	
 	/* JAVASCRIPT_START */
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, distance = 25, wrap=null;
-	function reset_panel_postion(){	  	  
+	var x =y = 0, z = 1000000, distance = 25, wrap=null;
+	function reset_panel_postion(){	  	
+	  z++;  
 	  if( x >= 250 ){
 	    x = y = 0;	    
 	  }	  
@@ -769,6 +781,7 @@ $(document).ready(function(){
 	  ele.css({
 	    top: x+'px',
 	    left: y+'px',
+	    'z-index': z,
 	    position: 'absolute'
 	  })
 	  init_mac_panel_drag();
@@ -995,12 +1008,18 @@ $(document).ready(function(){
   	  wrap.find('.inner_tab_selected').removeClass('inner_tab_selected');	  
   	  $(this).addClass('inner_tab_selected');	  
   	  var that =  wrap.find('.'+$(this).attr('data') );
+  	  var val = '';
+  	  if( wrap.find('#Article_content').length > 0 ){
+  	    val = wrap.find('#Article_content').val();
+  	  }else if( wrap.find('#Category_memo').length > 0) {
+  	    val = wrap.find('#Category_memo').val(); 
+  	  }
   	  if( $(this).attr('data') == 'preview' ){
   	    $.ajax({
   	      type: 'post',
   	      cache: false,
   	      url: $(this).attr('url'),
-  	      data: "&content="+wrap.find('#Article_content').val(),
+  	      data: "&content="+val,
   	      success: function(html){
   	        that.html( html );
   	      }

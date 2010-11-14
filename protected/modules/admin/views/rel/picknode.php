@@ -1,6 +1,6 @@
 <div class='mac_panel_wrap w600p' >
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create Node") )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment Gallery") )
 ?>
  <?php    	
 		$nodes  = Category::model()->ileafs(

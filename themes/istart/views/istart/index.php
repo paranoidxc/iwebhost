@@ -11,6 +11,7 @@
       </a>	      
     <?php
   }
+  echo '<a href="#" class="form_tab" id="expand_all"><span>Expand All</span></a>';
   echo '</div>';
   ?>
     
