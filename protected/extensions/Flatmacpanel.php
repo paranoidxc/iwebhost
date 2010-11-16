@@ -32,13 +32,11 @@ EOT;
          <td class="right"></td>
        </tr>
       </table>      
- <!-- mac panel bot
- tom start -->
+ <!-- mac panel bottom start -->
      <table class="mac_panel">
        <tr class="flat_panel_bottom">
          <td class="left"></td>
-         <td class="middle">           
-         </td>
+         <td class="middle">&nbsp;</td>
          <td class="right"></td>
        </tr>
       </table>

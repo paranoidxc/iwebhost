@@ -48,8 +48,10 @@
 	border-style:solid;
   border-width:1px;
 }
-.itable tbody td input[type='text']:hover {
-  /*border: 2px solid #73A6FF;*/
+.itable tbody td input[type='text']:focus {
+	border-style: solid;
+  border-width: 1px;
+  border-color: #73A6FF #1875E8 #1875E8 #73A6FF;
 }
 .itable tbody td input[type='text'].small {
 	width: 100px;
