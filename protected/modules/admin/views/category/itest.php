@@ -3,9 +3,41 @@
   $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
   $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
-  echo "<div class='icategory_tree'>";
-  $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
-  echo "</div>";    
+  echo '<table>';
+    echo '<tr>';
+      echo '<td style="width: 42px ; vertical-align: top;background: #E9E9E9;border-right: 1px solid #B8B8B8">';          
+        echo '<ul class="leaf-sidebar" >';
+          echo '<li>
+          <a  href="'.CController::createUrl('category/create').'"
+	            title="create new leaf inside current leaf" 
+	            class="ele_create_category active"></a>';
+	        echo '</li>';	        
+          echo '<li>
+          <a href="'.CController::createUrl('category/update').'"
+ 	           title="update the current leaf" 
+ 	           class="ele_update_leaf"></a>';
+          echo '</li>';
+          
+          echo '<li>
+            <a href="'.CController::createUrl('category/move').'"
+ 	             title="move the current leaf to another" 
+ 	             class="ele_move_leaf"></a>';
+ 	       echo '</li>';
+ 	       
+          echo '<li>
+            <a href="'.CController::createUrl('category/delete').'"
+   	        title="delete current leaf" 
+     	      class="ele_del_leaf"></a>';
+          echo '</li>';
+        echo '</ul>';        
+      echo '</td>';
+    echo '<td>';
+  
+    echo "<div class='icategory_tree'>";
+      $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
+    echo "</div>";  
+    echo '</td>';
+    echo '<td>';
   // top actions 
 ?>
 
@@ -39,7 +71,7 @@
 <div id="leaf_articles_wrap"  class="osX">
 
 <ul class="actions">
-
+  <!--
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('category/create') ?>" 		
 	      title="create new leaf inside current leaf" class="ele_create_category"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
@@ -61,7 +93,7 @@
  	</li> 	
  	
  	<li class="seperate"></li> 	 	
- 	
+ 	-->
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
 	      title="Create Article" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Writing.png" /></a>
@@ -100,6 +132,10 @@
 <?php
   echo '<div id="leaf_articles">';
   echo '</div>';    
+  
+  echo '</td>';
+  echo '</tr>';
+  echo '</table>';
   echo '<div class="ajax_overlay" />';
   $this->endWidget('application.extensions.Smacpanel');	  
   echo "</div>";

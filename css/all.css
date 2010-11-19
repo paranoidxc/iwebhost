@@ -10,6 +10,65 @@
 
 @import url('console.attachment.css');
 
+/* leafs sidebar */
+.leaf-sidebar {
+  width: 42px;
+}
+.leaf-sidebar li {
+  height: 42px;
+  width: 42px;  
+}
+.leaf-sidebar li a {
+  width: 32px;
+  height: 32px;
+  display: block;  
+  margin: auto;
+  background: url(action_32.png) no-repeat 0 0;  
+}
+
+.leaf-sidebar li a.ele_create_category {
+  background-position: -32px -32px;
+}
+.leaf-sidebar li a.ele_create_category.active {
+  background-position: 0px -32px;
+}
+.leaf-sidebar li a.ele_create_category.active:hover {
+  background-position: -96px -32px;
+}
+.leaf-sidebar li a.ele_update_leaf {
+  background-position: -32px -640px;
+}
+.leaf-sidebar li a.ele_update_leaf.active {
+  background-position: 0px -640px;
+}
+.leaf-sidebar li a.ele_update_leaf.active:hover {
+  background-position: -96px -640px;
+}
+
+.leaf-sidebar li a.ele_move_leaf {
+  background-position: -32px -608px;
+}
+.leaf-sidebar li a.ele_move_leaf.active {
+  background-position: 0px -608px;
+}
+.leaf-sidebar li a.ele_move_leaf.active:hover {
+  background-position: -96px -608px;
+}
+
+.leaf-sidebar li a.ele_del_leaf {
+  background-position: -32px -160px;
+}
+.leaf-sidebar li a.ele_del_leaf.active {
+  background-position: 0px -160px;
+}
+.leaf-sidebar li a.ele_del_leaf.active:hover {
+  background-position: -96px -160px;
+}
+
+.icategory_tree {
+  background: #fefefe;
+}
+
 body {
   background: #EFEFEF url(osx.jpg) 50% 0;
   background: #EFEFEF url(bg_40x40.png) repeat 0 0;
@@ -142,11 +201,13 @@ div.errorSummary {
 #leaf_articles_wrap {
 	float: left;
   width: 522px;;	
+  width: 478px;
 	height: 400px;		
 }
 #leaf_articles{
   overflow: auto;	
   width: 522px;;
+  width: 478px;
   height: 353px;
 }
 #content {

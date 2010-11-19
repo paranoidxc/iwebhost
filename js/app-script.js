@@ -352,6 +352,16 @@ $(document).ready(function(){
   	$('.api_categorys_ul p span.leaf').each(function(item) {
   	  $(this).click(function(ev) {	 
   	    wrap = getPanel($(this));  	    
+  	    if( $(this).attr('data_id') == wrap.find('#top_leaf_id').val() ){
+  	      wrap.find('.ele_del_leaf').removeClass('active');
+  	      wrap.find('.ele_move_leaf').removeClass('active');
+  	      wrap.find('.ele_update_leaf').removeClass('active');  	      
+  	    }else{
+  	      wrap.find('.ele_del_leaf').addClass('active');
+  	      wrap.find('.ele_move_leaf').addClass('active');
+  	      wrap.find('.ele_update_leaf').addClass('active');
+  	    }
+  	    
   	    $('#leaf_id').val($(this).attr('data_id'));	
   	    $('#cur_leaf_id').val( $(this).attr('data_id') );
   	    $('.api_categorys_ul p.tree_leaf_current').removeClass('tree_leaf_current');
