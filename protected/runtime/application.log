@@ -3188,3 +3188,9 @@ Stack trace:
 #20 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #21 H:\projects\iwebhost\index.php(79): CApplication->run()
 #22 {main} REQUEST_URI=/
+2010/11/20 04:02:15 [warning] [application] Failed to set unsafe attribute "id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (79)
+2010/11/20 04:02:15 [warning] [application] Failed to set unsafe attribute "create_datetime".
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (58)
+in H:\projects\iwebhost\index.php (79)

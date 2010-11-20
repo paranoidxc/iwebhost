@@ -130,8 +130,15 @@ $(document).ready(function(){
 	});
 	
 	
+	function isContentSelected(){
+	  if( $('.cb_article:checked').length > 0 ) {
+	    return true;
+    }else{
+      return false;
+    }
+	}
 	//var articels_action = false;	
-	function renderArticlesActions() {
+	function renderArticlesActions() {	  
 	  if( $('.cb_article:checked').length > 0 ) {
 	    $('.iactions').addClass('hover');
 	  }else{
@@ -152,32 +159,7 @@ $(document).ready(function(){
 	});		
 	*/
 	
-	//fun14
-	$('#cb_all').click(function(){
-	  if( $(this).is(':checked') ){
-	    $('.cb_article').attr('checked',true);
-	  }else{
-	    $('.cb_article').attr('checked',false);
-	  }
-	  renderArticlesActions();
-	});
 	
-	$('#artiles_all').click(function(){
-	  $('.cb_article').attr('checked',true);	  
-	  /*$('.item_checkbox :checkbox').attr('checked', true);
-		$('dl.thumbnail').addClass('highlight_selected');
-		renderArticlesActions();
-		*/
-	});
-	
-	$('#artiles_none').click(function(){
-	  $('.cb_article').attr('checked',false);
-	  /*
-	  $('.item_checkbox :checkbox').attr('checked', false);
-		$('dl.thumbnail').removeClass('highlight_selected');
-		renderArticlesActions();		
-		*/
-	});
 	
 	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/
 	$('.pick').live('click',function(){
@@ -1109,7 +1091,43 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$('.actions>li').hover(function(){
+	  },function(){
+	  $(this).find('ul').fadeOut();
+	  $(this).find('span').removeClass('hover');
+	})
 	
-	
+	$('.c_s_m,.c_m_a').live('click',function(){	  
+	  $(this).addClass('hover').css({'z-index':z});
+	  if( $(this).hasClass('c_m_a') ) {
+	    // if selected 
+	    if( isContentSelected() ) {
+	      $(this).next().find('.c_m_a_d_batch').show();
+	      $(this).next().find('.c_m_a_d_tip').hide();
+	    }else{
+	      $(this).next().find('.c_m_a_d_batch').hide();  
+	      $(this).next().find('.c_m_a_d_tip').show();
+	    } 
+	  }
+	  $(this).next().css({'z-index': z-1}).show();
+	});
+		
+	$('#cb_all').click(function(e){
+	  if( $(this).is(':checked') ){
+	    $('.cb_article').attr('checked',true);	
+	  }else{
+	    $('.cb_article').attr('checked',false);	    
+	  }
+	  renderArticlesActions();	  
+	  e.stopPropagation();	  
+	});		
+	$('.c_s_m_d_a').live('click',function(){
+	  $('.cb_article').attr('checked',true);
+	  $('#cb_all').attr('checked',true);
+	});
+	$('.c_s_m_d_n').live('click',function(){
+	  $('.cb_article').attr('checked',false);
+	  $('#cb_all').attr('checked',false);
+	});
 	
 });

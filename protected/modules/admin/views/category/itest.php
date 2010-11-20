@@ -90,43 +90,65 @@
  	<li class="hover">
  	 <a  href="<?php echo CController::createUrl('category/delete') ?>"		
  	     title="delete current leaf" class="ele_del_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
- 	</li> 	
- 	
- 	<li class="seperate"></li> 	 	
+ 	</li> 	 	
  	-->
-	<li class="hover">
+ 	
+ 	
+ 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
-	      title="Create Article" class="ele_create_article"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Writing.png" /></a>
+	      title="Create Article" class="ele_create_article">new</a>
  	</li>	
  	
-	<li class="iactions">
+ 	<!-- c_s_m     content_select_more 
+ 	     c_s_m_d   content_select_more_dialog
+ 	-->
+ 	<li>
+	  <span class="c_s_m">
+  	  <input type="checkbox" id="cb_all" /><span class="more"></span>
+	  </span>
+	  <ul class='dN c_s_m_d'>
+	    <li class="c_s_m_d_a">All</li>
+	    <li class="c_s_m_d_n">None</li>
+	  </ul>
+	</li>
+	
+	<!-- c_m_a     content_more_actions
+ 	     c_m_a_d   content_more_actions_dialog
+ 	-->
+	<li>	  
+	  <span class="c_m_a">
+	    More Actions<span class="more"></span>
+	  </span>
+	  <ul class='dN c_m_a_d'>
+      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch">move</li>      
+      <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles" class="c_m_a_d_batch">delete</li>
+      <?php
+	    if( $top_leaf->model_type != 'attachment' ) {
+      ?>
+	    <li href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles" class="c_m_a_d_batch">
+			  copy
+		  </li>			    
+	    <?php
+      }
+      ?>
+      <li class="c_m_a_d_tip dN">Pls Select C</li>
+    </ul>  	  
+	</li>
+	
+ 	<!--
+	<li class="iactions dN">
 		<a  href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles">
-			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Delete.png" title="Delete Articles" />
+			delete
 		</a>
 	</li>
 	
-	<li class="iactions">
+	<li class="iactions dN">
 		<a id="artiles_move" title="Move Articles">
-			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Move.png" title="Move Articles" />
+			move
 		</a>		
 	</li>
-  <?php
-	if( $top_leaf->model_type != 'attachment' ) {
-  ?>
-	<li class="iactions">
-		<a  href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles">
-			<img src="<?php echo Yii::app()->request->baseUrl?>/images/Copy.png" title="Copy Articles" />
-		</a>		
-	</li>
-	<?php
-    }
-  ?>
-	<li></li>
-	<li>
-	  <div id="cb_all_wrap">
-	    Select(ALL/None):<input type="checkbox" id="cb_all" />
-	  </div>		
-	</li>			
+  -->
+	
 </ul>
 
 <?php

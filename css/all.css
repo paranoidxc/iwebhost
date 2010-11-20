@@ -208,7 +208,7 @@ div.errorSummary {
   overflow: auto;	
   width: 522px;;
   width: 478px;
-  height: 353px;
+  height: 353px;  
 }
 #content {
   /*
@@ -221,26 +221,93 @@ div.errorSummary {
 #tree_content {	
 	height: 400px;
 }
-.actions {
-	width: 100%;
-	background: red;	
-	height: 60px;	
-	height: 47px;
-	line-height: 47px;
-	text-align: center;
-	background: url('panel_images/column_item_gray.png') repeat-x 0 0;
+
+
+
+.c_m_a_d,
+.c_s_m_d {
+  border: 1px solid #3787EA;    
+  background: #fff;
+  position: absolute;    
+  left: 0;
+  top: 17px;
+  z-index: 10000000;
+  width: 120px;
 }
-.actions li {
-	float: left;
-	height: 60px;
-	line-height: 60px;		
-	padding: 0 5px;
-	text-align: center;
-	height: 47px;
-	line-height: 47px;
+.c_m_a_d li,
+.c_s_m_d li {
+  display: block;
+  line-height: 20px;
+  height: 20px;    
+  padding: 0 3px;
+  margin: 2px 3px; 
+  cursor: pointer;
 }
+.c_m_a_d li:hover,
+.c_s_m_d li:hover {
+  background: #3787EA;
+  color: #fff;  
+}
+
+.c_s_m,
+.c_m_a,
+.ele_create_article {
+  position: relative;
+  border: 1px solid #131313;  
+  background: #efefef;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 2px 8px;
+  -moz-border-radius: 3px;
+  border: 1px solid #ccc;  
+  color: #111;
+}
+.c_m_a .more,
+.c_s_m .more{  
+  padding: 0 4px;  
+  background: url(arrow_down.png) no-repeat right 80%;
+}
+
+.c_s_m:hover,
+.c_m_a:hover,
+.ele_create_article:hover {
+  border: 1px solid #3787EA;
+}
+.c_m_a.hover,
+.c_s_m.hover {
+  background: #FFF;
+  border: 1px solid #3787EA;
+  border-bottom: 1px solid #fff;  
+  -moz-border-radius: 3px 3px 0px 0px;
+}
+
+.actions {		
+	line-height: 34px;	
+	height: 34px;
+	text-align: left;	
+	vertical-align: top;
+	background: #E9E9E9;
+	padding-left: 5px;
+	border-bottom: 1px solid #B8B8B8;		
+}
+.actions>li {
+  display: inline;
+  margin-right: 10px;
+  position: relative;  
+}
+.actions>li>span {
+  line-height: 20px;
+  height: 20px;  
+}
+.actions>li>span input {
+  vertical-align: middle;
+}
+
+/*
 .actions li.hover:hover {
+  
 	background: url('panel_images/column_item.png') repeat-x 0 0;
+	
 }
 .actions li:hover {
 }
@@ -249,13 +316,18 @@ div.errorSummary {
 	padding:0;
 	border-right: 1px solid #666666;
 }
+*/
 .actions li a {
+  /*
 	cursor: text;
+	*/
 }
 .actions li img {
+  /*
 	width: 32px;
 	height: 32px;
 	vertical-align: middle;
+	*/
 	
 }
 .actions li.hover img {

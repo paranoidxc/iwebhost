@@ -1,6 +1,6 @@
 .icategory_tree {
   width: 248px;
-  border-right: 2px solid #BDBDBD;
+  border-right: 1px solid #dfdfdf;
   overflow: auto;
   float: left;
 }
