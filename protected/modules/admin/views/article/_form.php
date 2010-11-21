@@ -20,24 +20,28 @@
   	<table class='itable'>
   	<tbody>
   	<tr>
-  		<th class='alt '>Attachment</th>
+  		<th class='alt tdU pick'
+  		    id="pick<?php echo time(); ?>"			        
+  			  uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>">Attachment</th>
   		<td>
   			<?php 
   			if( $model->attachment ) {
   				?>
   				<div class="orgin_thumbnail">
-  					<img src="/upfiles/s<?php echo $model->attachment->path?>" />
+  					<img src="/upfiles/t<?php echo $model->attachment->path?>" />
   					<p><?php echo $model->attachment->screen_name?></p>
   				</div>
   				<span class="exchange_symbol"> >> </span>
   			<?php
   			}
   			?>
+  			
   			<p class="clear">
-  			  <span class="pick"
+  			<!--  <span class="pick"
   			        id="pick<?php echo time(); ?>"			        
   			        uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>" >Pick
   			  </span>
+  			  -->
   			  <?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>
   			</p>
   			

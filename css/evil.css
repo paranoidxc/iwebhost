@@ -1,0 +1,64 @@
+
+.btT {
+  border: 1px solid #efefef;  
+  border-bottom: 1px solid #b8b8b8;
+}
+.btT:hover {      
+}
+  
+.btT td {
+  padding: 2px 0;
+}
+.bcc {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+}
+.csP {
+  cursor: pointer;
+}
+
+.w100s { width: 100%; }
+.w20p { width: 20px; }
+.w26p { width: 26px; }
+.w28p { width: 28px; }
+.w30p { width: 30px; }
+.w34p { width: 34px; }
+.w40p { width: 40px; }
+.w600p {width: 600px;}
+
+.dN { display: none; }
+.dB { display: block; }
+
+.taL { text-align: left; }
+.taC { text-align: center; }
+.taR { text-align: right; }
+
+.h16p { height: 16px; } 
+.h20P { height: 20px; }
+.h30P { height: 30px; }
+.h40P { height: 40px; }
+.h50P { height: 50px; }
+
+.pt10P { padding-top: 10px; }
+
+.pr5P { padding-right: 5px; }
+.pr10P { padding-right: 10px; }
+
+.pl2p { padding-left: 2px; }
+.pl3p { padding-left: 3px; }
+.pl4p { padding-left: 4px; }
+
+.mt10P { margin-top: 10px; }
+
+.ml20P{ margin-left: 20px; }
+
+.ti4P {
+  text-indent: 4px;
+}
+.tdU { text-decoration: underline; }
+.tdN { text-decoration: none; }
+
+.vaT { vertical-align: top; }
+.vaM { vertical-align: middle; }
+.vaB { vertical-align: bottom; }

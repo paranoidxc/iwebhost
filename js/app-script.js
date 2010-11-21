@@ -175,6 +175,7 @@ $(document).ready(function(){
 		});
 	});
 	
+	/*
 	$('.rpick').live('click',function(){
 	  var wrap = getPanel($(this));
 	  wrap.find('tr').css({
@@ -188,6 +189,7 @@ $(document).ready(function(){
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  wrap.find('.rel_path').val( $(this).attr('rel_path') );	  
 	});
+	*/
 	
 	$('.rpick_submit').live('click',function(){
 	  var wrap = getPanel($(this));	  
@@ -730,14 +732,7 @@ $(document).ready(function(){
 			}
 		});		
 		return false;
-	});
-	
-	
-	
-	$('.article_ele_title').live('click', function(){
-		//console.log($(this).html());
-	});
-	
+	});	
 		
 	$('.view_ele').click(function(){		
 		var that = $(this);
@@ -1009,8 +1004,8 @@ $(document).ready(function(){
 	
 	
 	
-	
-	$('dl.thumbnail .title').live('click',function(){
+	/*9e57007bcc35507dfc5bc7b8f2efb076 更新文章 */
+	$('dl.thumbnail .title,.content_item').live('click',function(){
 	  var url = $(this).parent().attr('rel_href');
 	  wrap = getPanel($(this));
 	  formLay(wrap);

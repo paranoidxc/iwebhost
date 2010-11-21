@@ -38,6 +38,9 @@ function colorfulV($s='my love--!'){
 }
 
 
+function cnSub($str,$len){
+  return cnSubStr($str,0,$len);
+}
 
 
 function cnSubstr($str, $start, $len) { 
