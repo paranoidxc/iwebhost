@@ -2,6 +2,7 @@
 .btT {
   border: 1px solid #efefef;  
   border-bottom: 1px solid #b8b8b8;
+  background: #F2F2F2;
 }
 .btT:hover {      
 }
@@ -13,10 +14,10 @@
   border-collapse: collapse;
   margin: 0;
   padding: 0;
+  table-layout: fixed;
 }
-.csP {
-  cursor: pointer;
-}
+.csD { cursor: url(img/openhand.cur), default !important; }
+.csP { cursor: pointer; }
 
 .w100s { width: 100%; }
 .w20p { width: 20px; }
@@ -25,6 +26,12 @@
 .w30p { width: 30px; }
 .w34p { width: 34px; }
 .w40p { width: 40px; }
+.w50p { width: 50px; }
+.w60p { width: 60px; }
+.w70p { width: 70px; }
+.w80p { width: 80px; }
+.w90p { width: 90px; }
+.w100p { width: 100px; }
 .w600p {width: 600px;}
 
 .dN { display: none; }

@@ -1,15 +1,17 @@
 function init_article_sort() {  
   
 		$("#article_drag_ele").sortable({
+		  handle: '.handle',
+		  start: function(event, ui) { 		    
+		  },
 			update: function(event, ui) {
-
 				var fruitOrder = $(this).sortable('toArray').toString();
 				//console.log( fruitOrder );
 
 				var serial = $('#article_drag_ele').sortable('serialize');
 				$.ajax({
 					type: "post",
-					url:'/index.php?r=admin/article/sortarticle',
+					url: $('#sort_content_url').val(),
 					data: serial,
 					success: function(html) { 	
 						//console.log(html);

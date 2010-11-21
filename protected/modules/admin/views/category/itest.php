@@ -49,9 +49,8 @@
 <input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type; ?>"   id="model_type" />
 
 <input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax') ) ?>" id="leaf_content_view_url" />
-
 <input type="hidden"  value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
-
+<input type="hidden"  value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
 <?php 
   if( $top_leaf->model_type == 'attachment' ) {
     ?>
@@ -135,6 +134,14 @@
     </ul>  	  
 	</li>
 	
+	<li class="list_symbol">
+	  <a href="#" title="#" class=""></a>
+ 	</li>
+ 	
+ 	<li class="thumb_symbol">
+	  <a href="#" title="#" class=""></a>
+ 	</li>
+ 	
  	<!--
 	<li class="iactions dN">
 		<a  href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles">

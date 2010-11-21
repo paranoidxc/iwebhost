@@ -10,6 +10,7 @@ return array(
 	'name'=>'iWebhost version 0.2 beta',
 	'theme'=>'classic',
 	'defaultController' => 'istart',
+	'timeZone'=>"Asia/Shanghai",
 	// preloading 'log' component
 	'preload'=>array('log'),
 

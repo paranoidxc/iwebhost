@@ -11,6 +11,20 @@
 @import url('evil.css');
 @import url('console.attachment.css');
 
+.content_item {
+  height: 16px;
+  line-height: 16px;
+  overflow: hidden;  
+  text-overflow:ellipsis; 
+  overflow:hidden;
+  white-space:nowrap;  
+  font-weight: bold;
+  cursor: pointer;  
+}
+.content_item:hover {
+  color: #3787EA;  
+}
+
 /* leafs sidebar */
 .leaf-sidebar {
   width: 42px;
@@ -277,33 +291,32 @@ div.errorSummary {
   vertical-align: middle;
 }
 
-/*
-.actions li.hover:hover {
+
+.actions li.list_symbol ,
+.actions li.thumb_symbol {
+  margin-right: 0px;    
+}
+.actions li.list_symbol {
   
-	background: url('panel_images/column_item.png') repeat-x 0 0;
-	
 }
-.actions li:hover {
+.actions li.list_symbol a {
+  margin-right: 5px;
 }
-.actions li.seperate {
-	width:1px;
-	padding:0;
-	border-right: 1px solid #666666;
+.actions li.list_symbol a,
+.actions li.thumb_symbol a {    
+  float: right;
+  margin-left: 5px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-top: 8px;
+  background: url(action_32.png) no-repeat 0 0;    
 }
-*/
-.actions li a {
-  /*
-	cursor: text;
-	*/
+.actions li.thumb_symbol a {  
+  /*background-position: -103px -711px;*/
+  background-position: -8px -711px;
 }
-.actions li img {
-  /*
-	width: 32px;
-	height: 32px;
-	vertical-align: middle;
-	*/
-	
-}
-.actions li.hover img {
-	cursor: pointer;	
+.actions li.list_symbol a {  
+  background-position: -103px -679px;  
 }
