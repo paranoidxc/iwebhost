@@ -87,7 +87,9 @@ class API {
    **/
   public static function INODE($opt) {
     if( is_array( $opt ) ) {      
-      $opt = array_merge($opt, array('include' => false ) );      
+      if( strlen($opt['include']) == 0) {
+        $opt = array_merge($opt, array('include' => false ) );
+      }
       return Category::model()->ileafs($opt);        
     }else{
       echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      

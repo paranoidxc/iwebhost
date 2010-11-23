@@ -22,7 +22,7 @@
       <?php echo cnSub( CHtml::encode($a->content) , 50); ?>
     </td>
     <td class="vaM taR w100p">      
-      <?php echo Time::timeAgoInWords($a->create_datetime) ;?>
+      <?php echo Time::timeAgoInWords($a->create_datetime, array('short'=>true) ) ;?>
     </td>    
     <td class="vaM w20p">
       <?php //echo $a->update_datetime; ?>

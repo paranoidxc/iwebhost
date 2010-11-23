@@ -16,7 +16,30 @@
  */
 class Article extends CActiveRecord
 {
-
+  public function __get($name)
+  {    
+    $getter='get'.$name;
+    if(method_exists($this,$getter))
+      return $this->$getter();
+      
+    return parent::__get($name);
+  }
+  
+  public function getNext() {    
+    $_article = self::model()->find(array(
+      'condition' => 'category_id=:category_id and sort_id < :sort_id',
+      'order'     => 'sort_id desc',
+      'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));
+    return $_article;
+  }
+  
+  public function getPrev() {    
+    $_article = self::model()->find(array(
+      'condition' => 'category_id=:category_id and sort_id > :sort_id',
+      'order'     => 'sort_id asc',
+      'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));    
+    return $_article;
+  }
  // public function first()
  // {
     //echo '!!!!!!!!';

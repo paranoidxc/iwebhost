@@ -170,12 +170,14 @@ class Category extends CActiveRecord
 				" AND node.lft BETWEEN sub_parent.lft AND sub_parent.rgt ".
   			" AND sub_parent.name = sub_tree.name ";
   		$sql.= " GROUP BY node.id ";
-  		if( $opt['include'] ) {  		  
+  		
+  		if( $opt['include'] ) {
+  		  $sql .= " HAVING depth >= 0 ";
   		}else{  		  
   		  $sql .= " HAVING depth > 0 ";
   		}
 				//" HAVING depth <= $depth ".
-				$sql .= " ORDER BY node.lft, node.sort_id desc ";
+				$sql .= " ORDER BY node.lft, node.sort_id desc ";			
 		 return $this->findAllBySql($sql);
 	}
 	

@@ -1,0 +1,83 @@
+@import url('../reset.css');
+@import url('../evil.css');
+
+body {
+  color: gray;
+  background: #131313 url(images/bg.gif) repeat 0 0;  
+  font-size: 14px;  
+  font-family:  tahoma ;
+  /*"Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important !important;*/
+}
+h1 { font-size: 160%; line-height: 180%; }
+h2 { font-size: 150%; line-height: 180%; }
+h3 { font-size: 140%; line-height: 180%; }
+h4 { font-size: 130%; line-height: 180%; }
+h5 { font-size: 120%; line-height: 180%; }
+h6 { font-size: 110%; line-height: 180%; }
+
+#page {
+  width: 600px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;  
+}
+#site-title {
+  background: url(images/blog-title.png) no-repeat right 0;
+  text-indent: -100000px;
+  margin-bottom: 20px;  
+  padding-bottom: 5px;
+}
+
+#article {
+  position: relative;
+  background: #131313 url(images/bg3.gif) repeat 0 0;  
+  padding: 10px 25px;  
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;  
+  color: #D62063;  
+
+  }
+  #article #next ,
+  #article #prev {
+    position: absolute;
+    top: 45%;
+  }  
+  #article #prev {
+    left: 5px;
+  }
+  #article #next {
+    right: 5px;;
+  }
+    #article #prev a,
+    #article #next a {      
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      width: 10px;
+      color: #85DF00;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    #article #prev a:hover,
+    #article #next a:hover {
+      color: #D62063;
+    }
+  #article h1.title {    
+    color: #85DF00;   
+    text-shadow: 0px 1px 0px #000;
+    }
+    #article h1.title span {  
+      border-bottom: 1px dotted #666666;
+    }
+  
+  #article p {
+    line-height: 180%;    
+    margin-bottom: 14px;
+  }
+  #article #post_time {
+    border-top: 1px dotted #333;
+    color: #333;
+    text-align: right;
+  }

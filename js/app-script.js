@@ -315,7 +315,9 @@ $(document).ready(function(){
   	    }	    
   	    $.ajax({
   				type: 'get', 
-  				url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+id2,
+  				//url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+id2,
+  				         ///index.php?r=admin/category/sort&ajax=ajax
+  				url:	$('#sort_leaf_url').val()+'&id1='+first.attr('data_id')+'&id2='+id2,
   				cache:	false,
   				success:	function(html){						
   					if( html.indexOf('STOP') != -1 ){
