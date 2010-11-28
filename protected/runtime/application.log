@@ -3740,3 +3740,157 @@ Stack trace:
 #3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 H:\projects\iwebhost\index.php(82): CApplication->run()
 #5 {main} REQUEST_URI=/index.php?r=blog/article&id=459
+2010/11/28 11:37:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bolg/map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('bolg/map')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(82): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=bolg/map&_=1290915421604
+2010/11/28 11:39:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bolg/map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('bolg/map')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(82): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=bolg/map&_=1290915540196
+2010/11/28 11:39:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bolg/map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('bolg/map')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(82): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=bolg/map&_=1290915546052
+2010/11/28 11:39:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bolg/map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('bolg/map')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(82): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=bolg/map&_=1290915573596
+2010/11/28 11:39:39 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:03 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:04 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:05 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:16 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:17 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:18 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:19 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(19): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:40:58 [error] [exception.CException] exception 'CException' with message 'BlogController 无法找到请求的视图 "_map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(21): CController->renderPartial('_map', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('map')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/map')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/map
+2010/11/28 11:43:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "bolg/map".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('bolg/map')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(82): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=bolg/map&_=1290915807325
+2010/11/28 11:48:48 [error] [php] Invalid argument supplied for foreach() (H:\projects\iwebhost\themes\blog\views\blog\_map.php:4)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): BlogController->renderFile()
+#1 H:\projects\iwebhost\protected\controllers\BlogController.php(22): BlogController->renderPartial()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionMap()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): BlogController->runAction()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): BlogController->runActionWithFilters()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): BlogController->run()
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(82): CWebApplication->run()
+REQUEST_URI=/index.php?r=blog/map
+in H:\projects\iwebhost\themes\blog\views\blog\_map.php (4)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (22)
+in H:\projects\iwebhost\index.php (82)

@@ -27,7 +27,21 @@ h6 { font-size: 110%; line-height: 180%; }
   margin-bottom: 20px;  
   padding-bottom: 5px;
 }
-
+#map {  
+  text-align: right;
+  padding: 5px;
+  }
+  #map a {  
+    display:inline-block;
+    height: 31px;
+    width: 27px;
+    background: url(images/map_green.png) no-repeat 0 0;
+    text-indent: 100000px;
+    overflow: hidden;
+  }
+  #map a:hover {  
+    background: url(images/map_pink.png) no-repeat 0 0;
+  }
 #article {
   position: relative;
   background: #131313 url(images/bg3.gif) repeat 0 0;  
@@ -37,7 +51,6 @@ h6 { font-size: 110%; line-height: 180%; }
   text-overflow: ellipsis;
   overflow: hidden;  
   color: #D62063;  
-
   }
   #article #next ,
   #article #prev {
@@ -81,3 +94,22 @@ h6 { font-size: 110%; line-height: 180%; }
     color: #333;
     text-align: right;
   }
+
+  #map_wrap ul li:first-child {
+    border-top: none;
+  }
+  #map_wrap ul li:last-child {
+    border-bottom: none;
+  }
+  #map_wrap ul li {
+    line-height: 30px;
+    border-bottom: 1px solid #0E1216;
+    border-top: 1px solid #222;
+    }
+    #map_wrap ul li a {
+      color: #85DF00;
+      text-decoration: none;
+    }
+    #map_wrap ul li a:hover {
+      color: #D62063;
+    }

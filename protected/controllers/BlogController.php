@@ -11,6 +11,17 @@ class BlogController extends Controller
 		) );
   } 
   
+  public function actionMap(){    
+    Yii::app()->name = 'xiaochuan.log';
+		Yii::app()->theme='blog';
+    $blog = API::INODE( array('ident_label' => 'blog','include' => true) );    
+    
+		$this->renderPartial('_map', array(
+  		'articles' => $articles,
+  		'blog'     => $blog  		
+		) );
+  }
+  
   public function actionArticle() {
     Yii::app()->name = 'xiaochuan.log';
 		Yii::app()->theme='blog';		

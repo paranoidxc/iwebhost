@@ -20,5 +20,9 @@
       echo Time::timeAgoInWords($article->create_datetime);
       echo '</p>';    
   ?>
-  
 </div>
+  <p id="map">
+    <a href="<?php echo CController::createUrl('blog/map')?>" title="map articles"  >map</a>
+  </p>
+  <div class="dN" id="map_wrap">  
+  </div>

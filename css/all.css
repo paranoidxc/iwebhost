@@ -214,8 +214,8 @@ div.errorSummary {
 
 .c_m_a_d,
 .c_s_m_d {
-  border: 1px solid #3787EA;    
-  background: #fff;
+  border: 1px solid #666;    
+  background: #E3E3E3;
   position: absolute;    
   left: 0;
   top: 17px;
@@ -242,13 +242,17 @@ div.errorSummary {
 .ele_create_article {
   position: relative;
   border: 1px solid #131313;  
+  border-color: #CCCCCC #BBBBBB #A0A0A0;
+  border-right: 1px solid #BBBBBB;
+  border-style: solid;
   background: #efefef;
   text-decoration: none;
   cursor: pointer;
-  padding: 2px 8px;
+  padding: 3px 5px;
   -moz-border-radius: 3px;
   border: 1px solid #ccc;  
   color: #111;
+  background: -moz-linear-gradient(center top , #F9F9F9, #E3E3E3) repeat scroll 0 0 transparent;
 }
 .c_m_a .more,
 .c_s_m .more{  
@@ -260,13 +264,14 @@ div.errorSummary {
 .c_m_a:hover,
 .ele_create_article:hover {
   border: 1px solid #3787EA;
+  border: 1px solid #666;
 }
 .c_m_a.hover,
 .c_s_m.hover {
-  background: #FFF;
   border: 1px solid #3787EA;
-  border-bottom: 1px solid #fff;  
-  -moz-border-radius: 3px 3px 0px 0px;
+  border: 1px solid #666;
+  border-bottom: 1px solid #E3E3E3;  
+  -moz-border-radius: 3px 3px 0px 0pxs
 }
 
 .actions {		
@@ -282,6 +287,7 @@ div.errorSummary {
   display: inline;
   margin-right: 10px;
   position: relative;  
+  -moz-linear-gradient(center top , #F9F9F9, #E3E3E3) repeat scroll 0 0 transparent;
 }
 .actions>li>span {
   line-height: 20px;
