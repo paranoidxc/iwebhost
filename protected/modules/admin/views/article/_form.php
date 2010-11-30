@@ -20,53 +20,65 @@
   	<table class='itable'>
   	<tbody>
   	<tr>
-  		<th class='alt tdU pick'
+  		<th>
+  	  <span class='alt tdU pick'
   		    id="pick<?php echo time(); ?>"			        
-  			  uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>">Attachment</th>
+  			  uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>">
+  			  Attachment
+  	  </span>
+  		</th>
   		<td>
   			<?php 
   			if( $model->attachment ) {
   				?>
   				<div class="orgin_thumbnail">
-  					<img src="/upfiles/t<?php echo $model->attachment->path?>" />
-  					<p><?php echo $model->attachment->screen_name?></p>
-  				</div>
-  				<span class="exchange_symbol"> >> </span>
+  					<img src="/upfiles/g<?php echo $model->attachment->path?>" title="<?php echo $model->attachment->screen_name?>" />  					
+  					<span class="unlink_default" origin_value="0" title="删除">删除</span>
+  					<span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="撤销">撤销</span>
+  				</div>  				
   			<?php
   			}
   			?>
   			
-  			<p class="clear">
-  			<!--  <span class="pick"
-  			        id="pick<?php echo time(); ?>"			        
-  			        uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>" >Pick
-  			  </span>
-  			  -->
-  			  <?php echo $form->textField($model,'attachment_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>
+  			<div class="dest_thumbnail dN" >
+  			  <img src="" alt="" />
+  			  <span class="unlink_dest" title="删除">删除</span>
+  			</div>
+  			
+  			<p class="clear">  			
+  			  <?php echo $form->textField($model,'attachment_id',array( 'size'=>60,'maxlength'=>255, 'class' => 'dN small', 'origin_value' => 0 )); ?>
   			</p>
   			
   		</td>
   	</tr>
   
   	<tr>
-  		<th class='alt '>Gallery</th>
+  		<th class='alt'>  		  
+  		  <span class="tdU pick" 
+  			      id="gallery_pick<?php echo time(); ?>" 
+  			      uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery
+  			</span>
+  		</th>
   		<td>
   			<?php 
   			if( $model->gallery ) {
   				?>
-  				<div class="origin_gallery">
+  				<div class="origin_collect">
   					<p><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></p>
-  				</div>
-  				<span class="exchange_symbol"> >> </span>
+  					<span class="unlink_default_collect" origin_value="0" title="删除">删除</span>
+  					<span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="撤销">撤销</span>  					
+  				</div>  				
   			<?php
   			}
   			?>
-  			<p class="clear">
-  			  <span class="pick" 
-  			        id="gallery_pick<?php echo time(); ?>" 
-  			        uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery Pick
-  			  </span>
-  			  <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => 'small' )); ?>		
+  			
+  			<div class="dest_collect dN" >
+  			  <span class="dest_collect_name">555</span>
+  			  <span class="unlink_collect" title="删除">删除</span>
+  			</div>
+  			
+  			<p class="clear">  			  
+  			  <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => 'dN small' )); ?>		
   			</p>
   		</td>
   	</tr>

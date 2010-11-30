@@ -175,9 +175,9 @@ $(document).ready(function(){
 			  popup_panel( $(html) );
 			}
 		});
-	});
+	});		
 	
-	/*
+	/* 3adf93e4b9161c1409b6bc3e228c9439 返回关联图片 return attachment pick   */
 	$('.rpick').live('click',function(){
 	  var wrap = getPanel($(this));
 	  wrap.find('tr').css({
@@ -191,9 +191,92 @@ $(document).ready(function(){
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  wrap.find('.rel_path').val( $(this).attr('rel_path') );	  
 	});
-	*/
+	
+	/*315349422075b608b865e9fb0b21812d 返回关联集合  collect return pick */
+	$('.collect_return_submit').live('click',function(){	  
+	  var wrap = getPanel($(this));	  
+	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
+	  var rel_name        = wrap.find('.node_name').val();
+	  var rel_id          = wrap.find('.node_id').val();
+	  
+	  return_wrap.find('.dest_collect_name').html( rel_name );
+	  return_wrap.find('.dest_collect').show();
+	  var input_default_value = return_wrap.find('input').val();
+	  return_wrap.find('input').attr('value', rel_id);	  
+	  return_wrap.find('.unlink_collect').attr('origin_value',input_default_value);
+	});
+
+	$('.att_return_submit').live('click',function(){
+	  var wrap = getPanel($(this));	  
+	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
+	  var rel_path        = wrap.find('.rel_path').val();
+	  var rel_id          = wrap.find('.rel_id').val();
+	  var rel_screen_name = wrap.find('.rel_screen_name').val();
+	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
+	  
+	  /*display the select thumbnail*/
+	  return_wrap.find('.dest_thumbnail').find('img').attr('src', '/upfiles/g'+rel_path).attr('title', str);
+	  /*relation the select id */
+	  var input_default_value = return_wrap.find('input').val();
+	  return_wrap.find('input').attr('value', rel_id);	
+	  return_wrap.find('.unlink_dest').attr('origin_value',input_default_value);
+	  return_wrap.find('.dest_thumbnail').show();
+	  
+	});
+	
+	$('.reset_default_collect').live('click',function(){
+	  $(this).parent().find('p').show();
+	  $(this).prev().show();
+	  $(this).parent().parent().find('input').attr('value', $(this).attr('rel_id') );
+	  $(this).hide();
+	  
+	});
+	
+	$('.reset_default').live('click',function(){
+	  $(this).parent().find('img').show();
+	  $(this).parent().parent().find('input').attr('value', $(this).attr('rel_id') );
+	  $(this).hide();
+	  $(this).prev().show();
+	});
+	
+	$('.unlink_collect').live('click',function(){
+	  var return_wrap =$(this).parent().parent();
+	  var input = return_wrap.find('input');
+	  input.attr('value', $(this).attr('origin_value') );
+	  $(this).attr('origin_value','');
+	  $(this).parent().hide();
+	});
+	
+	$('.unlink_dest').live('click',function(){
+	  $(this).prev().attr('src','');
+	  var return_wrap = $(this).parent().parent();
+	  var input = return_wrap.find('input');
+	  input.attr('value', $(this).attr('origin_value') );
+	  $(this).attr('origin_value','');
+	  $(this).parent().hide();
+  });
+  
+  $('.unlink_default_collect').live('click',function(){
+    $(this).hide();    
+    var prev = $(this).prev().hide();    
+    var return_wrap = $(this).parent().parent();
+    var input = return_wrap.find('input');
+    input.attr('value', $(this).attr('origin_value') );
+    $(this).next().css('display','block');
+    $(this).hide();
+  });
+  
+	$('.unlink_default').live('click',function(){
+	  var prev = $(this).prev().hide();	  		  
+	  var return_wrap = $(this).parent().parent();
+	  var input = return_wrap.find('input');	  
+	  input.attr('value', $(this).attr('origin_value') );
+	  $(this).hide();
+	  $(this).next().css('display','block');
+	});
 	
 	$('.rpick_submit').live('click',function(){
+	
 	  var wrap = getPanel($(this));	  
 	  var return_ele = $('#'+wrap.find('.return_id').val());
 	  
@@ -221,49 +304,7 @@ $(document).ready(function(){
 		}	
 		wrap.remove();
 	})
-	
-	/*
-	$('.rpick').live('click',function(){
-		var return_ele = $('#'+$(this).attr('return_id'));		
-		return_ele.next().attr('origin_value', return_ele.next().attr('value') );
-		return_ele.next().attr('value',$(this).attr('rel_id'));
-		var return_ele_p = return_ele.parent();
-		
-		if( return_ele_p.prev().hasClass('dest_thumbnail')  ){
-		  var dest_ele_wrap = return_ele_p.prev();
-		  dest_ele_wrap.find('img').attr('src','/upfiles/s'+$(this).attr('rel_path') );
-		  dest_ele_wrap.find('p').html( $(this).attr('rel_screen_name') );
-		}else{
-		  var dest_ele_wrap = $('<div class="dest_thumbnail" />').insertBefore(return_ele_p);		  
-		  $('<span />').html('x').addClass('dest_thumbnail_close').appendTo(dest_ele_wrap).click(function(){
-		    dest_ele_wrap.remove();
-		    return_ele.next().attr('value',return_ele.next().attr('origin_value') );
-		    
-		  });
-		  $('<img>').attr('src', '/upfiles/s'+$(this).attr('rel_path') ).appendTo(dest_ele_wrap);
-		  $('<p>').html($(this).attr('rel_screen_name')).appendTo(dest_ele_wrap);
-		}	
-	});
-	*/
-	
-	$('.gallery_return_pick').live('click',function(){
-		var return_ele = $('#'+$(this).attr('return_id'));
-		return_ele.next().attr('origin_value', return_ele.next().attr('value') );
-		return_ele.next().attr('value',$(this).attr('rel_id'));
-		var return_ele_p = return_ele.parent();
-		
-		if( return_ele_p.prev().hasClass('dest_gallery')  ){
-		  var dest_ele_wrap = return_ele_p.prev();
-		  dest_ele_wrap.find('p').html( $(this).attr('rel_name') );
-		}else{
-		  var dest_ele_wrap = $('<div class="dest_gallery" />').insertBefore(return_ele_p);
-		  $('<span />').html('x').addClass('dest_gallery_close').appendTo(dest_ele_wrap).click(function(){
-	      dest_ele_wrap.remove();
-		    return_ele.next().attr('value',return_ele.next().attr('origin_value') );		    
-		  });		  
-		  $('<p>').html($(this).attr('rel_name')).appendTo(dest_ele_wrap);		
-		}		
-	});
+
 	
 	
 	function cct_option_div_hide(that){

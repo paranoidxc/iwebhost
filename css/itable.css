@@ -89,17 +89,63 @@
   cursor: pointer;  
 }
 .pick:hover {
-  background: #DED07F;
+  background: #73A6FF;
+  color: #FFF;
 }
-.origin_gallery,
-.dest_gallery,
+
+.origin_collect,
+.dest_collect,
+.dest_thumbnail,
+.orgin_thumbnail {
+  position: relative;    
+}
+
+.dest_thumbnail img,
+.orgin_thumbnail img{  
+  border: 1px solid #313131;
+  border-color: #313131 #313131 #131313 #131313;
+  padding: 1px;
+}
+
+.unlink_default,
+.unlink_default_collect,
+.unlink_collect,
+.unlink_dest ,
+.unlink_default {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background:  url(img/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+
+.reset_default_collect,
+.reset_default{
+  position: relative;
+  width: 20px;
+  height: 16px;
+  background: url(img/reset.png) no-repeat;
+  text-indent: -100000px;
+  cursor: pointer;
+}
+
+.unlink_dest:over ,
+.unlink_default:hover {
+  background: url(img/close_a.png);
+}
+
+
+.origin_collect,
+.dest_collect,
 .orgin_thumbnail,
 .dest_thumbnail {
   float: left;
   text-align: center;
-  width: 200px;  
   padding: 5px;
-  border: 2px solid #CCC;
+  /*border: 2px solid #73A6FF; */
   margin-right: 10px;
   background: #FFF;
   padding: #CCC;

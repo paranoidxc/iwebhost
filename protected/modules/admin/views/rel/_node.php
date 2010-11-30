@@ -20,14 +20,14 @@
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" >';
         echo '<p 
-              class="gallery_return_pick" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+              class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo' <span class="leaf">';    				
 			}else if( $depth > $temp_depth ) {
 			  echo '<ul class="'.$class.'"><li class="'.$class.'">';
         echo '<p 
-              class="gallery_return_pick" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+              class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf"  >';    				
@@ -37,14 +37,14 @@
     		}
     		echo '<li class="'.$class.'">';
         echo '<p 
-           class="gallery_return_pick" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+           class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
            style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf">';        		
   		}else if( $depth == $temp_depth ){
     		echo '</li><li class="'.$class.'">';
         echo '<p 
-                class="gallery_return_pick" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+                class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
                 style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf">';

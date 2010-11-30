@@ -40,7 +40,7 @@
   <input type="text" class="rel_id" value="" size="5" />
   <input type="text" class="rel_screen_name" value="" size="40"/>
   <input type="hidden" class="rel_path" value="" />  
-  <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn rpick_submit')); ?>
+  <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn att_return_submit')); ?>
 </div>   
 <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 
