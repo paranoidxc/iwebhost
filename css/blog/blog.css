@@ -52,6 +52,20 @@ h6 { font-size: 110%; line-height: 180%; }
   overflow: hidden;  
   color: #D62063;  
   }
+  #article a:visited,
+  #article a {    
+    color: #85DF00;   
+    text-decoration: none;    
+  }
+  #article a:hover {
+    color: #FFF;
+    background: #D62063;
+  }
+  #article img {
+    max-width: 540px;
+    padding: 4px;
+    border: 1px solid #191919;    
+  }    
   #article #next ,
   #article #prev {
     position: absolute;
@@ -61,7 +75,7 @@ h6 { font-size: 110%; line-height: 180%; }
     left: 5px;
   }
   #article #next {
-    right: 5px;;
+    right: 5px;
   }
     #article #prev a,
     #article #next a {      
@@ -76,6 +90,7 @@ h6 { font-size: 110%; line-height: 180%; }
     #article #prev a:hover,
     #article #next a:hover {
       color: #D62063;
+      background: none;
     }
   #article h1.title {    
     color: #85DF00;   
@@ -89,8 +104,12 @@ h6 { font-size: 110%; line-height: 180%; }
     line-height: 180%;    
     margin-bottom: 14px;
   }
-  #article #post_time {
-    border-top: 1px dotted #333;
+  #article #post_time span {      
+    display: block;
+    border-bottom: 1px solid #191919;
+  }
+  #article #post_time {    
+    border-top: 1px solid #0E1216;
     color: #333;
     text-align: right;
   }

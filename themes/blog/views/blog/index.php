@@ -17,6 +17,7 @@
       echo '<h1 class="title"><span>'.$article->title.'</span></h1>';
       echo ereg_replace('<script.*</script>', '', Markdown( $article->content ));
       echo '<p id="post_time">';
+      echo '<span ></span>';
       echo Time::timeAgoInWords($article->create_datetime);
       echo '</p>';    
   ?>

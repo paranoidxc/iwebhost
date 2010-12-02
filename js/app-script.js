@@ -867,7 +867,7 @@ $(document).ready(function(){
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局方法定义*/
 	$(document).ajaxStart(ajaxOnStart).ajaxSuccess(ajaxOnSuccess).ajaxError(ajaxOnError);
   function ajaxOnStart() {
-    if (wrap != null){ 
+    if (wrap != null){       
       formLay(wrap);
       formError(wrap);
      }
@@ -930,7 +930,7 @@ $(document).ready(function(){
       idebug('ajax overlay display ='+t);
       wrap.find('.ajax_overlay').hide();  
     }else{
-      wrap.find('.ajax_overlay').show();
+      wrap.find('.ajax_overlay').css('z-index',z).show();
     }
   }
   function formError(wrap){

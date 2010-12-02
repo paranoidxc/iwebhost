@@ -1,4 +1,16 @@
 <?php
+/*
+时常走访大自然是解除城市生活中罪恶的必要良方。 
+
+如果生活的要义在于追求幸福，那么，除却旅行，很少有别的行为能呈现这一追求过程中的热情和矛盾。
+不论是多么的不明晰，旅行仍能表达出紧张工作和辛苦谋生之外的另一种生活意义。
+
+人类不快乐的唯一原因是他不知道如何安静地呆在他的房间里。  
+ abcdefg hijklmn opq rst uvw xyz
+ ABCDEFG HIJKLMN OPQ RST UVW XYZ
+ `1234567890-=[]
+ ~!@#$%^&*()_+{}
+ */
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
