@@ -97,5 +97,41 @@ class API {
       exit;
     }
   }
+  
+  public static function essay($opt){
+    if( is_array($opt) ){
+      
+      if( !empty($opt['id']) ){
+        $id = $opt['id'];
+        if( strpos($id,',') === false ){
+          return Article::model()->findbyPk($id);          
+        }else{          
+          return Article::model()->findall(array(
+            'condition' => 'find_in_set(id, :id)',
+            'params'=>array(':id'=>$id),
+            'order' => 'sort_id desc, update_datetime desc'
+          ));
+        }
+      }else if( !empty($opt['ident']) ){
+        $ident = $opt['ident'];
+        if( strpos($id, ',') === false ) {
+          return Article::model()->find( array( 'condition' => ' ident =:ident ', 'params' => array( 'ident' => $ident ) ) );
+        }else{
+          return Article::model()->findall(array(
+            'condition' => 'find_in_set(ident, :ident)',
+            'params'=>array(':ident'=>$ident),
+            'order' => 'sort_id desc, update_datetime desc'
+          ));
+        }
+      }
+      
+      //Article::model()->findById()   
+    }else{
+      echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      
+      echo "ERROR Fuction essay";
+      exit;
+    }
+  }
+  
 }
 ?>

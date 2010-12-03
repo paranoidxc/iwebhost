@@ -1,5 +1,5 @@
 <div id="article">
-  <?php           
+  <?php             
       if( $article->prev ){
         echo '<p id="prev">';
         echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->prev->id) ).' " title="'.$article->prev->title.'" >';
@@ -14,8 +14,9 @@
         echo '</a>';
         echo '</p>';        
       }
-      echo '<h1 class="title"><span>'.$article->title.'</span></h1>';
-      echo ereg_replace('<script.*</script>', '', Markdown( $article->content ));
+      echo '<h1 class="title"><span>'.Fun::candy().$article->title.'</span></h1>';
+      echo ereg_replace('<script.*>.*</script>', '', Markdown( $article->content ));
+      //echo Markdown( $article->content );
       echo '<p id="post_time">';
       echo '<span ></span>';
       echo Time::timeAgoInWords($article->create_datetime);

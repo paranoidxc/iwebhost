@@ -219,3 +219,13 @@ font-size: 13px;
   border: 1px solid #afafaf;
   padding: 5px;
 }
+
+.preview{
+  height: 300px;
+	width: 98%;
+	overflow: auto;		
+}
+.preview p {
+  line-height: 16px;
+  margin-bottom: 18px;
+}

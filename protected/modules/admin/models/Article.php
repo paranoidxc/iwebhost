@@ -15,7 +15,7 @@
  * @property integer $category_id
  */
 class Article extends CActiveRecord
-{
+{  
   public function __get($name)
   {    
     $getter='get'.$name;
@@ -23,6 +23,20 @@ class Article extends CActiveRecord
       return $this->$getter();
       
     return parent::__get($name);
+  }
+  public function getPrint() {    
+    print_r('id = '.$this->id);
+    print_r("<br>");
+    print_r('title = '.$this->title);
+    print_r("<br>");
+    print_r('category_id = '.$this->category_id);
+    print_r("<br>");
+    print_r('attachment_id = '.$this->attachment_id);
+    print_r("<br>");
+    print_r('gallery_id = '.$this->gallery_id);
+    print_r("<br>");
+    print_r('sort_id = '.$this->sort_id);
+    print_r("<br>");
   }
   
   public function getNext() {    

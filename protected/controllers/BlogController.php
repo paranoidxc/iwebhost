@@ -1,6 +1,28 @@
 <?php
 class BlogController extends Controller
 {
+  public function actionAPI(){
+    echo 'find id=2 essay <br>';
+    echo '<pre>';
+  
+    $a = API::essay(array(
+      'id' => '2'
+    ));      
+    $a->print;  
+    echo 'find id=2,3,4 essay <br>';
+    $a = API::essay(array(
+      'id' => ',3,2,3'
+    ));  
+    
+    foreach( $a as $t ){
+      print_r("<hr>");
+      $t->print;
+    }
+    
+    echo '</pre>';
+    exit;
+  }
+  
   public function actionIndex(){
     Yii::app()->name = 'xiaochuan.log';
 		Yii::app()->theme='blog';
