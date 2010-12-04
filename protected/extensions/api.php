@@ -100,17 +100,49 @@ class API {
   
   public static function essay($opt){
     if( is_array($opt) ){
-      
       if( !empty($opt['id']) ){
         $id = $opt['id'];
         if( strpos($id,',') === false ){
           return Article::model()->findbyPk($id);          
-        }else{          
+        }else{
+          $criteria=new CDbCriteria;
+          $criteria->condition  = 'find_in_set(id, :id)';
+          $criteria->params     = array(':id'=>$id);
+          $criteria->order       = 'sort_id desc, update_datetime desc';
+          echo '<hr>';
+          $item_count = Article::model()->count($criteria);          
+          $page_size = 1;
+
+          $pages =new CPagination($item_count);
+          $pages->setPageSize($page_size);
+          //print_r($pages);
+          
+          $end =($pages->offset+$pages->limit <= $item_count ? $pages->offset+$pages->limit : $item_count);
+          ///echo "<b>Page ".($pages->getCurrentPage()+1)."</b>---";
+          $sample =range($pages->offset+1, $end);
+
+          //echo "<ul><li>";
+          //echo implode('</li><li>', $sample);
+          //echo "</li></ul>";
+
+          print_r( new CLinkPager($pages) );          
+
+          //print_r($sample);
+          
+          
+          exit;
+          $pages->pageSize=1;
+          $pages->applyLimit($criteria);
+          print_r($pages);
+          
+          exit;
+          /*
           return Article::model()->findall(array(
             'condition' => 'find_in_set(id, :id)',
             'params'=>array(':id'=>$id),
             'order' => 'sort_id desc, update_datetime desc'
           ));
+          */
         }
       }else if( !empty($opt['ident']) ){
         $ident = $opt['ident'];

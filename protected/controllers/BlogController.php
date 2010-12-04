@@ -2,6 +2,54 @@
 class BlogController extends Controller
 {
   public function actionAPI(){
+    
+    
+    
+    $item_count =32;
+    $page_size =5;
+    $pages =new CPagination($item_count);
+    $pages->pageVar = 'iook=8&ok';
+    
+    //$pages->createPageUrl(CController::createUrl('blog/index',$pages) );
+    $pages->setPageSize($page_size);
+    // simulate the effect of LIMIT in a sql query
+    $end =($pages->offset+$pages->limit <= $item_count ? $pages->offset+$pages->limit : $item_count);
+    $sample =range($pages->offset+1, $end);
+    
+    
+    $pagination = new CLinkPager();
+    print_r("<pre>");
+    print_r($pagination);
+    
+    
+    print_r("</pre>");
+    //$pages->pageVar='stat='.$_GET[stat]."&page";
+        
+    $pagination->setPages($pages);    
+    $pagination->init();
+    
+    $pagination->run();        
+    
+    
+    print_r($pages);
+    
+    
+    $pagination = new CListPager();
+    $pages->pageVar = 'ioof';
+    $pagination->setPages($pages);
+    $pagination->init();
+    $pagination->run(); 
+    /*
+    $this->widget('CLinkPager', array(
+      'pages'=>$pages,
+    ));
+    $this->widget('CListPager', array(
+    'pages'=>$pages,
+    ));
+    */
+    exit;
+
+
     echo 'find id=2 essay <br>';
     echo '<pre>';
   
@@ -11,7 +59,7 @@ class BlogController extends Controller
     $a->print;  
     echo 'find id=2,3,4 essay <br>';
     $a = API::essay(array(
-      'id' => ',3,2,3'
+      'id' => ',1,2,3,4,5,6,7,,8,,9,0,0,-,-,,,,r,r,r,w,,3,2,3'
     ));  
     
     foreach( $a as $t ){

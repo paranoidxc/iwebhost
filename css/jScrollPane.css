@@ -1,4 +1,3 @@
-
 .jScrollPaneContainer {
 	position: relative;
 	overflow: hidden;
@@ -13,12 +12,26 @@
 	height: 100%;
 	background: #aaa;
 }
+
+#article_wrap .jScrollPaneTrack {
+  background: #000;  
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 .jScrollPaneDrag {
 	position: absolute;
 	background: #666;
 	cursor: pointer;
 	overflow: hidden;
 }
+
+#article_wrap .jScrollPaneDrag {  
+  background: #D62063;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 .jScrollPaneDragTop {
 	position: absolute;
 	top: 0;

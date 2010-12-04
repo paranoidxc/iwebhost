@@ -1,4 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function(){  
+
+  $('#article').jScrollPane({
+    reinitialiseOnImageLoad: true
+  });
+  
   $('#map>a').toggle(function(){
     var that = $(this);    
     if( $(this).parent().next().find('ul').length == 0 ){
@@ -19,4 +24,5 @@ $(document).ready(function(){
     $(this).parent().next().toggle();
     return false;
   })
+
 })
