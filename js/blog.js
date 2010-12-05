@@ -16,11 +16,36 @@ jQuery(document).bind('keydown', 'j',prevEassy);
 jQuery(document).bind('keydown', 'k',nextEassy);
 jQuery(document).bind('keydown', 'K',nextEassy);
 
-$(document).ready(function(){  
-    
+
+
+$(document).ready(function(){    
+  jQuery(document).bind('keydown', 'm',blog_map);
+  
   $('#article').jScrollPane({
     reinitialiseOnImageLoad: true
   });
+  
+  function blog_map(){
+    var that = $('#map>a');
+    if( that.parent().next().find('ul').length == 0 ){
+      $.ajax({
+          type: 'get',
+          cache: false,
+          url: that.attr('href'),
+          success: function(html){
+            that.parent().next().html( html );
+            that.parent().next().slideDown();
+          }
+      })
+    }else{
+      if( that.parent().next().css('display') == 'block' ){
+        that.parent().next().slideUp();  
+      }else{
+        that.parent().next().slideDown();  
+      }
+      
+    }
+  }
   
   $('#map>a').toggle(function(){
     var that = $(this);    

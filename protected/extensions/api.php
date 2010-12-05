@@ -108,41 +108,20 @@ class API {
           $criteria=new CDbCriteria;
           $criteria->condition  = 'find_in_set(id, :id)';
           $criteria->params     = array(':id'=>$id);
-          $criteria->order       = 'sort_id desc, update_datetime desc';
-          echo '<hr>';
-          $item_count = Article::model()->count($criteria);          
-          $page_size = 1;
-
-          $pages =new CPagination($item_count);
+          $criteria->order      = 'sort_id desc, update_datetime desc';
+          $item_count = Article::model()->count($criteria);                              
+          $page_size = 2;          
+          $pages =new CPagination($item_count);          
+          //$pages->pageVar = 'iook=8&ok';          
           $pages->setPageSize($page_size);
-          //print_r($pages);
-          
-          $end =($pages->offset+$pages->limit <= $item_count ? $pages->offset+$pages->limit : $item_count);
-          ///echo "<b>Page ".($pages->getCurrentPage()+1)."</b>---";
-          $sample =range($pages->offset+1, $end);
-
-          //echo "<ul><li>";
-          //echo implode('</li><li>', $sample);
-          //echo "</li></ul>";
-
-          print_r( new CLinkPager($pages) );          
-
-          //print_r($sample);
-          
-          
-          exit;
-          $pages->pageSize=1;
-          $pages->applyLimit($criteria);
-          print_r($pages);
-          
-          exit;
-          /*
-          return Article::model()->findall(array(
-            'condition' => 'find_in_set(id, :id)',
-            'params'=>array(':id'=>$id),
-            'order' => 'sort_id desc, update_datetime desc'
-          ));
-          */
+          $pagination = new CLinkPager();
+          $pagination->setPages($pages);    
+          $pagination->init();            
+          //$pagination->run(); // display the html pagination
+          $criteria->limit        =  $page_size;
+          $criteria->offset       = $pages->offset;
+          $list = Article::model()->findall( $criteria );
+          return array($list, $pagination);                    
         }
       }else if( !empty($opt['ident']) ){
         $ident = $opt['ident'];

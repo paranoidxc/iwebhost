@@ -1,52 +1,43 @@
 <?php
 class BlogController extends Controller
 {
+  
+  public function actionTestP(){
+    list($list,$p) = API::essay(array(
+      'id' => '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19'
+    )); 
+    
+    foreach($list as $e) {
+      _debug( $e->title );
+    }    
+    echo $p->run();
+  }
   public function actionAPI(){
-    
-    
-    
     $item_count =32;
-    $page_size =5;
+    $page_size =2;
     $pages =new CPagination($item_count);
-    $pages->pageVar = 'iook=8&ok';
-    
+    //$pages->pageVar = 'iook=8&ok';    
     //$pages->createPageUrl(CController::createUrl('blog/index',$pages) );
     $pages->setPageSize($page_size);
     // simulate the effect of LIMIT in a sql query
-    $end =($pages->offset+$pages->limit <= $item_count ? $pages->offset+$pages->limit : $item_count);
-    $sample =range($pages->offset+1, $end);
-    
-    
+    //$end =($pages->offset+$pages->limit <= $item_count ? $pages->offset+$pages->limit : $item_count);
+    //$sample =range($pages->offset+1, $end);
     $pagination = new CLinkPager();
-    print_r("<pre>");
-    print_r($pagination);
-    
-    
-    print_r("</pre>");
+    //print_r("<pre>");
+    //print_r($pagination);
+    //print_r("</pre>");
     //$pages->pageVar='stat='.$_GET[stat]."&page";
-        
     $pagination->setPages($pages);    
-    $pagination->init();
-    
+    $pagination->init();    
     $pagination->run();        
-    
-    
-    print_r($pages);
-    
-    
+    print_r("--");
+    print_r($pages->offset);
+    print_r("--");
     $pagination = new CListPager();
     $pages->pageVar = 'ioof';
     $pagination->setPages($pages);
     $pagination->init();
-    $pagination->run(); 
-    /*
-    $this->widget('CLinkPager', array(
-      'pages'=>$pages,
-    ));
-    $this->widget('CListPager', array(
-    'pages'=>$pages,
-    ));
-    */
+    $pagination->run();     
     exit;
 
 

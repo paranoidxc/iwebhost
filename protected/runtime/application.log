@@ -4113,3 +4113,54 @@ Stack trace:
 REQUEST_URI=/index.php?r=blog/api&ioof=7&iook=4
 in H:\projects\iwebhost\protected\controllers\BlogController.php (12)
 in H:\projects\iwebhost\index.php (82)
+2010/12/05 21:46:31 [error] [exception.CException] exception 'CException' with message '属性 "CLinkPager.title" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(11): CComponent->__get('title')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionTestP()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('testp')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/testp')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/testp&page=2
+2010/12/05 22:02:47 [error] [exception.CException] exception 'CException' with message '属性 "CPagination.page" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\extensions\API.php(123): CComponent->__get('page')
+#1 H:\projects\iwebhost\protected\controllers\BlogController.php(8): API::essay(Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionTestP()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('testp')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/testp')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(82): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=blog/testp&page=2
+2010/12/05 22:02:58 [error] [exception.CException] exception 'CException' with message '属性 "CPagination.page" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\extensions\API.php(123): CComponent->__get('page')
+#1 H:\projects\iwebhost\protected\controllers\BlogController.php(8): API::essay(Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionTestP()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('testp')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/testp')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(82): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=blog/testp&page=2
+2010/12/05 22:02:59 [error] [exception.CException] exception 'CException' with message '属性 "CPagination.page" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\extensions\API.php(123): CComponent->__get('page')
+#1 H:\projects\iwebhost\protected\controllers\BlogController.php(8): API::essay(Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionTestP()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('testp')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/testp')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(82): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=blog/testp&page=2
