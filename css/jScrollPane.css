@@ -27,9 +27,12 @@
 }
 
 #article_wrap .jScrollPaneDrag {  
-  background: #D62063;
+  background: #85DF00;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+#article_wrap .jScrollPaneDrag:hover {  
+   background: #D62063;
 }
 
 .jScrollPaneDragTop {

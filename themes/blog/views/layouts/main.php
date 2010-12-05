@@ -6,11 +6,11 @@
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');			
-	$cs->registerCssFile($baseUrl.'/css/jScrollPane.css');	
+	$cs->registerCssFile($baseUrl.'/css/jScrollPane.css');
 	$cs->registerScriptFile($baseUrl.'/js/jquery-1.2.6.min.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.hotkeys.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.mousewheel.js');	
-	//$cs->registerScriptFile($baseUrl.'/js/jquery.onImagesLoad.js');	
+	$cs->registerScriptFile($baseUrl.'/js/jquery.mousewheel.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/blog.js');
 	$cs->registerCssFile($baseUrl.'/css/blog/blog.css');	

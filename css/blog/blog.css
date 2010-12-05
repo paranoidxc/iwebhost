@@ -15,21 +15,19 @@ h4 { font-size: 130%; line-height: 180%; }
 h5 { font-size: 120%; line-height: 180%; }
 h6 { font-size: 110%; line-height: 180%; }
 
-#pane1 {
-  height: 300px;
-}
-
 #page {
   width: 800px;
   margin: auto;
   margin-top: 40px;
-  margin-bottom: 50px;  
+  margin-bottom: 50px;    
+  padding: 0 50px 0 25px;
+  position: relative;
 }
 #site-title {
   background: url(images/ape_person.png) no-repeat right 0;
   text-indent: -100000px;
   margin-bottom: 20px;    
-  height: 56px;  
+  height: 56px;    
 }
 #map {  
   text-align: right;
@@ -54,15 +52,15 @@ h6 { font-size: 110%; line-height: 180%; }
   padding: 10px  10px 50px 14px;  
   height: 300px;  
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  overflow: hidden;  
   margin: auto;
   }  
   #article_wrap h1.title {    
     color: #85DF00;   
-    text-shadow: 0px 1px 1px #000;
+    text-shadow: 0px 1px 1px #000;   
+    position: relative;     
   }
-  #article_wrap h1.title span {  
+  #article_wrap h1.title span {
     /*border-bottom: 1px dotted #666666;*/
   }
   #post_time {
@@ -72,11 +70,12 @@ h6 { font-size: 110%; line-height: 180%; }
     display: block;    
   }
   #post_time {    
+    font-size: 12px;
     color: #333;
     text-align: right;
     position: absolute;
     right: 10px;
-    top:20px;
+    bottom: 0px;
   }
   
 #article {
@@ -110,29 +109,42 @@ h6 { font-size: 110%; line-height: 180%; }
     padding: 4px;
     border: 1px solid #191919;        
   }    
-  #article #next ,
-  #article #prev {
+  #article_wrap #next ,
+  #article_wrap #prev {
     position: absolute;
     top: 45%;
+    top: 225px;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: #131313 url(images/bg3.gif) repeat 0 0;
   }  
-  #article #prev {
-    left: 5px;
+  #article_wrap #prev {
+    left: 0px;
   }
-  #article #next {
-    right: 5px;
+  #article_wrap #next {
+    text-align: right;
+    right: 0px;
   }
-    #article #prev a,
-    #article #next a {      
-      display: block;
-      height: 20px;
-      line-height: 20px;
-      width: 10px;
+    #article_wrap #prev a,
+    #article_wrap #next a {      
       color: #85DF00;
       font-size: 20px;
       text-decoration: none;
+      display: block;
+      height: 50px;
+      line-height: 50px;          
+      width: 20px;
+      text-align: right;
     }
-    #article #prev a:hover,
-    #article #next a:hover {
+    #article_wrap #next a {
+      width: 40px;      
+      text-align: right;
+    }
+
+    #article_wrap #prev a:hover,
+    #article_wrap #next a:hover {
       color: #D62063;
       background: none;
     }

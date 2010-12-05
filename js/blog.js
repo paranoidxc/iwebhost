@@ -1,5 +1,23 @@
-$(document).ready(function(){  
+function prevEassy() {
+  if( $("#prev a").length > 0 ){
+    window.location.href = $("#prev a").attr('href');
+    return false;
+  } 
+};
 
+function nextEassy() {  
+  if( $("#next a").length > 0 ){
+    window.location.href = $("#next a").attr('href');
+    return false;
+  }  
+}
+jQuery(document).bind('keydown', 'J',prevEassy);
+jQuery(document).bind('keydown', 'j',prevEassy);
+jQuery(document).bind('keydown', 'k',nextEassy);
+jQuery(document).bind('keydown', 'K',nextEassy);
+
+$(document).ready(function(){  
+    
   $('#article').jScrollPane({
     reinitialiseOnImageLoad: true
   });
@@ -23,6 +41,7 @@ $(document).ready(function(){
   },function(){
     $(this).parent().next().toggle();
     return false;
-  })
+  });
+    
 
-})
+});
