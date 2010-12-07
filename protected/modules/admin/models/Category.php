@@ -178,8 +178,66 @@ class Category extends CActiveRecord
   		}
 				//" HAVING depth <= $depth ".
 				$sql .= " ORDER BY node.lft, node.sort_id desc ";			
-		 return $this->findAllBySql($sql);
+		$leaf = $this->findAllBySql($sql);
+		return $leaf;
+		if( strpos($opt['ident'],',') === false ){		  
+		  if( count($leaf) > 0 ) {
+		    if( $opt['include'] ) {
+		      return $leaf;
+	      }else{
+	        return $leaf[0];
+	      }
+		  }
+		}else{
+		  return $leaf;
+		}
 	}
+	
+	
+	/**
+	 * node function
+	 *
+	 * @return category obj or category list obj
+	 * @author paranoid
+	 **/	
+	public function node($opt) {	  	  
+	  $id     = $opt['id'];
+	  $ident  = $opt['ident'];
+	  $ident_label  = $opt['ident_label'];
+	  $criteria=new CDbCriteria;        
+    $is_list = false;
+	  if( $id > 0 ){
+	    if( strpos($id,',') === false ){
+	      $criteria->condition  = 'id =:id';
+      }else{
+        $is_list  = true;
+        $criteria->condition  = 'find_in_set(id, :id)';
+      }
+      $criteria->params     = array(':id'=>$id);      
+	  }else if( strlen($ident) > 0 ){	    
+	    if( strpos($ident,',') === false ){
+	      $criteria->condition  = 'ident =:ident';
+      }else{
+        $is_list  = true;
+        $criteria->condition  = 'find_in_set(ident, :ident)';
+      }
+      $criteria->params     = array(':ident'=>$ident);
+	  }else if( strlen($ident_label) > 0 ){	    
+	    if( strpos($ident_label,',') === false ){
+	      $criteria->condition  = 'ident_label =:ident_label';
+      }else{
+        $is_list  = true;
+        $criteria->condition  = 'find_in_set(ident_label, :ident_label)';
+      }
+      $criteria->params     = array(':ident_label'=>$ident_label);
+    }    
+    if( $is_list ){
+      return Category::model()->findall( $criteria );  
+    }else{
+      return Category::model()->find( $criteria );        
+    }
+	}
+	
 	
 	public function vleafs($id=1,$depth=1){
 		$sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".

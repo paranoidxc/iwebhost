@@ -18,10 +18,12 @@ h6 { font-size: 110%; line-height: 180%; }
 footer,
 footer p,
 footer h1,
+#afk,
 a {
   -webkit-transition: color .25s linear;
   transition: color .25s linear;  
 }
+#afk:hover ,
 footer:hover p,
 footer:hover h1,
 footer:hover p a {  
@@ -189,6 +191,134 @@ footer {
     line-height: 180%;    
     margin-bottom: 14px;
   }
+  
+  span#afk {
+    float: right;
+    margin-top: 5px;
+    color: #333;      
+    text-shadow: 0px 1px 0px #000;    
+    font-size: 10pt; 
+    cursor: pointer;
+  }
+  span#afk:hover {
+    color: #ccc;
+    text-decoration: underline;
+  }
+  #masker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    display: block;
+    opacity: 0.2;
+    background: #000;    
+    z-index: 10000000;
+    z-index: 10000000;
+  }
+  #facebox {
+    position: absolute;
+    top: 100px;
+    left: 200px;    
+    margin: auto;    
+    z-index: 10000000;
+    }
+    #facebox .close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      padding: 2px;
+    }
+    #facebox .close img {
+      opacity: .3;
+    }
+    #facebox .close:hover img {
+       opacity: 1;
+    }
+    #facebox .bg {
+      background:#fff;
+      opacity: 0.5;      
+      position: absolute;
+      z-index: 10000001;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+    #facebox .popup {      
+      position: relative;
+      z-index: 10000002;      
+      width: 100%;
+      height: 100%; 
+      border: 3px solid transparent;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);             
+    }
+    #facebox .shortcuts {
+      padding: 10px;
+      width: 425px;
+      color: #333;
+      font-size: 12px;      
+      background: -webkit-gradient(linear,0% 0,5% 100%,from(#F4F9FB),to(white));
+      background: -moz-linear-gradient(100% 100% 107deg,white,#F4F9FB);
+      background: white;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      background: #F7FBFC;
+      overflow: hidden;
+      zoom: 1;
+    }
+    #facebox h2 {
+      width: 100%;
+      margin: 0 0 10px -10px;
+      padding: 0 10px 10px 10px;
+      font-size: 16px;      
+      border-bottom: 1px solid #DDD;
+    }
+    #facebox .shortcuts h3 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+    }
+    dl.keyboard-mappings {
+      margin: 5px 0;
+      font-size: 12px;
+    }
+    dl.keyboard-mappings dt {
+      display: inline-block;
+      margin: 0;
+      padding: 3px 6px;
+      min-width: 10px;
+      text-align: center;
+      font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+      background: #333;
+      color: #EEE;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      text-shadow: 1px 1px 0 black;
+      border-top-left-radius: 2px 2px;
+      border-top-right-radius: 2px 2px;
+      border-bottom-right-radius: 2px 2px;
+      border-bottom-left-radius: 2px 2px;
+    }
+    dl.keyboard-mappings dd {
+      display: inline;
+      margin: 0 0 0 5px;
+      color: #666;
+    }
+    
+    #facebox .first {
+      float: left;
+      margin-right: 10px;
+    }
+    #facebox .middle {
+      float: left;      
+    }
   
   #map_wrap ul li:first-child {
     border-top: none;

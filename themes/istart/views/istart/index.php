@@ -1,8 +1,10 @@
 <div style="width: 80%; margin: auto">
   <?php
   $istart = API::INODE(array(
-    'ident_label' => 'istart'
-  ));
+    'ident_label' => 'istart',
+    'include'     => false,
+    'deep'        => 1
+  ));  
   echo '<div id="istart_form_tab_wrap" >';
   foreach( $istart as $o ){
     ?>
@@ -26,8 +28,8 @@
         //$icon = '<img class="gfavorite" src="'.FetchFavIcon::fetch($article->subtitle).'" > ';
         echo CHtml::link(
 				$icon.cnSubstr($article->title,0,14), 
-				$article->subtitle, 
-				array( 'title' => $article->subtitle, 'target' => '_blank','style' => 'color: '.colorfulV().';'  ));        
+				$article->link, 
+				array( 'title' => $article->link, 'target' => '_blank','style' => 'color: '.colorfulV().';'  ));        
         echo '</li>';
         }
       ?>

@@ -1,7 +1,7 @@
 <?php
- if($blog[0]->articles) {
+ if($blog->articles) {
     echo '<ul>';
-    foreach( $blog[0]->articles as $a ){
+    foreach( $blog->articles as $a ){
       echo '<li>';
       echo '<a href="'.CController::createUrl('blog/article', array('id' => $a->id) ).'" >';
       echo $a->title.'&nbsp;'. Time::timeAgoInWords($a->create_datetime);

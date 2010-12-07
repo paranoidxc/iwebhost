@@ -92,10 +92,10 @@
   	</tr>
   
   	<tr>
-  		<th class='alt leftborder'><?php echo $form->labelEx($model,'subtitle'); ?></th>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'link'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'subtitle',array('size'=>60,'maxlength'=>255)); ?>
-  			<?php echo $form->error($model,'subtitle'); ?>
+  			<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
+  			<?php echo $form->error($model,'link'); ?>
   		</td>
   	</tr>	
   

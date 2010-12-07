@@ -103,7 +103,7 @@ class Article extends CActiveRecord
 			array('title, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
-			array('subtitle', 'length', 'max'=>255),
+			array('link', 'length', 'max'=>255),
 			array('desc', 'default'),
 			array('update_datetime', 'safe'),
 			// The following rule is used by search().

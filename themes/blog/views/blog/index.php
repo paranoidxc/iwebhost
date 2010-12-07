@@ -33,6 +33,68 @@
     ?>
   </div>
 </div>
+<span id="afk">Keyboard shortcuts available</span>
+
+<div id="facebox" style="display: none">
+  <div class="bg">
+  </div>
+  <div class="popup">
+    <a href="#" class="close"><img src="/images/closelabel.png" title="close" class="close_image"></a>
+  
+    <div class="shortcuts">
+      <h2>Keyboard Shortcuts</h2>
+        
+      <div class="threecols">
+        <div class="column first">
+          <h3>Site wide shortcuts</h3>
+          <!--<dl class="keyboard-mappings">
+            <dt>s</dt>
+            <dd>Focus site search</dd>
+          </dl>-->
+          <dl class="keyboard-mappings">
+            <dt>?</dt>
+            <dd>Bring up this help dialog</dd>
+          </dl>
+        </div>    
+      
+        
+        
+        <div class="column middle">
+          <h3>Commit list</h3>
+          <dl class="keyboard-mappings">
+            <dt>j</dt>
+            <dd>Prev Esaay</dd>
+          </dl>
+          <dl class="keyboard-mappings">
+            <dt>k</dt>
+            <dd>Next Esaay</dd>
+          </dl>
+          <dl class="keyboard-mappings">
+            <dt>M</dt>
+            <dd>Esaay List</dd>
+          </dl>
+          <!--
+          <dl class="keyboard-mappings">
+            <dt>t</dt>
+            <dd>Open tree</dd>
+          </dl>
+          <dl class="keyboard-mappings">
+            <dt>p</dt>
+            <dd>Open parent</dd>
+          </dl>
+          <dl class="keyboard-mappings">
+            <dt>c <em>or</em> o <em>or</em> enter</dt>
+            <dd>Open commit</dd>
+          </dl>
+          -->
+        </div>
+    
+      </div>
+
+    </div>
+  </div>
+</div>
+
   <p id="map" class="dN">
     <a href="<?php echo CController::createUrl('blog/map')?>" title="map articles"  >map</a>
   </p>

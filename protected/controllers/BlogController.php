@@ -2,7 +2,8 @@
 class BlogController extends Controller
 {
   
-  public function actionTestP(){
+  public function actionTestP(){    
+  
     list($list,$p) = API::essay(array(
       'id' => '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19'
     )); 
@@ -12,6 +13,7 @@ class BlogController extends Controller
     }    
     echo $p->run();
   }
+  
   public function actionAPI(){
     $item_count =32;
     $page_size =2;
@@ -65,8 +67,9 @@ class BlogController extends Controller
   public function actionIndex(){
     Yii::app()->name = 'xiaochuan.log';
 		Yii::app()->theme='blog';
-		$blog = API::INODE( array('ident_label' => 'blog','include' => true) );
-		$article = $blog[0]->first();
+		//$blog = API::INODE( array('ident_label' => 'blog','include' => true) );
+		$blog = API::node( array('ident_label' => 'blog') );
+		$article = $blog->first();
 		$this->render('index', array(
   		'article' => $article
 		) );
@@ -75,10 +78,9 @@ class BlogController extends Controller
   public function actionMap(){    
     Yii::app()->name = 'xiaochuan.log';
 		Yii::app()->theme='blog';
-    $blog = API::INODE( array('ident_label' => 'blog','include' => true) );    
+    $blog = API::node( array('ident_label' => 'blog' ) );
     
-		$this->renderPartial('_map', array(
-  		'articles' => $articles,
+		$this->renderPartial('_map', array(  		
   		'blog'     => $blog  		
 		) );
   }

@@ -9,8 +9,10 @@ function nextEassy() {
   if( $("#next a").length > 0 ){
     window.location.href = $("#next a").attr('href');
     return false;
-  }  
+  }    
 }
+
+
 jQuery(document).bind('keydown', 'J',prevEassy);
 jQuery(document).bind('keydown', 'j',prevEassy);
 jQuery(document).bind('keydown', 'k',nextEassy);
@@ -20,10 +22,25 @@ jQuery(document).bind('keydown', 'K',nextEassy);
 
 $(document).ready(function(){    
   jQuery(document).bind('keydown', 'm',blog_map);
+  jQuery(document).bind('keydown', 'shift+/',showFacebox);
+  jQuery(document).bind('keydown', 'Esc',hideFacebox);
   
   $('#article').jScrollPane({
     reinitialiseOnImageLoad: true
   });
+  
+  $('#afk').click(showFacebox);
+  $('#facebox .close').click(hideFacebox);
+  function hideFacebox() {    
+    $("#masker").fadeOut();
+    $('#facebox').fadeOut();
+    return false;
+  }
+  
+  function showFacebox() {    
+    $("#masker").show();
+    $('#facebox').fadeIn();
+  }
   
   function blog_map(){
     var that = $('#map>a');

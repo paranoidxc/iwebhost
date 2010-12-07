@@ -25,6 +25,8 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
+<div id="masker" style="display: none">
+</div>
 <div class="container" id="page">	
   <h1 id="site-title">程序员第</h1>
 	<?php echo $content; ?>

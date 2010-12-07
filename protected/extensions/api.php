@@ -90,7 +90,17 @@ class API {
       if( strlen($opt['include']) == 0) {
         $opt = array_merge($opt, array('include' => false ) );
       }
-      return Category::model()->ileafs($opt);        
+      return Category::model()->ileafs($opt);
+    }else{
+      echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      
+      echo "ERROR Fuction INODE";
+      exit;
+    }
+  }
+  
+  public static function node($opt) {    
+    if( is_array( $opt ) ) {
+      return Category::model()->node($opt);
     }else{
       echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      
       echo "ERROR Fuction INODE";
@@ -134,9 +144,7 @@ class API {
             'order' => 'sort_id desc, update_datetime desc'
           ));
         }
-      }
-      
-      //Article::model()->findById()   
+      }      
     }else{
       echo "ERROR PHP File:".dirname(__FILE__).'/API.php';      
       echo "ERROR Fuction essay";
