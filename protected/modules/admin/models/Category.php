@@ -75,6 +75,24 @@ class Category extends CActiveRecord
     return parent::__get($name);
   }
   
+  public function iprint() {    
+    echo '<table style="border-collapse:collapse; border: 1px solid #4A525A; font-size: 12px;">';
+    echo '<tr>';
+    foreach( $this->attributes as $k => $v ){      
+      echo '<th style="border: 1px solid #4A525A; text-align:left;">'.$k.'</th>';      
+    }
+    echo '</tr>';
+    echo '<tr>';
+    foreach( $this->attributes as $k => $v ){    
+      if( $k == 'content'){
+        echo '<td style="border: 1px solid #4A525A; text-align: left;">'.cnSub($v,100).'</td>';
+      }else{
+        echo '<td style="border: 1px solid #4A525A; text-align: left;">'.$v.'</td>';
+      }
+    }
+    echo '</table>';
+  }
+  
 	public function firstArticle()
   {
     $this->articles->getDbCriteria()->mergeWith(array(
@@ -360,7 +378,12 @@ class Category extends CActiveRecord
   
   public function last($include = false ) {
     if( $include ){
-      
+       $ids = $this->sub_nodes();
+      return Article::model()->find( array(                        
+        'condition'=>'find_in_set(category_id,:category_ids)',
+        'order'    => 'sort_id asc',
+        'params'=>array(':category_ids'=>$ids),
+      ) );
     }else{
       return  Article::model()->find(array(    
         'condition'=>'category_id=:category_id',
@@ -370,6 +393,25 @@ class Category extends CActiveRecord
     }
   }
   
+  public function essay($opt){    
+    $include = empty($opt['include']) ? false : true;
+    $split   = empty($opt['split']) ? false : true;
+    if( $include ){
+      $ids = $this->sub_nodes();      
+      $articles = Article::model()->findAll( array(
+        'condition'=>'find_in_set(category_id,:ids)',
+        'order'    => 'sort_id DESC',
+        'params'=>array(':ids'=>$ids)
+      ));      
+    }else{      
+      $articles = $this->articles;      
+    }
+    if( $split ){
+      return array( $this->articles, $pagination);  
+    }else{
+      return $articles;
+    }    
+  }
   
   public function first_article() {    
     return  Article::model()->find(array(    
@@ -394,9 +436,7 @@ class Category extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'articles' 	      => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>'articles.sort_id DESC '),
-			'attachments'     => array( self::HAS_MANY,     'Attachment','category_id' ),
-			//'first_article'  => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id asc' ),
-			//'last_article' 	 => array( self::HAS_ONE,        'Article', 'category_id', 'order'=> 'sort_id desc' ),			
+			'attachments'     => array( self::HAS_MANY,     'Attachment','category_id' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),
 			'images'    => array( self::HAS_MANY, 'Attachment', 'category_id' )
 		);

@@ -1,7 +1,8 @@
 <?php
- if($blog->articles) {
+  $articles = $blog->essay(array( 'include' => true) );  
+  if( count($articles) > 0 ) {
     echo '<ul>';
-    foreach( $blog->articles as $a ){
+    foreach( $articles as $a ){
       echo '<li>';
       echo '<a href="'.CController::createUrl('blog/article', array('id' => $a->id) ).'" >';
       echo $a->title.'&nbsp;'. Time::timeAgoInWords($a->update_time);
@@ -9,5 +10,5 @@
       echo '</li>';
     }
     echo '</ul>';
- }
+  }
 ?>

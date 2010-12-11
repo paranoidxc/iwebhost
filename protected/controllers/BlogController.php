@@ -110,7 +110,7 @@ class BlogController extends Controller
     $blog = API::node( array('ident_label' => 'blog' ) );
     
 		$this->renderPartial('_map', array(  		
-  		'blog'     => $blog  		
+  		'blog'     => $blog
 		) );
   }
   
