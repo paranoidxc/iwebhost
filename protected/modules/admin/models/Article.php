@@ -90,7 +90,7 @@ class Article extends CActiveRecord
       if( $node_ids != '' ){
         $_article = self::model()->find(array(
           'condition' => ' find_in_set(category_id,:category_ids) and sort_id > :sort_id',
-          'order'     => 'sort_id desc',
+          'order'     => 'sort_id asc',
           'params'   => array( ':category_ids' => $node_ids, ':sort_id' => $this->sort_id) ));
         return $_article;
       }
