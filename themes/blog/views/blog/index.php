@@ -4,7 +4,7 @@
     
     echo '<p id="post_time">';
     echo '<span ></span>';
-    echo Time::timeAgoInWords($article->update_time);
+    echo Time::timeAgoInWords($article->create_time);
     echo '</p>';    
     echo '</h1>';
   ?>

@@ -130,6 +130,8 @@ class API {
           //$pagination->run(); // display the html pagination
           $criteria->limit        =  $page_size;
           $criteria->offset       = $pages->offset;
+          print_r($page_size);
+          print_r($pages->offset);
           $list = Article::model()->findall( $criteria );
           return array($list, $pagination);                    
         }

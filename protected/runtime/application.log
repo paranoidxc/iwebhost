@@ -5266,3 +5266,65 @@ Stack trace:
 #15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #16 H:\projects\iwebhost\index.php(82): CApplication->run()
 #17 {main} REQUEST_URI=/index.php?r=blog/map
+2010/12/11 20:00:28 [error] [php] Missing argument 1 for Category::essay(), called in H:\projects\iwebhost\protected\controllers\BlogController.php on line 12 and defined (H:\projects\iwebhost\protected\modules\admin\models\Category.php:396)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): BlogController->runAction()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): BlogController->runActionWithFilters()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): BlogController->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#6 H:\projects\iwebhost\index.php(82): CWebApplication->run()
+REQUEST_URI=/index.php?r=blog/api
+in H:\projects\iwebhost\protected\modules\admin\models\Category.php (396)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (12)
+in H:\projects\iwebhost\index.php (82)
+2010/12/11 20:00:47 [error] [php] Missing argument 1 for Category::essay(), called in H:\projects\iwebhost\protected\controllers\BlogController.php on line 12 and defined (H:\projects\iwebhost\protected\modules\admin\models\Category.php:396)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): BlogController->runAction()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): BlogController->runActionWithFilters()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): BlogController->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#6 H:\projects\iwebhost\index.php(82): CWebApplication->run()
+REQUEST_URI=/index.php?r=blog/api
+in H:\projects\iwebhost\protected\modules\admin\models\Category.php (396)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (12)
+in H:\projects\iwebhost\index.php (82)
+2010/12/11 20:00:49 [error] [php] Missing argument 1 for Category::essay(), called in H:\projects\iwebhost\protected\controllers\BlogController.php on line 12 and defined (H:\projects\iwebhost\protected\modules\admin\models\Category.php:396)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): BlogController->runAction()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): BlogController->runActionWithFilters()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): BlogController->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#6 H:\projects\iwebhost\index.php(82): CWebApplication->run()
+REQUEST_URI=/index.php?r=blog/api
+in H:\projects\iwebhost\protected\modules\admin\models\Category.php (396)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (12)
+in H:\projects\iwebhost\index.php (82)
+2010/12/11 21:17:36 [error] [exception.CException] exception 'CException' with message '属性 "CLinkPager.title" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\controllers\BlogController.php(28): CComponent->__get('title')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionApi()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('api')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/api')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#8 H:\projects\iwebhost\index.php(82): CApplication->run()
+#9 {main} REQUEST_URI=/index.php?r=blog/api
+2010/12/11 21:20:59 [error] [php] Invalid argument supplied for foreach() (H:\projects\iwebhost\protected\controllers\BlogController.php:20)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): BlogController->runAction()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): BlogController->runActionWithFilters()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): BlogController->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(82): CWebApplication->run()
+REQUEST_URI=/index.php?r=blog/api
+in H:\projects\iwebhost\protected\controllers\BlogController.php (20)
+in H:\projects\iwebhost\index.php (82)

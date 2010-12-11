@@ -393,21 +393,37 @@ class Category extends CActiveRecord
     }
   }
   
-  public function essay($opt){    
+  public function essays($opt=null){    
     $include = empty($opt['include']) ? false : true;
     $split   = empty($opt['split']) ? false : true;
     if( $include ){
       $ids = $this->sub_nodes();      
-      $articles = Article::model()->findAll( array(
-        'condition'=>'find_in_set(category_id,:ids)',
-        'order'    => 'sort_id DESC',
-        'params'=>array(':ids'=>$ids)
-      ));      
+      $criteria=new CDbCriteria;
+      $criteria->condition = 'find_in_set(category_id,:ids)';
+      $criteria->order     = 'sort_id DESC';
+      $criteria->params    = array(':ids'=>$ids);
+      if( $split ){
+        $item_count = Article::model()->count($criteria);        
+        $page_size = 2;
+        $pages =new CPagination($item_count);       
+        $pages->setPageSize($page_size);
+        $pagination = new CLinkPager();
+        $pagination->setPages($pages);    
+        $pagination->init();
+        //$pagination->run(); // display the html pagination
+        $criteria->limit        =  $page_size;
+        $criteria->offset       = $pages->offset;        
+        $articles = Article::model()->findall( $criteria );        
+      }else{
+        $articles = Article::model()->findall( $criteria );  
+      }
+      
     }else{      
       $articles = $this->articles;      
     }
+    
     if( $split ){
-      return array( $this->articles, $pagination);  
+      return array( $articles, $pagination);  
     }else{
       return $articles;
     }    

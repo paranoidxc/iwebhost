@@ -4,6 +4,34 @@ class BlogController extends Controller
   
   public function actionApi(){        
     echo '<pre>';
+    echo '117 Category  API::node( array(\'ident_label\' => \'blog\')  下的属性<br/>';
+    $blog = API::node( array('ident_label' => 'blog') );
+    $blog->iprint();
+    echo '<br>';
+    echo '只提取blog下的文章 $articles = $blog->essays(); <br>';
+    $articles = $blog->essays();
+    foreach($articles as $a ){
+      print_r($a->title);
+      echo "<br/>";
+    }
+    echo '<br>';
+    echo '提取blog下的文章 包括blog类别下的类别的文章 $articles = $blog->essays(array($include=>true));<Br>';
+    $articles = $blog->essays(array('include'=>true));    
+    foreach($articles as $a ){
+      print_r($a->title);
+      echo "<br/>";
+    }
+    echo '<br>';
+    echo '提取blog下的文章 包括blog类别下的类别的文章 list($articles ,$pagination)= $blog->essays(array(\'include\'=>true,\'split\' => true ));<Br>';
+    list( $x , $pagination )= $blog->essays(array('include'=>true, 'split' => true ));    
+    foreach($x as $a ){
+      print_r($a->title);
+      echo "<br/>";
+    }
+    print_r($pagination->run());
+    echo '<br>';
+    echo '<br>';
+    
     echo '提取一篇指定文章';
     echo "\$eassy = API::essay( array( 'id' => 482 ) );   \$eassy->iprint(); <br/>";    
     $eassy = API::essay( array('id'=>482) );
