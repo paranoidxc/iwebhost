@@ -561,7 +561,7 @@ class CategoryController extends Controller
 					$leaf_model = Category::model();								
 					
 					$parent_leaf = $leaf_model->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
-										
+
 					$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
 					$cmodel->dbConnection->createCommand($update_rgt)->execute();
           
@@ -763,6 +763,7 @@ class CategoryController extends Controller
 		if(isset($_POST['Category']))
 		{						
 			$model->attributes=$_POST['Category'];		
+			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 			  if( isset($_GET['ajax']) ) {
       	  echo 'update leaf suc';

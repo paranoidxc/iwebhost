@@ -4,22 +4,22 @@
     
     echo '<p id="post_time">';
     echo '<span ></span>';
-    echo Time::timeAgoInWords($article->create_datetime);
+    echo Time::timeAgoInWords($article->update_time);
     echo '</p>';    
     echo '</h1>';
   ?>
   <?php             
-      if( $article->prev ){
+      if( $article->getPrev($blog->id) ){
         echo '<p id="prev">';
-        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->prev->id) ).' " title="'.$article->prev->title.'" >';
+        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->getPrev($blog->id)->id) ).' " title="'.$article->getPrev($blog->id)->title.'" >';
         //echo '&laquo;';
         echo '{';
         echo '</a>';
         echo '</p>';  
       }
-      if( $article->next ) { 
+      if( $article->getNext($blog->id)) { 
         echo '<p id="next">';
-        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->next->id) ).' " title="'.$article->next->title.'" >';
+        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->getNext($blog->id)->id) ).' " title="'.$article->getNext($blog->id)->title.'" >';
         //echo '&raquo;';
         echo '}';
         echo '</a>';

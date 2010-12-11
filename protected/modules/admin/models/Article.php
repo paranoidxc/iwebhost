@@ -24,47 +24,79 @@ class Article extends CActiveRecord
       
     return parent::__get($name);
   }
-  public function getPrint() {    
-    print_r('id = '.$this->id);
-    print_r("<br>");
-    print_r('title = '.$this->title);
-    print_r("<br>");
-    print_r('category_id = '.$this->category_id);
-    print_r("<br>");
-    print_r('attachment_id = '.$this->attachment_id);
-    print_r("<br>");
-    print_r('gallery_id = '.$this->gallery_id);
-    print_r("<br>");
-    print_r('sort_id = '.$this->sort_id);
-    print_r("<br>");
+  public function iprint() {    
+    echo '<table style="border-collapse:collapse; border: 1px solid #4A525A; font-size: 12px;">';
+    echo '<tr>';
+    foreach( $this->attributes as $k => $v ){      
+      echo '<th style="border: 1px solid #4A525A; text-align:left;">'.$k.'</th>';      
+    }
+    echo '</tr>';
+    echo '<tr>';
+    foreach( $this->attributes as $k => $v ){    
+      if( $k == 'content'){
+        echo '<td style="border: 1px solid #4A525A; text-align: left;">'.cnSub($v,100).'</td>';
+      }else{
+        echo '<td style="border: 1px solid #4A525A; text-align: left;">'.$v.'</td>';
+      }
+    }
+    echo '</table>';
   }
   
-  public function getNext() {    
-    $_article = self::model()->find(array(
-      'condition' => 'category_id=:category_id and sort_id < :sort_id',
-      'order'     => 'sort_id desc',
-      'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));
-    return $_article;
+  public function getNext($para='') {    
+    if( $para == '' ){      
+      $_article = self::model()->find(array(
+        'condition' => 'category_id=:category_id and sort_id < :sort_id',
+        'order'     => 'sort_id desc',
+        'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));
+      return $_article;
+    }else{
+      $node = Category::model()->findByPK($para);      
+      $sub_nodes = Category::model()->findAll( array(
+        'condition' => 'lft >= :lft AND rgt <= :rgt ',
+        'params'    => array( ':lft' => $node->lft, ':rgt' => $node->rgt )
+      ) );        
+      $node_ids = '';
+      foreach( $sub_nodes as $n ){        
+        $node_ids .= $n->id.',';
+      }      
+      if( $node_ids != '' ){
+        $_article = self::model()->find(array(
+          'condition' => ' find_in_set(category_id,:category_ids) and sort_id < :sort_id',
+          'order'     => 'sort_id desc',
+          'params'   => array( ':category_ids' => $node_ids, ':sort_id' => $this->sort_id) ));
+        return $_article;
+      }
+      return array();
+    }
   }
   
-  public function getPrev() {    
-    $_article = self::model()->find(array(
-      'condition' => 'category_id=:category_id and sort_id > :sort_id',
-      'order'     => 'sort_id asc',
-      'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));    
-    return $_article;
+  public function getPrev($para='') {    
+    if( $para == '' ){
+      $_article = self::model()->find(array(
+        'condition' => 'category_id=:category_id and sort_id > :sort_id',
+        'order'     => 'sort_id asc',
+        'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));    
+      return $_article;
+    }else{
+      $node = Category::model()->findByPK($para);      
+      $sub_nodes = Category::model()->findAll( array(
+        'condition' => 'lft >= :lft AND rgt <= :rgt ',
+        'params'    => array( ':lft' => $node->lft, ':rgt' => $node->rgt )
+      ) );        
+      $node_ids = '';
+      foreach( $sub_nodes as $n ){        
+        $node_ids .= $n->id.',';
+      }
+      if( $node_ids != '' ){
+        $_article = self::model()->find(array(
+          'condition' => ' find_in_set(category_id,:category_ids) and sort_id > :sort_id',
+          'order'     => 'sort_id desc',
+          'params'   => array( ':category_ids' => $node_ids, ':sort_id' => $this->sort_id) ));
+        return $_article;
+      }
+      return array();
+    }
   }
- // public function first()
- // {
-    //echo '!!!!!!!!';
-   //$this->getDbCriteria()->mergeWith(array(
-     // 'order' => 'sort_id asc',
-      //'limit' => 1
-      //'condition'=>'CreatedAt BETWEEN :start AND :end',
-      //'params'=>array(':start'=>$start, ':end'=>$end)
-        //));
-    //return $this;
- // }
   
   public function scopes(){
     return array(
@@ -104,11 +136,11 @@ class Article extends CActiveRecord
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('link', 'length', 'max'=>255),
-			array('desc', 'default'),
-			array('update_datetime', 'safe'),
+			array('desc', 'default'),			
+			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, subtitle, desc, content, create_datetime, update_datetime, sort_id, category_id', 'safe', 'on'=>'search'),
+			array('id, title, subtitle, desc, content, create_time, update_time, sort_id, category_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -137,8 +169,8 @@ class Article extends CActiveRecord
 			'subtitle' => 'Subtitle',
 			'desc' => 'Desc',
 			'content' => 'Content',
-			'create_datetime' => 'Create Datetime',
-			'update_datetime' => 'Update Datetime',
+			'create_time' => 'Create Datetime',
+			'update_time' => 'Update Datetime',
 			'sort_id' => 'Sort',
 			'category_id' => 'Category',
 		);
@@ -165,9 +197,9 @@ class Article extends CActiveRecord
 
 		$criteria->compare('content',$this->content,true);
 
-		$criteria->compare('create_datetime',$this->create_datetime,true);
+		$criteria->compare('create_time',$this->create_time,true);
 
-		$criteria->compare('update_datetime',$this->update_datetime,true);
+		$criteria->compare('update_time',$this->update_time,true);
 
 		$criteria->compare('sort_id',$this->sort_id);
 

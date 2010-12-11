@@ -147,6 +147,7 @@ class ArticleController extends Controller
 		if(isset($_POST['Article']))
 		{
 		  $model->attributes=$_POST['Article'];
+		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
 		  $_sort_id = $leaf->first()->sort_id;
 		  if( $_sort_id > 0 ){
 		    $model->sort_id = $_sort_id +1;
@@ -193,6 +194,7 @@ class ArticleController extends Controller
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];
+			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
 					echo 'update article suc';

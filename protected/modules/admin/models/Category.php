@@ -329,20 +329,45 @@ class Category extends CActiveRecord
 		);
 	}
 
-  public function first() {
-    return  Article::model()->find(array(    
-      'condition'=>'category_id=:category_id',
-      'order'    => 'sort_id DESC',
-      'params'=>array(':category_id'=>$this->id),
-    ));
+  public function sub_nodes(){    
+    $sub_nodes = Category::model()->findAll( array(
+      'condition' => 'lft >= :lft AND rgt <= :rgt ',
+      'params'    => array( ':lft' => $this->lft, ':rgt' => $this->rgt )
+    ) );        
+    $ids = '';
+    foreach( $sub_nodes as $n ){        
+      $ids .= $n->id.',';
+    }      
+    return $ids;
   }
   
-  public function last() {
-    return  Article::model()->find(array(    
-      'condition'=>'category_id=:category_id',
-      'order'    => 'sort_id ASC',
-      'params'=>array(':category_id'=>$this->id),
-    ));
+  public function first($include=false) {
+    if( $include ){
+      $ids = $this->sub_nodes();
+      return Article::model()->find( array(                        
+        'condition'=>'find_in_set(category_id,:category_ids)',
+        'order'    => 'sort_id DESC',
+        'params'=>array(':category_ids'=>$ids),
+      ) );
+    }else{
+      return  Article::model()->find(array(    
+        'condition'=>'category_id=:category_id',
+        'order'    => 'sort_id DESC',
+        'params'=>array(':category_id'=>$this->id),
+      ));
+    }
+  }
+  
+  public function last($include = false ) {
+    if( $include ){
+      
+    }else{
+      return  Article::model()->find(array(    
+        'condition'=>'category_id=:category_id',
+        'order'    => 'sort_id ASC',
+        'params'=>array(':category_id'=>$this->id),
+      ));  
+    }
   }
   
   

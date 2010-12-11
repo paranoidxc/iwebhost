@@ -2,8 +2,34 @@
 class BlogController extends Controller
 {
   
-  public function actionTestP(){    
-  
+  public function actionApi(){        
+    echo '<pre>';
+    echo '提取一篇指定文章';
+    echo "\$eassy = API::essay( array( 'id' => 482 ) );   \$eassy->iprint(); <br/>";    
+    $eassy = API::essay( array('id'=>482) );
+    $eassy->iprint();      
+    echo '<br>';
+    echo '以该文章为基准提取下一篇,默认提取属于同一 Category 下的文章; $eassy->getNext()->iprint(); <br/>';
+    if( $eassy->getNext() ){
+      $eassy->getNext()->iprint();
+    }
+    echo '<br>';
+    echo '以该文章为基准提取上一篇,默认提取属于同一 Category 下的文章; $eassy->getPrev()->iprint();<br/>';
+    if( $eassy->getPrev() ){
+      $eassy->getPrev()->iprint();
+    }    
+    echo '<br>';
+    echo '以该文章为基准提取下一篇,指定提取属于117 Category 下的文章<br/>';
+    if( $eassy->getNext(117) ){
+      $eassy->getNext(117)->iprint();
+    }
+    echo '<br>';
+    echo '以该文章为基准提取上一篇,指定提取属于117 Category 下的文章<br/>';
+    if( $eassy->getPrev(117) ){
+      $eassy->getPrev(117)->iprint();
+    }    
+    /*
+    
     list($list,$p) = API::essay(array(
       'id' => '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19'
     )); 
@@ -12,9 +38,11 @@ class BlogController extends Controller
       _debug( $e->title );
     }    
     echo $p->run();
+    */
+    echo '</pre>';
   }
   
-  public function actionAPI(){
+  public function actionAPIx(){
     $item_count =32;
     $page_size =2;
     $pages =new CPagination($item_count);
@@ -69,9 +97,10 @@ class BlogController extends Controller
 		Yii::app()->theme='blog';
 		//$blog = API::INODE( array('ident_label' => 'blog','include' => true) );
 		$blog = API::node( array('ident_label' => 'blog') );
-		$article = $blog->first();
+		$article = $blog->first(true);
 		$this->render('index', array(
-  		'article' => $article
+  		'article' => $article,
+  		'blog'    => $blog
 		) );
   } 
   
@@ -90,7 +119,8 @@ class BlogController extends Controller
 		Yii::app()->theme='blog';		
 		$id = $_GET['id'];				
 		$article = Article::model()->findbyPk($_GET['id']);
-		$this->render( 'index', array( 'article' => $article) );
+		$blog = API::node( array('ident_label' => 'blog') );
+		$this->render( 'index', array( 'article' => $article , 'blog' => $blog ) );
   }
 }
 ?>
