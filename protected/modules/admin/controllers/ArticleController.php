@@ -105,7 +105,7 @@ class ArticleController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','test', 'move', 'copy'),
+				'actions'=>array('create','update','test', 'move', 'copy','stared','unstared'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -118,6 +118,32 @@ class ArticleController extends Controller
 		);
 	}
 
+  public function actionStared(){ 
+    if(Yii::app()->request->isPostRequest){	 
+      $ids = $_POST['ids'];
+      echo $ids;
+      $sql = " update article set is_star = 1 where FIND_IN_SET(id, '$ids')";
+      Article::model()->findAllBySql($sql);    
+    }else{      
+      $model=$this->loadModel();
+      $model->is_star = 1;
+      $model->save();    
+    }   
+  }
+  
+  public function actionUnstared(){
+    if(Yii::app()->request->isPostRequest){	   
+      $ids = $_POST['ids'];
+      echo $ids;
+      $sql = " update article set is_star = 0 where FIND_IN_SET(id, '$ids')";
+      Article::model()->findAllBySql($sql);
+    }else{
+      $model=$this->loadModel();
+      $model->is_star = 0;
+      $model->save();  
+    }
+  }
+  
 	/**
 	 * Displays a particular model.
 	 */

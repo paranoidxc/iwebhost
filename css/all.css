@@ -10,6 +10,20 @@
 
 @import url('evil.css');
 @import url('console.attachment.css');
+.unstared,
+.stared {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url(img/mail.png) no-repeat 0 0;
+  cursor: pointer;
+}
+.unstared {    
+  background: url(img/mail.png) no-repeat 0 -20px;
+}
+.stared {    
+  background-position: -20px -20px;
+}
 
 .content_item {
   height: 16px;

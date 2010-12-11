@@ -1047,7 +1047,43 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	/*7fb7af841196fbde1802ce805a1196d3 批量文章打星星 去星星*/
+	$('#artiles_stared,#artiles_unstared').live('click',function(){
+	  var ids = get_ids();
+	  wrap = getPanel($(this));
+	  var url = wrap.find('.'+$(this).attr('id')+'_url').val();		  
+	  $.ajax({
+	    type: 'post',
+	    cache: false,
+	    data: 'ids='+ids,
+	    url: url,
+	    success: function(html){
+	      render();
+	    }
+	  })
+	});
 	
+	/*762ac59129462de0624b2877573b286f 文章打星星 去星星*/
+	$('.stared,.unstared').live('click',function(){	  
+	  var that = $(this);
+	  $.ajax({
+	    url: that.attr('href'),
+	    type: 'get',
+	    cache: false,
+	    success: function(html){
+	      idebug(html);
+	      if( that.hasClass('stared') ){
+	        that.removeClass('stared');
+	        that.addClass('unstared');
+	        that.attr('href', that.attr('href').replace('unstared','stared') );
+	      }else{
+	        that.removeClass('unstared');
+	        that.addClass('stared');
+	        that.attr('href', that.attr('href').replace('stared','unstared') );
+	      }
+	    }
+	  })
+	});
 	
 	/*9e57007bcc35507dfc5bc7b8f2efb076 更新文章 */
 	$('dl.thumbnail .title,.content_item').live('click',function(){

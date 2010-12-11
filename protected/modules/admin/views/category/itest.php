@@ -52,6 +52,10 @@
 <input type="hidden"  value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
 <input type="hidden"  value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
 <input type="hidden"  value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   id="sort_leaf_url"/>
+
+<input type="hidden"  value="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"   class="artiles_stared_url"/>
+<input type="hidden"  value="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"   class="artiles_unstared_url"/>
+
 <?php 
   if( $top_leaf->model_type == 'attachment' ) {
     ?>
@@ -70,30 +74,7 @@
 
 <div id="leaf_articles_wrap"  class="osX">
 
-<ul class="actions">
-  <!--
-	<li class="hover">
-		<a  href="<?php echo CController::createUrl('category/create') ?>" 		
-	      title="create new leaf inside current leaf" class="ele_create_category"><img src="<?php echo Yii::app()->request->baseUrl?>/images/NewDir.png" /></a>
- 	</li>	
- 	
- 	<li class="hover">
-		<a href="<?php echo CController::createUrl('category/update') ?>" 		
- 	     title="update the current leaf" class="ele_update_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Update.png" /></a>
- 	</li> 	 	
-	
- 	<li class="hover">
-		<a href="<?php echo CController::createUrl('category/move') ?>" 		
- 	     title="move the current leaf to another" class="ele_move_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Move.png" /></a>
- 	</li> 	 	
- 	
- 	<li class="hover">
- 	 <a  href="<?php echo CController::createUrl('category/delete') ?>"		
- 	     title="delete current leaf" class="ele_del_leaf"><img src="<?php echo Yii::app()->request->baseUrl?>/images/Recycle.png" /></a>
- 	</li> 	 	
- 	-->
- 	
- 	
+<ul class="actions"> 	
  	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
 	      title="Create Article" class="ele_create_article">new</a>
@@ -120,7 +101,9 @@
 	    More Actions<span class="more"></span>
 	  </span>
 	  <ul class='dN c_m_a_d'>
-      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch">move</li>      
+	    <li id="artiles_stared" title="Stared Articles" class="c_m_a_d_batch">Stared</li>      
+	    <li id="artiles_unstared" title="Unstared Articles" class="c_m_a_d_batch">Unstared</li>
+      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch">move</li> 
       <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles" class="c_m_a_d_batch">delete</li>
       <?php
 	    if( $top_leaf->model_type != 'attachment' ) {
@@ -142,20 +125,6 @@
  	<li class="thumb_symbol">
 	  <a href="#" title="#" class=""></a>
  	</li>
- 	
- 	<!--
-	<li class="iactions dN">
-		<a  href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles">
-			delete
-		</a>
-	</li>
-	
-	<li class="iactions dN">
-		<a id="artiles_move" title="Move Articles">
-			move
-		</a>		
-	</li>
-  -->
 	
 </ul>
 
