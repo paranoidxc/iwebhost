@@ -5963,3 +5963,46 @@ Stack trace:
 #14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #15 H:\projects\iwebhost\index.php(82): CApplication->run()
 #16 {main} REQUEST_URI=/index.php?r=admin/article/unstared&ajax=ajax
+2010/12/11 23:50:45 [error] [system.db.CDbCommand] Error in querying SQL:  update article set is_star = 1 where FIND_IN_SET(id, '482,478,477,475,474,473,468,465,462,455,454')
+in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (126)
+in H:\projects\iwebhost\index.php (82)
+2010/12/11 23:50:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(266): CDbCommand->queryInternal('fetchAll', 2, Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(1373): CDbCommand->queryAll()
+#2 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(126): CActiveRecord->findAllBySql(' update article...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionStared()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('stared')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/s...')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(82): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=admin/article/stared&ajax=ajax
+2010/12/12 18:05:05 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (765)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:08:08 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (553)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:08:08 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (556)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:09:48 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (553)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:09:48 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (556)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:14:50 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (553)
+in H:\projects\iwebhost\index.php (82)
+2010/12/12 18:14:50 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (556)
+in H:\projects\iwebhost\index.php (82)

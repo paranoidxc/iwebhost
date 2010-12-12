@@ -577,18 +577,17 @@ class CategoryController extends Controller
 					$transaction->commit();	
 					
 					if( $_GET['ajax'] == 'ajax' ) {
-						echo 'Category Create Success!';
-						exit;
+						$this->renderPartial('create_next',array( 'model' => $model) ,false, true );			
+						exit;			
 					}else {							
 						$this->redirect(array('leafs'));
 					}
-								
 				}catch(Exception $e) {
 				//	print($e);
 					print(" exception ");					
 					$transaction->rollBack();
 				}				
-			}			
+			}
 		}
     
 		$model->content_type = 1;
@@ -597,7 +596,7 @@ class CategoryController extends Controller
 				'model' => $model,
 				'model_type' => $_GET['model_type'],
 				'ajax'  => true
-			), false, true );
+			), false, true );			
 		}else {					
 			$this->render('create',array(
 				'model'=>$model,

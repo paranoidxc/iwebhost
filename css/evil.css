@@ -19,7 +19,10 @@
 .csD { cursor: url(img/openhand.cur), default !important; }
 .csP { cursor: pointer; }
 
+.fs15p {font-size: 15px; }
 .w100s { width: 100%; }
+.w10p { width: 10px; }
+.w15p { width: 15px; }
 .w20p { width: 20px; }
 .w26p { width: 26px; }
 .w28p { width: 28px; }

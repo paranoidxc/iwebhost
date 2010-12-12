@@ -28,7 +28,8 @@
     <td class="vaM taR w100p">      
       <?php echo Time::timeAgoInWords($a->create_time, array('short'=>true) ) ;?>
     </td>    
-    <td class="vaM w20p">
+    <td class="vaM taC w15p ">
+      <span class='fs15p csP' >&raquo;</span>
       <?php //echo $a->update_datetime; ?>
     </td>
   </tr>

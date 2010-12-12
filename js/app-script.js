@@ -595,15 +595,7 @@ $(document).ready(function(){
 	$('.to_dest').live('click',function(){	  
 	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
 	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
-	})
-	
-		
-	
-	
-
-	
-	
-	
+	})	
 	
 	/*accb8413de43b01d42bc9f1af5aceab0 添加节点*/
 	$('.ele_create_category').live('click',function () {	  
@@ -613,19 +605,12 @@ $(document).ready(function(){
 			url:		$(this).attr('href')+'&model_type='+$('#model_type').val()+'&ajax=ajax&id=1&leaf_id='+$('#cur_leaf_id').val(),
 			success:	function (html) {
 			  popup_panel( $(html) );
-			  
-			  /*
-				var pop = $("<div title='new article'></div>").html(html);
-				pop.insertAfter($('body')).dialog({
-					width: 550
-				});
-				*/
 			}			
 		});
 		return false;
   });
-  /*d7c8386e98d5b2185c276b93b32c84e3 更新节点*/	
-	$('.ele_update_leaf').live('click', function() {		
+  /*d7c8386e98d5b2185c276b93b32c84e3 编辑节点*/	
+	$('.ele_update_leaf').live('click', function() {			  
 		wrap = getPanel($(this));
 		$.ajax({
 			type:		"get",
@@ -660,9 +645,7 @@ $(document).ready(function(){
 	  
 	});
 	
-	/*
-	* 
-	*/
+	/* 137b2dfd2e8ecf4ddc2ef2b1e78ac3b4 提交删除节点 */
 	$('.ele_del_leaf').live('click',function(){
 	  //首节点不能删除
 	  if( $('#top_leaf_id').val() == $('#cur_leaf_id').val() ){	 
@@ -677,6 +660,7 @@ $(document).ready(function(){
 			dataType 	:	'html',
 			success		:	function(html){
 				//console.log(html);
+				renderPartLeafs();
 			}			
 		});
 		}
@@ -940,8 +924,11 @@ $(document).ready(function(){
   
   
   /*9d607a663f3e9b0a90c3c8d4426640dc 类mac_panel_wrap DOM的 关闭 , 最小化, 最大化事件 */
+  var wrap_remove = function(){
+    wrap.remove();
+  };
 	$('.mac_panel_wrap .close').live('click',function(){
-	  getPanel($(this)).remove();	  
+	  getPanel($(this)).remove();
 	});	
 	$('.mac_panel_wrap .min').live('click',function(){
 	  getPanel($(this)).slideUp();
@@ -955,7 +942,7 @@ $(document).ready(function(){
 		
 		
 	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建文章  */
-	$('.ele_create_article').live('click',function () {
+	var fun_article_new = function () {
 	  if( $('#model_type').val() == "attachment" ){
 	    $('#attachment_form_wrap').toggle();
 	    return false;
@@ -970,7 +957,37 @@ $(document).ready(function(){
 			}			
 		});
 		return false;
-	});		
+	};
+	$('.create_article_continue').live('click',function(){
+	  wrap = getPanel($(this));	  
+	  wrap.remove();	  
+	  $.ajax({
+			type:		"get",
+			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
+			success:	function (html) {			  
+			  popup_panel( $(html) );
+			  init_mac_panel_drag();			  
+			}			
+		});
+	  return false;	  
+	});
+	$('.edit_article_continue').live('click',function(){
+	  wrap = getPanel($(this));	  
+	  wrap.remove();
+	  var url = $(this).attr('href');
+	  $.ajax({
+			url:	url,
+			type:	'get',
+			cache:	false,
+			success:	function(html){
+			  popup_panel( $(html) );		
+			  init_mac_panel_drag();
+			}
+		});
+		return false;
+  });
+	
+	$('.ele_create_article').live('click',fun_article_new);		
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
 	$('#artiles_move').click(function(){		
@@ -1085,7 +1102,7 @@ $(document).ready(function(){
 	  })
 	});
 	
-	/*9e57007bcc35507dfc5bc7b8f2efb076 更新文章 */
+	/*9e57007bcc35507dfc5bc7b8f2efb076 编辑文章 */
 	$('dl.thumbnail .title,.content_item').live('click',function(){
 	  var url = $(this).parent().attr('rel_href');
 	  wrap = getPanel($(this));
@@ -1141,12 +1158,19 @@ $(document).ready(function(){
 	});
 	
 	
-	
-	/* 894f782a148b33af1e39a0efed952d69 a4 */
-	$('.article_ajax_form').live('submit',function(){			  
+	var timeouthandle;
+	/* 9e57007bcc35507dfc5bc7b8f2efb076 更新文章*/
+	$('.article_ajax_form').live('submit',function(){
+	  idebug( timeouthandle );
+	  if( timeouthandle != undefined ){
+	    clearTimeout(timeouthandle);  
+	  }
 		var that = $(this);
 		var leaf_id = $('#Article_category_id').val();		
 		wrap = getPanel($(this));
+		var iform = wrap.find('.panel_middle .middle .iform');
+		idebug("iform === ");
+		idebug(iform.length);
 		dialog = wrap.find('.panel_middle .middle .feedback');
 		dialog.html('');
 		$.ajax({
@@ -1158,9 +1182,20 @@ $(document).ready(function(){
 			  if( html.indexOf('mac_panel_wrap') != -1 ){
 			    wrap.html( html);
 			  }else{
-			    dialog.addClass('feedback_on').html(html).show();
-			    setTimeout( "dialog.slideUp()" , 3000 );
-			    render();  
+			    /*更新操作*/
+			    if( that.attr('action').indexOf('article') > 0 ){
+  			    if( that.attr('action').indexOf('update') != -1 ) {
+    			    dialog.addClass('feedback_on').html(html).show();
+    			    timeouthandle = setTimeout( "dialog.slideUp()" , 3000 );
+    			    render();
+  			    }else{
+  			      iform.html(html);
+  			      render();
+  			    }  
+			    }else{
+			      iform.html(html);
+			      renderPartLeafs();
+			    }
 			  }
 			}
 		});		

@@ -168,10 +168,9 @@ class ArticleController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-    
-    
+        
 		if(isset($_POST['Article']))
-		{
+		{		
 		  $model->attributes=$_POST['Article'];
 		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
 		  $_sort_id = $leaf->first()->sort_id;
@@ -180,23 +179,28 @@ class ArticleController extends Controller
 		  }else{
 		    $model->sort_id = 1;
 		  }
-		  
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
-					echo 'create article suc';
-					exit;
+  				$this->renderPartial('create_next', array(
+  				'model' => $model,
+  				'leafs'	=> $leafs,
+  				'leaf'	=> $leaf
+  			),false,ture);
+  			exit;
+					//echo 'create article suc On '.date("Y-m-d H:i:s");					
+					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );						
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
 				}			
 			}	
 		}
 		
-		if( isset($_GET['ajax']) ) {
-			$this->renderPartial('create', array(
-				'model' => $model,
-				'leafs'	=> $leafs,
-				'leaf'	=> $leaf
-					),false,ture);
+	  if( isset($_GET['ajax']) ) {
+		$this->renderPartial('create', array(
+			'model' => $model,
+			'leafs'	=> $leafs,
+			'leaf'	=> $leaf
+				),false,ture);					
 		}else {
 			$this->render('create',array(
 				'model'	=>	$model,
@@ -204,6 +208,9 @@ class ArticleController extends Controller
 				'leaf'	=> $leaf
 			));
 		}
+		
+		
+		
 	}
 
 	/**
@@ -223,7 +230,7 @@ class ArticleController extends Controller
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
-					echo 'update article suc';
+					echo 'update article suc On '.date("Y-m-d H:i:s") ;
 					exit;
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	

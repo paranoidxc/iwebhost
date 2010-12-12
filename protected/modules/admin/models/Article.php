@@ -164,15 +164,16 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'subtitle' => 'Subtitle',
-			'desc' => 'Desc',
-			'content' => 'Content',
+			'id'        => 'ID',
+			'title'     => 'Title',
+			'subtitle'  => 'Subtitle',
+			'desc'      => 'Desc',
+			'content'     => 'Content',
 			'create_time' => 'Create Datetime',
 			'update_time' => 'Update Datetime',
-			'sort_id' => 'Sort',
+			'sort_id'     => 'Sort',
 			'category_id' => 'Category',
+			'is_star'     => 'stared?'
 		);
 	}
 
