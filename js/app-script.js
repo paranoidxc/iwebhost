@@ -204,6 +204,7 @@ $(document).ready(function(){
 	  var input_default_value = return_wrap.find('input').val();
 	  return_wrap.find('input').attr('value', rel_id);	  
 	  return_wrap.find('.unlink_collect').attr('origin_value',input_default_value);
+	  wrap.remove();
 	});
 
 	$('.att_return_submit').live('click',function(){
@@ -221,7 +222,7 @@ $(document).ready(function(){
 	  return_wrap.find('input').attr('value', rel_id);	
 	  return_wrap.find('.unlink_dest').attr('origin_value',input_default_value);
 	  return_wrap.find('.dest_thumbnail').show();
-	  
+	  wrap.remove();
 	});
 	
 	$('.reset_default_collect').live('click',function(){
