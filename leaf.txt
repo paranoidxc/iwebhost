@@ -1,4 +1,57 @@
- 
+prev essay
+
+SET @num = 0;
+SELECT 
+number,
+id, 
+title,
+sort_id 
+FROM
+(
+SELECT
+@num := @num + 1 AS number, 
+id, 
+title,
+sort_id
+FROM 
+article
+WHERE 
+FIND_IN_SET(category_id,'117,118,119,131')
+ORDER BY sort_id DESC
+) AS tbl 
+WHERE 
+number < 15
+ORDER BY number DESC 
+LIMIT 1
+
+next essay
+
+SET @num = 0;
+SELECT 
+number,
+id, 
+title,
+sort_id 
+FROM
+(
+SELECT
+@num := @num + 1 AS number, 
+id, 
+title,
+sort_id
+FROM 
+article
+WHERE 
+FIND_IN_SET(category_id,'117,118,119,131')
+ORDER BY sort_id DESC
+) AS tbl 
+WHERE 
+number > 15
+ORDER BY number ASC
+LIMIT 1
+
+
+
  
  
  /**自动转为超链接*/

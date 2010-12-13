@@ -400,7 +400,7 @@ class Category extends CActiveRecord
       $ids = $this->sub_nodes();      
       $criteria=new CDbCriteria;
       $criteria->condition = 'find_in_set(category_id,:ids)';
-      $criteria->order     = 'sort_id DESC';
+      $criteria->order     = 'sort_id DESC , create_time desc';
       $criteria->params    = array(':ids'=>$ids);
       if( $split ){
         $item_count = Article::model()->count($criteria);        
