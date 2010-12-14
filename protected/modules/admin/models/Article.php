@@ -42,15 +42,18 @@ class Article extends CActiveRecord
     echo '</table>';
   }
   
-  public function getNext($para='') {    
-    if( $para == '' ){      
+  public function getNext($opt) {
+    $order_name   = empty($opt['order_name']) ? ' id ' : $opt['order_name'];
+    $node_id = empty($opt['node_id']) ? '' : $opt['node_id'];      
+    if( $node_id == '' ){            
       $_article = self::model()->find(array(
         'condition' => 'category_id=:category_id and sort_id < :sort_id',
-        'order'     => 'sort_id desc',
+        //'order'     => 'sort_id desc',
+        'order'     => $order,
         'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));
       return $_article;
     }else{
-      $node = Category::model()->findByPK($para);      
+      $node = Category::model()->findByPK($node_id);      
       $sub_nodes = Category::model()->findAll( array(
         'condition' => 'lft >= :lft AND rgt <= :rgt ',
         'params'    => array( ':lft' => $node->lft, ':rgt' => $node->rgt )
@@ -59,17 +62,25 @@ class Article extends CActiveRecord
       foreach( $sub_nodes as $n ){        
         $node_ids .= $n->id.',';
       }      
-      if( $node_ids != '' ){               
+      if( $node_ids != '' ){            
+        
         $con=new CDbConnection(Yii::app()->db->connectionString, Yii::app()->db->username ,Yii::app()->db->password);
         $con->active = true;        
         $command=$con->createCommand("SET @num=0;");
         $command->execute();
         $find_current_virtual_number = " SELECT  number FROM ( 
                  SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'$node_ids') 
+                  ORDER BY $order_name DESC 
+                ) AS tbl 
+                WHERE 
+            id = $this->id";          
+        /*$find_current_virtual_number = " SELECT  number FROM ( 
+                 SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'$node_ids') 
                   ORDER BY sort_id DESC,create_time DESC
                 ) AS tbl 
                 WHERE 
             id = $this->id";          
+            */
         $command=$con->createCommand($find_current_virtual_number);
         $row = $command->queryRow();
         $current_number = $row['number'];
@@ -79,7 +90,7 @@ class Article extends CActiveRecord
         $find_next_sql = "SELECT  number, id,  title, sort_id  
                           FROM ( 
                             SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'$node_ids') 
-                            ORDER BY sort_id DESC,create_time DESC
+                            ORDER BY $order_name DESC
                             ) AS tbl 
                           WHERE number > $current_number ORDER BY number asc LIMIT 1 ";
         $command=$con->createCommand($find_next_sql);
@@ -92,23 +103,28 @@ class Article extends CActiveRecord
     }
   }
   
-  public function getPrev($para='') {    
-    if( $para == '' ){
+  public function getPrev( $opt ) {        
+    $order_name   = empty($opt['order_name']) ? ' id ' : $opt['order_name'];
+    $node_id = empty($opt['node_id']) ? '' : $opt['node_id'];
+    
+    if( $node_id == '' ){
       $_article = self::model()->find(array(
         'condition' => 'category_id=:category_id and sort_id > :sort_id',
         'order'     => 'sort_id asc',
         'params'   => array( ':category_id' => $this->category_id, ':sort_id' => $this->sort_id) ));    
       return $_article;
     }else{
-      $node = Category::model()->findByPK($para);      
+      
+      $node = Category::model()->findByPK($node_id);      
       $sub_nodes = Category::model()->findAll( array(
         'condition' => 'lft >= :lft AND rgt <= :rgt ',
         'params'    => array( ':lft' => $node->lft, ':rgt' => $node->rgt )
       ) );        
       $node_ids = '';
+      
       foreach( $sub_nodes as $n ){        
         $node_ids .= $n->id.',';
-      }      
+      }
       if( $node_ids != '' ){
         $con=new CDbConnection(Yii::app()->db->connectionString, Yii::app()->db->username ,Yii::app()->db->password);
         $con->active = true;        
@@ -116,7 +132,7 @@ class Article extends CActiveRecord
         $command->execute();
         $find_current_virtual_number = " SELECT  number FROM ( 
                  SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'$node_ids') 
-                  ORDER BY sort_id DESC,create_time DESC
+                  ORDER BY $order_name DESC
                 ) AS tbl 
                 WHERE 
             id = $this->id";      
@@ -124,11 +140,11 @@ class Article extends CActiveRecord
         $row = $command->queryRow();
         $current_number = $row['number'];
         $command=$con->createCommand("SET @num=0;");
-        $command->execute();
+        $command->execute();        
         $find_next_sql = "SELECT  number, id,  title, sort_id  
                           FROM ( 
                             SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'$node_ids') 
-                            ORDER BY sort_id DESC, create_time DESC
+                            ORDER BY $order_name DESC
                             ) AS tbl 
                           WHERE number < $current_number ORDER BY number DESC LIMIT 1 ";
         $command=$con->createCommand($find_next_sql);

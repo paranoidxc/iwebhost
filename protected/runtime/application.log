@@ -6744,3 +6744,123 @@ Stack trace:
 #14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #15 H:\projects\iwebhost\index.php(82): CApplication->run()
 #16 {main} REQUEST_URI=/index.php?r=blog
+2010/12/14 20:17:01 [error] [system.db.CDbCommand] Error in querying SQL: SELECT  number, id,  title, sort_id  
+                          FROM ( 
+                            SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'117,118,119,131,') 
+                            ORDER BY  DESC
+                            ) AS tbl 
+                          WHERE number < 1 ORDER BY number DESC LIMIT 1 
+in H:\projects\iwebhost\protected\modules\admin\models\Article.php (148)
+in H:\projects\iwebhost\themes\blog\views\blog\index.php (12)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (132)
+2010/12/14 20:17:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+                            ) AS tbl 
+                          WHERE numbe' at line 4' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(285): CDbCommand->queryInternal('fetch', 2, Array)
+#1 H:\projects\iwebhost\protected\modules\admin\models\Article.php(148): CDbCommand->queryRow()
+#2 H:\projects\iwebhost\themes\blog\views\blog\index.php(12): Article->getPrev('117')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#7 H:\projects\iwebhost\protected\controllers\BlogController.php(132): CController->render('index', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionIndex()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(82): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=blog
+2010/12/14 20:28:32 [error] [system.db.CDbCommand] Error in querying SQL: SELECT  number, id,  title, sort_id  
+                          FROM ( 
+                            SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'117,118,119,131,') 
+                            ORDER BY  DESC
+                            ) AS tbl 
+                          WHERE number < 1 ORDER BY number DESC LIMIT 1 
+in H:\projects\iwebhost\protected\modules\admin\models\Article.php (153)
+in H:\projects\iwebhost\themes\blog\views\blog\index.php (13)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (151)
+2010/12/14 20:28:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+                            ) AS tbl 
+                          WHERE numbe' at line 4' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(285): CDbCommand->queryInternal('fetch', 2, Array)
+#1 H:\projects\iwebhost\protected\modules\admin\models\Article.php(153): CDbCommand->queryRow()
+#2 H:\projects\iwebhost\themes\blog\views\blog\index.php(13): Article->getPrev(Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#7 H:\projects\iwebhost\protected\controllers\BlogController.php(151): CController->render('index', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionArticle()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('article')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/article')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(82): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=blog/article&id=526
+2010/12/14 20:30:38 [error] [system.db.CDbCommand] Error in querying SQL: SELECT  number, id,  title, sort_id  
+                          FROM ( 
+                            SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'117,118,119,131,') 
+                            ORDER BY  DESC
+                            ) AS tbl 
+                          WHERE number < 16 ORDER BY number DESC LIMIT 1 
+in H:\projects\iwebhost\protected\modules\admin\models\Article.php (154)
+in H:\projects\iwebhost\themes\blog\views\blog\index.php (13)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (151)
+2010/12/14 20:30:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+                            ) AS tbl 
+                          WHERE numbe' at line 4' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(285): CDbCommand->queryInternal('fetch', 2, Array)
+#1 H:\projects\iwebhost\protected\modules\admin\models\Article.php(154): CDbCommand->queryRow()
+#2 H:\projects\iwebhost\themes\blog\views\blog\index.php(13): Article->getPrev(Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#7 H:\projects\iwebhost\protected\controllers\BlogController.php(151): CController->render('index', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionArticle()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('article')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/article')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(82): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=blog/article&id=454
+2010/12/14 20:32:34 [error] [system.db.CDbCommand] Error in querying SQL: SELECT  number, id,  title, sort_id  
+                          FROM ( 
+                            SELECT @num := @num + 1 AS number, id,  title, sort_id FROM  article WHERE  FIND_IN_SET(category_id,'117,118,119,131,') 
+                            ORDER BY  DESC
+                            ) AS tbl 
+                          WHERE number < 15 ORDER BY number DESC LIMIT 1 
+in H:\projects\iwebhost\protected\modules\admin\models\Article.php (154)
+in H:\projects\iwebhost\themes\blog\views\blog\index.php (14)
+in H:\projects\iwebhost\protected\controllers\BlogController.php (151)
+2010/12/14 20:32:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+                            ) AS tbl 
+                          WHERE numbe' at line 4' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(285): CDbCommand->queryInternal('fetch', 2, Array)
+#1 H:\projects\iwebhost\protected\modules\admin\models\Article.php(154): CDbCommand->queryRow()
+#2 H:\projects\iwebhost\themes\blog\views\blog\index.php(14): Article->getPrev(Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#7 H:\projects\iwebhost\protected\controllers\BlogController.php(151): CController->render('index', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): BlogController->actionArticle()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('article')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('blog/article')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(82): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=blog/article&id=455

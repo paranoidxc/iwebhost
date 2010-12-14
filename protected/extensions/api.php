@@ -109,6 +109,7 @@ class API {
   }
   
   public static function essay($opt){
+    $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
     if( is_array($opt) ){
       if( !empty($opt['id']) ){
         $id = $opt['id'];
@@ -118,7 +119,7 @@ class API {
           $criteria=new CDbCriteria;
           $criteria->condition  = 'find_in_set(id, :id)';
           $criteria->params     = array(':id'=>$id);
-          $criteria->order      = 'sort_id desc, update_datetime desc';
+          $criteria->order      = $order;
           $item_count = Article::model()->count($criteria);                              
           $page_size = 2;          
           $pages =new CPagination($item_count);          
@@ -130,8 +131,8 @@ class API {
           //$pagination->run(); // display the html pagination
           $criteria->limit        =  $page_size;
           $criteria->offset       = $pages->offset;
-          print_r($page_size);
-          print_r($pages->offset);
+          //print_r($page_size);
+          //print_r($pages->offset);
           $list = Article::model()->findall( $criteria );
           return array($list, $pagination);                    
         }
@@ -143,7 +144,7 @@ class API {
           return Article::model()->findall(array(
             'condition' => 'find_in_set(ident, :ident)',
             'params'=>array(':ident'=>$ident),
-            'order' => 'sort_id desc, update_datetime desc'
+            'order' => $order
           ));
         }
       }      

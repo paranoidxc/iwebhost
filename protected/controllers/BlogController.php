@@ -125,7 +125,7 @@ class BlogController extends Controller
 		Yii::app()->theme='blog';
 		//$blog = API::INODE( array('ident_label' => 'blog','include' => true) );
 		$blog = API::node( array('ident_label' => 'blog') );
-		$article = $blog->first(true);
+		$article = $blog->first( array('include'=> true) );
 		$this->render('index', array(
   		'article' => $article,
   		'blog'    => $blog

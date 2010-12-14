@@ -7,19 +7,21 @@
     echo Time::timeAgoInWords($article->create_time);
     echo '</p>';    
     echo '</h1>';
-  ?>
-  <?php             
-      if( $article->getPrev($blog->id) ){
+  ?>    
+  <?php               
+      $prev = $article->getPrev(array('node_id'=>$blog->id ));      
+      if( $prev ){
         echo '<p id="prev">';
-        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->getPrev($blog->id)->id) ).' " title="'.$article->getPrev($blog->id)->title.'" >';
+        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$prev->id) ).' " title="'.$prev->title.'" >';
         //echo '&laquo;';
         echo '{';
         echo '</a>';
         echo '</p>';  
       }
-      if( $article->getNext($blog->id)) { 
+      $next = $article->getNext(array('node_id'=>$blog->id));
+      if( $next ) { 
         echo '<p id="next">';
-        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$article->getNext($blog->id)->id) ).' " title="'.$article->getNext($blog->id)->title.'" >';
+        echo '<a href="'.CController::createUrl('blog/article', array( 'id'=>$next->id) ).' " title="'.$next->title.'" >';
         //echo '&raquo;';
         echo '}';
         echo '</a>';

@@ -359,35 +359,39 @@ class Category extends CActiveRecord
     return $ids;
   }
   
-  public function first($include=false) {
+  public function first($opt) {
+    $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
+    $include = empty($opt['include']) ? false : true;
     if( $include ){
       $ids = $this->sub_nodes();
       return Article::model()->find( array(                        
         'condition'=>'find_in_set(category_id,:category_ids)',
-        'order'    => 'sort_id DESC',
+        'order'    => $order,
         'params'=>array(':category_ids'=>$ids),
       ) );
     }else{
       return  Article::model()->find(array(    
         'condition'=>'category_id=:category_id',
-        'order'    => 'sort_id DESC',
+        'order'    => $order,
         'params'=>array(':category_id'=>$this->id),
       ));
     }
   }
   
-  public function last($include = false ) {
+  public function last($opt) {
+    $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
+    $include = empty($opt['include']) ? false : true;
     if( $include ){
        $ids = $this->sub_nodes();
       return Article::model()->find( array(                        
         'condition'=>'find_in_set(category_id,:category_ids)',
-        'order'    => 'sort_id asc',
+        'order'    => $order,
         'params'=>array(':category_ids'=>$ids),
       ) );
     }else{
       return  Article::model()->find(array(    
         'condition'=>'category_id=:category_id',
-        'order'    => 'sort_id ASC',
+        'order'    => $order,
         'params'=>array(':category_id'=>$this->id),
       ));  
     }
@@ -396,11 +400,12 @@ class Category extends CActiveRecord
   public function essays($opt=null){    
     $include = empty($opt['include']) ? false : true;
     $split   = empty($opt['split']) ? false : true;
+    $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
     if( $include ){
       $ids = $this->sub_nodes();      
       $criteria=new CDbCriteria;
       $criteria->condition = 'find_in_set(category_id,:ids)';
-      $criteria->order     = 'sort_id DESC , create_time desc';
+      $criteria->order     = $order;
       $criteria->params    = array(':ids'=>$ids);
       if( $split ){
         $item_count = Article::model()->count($criteria);        
@@ -417,11 +422,9 @@ class Category extends CActiveRecord
       }else{
         $articles = Article::model()->findall( $criteria );  
       }
-      
     }else{      
       $articles = $this->articles;      
     }
-    
     if( $split ){
       return array( $articles, $pagination);  
     }else{
