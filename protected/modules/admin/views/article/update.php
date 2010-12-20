@@ -1,4 +1,4 @@
-<div class='mac_panel_wrap w600p' >
+<div class='mac_panel_wrap w600p'>
 <?php
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit Content ID:'.$model->id.' - Name: '.cnSubstr($model->title,0,20)) )
 ?>

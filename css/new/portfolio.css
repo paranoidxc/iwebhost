@@ -22,9 +22,13 @@ body {
   margin: auto;
 }
 #vlightbox a {
+  text-align: center;
+}
+#vlightbox a img {
   border: 3px solid transparent;
 }
-#vlightbox a:hover {
+
+#vlightbox a:hover img {
   border: 3px solid #AF1D5C;
 }
 
@@ -37,6 +41,7 @@ div.img_wrap {
   margin-bottom: 5px;
   margin-right: 10px;
   padding: 2px;
+  text-align: center;
 }
 div.img_wrap p {
   margin: 0;

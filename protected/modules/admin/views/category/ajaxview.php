@@ -21,7 +21,7 @@
       ?>
       <span class="<?php echo $is_star?>" href="<?php echo CController::createurl('article/'.$star_action, array('id'=> $a->id, 'ajax' => 'ajax') ) ?>" ></span>
     </td>
-    <td class="vaM taL content_item">
+    <td class="vaM taL content_item" data="<?php echo $a->id; ?>" >
       <?php echo $a->title; ?>&nbsp;-&nbsp;
       <?php echo cnSub( CHtml::encode($a->content) , 10); ?>
     </td>

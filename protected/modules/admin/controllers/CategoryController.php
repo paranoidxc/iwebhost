@@ -486,45 +486,33 @@ class CategoryController extends Controller
 	{
 			//$model = Category::model()->with('articles')->findByPk($_GET['id']);
 			//' t.id = :id ',
-			//array(':id' => $_GET['id'] )
-			
+			//array(':id' => $_GET['id'] )			
 			$criteria = new CDbCriteria;
-			if( $_GET['model_type'] == '' ) {
-			  $criteria->order=" articles.sort_id DESC ";  
-			}else {
-			  
-			}
-			
+			if( $_GET['model_type'] == 'attachment' ){
+		  }else{
+		    $criteria->order=" articles.sort_id DESC ";  
+		  }		  
 			$criteria->condition = " t.id = :id ";
 			$criteria->params = array(
 				':id' => $_GET['id']
 			);
 			//$model = Category::model()->with('articles')->findByPk( 21 , $criteria );			
-			
-			if( $_GET['model_type'] == '' ) {
-			  $model = Category::model()->with('articles')->find( $criteria );
-		  }else{
+			if( $_GET['model_type'] == 'attachment' ){
 		    $model = Category::model()->with('attachments')->find( $criteria );
-		  }
-			//$model = Category::model()->with('articles')->findByPk(21 , array(
-			//	'order' => ' articles.sort_id asc'
-			//));
-			if( $_GET['model_type'] == '' ) {			  
-  			$this->renderPartial( 'ajaxview', array(
-  				'model'=> $model,
-  				false,true
-  			));
-			}else{
-			  $this->renderPartial( 'ajaxview_attachment', array(
+		    $this->renderPartial( 'ajaxview_attachment', array(
   				'model'=> $model,
   				false,true
   			)); 
-			}
-  		exit;
-		if(isset($_GET['ajax'])) {
-			
-			$model = Category::model()->with('articles')->findByPk($_GET['id']);
-			
+		  }else{
+			  $model = Category::model()->with('articles')->find( $criteria );
+			  $this->renderPartial( 'ajaxview', array(
+  				'model'=> $model,
+  				false,true
+  			));
+		  }
+			exit;
+		if(isset($_GET['ajax'])) {			
+			$model = Category::model()->with('articles')->findByPk($_GET['id']);			
 			$this->renderPartial( 'ajaxview', array(
 				'model'=>$this->$model,
 				false,true

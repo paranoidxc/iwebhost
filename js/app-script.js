@@ -613,11 +613,15 @@ $(document).ready(function(){
   /*d7c8386e98d5b2185c276b93b32c84e3 编辑节点*/	
 	$('.ele_update_leaf').live('click', function() {			  
 		wrap = getPanel($(this));
+		var leaf_panel_id = 'leaf_panel_'+$('#leaf_id').val();
+		if( isExist( leaf_panel_id) ){
+		  return false;
+		}
 		$.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val(),
 			success:	function(html) {
-			  popup_panel( $(html) );
+			  popup_panel( $(html).attr('id', leaf_panel_id) );
 			}
 		});
 		return false;
@@ -835,19 +839,24 @@ $(document).ready(function(){
 	  x = y += distance;
 	}
 
-	function popup_panel(ele) {
-	  $('body').append( ele );
-	  reset_panel_postion();	  
-	  ele.css({
-	    top: x+'px',
-	    left: y+'px',
-	    'z-index': z,
-	    position: 'absolute'
-	  })
-	  init_mac_panel_drag();
-	}
-	
-	
+	function popup_panel(ele) {	  
+	  //if( panel_id != undefined &&  $('#'+panel_id ).length == 1 ) {
+	    //$('#'+panel_id ).css({ 'z-index' : z });
+	  //}else{
+  	  $('body').append( ele );  	  
+  	  reset_panel_postion();	  
+  	  ele.css({
+  	    top: x+'px',
+  	    left: y+'px',
+  	    'z-index': z,
+  	    position: 'absolute'
+  	  });
+  	 // if( panel_id != undefined){
+  	  //  ele.attr('id',panel_id);
+  	  //}
+  	  init_mac_panel_drag();
+	  //}
+	}	
 	
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局方法定义*/
 	$(document).ajaxStart(ajaxOnStart).ajaxSuccess(ajaxOnSuccess).ajaxError(ajaxOnError);
@@ -909,6 +918,14 @@ $(document).ready(function(){
     return parentOne(that,'.mac_panel_wrap');
   }
   
+  function isExist(panel_id){    
+    if( $('#'+panel_id).length == 1 ){
+      $('#'+panel_id).css({'z-index':++z});
+      return true;
+    }
+    return false;
+  }
+  
   function formLay(wrap,t){
     idebug('Call formLay');
     if( t == 'h') {
@@ -954,7 +971,7 @@ $(document).ready(function(){
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
 			success:	function (html) {			  
 			  popup_panel( $(html) );
-			  init_mac_panel_drag();			  
+			  init_mac_panel_drag();		  
 			}			
 		});
 		return false;
@@ -1107,13 +1124,20 @@ $(document).ready(function(){
 	$('dl.thumbnail .title,.content_item').live('click',function(){
 	  var url = $(this).parent().attr('rel_href');
 	  wrap = getPanel($(this));
+	  idebug(' model_type = '+wrap.find('.model_type').val() );
+	  var popup_panel_id = wrap.find('.model_type').val()+$(this).attr('data');
+	  
+	  if( isExist( popup_panel_id ) ) {	    
+	    return false;
+	  }
+	  
 	  formLay(wrap);
 		$.ajax({
 			url:	url,
 			type:	'get',
 			cache:	false,
 			success:	function(html){
-			  popup_panel( $(html) );		
+			  popup_panel( $(html).attr('id',popup_panel_id) );		
 			  init_mac_panel_drag();
 			}
 		});

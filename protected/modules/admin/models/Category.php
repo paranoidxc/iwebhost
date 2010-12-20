@@ -359,7 +359,7 @@ class Category extends CActiveRecord
     return $ids;
   }
   
-  public function first($opt) {
+  public function first($opt=null) {
     $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
     $include = empty($opt['include']) ? false : true;
     if( $include ){
@@ -378,7 +378,7 @@ class Category extends CActiveRecord
     }
   }
   
-  public function last($opt) {
+  public function last($opt=null) {
     $order   = empty($opt['order']) ? ' id DESC ' : $opt['order'];
     $include = empty($opt['include']) ? false : true;
     if( $include ){
