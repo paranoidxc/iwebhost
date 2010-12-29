@@ -43,11 +43,15 @@
 	border:1px solid #BFBFBF;
 	background: #FFF;
 	border: 2px solid #73A6FF;
-	
 	border-color:#CCCCCC #999999 #999999 #CCCCCC;
 	border-style:solid;
   border-width:1px;
 }
+.itable tbody td input.image_resize_input{
+  width: 34px;
+}
+
+
 .itable tbody td input[type='text']:focus {
 	border-style: solid;
   border-width: 1px;

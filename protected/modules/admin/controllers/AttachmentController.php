@@ -92,8 +92,6 @@ class AttachmentController extends Controller
    **/
   public function actionUpload()
   {
-  
-  
     if (isset($_POST["PHPSESSID"])) {
 		  session_id($_POST["PHPSESSID"]);
 	  } else if (isset($_GET["PHPSESSID"])) {
@@ -101,7 +99,6 @@ class AttachmentController extends Controller
 	  }
 	  session_start();
 	  ini_set("html_errors", "0");
-		  
     
     $upload_name = "Filedata";
     $path_info = pathinfo($_FILES[$upload_name]['name']);
@@ -109,7 +106,8 @@ class AttachmentController extends Controller
     $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';				// Characters allowed in the file name (in a Regular Expression format)
     //$screen_name = preg_replace('/[^'.$valid_chars_regex.']|\.+$/i', "", basename($_FILES[$upload_name]['name']));
     $screen_name  =  basename($_FILES[$upload_name]['name']);
-    $file_name = time().'.'.$file_extension;
+    $time = time();
+    $file_name = $time.'.'.$file_extension;
     if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], ATMS_SAVE_DIR.$file_name)) {	  	
 		  exit(0);
 	  }
@@ -126,7 +124,7 @@ class AttachmentController extends Controller
 	  
 	  $ati = array(
 	    'screen_name' => $screen_name,
-	    'path'        => $file_name,
+	    'path'        => $time,
 	    'w' => $w,
 	    'h' => $h,
   	  'extension' => $file_extension,
@@ -135,16 +133,27 @@ class AttachmentController extends Controller
 	  $model->attributes=$ati;
 	  if($model->save()){
 	    if( $is_image ){
-  	    $file_path_t = ATMS_SAVE_DIR.'t'.$file_name;
-        $file_path_s = ATMS_SAVE_DIR.'s'.$file_name;
-        $file_path_g = ATMS_SAVE_DIR.'g'.$file_name;
+	      
+	      
+	      $file_path_l = ATMS_SAVE_DIR.$time.'_800_600'.'.'.$file_extension;
+        $file_path_t = ATMS_SAVE_DIR.$time.'_160_120'.'.'.$file_extension;
+        $file_path_g = ATMS_SAVE_DIR.$time.'_48_48'.'.'.$file_extension;        
+        
         $image->resize(800, 600);
-        $image->save();      
+        $image->save($file_path_l);          	            
+        
         $image->resize(160, 120);
-        //,Image::NONE);
-        $image->save($file_path_s);
+        //,Image::NONE);        
+        $image->save($file_path_t);
+        
         $image->resize(48, 48);
         $image->save($file_path_g);
+        
+        $model->tips  = $w.'*'.$h.',';
+        $model->tips .= '800*600,';
+        $model->tips .= '160*120,';
+        $model->tips .= '48*48,';
+        $model->save();
       }
 	  }
 	 
@@ -206,7 +215,34 @@ class AttachmentController extends Controller
 			if($model->save())
 			if( isset($_GET['ajax']) ) {
 					echo 'update attachment suc';
-					exit;
+					$resize_w = $_POST['resize_w'];
+					$resize_h = $_POST['resize_h'];
+					if( is_array( $resize_w ) && count( $resize_w) > 0 ){
+					  for( $i=0; $i<count($resize_w); $i++ ){
+					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){
+					      echo $resize_w[$i];
+					      echo $resize_h[$i];
+					      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'.'.$model->extension);
+					      //$path_info = pathinfo( ATMS_SAVE_DIR.$model->path );
+                $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
+                $image->resize($resize_w[$i], $resize_h[$i]);
+                $image->save($_path);
+                if( isset($tips) ){
+                  $tips .= $resize_w[$i].'*'.$resize_h[$i].',';                  
+                }else{
+                  $tips = $resize_w[$i].'*'.$resize_h[$i].',';
+                } 
+					    }
+					  }
+					  if( isset($tips) ){
+					    $model->tips .= $tips;
+					    $model->save();
+					  }
+					}
+					$this->renderPartial('update',array(
+			    'model'=>$model,'is_update' => true
+		      ),false,true);
+		      exit;
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
 				}	
@@ -214,7 +250,8 @@ class AttachmentController extends Controller
 
     if( $_GET['ajax'] == 'ajax' ){      
       $this->renderPartial('update',array(
-			  'model'=>$model,
+			  'model'     =>$model,
+			  'is_update' => false
 		  ),false,true);
     }else{
 		  $this->render('update',array(

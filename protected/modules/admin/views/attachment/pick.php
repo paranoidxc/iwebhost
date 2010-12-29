@@ -3,6 +3,7 @@ $atts = Attachment::model()->findAll();
 foreach($atts as $t){	     
 ?>
 <p>
+  dd<img src="<?php echo $t->thumb; ?>" alt="<?php echo $t->screen_name;?>" />
   ID: <?php echo $t->id ?> --
   Name: <?php echo $t->screen_name ?>
   ---- <span  class='rpick'

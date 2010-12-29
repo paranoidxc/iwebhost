@@ -29,11 +29,43 @@ class Attachment extends CActiveRecord
 		return 'attachment';
 	}
   
-	
+	public function __get($name){    
+    $getter='get'.$name;
+    if(method_exists($this,$getter))
+      return $this->$getter();
+      
+    return parent::__get($name);
+  }
+  
   public function is_image(){
     return in_array($this->extension,$img_ext);
   }
   
+  public function getCimage($opt){
+    if( strpos($opt,'_') === false ){
+      
+    }else{
+      return UPFILES_DIR.'/'.$this->path.'_'.$opt.'.'.$this->extension;
+    }
+  }
+  
+  public function getimage(){
+    return UPFILES_DIR.'/'.$this->path.'.'.$this->extension;
+  }
+  
+  public function getlarge(){
+    return UPFILES_DIR.'/'.$this->path.'_'.LARGE_SIZE.'.'.$this->extension;
+  }
+  
+  public function getgavatar(){
+    return UPFILES_DIR.'/'.$this->path.'_'.GAVATAR_SIZE.'.'.$this->extension;
+  }
+  public function getthumb(){
+    //return '/upfiles/1293301237.jpg';
+    //Yii::app()->request->baseUrl.'/upfiles/'.$t->path."
+    //echo UPFILES_DIR.'/'.$this->path.'.'.$this->extension;
+    return UPFILES_DIR.'/'.$this->path.'_'.THUMB_SIZE.'.'.$this->extension;
+  }
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -42,7 +74,7 @@ class Attachment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('category_id,extension', 'default'),
+		  array('category_id,extension,memo,tips', 'default'),
 			array('screen_name, path, w, h', 'required'),
 			array('w, h', 'numerical', 'integerOnly'=>true),
 			array('screen_name, path', 'length', 'max'=>255),

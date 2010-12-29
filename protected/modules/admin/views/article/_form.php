@@ -32,7 +32,7 @@
   			if( $model->attachment ) {
   				?>
   				<div class="orgin_thumbnail">
-  					<img src="/upfiles/g<?php echo $model->attachment->path?>" title="<?php echo $model->attachment->screen_name?>" />  					
+  					<img src="<?php echo $model->attachment->gavatar?>" title="<?php echo $model->attachment->screen_name?>" />  					
   					<span class="unlink_default" origin_value="0" title="删除">删除</span>
   					<span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="撤销">撤销</span>
   				</div>  				

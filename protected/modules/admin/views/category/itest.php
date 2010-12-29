@@ -75,14 +75,12 @@
 <div id="leaf_articles_wrap"  class="osX">
 
 <ul class="actions"> 	
- 	<li class="hover">
-		<a  href="<?php echo CController::createUrl('article/create') ?>"
-	      title="Create Article" class="ele_create_article">new</a>
- 	</li>	
+ 
  	
  	<!-- c_s_m     content_select_more 
  	     c_s_m_d   content_select_more_dialog
  	-->
+ 	
  	<li>
 	  <span class="c_s_m">
   	  <input type="checkbox" id="cb_all" /><span class="more"></span>
@@ -93,6 +91,11 @@
 	  </ul>
 	</li>
 	
+	<li class="hover">
+		<a  href="<?php echo CController::createUrl('article/create') ?>"
+	      title="Create Article" class="ele_create_article">new</a>
+ 	</li>	
+ 	
 	<!-- c_m_a     content_more_actions
  	     c_m_a_d   content_more_actions_dialog
  	-->

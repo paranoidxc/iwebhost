@@ -231,7 +231,7 @@ class ArticleController extends Controller
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
 					echo 'update article suc On '.date("Y-m-d H:i:s") ;
-					exit;
+					$is_update = true;					
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
 				}	
@@ -239,8 +239,9 @@ class ArticleController extends Controller
 		}
 		if( isset($_GET['ajax']) ) {
 			$this->renderPartial('update',array(
-				'model'	=>	$model,
-				'leafs'	=>	$leafs
+				'model'	      =>	$model,
+  			'is_update'   =>  $is_update,
+				'leafs'	      =>	$leafs
 			),false,true);
 		}else {			
 			$this->render('update',array(

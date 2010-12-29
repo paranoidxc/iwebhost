@@ -9,7 +9,19 @@ class RelController extends Controller
 	
 	public function actionPickAtt(){		
 		$return_id = $_GET['return_id'];
-		$this->renderPartial('pickatt',array('return_id' => $return_id),false,true);
+		if( isset($_GET['screen_name']) ){		  
+		  $screen_name = trim($_GET['screen_name']);		  
+		  $atts = Attachment::model()->findAll(
+		    array(
+            'condition' => 'screen_name like :screen_name',
+            'params'=>array(':screen_name'=>"%$screen_name%")            
+        ));
+		  $this->renderPartial('_att',array('return_id' => $return_id,'atts' => $atts ),false,true);
+		}else{
+		  $atts = Attachment::model()->findAll();      
+		  $this->renderPartial('pickatt',array('return_id' => $return_id,'atts' => $atts ),false,true);
+		}
+		
 	}
 	
 	public function actionPicknode(){

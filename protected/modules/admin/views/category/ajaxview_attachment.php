@@ -8,12 +8,13 @@
   
   foreach($model->attachments as $t){
       echo '<li>';
-      echo "<a class='lightbox' href='".Yii::app()->request->baseUrl.'/upfiles/'.$t->path."' >";
-      echo "<img src='/upfiles/s".$t->path."' /> ";	        
+      echo "<a class='lightbox' href='$t->image' >";
+      echo '<img src="'.$t->thumb.'"  /> ';
       echo '</a>';
       echo '<p>';
       echo '<input type="checkbox" class="cb_article" rel_id="'.$t->id.'"  >';
       echo '<span class="crP atts"
+              data = "'.$t->id.'"
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 
               rel_id="'.$t->id.'" title="'.$t->screen_name.'">Edit</span>';
       echo '</p>';

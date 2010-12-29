@@ -3,37 +3,58 @@
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
 ?>
 <div style="padding: 5px">
-  <form>
-  <input type="text" style="border: 1px solid #ccc ; height: 20px; padding: 2px; width: 300px" /> 
-  <input type="submit" value="search" class='ibtn' />
+  <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="pick_att_form">
+    <input type="text" style="border: 1px solid #ccc ; height: 20px; padding: 2px; width: 556px;" name="screen_name" class="screen_name" />     
   </form>
 </div>
 
 <input type="hidden" class="return_id" value="<?php echo $return_id;?>" />
-
-<div style="height: 200px; overflow: auto">
-  <table style="width: 100%">
-  <?php
-  $atts = Attachment::model()->findAll();
-  foreach($atts as $t){	     
+<style>
+  .att_pick_ul {    
+    text-aling: center;     
+    width: 546px;
+    margin: auto;
+  }
+  .att_pick_li {
+    float: left;
+    width: 160px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 136px;    
+    border: 1px solid #ccc;
+    background: #FFF;
+    text-align: center;
+  }
+  .att_pick_li div {
+    width: 160px;
+    height: 120px;
+    margin-bottom: 3px;
+  }
+  .att_pick_li span {
+    width: 160px;
+    height: 16px;
+    overflow: hidden;
+  }
+</style>
+<div style="height: 400px; overflow: auto; background: #FFF;" class="att_pick_wrap">
+  <?php  
+  foreach($atts as $t){
   ?>
-  <tr>
-    <td style="padding: 5px; width: 48px; border-bottom: 1px solid #ccc;">
-      <img src='/upfiles/g<?php echo $t->path?>' />
-    </td>  
-    <td style="vertical-align: top; border-bottom: 1px solid #ccc;">  
-    ID: <?php echo $t->id ?> -
-    Name: <span class='rpick'
+  <ul class='att_pick_ul'>
+    <li class="att_pick_li">
+      <div>
+        <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
+      </div>
+      <span class='rpick csP'
           rel_id="<?php echo $t->id; ?>"
           rel_screen_name="<?php echo $t->screen_name; ?>"
-          rel_path="<?php echo $t->path; ?>"
-         ><?php echo $t->screen_name ?></span>
-    </td>
-  </tr>
-  <?
+          rel_path="<?php echo $t->gavatar; ?>"
+         ><?php echo $t->screen_name ?></span></li>
+  </ul>
+  <?php
   }
-  ?>
-  </table>
+  ?>  
 </div>
 
 <div class="taR h30P pr10P pt10P">

@@ -26,7 +26,7 @@
 			  echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
               class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'"  >&nbsp;&nbsp;</span>';
         echo' <span class="leaf" data_id="'.$id.'" >';    				
 			}else if( $depth > $temp_depth ) {
@@ -34,7 +34,7 @@
 			  echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
               class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf"  data_id="'.$id.'" >';    				
 			}else if( $depth < $temp_depth ) {
@@ -44,14 +44,14 @@
     		echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
            class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-           style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+           style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf" data_id="'.$id.'" >';        		
   		}else if( $depth == $temp_depth ){
     		echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
                 class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-                style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+                style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf" data_id="'.$id.'" >';
   		}  		

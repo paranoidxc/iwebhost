@@ -177,15 +177,30 @@ $(document).ready(function(){
 		});
 	});		
 	
+	$('.pick_att_form').live('submit',function(){	  
+	  var wrap = getPanel( $(this) );
+	  var that = $(this);
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: that.attr('action')+'&screen_name='+that.find('.screen_name').val(),
+	    success:function(html){
+	      //alert(html);
+	      wrap.find('.att_pick_wrap').html(html);
+	    }
+	  })
+	  return false;
+	});
+	
 	/* 3adf93e4b9161c1409b6bc3e228c9439 返回关联图片 return attachment pick   */
 	$('.rpick').live('click',function(){
 	  var wrap = getPanel($(this));
-	  wrap.find('tr').css({
+	  wrap.find('li').css({
 	    background: 'none'
 	  })
-	  var tr_ele = parentOne( $(this), 'tr');
+	  var tr_ele = parentOne( $(this), 'li');
 	  tr_ele.css({
-	    background: 'green'
+	    background: '#F6FF84'
 	  });
 	  wrap.find('.rel_id').val( $(this).attr('rel_id') );
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
@@ -216,7 +231,7 @@ $(document).ready(function(){
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
 	  
 	  /*display the select thumbnail*/
-	  return_wrap.find('.dest_thumbnail').find('img').attr('src', '/upfiles/g'+rel_path).attr('title', str);
+	  return_wrap.find('.dest_thumbnail').find('img').attr('src', rel_path).attr('title', str);
 	  /*relation the select id */
 	  var input_default_value = return_wrap.find('input').val();
 	  return_wrap.find('input').attr('value', rel_id);	
@@ -564,12 +579,25 @@ $(document).ready(function(){
     	cursor: "move"
 	 });
 	
-	$('.mac_panel_wrap').live('click',function(){
-	  z++;  
-	  $(this).css( { 'z-index':z } );
-	});
+	mac_panel_click = function(){	  
+	  $('.mac_panel_wrap').live('click',function(){
+	    z++;	    
+	    console.log( 'init ' + $(this).css('z-index') );
+	    console.log( 'reset ' + z );
+	    $(this).css( { 'z-index':z } );
+	  });  	  
+	};
+	
+	mac_panel_click();
+	
+	function reset_mac_panel_click(){
+    //$('.mac_panel_wrap').die('click','mac_panel_click');
+    //mac_panel_click();
+	}
 	
 	function init_mac_panel_drag() {
+	  //reset_mac_panel_click();
+	  mac_panel_click();
 	  $('.mac_panel_wrap').draggable({
 	    start: function(event, ui) { 	      
 	      idebug( ' global z = ' +z);
@@ -630,21 +658,19 @@ $(document).ready(function(){
   
   
   
-	/* create new article end */
-	//fun11
+	/* create new article end */	
 	$('.atts').live('click',function(){
-	  	
+	  wrap = getPanel($(this));
+	  var popup_panel_id = wrap.find('.model_type').val()+$(this).attr('data');
+	  idebug(' model_type = '+wrap.find('.model_type').val() );
+	  if( isExist( popup_panel_id ) ) {	    
+	    return false;
+	  }
 	  $.ajax({
 	    type:		"get",
 			url:		$(this).attr('rel_url'),
 			success:	function (html) {
-				var pop = $("<div title='Edit Attachment'></div>").html(html);
-				pop.insertAfter($('body')).dialog({
-					width: 700,
-					minwidth: 700,
-					height: 500,
-					minheight: 500
-				});
+			  popup_panel( $(html).attr('id',popup_panel_id) );		
 			}			
 	  })
 	  
@@ -743,12 +769,42 @@ $(document).ready(function(){
 		});
 	}
 	
-	$('.ajax_form').live('submit',function(){
-		//console.log( 'ajax_form submit');		
+	
+	/*2599fdc3f5b684e0373ab4579d0bb848 提交编辑附件*/
+	
+	$('.atts_ajax_form').live('submit',function(){
+	  if( timeouthandle != undefined ){
+	    clearTimeout(timeouthandle);  
+	  }
+	  var that = $(this);
+	  wrap = getPanel($(this));
+	  var iform = wrap.find('.panel_middle .middle .iform');
+	  dialog = wrap.find('.panel_middle .middle .feedback');
+	  dialog.html('');
+	  $.ajax({
+	    type:		$(this).attr('method'),
+			url:		$(this).attr('action'),
+			data:		$(this).serialize(),
+			success:	function(html) {
+			  //iform.html( html );
+			  if( html.indexOf('mac_panel_wrap') != -1 ){			    
+			    wrap.html( html );
+			  }else{
+			    iform.html( html );
+			    dialog.addClass('feedback_on').html(html).show();
+      		timeouthandle = setTimeout( "dialog.slideUp()" , 3000 );
+			  }
+		  }
+	  });
+	  return false;
+	});
+	
+	$('.ajax_form').live('submit',function(){	  
+		idebug( 'ajax_form submit');		
+		
 		var that = $(this);
 		var leaf_id = $('#Article_category_id').val();
-		$dialog = parentOne(that,'.ui-dialog-content');		
-		//$dialog = $(this).parents().find('.ui-dialog-content');		
+		$dialog = parentOne(that,'.ui-dialog-content');				
 		$.ajax({
 			type:		"post",
 			url:		$(this).attr('action'),
@@ -765,6 +821,7 @@ $(document).ready(function(){
 				$dialog.html(html);
 			}
 		});		
+		
 		return false;
 	});	
 		
@@ -1184,6 +1241,9 @@ $(document).ready(function(){
 	
 	
 	var timeouthandle;
+	
+	
+	
 	/* 9e57007bcc35507dfc5bc7b8f2efb076 更新文章*/
 	$('.article_ajax_form').live('submit',function(){
 	  idebug( timeouthandle );
@@ -1203,11 +1263,23 @@ $(document).ready(function(){
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
 			success:	function(html) {			  
-			  idebug(html);
+			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
+			    wrap.remove();
+			    popup_panel( $(html) );			    
+			  }else{
+			    iform.html(html);
+			    if( that.attr('action').indexOf('article') > 0 ){
+			      render();
+		      }else{
+		        renderPartLeafs();
+		      }
+			  }
+			  //idebug(html);
+			  /*
 			  if( html.indexOf('mac_panel_wrap') != -1 ){
 			    wrap.html( html);
 			  }else{
-			    /*更新操作*/
+			    更新操作
 			    if( that.attr('action').indexOf('article') > 0 ){
   			    if( that.attr('action').indexOf('update') != -1 ) {
     			    dialog.addClass('feedback_on').html(html).show();
@@ -1222,6 +1294,7 @@ $(document).ready(function(){
 			      renderPartLeafs();
 			    }
 			  }
+			  */
 			}
 		});		
 		return false;
@@ -1265,5 +1338,26 @@ $(document).ready(function(){
 	  $('.cb_article').attr('checked',false);
 	  $('#cb_all').attr('checked',false);
 	});
+	
+	
+	
+	/*d606a89c78a6a590167232caea08fa68  更新图片尺寸 */	
+	$('.new_resize').live('click',function(){
+	  var li = $(this).parent().next().clone()
+	  li.find('input').val('');
+	  $(this).parent().parent().append(li);
+	});
+  
+	/*1c2b34ce8da621bd000a66c29c84ad6d 显示附件的外链 */
+  $('.extra_link_ele').live('click',function(){
+    var _wrap = getPanel($(this));
+    _wrap.find('.extra_link_area_outer').val( $(this).attr('link_outer') );
+    _wrap.find('.extra_link_area_inner').val( $(this).attr('link_inner') );
+    
+    
+  });
+	
+
+
 	
 });

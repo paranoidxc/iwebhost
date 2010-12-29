@@ -16,10 +16,17 @@
   padding: 0;
   table-layout: fixed;
 }
+.clB { clear: both; }
+
 .csD { cursor: url(img/openhand.cur), default !important; }
 .csP { cursor: pointer; }
 
 .fs15p {font-size: 15px; }
+
+.flL { float: left; }
+.flR { float: right; }
+
+
 .w100s { width: 100%; }
 .w10p { width: 10px; }
 .w15p { width: 15px; }

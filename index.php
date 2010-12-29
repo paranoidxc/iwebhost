@@ -2,6 +2,7 @@
 
 // change the following paths if necessary
 $website_dir = dirname(__FILE__);
+$g_upfiles_dir = '/upfiles';
 $atms_dave_dir = $website_dir.'/upfiles/';
 
 //$atms_dave_dir = '/home/huangxc/upfiles/';
@@ -12,7 +13,14 @@ $config=dirname(__FILE__).'/protected/config/main.php';
 // remove the following lines when in production mode
 define('WEBSITE_DIR',$website_dir);
 define('ATMS_SAVE_DIR',$atms_dave_dir);
+define('UPFILES_DIR', $g_upfiles_dir);
+
+define('THUMB_SIZE',  '160_120');
+define('GAVATAR_SIZE','48_48');
+define('LARGE_SIZE',  '800_600');
+
 defined('YII_DEBUG') or define('YII_DEBUG',true);
+
 // specify how many levels of call stack should be shown in each log message
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 include_once "markdown.php";
