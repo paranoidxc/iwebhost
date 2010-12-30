@@ -48,7 +48,7 @@
       </div>
       <span class='rpick csP'
           rel_id="<?php echo $t->id; ?>"
-          rel_screen_name="<?php echo $t->screen_name; ?>"
+          rel_screen_name="<?php echo $t->screen_name; ?>"          
           rel_path="<?php echo $t->gavatar; ?>"
          ><?php echo $t->screen_name ?></span></li>
   </ul>
@@ -58,6 +58,7 @@
 </div>
 
 <div class="taR h30P pr10P pt10P">
+  <img src="" alt="" class="rel_gavatar" />
   <input type="text" class="rel_id" value="" size="5" />
   <input type="text" class="rel_screen_name" value="" size="40"/>
   <input type="hidden" class="rel_path" value="" />  

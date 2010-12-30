@@ -3,7 +3,7 @@ if( !$is_update ) {
   ?>
   <div class='mac_panel_wrap w600p'>
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit Content ID:'.$model->id.' - Name: '.cnSubstr($model->title,0,20)) )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' : '.cnSubstr($model->title,0,20)) )
 ?>
   <?php
 }

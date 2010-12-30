@@ -167,12 +167,18 @@ $(document).ready(function(){
 	$('.pick').live('click',function(){
 		var uri = $(this).attr('uri');		
 		wrap = getPanel($(this));
+		
+		var popup_panel_id = 'prefix_'+$(this).attr('id');
+	  if( isExist( popup_panel_id ) ) {	    
+	    return false;
+	  }
+	  
 		$.ajax({
 			type: 'get',
 			cache: false,
 			url: uri,
 			success:function(html){
-			  popup_panel( $(html) );
+			  popup_panel( $(html).attr('id',popup_panel_id) );
 			}
 		});
 	});		
@@ -202,9 +208,10 @@ $(document).ready(function(){
 	  tr_ele.css({
 	    background: '#F6FF84'
 	  });
+	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_path') );
 	  wrap.find('.rel_id').val( $(this).attr('rel_id') );
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
-	  wrap.find('.rel_path').val( $(this).attr('rel_path') );	  
+	  wrap.find('.rel_path').val( $(this).attr('rel_path') );
 	});
 	
 	/*315349422075b608b865e9fb0b21812d 返回关联集合  collect return pick */
@@ -622,8 +629,12 @@ $(document).ready(function(){
 	
 	//fun17
 	$('.to_dest').live('click',function(){	  
-	  $('#move_category_id').attr('value', $(this).attr('rel_id'));
-	  $('#move_category_name').attr('value',$(this).attr('rel_name'));
+	  var wrap = getPanel($(this));
+	  wrap.find('.move_category_id').val( $(this).attr('rel_id') );
+	  wrap.find('.move_category_name').val( $(this).attr('rel_name') );
+	  
+	  //$('#move_category_id').attr('value', $(this).attr('rel_id'));
+	  //$('#move_category_name').attr('value',$(this).attr('rel_name'));
 	})	
 	
 	/*accb8413de43b01d42bc9f1af5aceab0 添加节点*/

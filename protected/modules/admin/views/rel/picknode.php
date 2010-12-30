@@ -11,8 +11,8 @@
   <input type="hidden" class="return_id" value="<?php echo $return_id;?>" />
   <div class="taR h30P pr10P">
     relation: 
-    <input type="text" size="8" name="category_id"  id="move_category_id" class="node_id" readonly="true" /> - 
-    <input type="text" size="40" name="category_name" id="move_category_name" class="node_name" readonly="true" />  
+    <input type="text" size="8" name="category_id"  class="move_category_id node_id" readonly="true" /> - 
+    <input type="text" size="40" name="category_name" class="move_category_name node_name" readonly="true" />  
     <?php echo CHtml::submitButton('Ok', array( 'class' => 'ibtn collect_return_submit' )); ?>
   </div>  
 <?php
