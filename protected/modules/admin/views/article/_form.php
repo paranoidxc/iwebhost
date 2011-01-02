@@ -131,6 +131,14 @@
 	  <div style="margin-bottom: 5px">
 	    <span data="write" class="inner_tab inner_tab_selected" > Write </span>
 	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > Preview </span>
+	    <span class="replace">insert " Foo " text </span>
+	    <span class='alt tdU pick'
+  		  id="link_pick<?php echo time(); ?>"
+  		  rtype="article_link_image"
+  			uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'link_pick'.time() ) ); ?>">
+  			Link Images
+  	  </span>
+  	  
 	  </div>
 	  
 	  <div class="inner_wrap write">

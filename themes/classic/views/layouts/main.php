@@ -34,7 +34,7 @@
 	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');			
 	$cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
-	
+	$cs->registerScriptFile($baseUrl.'/js/fieldSelection.js');
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	//$cs->registerScriptFile($baseUrl.'/js/tree.js');		
   

@@ -4,7 +4,7 @@
 <div class='mac_panel_wrap w600p'>
 <?php
 echo $is_update;
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,20)) )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,10)) )
 ?>
   <?php
   }
