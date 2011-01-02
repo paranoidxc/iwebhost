@@ -16,6 +16,12 @@
   padding: 0;
   table-layout: fixed;
 }
+
+.bcBlue {
+  border: 1px solid #73A6FF;  
+}
+
+
 .clB { clear: both; }
 
 .csD { cursor: url(img/openhand.cur), default !important; }
@@ -52,13 +58,17 @@
 .taR { text-align: right; }
 
 .h16p { height: 16px; } 
-.h20P { height: 20px; }
-.h30P { height: 30px; }
-.h40P { height: 40px; }
-.h50P { height: 50px; }
+.h20p { height: 20px; }
+.h30p { height: 30px; }
+.h40p { height: 40px; }
+.h50p { height: 50px; }
+.h100p { height: 100px; }
+.h150p { height: 150px; }
+.h200p { height: 200px; }
 
+.p2p { padding: 2px; }
+.p5p { padding: 5px; }
 .pt10P { padding-top: 10px; }
-
 .pr5P { padding-right: 5px; }
 .pr10P { padding-right: 10px; }
 
@@ -79,3 +89,13 @@
 .vaT { vertical-align: top; }
 .vaM { vertical-align: middle; }
 .vaB { vertical-align: bottom; }
+
+.ofA { overflow: auto; }
+.ofH { overflow: hidden; }
+
+.zoom {
+  zoom: 1;
+}
+.radius7 {
+  -moz-border-radius: 15px;
+}

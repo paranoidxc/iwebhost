@@ -32,7 +32,7 @@ class AttachmentController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','upload','pick','move'),
+				'actions'=>array('index','view','upload','pick','move','BatchEdit','BatchUpdate'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -149,10 +149,10 @@ class AttachmentController extends Controller
         $image->resize(48, 48);
         $image->save($file_path_g);
         
-        $model->tips  = $w.'*'.$h.',';
-        $model->tips .= '800*600,';
-        $model->tips .= '160*120,';
-        $model->tips .= '48*48,';
+        $model->tips  = str_pad($w, 4, "_", STR_PAD_LEFT).'*'. str_pad($h,4,"_", STR_PAD_RIGHT).',';
+        $model->tips .= '_800*600_,';
+        $model->tips .= '_160*120_,';
+        $model->tips .= '__48*48__,';
         $model->save();
       }
 	  }
@@ -198,6 +198,46 @@ class AttachmentController extends Controller
 		));
 	}
 
+  public function actionBatchUpdate(){
+    
+    $ids = $_POST['ids'];
+    $list = explode(',',$ids);
+    $resize_w = $_POST['resize_w'];
+		$resize_h = $_POST['resize_h'];
+		
+    foreach( $list as $id){
+      $model=Attachment::model()->findbyPk($id);
+      unset($tips);
+      if( is_array( $resize_w ) && count( $resize_w) > 0 ){
+        for( $i=0; $i<count($resize_w); $i++ ){
+          if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){
+            $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'.'.$model->extension);		        
+            $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
+            $image->resize($resize_w[$i], $resize_h[$i]);
+            $image->save($_path);
+            if( isset($tips) ){
+              $tips .= str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';                  
+            }else{
+              $tips = str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';
+            }
+				  }
+        }
+        if( isset($tips) ){
+			    $model->tips .= $tips;
+			    $model->save();
+				}
+      }
+    }
+    echo 'update';
+    exit;
+  }
+  
+  public function actionBatchEdit(){
+    $ids = $_GET['ids'];
+    $this->renderPartial('batch_edit',array(		  
+      'ids' => $ids
+		),false,true);
+  }
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -228,9 +268,9 @@ class AttachmentController extends Controller
                 $image->resize($resize_w[$i], $resize_h[$i]);
                 $image->save($_path);
                 if( isset($tips) ){
-                  $tips .= $resize_w[$i].'*'.$resize_h[$i].',';                  
+                  $tips .= str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';                  
                 }else{
-                  $tips = $resize_w[$i].'*'.$resize_h[$i].',';
+                  $tips = str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';
                 } 
 					    }
 					  }

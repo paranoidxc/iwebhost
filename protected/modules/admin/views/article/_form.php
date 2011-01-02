@@ -14,6 +14,11 @@
 	<div class="ml20P pt10P">
 	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
 	  <a data="field_content" class="form_tab"><span>Content Field</span></a>
+	  <a data="field_rich" class="form_tab"><span>Rich Text</span></a>
+	</div>
+	
+	<div class="dN form_field_wrap field_rich">
+	  <?php echo $form->textArea($model,'rich',array('rows'=>20, 'cols'=>100)); ?>
 	</div>
 	
 	<div class="form_field_wrap field_normal">

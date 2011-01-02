@@ -4,7 +4,7 @@
 ?>
 <div style="padding: 5px">
   <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="pick_att_form">
-    <input type="text" style="border: 1px solid #ccc ; height: 20px; padding: 2px; width: 556px;" name="screen_name" class="screen_name" />     
+    <input type="text" name="screen_name" class="radius7 search_input screen_name" />     
   </form>
 </div>
 
@@ -15,50 +15,41 @@
     width: 546px;
     margin: auto;
   }
-  .att_pick_li {
-    float: left;
-    width: 160px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    height: 136px;    
-    border: 1px solid #ccc;
-    background: #FFF;
-    text-align: center;
+  .atm_photos .att_pick_li div {    
+    height: 118px;  
+    margin-bottom: 1px;
   }
-  .att_pick_li div {
-    width: 160px;
-    height: 120px;
-    margin-bottom: 3px;
-  }
+  
   .att_pick_li span {
-    width: 160px;
+    width: 130px;
     height: 16px;
+    display: block;
+    margin: auto;    
     overflow: hidden;
   }
 </style>
 <div style="height: 400px; overflow: auto; background: #FFF;" class="att_pick_wrap">
+<ul class='atm_photos'>
   <?php  
   foreach($atts as $t){
   ?>
-  <ul class='att_pick_ul'>
-    <li class="att_pick_li">
+    <li class="att_pick_li rpick csP" 
+      rel_id="<?php echo $t->id; ?>"
+      rel_screen_name="<?php echo $t->screen_name; ?>"          
+      rel_path="<?php echo $t->gavatar; ?>" >
       <div>
         <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
       </div>
-      <span class='rpick csP'
-          rel_id="<?php echo $t->id; ?>"
-          rel_screen_name="<?php echo $t->screen_name; ?>"          
-          rel_path="<?php echo $t->gavatar; ?>"
-         ><?php echo $t->screen_name ?></span></li>
-  </ul>
+      <span><?php echo $t->screen_name ?></span>
+    </li>
   <?php
   }
   ?>  
+  </ul>
 </div>
 
-<div class="taR h30P pr10P pt10P">
-  <img src="" alt="" class="rel_gavatar" />
+<div class="taR h50P pr10P pt10P " style="line-height: 50p">
+  <img src="" alt="" class="vaM image_border rel_gavatar" />
   <input type="text" class="rel_id" value="" size="5" />
   <input type="text" class="rel_screen_name" value="" size="40"/>
   <input type="hidden" class="rel_path" value="" />  

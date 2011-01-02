@@ -199,15 +199,14 @@ $(document).ready(function(){
 	});
 	
 	/* 3adf93e4b9161c1409b6bc3e228c9439 返回关联图片 return attachment pick   */
-	$('.rpick').live('click',function(){
+	$('.rpick').live('click',function(){	  
 	  var wrap = getPanel($(this));
-	  wrap.find('li').css({
-	    background: 'none'
-	  })
-	  var tr_ele = parentOne( $(this), 'li');
-	  tr_ele.css({
-	    background: '#F6FF84'
-	  });
+	  wrap.find('li.active').removeClass('active');
+	  
+	  $(this).addClass('active');
+	  //var tr_ele = parentOne( $(this), 'li');
+	  //tr_ele.addClass('active');
+	  
 	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_path') );
 	  wrap.find('.rel_id').val( $(this).attr('rel_id') );
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
@@ -586,17 +585,17 @@ $(document).ready(function(){
     	cursor: "move"
 	 });
 	
-	mac_panel_click = function(){	  
+	/*mac_panel_click = function(){	  */
 	  $('.mac_panel_wrap').live('click',function(){
 	    z++;	    
 	    console.log( 'init ' + $(this).css('z-index') );
 	    console.log( 'reset ' + z );
 	    $(this).css( { 'z-index':z } );
 	  });  	  
+	  /*
 	};
-	
 	mac_panel_click();
-	
+	*/
 	function reset_mac_panel_click(){
     //$('.mac_panel_wrap').die('click','mac_panel_click');
     //mac_panel_click();
@@ -604,7 +603,7 @@ $(document).ready(function(){
 	
 	function init_mac_panel_drag() {
 	  //reset_mac_panel_click();
-	  mac_panel_click();
+	  //mac_panel_click();
 	  $('.mac_panel_wrap').draggable({
 	    start: function(event, ui) { 	      
 	      idebug( ' global z = ' +z);
@@ -672,6 +671,7 @@ $(document).ready(function(){
 	/* create new article end */	
 	$('.atts').live('click',function(){
 	  wrap = getPanel($(this));
+	  formLay(wrap);
 	  var popup_panel_id = wrap.find('.model_type').val()+$(this).attr('data');
 	  idebug(' model_type = '+wrap.find('.model_type').val() );
 	  if( isExist( popup_panel_id ) ) {	    
@@ -1131,6 +1131,23 @@ $(document).ready(function(){
 		}
 		return false;
 	});
+	/*864577c5de51168219098730aff9add0 批量编辑附件*/
+	$('#ele_update_atts').click(function(){
+	  wrap = getPanel($(this));
+	  var ids = get_ids();
+	  var url = $(this).attr('href')+"&ids="+ids
+		$.ajax({
+			type:	'get',
+			url:	url,
+			cache:	false,
+			success:	function(html){
+			  popup_panel( $(html) );	
+			}
+		})		
+		return false;
+	});
+	  
+	  
 		
 	/* 445a7cc846392ddd2a897553267de1ca 拷贝文章*/
 	$('#artiles_copy').live('click',function(){		

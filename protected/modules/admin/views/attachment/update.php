@@ -1,27 +1,10 @@
 <?php
-/*
-$this->breadcrumbs=array(
-	'Attachments'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List Attachment', 'url'=>array('index')),
-	array('label'=>'Create Attachment', 'url'=>array('create')),
-	array('label'=>'View Attachment', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Attachment', 'url'=>array('admin')),
-);
-*/
-?>
-
-<?php
   if( !$is_update ) {
   ?>
 <div class='mac_panel_wrap w600p'>
 <?php
 echo $is_update;
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit Content ID:'.$model->id.' - Name: '.cnSubstr($model->screen_name,0,20)) )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,20)) )
 ?>
   <?php
   }
@@ -39,8 +22,7 @@ echo $is_update;
 	)
 )); ?>
   <?php echo $form->errorSummary($model); ?>	
-	
-  
+
   <div class="ml20P pt10P">
 	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
 	  <a data="extra_link_wrap" class="form_tab"><span>Extra Link</span></a>
@@ -51,18 +33,25 @@ echo $is_update;
     	<tbody>
     	  <tr>
     	    <td colspan="2">  	      
-    	      <img src='<?php echo $model->thumb ?>' class='flL' />
-    	      <div class="flL w100p">    	      
+    	      <img src='<?php echo $model->thumb ?>' class='flL image_border' />
+    	      <div class="flL w100p ml20P bcBlue p5p zoom ofA h150p" >
+    	        <ul>
     	        <?php
     	          echo str_replace(',','<br/>',$model->tips);
+    	          $tips = explode(',',$model->tips);
+    	          foreach( $tips as $tip ){
+    	            echo '<li>';
+    	            echo $tip;
+    	            echo '</li>';
+    	          }
     	        ?>
+    	        </ul>
     	      </div>  	      
-    	      <div class="flL w200p">
+    	      <div class="flL w200p ml20P bcBlue p5p">
     	        <ul>
     	          <li>
     	            width*height <span class="new_resize csP" >+</span>
-    	          </li>
-        	      </li>
+    	          </li>        	      
     	          <li>
     	            <input type="text" size="4" name="resize_w[]" class="image_resize_input" autocomplete="off" />
     	            *
@@ -106,15 +95,14 @@ echo $is_update;
     </table>
 	</div>
 
-	<div class="dN form_field_wrap extra_link_wrap">
-	  <ul class="flL">
+	<div class="dN form_field_wrap extra_link_wrap">	  
+	  <ul class="flL w200p ml20P bcBlue p5p">
 	    <?php
 	      $size_list = explode(',',$model->tips);
 	      //print_r( Yii::app() );
 	      foreach($size_list as $item){
 	        if( strlen($item) > 0 ){
   	        list($w,$h) = explode('*',$item);
-  	        
   	        $link_outer =  Yii::app()->request->baseUrl.UPFILES_DIR.'/'.$w.'_'.$h.'_'.$model->path;
     	      $link_inner = UPFILES_DIR.'/'.$w.'_'.$h.'_'.$model->path;;
   	        echo '<li class="csP extra_link_ele" link_outer="'.$link_outer.'"  link_inner="'.$link_inner.'">';

@@ -18,6 +18,7 @@
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 
               rel_id="'.$t->id.'" title="'.$t->screen_name.'">Edit</span>';
       echo '</p>';
+      echo '</li>';
   }
 ?>
 

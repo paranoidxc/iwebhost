@@ -109,11 +109,20 @@
       <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch">move</li> 
       <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles" class="c_m_a_d_batch">delete</li>
       <?php
+	    if( $top_leaf->model_type == 'attachment' ) {
+      ?>
+      <li href="<?php echo CController::createUrl('attachment/batchedit') ?>" id="ele_update_atts" title="Update Attachments" class="c_m_a_d_batch">
+			  Update
+		  </li>
+      <?php
+      }
+      ?>
+      <?php
 	    if( $top_leaf->model_type != 'attachment' ) {
       ?>
 	    <li href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles" class="c_m_a_d_batch">
 			  copy
-		  </li>			    
+		  </li>    
 	    <?php
       }
       ?>
