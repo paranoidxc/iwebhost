@@ -37,8 +37,9 @@
 	$cs->registerScriptFile($baseUrl.'/js/fieldSelection.js');
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	//$cs->registerScriptFile($baseUrl.'/js/tree.js');		
-  
 
+	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');
+  
 	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
 	$cs->registerCssFile($baseUrl.'/css/main.css');	
 	$cs->registerCssFile($baseUrl.'/css/all.css');	
