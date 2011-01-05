@@ -64,6 +64,7 @@
 				array('label'=>'Navigation', 'url'=>array('/admin/category/inavigation')),
 				array('label'=>'Category', 'url'=>array('/admin/category/icategory')),
 				array('label'=>'Attachment', 'url'=>array('/admin/category/iattachment')),
+				array('label'=>'Admins', 'url'=>array('/admin/user/index')),
 				array('label'=>'Settings', 'url'=>array('/admin/attachment/index')),				
 			),
 		)); ?>
