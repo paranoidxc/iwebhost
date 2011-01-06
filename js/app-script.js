@@ -751,11 +751,15 @@ $(document).ready(function(){
 	}
 	
 	//fun13
-	function render() {
+	function render() {	  
 	  var iwrap = wrap;
   	if( wrap.find('.ele_refresh_url').length > 0 ){
-  	  var url = wrap.find('.ele_refresh_url').val();
+  	  var url = wrap.find('.ele_refresh_url').val() ;
   	  var control = true;
+  	}else if( parent_wrap.find('.ele_refresh_url').length > 0  ) {  	  
+  	  var url = parent_wrap.find('.ele_refresh_url').val() ;
+  	  var control = true;
+  	  iwrap = parent_wrap;
   	}else{
   	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
   	  var control = false;
@@ -909,10 +913,10 @@ $(document).ready(function(){
 	})
 		
   
-	
+	/* TODO */
 	/* JAVASCRIPT_START */
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, z = 1000000, distance = 25, wrap=null;
+	var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_wrap=null;
 	function reset_panel_postion(){	  	
 	  z++;  
 	  if( x >= 250 ){
@@ -1048,6 +1052,8 @@ $(document).ready(function(){
 	    return false;
 	  }
 	  wrap = getPanel($(this));
+	  parent_wrap = wrap;
+	  console.log( parent_wrap.find('.ele_refresh_url').val() );
 		$.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
@@ -1091,7 +1097,7 @@ $(document).ready(function(){
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
 	$('#artiles_move').click(function(){		
-	  wrap = getPanel($(this));
+	  wrap = getPanel($(this));	  
 	  var leaf_panel_id = 'move_leaf_panel_'+$('#leaf_id').val();
 		if( isExist( leaf_panel_id) ){
 		  return false;
@@ -1318,13 +1324,14 @@ $(document).ready(function(){
 			data:		$(this).serialize(),
 			success:	function(html) {			  
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
-			    wrap.remove();
+			    wrap.remove();			    
 			    popup_panel( $(html) );			    
 			  }else{
 			    iform.html(html);
 			    if( that.attr('action').indexOf('article') > 0 ){
 			      render();
-			    }else if( that.attr('action').indexOf('user') > 0 ) {
+			    }else if( that.attr('action').indexOf('user') > 0 ) {			      
+			      render();
 		      }else{
 		        renderPartLeafs();
 		      }
