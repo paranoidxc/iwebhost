@@ -3,8 +3,8 @@
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
 ?>
 <div style="padding: 5px">
-  <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="pick_att_form">
-    <input type="text" name="screen_name" class="radius7 search_input screen_name" />     
+  <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="search_form">    
+    <input type="text" name="keyword" class="radius7 search_input keyword" />
   </form>
 </div>
 
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
 </style>
-<div style="height: 400px; overflow: auto; background: #FFF;" class="att_pick_wrap">
+<div style="height: 400px; overflow: auto; background: #FFF;" class="search_result_wrap">
 <ul class='atm_photos'>
   <?php  
   foreach($atts as $t){

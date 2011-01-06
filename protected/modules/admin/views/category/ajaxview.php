@@ -12,10 +12,10 @@
 		  >
     <td class="w34p taL vaM h20p ti4P ">
       <img class="vaM csD handle" src="<?php echo Yii::app()->request->baseUrl?>/images/grippy.png"  />
-      <input type="checkbox" class="cb_article vaT" rel_id="<?php echo $a->id; ?>" >
+      <input type="checkbox" class="cb_article vaT" value="<?php echo $a->id; ?>" >
     </td>
     <td class="vaM w20p">
-      <?php       
+      <?php
         $is_star = $a->is_star ? 'stared' : 'unstared';
         $star_action = $is_star == 'stared' ? 'unstared' : 'stared';
       ?>

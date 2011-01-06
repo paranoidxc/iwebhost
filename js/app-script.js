@@ -133,7 +133,7 @@ $(document).ready(function(){
 	
 	
 	function isContentSelected(){
-	  if( $('.cb_article:checked').length > 0 ) {
+	  if( $('.cb_article:checked').length > 0 || $('.ele_item:checked').length > 0  ) {	    
 	    return true;
     }else{
       return false;
@@ -185,16 +185,16 @@ $(document).ready(function(){
 		});
 	});		
 	
-	$('.pick_att_form').live('submit',function(){	  
+	$('.search_form').live('submit',function(){	  
 	  var wrap = getPanel( $(this) );
 	  var that = $(this);
 	  $.ajax({
 	    type: that.attr('method'),
 	    cache: false,
-	    url: that.attr('action')+'&screen_name='+that.find('.screen_name').val(),
+	    url: that.attr('action')+'&keyword='+that.find('.keyword').val(),
 	    success:function(html){
-	      //alert(html);
-	      wrap.find('.att_pick_wrap').html(html);
+	      //alert(html);	      
+	      wrap.find('.search_result_wrap').html(html);
 	    }
 	  })
 	  return false;
@@ -268,8 +268,7 @@ $(document).ready(function(){
 	  $(this).parent().find('p').show();
 	  $(this).prev().show();
 	  $(this).parent().parent().find('input').attr('value', $(this).attr('rel_id') );
-	  $(this).hide();
-	  1291292489
+	  $(this).hide();	  
 	});
 	
 	$('.reset_default').live('click',function(){
@@ -605,10 +604,19 @@ $(document).ready(function(){
 	
 	/*mac_panel_click = function(){	  */
 	  $('.mac_panel_wrap').live('click',function(){
-	    z++;	    
-	    console.log( 'init ' + $(this).css('z-index') );
-	    console.log( 'reset ' + z );
-	    $(this).css( { 'z-index':z } );
+	    
+	    var cur_z = $(this).css('z-index');
+	    console.log( 'init ' + cur_z );
+	    console.log( 'reset' + z );	    
+	    z++;
+	    $(this).css( { 'z-index':z } ); 
+	    /*
+	    if( parseInt(cur_z) < parseInt(z) ) {
+	      $(this).css( { 'z-index':z } );  
+	    }
+	    */
+	    //console.log( 'init ' + $(this).css('z-index') );
+	    //console.log( 'reset ' + z );
 	  });  	  
 	  /*
 	};
@@ -744,21 +752,26 @@ $(document).ready(function(){
 	
 	//fun13
 	function render() {
-	  /*if( $("#model_type") == "attachment") ){
-	    var url = '/index.php?r=admin/category/view&ajax=ajax&id='+$('#leaf_id').val();  
-	  }else{
-	    var url = '/index.php?r=admin/category/view&ajax=ajax&id='+$('#leaf_id').val();  
-	  }	
-	  */  
-	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
-	  
+	  var iwrap = wrap;
+  	if( wrap.find('.ele_refresh_url').length > 0 ){
+  	  var url = wrap.find('.ele_refresh_url').val();
+  	  var control = true;
+  	}else{
+  	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
+  	  var control = false;
+  	}
 	  $.ajax({
         type      : 'get',
         dataType  : 'html',
         cache     : false,
         url       : url,
-        success   : function(html) {         
-         $('#leaf_articles').html(html);                  
+        success   : function(html) {     
+          if( control ){            
+            //alert( wrap.find('.search_result_wrap').length  );
+            iwrap.find('.search_result_wrap').html(html);
+          }else{
+            $('#leaf_articles').html(html);
+          }
         }
       });  
 	}
@@ -962,12 +975,12 @@ $(document).ready(function(){
 	/*4e134a399e16e6edf848985f4b93e107 取得当前的文章ids*/
 	function get_ids(){
 	  var _temp_ids = '';
-	  $('.cb_article').each(function(){
+	  $('.cb_article,.ele_item').each(function(){
 		  if( $(this).is(":checked") ){
 		    if( _temp_ids == "") {
-				  _temp_ids += $(this).attr('rel_id');
+				  _temp_ids += $(this).val();
 			  }else {
-				  _temp_ids += ','+$(this).attr('rel_id');
+				  _temp_ids += ','+$(this).val();
 			  }	
 		  }
 		});
@@ -1045,9 +1058,9 @@ $(document).ready(function(){
 		});
 		return false;
 	};
-	$('.create_article_continue').live('click',function(){
+	$('.create_article_continue,.ele_create_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
-	  wrap.remove();	  
+	  wrap.remove();
 	  $.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
@@ -1074,7 +1087,7 @@ $(document).ready(function(){
 		return false;
   });
 	
-	$('.ele_create_article').live('click',fun_article_new);		
+	$('.ele_create_article,.ele_create').live('click',fun_article_new);		
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
 	$('#artiles_move').click(function(){		
@@ -1119,18 +1132,22 @@ $(document).ready(function(){
 	});
 	
 	/*f1ce042a27aa18b121377beab2615c57 删除文章*/
-	$('#ele_delete_articles').click(function(){	  
+	$('#ele_delete_articles,.ele_delete').click(function(){	  
 		if( window.confirm('Really want to delete record(s) ?') ){				
 		  wrap = getPanel($(this));
 		  var ids = get_ids();
-		  var url = $("#leaf_content_del_url").val();		
+		  if( $('#leaf_content_del_url').length > 0 ){
+		    var url = $("#leaf_content_del_url").val();
+		  }else{
+		    var url = $(this).attr('href');
+		  }
   		$.ajax({
   			type 		: 	"POST",
   			url	 		: 	url,
   			data		: 	"ids="+ids,
   			dataType 	:	'html',
   			success		:	function(html){
-  				render();
+  			  render(html);
   			}			
   		});
 		}
@@ -1307,6 +1324,7 @@ $(document).ready(function(){
 			    iform.html(html);
 			    if( that.attr('action').indexOf('article') > 0 ){
 			      render();
+			    }else if( that.attr('action').indexOf('user') > 0 ) {
 		      }else{
 		        renderPartLeafs();
 		      }
@@ -1347,17 +1365,27 @@ $(document).ready(function(){
 	  $(this).addClass('hover').css({'z-index':z});
 	  if( $(this).hasClass('c_m_a') ) {
 	    // if selected 
-	    if( isContentSelected() ) {
+	    if( isContentSelected() ) {	      
 	      $(this).next().find('.c_m_a_d_batch').show();
 	      $(this).next().find('.c_m_a_d_tip').hide();
-	    }else{
+	    }else{	      
 	      $(this).next().find('.c_m_a_d_batch').hide();  
 	      $(this).next().find('.c_m_a_d_tip').show();
 	    } 
 	  }
 	  $(this).next().css({'z-index': z-1}).show();
 	});
-		
+	
+	$('.ele_list_all').click(function(){
+	  var wrap = getPanel($(this));
+	  if( $(this).is(':checked') ){
+	    wrap.find('.ele_item').attr('checked',true);
+    }else{
+      wrap.find('.ele_item').attr('checked',false);
+    }
+	  
+	});
+	
 	$('#cb_all').click(function(e){
 	  if( $(this).is(':checked') ){
 	    $('.cb_article').attr('checked',true);	

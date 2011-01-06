@@ -73,13 +73,27 @@ class UserController extends controller
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+			  if( isset($_GET['ajax']) ){
+			    $this->renderPartial('create_next', array(
+  				  'model' => $model
+  			  ),false,true);
+  			  exit;
+		    }else{
+		      $this->redirect(array('view','id'=>$model->id));    
+		    }
+			}
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+    if( isset($_GET['ajax']) ){
+      $this->renderPartial('create',array(
+  			'model'=>$model,
+  		),false,true);      
+    }else{
+      $this->render('create',array(
+  			'model'=>$model,
+  		));  
+    }
+		
 	}
 
 	/**
@@ -96,13 +110,29 @@ class UserController extends controller
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+  			if( isset($_GET['ajax']) ) {
+  					$str = 'Data saved! On '.date("Y-m-d H:i:s") ;
+  					Yii::app()->user->setFlash('success',$str);
+  					$is_update = true;					
+  				}else {
+  					$this->redirect(array('view','id'=>$model->id));	
+  				}	
+			}
+			//$this->redirect(array('view','id'=>$model->id));
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+    
+		if( isset($_GET['ajax']) ){
+    	$this->renderPartial('update',array(
+    		'model'       =>  $model,
+    		'is_update'   =>  $is_update,
+    	),false,true);	  
+		}else{
+  		$this->render('update',array(
+  			'model'=>$model,
+  		));  
+		}
+		
 	}
 
 	/**
@@ -113,12 +143,13 @@ class UserController extends controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
-			$this->loadModel()->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		  if( strlen($_POST['ids']) >0 ) {
+				$ids = explode(',',$_POST['ids']);
+				foreach( $ids as $id) {
+					$a = User::model()->findByPk($id);
+					$a->delete();
+				}
+			}
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -130,18 +161,27 @@ class UserController extends controller
 	public function actionIndex()
 	{
 	  
-	  $model=new User('search');
-		$model->unsetAttributes();  // clear any default values
+	  //$model=new User('search');
+		//$model->unsetAttributes();  // clear any default values
+		
 		if(isset($_GET['User']))
 			$model->attributes=$_GET['User'];
 		
-			
-			
-		$dataProvider=new CActiveDataProvider('User');
-		$this->render('index',array(
-			'model'=>$model,
-			'dataProvider'=>$dataProvider,
-		));
+		if( isset($_GET['keyword']) ){
+		  $keyword = trim($_GET['keyword']);		  
+		  $list = User::model()->findAll(
+		    array(
+            'condition' => 'username like :keyword OR email like :keyword ',
+            'params'=>array(':keyword'=>"%$keyword%" )            
+        ));      
+		  $this->renderPartial('_index',array('list' => $list),false,true);
+	  }else{
+  	  $this->render('index',array(
+  			'model'=>$model,			
+  		));  
+	  }
+	  
+		
 			
 			/*
 		$dataProvider=new CActiveDataProvider('User');

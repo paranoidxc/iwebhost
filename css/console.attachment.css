@@ -4,10 +4,16 @@
   border: 1px solid;
   line-height: 16px;
   color: #666;
-  border-color: #666 #CCC #CCC #666;
-  width: 500px;
+  border-color: #666 #CCC #CCC #666;  
   font-weight: bold;
 }
+.w600p .search_input {  
+  width: 540px;
+}
+.w800p .search_input {  
+  width: 740px;
+}
+
 
 .image_border {
   border: 1px solid red; 

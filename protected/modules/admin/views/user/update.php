@@ -1,18 +1,23 @@
 <?php
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'View User', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
+if( !$is_update ) {
+  ?>
+  <div class='mac_panel_wrap w600p'>
+<?php
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'User '.$model->id.' : '.cnSubstr($model->username,0,20)) )
+?>
+  <?php
+}
 ?>
 
-<h1>Update User <?php echo $model->id; ?></h1>
-
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+
+<?php
+if( !$is_update ) {
+  ?>
+  <?php
+  $this->endWidget('application.extensions.Flatmacpanel');	 
+?>
+</div>
+  <?php
+}
+?>

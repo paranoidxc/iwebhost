@@ -12,7 +12,7 @@
       echo '<img src="'.$t->thumb.'"  /> ';
       echo '</a>';
       echo '<p>';
-      echo '<input type="checkbox" class="cb_article" rel_id="'.$t->id.'"  >';
+      echo '<input type="checkbox" class="cb_article" value="'.$t->id.'"  >';
       echo '<span class="crP atts"
               data = "'.$t->id.'"
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 

@@ -10,8 +10,8 @@ class RelController extends Controller
 	public function actionPickAtt(){		
 		$return_id = $_GET['return_id'];
 		$rtype = $_GET['rtype'];
-		if( isset($_GET['screen_name']) ){
-		  $screen_name = trim($_GET['screen_name']);		  
+		if( isset($_GET['keyword']) ){
+		  $screen_name = trim($_GET['keyword']);		  
 		  $atts = Attachment::model()->findAll(
 		    array(
             'condition' => 'screen_name like :screen_name',

@@ -4,6 +4,9 @@
 .dN {
   display: none;
 }
+.required span.required {
+  color: #8C0505;
+}
 .itable {
  	border-collapse: collapse;
 	margin: 0;
@@ -17,6 +20,40 @@
   font-weight: bold;
 }
 
+.ilist {
+  width: 100%;  
+  background: #FFF;
+	table-layout:fixed;
+}
+.ilist thead th {  
+  color: #000;
+  height: 21px;  
+  line-height: 21px;
+  background: url(api_categorys_img/mac-menu-bar.png) repeat-x 0 0px;
+}
+.ilist tbody td {    
+  padding: 2px;
+  vertical-align: top;
+  overflow: hidden;
+}
+.ilist tbody tr {
+  line-height: 20px;
+}
+
+.ilist tbody tr:nth-child(odd){    
+}
+.ilist tbody tr:nth-child(even){  
+  background: #efefef;
+}
+
+.ilist tbody tr:hover {
+  background: #1875E8;
+  color: #EFEFEF;
+}
+.ilist tbody tr:hover td {
+  color: #EFEFEF;
+}
+  
 .itable tbody th {	
 	color: #4f6b72;	
 	text-transform: capitalize;

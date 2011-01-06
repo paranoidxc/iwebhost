@@ -182,12 +182,11 @@ class ArticleController extends Controller
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
   				$this->renderPartial('create_next', array(
-  				'model' => $model,
-  				'leafs'	=> $leafs,
-  				'leaf'	=> $leaf
-  			),false,ture);
-  			exit;
-					//echo 'create article suc On '.date("Y-m-d H:i:s");					
+    				'model' => $model,
+    				'leafs'	=> $leafs,
+    				'leaf'	=> $leaf
+    			),false,true);
+    			exit;
 					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );						
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	

@@ -1,15 +1,11 @@
+<div class='mac_panel_wrap w600p' >
 <?php
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create User") )
 ?>
 
-<h1>Create User</h1>
-
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+
+<?php
+  $this->endWidget('application.extensions.Flatmacpanel');	 
+?>
+</div>
