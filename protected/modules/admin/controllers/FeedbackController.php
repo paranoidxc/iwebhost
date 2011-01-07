@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends controller
+class FeedbackController extends controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -65,15 +65,14 @@ class UserController extends controller
 	 */
 	public function actionCreate()
 	{
-		$model=new User;
-
+		$model=new Feedback;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
     $panel_ident = $_REQUEST['panel_ident'];
-		if(isset($_POST['User']))
+		if(isset($_POST['Feedback']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Feedback'];						
 			if($model->save()){
 			  if( isset($_GET['ajax']) ){
 			    $this->renderPartial('create_next', array(
@@ -86,7 +85,8 @@ class UserController extends controller
 		    }
 			}
 		}
-    if( isset($_GET['ajax']) ){
+
+		if( isset($_GET['ajax']) ){
       $this->renderPartial('create',array(
   			'model'       =>$model,
   			'panel_ident' => $panel_ident
@@ -96,7 +96,6 @@ class UserController extends controller
   			'model'=>$model,
   		));  
     }
-		
 	}
 
 	/**
@@ -106,27 +105,26 @@ class UserController extends controller
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
     $panel_ident = $_REQUEST['panel_ident'];
+    
+    // Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['Feedback']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Feedback'];
 			if($model->save()){
   			if( isset($_GET['ajax']) ) {
-  					$str = 'Data saved! On '.date("Y-m-d H:i:s") ;
-  					Yii::app()->user->setFlash('success',$str);
-  					$is_update = true;					
-  				}else {
-  					$this->redirect(array('view','id'=>$model->id));	
-  				}	
+					$str = 'Data saved! On '.date("Y-m-d H:i:s") ;
+					Yii::app()->user->setFlash('success',$str);
+					$is_update = true;					
+				}else {
+					$this->redirect(array('view','id'=>$model->id));	
+				}	  
 			}
-			//$this->redirect(array('view','id'=>$model->id));
 		}
-    
-		if( isset($_GET['ajax']) ){
+
+    if( isset($_GET['ajax']) ){
     	$this->renderPartial('update',array(
     		'model'       =>  $model,
     		'is_update'   =>  $is_update,
@@ -137,7 +135,6 @@ class UserController extends controller
   			'model'=>$model,
   		));  
 		}
-		
 	}
 
 	/**
@@ -146,12 +143,12 @@ class UserController extends controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+	  if(Yii::app()->request->isPostRequest)
 		{
 		  if( strlen($_POST['ids']) >0 ) {
 				$ids = explode(',',$_POST['ids']);
 				foreach( $ids as $id) {
-					$a = User::model()->findByPk($id);
+					$a = Feedback::model()->findByPk($id);
 					$a->delete();
 				}
 			}
@@ -165,18 +162,14 @@ class UserController extends controller
 	 */
 	public function actionIndex()
 	{
-	  
-	  //$model=new User('search');
-		//$model->unsetAttributes();  // clear any default values
-		
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		if(isset($_GET['Feedback']))
+			$model->attributes=$_GET['Feedback'];
 		
 		if( isset($_GET['keyword']) ){
 		  $keyword = trim($_GET['keyword']);		  
-		  $list = User::model()->findAll(
+		  $list = Feedback::model()->findAll(
 		    array(
-            'condition' => 'username like :keyword OR email like :keyword ',
+            'condition' => 'question like :keyword OR answer like :keyword ',
             'params'=>array(':keyword'=>"%$keyword%" )            
         ));      
 		  $this->renderPartial('_index',array('list' => $list),false,true);
@@ -185,15 +178,6 @@ class UserController extends controller
   			'model'=>$model,			
   		));  
 	  }
-	  
-		
-			
-			/*
-		$dataProvider=new CActiveDataProvider('User');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-		*/
 	}
 
 	/**
@@ -201,10 +185,10 @@ class UserController extends controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new User('search');
+		$model=new Feedback('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		if(isset($_GET['Feedback']))
+			$model->attributes=$_GET['Feedback'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -220,7 +204,7 @@ class UserController extends controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=User::model()->findbyPk($_GET['id']);
+				$this->_model=Feedback::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -233,7 +217,7 @@ class UserController extends controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='feedback-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

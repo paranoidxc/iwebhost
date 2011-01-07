@@ -1,8 +1,8 @@
 <div class='w400p'>
   <?php
     $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Messages'));
-  ?>
-  111
+    
+  ?>  
   <?php
     $this->endWidget('application.extensions.Flatmacpanel');	 
   ?>
@@ -22,7 +22,13 @@
   <?php
     $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Environment info'));
   ?>
-  111
+  <ul>
+    <li>PHP version: <?php echo API::php_version(); ?></li>
+    <li>server_info : <?php echo API::server_info(); ?></li>
+    <li>server_info : <?php echo API::server_signature(); ?></li>
+    
+    
+  </ul>
   <?php
     $this->endWidget('application.extensions.Flatmacpanel');	 
   ?>

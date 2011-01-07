@@ -1,5 +1,15 @@
 <?php
 class API {
+  public static function php_version() {
+    return PHP_VERSION;
+  }
+  public static function server_info() {
+    return $_SERVER['SERVER_SOFTWARE'];
+  }
+  public static function server_signature() {
+    return $_SERVER['SERVER_SIGNATURE'];
+  }
+  
   public static function articles_ul($category, $option){
     $r = '<ul class="api_chapters_ul" style="text-indent: '.$option['text_indent'].'">';
     if( $category->articles ) {

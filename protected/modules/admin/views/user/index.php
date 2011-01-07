@@ -1,10 +1,10 @@
-<div class='mac_panel_wrap w800p'>
+<div class='mac_panel_wrap w800p' id="panel_users">
   <?php  
-    $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Users') );
+    $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Admins Manage') );
   ?>
   
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('user/index', array('keyword' => '')) ?>" />
-  <input type="hidden" name='model_type' value="admin" class="model_type" />
+  <input type="hidden" name='model_type' value="users" class="model_type" />    
   
   <p class=''>
     <ul class="actions"> 	
@@ -28,7 +28,7 @@
 
   <div class="iform">    
     
-    <div class='mb10P'>
+    <div class='mb10P ofA' style="max-height: 300px">
       <table class='ilist'>
         <thead>
           <tr>

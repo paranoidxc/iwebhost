@@ -35,7 +35,7 @@
 
 .w100s { width: 100%; }
 .w10p { width: 10px; }
-0.w15p { width: 15px; }
+.w15p { width: 15px; }
 .w20p { width: 20px; }
 .w26p { width: 26px; }
 .w28p { width: 28px; }
@@ -73,6 +73,7 @@
 .h100p { height: 100px; }
 .h150p { height: 150px; }
 .h200p { height: 200px; }
+.h400p { height: 400px; }
 
 .pr2p { padding-right: 2px; }
 .pl2p { padding-left: 2px; }

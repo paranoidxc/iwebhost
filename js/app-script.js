@@ -606,8 +606,8 @@ $(document).ready(function(){
 	  $('.mac_panel_wrap').live('click',function(){
 	    
 	    var cur_z = $(this).css('z-index');
-	    console.log( 'init ' + cur_z );
-	    console.log( 'reset' + z );	    
+	    idebug( 'init ' + cur_z );
+	    idebug( 'reset' + z );	    
 	    z++;
 	    $(this).css( { 'z-index':z } ); 
 	    /*
@@ -751,8 +751,21 @@ $(document).ready(function(){
 	}
 	
 	//fun13
-	function render() {	  
-	  var iwrap = wrap;
+	function render() { 	  
+	  var parent_panel = false;	  
+	  if( wrap.find('.return_panel').length > 0 ) {
+	   // alert( wrap.find('.return_panel') );	    	   
+	    parent_panel = $('#'+wrap.find('.return_panel').val());
+	    var url = parent_panel.find('.ele_refresh_url').val();	    
+	    //var control = true;
+	  }else if( wrap.find('.ele_refresh_url').length > 0 ) {
+	    var url = wrap.find('.ele_refresh_url').val() ;
+	    parent_panel = wrap;
+	  } else {
+  	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
+  	  //var control = false;
+  	}  	
+	  /*
   	if( wrap.find('.ele_refresh_url').length > 0 ){
   	  var url = wrap.find('.ele_refresh_url').val() ;
   	  var control = true;
@@ -763,16 +776,17 @@ $(document).ready(function(){
   	}else{
   	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
   	  var control = false;
-  	}
+  	}  	
+  	*/  	
 	  $.ajax({
         type      : 'get',
         dataType  : 'html',
         cache     : false,
         url       : url,
         success   : function(html) {     
-          if( control ){            
-            //alert( wrap.find('.search_result_wrap').length  );
-            iwrap.find('.search_result_wrap').html(html);
+          if( parent_panel ){            
+            //alert( parent_panel.find('.search_result_wrap').length  );
+            parent_panel.find('.search_result_wrap').html(html);
           }else{
             $('#leaf_articles').html(html);
           }
@@ -1053,10 +1067,12 @@ $(document).ready(function(){
 	  }
 	  wrap = getPanel($(this));
 	  parent_wrap = wrap;
-	  console.log( parent_wrap.find('.ele_refresh_url').val() );
+	  
+	  //console.log( parent_wrap.find('.ele_refresh_url').val() );
+	  var panel_model = wrap.find('.model_type');
 		$.ajax({
 			type:		"get",
-			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
+			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val()+'&panel_ident='+wrap.attr('id'),
 			success:	function (html) {			  
 			  popup_panel( $(html) );
 			  init_mac_panel_drag();		  
@@ -1066,10 +1082,11 @@ $(document).ready(function(){
 	};
 	$('.create_article_continue,.ele_create_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
+	  var panel_ident = wrap.find('.return_panel').val();
 	  wrap.remove();
 	  $.ajax({
 			type:		"get",
-			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val(),
+			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val()+'&panel_ident='+panel_ident,
 			success:	function (html) {			  
 			  popup_panel( $(html) );
 			  init_mac_panel_drag();			  
@@ -1079,8 +1096,9 @@ $(document).ready(function(){
 	});
 	$('.edit_article_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
+	  var panel_ident = wrap.find('.return_panel').val();
 	  wrap.remove();
-	  var url = $(this).attr('href');
+	  var url = $(this).attr('href')+'&panel_ident='+panel_ident;
 	  $.ajax({
 			url:	url,
 			type:	'get',
@@ -1239,8 +1257,9 @@ $(document).ready(function(){
 	
 	/*9e57007bcc35507dfc5bc7b8f2efb076 编辑文章 */
 	$('dl.thumbnail .title,.content_item').live('click',function(){
-	  var url = $(this).parent().attr('rel_href');
-	  wrap = getPanel($(this));
+	  wrap = getPanel($(this));	  
+	  //var url = $(this).parent().attr('rel_href');	  
+	  var url = $(this).parent().attr('rel_href')+"&panel_ident="+wrap.attr('id');  
 	  idebug(' model_type = '+wrap.find('.model_type').val() );
 	  var popup_panel_id = wrap.find('.model_type').val()+$(this).attr('data');
 	  
@@ -1328,13 +1347,19 @@ $(document).ready(function(){
 			    popup_panel( $(html) );			    
 			  }else{
 			    iform.html(html);
+			    if( that.attr('action').indexOf('category') > 0 ){
+			      renderPartLeafs();
+		      }else{
+		        render();
+		      }
+			    /*
 			    if( that.attr('action').indexOf('article') > 0 ){
 			      render();
 			    }else if( that.attr('action').indexOf('user') > 0 ) {			      
 			      render();
 		      }else{
 		        renderPartLeafs();
-		      }
+		      }*/
 			  }
 			  //idebug(html);
 			  /*
