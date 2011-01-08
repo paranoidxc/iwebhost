@@ -9,6 +9,14 @@ class Controller extends CController
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
 	 */
+	public function init() {
+	  $this->isconfig=Sconfig::model()->find();
+	  
+	  if( $this->isconfig && $this->isconfig->is_oops ) {
+	    //echo "oops";
+	    //exit;
+	  }
+	}
 	public $layout='//layouts/column1';
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
@@ -22,4 +30,5 @@ class Controller extends CController
 	public $breadcrumbs=array();
 	public $location;
 	public $page_navigation;
+	public $isconfig;
 }

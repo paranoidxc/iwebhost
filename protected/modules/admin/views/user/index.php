@@ -6,6 +6,7 @@
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('user/index', array('keyword' => '')) ?>" />
   <input type="hidden" name='model_type' value="users" class="model_type" />    
   
+  
   <p class=''>
     <ul class="actions"> 	
       <li><a href="<?php echo CController::createUrl('user/create') ?>" title="Create Admin" class="ele_create_article">new</a></li>

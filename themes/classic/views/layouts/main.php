@@ -67,7 +67,7 @@
 				array('label'=>'Attachment', 'url'=>array('/admin/category/iattachment')),
 				array('label'=>'Admins', 'url'=>array('/admin/user/index')),
 				array('label'=>'Feedback', 'url'=>array('/admin/feedback/index')),
-				array('label'=>'Settings', 'url'=>array('/admin/attachment/index')),		
+				array('label'=>'Setting', 'url'=>array('/admin/setting/index')),		
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -75,7 +75,7 @@
 	<?php echo $content; ?>
 	
 
-  <div style="position: absolute; bottom: 10px; right: 10px;">
+  <div style="position: fixed; bottom: 10px; right: 10px;">
     <img src="<?php echo Yii::app()->request->baseUrl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>
   </div>
 </div><!-- page -->

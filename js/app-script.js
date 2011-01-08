@@ -777,7 +777,7 @@ $(document).ready(function(){
   	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
   	  var control = false;
   	}  	
-  	*/  	
+  	*/  	  	
 	  $.ajax({
         type      : 'get',
         dataType  : 'html',
@@ -1344,12 +1344,14 @@ $(document).ready(function(){
 			success:	function(html) {			  
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
 			    wrap.remove();			    
-			    popup_panel( $(html) );			    
+			    popup_panel( $(html) );		    
 			  }else{
 			    iform.html(html);
 			    if( that.attr('action').indexOf('category') > 0 ){
 			      renderPartLeafs();
-		      }else{
+		      }else if(that.attr('action').indexOf('setting') > 0 ) {
+		      }
+		      else{
 		        render();
 		      }
 			    /*
