@@ -174,8 +174,10 @@ class FeedbackController extends controller
         ));      
 		  $this->renderPartial('_index',array('list' => $list),false,true);
 	  }else{
+	    $list = Feedback::model()->findAll();
   	  $this->render('index',array(
-  			'model'=>$model,			
+  			'model' =>  $model,			
+  			'list'  =>  $list
   		));  
 	  }
 	}

@@ -102,7 +102,7 @@ class ArticleController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','preview','Sortarticle'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','test', 'move', 'copy','stared','unstared'),
@@ -222,7 +222,7 @@ class ArticleController extends Controller
 		list( $leafs ) = $this->getRelData();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+    $panel_ident = $_REQUEST['panel_ident'];
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];
@@ -240,6 +240,7 @@ class ArticleController extends Controller
 			$this->renderPartial('update',array(
 				'model'	      =>	$model,
   			'is_update'   =>  $is_update,
+  			'panel_ident' =>  $panel_ident,
 				'leafs'	      =>	$leafs
 			),false,true);
 		}else {			
@@ -283,12 +284,22 @@ class ArticleController extends Controller
 	 * Lists all models.
 	 */
 	
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Article');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+	public function actionIndex() {
+	  if( isset($_GET['keyword']) ){
+		  $keyword = trim($_GET['keyword']);		  
+		  $list = Article::model()->findAll(
+		    array(
+            'condition' => 'title like :keyword ',
+            'params'=>array(':keyword'=>"%$keyword%" )            
+        ));      
+		  $this->renderPartial('_index',array('list' => $list),false,true);
+	  }else{
+	    $list = Article::model()->findAll();
+  	  $this->render('index',array(
+  			'model' =>  $model,			
+  			'list'  =>  $list
+  		));  
+	  }
 	}
 
 	/**

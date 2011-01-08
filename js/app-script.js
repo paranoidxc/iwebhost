@@ -753,7 +753,7 @@ $(document).ready(function(){
 	//fun13
 	function render() { 	  
 	  var parent_panel = false;	  
-	  if( wrap.find('.return_panel').length > 0 ) {
+	  if( wrap.find('.return_panel').length > 0 && wrap.find('.return_panel').val() != "") {
 	   // alert( wrap.find('.return_panel') );	    	   
 	    parent_panel = $('#'+wrap.find('.return_panel').val());
 	    var url = parent_panel.find('.ele_refresh_url').val();	    

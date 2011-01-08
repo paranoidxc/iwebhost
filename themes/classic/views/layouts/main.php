@@ -65,6 +65,7 @@
 				array('label'=>'Navigation', 'url'=>array('/admin/category/inavigation')),
 				array('label'=>'Category', 'url'=>array('/admin/category/icategory')),
 				array('label'=>'Attachment', 'url'=>array('/admin/category/iattachment')),
+				array('label'=>'Articles', 'url'=>array('/admin/article/index')),
 				array('label'=>'Admins', 'url'=>array('/admin/user/index')),
 				array('label'=>'Feedback', 'url'=>array('/admin/feedback/index')),
 				array('label'=>'Setting', 'url'=>array('/admin/setting/index')),		

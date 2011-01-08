@@ -9,10 +9,8 @@ if( !$is_update ) {
 }
 ?>
 
-
-
+<input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf)); ?>
-
 
 <?php
 if( !$is_update ) {
