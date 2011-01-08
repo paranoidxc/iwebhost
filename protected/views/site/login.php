@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 ?>
 
 <?php
-  echo "<div class='mac_panel_wrap ilogin_wrap' >";
+  echo "<div class='mac_panel_wrap ilogin_wrap w600p' >";
   $this->beginWidget('application.extensions.Smacpanel',array('title' => 'System Console Login'));
 ?>  
 <div class="icolor">
