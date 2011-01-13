@@ -26,24 +26,21 @@
     </form>
   </div>
 
-  <div class="iform">   
-    <div class='mb10P ofA' style="max-height: 300px">
-      <!-- table header 和 table body 视情况而变 开始-->
-      <table class='ilist'>
-        <thead>
-          <tr>
-            <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
-            <th class='w80p taC'>Sid</th>
-            <th class='w160p taL'>itype</th>
-            <th class='w160p taL'>email</th>
-            <th class='w160p taL'>question</th>
-            <th class='taL' >answer</th>
-          </tr>
-        </thead>
-        <tbody class="search_result_wrap">
-          <?php echo $this->renderPartial('_index', array('list'=>$list)); ?>
-        </tbody>
-      </table>
+  <div class="iform">  
+    <table class='ilist'>
+      <thead>
+        <tr>
+          <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
+          <th class='w80p taC'>Sid</th>
+          <th class='w160p taL'>itype</th>
+          <th class='w160p taL'>email</th>
+          <th class='w160p taL'>question</th>
+          <th class='taL' >answer</th>
+        </tr>
+      </thead>
+    </table> 
+    <div class='mb10P ofA search_result_wrap' style="max-height: 300px">      
+      <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
       <!-- table header 和 table body 视情况而变 结束-->
     </div>
   </div>

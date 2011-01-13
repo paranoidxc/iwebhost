@@ -1506,6 +1506,58 @@ $(document).ready(function(){
       range.select();
     }
   }
+  
+  $('.ipagination select').live('change',function(){    
+    var wrap = getPanel( $(this) );
+	  var that = $(this);	  
+	  var url = that.val();
+	  if( url.indexOf('keyword') == -1 ) {
+	    url += '&keyword=';
+	  }
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: url,
+	    success:function(html){	      
+	      wrap.find('.search_result_wrap').html(html);
+	    }
+	  })
+    return false;
+  })
+  
+  $('.ipagination .yiiPager li a ').live('click',function(){
+    var wrap = getPanel( $(this) );
+	  var that = $(this);	  
+	  var url = that.attr('href');
+	  if( url.indexOf('keyword') == -1 ) {
+	    url += '&keyword=';
+	  }
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: url,
+	    success:function(html){
+	      wrap.find('.search_result_wrap').html(html);
+	    }
+	  })
+    return false;
+  })  
 
+/*
 
+$('.search_form').live('submit',function(){	  
+	  var wrap = getPanel( $(this) );
+	  var that = $(this);
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: that.attr('action')+'&keyword='+that.find('.keyword').val(),
+	    success:function(html){
+	      //alert(html);	      
+	      wrap.find('.search_result_wrap').html(html);
+	    }
+	  })
+	  return false;
+	});
+	*/
 });

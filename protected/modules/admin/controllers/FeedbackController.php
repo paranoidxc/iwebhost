@@ -165,20 +165,64 @@ class FeedbackController extends controller
 		if(isset($_GET['Feedback']))
 			$model->attributes=$_GET['Feedback'];
 		
-		if( isset($_GET['keyword']) ){
-		  $keyword = trim($_GET['keyword']);		  
+		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
+		  $keyword = trim($_GET['keyword']);	
+		  $criteria=new CDbCriteria;
+      $criteria->condition  = 'question like :keyword OR answer like :keyword';
+      $criteria->params     = array(':keyword'=>"%$keyword%");
+      $item_count = Feedback::model()->count($criteria);    
+      $page_size = 2;          
+      $pages =new CPagination($item_count);
+      $pages->setPageSize($page_size);
+      //$pages->pageVar = 'keyword='.$keyword;
+      //$_GET['']
+      //$pages->pageVar .= '&page';
+      $pagination = new CLinkPager();
+      $pagination->setPages($pages);    
+      $pagination->init();      
+      $criteria->limit        =  $page_size;
+      $criteria->offset       = $pages->offset;
+      
+      $select_pagination = new  CListPager();
+      $select_pagination->htmlOptions['onchange']="";
+      $select_pagination->setPages($pages);    
+      $select_pagination->init();      
+      
+      /*
 		  $list = Feedback::model()->findAll(
 		    array(
             'condition' => 'question like :keyword OR answer like :keyword ',
             'params'=>array(':keyword'=>"%$keyword%" )            
         ));      
-		  $this->renderPartial('_index',array('list' => $list),false,true);
-	  }else{
-	    $list = Feedback::model()->findAll();
+      */
+      $list = Feedback::model()->findAll( $criteria );
+		  $this->renderPartial('_index',array('list' => $list, 'pagination' => $pagination, 'select_pagination' => $select_pagination ),false,true);
+	  }else{	    
+	    //$list = Feedback::model()->findAll();
+	    $criteria=new CDbCriteria;
+      //$criteria->condition  = 'question like :keyword OR answer like :keyword';
+      //$criteria->params     = array(':keyword'=>"%$keyword%");
+      $item_count = Feedback::model()->count($criteria);    
+      $page_size = 2;          
+      $pages =new CPagination($item_count);
+      $pages->setPageSize($page_size);            
+      $pagination = new CLinkPager();
+      $pagination->setPages($pages);    
+      $pagination->init();      
+      $criteria->limit        =  $page_size;
+      $criteria->offset       = $pages->offset;      
+      $criteria->limit        =  $page_size;
+      $criteria->offset       = $pages->offset;      
+      $select_pagination = new  CListPager();
+      $select_pagination->setPages($pages);
+      $select_pagination->htmlOptions['onchange']="";
+      $select_pagination->init();      
+      $list = Feedback::model()->findAll( $criteria );      
   	  $this->render('index',array(
   			'model' =>  $model,			
-  			'list'  =>  $list
-  		));  
+  			'list'  =>  $list,
+  			'pagination' => $pagination, 'select_pagination' => $select_pagination
+  		),false,true);  
 	  }
 	}
 

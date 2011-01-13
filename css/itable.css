@@ -45,6 +45,7 @@
 .ilist tbody tr:nth-child(even){  
   background: #efefef;
 }
+\
 
 .ilist tbody tr:hover {
   background: #1875E8;
