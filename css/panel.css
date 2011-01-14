@@ -4,6 +4,7 @@
 .mac_panel_wrap {
   width: 800px;
   margin: auto;
+  z-index: 100;
 }
 .mac_panel {
     border: 3px solid purpel;

@@ -76,7 +76,7 @@
 	<?php echo $content; ?>
 	
 
-  <div style="position: fixed; bottom: 10px; right: 10px;">
+  <div style="position: fixed; bottom: 10px; right: 10px; z-index: 2;">
     <img src="<?php echo Yii::app()->request->baseUrl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>
   </div>
 </div><!-- page -->
