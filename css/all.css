@@ -10,6 +10,12 @@
 
 @import url('evil.css');
 @import url('console.attachment.css');
+
+.step {
+  
+}
+
+
 .unstared,
 .stared {
   display: block;
@@ -143,12 +149,37 @@ div.errorSummary {
   margin: 3px;
 }
 
+.feedback_suc,
 .feedback_on {
   border: 2px solid #A5DA94;
   background: #DBF1D4;
   padding: 5px;
   margin: 3px;
   font-size: 12px;
+}
+
+.step {  
+  margin: 3px;
+}
+.step h1 {
+  margin: 0;
+  padding: 0;
+  text-indent: 10px;
+  text-shadow: 0 1px 0 #FFFFFF;
+  font-size: 200%;
+  background: #E0E0E0;  
+  border-bottom: 1px solid #9E9E9E;
+}
+.step ul {
+  margin-top: 5px;
+}
+.step ul li {
+  line-height: 30px;
+  height: 30px;  
+  margin-left: 20px;
+}
+.step ul li a {
+  text-decoration: none;
 }
 
 #mainmenu {

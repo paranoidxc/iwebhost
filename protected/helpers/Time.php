@@ -1,6 +1,10 @@
 <?php
 class Time {
-	/**
+	public static function now($format='Y-m-d H:i:s'){
+	  return date($format);
+	}
+  
+  /**
 	* Returns a nicely formatted date string for given Datetime string.
 	*
 	* @param string $dateString Datetime string

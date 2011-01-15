@@ -31,7 +31,7 @@
       <thead>
         <tr>
           <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80p taC'>Sid</th>
+          <th class='w80p '>Sid</th>
           <th class='w160p taL'>itype</th>
           <th class='w160p taL'>email</th>
           <th class='w160p taL'>question</th>

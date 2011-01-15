@@ -53,7 +53,7 @@ class FeedbackController extends controller
 	 * Displays a particular model.
 	 */
 	public function actionView()
-	{
+	{	  
 		$this->render('view',array(
 			'model'=>$this->loadModel(),
 		));
@@ -74,6 +74,8 @@ class FeedbackController extends controller
 		{
 			$model->attributes=$_POST['Feedback'];						
 			if($model->save()){
+			  $model->addTags('tag1, tag2, tag3')->save();
+			  
 			  if( isset($_GET['ajax']) ){
 			    $this->renderPartial('create_next', array(
   				  'model' => $model,
@@ -162,7 +164,7 @@ class FeedbackController extends controller
 	 */
 	public function actionIndex()
 	{	
-		$criteria=new CDbCriteria;
+		$criteria=new CDbCriteria;		
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
@@ -170,7 +172,7 @@ class FeedbackController extends controller
       $is_partial = true;		  
 	  }	  
     $item_count = Feedback::model()->count($criteria);    
-    $page_size = 2;          
+    $page_size = 10;          
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      
     $pagination = new CLinkPager();

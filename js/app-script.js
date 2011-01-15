@@ -1508,7 +1508,7 @@ $(document).ready(function(){
   }
   
   $('.ipagination select').live('change',function(){    
-    var wrap = getPanel( $(this) );
+    wrap = getPanel( $(this) );
 	  var that = $(this);	  
 	  var url = that.val();
 	  if( url.indexOf('keyword') == -1 ) {
@@ -1526,7 +1526,12 @@ $(document).ready(function(){
   })
   
   $('.ipagination .yiiPager li a ').live('click',function(){
-    var wrap = getPanel( $(this) );
+    
+    if( $(this).parent().hasClass('hidden') ){
+      return false;
+    }
+    
+    wrap = getPanel( $(this) );
 	  var that = $(this);	  
 	  var url = that.attr('href');
 	  if( url.indexOf('keyword') == -1 ) {

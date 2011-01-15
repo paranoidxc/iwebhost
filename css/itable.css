@@ -31,8 +31,8 @@
   line-height: 21px;
   background: url(api_categorys_img/mac-menu-bar.png) repeat-x 0 0px;
 }
-.ilist tbody td {    
-  padding: 2px;
+.ilist tbody td {      
+  padding: 2px 0;
   vertical-align: top;
   overflow: hidden;
 }

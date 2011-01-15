@@ -14,7 +14,13 @@ $this->menu=array(
 ?>
 
 <h1>View Feedback #<?php echo $model->id; ?></h1>
-
+<?php
+$tags = $model->getTags();
+foreach( $tags as $tag) {
+  echo $tag;
+  echo '-------';
+}
+?>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

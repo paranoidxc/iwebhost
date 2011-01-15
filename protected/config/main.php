@@ -30,6 +30,7 @@ return array(
 	'import'=>array(
 		'application.models.*',		
 		'application.components.*',
+		'ext.yiiext.behaviors.model.taggable.*',
 		'application.extensions.*',
 		'application.modules.admin.models.*',	
 		'application.helpers.*',	
