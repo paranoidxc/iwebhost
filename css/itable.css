@@ -77,22 +77,31 @@
 	font-size: 12px;	
 	width: 400px;
 	padding:5px;
-	/*background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;*/
-	border:1px solid #BFBFBF;
-	background: #FFF;
-	border: 2px solid #73A6FF;
+	/*background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;*/	
+	background: #FFF;	
 	border-color:#CCCCCC #999999 #999999 #CCCCCC;
 	border-style:solid;
   border-width:1px;
 }
+.itable tbody td textarea {		
+	background: #FFF;
+	border: 1px solid #CCCCCC;	  
+	border-color:#CCCCCC #999999 #999999 #CCCCCC;
+	width: 400px;
+  height: 50px;
+  padding: 5px;	
+	font-size: 12px;
+}
+.itable tbody td textarea[name*=content] {
+  
+}
+
 .itable tbody td input.image_resize_input{
   width: 34px;
 }
 
-
-.itable tbody td input[type='text']:focus {
-	border-style: solid;
-  border-width: 1px;
+.itable tbody td textarea:focus,
+.itable tbody td input[type='text']:focus {	
   border-color: #73A6FF #1875E8 #1875E8 #73A6FF;
 }
 .itable tbody td input[type='text'].small {
@@ -108,22 +117,7 @@
 	text-align: right;		
 	line-height: 26px;
 }
-.itable tbody td textarea {
-	border: solid #B1B1B1;
-	background: #F2F2F2;
-	background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;
-	border-width: 1px 0px 0px 1px;
-	border:1px solid #BFBFBF;	
-	background: #FFF;
-	border: 2px solid #73A6FF;
-	width: 400px;
-  height: 50px;
-  padding: 2px;	
-	font-size: 12px;
-}
-.itable tbody td textarea[name*=content] {
-  
-}
+
 
 .pick {
   cursor: pointer;  
