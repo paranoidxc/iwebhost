@@ -149,6 +149,14 @@ div.errorSummary {
   margin: 3px;
 }
 
+.note {  
+  padding: 8px;
+  background: #FFFFCC;
+  font-weight: bold;
+  border-bottom: 1px solid #CCCCCC;
+  color: #8C0505;
+}
+
 .feedback_suc,
 .feedback_on {
   border: 2px solid #A5DA94;

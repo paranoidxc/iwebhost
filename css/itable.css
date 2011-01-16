@@ -11,7 +11,7 @@
  	border-collapse: collapse;
 	margin: 0;
 	padding: 0;  
-	background: #FFF;    
+	background: #FFF;    	
 }
 .itable caption {
 	padding: 0 0 5px 0;
@@ -42,12 +42,11 @@
 
 .ilist tbody tr:nth-child(odd){    
 }
-.ilist tbody tr:nth-child(even){  
+.ilist tbody tr:nth-child(even) td{  
   background: #efefef;
 }
-\
 
-.ilist tbody tr:hover {
+.ilist tbody tr:hover td {
   background: #1875E8;
   color: #EFEFEF;
 }
