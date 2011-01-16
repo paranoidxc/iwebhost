@@ -225,8 +225,8 @@ div.errorSummary {
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
   color: #FFF;    
-  text-shadow: 0px 1px 0px #000;
-  background: url(panel_images/column_item.png) no-repeat 0 bottom;  
+  text-shadow: 0px 1px 0px #000;  
+  background: url(panel_images/navigation_hover.png) no-repeat 0 bottom;
 	text-decoration:none;
 }
 

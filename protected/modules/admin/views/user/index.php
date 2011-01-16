@@ -16,6 +16,7 @@
     	  </span>
     	  <ul class='dN c_m_a_d'>
     	    <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('user/delete') ?>">Delete</li>
+    	    <li class="c_m_a_d_tip" title="No Selected">No Selected</li>
         </ul>
       </li>
     </ul>
@@ -40,10 +41,11 @@
             <th class='taL' >Email</th>
           </tr>
         </thead>
-        <tbody class="search_result_wrap">
-          <?php echo $this->renderPartial('_index', array('list'=>$list)); ?>
         </tbody>
       </table>
+      <div class='mb10P ofA search_result_wrap' style="max-height: 300px">   
+        <?php echo $this->renderPartial('_index', array('list'=>$list)); ?>
+      </div>
     </div>
   </div>
   <div class="ajax_overlay" />    

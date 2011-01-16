@@ -777,7 +777,8 @@ $(document).ready(function(){
   	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
   	  var control = false;
   	}  	
-  	*/  	  	
+  	*/
+  	wrap.find('.ele_list_all').attr('checked',false);
 	  $.ajax({
         type      : 'get',
         dataType  : 'html',
@@ -791,7 +792,7 @@ $(document).ready(function(){
             $('#leaf_articles').html(html);
           }
         }
-      });  
+    });
 	}
 	
 
@@ -1402,9 +1403,9 @@ $(document).ready(function(){
 	    if( isContentSelected() ) {	      
 	      $(this).next().find('.c_m_a_d_batch').show();
 	      $(this).next().find('.c_m_a_d_tip').hide();
-	    }else{	      
-	      $(this).next().find('.c_m_a_d_batch').hide();  
+	    }else{
 	      $(this).next().find('.c_m_a_d_tip').show();
+	      $(this).next().find('.c_m_a_d_batch').hide();
 	    } 
 	  }
 	  $(this).next().css({'z-index': z-1}).show();

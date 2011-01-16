@@ -12,7 +12,7 @@
       ); 
     ?>
     
-    <table class='itable'>
+    <table class='itable w100s'>
       <tbody>
         <tr>
           <th>

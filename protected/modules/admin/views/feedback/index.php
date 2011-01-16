@@ -15,6 +15,7 @@
         </span>
         <ul class='dN c_m_a_d'>
           <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('feedback/delete') ?>">Delete</li>
+          <li class="c_m_a_d_tip" title="No Selected">No Selected</li>
         </ul>
       </li>
     </ul>

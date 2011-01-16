@@ -9730,3 +9730,28 @@ Stack trace:
 #3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 H:\projects\iwebhost\index.php(90): CApplication->run()
 #5 {main} REQUEST_URI=/index.php?r=site/logo
+2011/01/16 12:31:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index\" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('index\')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('index\')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/i...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(90): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=admin/article/index\
+2011/01/16 12:42:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in H:\projects\iwebhost\protected\modules\admin\controllers\UserController.php:227
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\UserController.php(108): UserController->loadModel()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): UserController->actionUpdate()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/upda...')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 H:\projects\iwebhost\index.php(90): CApplication->run()
+#14 {main} REQUEST_URI=/index.php?r=admin/user/update&id=&ajax=ajax&panel_ident=panel_users&_=1295152923736
