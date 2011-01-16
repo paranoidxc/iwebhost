@@ -122,7 +122,8 @@ class Time {
 		$inSeconds = strtotime($dateTime);
 		$backwards = ($inSeconds > $now);
 
-		$format = 'j/n/y';
+		//$format = 'j/n/y';
+		$format='d/m/Y';
 		$end = '+1 month';
     
 		if (is_array($options)) {

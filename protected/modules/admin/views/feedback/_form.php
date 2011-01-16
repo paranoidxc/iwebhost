@@ -10,7 +10,7 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="feedback">
+    <div class="flash_suc">
       <?php echo Yii::app()->user->getFlash('success'); ?>
     </div>
   <?php } ?>

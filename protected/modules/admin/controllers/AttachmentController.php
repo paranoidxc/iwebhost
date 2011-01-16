@@ -254,14 +254,14 @@ class AttachmentController extends Controller
 			$model->attributes=$_POST['Attachment'];
 			if($model->save())
 			if( isset($_GET['ajax']) ) {
-					echo 'update attachment suc';
+					//echo 'update attachment suc';
 					$resize_w = $_POST['resize_w'];
 					$resize_h = $_POST['resize_h'];
 					if( is_array( $resize_w ) && count( $resize_w) > 0 ){
 					  for( $i=0; $i<count($resize_w); $i++ ){
 					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){
-					      echo $resize_w[$i];
-					      echo $resize_h[$i];
+					      //echo $resize_w[$i];
+					      //echo $resize_h[$i];
 					      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'.'.$model->extension);
 					      //$path_info = pathinfo( ATMS_SAVE_DIR.$model->path );
                 $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
@@ -279,6 +279,10 @@ class AttachmentController extends Controller
 					    $model->save();
 					  }
 					}
+					
+					$str = 'Data Update! On '.Time::now();
+					Yii::app()->user->setFlash('success',$str);
+					
 					$this->renderPartial('update',array(
 			    'model'=>$model,'is_update' => true
 		      ),false,true);

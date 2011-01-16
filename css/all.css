@@ -156,7 +156,7 @@ div.errorSummary {
   border-bottom: 1px solid #CCCCCC;
   color: #8C0505;
 }
-
+.flash_suc,
 .feedback_suc,
 .feedback_on {
   border: 2px solid #A5DA94;

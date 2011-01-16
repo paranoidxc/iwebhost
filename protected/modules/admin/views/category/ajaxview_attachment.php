@@ -11,9 +11,10 @@
       echo "<a class='lightbox' href='$t->image' >";
       echo '<img src="'.$t->thumb.'"  /> ';
       echo '</a>';
-      echo '<p>';
+      echo '<p >';
+      echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' ";
       echo '<input type="checkbox" class="cb_article" value="'.$t->id.'"  >';
-      echo '<span class="crP atts"
+      echo '<span class="crP atts content_item"
               data = "'.$t->id.'"
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 
               rel_id="'.$t->id.'" title="'.$t->screen_name.'">Edit</span>';

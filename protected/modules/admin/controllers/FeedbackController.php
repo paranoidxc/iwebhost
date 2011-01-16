@@ -73,6 +73,7 @@ class FeedbackController extends controller
 		if(isset($_POST['Feedback']))
 		{
 			$model->attributes=$_POST['Feedback'];						
+			$model->q_time = Time::now();
 			if($model->save()){
 			  $model->addTags('tag1, tag2, tag3')->save();
 			  
@@ -115,9 +116,10 @@ class FeedbackController extends controller
 		if(isset($_POST['Feedback']))
 		{
 			$model->attributes=$_POST['Feedback'];
+			$model->a_time = Time::now();
 			if($model->save()){
   			if( isset($_GET['ajax']) ) {
-					$str = 'Data saved! On '.date("Y-m-d H:i:s") ;
+					$str = 'Data saved! On '.Time::now();
 					Yii::app()->user->setFlash('success',$str);
 					$is_update = true;					
 				}else {

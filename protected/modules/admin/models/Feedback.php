@@ -30,7 +30,7 @@ class Feedback extends CActiveRecord
             'tagTable' => 'Tag',
             // Cross-table that stores tag-model connections.
             // By default it's your_model_tableTag
-            'tagBindingTable' => 'FdTag',
+            'tagBindingTable' => 'modelTag',
             // Foreign key in cross-table.
             // By default it's your_model_tableId
             //'modelTableFk' => 'id',
@@ -81,6 +81,7 @@ class Feedback extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+		  array('q_time, a_time', 'default'),
 			array('email, homepage, question, answer, itype', 'required'),
 			array('email, homepage, answer, itype', 'length', 'max'=>45),
 			// The following rule is used by search().

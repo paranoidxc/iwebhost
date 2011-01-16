@@ -12,8 +12,13 @@ echo $is_update;
 
 
 <div class="iform">
-  <div class="feedback">
-	</div>
+  
+	<?php if(Yii::app()->user->hasFlash('success')) {?>
+    <div class="flash_suc">
+      <?php echo Yii::app()->user->getFlash('success'); ?>
+    </div>
+  <?php } ?>
+  
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'article-form',
 	'enableAjaxValidation'=>false,

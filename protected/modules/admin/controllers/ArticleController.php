@@ -229,7 +229,8 @@ class ArticleController extends Controller
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
-					echo 'update article suc On '.date("Y-m-d H:i:s") ;
+					$str = 'Data saved! On '.Time::now();
+					Yii::app()->user->setFlash('success',$str);
 					$is_update = true;					
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	

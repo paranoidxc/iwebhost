@@ -33,10 +33,12 @@
         <tr>
           <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
           <th class='w80p '>Sid</th>
-          <th class='w160p taL'>itype</th>
+          <th class='w80p taL'>itype</th>
           <th class='w160p taL'>email</th>
           <th class='w160p taL'>question</th>
+          <th class='w100p taL'>q_time</th>
           <th class='taL' >answer</th>
+          <th class='w100p taL'>a_time</th>
         </tr>
       </thead>
     </table> 
