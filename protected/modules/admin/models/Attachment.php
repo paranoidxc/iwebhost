@@ -37,6 +37,21 @@ class Attachment extends CActiveRecord
     return parent::__get($name);
   }
   
+  public function getImageRange( $opt=array() ){
+    //$ele = $opt['type'];
+    //$ele_id = $opt['type_id'];
+    $str  = "<select class='dN' >";
+    $tips = explode(',',$this->tips);
+    foreach($tips as $tip ){
+      if( strlen( trim($tip) ) > 0 ){
+        $tip=str_replace('_','',$tip);
+        $str .= "<option value='_".str_replace('*','_',$tip)."' >".$tip."</option>";
+      }
+    }
+    $str .= "</select>";
+    return $str;
+  }
+  
   public function is_image(){
     return in_array($this->extension,$img_ext);
   }

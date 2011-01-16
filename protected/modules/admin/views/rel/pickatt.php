@@ -36,7 +36,10 @@
     <li class="att_pick_li rpick csP" 
       rel_id="<?php echo $t->id; ?>"
       rel_screen_name="<?php echo $t->screen_name; ?>"          
-      rel_path="<?php echo $t->gavatar; ?>" >
+      rel_path="<?php echo $t->path; ?>"
+      rel_gavatar="<?php echo $t->gavatar; ?>"
+      rel_extension="<?php echo $t->extension; ?>"  >
+      <?php echo $t->imageRange; ?>
       <div>
         <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
       </div>
@@ -49,10 +52,14 @@
 </div>
 
 <div class="taR h50P pr10P pt10P " style="line-height: 50p">
-  <img src="" alt="" class="vaM image_border rel_gavatar" />
-  <input type="text" class="rel_id" value="" size="5" />
-  <input type="text" class="rel_screen_name" value="" size="40"/>
-  <input type="hidden" class="rel_path" value="" />  
+  <img src="" alt="" class="dN vaM image_border rel_gavatar" />
+  <input type="hidden" class="rel_id" value="" size="5" />
+  <input type="hidden" class="rel_screen_name" value="" size="40"/>
+  <input type="hidden" class="rel_path" value="" />
+  <input type="hidden" class="rel_extension" value="" />  
+  <input type="hidden" class="upfiles_dir" value="<?php echo  UPFILES_DIR; ?>/" />  
+  <select class="dN rel_imagerange">
+  </select>
   <input type="hidden" class="rtype" value="<?php echo $rtype; ?>" />
   <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn att_return_submit')); ?>
 </div>   

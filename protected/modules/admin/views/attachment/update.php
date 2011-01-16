@@ -83,16 +83,18 @@ echo $is_update;
     	  <tr>
     	    <th class='alt leftborder'><?php echo $form->labelEx($model,'w'); ?></td>
     	    <td>
-    	      <?php echo $form->textField($model,'w',array('size'=>60,'maxlength'=>100)); ?>
-    	      <?php echo $form->error($model,'w'); ?>
+    	      <?php echo $model->h ?>
+    	      <?php //echo $form->textField($model,'w',array('size'=>60,'maxlength'=>100)); ?>
+    	      <?php //echo $form->error($model,'w'); ?>
     	    </td>
     	  </tr>
     	  
     	  <tr>
     	    <th><?php echo $form->labelEx($model,'h'); ?></th>
   		    <td>
-  		      <?php echo $form->textField($model,'h',array('size'=>60,'maxlength'=>100)); ?>
-  		      <?php echo $form->error($model,'h'); ?>
+  		      <?php echo $model->h ?>
+  		      <?php //echo $form->textField($model,'h',array('size'=>60,'maxlength'=>100)); ?>
+  		      <?php //echo $form->error($model,'h'); ?>
   		    </td>
   		  </tr>
   		  
@@ -107,9 +109,10 @@ echo $is_update;
 	      //print_r( Yii::app() );
 	      foreach($size_list as $item){
 	        if( strlen($item) > 0 ){
+	          $item = str_replace('_','', $item);
   	        list($w,$h) = explode('*',$item);
-  	        $link_outer =  Yii::app()->request->baseUrl.UPFILES_DIR.'/'.$w.'_'.$h.'_'.$model->path;
-    	      $link_inner = UPFILES_DIR.'/'.$w.'_'.$h.'_'.$model->path;;
+  	        $link_outer =  Yii::app()->request->baseUrl.UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
+    	      $link_inner = UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
   	        echo '<li class="csP extra_link_ele" link_outer="'.$link_outer.'"  link_inner="'.$link_inner.'">';
   	        echo $item;
   	        echo '</li>';

@@ -207,12 +207,13 @@ $(document).ready(function(){
 	  
 	  $(this).addClass('active');
 	  //var tr_ele = parentOne( $(this), 'li');
-	  //tr_ele.addClass('active');
-	  
-	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_path') );
-	  wrap.find('.rel_id').val( $(this).attr('rel_id') );
+	  //tr_ele.addClass('active');	   
+	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
+	  wrap.find('.rel_imagerange').html( $(this).find('select').html() ).show();
+	  wrap.find('.rel_id').val( $(this).attr('rel_id') );	  
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  wrap.find('.rel_path').val( $(this).attr('rel_path') );
+	  wrap.find('.rel_extension').val( $(this).attr('rel_extension') );
 	});
 	
 	/*315349422075b608b865e9fb0b21812d 返回关联集合  collect return pick */
@@ -232,19 +233,39 @@ $(document).ready(function(){
 
   //todo 
 	$('.att_return_submit').live('click',function(){
-	  
 	  var wrap = getPanel($(this));	
+	  var rel_gavatar = wrap.find('.rel_gavatar').attr('src');
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
 	  var rel_path        = wrap.find('.rel_path').val();
+	  var rel_extension   = wrap.find('.rel_extension').val();
+	  var rel_imagerange  = wrap.find('.rel_imagerange').val();
 	  var rel_id          = wrap.find('.rel_id').val();
 	  var rel_screen_name = wrap.find('.rel_screen_name').val();	  
 	  var rtype           = wrap.find('.rtype').val();
+	  var upfiles_dir     = wrap.find('.upfiles_dir').val();
 	  if( rtype == '' ){
 	  }else if( rtype == 'article_link_image' ){
-	    var str = '!['+rel_screen_name+ ']('+rel_path+' "'+rel_screen_name+'")';	  
+	    var image = upfiles_dir + rel_path+rel_imagerange+'.'+rel_extension;
+	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';
+	    
+	    var selection = $('#Article_content').getSelection();	    
+	    
+	    //setCaretToPos(document.getElementById('Article_content'),selection.start + 4 );
 	    $('#Article_content').replaceSelection(str, true);
+	    //setCaretToPos(document.getElementById('Article_content'),selection.start + 4 + str.length );
+	    //$('#Article_content').replaceSelection('\r\n', true);
+	    setCaretToPos(document.getElementById('Article_content'),selection.start);
+	    $('#Article_content').replaceSelection(' ', true);
+	    setCaretToPos(document.getElementById('Article_content'),selection.start+1+str.length);	    
+	    $('#Article_content').replaceSelection(' ', true);
+	    setCaretToPos(document.getElementById('Article_content'),selection.start+2+str.length);	    
+	    //var _is = $('#Article_content').getSelection();
+	    //console.log(  _is );
+	    //console.log( _is['start'] );
+	    //console.log( _is.start );
 	    return ;
 	  }
+	  
 	  /*
 	  var wrap = getPanel($(this));	  
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
@@ -255,7 +276,7 @@ $(document).ready(function(){
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
 	  
 	  /*display the select thumbnail*/
-	  return_wrap.find('.dest_thumbnail').find('img').attr('src', rel_path).attr('title', str);
+	  return_wrap.find('.dest_thumbnail').find('img').attr('src', rel_gavatar).attr('title', str);
 	  /*relation the select id */
 	  var input_default_value = return_wrap.find('input').val();
 	  return_wrap.find('input').attr('value', rel_id);	
@@ -1453,8 +1474,6 @@ $(document).ready(function(){
     var _wrap = getPanel($(this));
     _wrap.find('.extra_link_area_outer').val( $(this).attr('link_outer') );
     _wrap.find('.extra_link_area_inner').val( $(this).attr('link_inner') );
-    
-    
   });
 	
   
