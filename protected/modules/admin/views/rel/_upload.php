@@ -9,7 +9,7 @@
 				progressTarget : "fsUploadProgress",
 				cancelButtonId : "btnCancel"
 			},
-		debug: true,
+		debug: false,
 		// Button settings
 		button_image_url: "/default_image/XPButtonUploadText_61x22.png",				
 		button_width: "61",
