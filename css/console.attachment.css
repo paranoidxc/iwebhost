@@ -45,8 +45,9 @@ td#attachment_form_wrap {
 }
 .atm_photos li img{
   margin-top: 10px;  
-  width: 130px;  
-  height: 103px;
+  max-width: 130px; 
+  max-height: 103px; 
+  /*height: 103px;*/
 }
 .atm_photos li p {  
   width: 135px; 

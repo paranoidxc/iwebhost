@@ -1,5 +1,8 @@
 <?php
 class API {
+  
+  public static $image_extension  = array("jpg", "jpeg", "png", "gif");
+  
   public static function php_version() {
     return PHP_VERSION;
   }

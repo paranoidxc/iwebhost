@@ -42,7 +42,7 @@ echo $is_update;
     	      <div class="flL w100p ml20P bcBlue p5p zoom ofA h150p" >
     	        <ul>
     	        <?php
-    	          echo str_replace(',','<br/>',$model->tips);
+    	          //echo str_replace(',','<br/>',$model->tips);
     	          $tips = explode(',',$model->tips);
     	          foreach( $tips as $tip ){
     	            echo '<li>';

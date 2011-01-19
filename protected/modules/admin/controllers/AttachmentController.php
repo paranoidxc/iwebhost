@@ -108,14 +108,18 @@ class AttachmentController extends Controller
     $screen_name  =  basename($_FILES[$upload_name]['name']);
     $time = time();
     $file_name = $time.'.'.$file_extension;
+    //$img_ext = array("jpg", "jpeg", "png", "gif");
+    
     if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], ATMS_SAVE_DIR.$file_name)) {	  	
 		  exit(0);
 	  }
+	  
 	  $model=new Attachment;
 	  
-	  $img_ext = array("jpg", "jpeg", "png", "gif");
 	  $is_image = false;
-	  if( in_array($file_extension,$img_ext) ){
+	  $w = 0;
+	  $h = 0;
+	  if( in_array($file_extension,API::$image_extension) ){
 	    $image = Yii::app()->image->load(ATMS_SAVE_DIR.$file_name);
 	    $w = $image->width;	    
 	    $h = $image->height;
@@ -133,7 +137,6 @@ class AttachmentController extends Controller
 	  $model->attributes=$ati;
 	  if($model->save()){
 	    if( $is_image ){
-	      
 	      
 	      $file_path_l = ATMS_SAVE_DIR.$time.'_800_600'.'.'.$file_extension;
         $file_path_t = ATMS_SAVE_DIR.$time.'_160_120'.'.'.$file_extension;
@@ -154,6 +157,7 @@ class AttachmentController extends Controller
         $model->tips .= '_160*120_,';
         $model->tips .= '__48*48__,';
         $model->save();
+        rename(ATMS_SAVE_DIR.$file_name, ATMS_SAVE_DIR.$time.'_'.$w.'_'.$h.'.'.$file_extension );
       }
 	  }
 	 
@@ -206,7 +210,10 @@ class AttachmentController extends Controller
 		$resize_h = $_POST['resize_h'];
 		
     foreach( $list as $id){
-      $model=Attachment::model()->findbyPk($id);
+      $model=Attachment::model()->findbyPk($id);      
+      if( !$model->is_image() ){
+        continue;  
+      }
       unset($tips);
       if( is_array( $resize_w ) && count( $resize_w) > 0 ){
         for( $i=0; $i<count($resize_w); $i++ ){
@@ -255,29 +262,30 @@ class AttachmentController extends Controller
 			if($model->save())
 			if( isset($_GET['ajax']) ) {
 					//echo 'update attachment suc';
-					$resize_w = $_POST['resize_w'];
-					$resize_h = $_POST['resize_h'];
-					if( is_array( $resize_w ) && count( $resize_w) > 0 ){
-					  for( $i=0; $i<count($resize_w); $i++ ){
-					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){
-					      //echo $resize_w[$i];
-					      //echo $resize_h[$i];
-					      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'.'.$model->extension);
-					      //$path_info = pathinfo( ATMS_SAVE_DIR.$model->path );
-                $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
-                $image->resize($resize_w[$i], $resize_h[$i]);
-                $image->save($_path);
-                if( isset($tips) ){
-                  $tips .= str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';                  
-                }else{
-                  $tips = str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';
-                } 
-					    }
-					  }
-					  if( isset($tips) ){
-					    $model->tips .= $tips;
-					    $model->save();
-					  }
+					if($model->is_image()){
+  					$resize_w = $_POST['resize_w'];
+  					$resize_h = $_POST['resize_h'];
+  					
+  					if( is_array( $resize_w ) && count( $resize_w) > 0 ){
+  					  for( $i=0; $i<count($resize_w); $i++ ){
+  					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){					      
+  					      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'.'.$model->extension);
+  					      //$path_info = pathinfo( ATMS_SAVE_DIR.$model->path );
+                  $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
+                  $image->resize($resize_w[$i], $resize_h[$i]);
+                  $image->save($_path);
+                  if( isset($tips) ){
+                    $tips .= str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';                  
+                  }else{
+                    $tips = str_pad($resize_w[$i], 4, "_", STR_PAD_LEFT).'*'. str_pad($resize_h[$i],4,"_", STR_PAD_RIGHT).',';
+                  } 
+  					    }
+  					  }
+  					  if( isset($tips) ){
+  					    $model->tips .= $tips;
+  					    $model->save();
+  					  }
+  					}
 					}
 					
 					$str = 'Data Update! On '.Time::now();
