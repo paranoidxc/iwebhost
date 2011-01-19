@@ -100,6 +100,19 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 	}
 }
 
+function pickatt_uploadSuccess(file, serverData) {
+	try {
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
+		progress.setComplete();
+		progress.setStatus("Complete.");
+		progress.toggleCancel(false);    
+    alert( $('.progressWrapper:last').find('.progressName').html() );
+	} catch (ex) {
+		this.debug(ex);
+	}
+}
+
+
 function uploadSuccess(file, serverData) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);

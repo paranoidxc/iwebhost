@@ -10,6 +10,13 @@
 .btT td {
   padding: 2px 0;
 }
+.bgRed {
+  background: red;
+}
+.bgTips{
+  background: #FFFFCC;
+}
+
 .bcc {
   border-collapse: collapse;
   margin: 0;

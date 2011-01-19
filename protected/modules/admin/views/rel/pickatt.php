@@ -51,6 +51,10 @@
   </ul>
 </div>
 
+<div class="bgTips p5p">
+<?php $this->renderPartial('_upload'); ?>
+</div>
+
 <div class="taR h50P pr10P pt10P " style="line-height: 50p">
   <img src="" alt="" class="dN vaM image_border rel_gavatar" />
   <input type="hidden" class="rel_id" value="" size="5" />
