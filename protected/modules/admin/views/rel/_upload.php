@@ -29,7 +29,7 @@
             type="button"
             value="Cancel All Uploads" onclick="swfu.cancelQueue();"
   	        disabled="disabled"
-  	        style="display: none; margin-left: 2px; font-size: 8pt; height: 29px;" />
+  	        style="display: none; margin-left: 2px; font-size: 8pt; height: 29px; " />
     </div>
     <div id="divStatus" class='dN' >0 Files Uploaded</div>
     <div class="fieldset flash dN" id="fsUploadProgress">

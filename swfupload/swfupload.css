@@ -13,21 +13,27 @@ form {
 	padding: 0;
 }
 
-
+.progress_queue,
+#divStatus {
+  font-weight: bold;
+  margin: 5px 0;
+}
 
 div.fieldset {
-	border:  1px solid #afe14c;
-	margin: 10px 0;
+	/*border:  1px solid #afe14c;*/
+	/*margin: 10px 0;*/
 	/*padding: 20px 10px;*/
-	padding: 20px 0;
+	/*padding: 20px 0;*/
 }
 div.fieldset span.legend {
-	position: relative;
+	/*
+  position: relative;
 	background-color: #FFF;
-	padding: 3px;
-	top: -30px;
 	font: 700 14px Arial, Helvetica, sans-serif;
+	padding: 3px;	
+	top: -30px;	
 	color: #73b304;
+	*/
 }
 
 div.flash {
@@ -66,7 +72,7 @@ input[disabled]{ border: 1px solid #ccc } /* FF 2 Fix */
 	margin: 5px;
 	padding: 4px;
 	border: solid 1px #E8E8E8;
-	background-color: #F7F7F7;
+	background-color: #F7F7F7;	
 	overflow: hidden;
 }
 /* Message */
@@ -113,8 +119,11 @@ input[disabled]{ border: 1px solid #ccc } /* FF 2 Fix */
 .progressBarError {
 	font-size: 0;
 	width: 0%;
-	height: 2px;
+	height: 6px;
 	background-color: blue;
+	background: red;
+	background: url(progress.jpg) repeat 0 0;
+	-moz-border-radius: 3px;
 	margin-top: 2px;
 }
 

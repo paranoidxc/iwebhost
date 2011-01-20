@@ -43,7 +43,6 @@
 			var settings = {
 				flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",
         upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model->id ) ) ?>",
-        button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 				post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
 				file_size_limit : "100 MB",
 				file_types : "*.*",
@@ -57,11 +56,11 @@
 				debug: false,
 
 				// Button settings
-				button_image_url: "/default_image/XPButtonUploadText_61x22.png",				
-				button_width: "61",
-				button_height: "22",
+				button_image_url: "/images/TestImageNoText_65x29.png",				
+				button_width: "65",
+				button_height: "29",
 				button_placeholder_id: "spanButtonPlaceHolder",
-				button_text: '<span class="theFont"></span>',
+				button_text: '<span class="theFont">Hello</span>',
 				button_text_style: ".theFont { font-size: 16; }",
 				button_text_left_padding: 12,
 				button_text_top_padding: 3,
@@ -93,12 +92,11 @@
 			            type="button"
 			            value="Cancel All Uploads" onclick="swfu.cancelQueue();"
 			  	        disabled="disabled"
-			  	        style="margin-top: 5px; margin-left: 2px; font-size: 8pt; height: 29px;" class="ibtn" />
+			  	        style="margin-left: 2px; font-size: 8pt; height: 29px;" />
 		      </div>
 		      <div id="divStatus">0 Files Uploaded</div>
-		      <p class="progress_queue">Upload Queue</p>
 		      <div class="fieldset flash" id="fsUploadProgress">
-			      <span class="legend dN">Upload Queue</span>
+			      <span class="legend">Upload Queue</span>
 		      </div>
 	      </form>  
       </div>
