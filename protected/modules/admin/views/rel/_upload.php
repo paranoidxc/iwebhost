@@ -2,7 +2,7 @@
 	var swfu;		
 	var settings = {
 		flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",
-    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => 30 ) ) ?>",    
+    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '' ) ) ?>",    
     button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 		post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
 		custom_settings : {

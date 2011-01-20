@@ -1081,14 +1081,14 @@ $(document).ready(function(){
 	});
 		
 		
-	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建文章  */
-	var fun_article_new = function () {
-	  if( $('#model_type').val() == "attachment" ){
-	    $('#attachment_form_wrap').toggle();
+	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建条目(文章, 节点, 用户 === )  */
+	var fun_item_new = function () {
+	  wrap = getPanel($(this));
+	  parent_wrap = wrap;	  
+	  if( wrap.find('.model_type').val()== "attachment" ){	    
+	    wrap.find('#attachment_form_wrap').toggle();
 	    return false;
 	  }
-	  wrap = getPanel($(this));
-	  parent_wrap = wrap;
 	  
 	  //console.log( parent_wrap.find('.ele_refresh_url').val() );
 	  var panel_model = wrap.find('.model_type');
@@ -1133,7 +1133,7 @@ $(document).ready(function(){
 		return false;
   });
 	
-	$('.ele_create_article,.ele_create').live('click',fun_article_new);		
+	$('.ele_create_article,.ele_create').live('click',fun_item_new);		
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
 	$('#artiles_move').click(function(){		

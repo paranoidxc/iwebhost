@@ -5,13 +5,15 @@
     
 <ul class='atm_photos' >
 <?php
-  
-  foreach($model->attachments as $t){
+  if( $model ){
+    foreach($model->attachments as $t){
       echo '<li>';
       if( $t->is_image() ){
+      echo '<div class="thumb_wrap">';
       echo "<a class='lightbox' href='$t->image' >";
       echo '<img src="'.$t->thumb.'" alt=""  /> ';
       echo '</a>';
+      echo '</div>';
       echo '<p >';
       echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' ";
       echo '<input type="checkbox" class="cb_article" value="'.$t->id.'"  >';
@@ -31,18 +33,44 @@
         echo '</p>';
       }
       echo '</li>';
+    }
   }
 ?>
 
 </ul>
     </td>    
     <td style="width: 35%" id="attachment_form_wrap">        
-    <script type="text/javascript">
+    
+    
+    
+    
+    
+      <div id="attachment_form" >
+        <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
+          <div>
+			      <span id="spanButtonPlaceHolder">Upload Attachment</span>
+			      <input id="btnCancel" 
+			            type="button"
+			            value="Cancel All Uploads" onclick="swfu.cancelQueue();"
+			  	        disabled="disabled"
+			  	        style="margin-top: 5px; margin-left: 2px; font-size: 8pt; height: 29px;" class="ibtn" />
+		      </div>
+		      <div id="divStatus">0 Files Uploaded</div>
+		      <p class="progress">Upload Queue</p>
+		      <div class="fieldset flash" id="fsUploadProgress">
+			      <span class="legend dN">Upload Queue</span>
+		      </div>
+	      </form>  
+      </div>
+      
+      
+      <script type="text/javascript">
 		var swfu;
 		//window.onload = function() {
 			var settings = {
-				flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",
-        upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model->id ) ) ?>",
+				flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",				
+				upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model ? $model->id : '' ) ) ?>",
+        //upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model->id ) ) ?>",
         button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 				post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
 				file_size_limit : "100 MB",
@@ -81,27 +109,7 @@
 			swfu = new SWFUpload(settings);
 	  //   };
 	</script>
-    
-    
-    
-    
-      <div id="attachment_form" >
-        <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
-          <div>
-			      <span id="spanButtonPlaceHolder">Upload Attachment</span>
-			      <input id="btnCancel" 
-			            type="button"
-			            value="Cancel All Uploads" onclick="swfu.cancelQueue();"
-			  	        disabled="disabled"
-			  	        style="margin-top: 5px; margin-left: 2px; font-size: 8pt; height: 29px;" class="ibtn" />
-		      </div>
-		      <div id="divStatus">0 Files Uploaded</div>
-		      <p class="progress_queue">Upload Queue</p>
-		      <div class="fieldset flash" id="fsUploadProgress">
-			      <span class="legend dN">Upload Queue</span>
-		      </div>
-	      </form>  
-      </div>
+	
     </td>
   </tr>
 </table>

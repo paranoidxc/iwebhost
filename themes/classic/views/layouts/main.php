@@ -68,7 +68,7 @@
 				array('label'=>'Articles', 'url'=>array('/admin/article/index')),
 				array('label'=>'Admins', 'url'=>array('/admin/user/index')),
 				array('label'=>'Feedback', 'url'=>array('/admin/feedback/index')),
-				array('label'=>'Setting', 'url'=>array('/admin/setting/index')),		
+				array('label'=>'Settings', 'url'=>array('/admin/setting/index')),		
 			),
 		)); ?>
 	</div><!-- mainmenu -->

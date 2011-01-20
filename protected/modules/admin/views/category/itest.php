@@ -93,7 +93,7 @@
 	
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
-	      title="Create Article" class="ele_create_article">new</a>
+	      title="Create Article" class="ele_create">new</a>
  	</li>	
  	
 	<!-- c_m_a     content_more_actions
@@ -142,7 +142,10 @@
 
 <?php
   echo '<div id="leaf_articles">';
-  echo '</div>';    
+  
+  $this->renderPartial('ajaxview_attachment', array() , false, true);
+  
+  echo '</div>';      
   
   echo '</td>';
   echo '</tr>';

@@ -566,4 +566,41 @@ class Category extends CActiveRecord
     return true;
 	}
 	
+	public function autoCreate($opt=null){	  
+	  $model=new Category();
+	  $name = date('Ymd');
+	  $category = Category::model()->find('name = :name', array( ':name'=> $name) );
+	  if( $category ){
+	    return $category->id; 
+	  }
+	  $model->name = $name;
+	  $model->parent_leaf = $parent_leaf = Category::model()->findByPk(30);
+	  $cmodel = Category::model();
+		$transaction = $cmodel->dbConnection->beginTransaction();				
+		try {          
+			$leaf_model = Category::model();								
+			
+			$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
+			$cmodel->dbConnection->createCommand($update_rgt)->execute();
+      
+			$update_lft = " UPDATE category SET lft = lft + 2 WHERE  lft > $parent_leaf->lft ";					
+			$cmodel->dbConnection->createCommand($update_lft)->execute();					
+		
+			$model->lft = $parent_leaf->lft + 1;
+			$model->rgt = $parent_leaf->lft + 2;
+		
+			$model->create_time = date("Y-m-d H:i:s");
+		
+			$model->save();
+			$transaction->commit();	
+			
+		}catch(Exception $e) {				
+			print(" exception ");					
+			$transaction->rollBack();
+		}
+		
+		return $model->id;
+		
+	}
+	
 }

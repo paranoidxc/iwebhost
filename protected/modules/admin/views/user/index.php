@@ -9,7 +9,7 @@
   
   <p class=''>
     <ul class="actions"> 	
-      <li><a href="<?php echo CController::createUrl('user/create') ?>" title="Create Admin" class="ele_create_article">new</a></li>
+      <li><a href="<?php echo CController::createUrl('user/create') ?>" title="Create Admin" class="ele_create">new</a></li>
       <li>	  
     	  <span class="c_m_a">
     	    More Actions<span class="more"></span>
