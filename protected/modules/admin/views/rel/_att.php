@@ -5,7 +5,10 @@
     <li class="att_pick_li rpick csP" 
       rel_id="<?php echo $t->id; ?>"
       rel_screen_name="<?php echo $t->screen_name; ?>"          
-      rel_path="<?php echo $t->gavatar; ?>" >
+      rel_path="<?php echo $t->path; ?>"
+      rel_gavatar="<?php echo $t->gavatar; ?>"
+      rel_extension="<?php echo $t->extension; ?>"  >
+      <?php echo $t->imageRange; ?>
       <div>
         <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
       </div>
@@ -13,5 +16,8 @@
     </li>
   <?php
   }
-  ?>  
+  ?>
 </ul>
+<div class="clear ipagination">
+<?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+</div>

@@ -22,7 +22,7 @@
   ?>
   <tfoot>
     <tr class="hover_none">
-      <td colspan="6" class='taR ipagination'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
+      <td colspan="8" class='taR ipagination'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
     </tr>
   </tfoot>
   <?php 

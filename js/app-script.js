@@ -1566,10 +1566,46 @@ $(document).ready(function(){
 	    }
 	  })
     return false;
-  })  
+  });
+  
+  
+  
+  $('.ele_refresh').live('click',function(){
+    wrap = getPanel( $(this) );
+    var that = $(this);
+    var url = wrap.find('.ele_refresh_url').val();
+    
+    
+    $.ajax({
+	    type: 'get',
+	    cache: false,
+	    url: url,
+	    success:function(html){
+	      wrap.find('.search_result_wrap').html(html);
+	    }
+	  })
+    return false;
+    
+  });
 
 /*
 
+
+
+ var wrap = getPanel( $(this) );
+	  var that = $(this);
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: that.attr('action')+'&keyword='+that.find('.keyword').val(),
+	    success:function(html){
+	      //alert(html);	      
+	      wrap.find('.search_result_wrap').html(html);
+	    }
+	  })
+	  return false;
+	  
+	  
 $('.search_form').live('submit',function(){	  
 	  var wrap = getPanel( $(this) );
 	  var that = $(this);

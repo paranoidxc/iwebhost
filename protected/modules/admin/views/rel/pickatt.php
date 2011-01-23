@@ -2,6 +2,8 @@
 <?php
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
 ?>
+<input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
+
 <div style="padding: 5px">
   <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="search_form">    
     <input type="text" name="keyword" class="radius7 search_input keyword" />
@@ -29,26 +31,7 @@
   }
 </style>
 <div style="height: 400px; overflow: auto; background: #FFF;" class="search_result_wrap">
-<ul class='atm_photos'>
-  <?php  
-  foreach($atts as $t){
-  ?>
-    <li class="att_pick_li rpick csP" 
-      rel_id="<?php echo $t->id; ?>"
-      rel_screen_name="<?php echo $t->screen_name; ?>"          
-      rel_path="<?php echo $t->path; ?>"
-      rel_gavatar="<?php echo $t->gavatar; ?>"
-      rel_extension="<?php echo $t->extension; ?>"  >
-      <?php echo $t->imageRange; ?>
-      <div>
-        <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
-      </div>
-      <span><?php echo $t->screen_name ?></span>
-    </li>
-  <?php
-  }
-  ?>  
-  </ul>
+  <?php $this->renderPartial('_att',array( 'atts' => $atts,'pagination' => $pagination, 'select_pagination' => $select_pagination) ); ?>
 </div>
 
 <div class="bgTips p5p">
@@ -67,6 +50,7 @@
   <input type="hidden" class="rtype" value="<?php echo $rtype; ?>" />
   <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn att_return_submit')); ?>
 </div>   
+<div class="ajax_overlay" ></div>
 <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 
 ?>

@@ -15,6 +15,14 @@
   
 }
 
+.ele_refresh {
+  padding: 2px;
+  background: #ccc;
+}
+.ele_refresh:hover {
+  color: #FFF;
+  background: green;
+}
 
 .unstared,
 .stared {

@@ -10,19 +10,42 @@ class RelController extends Controller
 	public function actionPickAtt(){		
 		$return_id = $_GET['return_id'];
 		$rtype = $_GET['rtype'];
+		$criteria=new CDbCriteria;
+
 		if( isset($_GET['keyword']) ){
 		  $screen_name = trim($_GET['keyword']);		  
-		  $atts = Attachment::model()->findAll(
-		    array(
-            'condition' => 'screen_name like :screen_name',
-            'params'=>array(':screen_name'=>"%$screen_name%")            
-        ));
-		  $this->renderPartial('_att',array('return_id' => $return_id,'atts' => $atts,'rtype' => $rtype ),false,true);
+		  $criteria->condition  = 'screen_name like :screen_name';
+      $criteria->params     = array(':screen_name'=>"%$screen_name%");
+      $partial_tpl = '_att';
+		  //$atts = Attachment::model()->findAll($criteria);
+		  //$this->renderPartial('_att',array('return_id' => $return_id,'atts' => $atts,'rtype' => $rtype ),false,true);
 		}else{
-		  $atts = Attachment::model()->findAll();      
-		  $this->renderPartial('pickatt',array('return_id' => $return_id,'atts' => $atts ,'rtype' => $rtype ),false,true);
+		  $partial_tpl = 'pickatt';
+		  //$atts = Attachment::model()->findAll();      
+		  //$this->renderPartial('pickatt',array('return_id' => $return_id,'atts' => $atts ,'rtype' => $rtype ),false,true);
 		}
 		
+		
+		$item_count = Attachment::model()->count($criteria);    
+    $page_size = 10;          
+    $pages =new CPagination($item_count);
+    $pages->setPageSize($page_size);      
+    $pagination = new CLinkPager();
+    $pagination->setPages($pages);    
+    $pagination->init();      
+    $criteria->limit        =  $page_size;
+    $criteria->offset       = $pages->offset;
+    $select_pagination = new  CListPager();
+    $select_pagination->htmlOptions['onchange']="";
+    $select_pagination->setPages($pages);    
+    $select_pagination->init(); 
+    $atts = Attachment::model()->findAll( $criteria );
+    $this->renderPartial($partial_tpl,array(
+	    'return_id' => $return_id,
+	    'atts' => $atts,
+	    'rtype' => $rtype,
+      'pagination' => $pagination, 'select_pagination' => $select_pagination 
+      ),false,true);
 	}
 	
 	public function actionPicknode(){

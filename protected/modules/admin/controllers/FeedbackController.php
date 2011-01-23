@@ -172,7 +172,7 @@ class FeedbackController extends controller
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
       $criteria->params     = array(':keyword'=>"%$keyword%");
       $is_partial = true;		  
-	  }	  
+	  }
     $item_count = Feedback::model()->count($criteria);    
     $page_size = 10;          
     $pages =new CPagination($item_count);
