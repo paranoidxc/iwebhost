@@ -1,17 +1,18 @@
 .search_input {  
   height: 20px;  
-  padding: 2px 10px 2px 10px;
+  padding: 2px 10px 2px 2px;
   border: 1px solid;
   line-height: 16px;
   color: #666;
   border-color: #666 #CCC #CCC #666;  
   font-weight: bold;
+  text-indent: 10px;
 }
 .w600p .search_input {  
   width: 540px;
 }
 .w800p .search_input {  
-  width: 740px;
+  width: 748px;
 }
 
 

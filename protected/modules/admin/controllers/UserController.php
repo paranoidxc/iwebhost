@@ -152,7 +152,9 @@ class UserController extends controller
 				$ids = explode(',',$_POST['ids']);
 				foreach( $ids as $id) {
 					$a = User::model()->findByPk($id);
-					$a->delete();
+					if( !$a->is_forever ){
+					  $a->delete();  
+					}
 				}
 			}
 		}

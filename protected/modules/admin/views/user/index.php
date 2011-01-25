@@ -24,7 +24,7 @@
   
   <div style="padding: 5px">
     <form action="<?php echo CController::createUrl('user/index') ?>" method="get" class="search_form">        
-      <input type="text" name="keyword" class="radius7 search_input keyword" />
+      <input type="text" name="keyword" class="radius15 search_input keyword" />
     </form>
   </div>
 
@@ -36,9 +36,9 @@
           <tr>
             <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
             <th class='w80p taC'>Sid</th>
-            <th class='w160p taL'>Account</th>
+            <th class='w160p taL'><span class="radius4 filter">Account</span></th>
             <th class='w160p taL'>Password</th>
-            <th class='taL' >Email</th>
+            <th class='taL' ><span class="radius4 filter">Email</span></th>
           </tr>
         </thead>
         </tbody>

@@ -126,6 +126,27 @@
 .zoom {
   zoom: 1;
 }
-.radius7 {
-  -moz-border-radius: 15px;
+.radius2 { 
+  border-radius: 2px;
+  -moz-border-radius: 2px;  
 }
+.radius3 { 
+   border-radius: 3px;
+  -moz-border-radius: 3px;  
+}
+.radius4 { 
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+.radius7 { 
+  -moz-border-radius: 7px; 
+  border-radius: 7px;
+}
+
+
+.radius15 { 
+  -moz-border-radius: 15px; 
+  border-radius: 15px;
+}
+

@@ -11,6 +11,15 @@
 @import url('evil.css');
 @import url('console.attachment.css');
 
+.filter {
+  background: green;
+  color: #FFF;  
+  padding: 0 2px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6B9D28),to(#436B0C));
+  background: -moz-linear-gradient(top, #6B9D28, #436B0C);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6B9D28', endColorstr='#436B0C');
+}
+
 .step {
   
 }
