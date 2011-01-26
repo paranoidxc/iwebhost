@@ -178,6 +178,7 @@ class FeedbackController extends controller
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      
     $pagination = new CLinkPager();
+    $pagination->cssFile=false;
     $pagination->setPages($pages);    
     $pagination->init();      
     $criteria->limit        =  $page_size;

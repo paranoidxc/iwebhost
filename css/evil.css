@@ -86,10 +86,10 @@
 .pl2p { padding-left: 2px; }
 .p2p { padding: 2px; }
 .p5p { padding: 5px; }
-.pt10P { padding-top: 10px; } 
-.pr5P { padding-right: 5px; }
-.pr10P { padding-right: 10px; }
-
+.pt10p { padding-top: 10px; } 
+.pr5p { padding-right: 5px; }
+.pr10p { padding-right: 10px; }
+.pr20p { padding-right: 20px; }
 .pl2p { padding-left: 2px; }
 .pl3p { padding-left: 3px; }
 .pl4p { padding-left: 4px; }

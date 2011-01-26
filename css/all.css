@@ -396,3 +396,74 @@ div.errorSummary {
 .actions li.list_symbol a {  
   background-position: -103px -679px;  
 }
+
+
+
+
+/**
+2 * CSS styles for CLinkPager.
+3 *
+4 * @author Qiang Xue <qiang.xue@gmail.com>
+5 * @link http://www.yiiframework.com/
+6 * @copyright Copyright &copy; 2008-2010 Yii Software LLC
+7 * @license http://www.yiiframework.com/license/
+8 * @version $Id: pager.css 1678 2010-01-07 21:02:00Z qiang.xue $
+9 * @since 1.0
+10 */
+
+ul.yiiPager {
+ font-size:11px;
+ border:0;
+ margin:0;
+ padding:0;
+ line-height:100%;
+ display:inline;
+}
+ul.yiiPager li
+{
+ display:inline;
+}
+
+ul.yiiPager a:link,
+ul.yiiPager a:visited {
+ border:solid 1px #9aafe5; 
+ border-color: #999;
+ font-weight:bold;
+ color:#0e509e;
+ padding:1px 6px;
+ text-decoration:none;
+ background: #efefef;
+ color: #666666;
+}
+
+ul.yiiPager .page a
+{
+ font-weight:normal;
+}
+ul.yiiPager a:hover
+{
+
+ border:solid 1px #0e509e;
+ border: 1px solid #313131;
+}
+
+ul.yiiPager .selected a
+{
+ background:#2e6ab1;
+ background: #9E9E9E;
+ color:#FFFFFF;
+ border: 1px solid #313131;
+ font-weight:bold;
+}
+
+ul.yiiPager .hidden a
+{
+ border:solid 1px #DEDEDE;
+ color: #999; 
+}
+
+ul.yiiPager .first,
+ul.yiiPager .last
+{
+ display:none;
+}
