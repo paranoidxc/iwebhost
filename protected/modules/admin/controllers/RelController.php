@@ -31,11 +31,12 @@ class RelController extends Controller
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      
     $pagination = new CLinkPager();
+    $pagination->cssFile=false;
     $pagination->setPages($pages);    
     $pagination->init();      
     $criteria->limit        =  $page_size;
     $criteria->offset       = $pages->offset;
-    $select_pagination = new  CListPager();
+    $select_pagination = new  CListPager();    
     $select_pagination->htmlOptions['onchange']="";
     $select_pagination->setPages($pages);    
     $select_pagination->init(); 

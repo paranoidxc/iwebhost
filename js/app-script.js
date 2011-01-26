@@ -170,7 +170,7 @@ $(document).ready(function(){
 	  }else if( $(this).attr('rtype') == 'article_link_image' ){
 	    var uri = $(this).attr('uri')+'&rtype='+$(this).attr('rtype');
 	  }	  
-		wrap = getPanel($(this));
+		wrap = getPanel($(this));		
 		var popup_panel_id = 'prefix_'+$(this).attr('id');
 	  if( isExist( popup_panel_id ) ) {	    
 	    return false;
@@ -179,7 +179,7 @@ $(document).ready(function(){
 			type: 'get',
 			cache: false,
 			url: uri,
-			success:function(html){
+			success:function(html){			  
 			  popup_panel( $(html).attr('id',popup_panel_id) );
 			}
 		});

@@ -15,7 +15,7 @@
       echo '</a>';
       echo '</div>';
       echo '<p >';
-      echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' ";
+      echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' >";
       echo '<input type="checkbox" class="cb_article" value="'.$t->id.'"  >';
       echo '<span class="crP atts content_item"
               data = "'.$t->id.'"
@@ -24,7 +24,7 @@
       echo '</p>';
       }else{        
         echo '<img src="/default_image/unknown.png" alt="" /> ';        
-        echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' "; 
+        echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' >"; 
         echo '<input type="checkbox" class="cb_article" value="'.$t->id.'"  >';
         echo '<span class="crP atts content_item"
               data = "'.$t->id.'"
