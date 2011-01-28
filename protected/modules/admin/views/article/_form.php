@@ -152,7 +152,7 @@
   </div>
   
   <div class="taR h30P pr10P">
-  		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn')); ?>
+  		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue bigrounded')); ?>
   </div> 
 <?php $this->endWidget(); ?>
   <div class="ajax_overlay" />
