@@ -38,8 +38,8 @@
           </tr>
         </thead>              
       </table> 
-      <div class='mb10P ofA search_result_wrap' style="max-height: 300px">      
-        <?php echo $this->renderPartial('_index', array('list'=>$list)); ?>
+      <div class='mb10P ofA search_result_wrap' style="max-height: 300px">        
+        <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
       </div>
     </div>
   </div>

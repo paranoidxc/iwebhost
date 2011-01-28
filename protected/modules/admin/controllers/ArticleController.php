@@ -1,28 +1,8 @@
 <?php
 
-class ArticleController extends Controller
-{
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
-
-	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
-
-	/**
-	 * @return array action filters
-	 */
-	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-		);
-	}
-
+class ArticleController extends IController
+{  
+  
   public function actionPreview() {
     echo ereg_replace('<script.*</script>', '', Markdown($_POST['content']));
   }
@@ -46,6 +26,60 @@ class ArticleController extends Controller
 			$at->save();
 		}
 	}
+	
+	
+	/**
+	 * Lists all models.
+	 */
+	
+	public function actionIndex() {
+	  
+	  $controllerId = ucfirst($this->getId());
+	  //print_r($controllerId);
+	  
+	  $criteria=new CDbCriteria;
+		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
+		  $keyword = trim($_GET['keyword']);			  
+      $criteria->condition  = 'title like :keyword ';
+      $criteria->params     = array(':keyword'=>"%$keyword%");
+      $is_partial = true;		  
+	  }
+    $imodel = new $controllerId;
+    $item_count = call_user_func( array( $imodel, 'count') , $criteria );
+    
+    $page_size = 10;          
+    $pages =new CPagination($item_count);
+    $pages->setPageSize($page_size);      
+    $pagination = new CLinkPager();
+    $pagination->cssFile=false;
+    $pagination->setPages($pages);    
+    $pagination->init();      
+    $criteria->limit        =  $page_size;
+    $criteria->offset       = $pages->offset;
+    $select_pagination = new  CListPager();
+    $select_pagination->header = '跳转到:';
+    $select_pagination->htmlOptions['onchange']="";
+    
+    $select_pagination->setPages($pages);    
+    $select_pagination->init();    
+    $list = call_user_func( array( $imodel, 'findAll') , $criteria );
+    
+	  if( $is_partial ){
+	    $this->renderPartial('_index',array(
+	      'list' => $list, 
+	      'pagination' => $pagination, 'select_pagination' => $select_pagination 
+	      ),false,true);
+	  }else{
+	     $this->render('index',array(  			
+  			'list'  =>  $list,
+  			'pagination' => $pagination, 'select_pagination' => $select_pagination
+  		),false,true);
+	  }
+	  
+	}
+
+
+
 	/**
 	*  Copy a list of article in same category
 	*/
@@ -281,28 +315,7 @@ class ArticleController extends Controller
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
-	/**
-	 * Lists all models.
-	 */
 	
-	public function actionIndex() {
-	  if( isset($_GET['keyword']) ){
-		  $keyword = trim($_GET['keyword']);		  
-		  $list = Article::model()->findAll(
-		    array(
-            'condition' => 'title like :keyword ',
-            'params'=>array(':keyword'=>"%$keyword%" )            
-        ));      
-		  $this->renderPartial('_index',array('list' => $list),false,true);
-	  }else{
-	    $list = Article::model()->findAll();
-  	  $this->render('index',array(
-  			'model' =>  $model,			
-  			'list'  =>  $list
-  		));  
-	  }
-	}
-
 	/**
 	 * Manages all models.
 	 */

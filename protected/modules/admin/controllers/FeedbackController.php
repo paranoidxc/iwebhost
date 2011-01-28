@@ -166,7 +166,7 @@ class FeedbackController extends controller
 	 */
 	public function actionIndex()
 	{	
-		$criteria=new CDbCriteria;		
+		$criteria=new CDbCriteria;
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
@@ -184,7 +184,9 @@ class FeedbackController extends controller
     $criteria->limit        =  $page_size;
     $criteria->offset       = $pages->offset;
     $select_pagination = new  CListPager();
+    $select_pagination->header = '跳转到:';
     $select_pagination->htmlOptions['onchange']="";
+    
     $select_pagination->setPages($pages);    
     $select_pagination->init();      
     $list = Feedback::model()->findAll( $criteria );
