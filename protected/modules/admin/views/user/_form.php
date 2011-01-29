@@ -46,8 +46,8 @@
     </tbody>
   </table>
   
-  <div class="taR h30P pr10P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn')); ?>
+  <div class="taR h30P lh30P pr10P pt5P">
+  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue bigrounded')); ?>
   </div>
 
 <?php $this->endWidget(); ?>

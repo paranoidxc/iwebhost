@@ -36,6 +36,7 @@ class ArticleController extends IController
 	  
 	  $controllerId = ucfirst($this->getId());
 	  //print_r($controllerId);
+	  //$actionId = $this->getAction()->getId();
 	  
 	  $criteria=new CDbCriteria;
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
@@ -336,14 +337,14 @@ class ArticleController extends IController
 	 * If the data model is not found, an HTTP exception will be raised.
 	 */
 	public function loadModel()
-	{
+	{	  
 		if($this->_model===null)
 		{
-			if(isset($_GET['id']))
+			if(isset($_GET['id']))  			
 				$this->_model=Article::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
-		}
+		}		
 		return $this->_model;
 	}
 

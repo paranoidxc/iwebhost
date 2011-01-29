@@ -42,7 +42,7 @@
         </tr>
       </thead>
     </table> 
-    <div class='mb10P ofA search_result_wrap' style="max-height: 300px">      
+    <div class='ofA search_result_wrap' style="max-height: 300px">      
       <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
       <!-- table header 和 table body 视情况而变 结束-->
     </div>

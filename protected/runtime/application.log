@@ -416,3 +416,249 @@ Stack trace:
 REQUEST_URI=/index.php?r=admin/article/index
 in H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php (51)
 in H:\projects\iwebhost\index.php (90)
+2011/01/29 20:46:35 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=10&ajax=ajax&panel_ident=panel_article&_=1296305195533
+2011/01/29 20:46:37 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=8&ajax=ajax&panel_ident=panel_article&_=1296305196955
+2011/01/29 20:46:38 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=7&ajax=ajax&panel_ident=panel_article&_=1296305198078
+2011/01/29 20:46:39 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305199395
+2011/01/29 20:46:49 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 20:47:51 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 20:48:23 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 20:48:43 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 20:48:44 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 20:48:45 [error] [exception.CException] exception 'CException' with message '属性 "ArticleController._model" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(341): CComponent->__get('_model')
+#1 H:\projects\iwebhost\protected\modules\admin\controllers\ArticleController.php(256): ArticleController->loadModel()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): ArticleController->actionUpdate()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('update')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/article/u...')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#14 H:\projects\iwebhost\index.php(90): CApplication->run()
+#15 {main} REQUEST_URI=/index.php?r=admin/article/update&id=3&ajax=ajax&panel_ident=panel_article&_=1296305208927
+2011/01/29 21:39:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "adminsdfds".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('adminsdfds')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=adminsdfds
+2011/01/29 21:39:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "adminsdfds".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('adminsdfds')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=adminsdfds
+2011/01/29 21:41:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "adminsdfds".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('adminsdfds')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=adminsdfds
+2011/01/29 21:41:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "123".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('123')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=123
+2011/01/29 21:42:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 21:43:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 21:44:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 22:01:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 22:01:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 22:04:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd
+2011/01/29 22:06:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sdfsd".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('sdfsd')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(90): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=sdfsd

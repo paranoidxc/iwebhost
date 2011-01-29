@@ -1,4 +1,5 @@
 
+
 .btT {
   border: 1px solid #efefef;  
   border-bottom: 1px solid #b8b8b8;
@@ -74,7 +75,8 @@
 
 .h16p { height: 16px; } 
 .h20p { height: 20px; }
-.h30p { height: 30px; }
+.h26P { height: 26px; }
+.h30P { height: 30px; }
 .h40p { height: 40px; }
 .h50p { height: 50px; }
 .h100p { height: 100px; }
@@ -82,14 +84,18 @@
 .h200p { height: 200px; }
 .h400p { height: 400px; }
 
+.lh30P { line-height: 30px; }
 .pr2p { padding-right: 2px; }
 .pl2p { padding-left: 2px; }
 .p2p { padding: 2px; }
 .p5p { padding: 5px; }
+.p5P { padding: 5px; }
+.p10P { padding: 10px; }
+.pt5P {padding-top: 5px;}
 .pt10p { padding-top: 10px; } 
 .pr5p { padding-right: 5px; }
-.pr10p { padding-right: 10px; }
-.pr20p { padding-right: 20px; }
+.pr10P { padding-right: 10px; }
+.pr20P { padding-right: 20px; }
 .pl2p { padding-left: 2px; }
 .pl3p { padding-left: 3px; }
 .pl4p { padding-left: 4px; }

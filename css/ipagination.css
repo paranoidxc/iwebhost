@@ -8,6 +8,9 @@
 8 * @version $Id: pager.css 1678 2010-01-07 21:02:00Z qiang.xue $
 9 * @since 1.0
 10 */
+td.ipagination {
+  background: #FFFFCC;
+}
 
 ul.yiiPager {
  font-size:11px;

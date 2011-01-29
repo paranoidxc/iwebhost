@@ -47,6 +47,10 @@ return array(
 	'language'	=> 'zh-cn',
 	// application components
 	'components'=>array(
+	  'errorHandler'=>array(
+      'errorAction'=>'site/error',
+    ),
+        
 	  'image'=>array(
       'class'=>'application.extensions.image.CImageComponent',            
       'driver'=>'GD',
