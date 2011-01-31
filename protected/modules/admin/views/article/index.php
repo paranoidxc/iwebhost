@@ -7,6 +7,7 @@
   
   <p class=''>
     <ul class="actions"> 	      
+      <li>&nbsp;</li>
       <li>	  
     	  <span class="c_m_a">
     	    More Actions<span class="more"></span>

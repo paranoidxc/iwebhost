@@ -27,16 +27,30 @@ class ArticleController extends IController
 		}
 	}
 	
-	
 	/**
 	 * Lists all models.
 	 */
-	
-	public function actionIndex() {
-	  
-	  $controllerId = ucfirst($this->getId());
-	  //print_r($controllerId);
-	  //$actionId = $this->getAction()->getId();
+	public function actionIndex($value='')
+	{	  
+	  $criteria=new CDbCriteria;
+		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
+		  $keyword = trim($_GET['keyword']);			  
+      $criteria->condition  = 'title like :keyword ';
+      $criteria->params     = array(':keyword'=>"%$keyword%");
+      $is_partial = true;		  
+	  }	  
+	  $opt = array( 
+	    'keyword'       => $keyword,
+	    'criteria'      => $criteria,
+	    'is_partial'    => $is_partial
+  	);
+	  parent::actionIndex($opt);
+	}
+	public function actioncxIndex() {
+	  	  
+	  //print_r( ucfirst($this->getId() ) );	  
+	  //$this->actionId     = $this->getAction()->getId();
+	  $controllerId = $this->controllerId;	  
 	  
 	  $criteria=new CDbCriteria;
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
@@ -76,7 +90,6 @@ class ArticleController extends IController
   			'pagination' => $pagination, 'select_pagination' => $select_pagination
   		),false,true);
 	  }
-	  
 	}
 
 
@@ -287,34 +300,7 @@ class ArticleController extends IController
 		}
 	}
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 */
-	public function actionDelete()
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			if( strlen($_POST['ids']) >0 ) {
-				$ids = explode(',',$_POST['ids']);
-				foreach( $ids as $id) {
-					$a = Article::model()->findByPk($id);
-					$a->delete();
-					//echo $id;
-					//echo  $a->title;
-				}
-				//echo "delete done";
-			}
-			// we only allow deletion via POST request
-			//$this->loadModel()->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			//if(!isset($_GET['ajax']))
-				//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
+	
 
 	
 	/**

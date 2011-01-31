@@ -9,8 +9,12 @@ class Controller extends CController
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
 	 */
+	public $controllerId;
+	public $actionId;
+		
 	public function init() {
-	  $this->isconfig=Sconfig::model()->find();
+	  $this->isconfig=Sconfig::model()->find();	  	  
+	  $this->controllerId =  ucfirst($this->getId() ) ;	  	  
 	  
 	  if( $this->isconfig && $this->isconfig->is_oops ) {
 	    //echo "oops";

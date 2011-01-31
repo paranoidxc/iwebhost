@@ -25,12 +25,73 @@ class IController extends Controller
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
-	
 	/**
 	 * Lists all models.
 	 */
-	public function index() {
-	  
+	public function actionIndex($opt=null) {
+	  $controllerId = $this->controllerId;	  	    
+	  extract($opt);	  
+    $imodel = new $controllerId;
+    $item_count = call_user_func( array( $imodel, 'count') , $criteria );
+    
+    $page_size = 10;          
+    $pages =new CPagination($item_count);
+    $pages->setPageSize($page_size);      
+    $pagination = new CLinkPager();
+    $pagination->cssFile=false;
+    $pagination->setPages($pages);    
+    $pagination->init();      
+    $criteria->limit        =  $page_size;
+    $criteria->offset       = $pages->offset;
+    $select_pagination = new  CListPager();
+    $select_pagination->header = '跳转到:';
+    $select_pagination->htmlOptions['onchange']="";
+    
+    $select_pagination->setPages($pages);    
+    $select_pagination->init();    
+    $list = call_user_func( array( $imodel, 'findAll') , $criteria );
+    
+	  if( $is_partial ){
+	    $this->renderPartial('_index',array(
+	      'list' => $list, 
+	      'pagination' => $pagination, 'select_pagination' => $select_pagination 
+	      ),false,true);
+	  }else{
+	     $this->render('index',array(  			
+  			'list'  =>  $list,
+  			'pagination' => $pagination, 'select_pagination' => $select_pagination
+  		),false,true);
+	  } 
+	}
+	
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 */
+	public function actionDelete()
+	{
+		if(Yii::app()->request->isPostRequest)
+		{
+			if( strlen($_POST['ids']) >0 ) {
+				$ids = explode(',',$_POST['ids']);
+				foreach( $ids as $id) {
+				  $imodel = new $this->controllerId;
+					$item = $imodel->findByPk($id);
+					$item->delete();
+					//echo $item->title;
+				} 
+				$str = count($ids).' '.$this->controllerId.' has been deleted on'.Time::now();
+				Yii::app()->user->setFlash('success',$str);
+				//echo "delete done";
+			}
+			// we only allow deletion via POST request
+			//$this->loadModel()->delete();
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			//if(!isset($_GET['ajax']))
+			//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 }
 ?>
