@@ -29,8 +29,16 @@ class IController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex($opt=null) {
-	  $controllerId = $this->controllerId;	  	    
-	  extract($opt);	  
+	  $controllerId = $this->controllerId;	  
+	  if( !is_array($opt) ){
+	    $criteria=new CDbCriteria;
+	    $keyword = trim($_GET['keyword']);			  
+      //$criteria->condition  = 'question like :keyword OR answer like :keyword';
+      //$criteria->params     = array(':keyword'=>"%$keyword%");      
+	  }else{
+	    extract($opt);
+	  }
+	  
     $imodel = new $controllerId;
     $item_count = call_user_func( array( $imodel, 'count') , $criteria );
     

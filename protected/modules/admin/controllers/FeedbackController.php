@@ -1,28 +1,8 @@
 <?php
 
-class FeedbackController extends controller
-{
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
-
-	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
-
-	/**
-	 * @return array action filters
-	 */
-	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-		);
-	}
-
+class FeedbackController extends IController
+{	
+		
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -142,65 +122,20 @@ class FeedbackController extends controller
 	}
 
 	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 */
-	public function actionDelete()
-	{
-	  if(Yii::app()->request->isPostRequest)
-		{
-		  if( strlen($_POST['ids']) >0 ) {
-				$ids = explode(',',$_POST['ids']);
-				foreach( $ids as $id) {
-					$a = Feedback::model()->findByPk($id);
-					$a->delete();
-				}
-			}
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
-	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{	
 		$criteria=new CDbCriteria;
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
-		  $keyword = trim($_GET['keyword']);			  
+		  $keyword              = trim($_GET['keyword']);			  
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
-      $criteria->params     = array(':keyword'=>"%$keyword%");
-      $is_partial = true;		  
+      $criteria->params     = array(':keyword'=>"%$keyword%"); 
+      
+      $opt['is_partial']    = true;
+      $opt['criteria'] =  $criteria;
 	  }
-    $item_count = Feedback::model()->count($criteria);    
-    $page_size = 10;          
-    $pages =new CPagination($item_count);
-    $pages->setPageSize($page_size);      
-    $pagination = new CLinkPager();
-    $pagination->cssFile=false;
-    $pagination->setPages($pages);    
-    $pagination->init();      
-    $criteria->limit        =  $page_size;
-    $criteria->offset       = $pages->offset;
-    $select_pagination = new  CListPager();
-    $select_pagination->header = '跳转到:';
-    $select_pagination->htmlOptions['onchange']="";
-    
-    $select_pagination->setPages($pages);    
-    $select_pagination->init();      
-    $list = Feedback::model()->findAll( $criteria );
-	  if( $is_partial ){
-	    $this->renderPartial('_index',array(
-	      'list' => $list, 
-	      'pagination' => $pagination, 'select_pagination' => $select_pagination 
-	      ),false,true);
-	  }else{
-	     $this->render('index',array(  			
-  			'list'  =>  $list,
-  			'pagination' => $pagination, 'select_pagination' => $select_pagination
-  		),false,true);
-	  }
+	  parent::actionIndex($opt);
 	}
 
 	/**

@@ -36,14 +36,10 @@ class ArticleController extends IController
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  = 'title like :keyword ';
-      $criteria->params     = array(':keyword'=>"%$keyword%");
-      $is_partial = true;		  
-	  }	  
-	  $opt = array( 
-	    'keyword'       => $keyword,
-	    'criteria'      => $criteria,
-	    'is_partial'    => $is_partial
-  	);
+      $criteria->params     = array(':keyword'=>"%$keyword%");      
+      $opt['is_partial']    = true;
+      $opt['criteria'] =  $criteria;
+	  }
 	  parent::actionIndex($opt);
 	}
 	public function actioncxIndex() {
