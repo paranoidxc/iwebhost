@@ -6,6 +6,8 @@
 		'class' => 'article_ajax_form'
 	)
 )); ?>	
+  <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
+
   <p class="note">Fields with <span class="required">*</span> are required.</p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
@@ -155,7 +157,6 @@
   		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue bigrounded')); ?>
   </div> 
 <?php $this->endWidget(); ?>
-  <div class="ajax_overlay" />
 </div>
-
+<div class="ajax_overlay" />
 <!-- form -->

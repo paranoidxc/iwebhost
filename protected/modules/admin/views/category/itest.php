@@ -1,5 +1,6 @@
 <?php
-  echo "<div class='mac_panel_wrap w800P' >";
+  $return_model_type = $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type;
+  echo "<div class='mac_panel_wrap w800P' id='panel_$return_model_type' >";
   $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
   $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
@@ -41,12 +42,16 @@
   // top actions 
 ?>
 
+
+
 <input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="top_leaf_id"/>
 <input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="cur_leaf_id"/>
 
 
 <input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />
 <input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type; ?>"   id="model_type" class="model_type" />
+
+<input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax')) ?>" />
 
 <input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax') ) ?>" id="leaf_content_view_url" />
 <input type="hidden"  value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
@@ -133,6 +138,7 @@
 	<li class="">
 	  <span class="ele_refresh flR csP mt5P radius4">Refresh</span>
 	</li>
+	<!--
 	<li class="list_symbol">
 	  <a href="#" title="#" class=""></a>
  	</li>
@@ -140,11 +146,11 @@
  	<li class="thumb_symbol">
 	  <a href="#" title="#" class=""></a>
  	</li>
-	
+  -->
 </ul>
 
 <?php
-  echo '<div id="leaf_articles">';
+  echo '<div id="leaf_articles" class="leaf_content">';
   
   $this->renderPartial('ajaxview_attachment', array() , false, true);
   

@@ -3,7 +3,10 @@
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create Node") )
 ?>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'model_type' => $model_type)); ?>
+111111111
+<?php echo $return_panel_ident?>
+
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'model_type' => $model_type,'return_panel_ident' => $return_panel_ident )); ?>
 
 <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 

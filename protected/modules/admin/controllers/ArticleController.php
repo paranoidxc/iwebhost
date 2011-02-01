@@ -213,7 +213,8 @@ class ArticleController extends IController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-        
+    $panel_ident = $_REQUEST['panel_ident'];
+    
 		if(isset($_POST['Article']))
 		{		
 		  $model->attributes=$_POST['Article'];
@@ -229,7 +230,8 @@ class ArticleController extends IController
   				$this->renderPartial('create_next', array(
     				'model' => $model,
     				'leafs'	=> $leafs,
-    				'leaf'	=> $leaf
+    				'leaf'	=> $leaf,
+    				'panel_ident' =>  $panel_ident,    				
     			),false,true);
     			exit;
 					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );						
@@ -240,16 +242,17 @@ class ArticleController extends IController
 		}
 		
 	  if( isset($_GET['ajax']) ) {
-		$this->renderPartial('create', array(
-			'model' => $model,
-			'leafs'	=> $leafs,
-			'leaf'	=> $leaf
-				),false,ture);					
+  		$this->renderPartial('create', array(
+  			'model' => $model,
+  			'leafs'	=> $leafs,
+  			'leaf'	=> $leaf,
+  			'panel_ident' =>  $panel_ident,  			
+			),false,true);					
 		}else {
 			$this->render('create',array(
 				'model'	=>	$model,
 				'leafs' => 	$leafs,
-				'leaf'	=> $leaf
+				'leaf'	=> $leaf,
 			));
 		}
 		
@@ -268,6 +271,7 @@ class ArticleController extends IController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
     $panel_ident = $_REQUEST['panel_ident'];
+        
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];

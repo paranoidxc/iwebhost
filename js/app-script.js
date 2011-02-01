@@ -1,5 +1,41 @@
-function init_article_sort() {  
+function uploadTips(ele,str) {     
+  var confirm_diglog = $('<div class="tip_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
+  confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');  
+  confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue tip_diglog_close" type="button" value="Close" />') );        
+  confirm_diglog.append( confirm_diglog_ibtn_wrap );    
+  confirm_diglog.addClass('radius7 ');
+  confirm_diglog.addClass('boxshadow ');
+  var wrap = parentOne(ele,'.mac_panel_wrap');
+  wrap.append( confirm_diglog );    
+  confirm_diglog.css({ 'position' : 'absolute', 'background' : '#FFF', 'z-index': wrap.css('z-index') })    
+  confirm_diglog.css({
+    'top': 0,
+    'left': ( wrap.width() -confirm_diglog.width() )/2,
+  });
   
+  confirm_diglog.animate({
+    'top': ( wrap.height() -confirm_diglog.height() )/2,
+  },{ duration: 500 });
+  
+  
+  setTimeout( function(){
+    confirm_diglog.find('.tip_diglog_close').unbind();
+    confirm_diglog.fadeOut("slow",function(){
+      $(this).remove();
+    });
+  }, 3000 );
+  
+  
+  confirm_diglog.find('.tip_diglog_close').click(function(){    
+    confirm_diglog.fadeOut("slow",function(){
+      $(this).remove();
+    });
+    //.remove();     
+  })
+  
+}
+
+function init_article_sort() {
 		$("#article_drag_ele").sortable({
 		  handle: '.handle',
 		  start: function(event, ui) { 		    
@@ -112,6 +148,15 @@ function init_article_sort() {
 	}
 	
 
+
+/*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
+function parentOne(ele,exp){	  
+  if( ele.parent().find(exp).length > 0  ) {      
+    return ele;      
+  }else{
+    return parentOne(ele.parent(), exp);
+  }	      
+}
 
 
 $(document).ready(function(){	
@@ -451,15 +496,19 @@ $(document).ready(function(){
   	      wrap.find('.ele_update_leaf').addClass('active');
   	    }
   	    
+  	    var url = wrap.find('.ele_refresh_url').val() +'&model_type='+$('#model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id');
+  	    //wrap.find('.ele_refresh_url').val(url);
+  	    
   	    $('#leaf_id').val($(this).attr('data_id'));	
   	    $('#cur_leaf_id').val( $(this).attr('data_id') );
   	    $('.api_categorys_ul p.tree_leaf_current').removeClass('tree_leaf_current');
-  	    $(this).parent().addClass('tree_leaf_current');  	    
+  	    $(this).parent().addClass('tree_leaf_current');  	      	    
   	    $.ajax({
             type: 'get',
             dataType: 'html',
             cache: false,
-            url: '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id'),
+            //url: '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id'),
+            url: url,
             success: function(html) {                
               $('#leaf_articles').html(html);                             
             }
@@ -772,42 +821,43 @@ $(document).ready(function(){
 	}
 	
 	//fun13
-	function render() { 	  
-	  var parent_panel = false;	  
-	  if( wrap.find('.return_panel').length > 0 && wrap.find('.return_panel').val() != "") {
-	   // alert( wrap.find('.return_panel') );	    	   
+	function render() {	  
+	  if( parent_panel ){	    
+	    if( parent_panel.find('.leaf_content').length > 0 ){
+	      var url = parent_panel.find('.ele_refresh_url').val()+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
+	    }else {
+	      var url = parent_panel.find('.ele_refresh_url').val() ; 
+	    }
+	  }
+	  else if( wrap.find('.return_panel').length > 0 && wrap.find('.return_panel').val() != "") {	   	   	    
 	    parent_panel = $('#'+wrap.find('.return_panel').val());
-	    var url = parent_panel.find('.ele_refresh_url').val();	    
-	    //var control = true;
-	  }else if( wrap.find('.ele_refresh_url').length > 0 ) {
-	    var url = wrap.find('.ele_refresh_url').val() ;
+	    var url = parent_panel.find('.ele_refresh_url').val();	    	    
+	  }else if( wrap.find('.ele_refresh_url').length > 0 ) {	    	    
 	    parent_panel = wrap;
-	  } else {
-  	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
-  	  //var control = false;
+	    if( wrap.find('.leaf_content').length > 0 ){	 	      
+	      var url = wrap.find('.ele_refresh_url').val()+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
+	    }else{
+	      var url = wrap.find('.ele_refresh_url').val() ;  	      
+	    }	    
+	  } else {	    	    
+  	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	    	  
+  	}	  
+  	if( parent_panel && parent_panel.find('.ele_list_all').length > 0  ){
+  	  parent_panel.find('.ele_list_all').attr('checked',false);  
   	}  	
-	  /*
-  	if( wrap.find('.ele_refresh_url').length > 0 ){
-  	  var url = wrap.find('.ele_refresh_url').val() ;
-  	  var control = true;
-  	}else if( parent_wrap.find('.ele_refresh_url').length > 0  ) {  	  
-  	  var url = parent_wrap.find('.ele_refresh_url').val() ;
-  	  var control = true;
-  	  iwrap = parent_wrap;
-  	}else{
-  	  var url = '/index.php?r=admin/category/view&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();  	  
-  	  var control = false;
-  	}  	
-  	*/
-  	wrap.find('.ele_list_all').attr('checked',false);
 	  $.ajax({
         type      : 'get',
         dataType  : 'html',
         cache     : false,
         url       : url,
         success   : function(html) {     
-          if( parent_panel ){            
-            //alert( parent_panel.find('.search_result_wrap').length  );
+          idebug( 'search_result_wrap length = '+parent_panel.find( '.search_result_wrap').length  );
+          if( parent_panel.find('.leaf_content').length > 0  ){                   
+            idebug(' update leaf content');
+            parent_panel.find('.leaf_content').html(html);
+          }
+          else if( parent_panel.find('.search_result_wrap').length > 0 ){            
+            idebug(' update leaf search_result_wrap ');
             parent_panel.find('.search_result_wrap').html(html);
           }else{
             $('#leaf_articles').html(html);
@@ -816,7 +866,6 @@ $(document).ready(function(){
     });
 	}
 	
-
 	//fun19
 	function renderPartLeafs() {
 	  var url = $('#leaf_render_url').val();
@@ -952,7 +1001,7 @@ $(document).ready(function(){
 	/* TODO */
 	/* JAVASCRIPT_START */
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_wrap=null;
+	var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_wrap=null, parent_panel = null;
 	function reset_panel_postion(){	  	
 	  z++;  
 	  if( x >= 250 ){
@@ -1014,12 +1063,12 @@ $(document).ready(function(){
     */
   }
   function ajaxOnSuccess() {    
-    if( wrap != null ) {       
+    if( wrap != null ) {            
       formLay(wrap,'h'); 
       if ( wrap.find('.confirm_diglog').length > 0 ){
-        wrap.find('.confirm_diglog').remove();
+        wrap.find('.confirm_diglog').remove(); 
       }
-      wrap = null; 
+      wrap = null;      
     }
     /*
     $.fn.imasker_hide();
@@ -1054,14 +1103,6 @@ $(document).ready(function(){
 		return _temp_ids;
 	}
 	
-	/*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
-	function parentOne(ele,exp){	  
-    if( ele.parent().find(exp).length > 0  ) {      
-      return ele;      
-    }else{
-      return parentOne(ele.parent(), exp);
-    }	      
-	}
 	/*693a9fdd4c2fd0700968fba0d07ff3c0 取得当前DOM的父元素中含有类mac_panel_wrap */
 	function getPanel(that){
     return parentOne(that,'.mac_panel_wrap');
@@ -1128,11 +1169,12 @@ $(document).ready(function(){
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val()+'&panel_ident='+wrap.attr('id'),
 			success:	function (html) {			  
 			  popup_panel( $(html) );
-			  init_mac_panel_drag();		  
+			  init_mac_panel_drag();
 			}			
 		});
 		return false;
 	};
+	
 	$('.create_article_continue,.ele_create_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
 	  var panel_ident = wrap.find('.return_panel').val();
@@ -1226,7 +1268,7 @@ $(document).ready(function(){
   			url	 		: 	url,
   			data		: 	"ids="+ids,
   			dataType 	:	'html',
-  			success		:	function(html){
+  			success		:	function(html){  			  
   			  render(html);
   			}			
   		});
@@ -1237,29 +1279,9 @@ $(document).ready(function(){
       formLay(wrap,'h');
       wrap = null;
     })
-    
-    /*  
-		if( window.confirm('Really want to delete record(s) ?') ){				
-		  wrap = getPanel($(this));
-		  var ids = get_ids();
-		  if( $('#leaf_content_del_url').length > 0 ){
-		    var url = $("#leaf_content_del_url").val();
-		  }else{
-		    var url = $(this).attr('href');
-		  }
-  		$.ajax({
-  			type 		: 	"POST",
-  			url	 		: 	url,
-  			data		: 	"ids="+ids,
-  			dataType 	:	'html',
-  			success		:	function(html){
-  			  render(html);
-  			}			
-  		});
-		}
-		*/
 		return false;
 	});
+	
 	/*864577c5de51168219098730aff9add0 批量编辑附件*/
 	$('#ele_update_atts').click(function(){
 	  wrap = getPanel($(this));
@@ -1414,11 +1436,12 @@ $(document).ready(function(){
 	  }
 		var that = $(this);
 		var leaf_id = $('#Article_category_id').val();		
-		wrap = getPanel($(this));
+		wrap = getPanel($(this));				
+		parent_panel = $('#'+wrap.find('.return_panel').val());		
 		var iform = wrap.find('.panel_middle .middle .iform');
 		idebug("iform === ");
 		idebug(iform.length);
-		dialog = wrap.find('.panel_middle .middle .feedback');
+		dialog = wrap.find('.panel_middle .middle .feedback');		
 		dialog.html('');
 		$.ajax({
 			type:		"post",
@@ -1426,9 +1449,9 @@ $(document).ready(function(){
 			data:		$(this).serialize(),
 			success:	function(html) {			  
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
-			    wrap.remove();			    
+			    wrap.remove();  
 			    popup_panel( $(html) );		    
-			  }else{
+			  }else{			    
 			    iform.html(html);
 			    if( that.attr('action').indexOf('category') > 0 ){
 			      renderPartLeafs();
@@ -1437,36 +1460,7 @@ $(document).ready(function(){
 		      else{
 		        render();
 		      }
-			    /*
-			    if( that.attr('action').indexOf('article') > 0 ){
-			      render();
-			    }else if( that.attr('action').indexOf('user') > 0 ) {			      
-			      render();
-		      }else{
-		        renderPartLeafs();
-		      }*/
-			  }
-			  //idebug(html);
-			  /*
-			  if( html.indexOf('mac_panel_wrap') != -1 ){
-			    wrap.html( html);
-			  }else{
-			    更新操作
-			    if( that.attr('action').indexOf('article') > 0 ){
-  			    if( that.attr('action').indexOf('update') != -1 ) {
-    			    dialog.addClass('feedback_on').html(html).show();
-    			    timeouthandle = setTimeout( "dialog.slideUp()" , 3000 );
-    			    render();
-  			    }else{
-  			      iform.html(html);
-  			      render();
-  			    }  
-			    }else{
-			      iform.html(html);
-			      renderPartLeafs();
-			    }
-			  }
-			  */
+			  }			  
 			}
 		});		
 		return false;
@@ -1634,15 +1628,21 @@ $(document).ready(function(){
   $('.ele_refresh').live('click',function(){
     wrap = getPanel( $(this) );
     var that = $(this);
-    var url = wrap.find('.ele_refresh_url').val();
-    
+    var url = wrap.find('.ele_refresh_url').val();  
+    if( wrap.find('.leaf_content').length > 0 ){
+      url += '&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
+    }    
     
     $.ajax({
 	    type: 'get',
 	    cache: false,
 	    url: url,
 	    success:function(html){
-	      wrap.find('.search_result_wrap').html(html);
+	      if( wrap.find('.leaf_content').length > 0 ){
+	        wrap.find('.leaf_content').html(html);
+	      }else{
+	        wrap.find('.search_result_wrap').html(html);  
+	      }
 	    }
 	  })
     return false;

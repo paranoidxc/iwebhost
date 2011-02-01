@@ -2,7 +2,7 @@
 <?php
   foreach( $model->articles as $a ){
 ?>
-<table  class="w100s bcc" 
+<table  class="w100S bcc" 
         id="sort_<?php echo $a->id; ?>"
 		    rel_id="<?php echo $a->id; ?>"  
 		    rel_href="<?php echo CController::createurl('article/update', array('id'=> $a->id, 'ajax'=> 'ajax') ) ?>">
@@ -10,11 +10,11 @@
 		  rel_id="<?php echo $a->id; ?>"  
 		  rel_href="<?php echo CController::createurl('article/update', array('id'=> $a->id, 'ajax'=> 'ajax') ) ?>"
 		  >
-    <td class="w34p taL vaM h20p ti4P ">
+    <td class="w34P taL vaM h20P ti4P ">
       <img class="vaM csD handle" src="<?php echo Yii::app()->request->baseUrl?>/images/grippy.png"  />
       <input type="checkbox" class="cb_article vaT" value="<?php echo $a->id; ?>" >
     </td>
-    <td class="vaM w20p">
+    <td class="vaM w20P">
       <?php
         $is_star = $a->is_star ? 'stared' : 'unstared';
         $star_action = $is_star == 'stared' ? 'unstared' : 'stared';
@@ -25,11 +25,11 @@
       <?php echo $a->title; ?>&nbsp;-&nbsp;
       <?php echo cnSub( CHtml::encode($a->content) , 10); ?>
     </td>
-    <td class="vaM taR w100p">      
+    <td class="vaM taR w100P">      
       <?php echo Time::timeAgoInWords($a->create_time, array('short'=>true) ) ;?>
     </td>    
-    <td class="vaM taC w15p ">
-      <span class='fs15p csP' >&raquo;</span>
+    <td class="vaM taC w15P ">
+      <span class='fs15P csP' >&raquo;</span>
       <?php //echo $a->update_datetime; ?>
     </td>
   </tr>

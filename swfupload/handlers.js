@@ -106,7 +106,8 @@ function pickatt_uploadSuccess(file, serverData) {
 		progress.setComplete();
 		progress.setStatus("Complete.");
 		progress.toggleCancel(false);    
-    alert( $('.progressWrapper:last').find('.progressName').html() );
+		uploadTips($('.progressWrapper:last'), $('.progressWrapper:last').find('.progressName').html() );
+    //alert( $('.progressWrapper:last').find('.progressName').html() );    
 	} catch (ex) {
 		this.debug(ex);
 	}
