@@ -72,6 +72,10 @@ function fileDialogComplete(numFilesSelected, numFilesQueued) {
 	}
 }
 
+function pickatt_uploadStart(file){
+  $('.swfloadstatus').show();
+}
+
 function uploadStart(file) {
 	try {
 		/* I don't want to do any file validation or anything,  I'll just update the UI and
@@ -106,6 +110,7 @@ function pickatt_uploadSuccess(file, serverData) {
 		progress.setComplete();
 		progress.setStatus("Complete.");
 		progress.toggleCancel(false);    
+		$('.swfloadstatus').hide();
 		uploadTips($('.progressWrapper:last'), $('.progressWrapper:last').find('.progressName').html() );
     //alert( $('.progressWrapper:last').find('.progressName').html() );    
 	} catch (ex) {

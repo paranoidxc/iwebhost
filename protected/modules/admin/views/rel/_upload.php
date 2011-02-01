@@ -16,6 +16,7 @@
 		button_height: "22",
 		button_placeholder_id: "spanButtonPlaceHolder",
 		// The event handler functions are defined in handlers.js
+		upload_start_handler : pickatt_uploadStart,
 		file_dialog_complete_handler : fileDialogComplete,			
 		upload_success_handler : pickatt_uploadSuccess,			
 	};
@@ -23,8 +24,9 @@
 </script>
 <div id="attachment_form" >
   <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
-    <div>
-      <span id="spanButtonPlaceHolder">Upload Attachment</span>
+    <div class='lh20P'>
+      <span id="spanButtonPlaceHolder">Upload Attachment</span>      
+      <span class='swfloadstatus dN fwB'>Uploading...</span>
       <input id="btnCancel" 
             type="button"
             value="Cancel All Uploads" onclick="swfu.cancelQueue();"

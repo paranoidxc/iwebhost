@@ -41,6 +41,7 @@
 .flL { float: left; }
 .flR { float: right; }
 
+.fwB {font-weight: bold;}
 
 .w100S { width: 100%; }
 .w10P { width: 10px; }
@@ -87,6 +88,7 @@
 .h200P { height: 200px; }
 .h400P { height: 400px; }
 
+.lh20P { line-height: 20px; }
 .lh30P { line-height: 30px; }
 .lh40P { line-height: 40px; }
 .lh50P { line-height: 50px; }

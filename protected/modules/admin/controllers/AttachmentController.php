@@ -136,6 +136,7 @@ class AttachmentController extends Controller
 	    'path'        => $time,
 	    'w' => $w,
 	    'h' => $h,
+  	  'c_time' => Time::now(),
   	  'extension' => $file_extension,
 	    'category_id' => $category_id,
     );
