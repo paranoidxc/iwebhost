@@ -135,6 +135,7 @@ class UserController extends IController
 					  $a->delete();  
 					}
 				}
+				echo $str = count($ids).' Admins  has been deleted on '.Time::now();
 			}
 		}
 		else

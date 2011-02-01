@@ -108,8 +108,8 @@ class IController extends Controller
 					$item->delete();
 					//echo $item->title;
 				} 
-				$str = count($ids).' '.$this->controllerId.' has been deleted on'.Time::now();
-				Yii::app()->user->setFlash('success',$str);
+				echo $str = count($ids).' '.$this->controllerId.' has been deleted on '.Time::now();
+				//Yii::app()->user->setFlash('success',$str);
 				//echo "delete done";
 			}
 			// we only allow deletion via POST request

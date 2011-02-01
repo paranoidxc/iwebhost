@@ -5,7 +5,7 @@
 ?>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
-
+<div class="ajax_overlay" ></div>
 <?php
   $this->endWidget('application.extensions.Flatmacpanel');
 ?>

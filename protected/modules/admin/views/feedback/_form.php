@@ -73,4 +73,3 @@
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
-<div class="ajax_overlay" ></div>

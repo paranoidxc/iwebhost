@@ -88,7 +88,7 @@
  	
  	<li>
 	  <span class="c_s_m">
-  	  <input type="checkbox" id="cb_all" /><span class="more"></span>
+  	  <input type="checkbox" id="cb_all" class="ele_list_all" /><span class="more"></span>
 	  </span>
 	  <ul class='dN c_s_m_d'>
 	    <li class="c_s_m_d_a">All</li>
@@ -111,7 +111,7 @@
 	  <ul class='dN c_m_a_d'>
 	    <li id="artiles_stared" title="Stared Articles" class="c_m_a_d_batch">Stared</li>      
 	    <li id="artiles_unstared" title="Unstared Articles" class="c_m_a_d_batch">Unstared</li>
-      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch">move</li> 
+      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch ele_content_move">move</li> 
       <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles" class="c_m_a_d_batch">delete</li>
       <?php
 	    if( $top_leaf->model_type == 'attachment' ) {

@@ -821,10 +821,12 @@ $(document).ready(function(){
 	}
 	
 	//fun13
-	function render() {	  
-	  if( parent_panel ){	    
+	function render(str) {	  
+	  if( parent_panel ){	
+	    //alert( parent_panel.attr('id') );
+	    //alert( parent_panel.find('.leaf_content').length  );
 	    if( parent_panel.find('.leaf_content').length > 0 ){
-	      var url = parent_panel.find('.ele_refresh_url').val()+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
+	      var url = parent_panel.find('.ele_refresh_url').val()+'&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();	      
 	    }else {
 	      var url = parent_panel.find('.ele_refresh_url').val() ; 
 	    }
@@ -855,12 +857,16 @@ $(document).ready(function(){
           if( parent_panel.find('.leaf_content').length > 0  ){                   
             idebug(' update leaf content');
             parent_panel.find('.leaf_content').html(html);
+            formLay(parent_panel,'h');
           }
           else if( parent_panel.find('.search_result_wrap').length > 0 ){            
             idebug(' update leaf search_result_wrap ');
             parent_panel.find('.search_result_wrap').html(html);
           }else{
             $('#leaf_articles').html(html);
+          }
+          if( str ){            
+            uploadTips(parent_panel, str);
           }
         }
     });
@@ -1120,7 +1126,7 @@ $(document).ready(function(){
     wrap.find('.confirm_diglog').remove();
   }
   function formLay(wrap,t){
-    idebug('Call formLay');
+    idebug('Call formLay');    
     if( t == 'h') {
       idebug('ajax overlay display ='+t);
       wrap.find('.ajax_overlay').hide();  
@@ -1209,8 +1215,31 @@ $(document).ready(function(){
 	$('.ele_create_article,.ele_create').live('click',fun_item_new);		
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
-	$('#artiles_move').click(function(){		
-	  wrap = getPanel($(this));	  
+	$('.ele_content_move').click(function(){
+	  parent_panel = wrap = getPanel($(this));
+	  var leaf_panel_id = 'move_leaf_panel_'+$('#leaf_id').val();
+		if( isExist( leaf_panel_id) ){
+		  return false;
+		}
+		$.ajax({
+			type:	'get',
+			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val()+'&panel_ident='+wrap.attr('id'),
+			cache:	false,
+			success:	function(html){
+			  popup_panel( $(html).attr('id',leaf_panel_id) );			  
+			  
+			},
+			complete: function(){
+			  formLay(parent_panel,'s');
+			}
+			
+		})		
+				
+		return false;
+  });
+  
+	$('#artiles_move_bak').click(function(){		
+	  wrap = getPanel($(this));
 	  var leaf_panel_id = 'move_leaf_panel_'+$('#leaf_id').val();
 		if( isExist( leaf_panel_id) ){
 		  return false;
@@ -1227,10 +1256,11 @@ $(document).ready(function(){
 	});
 	
 	/* eeab0810def3336d891534c6bf06c26e  提交移动文章*/
-	$('#article_ajax_move').live('submit',function(){
+	$('.ajax_move_form').live('submit',function(){
 	  wrap = getPanel($(this));		
-	  dialog = wrap.find('.panel_middle .middle .feedback');
-		dialog.html('');
+	  parent_panel = $('#'+wrap.find('.return_panel').val());
+	  //dialog = wrap.find('.panel_middle .middle .feedback');
+		//dialog.html('');
 		var ids = get_ids();			
 		$.ajax({
 			type: "post",
@@ -1241,10 +1271,11 @@ $(document).ready(function(){
 				if( html.indexOf('mac_panel_wrap') != -1 ){
 			    wrap.html( html);
 			  }else{
-			    dialog.addClass('feedback_on').html(html).show();
-			    setTimeout( "dialog.slideUp()" , 3000 );			    
+			    //dialog.addClass('feedback_on').html(html).show();
+			    //setTimeout( "dialog.slideUp()" , 3000 );			    
+			    wrap.remove();
 			  }
-				render();
+				render(html);
 			}
 		});
 		return false;
@@ -1452,7 +1483,8 @@ $(document).ready(function(){
 			    wrap.remove();  
 			    popup_panel( $(html) );		    
 			  }else{			    
-			    iform.html(html);
+			    //iform.html(html);
+			    iform.replaceWith(html);
 			    if( that.attr('action').indexOf('category') > 0 ){			      
 			      renderPartLeafs();
 		      }else if(that.attr('action').indexOf('setting') > 0 ) {

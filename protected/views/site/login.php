@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 ?>
 
 <?php
-  echo "<div class='mac_panel_wrap ilogin_wrap w600p' >";
+  echo "<div class='mac_panel_wrap ilogin_wrap w600P' >";
   $this->beginWidget('application.extensions.Smacpanel',array('title' => 'System Console Login'));
 ?>  
 <div class="icolor">
@@ -44,7 +44,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login', array('class'=>'ibtn') ); ?>
+		<?php echo CHtml::submitButton('Login', array('class'=>'ibtn blue') ); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

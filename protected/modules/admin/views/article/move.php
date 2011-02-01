@@ -5,9 +5,9 @@
 
 <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
 
-<form action="<?php echo CController::createurl('article/move') ?>" method="post" id="article_ajax_move">
+<form action="<?php echo CController::createurl('article/move') ?>" method="post" class="ajax_move_form" id="article_ajax_move">
 
-<?php
+  <?php
     $this->renderPartial('_node',array( 'nodes' => $leafs,'return_id' => $return_id ) );
   ?>  
    <div class="taR h30P pr10P">
@@ -18,7 +18,6 @@
   </div>  
   
 </form>
-
 
 <div class="ajax_overlay" />
 
