@@ -961,6 +961,27 @@ $(document).ready(function(){
 	  x = y += distance;
 	}
 
+  function iconfrim(str) {    
+    formLay(wrap);    
+    var confirm_diglog = $('<div class="confirm_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
+    confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');
+    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_okay" type="button" value="Okay" />') );
+    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_cancel" type="button" value="Cancel" />') );        
+    confirm_diglog.append( confirm_diglog_ibtn_wrap );    
+    confirm_diglog.addClass('radius7 ');
+    confirm_diglog.addClass('boxshadow ');
+    wrap.append( confirm_diglog );    
+    confirm_diglog.css({ 'position' : 'absolute', 'background' : '#FFF', 'z-index': z })    
+    confirm_diglog.css({
+      'top': 0,
+      'left': ( wrap.width() -confirm_diglog.width() )/2,
+    });
+    
+    confirm_diglog.animate({
+      'top': ( wrap.height() -confirm_diglog.height() )/2,
+    },{ duration: 500 });
+  }
+  
 	function popup_panel(ele) {	  
 	  //if( panel_id != undefined &&  $('#'+panel_id ).length == 1 ) {
 	    //$('#'+panel_id ).css({ 'z-index' : z });
@@ -992,8 +1013,14 @@ $(document).ready(function(){
     });
     */
   }
-  function ajaxOnSuccess() {
-    if( wrap != null ) { formLay(wrap,'h'); wrap = null;}
+  function ajaxOnSuccess() {    
+    if( wrap != null ) {       
+      formLay(wrap,'h'); 
+      if ( wrap.find('.confirm_diglog').length > 0 ){
+        wrap.find('.confirm_diglog').remove();
+      }
+      wrap = null; 
+    }
     /*
     $.fn.imasker_hide();
     */
@@ -1048,6 +1075,9 @@ $(document).ready(function(){
     return false;
   }
   
+  function hideConfirm(wrap){
+    wrap.find('.confirm_diglog').remove();
+  }
   function formLay(wrap,t){
     idebug('Call formLay');
     if( t == 'h') {
@@ -1057,6 +1087,7 @@ $(document).ready(function(){
       wrap.find('.ajax_overlay').css('z-index',z).show();
     }
   }
+  
   function formError(wrap){
     wrap.find('.errorSummary').hide();
     wrap.find('.errorMessage').hide();
@@ -1179,6 +1210,35 @@ $(document).ready(function(){
 	
 	/*f1ce042a27aa18b121377beab2615c57 删除文章*/
 	$('#ele_delete_articles,.ele_delete').click(function(){	  
+	  wrap = getPanel($(this));
+	  var that = $(this);
+	  iconfrim('Really want to delete record(s) ?');
+    wrap.find('.confirm_dialog_okay').click( function() {
+      hideConfirm(wrap);
+      var ids = get_ids();
+		  if( $('#leaf_content_del_url').length > 0 ){
+		    var url = $("#leaf_content_del_url").val();
+		  }else{
+		    var url = that.attr('href');
+		  }
+  		$.ajax({
+  			type 		: 	"POST",
+  			url	 		: 	url,
+  			data		: 	"ids="+ids,
+  			dataType 	:	'html',
+  			success		:	function(html){
+  			  render(html);
+  			}			
+  		});
+    });
+    
+    wrap.find('.confirm_dialog_cancel').click( function() {
+      hideConfirm(wrap);
+      formLay(wrap,'h');
+      wrap = null;
+    })
+    
+    /*  
 		if( window.confirm('Really want to delete record(s) ?') ){				
 		  wrap = getPanel($(this));
 		  var ids = get_ids();
@@ -1197,6 +1257,7 @@ $(document).ready(function(){
   			}			
   		});
 		}
+		*/
 		return false;
 	});
 	/*864577c5de51168219098730aff9add0 批量编辑附件*/

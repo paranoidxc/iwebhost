@@ -130,7 +130,7 @@ echo $is_update;
   
   
   <div class="taR h30P pr10P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn')); ?>
+  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue')); ?>
   </div> 
   
   <?php $this->endWidget(); ?>

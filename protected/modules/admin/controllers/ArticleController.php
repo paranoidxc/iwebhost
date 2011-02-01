@@ -38,8 +38,9 @@ class ArticleController extends IController
       $criteria->condition  = 'title like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%");      
       $opt['is_partial']    = true;
-      $opt['criteria'] =  $criteria;
 	  }
+	  $criteria->order    = 'update_time DESC';
+	  $opt['criteria'] =  $criteria;
 	  parent::actionIndex($opt);
 	}
 	public function actioncxIndex() {

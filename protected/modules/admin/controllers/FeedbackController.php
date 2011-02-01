@@ -131,10 +131,10 @@ class FeedbackController extends IController
 		  $keyword              = trim($_GET['keyword']);			  
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
       $criteria->params     = array(':keyword'=>"%$keyword%"); 
-      
       $opt['is_partial']    = true;
-      $opt['criteria'] =  $criteria;
 	  }
+	  $criteria->order      = 'a_time DESC';
+	  $opt['criteria'] =  $criteria;
 	  parent::actionIndex($opt);
 	}
 
@@ -153,21 +153,7 @@ class FeedbackController extends IController
 		));
 	}
 
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
-	public function loadModel()
-	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=Feedback::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
-	}
+
 
 	/**
 	 * Performs the AJAX validation.

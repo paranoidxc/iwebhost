@@ -1,12 +1,12 @@
-<div class='mac_panel_wrap w600p' >
+<div class='mac_panel_wrap w600P' >
 <?php
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
 ?>
 <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
 
-<div style="padding: 5px">
+<div class='p5P' >
   <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="search_form">    
-    <input type="text" name="keyword" class="radius7 search_input keyword" />
+    <input type="text" name="keyword" class="radius15 search_input keyword" />
   </form>
 </div>
 
@@ -34,11 +34,11 @@
   <?php $this->renderPartial('_att',array( 'atts' => $atts,'pagination' => $pagination, 'select_pagination' => $select_pagination) ); ?>
 </div>
 
-<div class="bgTips p5p">
+<div class="bgTips p5P">
 <?php $this->renderPartial('_upload'); ?>
 </div>
 
-<div class="taR h50P pr10P pt10P " style="line-height: 50p">
+<div class="taR lh50P h50P pr10P pt10P ">
   <img src="" alt="" class="dN vaM image_border rel_gavatar" />
   <input type="hidden" class="rel_id" value="" size="5" />
   <input type="hidden" class="rel_screen_name" value="" size="40"/>
@@ -48,7 +48,7 @@
   <select class="dN rel_imagerange">
   </select>
   <input type="hidden" class="rtype" value="<?php echo $rtype; ?>" />
-  <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn att_return_submit')); ?>
+  <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn blue att_return_submit')); ?>
 </div>   
 <div class="ajax_overlay" ></div>
 <?php

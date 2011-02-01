@@ -1,4 +1,4 @@
-<div class='mac_panel_wrap w800p' id="panel_users">
+<div class='mac_panel_wrap w800P' id="panel_users">
   <?php  
     $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Admins Manage') );
   ?>
@@ -22,7 +22,7 @@
     </ul>
   </p>
   
-  <div style="padding: 5px">
+  <div class='p5P'>
     <form action="<?php echo CController::createUrl('user/index') ?>" method="get" class="search_form">        
       <input type="text" name="keyword" class="radius15 search_input keyword" />
     </form>
@@ -32,16 +32,16 @@
     <table class='ilist'>
       <thead>
         <tr>
-          <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80p taC'>Sid</th>
-          <th class='w160p taL'><span class="radius4 filter">Account</span></th>
-          <th class='w160p taL'>Password</th>
+          <th class='w20P taC pr2P pl2P'><input type='checkbox' class="ele_list_all" /></th>
+          <th class='w80P taC'>Sid</th>
+          <th class='w160P taL'><span class="radius4 filter">Account</span></th>
+          <th class='w160P taL'>Password</th>
           <th class='taL' ><span class="radius4 filter">Email</span></th>
         </tr>
       </thead>      
     </table>
     <div class='ofA search_result_wrap' style="max-height: 300px">   
-      <?php echo $this->renderPartial('_index', array('list'=>$list)); ?>
+      <?php echo $this->renderPartial('_index', array('list'=>$list,'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
     </div>    
   </div>
   <div class="ajax_overlay" />    

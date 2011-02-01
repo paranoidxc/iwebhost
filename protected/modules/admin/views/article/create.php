@@ -1,4 +1,4 @@
-<div class='mac_panel_wrap w800p' >
+<div class='mac_panel_wrap w800P' >
 <?php
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create New") )
 ?>

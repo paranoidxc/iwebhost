@@ -150,10 +150,11 @@ class UserController extends IController
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  = 'username like :keyword OR email like :keyword ';
-      $criteria->params     = array(':keyword'=>"%$keyword%");      
+      $criteria->params     = array(':keyword'=>"%$keyword%");            
       $opt['is_partial']    = true;
-      $opt['criteria'] =  $criteria;
 	  }
+	  $criteria->order = 'id desc';
+	  $opt['criteria'] =  $criteria;
 	  parent::actionIndex($opt);	
 	}
 

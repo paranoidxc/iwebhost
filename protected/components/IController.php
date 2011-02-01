@@ -25,6 +25,27 @@ class IController extends Controller
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
+	
+	
+		/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 */
+	public function loadModel()
+	{
+		if($this->_model===null)
+		{
+			if(isset($_GET['id']))
+			$controllerId = $this->controllerId;
+			$imodel = new $controllerId;
+				$this->_model=$imodel->findbyPk($_GET['id']);
+			if($this->_model===null)
+				throw new CHttpException(404,'The requested page does not exist.');
+		}
+		return $this->_model;
+	}
+	
+	
 	/**
 	 * Lists all models.
 	 */
@@ -40,8 +61,7 @@ class IController extends Controller
 	  }
 	  
     $imodel = new $controllerId;
-    $item_count = call_user_func( array( $imodel, 'count') , $criteria );
-    
+    $item_count = call_user_func( array( $imodel, 'count') , $criteria );    
     $page_size = 10;          
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      

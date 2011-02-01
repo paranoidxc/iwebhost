@@ -1,4 +1,4 @@
-<div class='mac_panel_wrap w800p' id="panel_article">
+<div class='mac_panel_wrap w800P' id="panel_article">
   <?php  
     $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Articles Manage') );
   ?>
@@ -22,7 +22,7 @@
   
   <div style="padding: 5px">
     <form action="<?php echo CController::createUrl('article/index') ?>" method="get" class="search_form">        
-      <input type="text" name="keyword" class="radius7 search_input keyword" />
+      <input type="text" name="keyword" class="radius15 search_input keyword" />
     </form>
   </div>
 
@@ -30,10 +30,11 @@
     <table class='ilist'>
       <thead>
         <tr>
-          <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80p taC'>Sid</th>
-          <th class='w160p taL'><span class="filter radius4">title</span></th> 
-          <th>&nbsp;</th>                       
+          <th class='w20P taC pr2p pl2p '><input type='checkbox' class="ele_list_all" /></th>
+          <th class='w80P taC'>Sid</th>
+          <th class='taL'><span class="filter radius4">title</span></th> 
+          <th class='w100P taC' >create_time</th>
+          <th class='w100P taC' >update_time</th>          
         </tr>
       </thead>              
     </table>

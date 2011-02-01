@@ -13,7 +13,7 @@
     relation: 
     <input type="text" size="8" name="category_id"  class="move_category_id node_id" readonly="true" /> - 
     <input type="text" size="40" name="category_name" class="move_category_name node_name" readonly="true" />  
-    <?php echo CHtml::submitButton('Ok', array( 'class' => 'ibtn collect_return_submit' )); ?>
+    <?php echo CHtml::submitButton('Ok', array( 'class' => 'ibtn blue collect_return_submit' )); ?>
   </div>  
 <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 

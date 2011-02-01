@@ -1,4 +1,4 @@
-<div class='mac_panel_wrap w800p' id="panel_feedback">
+<div class='mac_panel_wrap w800P' id="panel_feedback">
   <?php 
     $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Feedback Manage') );
   ?>
@@ -21,9 +21,9 @@
     </ul>
   </p>
  
-  <div style="padding: 5px">
+  <div class="p5P" >
     <form action="<?php echo CController::createUrl('feedback/index') ?>" method="get" class="search_form">       
-      <input type="text" name="keyword" class="radius7 search_input keyword" />
+      <input type="text" name="keyword" class="radius15 search_input keyword" />
     </form>
   </div>
 
@@ -31,14 +31,14 @@
     <table class='ilist'>
       <thead>
         <tr>
-          <th class='w20p taC pr2p pl2p'><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80p '>Sid</th>
-          <th class='w80p taL'>itype</th>
-          <th class='w160p taL'>email</th>
-          <th class='w160p taL'><span class="filter radius4">question</span></th>
-          <th class='w100p taL'>q_time</th>
+          <th class='w20P taC pr2P pl2P'><input type='checkbox' class="ele_list_all" /></th>
+          <th class='w80P '>Sid</th>
+          <th class='w80P taL'>itype</th>
+          <th class='w160P taL'>email</th>
+          <th class='w160P taL'><span class="filter radius4">question</span></th>
+          <th class='w100P taL'>q_time</th>
           <th class='taL' ><span class='filter radius4'>answer</span></th>
-          <th class='w100p taL'>a_time</th>
+          <th class='w100P taL'>a_time</th>
         </tr>
       </thead>
     </table> 

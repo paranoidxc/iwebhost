@@ -1,5 +1,5 @@
 <?php
-  echo "<div class='mac_panel_wrap' >";
+  echo "<div class='mac_panel_wrap w800P' >";
   $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
   $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
