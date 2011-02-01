@@ -39,21 +39,17 @@
 
 </ul>
     </td>    
-    <td style="width: 35%" id="attachment_form_wrap">        
-    
-    
-    
-    
-    
+    <td style="width: 35%" id="attachment_form_wrap">
       <div id="attachment_form" >
         <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
           <div>
 			      <span id="spanButtonPlaceHolder">Upload Attachment</span>
-			      <input id="btnCancel" 
+			      <input id="ibtnCancel" 
 			            type="button"
 			            value="Cancel All Uploads" onclick="swfu.cancelQueue();"
 			  	        disabled="disabled"
-			  	        style="margin-top: 5px; margin-left: 2px; font-size: 8pt; height: 29px;" class="ibtn" />
+			  	        class='ibtn blue'
+			  	        style="margin-top: 6px;"/>
 		      </div>
 		      <div id="divStatus">0 Files Uploaded</div>
 		      <p class="progress">Upload Queue</p>
@@ -80,7 +76,7 @@
 				file_queue_limit : 0,
 				custom_settings : {
 					progressTarget : "fsUploadProgress",
-					cancelButtonId : "btnCancel"
+					cancelButtonId : "ibtnCancel"
 				},
 				debug: false,
 

@@ -130,6 +130,9 @@
     </ul>  	  
 	</li>
 	
+	<li class="">
+	  <span class="ele_refresh flR csP mt5P radius4">Refresh</span>
+	</li>
 	<li class="list_symbol">
 	  <a href="#" title="#" class=""></a>
  	</li>

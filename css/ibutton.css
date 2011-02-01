@@ -30,6 +30,12 @@
   border-radius: 2em;
 }
 
+.blue[disabled] {
+  color:#FFFFFF;
+  border:1px solid #4592AD;            
+  background: #319ABF;
+}
+
 .blue {
   color:#FFFFFF;
   border:1px solid #4592AD;            
