@@ -1,39 +1,36 @@
 <?php
   if( !$is_update ) {
-  ?>
-<div class='mac_panel_wrap w600p'>
-<?php
-echo $is_update;
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,10)) )
 ?>
-  <?php
+<div class='mac_panel_wrap w600P'>
+<?php  
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,10)) );
   }
 ?>
 
+  <div class='iform'>
 
-<div class="iform">
+  	<?php if(Yii::app()->user->hasFlash('success')) {?>
+      <div class="flash_suc">
+        <?php echo Yii::app()->user->getFlash('success'); ?>
+      </div>
+    <?php } ?>
   
-	<?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-  <?php } ?>
+    <?php $form=$this->beginWidget('CActiveForm', array(
+    	'id'=>'article-form',
+    	'enableAjaxValidation'=>false,
+    	'htmlOptions' => array(
+    		'class' => 'atts_ajax_form'
+    	)
+    )); ?>
+    
+    <?php echo $form->errorSummary($model); ?>	
   
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'article-form',
-	'enableAjaxValidation'=>false,
-	'htmlOptions' => array(
-		'class' => 'atts_ajax_form'
-	)
-)); ?>
-  <?php echo $form->errorSummary($model); ?>	
-
-  <div class="ml20P pt10P">
-	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
-	  <a data="extra_link_wrap" class="form_tab"><span>Extra Link</span></a>
-	</div>
-	
-	<div class="form_field_wrap field_normal">
+    <div class="ml20P pt10P">
+  	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
+  	  <a data="extra_link_wrap" class="form_tab"><span>Extra Link</span></a>
+  	</div>
+  	
+  	<div class="form_field_wrap field_normal">
   	<table class='itable'>
     	<tbody>
     	  <tr>
@@ -101,47 +98,44 @@ echo $is_update;
     	</tbody>
     </table>
 	</div>
-
-	<div class="dN form_field_wrap extra_link_wrap">	  
-	  <ul class="flL w200p ml20P bcBlue p5p">
-	    <?php
-	      $size_list = explode(',',$model->tips);
-	      //print_r( Yii::app() );
-	      foreach($size_list as $item){
-	        if( strlen($item) > 0 ){
-	          $item = str_replace('_','', $item);
-  	        list($w,$h) = explode('*',$item);
-  	        $link_outer =  Yii::app()->request->baseUrl.UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
-    	      $link_inner = UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
-  	        echo '<li class="csP extra_link_ele" link_outer="'.$link_outer.'"  link_inner="'.$link_inner.'">';
-  	        echo $item;
-  	        echo '</li>';
-	        }
-	      }
-	    ?>
-	  </ul>
-	  <div>
-	    <textarea class="extra_link_area_outer">link outer</textarea>
-	    <textarea class="extra_link_area_inner">link inner</textarea>
-	  </div>
-	  <div class="clB"></div>
-	</div>
-	
-  
-  
-  <div class="taR h30P pr10P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue')); ?>
-  </div> 
-  
-  <?php $this->endWidget(); ?>
-    <div class="ajax_overlay" />    
+  	
+    
+  	
+  	
+  	<!-- extra_link_wrap -->
+    <div class="dN form_field_wrap extra_link_wrap">
+      <ul class="w200P ml20P bcBlue p5P">
+  	    <?php
+  	      $size_list = explode(',',$model->tips);	      
+  	      foreach($size_list as $item){
+  	        if( strlen($item) > 0 ){
+  	          $item = str_replace('_','', $item);
+    	        list($w,$h) = explode('*',$item);
+    	        $link_outer =  Yii::app()->request->baseUrl.UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
+      	      $link_inner = UPFILES_DIR.'/'.$model->path.'_'.$w.'_'.$h.'.'.$model->extension;
+      	      echo '<li class="csP extra_link_ele" link_outer="'.$link_outer.'" link_inner="'.$link_inner.'">';
+      	      echo $item;
+      	      echo '</li>';
+  	        }
+  	      }
+  	    ?>
+  	  </ul>
+  	  
+  	  <div>
+  	    <textarea class="extra_link_area_outer">link outer</textarea>
+  	    <textarea class="extra_link_area_inner">link inner</textarea>
+  	  </div>
+      <div class="clB"></div>
+    </div><!--extra_link_wrap end-->
+  	
+    <div class="taR h30P lh30P pr10P pt5P">
+    	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue')); ?>
+    </div>
+    <?php $this->endWidget(); ?>
   </div>
-  
-
-  <?php
+  <div class="ajax_overlay" ></div>
+<?php
   if( !$is_update ) {
-  ?>  
-  <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 
 ?>
 </div>
