@@ -1217,7 +1217,7 @@ $(document).ready(function(){
 		}
 		$.ajax({
 			type:	'get',
-			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val(),
+			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val()+'&panel_ident='+wrap.attr('id'),
 			cache:	false,
 			success:	function(html){
 			  popup_panel( $(html).attr('id',leaf_panel_id) );

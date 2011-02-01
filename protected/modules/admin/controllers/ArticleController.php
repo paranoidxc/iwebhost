@@ -113,6 +113,8 @@ class ArticleController extends IController
 	*/
 	public function actionMove() {		
 		
+	  $panel_ident = $_REQUEST['panel_ident'];
+	  
 		if( isset($_POST['category_id']) ){			
 			$category_id = $_POST['category_id'];
 			$category = Category::model()->findByPk($category_id);
@@ -134,7 +136,8 @@ class ArticleController extends IController
 	  );	  
 	  
 		$this->renderPartial('move', array(
-			'leafs' => $leafs
+			'leafs' => $leafs,
+			'panel_ident' => $panel_ident,
 		),false, true);
 	}
 	/**
