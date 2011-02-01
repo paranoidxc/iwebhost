@@ -1223,3 +1223,30 @@ REQUEST_URI=/index.php?r=admin/category/view&ajax=ajax&_=1296561794597
 in H:\projects\iwebhost\protected\modules\admin\views\category\ajaxview.php (3)
 in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (511)
 in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:05:51 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (541)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:05:51 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (544)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:10:25 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:10:31 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:11:16 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:11:49 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:13:49 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:13:53 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)
+2011/02/01 23:13:57 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (752)
+in H:\projects\iwebhost\index.php (90)

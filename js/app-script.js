@@ -1447,13 +1447,13 @@ $(document).ready(function(){
 			type:		"post",
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
-			success:	function(html) {			  
+			success:	function(html) {		  
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
 			    wrap.remove();  
 			    popup_panel( $(html) );		    
 			  }else{			    
 			    iform.html(html);
-			    if( that.attr('action').indexOf('category') > 0 ){
+			    if( that.attr('action').indexOf('category') > 0 ){			      
 			      renderPartLeafs();
 		      }else if(that.attr('action').indexOf('setting') > 0 ) {
 		      }

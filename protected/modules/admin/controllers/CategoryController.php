@@ -752,9 +752,11 @@ class CategoryController extends Controller
 			$model->attributes=$_POST['Category'];		
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
-			  if( isset($_GET['ajax']) ) {
-      	  echo 'update leaf suc';
-    	    exit;
+			  if( isset($_GET['ajax']) ) {      	  
+    	    $str = 'Data saved suc  On '.Time::now();
+					Yii::app()->user->setFlash('success',$str);
+					$is_update = true;					
+					
         }else {
     	    $this->redirect(array('view','id'=>$model->id));
         }
@@ -765,6 +767,7 @@ class CategoryController extends Controller
 			$this->renderPartial('update', array(
 				'model'       => $model,
 				'model_type'	=> $_GET['model_type'],
+				'is_update'   =>  $is_update,
 				'ajax'	      => 'ajax'
 				),false,true);
 		}else {					
