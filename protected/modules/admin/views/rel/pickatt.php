@@ -38,7 +38,7 @@
 <?php $this->renderPartial('_upload'); ?>
 </div>
 
-<div class="taR lh50P h50P pr10P pt10P ">
+<div class="taR lh60P h60P pr10P pt10P ">
   <img src="" alt="" class="dN vaM image_border rel_gavatar" />
   <input type="hidden" class="rel_id" value="" size="5" />
   <input type="hidden" class="rel_screen_name" value="" size="40"/>

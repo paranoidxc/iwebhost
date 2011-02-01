@@ -81,6 +81,7 @@
 .h30P { height: 30px; }
 .h40P { height: 40px; }
 .h50P { height: 50px; }
+.h60P { height: 60px; }
 .h100P { height: 100px; }
 .h150P { height: 150px; }
 .h200P { height: 200px; }
@@ -89,6 +90,7 @@
 .lh30P { line-height: 30px; }
 .lh40P { line-height: 40px; }
 .lh50P { line-height: 50px; }
+.lh60P { line-height: 60px; }
 
 .pr2P { padding-right: 2px; }
 .pl2P { padding-left: 2px; }
