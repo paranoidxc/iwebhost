@@ -35,7 +35,7 @@ class Sconfig extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('is_oops,oops_tips', 'default'),
+		  array('is_oops,oops_tips,record_no', 'default'),
 		  array('sitename, description, keyword', 'required'),
 			array('sitename, description, keyword', 'length', 'max'=>255),
 			// The following rule is used by search().

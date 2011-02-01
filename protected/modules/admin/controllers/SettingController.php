@@ -25,6 +25,8 @@ class SettingController extends Controller
   	    }else{
     	    Sconfig::model()->updateAll($_POST['Sconfig']);
   	    }
+  	    $str = 'Data saved suc On '.date("Y-m-d H:i:s") ;
+  			Yii::app()->user->setFlash('success',$str);
   	    $sconfig=Sconfig::model()->find();
 	    }else{
 	      $sconfig = $_model;

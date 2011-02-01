@@ -1,5 +1,5 @@
 <?php
-  echo "<div class='mac_panel_wrap ilogin_wrap ' >";
+  echo "<div class='mac_panel_wrap ilogin_wrap w800P' >";
   $this->beginWidget('application.extensions.Smacpanel',array('title' => 'System Setting'));
 ?>  
 <div class="icolor">
