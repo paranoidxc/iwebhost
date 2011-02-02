@@ -531,7 +531,7 @@ class Category extends CActiveRecord
 	    $sql 	 = " UPDATE category ";
 			$sql	.= " SET lft = -lft, rgt = -rgt ";
 			$sql	.= " WHERE lft >= $s_leaf->lft AND rgt <= $s_leaf->rgt ";
-			_debug($sql);
+			//_debug($sql);
 			$cmodel->dbConnection->createCommand($sql)->execute(); 	    			
 
 			// step 2: decrease left and/or right position values of currently 'lower' items (and parents)			
@@ -554,7 +554,7 @@ class Category extends CActiveRecord
     	$_lft = $parent_rgt > $s_leaf->rgt ? $parent_rgt - $s_leaf->rgt -1 : $parent_rgt-$s_leaf->rgt -1 + $width;
     	$_rgt = $parent_rgt > $s_leaf->rgt ? $parent_rgt - $s_leaf->rgt -1 : $parent_rgt-$s_leaf->rgt -1 + $width;
     	$sql = " UPDATE category SET lft = -lft + $_lft , rgt = -rgt + $_rgt WHERE lft < 0 ";    	    	
-    	_debug( $sql );
+    	//_debug( $sql );
     	$cmodel->dbConnection->createCommand($sql)->execute();
 	    $transaction->commit();		
 	      

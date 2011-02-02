@@ -776,7 +776,7 @@ $(document).ready(function(){
 	  }
 	  wrap = getPanel($(this));
 	  var that = $(this);	  
-	  iconfrim('Are you Really want to delete the item?');
+	  iconfirm('Are you Really want to delete the item?');
 	  
 	  wrap.find('.confirm_dialog_okay').click( function() {
       hideConfirm(wrap);
@@ -878,7 +878,7 @@ $(document).ready(function(){
           }else{
             $('#leaf_articles').html(html);
           }
-          if( str ){            
+          if( str ){     
             uploadTips(parent_panel, str);
           }
         }
@@ -886,14 +886,18 @@ $(document).ready(function(){
 	}
 	
 	//fun19
-	function renderPartLeafs() {
+	function renderPartLeafs(str) {
 	  var url = $('#leaf_render_url').val();
 	  $.ajax({
 			type:		"get",
 			url:		url,
 			cache: false,			
 			success:	function(html) {			
-			  $('.icategory_tree').html( html );			  
+			  $('.icategory_tree').html( html );	
+			  if( str ){            
+			    formLay(parent_panel,'h');
+          uploadTips(parent_panel, str);
+        }		  
 			},
 			complete: function(){
 			  category_sortable();
@@ -976,36 +980,40 @@ $(document).ready(function(){
 	
 	//98f13708210194c475687be6106a3b84  移动节点
 	$('.ele_move_leaf').live('click',function(){
-	  wrap = getPanel($(this));
+	  parent_panel = wrap = getPanel($(this));
 	  $.ajax({
 	    type: 'get',
 	    cache: false,
-	    url:    $(this).attr('href')+'&top_leaf_id='+$('#top_leaf_id').val(),
+	    url:    $(this).attr('href')+'&top_leaf_id='+$('#top_leaf_id').val()+'&panel_ident='+wrap.attr('id'),
 	    success: function(html){	      
 	      popup_panel( $(html) );	      
-	    }	    
+	    },
+	    complete: function(){
+			  formLay(parent_panel,'s');
+			}	    
 	  });
 	  return false;
 	})
 	//98f13708210194c475687be6106a3b84  提交移动节点
-	$('#category_ajax_move').live('submit',function(){	  
-	  wrap = getPanel($(this));
-	  dialog = wrap.find('.panel_middle .middle .feedback');
-		dialog.html('');
-		
+	$('#category_ajax_move').live('submit',function(){	  	  
+	  wrap = getPanel($(this));		
+	  parent_panel = $('#'+wrap.find('.return_panel').val());
+	  //dialog = wrap.find('.panel_middle .middle .feedback');
+		//dialog.html('');		
 	  $.ajax({
 			type: "post",
 			cache: false,
 			data:		$(this).serialize()+"&cur_leaf_id="+$('#cur_leaf_id').val(),
 			url: $(this).attr('action'),
 			success:	function(html){
-			   if( html.indexOf('mac_panel_wrap') != -1 ){
+			  if( html.indexOf('mac_panel_wrap') != -1 ){
 			    wrap.html( html);
 			  }else{
-			    dialog.addClass('feedback_on').html(html).show();
-			    setTimeout( "dialog.slideUp()" , 3000 );			    
+  			  //  dialog.addClass('feedback_on').html(html).show();
+  			  //  setTimeout( "dialog.slideUp()" , 3000 );	
+  			  wrap.remove();		    
 			  }
-        renderPartLeafs();
+        renderPartLeafs(html);
 			}
 		});
 		return false;
@@ -1029,7 +1037,7 @@ $(document).ready(function(){
 	  x = y += distance;
 	}
 
-  function iconfrim(str) {      
+  function iconfirm(str) {      
     if( wrap == null ){
       alert(' wrap is null please init');
       return;
@@ -1320,7 +1328,7 @@ $(document).ready(function(){
 	$('#ele_delete_articles,.ele_delete').click(function(){	  
 	  wrap = getPanel($(this));
 	  var that = $(this);
-	  iconfrim('Really want to delete record(s) ?');
+	  iconfirm('Really want to delete record(s) ?');
     wrap.find('.confirm_dialog_okay').click( function() {
       hideConfirm(wrap);
       var ids = get_ids();

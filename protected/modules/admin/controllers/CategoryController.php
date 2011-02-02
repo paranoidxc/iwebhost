@@ -75,6 +75,8 @@ class CategoryController extends Controller
 	}
 	
 	public function actionMove() {
+	  $panel_ident = $_REQUEST['panel_ident'];
+	  
 	  if(Yii::app()->request->isPostRequest){	    	    
       if( Category::model()->leafMoveToAnother($_POST['cur_leaf_id'],$_POST['category_id']) ){
         echo "leaf move suc !" ;        
@@ -87,7 +89,8 @@ class CategoryController extends Controller
         array( 'id' => $_GET['top_leaf_id'],'include' => true )
 	    );
 		  $this->renderPartial('move', array(
-			  'leafs' => $leafs
+			  'leafs' => $leafs,
+			  'panel_ident' => $panel_ident,
 		  ),false, true);
 		  
 	  }
