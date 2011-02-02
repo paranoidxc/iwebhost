@@ -1114,6 +1114,10 @@ $(document).ready(function(){
     return parentOne(that,'.mac_panel_wrap');
   }
   
+  function getParentPanleByWrap(wrap){
+    return $('#'+wrap.find('.return_panel').val());
+  }
+  
   function isExist(panel_id){    
     if( $('#'+panel_id).length == 1 ){
       $('#'+panel_id).css({'z-index':++z});
@@ -1146,7 +1150,15 @@ $(document).ready(function(){
     wrap.remove();
   };
 	$('.mac_panel_wrap .close').live('click',function(){
-	  getPanel($(this)).remove();
+	  var wrap = getPanel($(this));
+	  formLay(getParentPanleByWrap(wrap),'h');
+	  wrap.remove();
+	  //getPanel($(this)).find('.dialog')
+	  //wrap.getPanel($(this)).remove();
+	  //var wrap = getPanel($(this));
+	  //wrap.find('.return_panel').val()
+	  //formLay(wrap);
+	  //wrap.remove();
 	});	
 	$('.mac_panel_wrap .min').live('click',function(){
 	  getPanel($(this)).slideUp();
