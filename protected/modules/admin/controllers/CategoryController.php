@@ -32,7 +32,7 @@ class CategoryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','leafs','exchange','move','sort','pick','itest','part_leafs'),
+				'actions'=>array('iclass','index','view','leafs','exchange','move','sort','pick','itest','part_leafs'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -55,6 +55,17 @@ class CategoryController extends Controller
 		return array( $leafs );
 	}
   
+	public function actionIclass(){
+	  $id     = $_GET['id'];
+	  $class  = $_GET['class'];
+	  
+	  $icat = Yii::app()->user->getState('scategory');
+    if( $icat[$id] ){
+      $icat[$id]['class'] = $class;
+      Yii::app()->user->setState('scategory',$icat);
+    }
+	}
+	
 	public function actionPart_leafs(){
 		$id = $_GET['top_leaf_id'];		
 		$leafs = Category::model()->ileafs(
@@ -395,7 +406,7 @@ class CategoryController extends Controller
 	public function actionIroot(){
 	  $this->irun('ROOT');
 	}
-	public function actionInavigation(){
+	public function actionInavigation(){	  
 	  $this->irun('navigation');
 	}
 	public function actionIcategory(){

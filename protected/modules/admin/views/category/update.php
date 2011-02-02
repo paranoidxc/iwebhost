@@ -16,6 +16,7 @@ if( !$is_update ) {
 <?php
 if( !$is_update ) {
   ?>
+  <div class="ajax_overlay" ></div>
   <?php
   $this->endWidget('application.extensions.Flatmacpanel');	 
 ?>

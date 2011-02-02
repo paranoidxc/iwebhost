@@ -174,6 +174,5 @@
   </div> 
   
 <?php $this->endWidget(); ?>
-<div class="ajax_overlay" />
 
 </div><!-- form -->

@@ -1115,7 +1115,11 @@ $(document).ready(function(){
   }
   
   function getParentPanleByWrap(wrap){
-    return $('#'+wrap.find('.return_panel').val());
+    if( wrap.find('.return_panel').length > 0 ){
+      return $('#'+wrap.find('.return_panel').val());  
+    }else{
+      return null;
+    }
   }
   
   function isExist(panel_id){    
@@ -1131,8 +1135,10 @@ $(document).ready(function(){
   }
   function formLay(wrap,t){
     idebug('Call formLay');    
+    if( wrap == null ){return;};
     if( t == 'h') {
       idebug('ajax overlay display ='+t);
+      
       wrap.find('.ajax_overlay').hide();  
     }else{
       wrap.find('.ajax_overlay').css('z-index',z).show();

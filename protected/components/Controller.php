@@ -14,8 +14,19 @@ class Controller extends CController
 		
 	public function init() {
 	  $this->isconfig=Sconfig::model()->find();	  	  
-	  $this->controllerId =  ucfirst($this->getId() ) ;	  	  
-	  
+	  $this->controllerId =  ucfirst($this->getId() );
+
+    if( Yii::app()->user->getState('scategory') ){         
+      //print_r(Yii::app()->user->getState('scategory'));
+    }else{
+      $_scategory = Category::model()->findAll(array('select'=> 'id,name'));
+      $__scategory = array();
+      foreach( $_scategory as $icat ) {
+        $__scategory[$icat['id']] =  $icat['name'];
+      }
+      unset($_scategory);
+      Yii::app()->user->setState('scategory',$__scategory);            
+    }
 	  if( $this->isconfig && $this->isconfig->is_oops ) {
 	    //echo "oops";
 	    //exit;
@@ -34,5 +45,6 @@ class Controller extends CController
 	public $breadcrumbs=array();
 	public $location;
 	public $page_navigation;
-	public $isconfig;
+	public $isconfig;	
+	public $scategory;
 }

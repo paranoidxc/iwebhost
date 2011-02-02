@@ -6,10 +6,25 @@
 		$handle_class = 'f_'.$class;
     $odd_even = array('odd', 'even');
     $odd_even_count  = 1;
+    $icat = Yii::app()->user->getState('scategory');
+    //print_r($icat);    
+    //$class == 'fold'  ? 'open' : 'fold';
+    
+    $ulclass = 'fold';
 		foreach( $nodes as $leaf ) {
       $odd_even_index = $odd_even_count%2;
       $odd_even_count ++;
-			//$class="fold";
+      //$class = 'open';      
+      if( $icat[$leaf->id] ){
+        if( $icat[$leaf->id]['class'] != '' ){
+          $_class = $icat[$leaf->id]['class'];  
+          //echo $leaf->name.'--'.$_class;
+          if( $_class == 'open' || $_class == 'fold' ) {
+            $class = $_class;
+          }         
+        }        
+      }
+      $class = strlen($class) == 0  ? 'open' : $class;		
 			$handle_class = 'f_'.$class;
 			
 			$id = $leaf->id;
@@ -20,21 +35,24 @@
 			$style_chapters_indent =(10*$depth+10+32).'px';
 			
 			if( $leaf->lft +1 == $leaf->rgt ) {
-				$handle_class = 'stand';
+				//$handle_class = 'stand';
 			}
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
               class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'">
+              <span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'"  >&nbsp;&nbsp;</span>';
         echo' <span class="leaf" data_id="'.$id.'" >';    				
 			}else if( $depth > $temp_depth ) {
-			  echo '<ul class="'.$class.' category_sortable">';
+			  //echo '<ul class="'.$class.' category_sortable">';
+			  echo '<ul class="'.$ulclass.' category_sortable">';
 			  echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
               class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'">
+              <span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf"  data_id="'.$id.'" >';    				
 			}else if( $depth < $temp_depth ) {
@@ -44,14 +62,16 @@
     		echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
            class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-           style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+           style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'">
+           <span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf" data_id="'.$id.'" >';        		
   		}else if( $depth == $temp_depth ){
     		echo '<li class="'.$class.'" data_id="'.$leaf->id.'" >';
         echo '<p 
                 class="'.$odd_even[$odd_even_index].'" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-                style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+                style="text-indent: '.$style_text_indent.'" title="'.$id.'-'.$name.'">
+                <span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf" data_id="'.$id.'" >';
   		}  		
@@ -59,6 +79,13 @@
   		echo '</span></p>';  		
   		
   		$temp_depth = $depth;
+  		
+  		if( $class == 'fold' ){
+        $ulclass= 'fold';
+      }else{
+        $ulclass = 'open';  
+      }
+      
 		}				
 		for($i=0; $i < $temp_depth; $i ++ ) {
 	  	echo "</li>\r\n</ul>";
