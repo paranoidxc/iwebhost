@@ -767,24 +767,37 @@ $(document).ready(function(){
 	
 	
 	/* 137b2dfd2e8ecf4ddc2ef2b1e78ac3b4 提交删除节点 */
+	
 	$('.ele_del_leaf').live('click',function(){
 	  //首节点不能删除
 	  if( $('#top_leaf_id').val() == $('#cur_leaf_id').val() ){	 
 	    alert(' Top Leaf Cannot Be Delete!');
 	    return false;
 	  }
-		if( window.confirm('Are you Really want to delete the item?') ){					
-		$.ajax({
-			type 		: 	"POST",
-			url	 		: 	$(this).attr('href')+'&ajax=ajax&id='+$('#leaf_id').val(),
-			data		: 	"ids="+$('#leaf_id').val(),
-			dataType 	:	'html',
-			success		:	function(html){
-				//console.log(html);
-				renderPartLeafs();
-			}			
-		});
-		}
+	  wrap = getPanel($(this));
+	  var that = $(this);	  
+	  iconfrim('Are you Really want to delete the item?');
+	  
+	  wrap.find('.confirm_dialog_okay').click( function() {
+      hideConfirm(wrap);
+      $.ajax({
+        type 		: 	"POST",
+  			url	 		: 	that.attr('href')+'&ajax=ajax&id='+$('#leaf_id').val(),
+  			data		: 	"ids="+$('#leaf_id').val(),
+  			dataType 	:	'html',
+  			success		:	function(html){
+  				//console.log(html);
+  				renderPartLeafs();
+  			}  
+      });
+    });
+    
+	  wrap.find('.confirm_dialog_cancel').click( function() {
+      hideConfirm(wrap);
+      formLay(wrap,'h');
+      wrap = null;
+    })
+    
 		return false;				
 	})
 	
@@ -1016,8 +1029,12 @@ $(document).ready(function(){
 	  x = y += distance;
 	}
 
-  function iconfrim(str) {    
-    formLay(wrap);    
+  function iconfrim(str) {      
+    if( wrap == null ){
+      alert(' wrap is null please init');
+      return;
+    }
+    formLay(wrap);
     var confirm_diglog = $('<div class="confirm_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
     confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');
     confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_okay" type="button" value="Okay" />') );
