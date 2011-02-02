@@ -13,14 +13,15 @@ class ArticleController extends IController
 	
 	public function getRelData() {		
 		$_data = Category::model()->getTreeById();
-		$leafs = CHtml::listdata($_data, 'id','name');
+		$leafs = CHtml::listdata($_data, 'id','name');		
+		//array_unshift( $leafs , array( '--ALL Nodes--' ) );
 		return array( $leafs );
 	}
 	
 	public function actionSortarticle() {
 		$sort = $_POST['sort'];
 		for( $i=0; $i<count($sort); $i++ ) {		
-		  echo $sort[$i];
+		  //echo $sort[$i];
 			$at = Article::model()->findByPk($sort[$i]);
 			$at->sort_id = count($sort)-$i;
 			$at->save();
@@ -32,16 +33,40 @@ class ArticleController extends IController
 	 */
 	public function actionIndex($value='')
 	{	  
+	  list($leafs) = $this->getRelData();
 	  $criteria=new CDbCriteria;
-		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
+		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0 || strlen($_GET['leaf_id'] ) > 0 ){
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  = 'title like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%");      
       $opt['is_partial']    = true;
 	  }
-	  $criteria->order    = 'update_time DESC';
-	  $opt['criteria'] =  $criteria;
+	  
+    $leaf_id    = $_GET['leaf_id'];
+    $is_include = $_GET['is_include'];
+    if( strlen( $leaf_id) > 0 ){
+      $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
+      if( $is_include ){
+        $leaf = Category::model()->findbypk($leaf_id);          
+        $leafs = Category::model()->findAll( array( 
+          'select' => 'id, name',
+          'condition'  => ' rgt <= :rgt AND lft >= :lft ',
+          'params'    => array( ':rgt' => $leaf->rgt, ':lft' => $leaf->lft )
+        ) );
+        $all_leafs = '';
+        foreach( $leafs as $_leaf ){
+          $all_leafs .= $_leaf->id.',';
+        }        
+        $criteria->params[':category_id'] = $all_leafs;
+      }else{
+        $criteria->params[':category_id'] = $leaf_id;  
+      }          
+    }
+	  $criteria->order        = 'update_time DESC';
+	  $opt['criteria']        =  $criteria;
+	  $opt['tpl_params']      = array( 'leafs' => $leafs );
 	  parent::actionIndex($opt);
+	  
 	}
 	public function actioncxIndex() {
 	  	  

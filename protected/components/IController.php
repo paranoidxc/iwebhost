@@ -79,16 +79,29 @@ class IController extends Controller
     $select_pagination->init();    
     $list = call_user_func( array( $imodel, 'findAll') , $criteria );
     
+    if( !is_array($opt['tpl_params']) ){
+      $opt['tpl_params'] = array();
+    }
+    
+    $opt['tpl_params']['list']        = $list;
+    $opt['tpl_params']['pagination']  = $pagination;
+    $opt['tpl_params']['select_pagination']  = $select_pagination;
+    
+    // echo Chtml::listBox('category_id',1,$leafs) 
+    //print_r($opt['tpl_params']);
+    
 	  if( $is_partial ){
-	    $this->renderPartial('_index',array(
-	      'list' => $list, 
-	      'pagination' => $pagination, 'select_pagination' => $select_pagination 
-	      ),false,true);
+	    $this->renderPartial('_index', $opt['tpl_params'], false, true );
+	    //$this->renderPartial('_index',array(
+	      //'list' => $list, 
+	      //'pagination' => $pagination, 'select_pagination' => $select_pagination 
+	      //),false,true);
 	  }else{
-	     $this->render('index',array(  			
-  			'list'  =>  $list,
-  			'pagination' => $pagination, 'select_pagination' => $select_pagination
-  		),false,true);
+	    $this->render('index', $opt['tpl_params'], false, true );
+	     //$this->render('index',array(  			
+  			//'list'  =>  $list,
+  			//'pagination' => $pagination, 'select_pagination' => $select_pagination
+  		//),false,true);
 	  } 
 	}
 	

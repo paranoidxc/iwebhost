@@ -161,6 +161,9 @@ function parentOne(ele,exp){
 
 $(document).ready(function(){	
   
+  $('.advanced_search').live('click',function(){
+    $('.'+$(this).attr('data')).toggle();
+  });
   
   // fun1 login function  
   $('.ilogin_wrap .login_column_main').hide();  
@@ -233,10 +236,20 @@ $(document).ready(function(){
 	$('.search_form').live('submit',function(){	  
 	  var wrap = getPanel( $(this) );
 	  var that = $(this);
+	  var url = that.attr('action')+'&keyword='+that.find('.keyword').val();
+	  if( that.find('.leaf_id').length > 0 ){
+	    url += "&leaf_id="+that.find('.leaf_id').val();
+	  }
+	  if( that.find('.is_include').length > 0 ){	    
+	    if( that.find('.is_include').is(":checked") ){
+	      url += "&is_include="+that.find('.is_include').val();
+      }
+	  }
+	  
 	  $.ajax({
 	    type: that.attr('method'),
 	    cache: false,
-	    url: that.attr('action')+'&keyword='+that.find('.keyword').val(),
+	    url: url,
 	    success:function(html){
 	      //alert(html);	      
 	      wrap.find('.search_result_wrap').html(html);

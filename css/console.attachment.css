@@ -5,8 +5,12 @@
   line-height: 16px;
   color: #666;
   border-color: #666 #CCC #CCC #666;  
+  background: #FFF url(console/search_icon.jpg) no-repeat 3px 3px;
   font-weight: bold;
-  text-indent: 10px;
+  text-indent: 26px;
+}
+.search_input:focus {    
+  background: #FFF url(console/search_icon.jpg) no-repeat 3px -25px;
 }
 .w600P .search_input {  
   width: 540px;
