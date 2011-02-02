@@ -1,21 +1,8 @@
 <?php
 
-class AttachmentController extends Controller
+class AttachmentController extends IController
 {
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
-
-	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
-
-	/**
-	 * @return array action filters
-	 */
+	
 	public function filters()
 	{
 		return array(
@@ -51,6 +38,7 @@ class AttachmentController extends Controller
 
 	public function actionMove() {		
 		
+	  $panel_ident = $_REQUEST['panel_ident'];
 		if( isset($_POST['category_id']) ){			
 			$category_id = $_POST['category_id'];
 			$category = Category::model()->findByPk($category_id);
@@ -63,7 +51,7 @@ class AttachmentController extends Controller
 				}
 			}			
 			echo count($ids)." record(s) are move to ";
-			echo $category->name;			
+			echo $category->name;
 			exit;
 		}
 		
@@ -75,7 +63,8 @@ class AttachmentController extends Controller
 	  );	  
 				
 		$this->renderPartial('move', array(
-			'leafs' => $leafs
+			'leafs' => $leafs,
+			'panel_ident' => $panel_ident,
 		),false, true);
 	}
 	
@@ -322,6 +311,7 @@ class AttachmentController extends Controller
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
+	 /*
 	public function actionDelete()
 	{
 		if(Yii::app()->request->isPostRequest)
@@ -343,7 +333,7 @@ class AttachmentController extends Controller
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
-
+*/
 	/**
 	 * Lists all models.
 	 */
