@@ -114,6 +114,14 @@
   	</tr>	
   	
   	<tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'tpl'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'tpl',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->error($model,'tpl'); ?>
+  		</td>
+  	</tr>	
+  	
+  	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'category_id'); ?></th>
   		<td>
   			<?php echo $form->hiddenField($model,'category_id'); ?>	
