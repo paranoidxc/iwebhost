@@ -6,15 +6,16 @@
 			$r=<<<EOT
      <table class="mac_panel">
        <tr class="panel_top">
-         <td class="left"></td>
-         <td class="left_ct" >
-           <span class="ct close">close</span>
-           <span class="ct min">min</span>
-           <span class="ct max">max</span>
-         </td>
-         <td class="middle drag_handle">
-           <span class="title">$this->title</span></td>
-         <td class="right"></td>
+          <td class="left"></td>
+          <td class="middle drag_handle">
+            <span class="title">$this->title</span>
+          </td>
+          <td class="left_ct" >
+            <span class="ct close" title="close"></span>
+            <span class="ct min" title="min"></span>
+            <span class="ct max" title="max"></span>
+          </td>
+          <td class="right"></td>
        </tr>
       </table>
     	<!-- mac panel middle start -->

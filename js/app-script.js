@@ -234,7 +234,7 @@ $(document).ready(function(){
 	});		
 	
 	$('.search_form').live('submit',function(){	  
-	  var wrap = getPanel( $(this) );
+	  wrap = getPanel( $(this) );
 	  var that = $(this);
 	  var url = that.attr('action')+'&keyword='+that.find('.keyword').val();
 	  if( that.find('.leaf_id').length > 0 ){
@@ -253,6 +253,7 @@ $(document).ready(function(){
 	    success:function(html){
 	      //alert(html);	      
 	      wrap.find('.search_result_wrap').html(html);
+	     // wrap = null;
 	    }
 	  })
 	  return false;
@@ -1079,7 +1080,8 @@ $(document).ready(function(){
 	  if( _wrap != null ) {	    
 	    x = parseInt(_wrap.css('left'));	    
 	    y = parseInt(_wrap.css('top') );	    
-	    z = parseInt(_wrap.css('z-index'))+1;	    
+	    z++;
+	    //z = parseInt(_wrap.css('z-index'))+1;	    
 	    _wrap.remove();
 	  }else{
 	    reset_panel_postion();	  
