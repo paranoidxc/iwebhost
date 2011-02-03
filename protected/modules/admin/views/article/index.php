@@ -22,7 +22,8 @@
   
   <div style="padding: 5px">
     <form action="<?php echo CController::createUrl('article/index') ?>" method="get" class="search_form">        
-      <input type="text" name="keyword" class="radius15 search_input keyword" /> <span class="advanced_search" data="advanced_search_wrap">Advanced Search</span>
+      <input type="text" name="keyword" class="radius15 search_input keyword" />
+      <span class="advanced_search" data="advanced_search_wrap">Advanced Search</span>
       <div class=" advanced_search_wrap">        
         <?php echo Chtml::listBox('category_id',1,$leafs,array('size' => 1, 'default' => 'all', 'class' => 'leaf_id' ) ) ?>
         <input type="checkbox" name="is_include" class="is_include" value="1">Include Subleafs

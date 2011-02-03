@@ -1075,23 +1075,23 @@ $(document).ready(function(){
     },{ duration: 500 });
   }
   
-	function popup_panel(ele) {	  
-	  //if( panel_id != undefined &&  $('#'+panel_id ).length == 1 ) {
-	    //$('#'+panel_id ).css({ 'z-index' : z });
-	  //}else{
-  	  $('body').append( ele );  	  
-  	  reset_panel_postion();	  
-  	  ele.css({
-  	    top: x+'px',
-  	    left: y+'px',
-  	    'z-index': z,
-  	    position: 'absolute'
-  	  });
-  	 // if( panel_id != undefined){
-  	  //  ele.attr('id',panel_id);
-  	  //}
-  	  init_mac_panel_drag();
-	  //}
+	function popup_panel(ele,_wrap) {
+	  if( _wrap != null ) {	    
+	    x = parseInt(_wrap.css('left'));	    
+	    y = parseInt(_wrap.css('top') );	    
+	    z = parseInt(_wrap.css('z-index'))+1;	    
+	    _wrap.remove();
+	  }else{
+	    reset_panel_postion();	  
+    }
+	  $('body').append( ele );	  
+	  ele.css({	    
+	    left: x+'px',
+	    top: y+'px',
+	    'z-index': z,
+	    position: 'absolute'
+	  });  	 
+  	init_mac_panel_drag();	  
 	}	
 	
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局方法定义*/
@@ -1240,12 +1240,12 @@ $(document).ready(function(){
 	$('.create_article_continue,.ele_create_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
 	  var panel_ident = wrap.find('.return_panel').val();
-	  wrap.remove();
+	  //wrap.remove();
 	  $.ajax({
 			type:		"get",
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val()+'&panel_ident='+panel_ident,
 			success:	function (html) {			  
-			  popup_panel( $(html) );
+			  popup_panel( $(html) ,wrap);
 			  init_mac_panel_drag();			  
 			}			
 		});
@@ -1254,14 +1254,14 @@ $(document).ready(function(){
 	$('.edit_article_continue').live('click',function(){
 	  wrap = getPanel($(this));	  
 	  var panel_ident = wrap.find('.return_panel').val();
-	  wrap.remove();
+	  //wrap.remove();
 	  var url = $(this).attr('href')+'&panel_ident='+panel_ident;
 	  $.ajax({
 			url:	url,
 			type:	'get',
 			cache:	false,
 			success:	function(html){
-			  popup_panel( $(html) );		
+			  popup_panel( $(html),wrap );		
 			  init_mac_panel_drag();
 			}
 		});
@@ -1512,9 +1512,6 @@ $(document).ready(function(){
 	
 	
 	var timeouthandle;
-	
-	
-	
 	/* 9e57007bcc35507dfc5bc7b8f2efb076 更新文章*/
 	$('.article_ajax_form').live('submit',function(){
 	  idebug( timeouthandle );
@@ -1536,8 +1533,8 @@ $(document).ready(function(){
 			data:		$(this).serialize(),
 			success:	function(html) {		  
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    
-			    wrap.remove();  
-			    popup_panel( $(html) );		    
+			    //wrap.remove();
+			    popup_panel( $(html) , wrap );
 			  }else{			    
 			    //iform.html(html);
 			    iform.replaceWith(html);
