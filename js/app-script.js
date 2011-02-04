@@ -1565,12 +1565,16 @@ $(document).ready(function(){
 			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    			    
 			    popup_panel( $(html) , wrap );
 			  }else{			    
-			    iform.replaceWith(html);
+			    //iform.replaceWith(html);			    			    
+			    iform.html(html);			    
+			    if(iform.find('.article_ajax_form').length >0) {
+			      iform.find('.article_ajax_form').submit( form_submit );  
+			    }			    
 			    if( that.attr('action').indexOf('category') > 0 ){			      
 			      renderPartLeafs();
 		      }else if(that.attr('action').indexOf('setting') > 0 ) {
 		      }
-		      else{
+		      else{		        
 		        render();
 		      }
 			  }			  
