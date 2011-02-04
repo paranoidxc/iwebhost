@@ -20,6 +20,11 @@
   font-weight: bold;
 }
 
+.errorMessage {
+  color: #8C0505;
+  font-weight: bold;
+}
+
 .ilist {
   width: 100%;  
   background: #FFF;
@@ -29,7 +34,9 @@
   color: #000;
   height: 21px;  
   line-height: 21px;
-  background: url(api_categorys_img/mac-menu-bar.png) repeat-x 0 0px;
+  line-height: 26px;
+  height: 26px;
+  background:red url(api_categorys_img/mac-menu-bar.png) repeat-x 0 bottom;
 }
 .ilist tbody td {      
   padding-top: 2px;

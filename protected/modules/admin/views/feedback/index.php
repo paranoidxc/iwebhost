@@ -1,6 +1,6 @@
 <div class='mac_panel_wrap w800P' id="panel_feedback">
   <?php 
-    $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Feedback Manage') );
+    $this->beginWidget('application.extensions.Smacpanel',array('title'=>Yii::t('cp','Feedback').' '.Yii::t('cp','Manage') ) );
   ?>
  
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('feedback/index', array('keyword' => '')) ?>" />
@@ -8,14 +8,22 @@
  
   <p class=''>
     <ul class="actions">     
-      <li><a href="<?php echo CController::createUrl('feedback/create') ?>" title="Create feedback" class="ele_create">new</a></li>
+      <li>
+        <a href="<?php echo CController::createUrl('feedback/create') ?>" title="Create feedback" class="ele_create">      
+          <?php echo Yii::t('cp','New') ?>
+        </a>
+      </li>
       <li>      
         <span class="c_m_a">
-          More Actions<span class="more"></span>
+          <?php echo Yii::t('cp','More Actions');?> <span class="more"></span>
         </span>
         <ul class='dN c_m_a_d'>
-          <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('feedback/delete') ?>">Delete</li>
-          <li class="c_m_a_d_tip" title="No Selected">No Selected</li>
+          <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('feedback/delete') ?>">
+            <?php echo Yii::t('cp','Delete Content') ?>
+          </li>
+          <li class="c_m_a_d_tip" title="No Selected">
+            <?php echo Yii::t('cp','No Selected') ?>
+          </li>
         </ul>
       </li>
     </ul>
@@ -32,13 +40,13 @@
       <thead>
         <tr>
           <th class='w20P taC pr2P pl2P'><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80P '>Sid</th>
-          <th class='w80P taL'>itype</th>
-          <th class='w160P taL'>email</th>
-          <th class='w160P taL'><span class="filter radius4">question</span></th>
-          <th class='w100P taL'>q_time</th>
-          <th class='taL' ><span class='filter radius4'>answer</span></th>
-          <th class='w100P taL'>a_time</th>
+          <th class='w80P '><?php echo Yii::t('cp','Sid') ?></th>
+          <th class='w80P taL'><?php echo Yii::t('cp','Itype') ?></th>
+          <th class='w160P taL'><?php echo Yii::t('cp','Email') ?> </th>
+          <th class='w160P taL'><span class="filter radius4"><?php echo Yii::t('cp','Question') ?></span></th>
+          <th class='w100P taL'><?php echo Yii::t('cp','Q_time') ?></th>
+          <th class='taL' ><span class='filter radius4'><?php echo Yii::t('cp','Answer') ?></span></th>
+          <th class='w100P taL'><?php echo Yii::t('cp','A_time') ?></th>
         </tr>
       </thead>
     </table> 

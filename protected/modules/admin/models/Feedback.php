@@ -108,11 +108,11 @@ class Feedback extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'email' => 'Email',
-			'homepage' => 'Homepage',
-			'question' => 'Question',
-			'answer' => 'Answer',
-			'itype' => 'Itype',
+			'email' => Yii::t('cp','Email'),
+			'homepage' => Yii::t('cp','Homepage'),
+			'question' => Yii::t('cp','Question'),
+			'answer' => Yii::t('cp','Answer'),
+			'itype' => Yii::t('cp','Itype'),
 		);
 	}
 

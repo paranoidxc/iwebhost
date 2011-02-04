@@ -19,7 +19,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'iWebhost version 0.2 beta',
+	'name'=>'iWebhost version 0.3 beta',
 	'theme'=>'classic',
 	'defaultController' => 'istart',
 	'timeZone'=>"Asia/Shanghai",
