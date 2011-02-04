@@ -142,8 +142,8 @@
 }
 
 .unlink_default,
-.unlink_default_collect,
-.unlink_collect,
+/*.unlink_default_collect,*/
+/*.unlink_collect,*/
 .unlink_dest ,
 .unlink_default {
   position: absolute;
@@ -151,6 +151,15 @@
   right: 0;
   width: 14px;
   height: 14px;
+  background:  url(img/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+.unlink_default_collect,
+.unlink_collect {  
+  width: 14px;
+  height: 14px;
+  display: inline-block;
   background:  url(img/close_a.png) no-repeat;
   text-indent: -10000px;
   cursor: pointer;  
@@ -184,6 +193,11 @@
   background: #FFF;
   padding: #CCC;
   position: relative;
+}
+
+.origin_collect,
+.dest_collect {
+  border: 2px solid #73A6FF;
 }
 .dest_gallery_close,
 .dest_thumbnail_close {

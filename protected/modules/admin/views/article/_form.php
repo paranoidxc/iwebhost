@@ -70,7 +70,7 @@
   			if( $model->gallery ) {
   				?>
   				<div class="origin_collect">
-  					<p><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></p>
+  					<span><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></span>
   					<span class="unlink_default_collect" origin_value="0" title="删除">删除</span>
   					<span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="撤销">撤销</span>  					
   				</div>  				
