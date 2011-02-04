@@ -44,7 +44,7 @@ return array(
         ),
     ),
     	
-	'language'	=> 'zh-cn',
+	'language'	=> 'zh_cn',
 	// application components
 	'components'=>array(
 	  'errorHandler'=>array(

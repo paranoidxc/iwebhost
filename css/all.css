@@ -17,6 +17,32 @@
 
 @import url('console.attachment.css');
 
+.choose_lang_wrap {
+  position: absolute; 
+  right: 10px; 
+  top: 0;  
+}
+
+
+.choose_lang_wrap ul {
+  background: #BABABA;
+  zoom: 1;
+  overflow: hidden;
+  padding: 10px;
+  height: auto;
+}
+.choose_lang_wrap ul li {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+.choose_lang_wrap ul li a {
+  margin: 0;
+  padding: 0;
+}
+
 .filter {
   background: green;
   color: #FFF;  

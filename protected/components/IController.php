@@ -25,8 +25,6 @@ class IController extends Controller
 			'accessControl', // perform access control for CRUD operations
 		);
 	}
-	
-	
 		/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

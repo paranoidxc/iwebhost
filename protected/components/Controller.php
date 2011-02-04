@@ -15,7 +15,13 @@ class Controller extends CController
 	public function init() {
 	  $this->isconfig=Sconfig::model()->find();	  	  
 	  $this->controllerId =  ucfirst($this->getId() );
-
+    
+	  if( Yii::app()->user->getState('cplang') ){
+	    Yii::app()->language = Yii::app()->user->getState('cplang');
+	  }	  
+	  //Yii::app()->language = 'en_us';
+	  //print_r( Yii::app()->language);
+	  
     if( Yii::app()->user->getState('scategory') ){         
       //print_r(Yii::app()->user->getState('scategory'));
     }else{
@@ -32,6 +38,7 @@ class Controller extends CController
 	    //exit;
 	  }
 	}
+	
 	public $layout='//layouts/column1';
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.

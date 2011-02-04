@@ -101,4 +101,12 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
+	public function actionCplang(){
+	  if( strlen($_REQUEST['lang']) > 0 ){
+	    Yii::app()->user->setState('cplang', trim($_REQUEST['lang']));
+	  }	  
+	  $url = $_SERVER['HTTP_REFERER'];	  
+	  header("location: $url");
+	}
 }

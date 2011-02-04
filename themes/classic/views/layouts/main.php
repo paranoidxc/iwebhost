@@ -51,7 +51,7 @@
 
 <div class="container" id="page">
 
-	<div id="mainmenu">
+	<div id="mainmenu" style="position: relative">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 			  array('label'=>Yii::t('cp','Website'),'url'=>array('/site/index')),							
@@ -69,8 +69,17 @@
 				//array('label'=>'Settings', 'url'=>array('/admin/setting/index')),		
 			),
 		)); ?>
+		
 	</div><!-- mainmenu -->
 
+<div class="choose_lang_wrap">
+	<h1>You Language</h1>
+	<ul class=''>
+    <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>简体中文</a></li>
+    <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >English</a></li>
+  </ul>
+</div>
+		
 	<?php echo $content; ?>
 	
 
