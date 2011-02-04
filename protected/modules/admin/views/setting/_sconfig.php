@@ -16,7 +16,7 @@
     </div>
   <?php } ?>
 
-  <table class='itable w100s'>
+  <table class='itable w100S'>
     <tbody>
       <tr>
         <th>
@@ -66,11 +66,11 @@
   	  	  <?php echo $form->error($sconfig,'oops_tips'); ?>
   	  	</td>
       </tr>
-      
     </tbody>
-  </table>
-    
-  <div class="taR h30P lh30P pr10P pt5P">
-    <?php echo CHtml::submitButton('Save', array('class'=>'ibtn blue') ); ?>
-	</div>
+    <tfoot>
+    </tfoot>
+  </table> 
+<div class="taR pr10P pt5P">
+  <?php echo CHtml::submitButton('Save', array('class'=>'ibtn blue') ); ?>
+</div>    
 <?php $this->endWidget(); ?>

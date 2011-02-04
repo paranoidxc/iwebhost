@@ -16,6 +16,7 @@
     <div class="iform" id="wrap_site_base_info" >
       <?php echo $this->renderPartial('_sconfig', array('sconfig'=>$sconfig)); ?>
     </div><!-- form -->
+    
     <div id="wrap_user_variable" class='dN'>
       ddddddddddd    
     </div>
