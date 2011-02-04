@@ -1,8 +1,9 @@
 <?php
 	class Smacpanel extends CWidget {
 	  public $title="Untitled";
-	  
+	  public $ftitle = "Prowed By ihost; &copy; huangxc 1985-‘";
 		public function init() {
+		  $this->ftitle .= date('y');
 			$r=<<<EOT
      <table class="mac_panel">
        <tr class="panel_top">
@@ -38,7 +39,7 @@ EOT;
        <tr class="panel_bottom">
          <td class="left"></td>
          <td class="middle">
-           <span class="title">&copy; xiaochuang Huang 1985-‘10 </span>
+           <span class="title">$this->ftitle</span>
          </td>
          <td class="right"></td>
        </tr>
