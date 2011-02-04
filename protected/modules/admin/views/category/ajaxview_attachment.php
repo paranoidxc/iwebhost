@@ -39,7 +39,7 @@
 
 </ul>
     </td>    
-    <td style="width: 35%" id="attachment_form_wrap">
+    <td style="width: 35%" class="dN attachment_form_wrap">
       <div id="attachment_form" >
         <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
           <div>
