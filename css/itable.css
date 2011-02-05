@@ -34,9 +34,11 @@
   color: #000;
   height: 21px;  
   line-height: 21px;
-  line-height: 26px;
-  height: 26px;
-  background:red url(api_categorys_img/mac-menu-bar.png) repeat-x 0 bottom;
+  line-height: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background: #E2E2E2 url(console/ilist_thead_th_bg.png) repeat-x 0 1px;
+  
 }
 .ilist tbody td {      
   padding-top: 2px;

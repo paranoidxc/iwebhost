@@ -5,7 +5,9 @@
 	  public $close,$min,$max;
 	  
 		public function init() {
-		  $this->ftitle .= date('y');
+		  if( $this->ftitle == "Prowed By ihost; &copy; huangxc 1985-‘" ){
+		    $this->ftitle .= date('y');  
+		  }
 		  $this->close  = Yii::t('cp', 'Close');
 		  $this->min    = Yii::t('cp', 'Min');
 		  $this->max    = Yii::t('cp', 'Max');		  

@@ -72,12 +72,14 @@
 		
 	</div><!-- mainmenu -->
 
-<div class="choose_lang_wrap">
-	<h1>You Language</h1>
-	<ul class=''>
-    <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>简体中文</a></li>
-    <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >English</a></li>
-  </ul>
+<div class="choose_lang_wrap radius4">
+  <div class="radius4">
+  	<h1 class=""><?php echo Yii::t('cp',Yii::app()->language); ?>&nbsp;&raquo;</h1>
+  	<ul class='dN'>
+      <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'><?php echo Yii::t('cp','zh_cn'); ?></a></li>
+      <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' ><?php echo Yii::t('cp','en_us'); ?></a></li>
+    </ul>
+  </div>
 </div>
 		
 	<?php echo $content; ?>

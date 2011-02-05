@@ -7,13 +7,14 @@ $this->breadcrumbs=array(
 
 <?php
   echo "<div class='mac_panel_wrap ilogin_wrap w600P' >";
-  $this->beginWidget('application.extensions.Smacpanel',array('title' => 'System Console Login'));
+  $this->beginWidget('application.extensions.Smacpanel',
+  array('title' => Yii::t('cp','System').Yii::t('cp','Console').Yii::t('cp','Ilogin'), 'ftitle' => '' ));
 ?>  
 <div class="icolor">
 	<div class="login_column_nav column_nav">
   	<ul>
-  		<li><a class="networks" href="#" data="#sign_in">Sign In</a></li>
-  		<li><a href="#" class="about_me" data="#about_me">Me</a></li>  		
+  		<li><a class="networks" href="#" data="#sign_in"><?php echo Yii::t('cp','Login') ?></a></li>
+  		<li><a href="#" class="about_me" data="#about_me"><?php echo Yii::t('cp','Developer') ?></a></li>  		
   	</ul>
   </div>
   
@@ -23,7 +24,7 @@ $this->breadcrumbs=array(
 	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -44,7 +45,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login', array('class'=>'ibtn blue') ); ?>
+		<?php echo CHtml::submitButton(Yii::t('cp','Login'), array('class'=>'ibtn blue') ); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -43,8 +43,21 @@ return array(
   'Close'               => '关闭',
   'Min'                 => '最小化',
   'Max'                 => '最大化',
+  'System'              => '系统',
+  'Console'             => '控制台',
+  'Ilogin'              => '登录',
   
   
   'Fields with * are required.'   => '带*号字段为必填项.',
+  'Username'                      => '帐号',  
+  'Password'                      => '密码',
+  'Remember me next time'         => '记住我',
+  'Developer'                     => '开发者',
+  
+  
+  //language info
+  'zh_cn'           => '简体中文',
+  'en_us'           => 'English',
+  
 );
 ?>

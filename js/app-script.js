@@ -159,7 +159,15 @@ function parentOne(ele,exp){
 }
 
 
-$(document).ready(function(){	
+$(document).ready(function(){
+  $('.choose_lang_wrap').hover(function(){    
+    $(this).addClass('hover').stop(true,true).fadeIn().find('ul').slideDown();
+  },function(){
+    var that = $(this);
+    $(this).find('ul').stop(true,true).slideUp('fast',function(){
+      that.removeClass('hover');  
+    });
+  });
   
   $('.advanced_search').live('click',function(){
     $('.'+$(this).attr('data')).toggle();
