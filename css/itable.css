@@ -25,7 +25,9 @@
   font-weight: bold;
 }
 
+.ilist_dash,
 .ilist {
+  border-collapse: collapse;
   width: 100%;  
   background: #FFF;
 	table-layout:fixed;
@@ -38,8 +40,29 @@
   height: 24px;
   vertical-align: middle;
   background: #E2E2E2 url(console/ilist_thead_th_bg.png) repeat-x 0 1px;
-  
 }
+
+.ilist_dash th,
+.ilist_dash td {
+  vertical-align: top;
+  padding: 5px;
+}
+
+
+.ilist_dash th {
+  color: #313131;        
+  text-align: right;
+  width: 120px;  
+  border-right: 1px solid #FFFFFF;
+}
+
+.ilist_dash tr {
+  border: 1px solid #313131;  
+  border-color: #fff;
+  font-weight:bold;
+  background: #efefef url(panel_images/column_item_normal.png) repeat-x 0 50%;    
+}
+
 .ilist tbody td {      
   padding-top: 2px;
   padding-bottom: 2px;
@@ -52,6 +75,8 @@
 
 .ilist tbody tr:nth-child(odd){    
 }
+
+
 .ilist tbody tr:nth-child(even) td{  
   background: #efefef;
 }

@@ -54,7 +54,26 @@ return array(
   'Remember me next time'         => '记住我',
   'Developer'                     => '开发者',
   
-  
+  'System Remind'                 => '系统提醒',
+  'User Info Remind'              => '帐号信息提醒',  
+  'Login Account:'                => '登录帐号:',
+  'Account Create Time:'          => '帐号开通时间:',
+  'Current Login Time:'           => '本次登录时间:',
+  'Current Login IP:'             => '本次登录IP:',
+  'Login Count:'                  => '这是该帐号第:',
+  'Times Login System:'           => '次登录本系统:',
+  'Last IP:'                      => '上次登录IP:',
+  'Last Logout Time:'             => '上次注销时间:',
+  'Most Page View'                => '最多点击率的内容',
+  'Environment Info'              => '服务器状态信息',
+  'Server Base Info:'             => '服务器基本信息:',
+  'WEB Software:'                 => 'WEB服务软件:',
+  'Current Login IP:'             => '当前登录IP:',
+  'MySQL Version:'                => 'MySQL数据库版本:',
+  'Upload File Max Setting:'      => '上传文件最大容量:',
+  'MySQL File Size:'              => '数据库文件大小:',
+  'Upload Used Size:'             => '上传文件占用大小:',
+
   //language info
   'zh_cn'           => '简体中文',
   'en_us'           => 'English',

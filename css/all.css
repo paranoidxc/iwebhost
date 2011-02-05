@@ -19,55 +19,84 @@
 
 .choose_lang_wrap {
   position: absolute; 
-  right: 10px; 
+  right: 9px; 
   top: 0;  
   padding: 1px;
   border: 1px solid transparent;  
-  min-width: 120px;  
+  min-width: 140px; 
+  z-index: 100000000; 
 }
 .choose_lang_wrap.hover {
+/*
   border: 1px solid #666666;
   background: #A8A8A8;  
+  */
 }
-.choose_lang_wrap div {  
-  padding: 0 5px;
+.choose_lang_wrap div {    
   text-align: right;
 }
 .choose_lang_wrap.hover div {  
-  background: #A8A8A8 url("api_categorys_img/mac-menu-bar.png") repeat-x scroll 0 0;     
+  
+}
+
+.choose_lang_wrap .ul_wrap {
+ 
 }
 
 .choose_lang_wrap h1 {  
   width: 100%;
-  line-height: 18px;
-  height: 18px;    
+  line-height: 20px;
+  height: 20px;    
   color: #000;
   margin-top: -2px;
   text-decoration: none;  
   text-shadow: 0 1px 0 #FFF; 
+  background: #A8A8A8 url("api_categorys_img/mac-menu-bar.png") repeat-x scroll 0 0; 
+
 }
 
-.choose_lang_wrap ul {
-  margin-top: 15px;  
-  overflow: hidden;
-  padding: 0 20px 0 0;  
+.choose_lang_ul_wrap {
+  position: absolute;  
+  z-index: 99999999; 
+  right: 15px;
+  top: 0;
+  background: #ccc url("api_categorys_img/mac-menu-bar.png") repeat-x scroll 0 0; 
+  width: 120px;
+  border: 1px solid #666666; 
+  border-top: none;
+  padding: 5px;  
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;  
+  padding: 1px;
+  padding-top: 20px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
 }
-.choose_lang_wrap ul li {
+.choose_lang_ul_wrap ul {
+  margin-top: 2px;
+  background: #A8A8A8;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;  
+}
+.choose_lang_ul_wrap li {
   display: block;
   height: 20px;
   line-height: 20px;
+  text-align: right;
 }
-.choose_lang_wrap ul li a:visited,
-.choose_lang_wrap ul li a {  
+.choose_lang_ul_wrap li a:visited,
+.choose_lang_ul_wrap li a {  
   text-decoration: none;  
   color: #000;
+  padding-right: 10px;
   background-color: transparent;      
   font-weight: bold;  
   text-shadow: 0 1px 0 #CCCCCC;
   display: block;
   width: 100%;
 }
-.choose_lang_wrap ul li a:hover {  
+.choose_lang_ul_wrap li a:hover {  
   color:#0360DD;
 }
 

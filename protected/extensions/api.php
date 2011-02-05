@@ -2,7 +2,15 @@
 class API {
   
   public static $image_extension  = array("jpg", "jpeg", "png", "gif");
-  
+  public static function mysql_version(){    
+    $sql = " select version() as version";
+    $r = Yii::app()->db->createCommand($sql)->queryAll();    
+    return $r[0]['version'];    
+  }
+
+  public static function get_ip(){
+    return $_SERVER['SERVER_ADDR'];
+  }
   public static function php_version() {
     return PHP_VERSION;
   }
@@ -12,7 +20,45 @@ class API {
   public static function server_signature() {
     return $_SERVER['SERVER_SIGNATURE'];
   }
-  
+  public static function get_magic_quotes_gpc() {
+    return get_magic_quotes_gpc() == 0 ? 'OFF': 'ON';
+  }
+
+  public static function server_max_upload_size(){  
+    return @ini_get('file_uploads') ? ini_get('upload_max_filesize') : '<font color="red">Null</font>';
+  }
+  public static function get_upload_files_size() {
+    return API::size_format( API::dir_size( ATMS_SAVE_DIR ) );
+  }
+
+  public static function size_format($s){
+    if ($s<1000) {
+      $r =(string)$s.' B';
+    }elseif ($s<(1000*1000)) {
+      $r=number_format((double)($s/1000),1).' KB';
+    }else {
+      $r=number_format((double)($s/(1000*1000)),1).' MB';
+    }
+    return $r;
+  }
+
+  public static function dir_size($dir) {
+    $handle=opendir($dir);
+    $size=0;
+    while ($file=readdir($handle)) {
+      if (($file==".")||($file=="..")) {continue;}
+      if (is_dir("$dir/$file")){
+        $size+=API::dir_size("$dir/$file");
+      }        
+      else{
+        $size+=filesize("$dir/$file");
+      }
+    }
+    closedir($handle);
+    return $size; 
+  }
+
+
   public static function articles_ul($category, $option){
     $r = '<ul class="api_chapters_ul" style="text-indent: '.$option['text_indent'].'">';
     if( $category->articles ) {

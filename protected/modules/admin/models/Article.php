@@ -157,8 +157,12 @@ class Article extends CActiveRecord
     }
   }
   
-  public function scopes(){
+  public function scopes(){      
     return array(
+      'most_page_view' => array(
+        'order' => ' pv DESC ',
+        'limit' => '10',
+      ),
       'first' => array(
         'order' => ' sort_id asc ',
         'limit' => 1
@@ -190,7 +194,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('attachment_id, gallery_id,content,is_star,rich,tpl','default'),
+			array('attachment_id, gallery_id,content,is_star,rich,tpl,pv','default'),
 			array('title, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),

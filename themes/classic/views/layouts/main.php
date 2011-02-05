@@ -72,16 +72,25 @@
 		
 	</div><!-- mainmenu -->
 
-<div class="choose_lang_wrap radius4">
-  <div class="radius4">
-  	<h1 class=""><?php echo Yii::t('cp',Yii::app()->language); ?>&nbsp;&raquo;</h1>
-  	<ul class='dN'>
-      <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'><?php echo Yii::t('cp','zh_cn'); ?></a></li>
-      <li><a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' ><?php echo Yii::t('cp','en_us'); ?></a></li>
-    </ul>
+<div class="choose_lang_wrap ">
+  <div class="">
+  	<h1 class=""><?php echo Yii::t('cp',Yii::app()->language); ?>&nbsp;&raquo;</h1>  		  	    
   </div>
 </div>
-		
+<div class='dN choose_lang_ul_wrap'>
+	<ul>
+	<li>
+		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>
+			<?php echo Yii::t('cp','zh_cn'); ?>&nbsp;&nbsp;
+		</a>
+	</li>
+	<li>
+		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >
+			<?php echo Yii::t('cp','en_us'); ?>&nbsp;&nbsp;
+		</a>
+		</li>
+</ul>
+</div>
 	<?php echo $content; ?>
 	
 
