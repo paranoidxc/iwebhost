@@ -351,9 +351,12 @@ div.errorSummary {
 }
 #leaf_articles_wrap {
 	float: left;
-  width: 522px;;	
-  width: 478px;
-	height: 400px;		
+  /*width: 522px;;	
+  width: 478px;*/  
+  width: 100%;
+	/*height: 400px;		*/
+	height: 100%;
+	/*height: 722px;*/
 }
 #leaf_articles{
   overflow: auto;	
@@ -419,8 +422,12 @@ div.errorSummary {
 }
 .c_m_a .more,
 .c_s_m .more{  
+  display: inline-block;
   padding: 0 4px;  
-  background: url(arrow_down.png) no-repeat right 80%;
+  height: 10px;
+  line-height: 10px;  
+  margin-bottom: -2px;  
+  background: url(arrow_down.png) no-repeat right bottom;
 }
 
 .c_s_m:hover,

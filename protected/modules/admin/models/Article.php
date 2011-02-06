@@ -227,16 +227,19 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id'        => 'ID',
-			'title'     => 'Title',
-			'subtitle'  => 'Subtitle',
-			'desc'      => 'Desc',
-			'content'     => 'Content',
-			'create_time' => 'Create Datetime',
-			'update_time' => 'Update Datetime',
-			'sort_id'     => 'Sort',
-			'category_id' => 'Category',
-			'is_star'     => 'stared?'
+			'id'          => Yii::t('cp','ID'),
+			'title'       => Yii::t('cp','Title'),
+			'subtitle'    => Yii::t('cp','Subtitle'),
+			'desc'        => Yii::t('cp','Desc'),			
+			'content'     => Yii::t('cp','Content'),
+			'create_time' => Yii::t('cp','Create_time'),
+			'update_time' => Yii::t('cp','Update_time'),
+			'sort_id'     => Yii::t('cp','Sort'),
+			'tpl'         => Yii::t('cp','Tpl'),
+			'link'        => Yii::t('cp','Link'),
+			'pv'          => Yii::t('cp','Pv'),
+			'category_id' => Yii::t('cp','Category'),
+			'is_star'     => Yii::t('cp','stared?'),
 		);
 	}
 

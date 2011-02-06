@@ -61,9 +61,12 @@ class Sconfig extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'sitename' => 'Sitename',
-			'description' => 'Description',
-			'keyword' => 'Keyword',
+			'sitename'    => Yii::t('cp','Sitename'),
+			'description' => Yii::t('cp','Description'),
+			'keyword'     => Yii::t('cp','Keyword'),
+  		'record_no'   => Yii::t('cp','Record No'),
+    	'is_oops'     => Yii::t('cp','Is Oops'),
+    	'oops_tips'   => Yii::t('cp','Oops Tips'),
 		);
 	}
 

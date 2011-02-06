@@ -8,7 +8,7 @@
 )); ?>	
   <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
 
-  <p class="note">Fields with <span class="required">*</span> are required.</p>
+  <p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
       <?php echo Yii::app()->user->getFlash('success'); ?>
@@ -18,8 +18,8 @@
 	<?php echo $form->errorSummary($model); ?>		  
 	
 	<div class="ml20P pt10P">
-	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
-	  <a data="field_content" class="form_tab"><span>Content Field</span></a>	  
+	  <a data="field_normal" class="form_tab form_tab_selected"><span><?php echo Yii::t('cp','Normal Field')?></span></a>
+	  <a data="field_content" class="form_tab"><span><?php echo Yii::t('cp','Content Field')?></span></a>	  
 	</div>	
 	
 	<div class="form_field_wrap field_normal">
@@ -30,7 +30,7 @@
   	  <span class='alt tdU pick'
   		    id="pick<?php echo time(); ?>"			        
   			  uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>">
-  			  Attachment
+  			  <?php echo Yii::t('cp','Link Attachment') ?>
   	  </span>
   		</th>
   		<td>
@@ -39,8 +39,11 @@
   				?>
   				<div class="orgin_thumbnail">
   					<img src="<?php echo $model->attachment->gavatar?>" title="<?php echo $model->attachment->screen_name?>" />  					
-  					<span class="unlink_default" origin_value="0" title="删除">删除</span>
-  					<span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="撤销">撤销</span>
+  					<span class="unlink_default" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+  					<span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  
+  					  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="<?php echo Yii::t('cp','reset')?>">
+  					  <?php echo Yii::t('cp','reset')?>
+  					</span>
   				</div>  				
   			<?php
   			}
@@ -62,7 +65,8 @@
   		<th class='alt'>  		  
   		  <span class="tdU pick" 
   			      id="gallery_pick<?php echo time(); ?>" 
-  			      uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >Gallery
+  			      uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >
+  			      <?php echo Yii::t('cp','Link Gallery') ?>
   			</span>
   		</th>
   		<td>
@@ -71,8 +75,10 @@
   				?>
   				<div class="origin_collect">
   					<span><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></span>
-  					<span class="unlink_default_collect" origin_value="0" title="删除">删除</span>
-  					<span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="撤销">撤销</span>  					
+  					<span class="unlink_default_collect" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+  					<span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="<?php echo Yii::t('cp','reset')?>">
+  					  <?php echo Yii::t('cp','reset')?>
+  					</span>  					
   				</div>  				
   			<?php
   			}
@@ -80,7 +86,7 @@
   			
   			<div class="dest_collect dN" >
   			  <span class="dest_collect_name">555</span>
-  			  <span class="unlink_collect" title="删除">删除</span>
+  			  <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
   			</div>
   			
   			<p class="clear">  			  
@@ -122,30 +128,47 @@
   	</tr>	
   	
   	<tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'pv'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'pv',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->error($model,'pv'); ?>
+  		</td>
+  	</tr>	
+  	
+  	<tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'sort_id'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'sort_id',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->error($model,'sort_id'); ?>
+  		</td>
+  	</tr>	
+  	
+  	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'category_id'); ?></th>
   		<td>
-  			<?php echo $form->hiddenField($model,'category_id'); ?>	
-  			Name:<?php echo $leaf->name ?>
-  			ID:<?php echo $leaf->id ?>
+  			<?php echo $form->hiddenField($model,'category_id'); ?>	  			
+  			<span class="filter"><?php echo $leaf->id ?></span>
+  		  <?php echo $leaf->name ?>
   			<?php //echo $form->textField($model,'category_id'); ?>
   			<?php //echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ?>
   			<?php //echo $form->error($model,'category_id'); ?>
   		</td>
   	</tr>
+  	
   	</tbody>
   	</table>
   </div>
 	
 	<div class="dN form_field_wrap field_content">  
 	  <div style="margin-bottom: 5px">
-	    <span data="write" class="inner_tab inner_tab_selected" > Write </span>
-	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > Preview </span>
+	    <span data="write" class="inner_tab inner_tab_selected" > <?php echo Yii::t('cp','Write')?> </span>
+	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > <?php echo Yii::t('cp','Preview')?> </span>
 	    <span class="dN replace">insert " Foo " text </span>
 	    <span class='alt tdU pick'
   		  id="link_pick<?php echo time(); ?>"
   		  rtype="article_link_image"
   			uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'link_pick'.time() ) ); ?>">
-  			Link Images
+  			<?php echo Yii::t('cp','Insert Images') ?>
   	  </span>
   	  
 	  </div>
@@ -157,12 +180,12 @@
 		</div>
 		
 		<div class="dN inner_wrap preview">
-		  preview
+		  <?php echo Yii::t('cp','Preview') ?>
   	</div>
   </div>
   
   <div class="taR h30P lh30P pr10P ">
-  		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue bigrounded')); ?>
+  		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue bigrounded')); ?>
   </div> 
 <?php $this->endWidget(); ?>
 </div>

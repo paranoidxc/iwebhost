@@ -30,7 +30,7 @@
      <table class="mac_panel" id="content">
        <tr class="panel_middle">
          <td class="left"></td>
-         <td class="middle">        
+         <td class="middle" style="height: 100%">        
 EOT;
     echo $r;
 		}	

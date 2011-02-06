@@ -37,7 +37,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email,c_time,current_login_time,last_logout_time,login_count', 'required'),
+		  array('current_login_time,last_logout_time,login_count','default'),
+			array('username, password, email,c_time', 'required'),
 			array('username','unique'),
 			array('email','unique'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
@@ -67,9 +68,9 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
+			'username'  => Yii::t('cp','Username'),
+			'password'  => Yii::t('cp','Password'),
+			'email'     => Yii::t('cp','Email'),
 			'parent_id' => 'Parent',
 		);
 	}

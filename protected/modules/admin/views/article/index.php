@@ -1,6 +1,6 @@
 <div class='mac_panel_wrap w800P' id="panel_article">
   <?php  
-    $this->beginWidget('application.extensions.Smacpanel',array('title'=>'Articles Manage') );
+    $this->beginWidget('application.extensions.Smacpanel',array('title'=>Yii::t('cp','Content Manage')) );
   ?>
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('article/index', array('keyword' => '')) ?>" />
   <input type="hidden" name='model_type' value="iarticle" class="model_type" />      
@@ -10,11 +10,11 @@
       <li>&nbsp;</li>
       <li>	  
     	  <span class="c_m_a">
-    	    More Actions<span class="more"></span>
+    	    <?php echo Yii::t('cp','More Actions');?> <span class="more"></span>
     	  </span>
     	  <ul class='dN c_m_a_d'>
-    	    <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('article/delete') ?>">Delete</li>
-    	    <li class="c_m_a_d_tip" title="No Selected">No Selected</li>
+    	    <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('article/delete') ?>"><?php echo Yii::t('cp','Delete Content') ?></li>
+    	    <li class="c_m_a_d_tip" title="No Selected"><?php echo Yii::t('cp','No Selected') ?></li>
         </ul>
       </li>
     </ul>
@@ -23,10 +23,10 @@
   <div style="padding: 5px">
     <form action="<?php echo CController::createUrl('article/index') ?>" method="get" class="search_form">        
       <input type="text" name="keyword" class="radius15 search_input keyword" />
-      <span class="advanced_search" data="advanced_search_wrap">Advanced Search</span>
+      <span class="advanced_search" data="advanced_search_wrap"><?php echo Yii::t('cp','Advanced Search') ?></span>
       <div class=" advanced_search_wrap">        
-        <?php echo Chtml::listBox('category_id',1,$leafs,array('size' => 1, 'default' => 'all', 'class' => 'leaf_id' ) ) ?>
-        <input type="checkbox" name="is_include" class="is_include" value="1">Include Subleafs
+        <p><?php echo Yii::t('cp','Select Node'); ?><?php echo Chtml::listBox('category_id',1,$leafs,array('size' => 1, 'default' => 'all', 'class' => 'leaf_id' ) ) ?></p>
+        <p><input type="checkbox" name="is_include" class="is_include" value="1"> <?php echo Yii::t('cp','Include Sub Node Content') ?></p>
       </div>
     </form>
   </div>
@@ -36,10 +36,10 @@
       <thead>
         <tr>
           <th class='w20P taC pr2p pl2p '><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80P taC'>Sid</th>
-          <th class='taL'><span class="filter radius4">title</span></th> 
-          <th class='w100P taC' >create_time</th>
-          <th class='w100P taC' >update_time</th>          
+          <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
+          <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
+          <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>
+          <th class='w100P taC' ><?php echo Yii::t('cp','Update_time') ?></th>          
         </tr>
       </thead>              
     </table>

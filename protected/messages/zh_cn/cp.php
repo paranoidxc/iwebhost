@@ -13,6 +13,7 @@ return array(
   
   
   //ilist table thead column
+  'Edit'            => '编辑',
   'Sid'             => '序号',
   'Itype'           => '反馈类型',  
   'Email'           => '电子邮件',
@@ -20,8 +21,36 @@ return array(
   'Q_time'          => '反馈时间',
   'Answer'          => '回复内容',
   'A_time'          => '回复时间',
-  'Homepage'        => '主页',
+  'Homepage'        => '主页',  
   
+  'Content Manage'  => '内容管理',
+  'Title'           => '标题',
+  'Create_time'     => '创建时间',
+  'Update_time'     => '更新时间',
+  'Category'        => '节点',
+  'stared?'         => "重点?",
+  'Sort'            => '排序值',
+  'Link'            => '链接地址',
+  'Tpl'             => '模板文件名',
+  'Pv'              => '点击量',
+  'Normal Field'    => '普通字段',
+  'Content Field'   => '内容字段',  
+  'Link Attachment' => '关联附件',
+  'Link Gallery'    => '关联集合',
+  'Write'           => '写作',
+  'Insert Images'   => '插入图片',
+  'Preview'         => '预览',
+  
+  'delete'          => '删除',
+  'reset'           => '撤销',
+  'Go to:'          => '跳转到:',  
+  'Advanced Search' => '高级搜索',
+  'Select Node'     => "选择节点",
+  'Include Sub Node Content'  => '包含子节点内容',
+  
+  'Admins Manage'   => '配置管理员',
+  'Account'         => '帐号',
+  'Password'        => '密码',    
   
   //Create Continue
   'Choose Next'         => '请选择下一步',
@@ -74,11 +103,32 @@ return array(
   'MySQL File Size:'              => '数据库文件大小:',
   'Upload Used Size:'             => '上传文件占用大小:',
 
+  'Website Settings'              => '网站相关配置',
+  'Sitename'                      => '网站名称',
+  'Description'                   => '简介',
+  'Keyword'                       => '关键字',
+  'Record No'                     => '备案号',
+  'Is Oops'                       => '是否关闭',
+  'Oops Tips'                     => '关闭提示信息',  
   //language info
   'zh_cn'           => '简体中文',
   'en_us'           => 'English',
   
   'Incorrect username or password.' => '账户密码错误',
+  
+  //Time.php
+  'on'              => '在',
+  'ago'             => '之前',
+  'years'           => '年',
+  'year'            => '年',
+  'weeks'           => '周',
+  'week'            => '周',
+  'days'            => '天',
+  'day'             => '天',
+  'hours'           => '时',
+  'hour'            => '时',
+  'minutes'         => '分',
+  'minute'          => '分',
   
 );
 ?>

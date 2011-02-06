@@ -1250,10 +1250,15 @@ $(document).ready(function(){
 	$('.mac_panel_wrap .min').live('click',function(){
 	  getPanel($(this)).slideUp();
 	});	
-	$('.mac_panel_wrap .max').live('click',function(){	  
+	$('.mac_panel_wrap .max').live('click',function(){	
+	  //alert( $(window).height() );
+	  //alert( document.body.scrollHeight );
+	  var h = $(window).height()+'px';
 	  getPanel($(this)).css({
 	    width: '100%',
-	    height: '100%'
+	    height: h,
+	    top: 0,
+	    left: 0
 	  })
 	});
 		

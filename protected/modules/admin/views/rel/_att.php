@@ -9,8 +9,8 @@
       rel_gavatar="<?php echo $t->gavatar; ?>"
       rel_extension="<?php echo $t->extension; ?>"  >
       <?php echo $t->imageRange; ?>
-      <div>
-        <img src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
+      <div>        
+        <img href="<?php echo $t->image; ?>" class="zoom_photo" src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
       </div>
       <span><?php echo $t->screen_name ?></span>
     </li>

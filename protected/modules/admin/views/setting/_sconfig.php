@@ -71,6 +71,6 @@
     </tfoot>
   </table> 
 <div class="taR pr10P pt5P">
-  <?php echo CHtml::submitButton('Save', array('class'=>'ibtn blue') ); ?>
+  <?php echo CHtml::submitButton( Yii::t('cp','Save'), array('class'=>'ibtn blue') ); ?>
 </div>    
 <?php $this->endWidget(); ?>

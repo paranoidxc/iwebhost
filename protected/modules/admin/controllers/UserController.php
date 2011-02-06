@@ -53,6 +53,7 @@ class UserController extends IController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			$model->c_time = Time::now();
 			if($model->save()){
 			  if( isset($_GET['ajax']) ){
 			    $this->renderPartial('create_next', array(

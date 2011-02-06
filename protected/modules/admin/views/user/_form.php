@@ -1,4 +1,4 @@
-<div class="iform">
+<div class="iform ">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
@@ -8,7 +8,7 @@
 	)
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
 
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
@@ -18,7 +18,7 @@
   
 	<?php echo $form->errorSummary($model); ?>
 
-  <table class='itable w100s'>
+  <table class='itable w100S'>
     <tbody>
       <tr>
         <th><?php echo $form->labelEx($model,'username'); ?></th>
@@ -47,7 +47,7 @@
   </table>
   
   <div class="taR h30P lh30P pr10P pt5P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue bigrounded')); ?>
+  	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue bigrounded')); ?>
   </div>
 
 <?php $this->endWidget(); ?>

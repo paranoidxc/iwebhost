@@ -228,51 +228,51 @@ class Time {
 		$diff = $futureTime - $pastTime;
 
 		if ($diff > abs($now - strtotime($end))) {
-			$relativeDate = sprintf('on %s', date($format, $inSeconds));
+			$relativeDate = sprintf( Yii::t('cp','on').' %s', date($format, $inSeconds));
 		} else {
 			if ($years > 0) {
 				// years and months and days
-				$relativeDate .= ($relativeDate ? ', ' : '') . $years . ' ' . ($years==1 ? 'year':'years');
+				$relativeDate .= ($relativeDate ? ', ' : '') . $years . ' ' . ($years==1 ? Yii::t('cp','year'):Yii::t('cp','years'));
 				if( !$options['short'] ) {
-  				$relativeDate .= $months > 0 ? ($relativeDate ? ', ' : '') . $months . ' ' . ($months==1 ? 'month':'months') : '';
-  				$relativeDate .= $weeks > 0 ? ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? 'week':'weeks') : '';
-  				$relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? 'day':'days') : '';				  
+  				$relativeDate .= $months > 0 ? ($relativeDate ? ', ' : '') . $months . ' ' . ($months==1 ? Yii::t('cp','month'):Yii::t('cp','months')) : '';
+  				$relativeDate .= $weeks > 0 ? ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? Yii::t('cp','week'):Yii::t('cp','weeks')) : '';
+  				$relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? Yii::t('cp','day'):Yii::t('cp','days')) : '';				  
 				}
 			} elseif (abs($months) > 0) {
 				// months, weeks and days
 				$relativeDate .= ($relativeDate ? ', ' : '') . $months . ' ' . ($months==1 ? 'month':'months');
 				if( !$options['short'] ) {
-				  $relativeDate .= $weeks > 0 ? ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? 'week':'weeks') : '';
-				  $relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? 'day':'days') : '';
+				  $relativeDate .= $weeks > 0 ? ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? Yii::t('cp','week'):Yii::t('cp','weeks')) : '';
+				  $relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? Yii::t('cp','day'):Yii::t('cp','days')) : '';
 			  }
 			} elseif (abs($weeks) > 0) {
 				// weeks and days
-				$relativeDate .= ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? 'week':'weeks');
+				$relativeDate .= ($relativeDate ? ', ' : '') . $weeks . ' ' . ($weeks==1 ? Yii::t('cp','week'):Yii::t('cp','weeks'));
 				if( !$options['short'] ) {
-			    $relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? 'day':'days') : '';
+			    $relativeDate .= $days > 0 ? ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? Yii::t('cp','day'):Yii::t('cp','days')) : '';
 		    }
 			} elseif (abs($days) > 0) {
 				// days and hours
-				$relativeDate .= ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? 'day':'days');
+				$relativeDate .= ($relativeDate ? ', ' : '') . $days . ' ' . ($days==1 ? Yii::t('cp','day'):Yii::t('cp','days'));
 				if( !$options['short'] ) {
-				  $relativeDate .= $hours > 0 ? ($relativeDate ? ', ' : '') . $hours . ' ' . ($hours==1 ? 'hour':'hours') : '';
+				  $relativeDate .= $hours > 0 ? ($relativeDate ? ', ' : '') . $hours . ' ' . ($hours==1 ? Yii::t('cp','hour'):Yii::t('cp','hours')) : '';
 			  }
 			} elseif (abs($hours) > 0) {
 				// hours and minutes
-				$relativeDate .= ($relativeDate ? ', ' : '') . $hours . ' ' . ($hours==1 ? 'hour':'hours');
+				$relativeDate .= ($relativeDate ? ', ' : '') . $hours . ' ' . ($hours==1 ? Yii::t('cp','hour'):Yii::t('cp','hours'));
 				if( !$options['short'] ) {
-				  $relativeDate .= $minutes > 0 ? ($relativeDate ? ', ' : '') . $minutes . ' ' . ($minutes==1 ? 'minute':'minutes') : '';
+				  $relativeDate .= $minutes > 0 ? ($relativeDate ? ', ' : '') . $minutes . ' ' . ($minutes==1 ? Yii::t('cp','minute'):Yii::t('cp','minutes')) : '';
 			  }
 			} elseif (abs($minutes) > 0) {
 				// minutes only
-				$relativeDate .= ($relativeDate ? ', ' : '') . $minutes . ' ' . ($minutes==1 ? 'minute':'minutes');				
+				$relativeDate .= ($relativeDate ? ', ' : '') . $minutes . ' ' . ($minutes==1 ? Yii::t('cp','minute'): Yii::t('cp','minutes'));				
 			} else {
 				// seconds only
-				$relativeDate .= ($relativeDate ? ', ' : '') . $seconds . ' ' . ($seconds==1 ? 'second':'seconds');				
+				$relativeDate .= ($relativeDate ? ', ' : '') . $seconds . ' ' . ($seconds==1 ? Yii::t('cp','second'):Yii::t('cp','seconds'));	
 			}
 
 			if (!$backwards) {
-				$relativeDate = sprintf('%s ago', $relativeDate);
+				$relativeDate = sprintf('%s '.Yii::t('cp','ago'), $relativeDate);
 			}
 		}
 		return $relativeDate;

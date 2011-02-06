@@ -4,9 +4,9 @@
   $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
   $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
-  echo '<table>';
+  echo '<table style="height: 100%; width: 100%;">';
     echo '<tr>';
-      echo '<td style="width: 42px ; vertical-align: top;background: #E9E9E9;border-right: 1px solid #B8B8B8">';          
+      echo '<td style="height: 100%; width: 42px ; vertical-align: top;background: #E9E9E9;border-right: 1px solid #B8B8B8">';          
         echo '<ul class="leaf-sidebar" >';
           echo '<li>
           <a  href="'.CController::createUrl('category/create').'"
@@ -32,13 +32,13 @@
           echo '</li>';
         echo '</ul>';        
       echo '</td>';
-    echo '<td>';
+    echo '<td style="height: 100%">';
   
     echo "<div class='icategory_tree'>";
       $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
     echo "</div>";  
     echo '</td>';
-    echo '<td>';
+    echo '<td style="height: 100%; width: 100%;">';
   // top actions 
 ?>
 
@@ -136,7 +136,7 @@
 	</li>
 	
 	<li class="">
-	  <span class="ele_refresh flR csP mt5P radius4">Refresh</span>
+	  <span class="ele_refresh flR csP mt5P radius4 mr5P">Refresh</span>
 	</li>
 	<!--
 	<li class="list_symbol">
