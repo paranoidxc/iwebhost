@@ -1,6 +1,6 @@
 <div class='mac_panel_wrap w600P' >
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Create Node") )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp','Create Node')) )
 ?>
 
 <?php echo $return_panel_ident?>

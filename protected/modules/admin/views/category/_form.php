@@ -8,7 +8,7 @@
 	)
 	)); ?>
 	
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('cp','Fields with * are required.') ?></p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
       <?php echo Yii::app()->user->getFlash('success'); ?>
@@ -18,16 +18,16 @@
 	<?php echo $form->errorSummary($model); ?>	
 	
 	<div class="ml20P pt10P">
-	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
-	  <a data="field_content" class="form_tab"><span>Content Field</span></a>
+	  <a data="field_normal" class="form_tab form_tab_selected"><span><?php echo Yii::t('cp','Normal Field')?></span></a>
+	  <a data="field_content" class="form_tab"><span><?php echo Yii::t('cp','Content Field')?></span></a>
 	</div>
 	
 	
 	<div class="dN form_field_wrap field_content">  
 
 	  <div style="margin-bottom: 5px">
-	    <span data="write" class="inner_tab inner_tab_selected" > Write </span>
-	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > Preview </span>
+	    <span data="write" class="inner_tab inner_tab_selected" > <?php echo Yii::t('cp','Write')?> </span>
+	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > <?php echo Yii::t('cp','Preview')?> </span>
 	  </div>
 	  
 	  <div class="inner_wrap write">
@@ -35,7 +35,7 @@
 		</div>
 		
 		<div class="dN inner_wrap preview">
-		  preview
+		  <?php echo Yii::t('cp','Preview')?>
   	</div>
   </div>
   
@@ -48,8 +48,8 @@
     			<th><?php echo $form->labelEx($model,'parent_leaf_id'); ?>			
     			</th>
     			<td>
-    			id :<?php echo $model->parent_leaf->id; ?> - 
-    			name :<?php echo $model->parent_leaf->name; ?>
+      		<span class="filter radius4"><?php echo $model->parent_leaf->id; ?></span>
+    			<?php echo $model->parent_leaf->name; ?>
     			<?php echo $form->hiddenField($model,'parent_leaf_id') ?>	
     			<?php 
     				if ( isset( $leafs ) ) {
@@ -77,14 +77,6 @@
     			<?php echo $form->error($model,'ident_label'); ?>
     		</td>
     	</tr>	
-    	
-    	<tr>
-    		<th><?php echo $form->labelEx($model,'template'); ?></th>
-    		<td>
-    			<?php echo $form->textField($model,'template',array('size'=>60,'maxlength'=>250)); ?>
-    			<?php echo $form->error($model,'template'); ?>
-    		</td>
-    	</tr>
       <?php
     	}
     	?>
@@ -101,23 +93,23 @@
     	</tr>
     
     	<tr>
-    		<th>Tpl</th>
+    		<th><?php echo Yii::t('cp','Tpl') ?></th>
     		<td>
     			<p>				
-    				<?php echo $form->textField($model,'album_tpl', array('class' => 'small' )); ?>.php
-    				<?php echo $form->labelEx($model,'album_tpl', array('class' => 'normal' )); ?>
+    				<?php echo $form->textField($model,'album_tpl', array('class' => 'small' )); ?>.php    				
+    				<?php echo $form->labelEx($model,Yii::t('cp','album_tpl'), array('class' => 'normal' )); ?>
     				<?php echo $form->error($model,'album_tpl'); ?>
     			</p>
     
     			<p>				
     				<?php echo $form->textField($model,'list_tpl', array('class' => 'small' )); ?>.php
-    				<?php echo $form->labelEx($model,'list_tpl', array('class' => 'normal' )); ?>
+    				<?php echo $form->labelEx($model,Yii::t('cp','list_tpl'), array('class' => 'normal' )); ?>
     				<?php echo $form->error($model,'list_tpl'); ?>
     			</p>
     
     			<p>				
     				<?php echo $form->textField($model,'topic_tpl', array('class' => 'small' )); ?>.php
-    				<?php echo $form->labelEx($model,'topic_tpl', array('class' => 'normal' )); ?>
+    				<?php echo $form->labelEx($model,Yii::t('cp','topic_tpl'), array('class' => 'normal' )); ?>
     				<?php echo $form->error($model,'topic_tpl'); ?>
     			</p>
     		</td>
@@ -170,7 +162,7 @@
   
  
 	<div class="taR h30P pr10P">
-  		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue')); ?>
+  		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
   </div> 
   
 <?php $this->endWidget(); ?>

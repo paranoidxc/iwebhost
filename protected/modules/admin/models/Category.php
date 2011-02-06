@@ -335,10 +335,10 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('template,partial,memo, album_tpl,list_tpl,topic_tpl,content_type,uri,oct_id,ost_id,ident,ident_label,model_type', 'default'),
+			array('partial,memo, album_tpl,list_tpl,topic_tpl,content_type,uri,oct_id,ost_id,ident,ident_label,model_type', 'default'),
 			array('ident_label','unique','allowEmpty' => true, 'caseSensitive' => false ),
 			array('name', 'required'),
-			array('lft, rgt, type', 'numerical', 'integerOnly'=>true),
+			array('lft, rgt', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),
 			array('create_time, update_time', 'safe'),
 			// The following rule is used by search().
@@ -466,13 +466,20 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'lft' => 'Lft',
-			'rgt' => 'Rgt',
-			'create_time' => 'Create Time',
-			'update_time' => 'Update Time',
-			'type' => 'Type',
+			'id'              => 'ID',
+  		'partial'         => Yii::t('cp','Partial'),
+			'name'            => Yii::t('cp','Name'),
+			'lft'             => Yii::t('cp','Lft'),
+			'rgt'             => Yii::t('cp','Rgt'),
+			'create_time'     => Yii::t('cp','Create_time'),
+			'update_time'     => Yii::t('cp','Update_time'),
+  		'ident_label'     => Yii::t('cp','Ident Label'),
+			'content_type'    => Yii::t('cp','Node Content Type'),
+    	'tpl'             => Yii::t('cp','Tpl'),
+      'album_tpl'       => Yii::t('cp','Album Tpl'),
+      'list_tpl'        => Yii::t('cp','List Tpl'),
+      'topic_tpl'       => Yii::t('cp','Content Tpl'),
+      'parent_leaf_id'  => Yii::t('cp','Parent Leaf Id'),
 		);
 	}
 
@@ -499,7 +506,7 @@ class Category extends CActiveRecord
 
 		$criteria->compare('update_time',$this->update_time,true);
 
-		$criteria->compare('type',$this->type);
+		//$criteria->compare('type',$this->type);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,

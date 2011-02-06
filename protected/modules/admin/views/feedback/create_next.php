@@ -8,6 +8,7 @@
 	  <!--Panel Ident = <?php echo $panel_ident;?>-->
 	</p>
 </div>
+
 <input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 
 <div class='step'>

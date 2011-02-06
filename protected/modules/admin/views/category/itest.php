@@ -1,7 +1,7 @@
 <?php
   $return_model_type = $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type;
   echo "<div class='mac_panel_wrap w800P' id='panel_$return_model_type' >";
-  $panel_title = 'Name:'.$top_leaf->name.' - ID:'.$top_leaf->id;
+  $panel_title = '<span class="filter radius4">'.$top_leaf->id."</span> ".$top_leaf->name;
   $this->beginWidget('application.extensions.Smacpanel',array('title'=>$panel_title) );
   
   echo '<table style="height: 100%; width: 100%;">';
@@ -10,24 +10,24 @@
         echo '<ul class="leaf-sidebar" >';
           echo '<li>
           <a  href="'.CController::createUrl('category/create').'"
-	            title="create new leaf inside current leaf" 
+	            title="'.Yii::t('cp','Create Node').'" 
 	            class="ele_create_category active"></a>';
 	        echo '</li>';	        
           echo '<li>
           <a href="'.CController::createUrl('category/update').'"
- 	           title="update the current leaf" 
+ 	           title="'.Yii::t('cp','Upload Node').'" 
  	           class="ele_update_leaf"></a>';
           echo '</li>';
           
           echo '<li>
             <a href="'.CController::createUrl('category/move').'"
- 	             title="move the current leaf to another" 
+ 	             title="'.Yii::t('cp','Move Node').'" 
  	             class="ele_move_leaf"></a>';
  	       echo '</li>';
  	       
           echo '<li>
             <a href="'.CController::createUrl('category/delete').'"
-   	        title="delete current leaf" 
+   	        title="'.Yii::t('cp','Delete Node').'" 
      	      class="ele_del_leaf"></a>';
           echo '</li>';
         echo '</ul>';        
@@ -91,33 +91,39 @@
   	  <input type="checkbox" id="cb_all" class="ele_list_all" /><span class="more"></span>
 	  </span>
 	  <ul class='dN c_s_m_d'>
-	    <li class="c_s_m_d_a">All</li>
-	    <li class="c_s_m_d_n">None</li>
+	    <li class="c_s_m_d_a"><?php echo Yii::t('cp','Select All') ?></li>
+	    <li class="c_s_m_d_n"><?php echo Yii::t('cp','Select None') ?></li>
 	  </ul>
 	</li>
 	
 	<li class="hover">
 		<a  href="<?php echo CController::createUrl('article/create') ?>"
-	      title="Create Article" class="ele_create">new</a>
+	      title="<?php echo  Yii::t('cp','new')?>" class="ele_create"><?php echo Yii::t('cp','new')?></a>
  	</li>	
  	
-	<!-- c_m_a     content_more_actions
- 	     c_m_a_d   content_more_actions_dialog
- 	-->
+<!--
+  c_m_a     content_more_actions
+	c_m_a_d   content_more_actions_dialog
+-->
+
 	<li>	  
 	  <span class="c_m_a">
-	    More Actions<span class="more"></span>
+	    <?php echo Yii::t('cp','More Actions')?> <span class="more"></span>
 	  </span>
 	  <ul class='dN c_m_a_d'>
-	    <li id="artiles_stared" title="Stared Articles" class="c_m_a_d_batch">Stared</li>      
-	    <li id="artiles_unstared" title="Unstared Articles" class="c_m_a_d_batch">Unstared</li>
-      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch ele_content_move">move</li> 
-      <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" title="Delete Articles" class="c_m_a_d_batch">delete</li>
+	    <li id="artiles_stared" title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
+	    <li id="artiles_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
+      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch ele_content_move">
+        <?php echo Yii::t('cp','Move Content')?>
+      </li> 
+      <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" class="c_m_a_d_batch">
+        <?php echo Yii::t('cp','Delete Content') ?>
+      </li>
       <?php
 	    if( $top_leaf->model_type == 'attachment' ) {
       ?>
-      <li href="<?php echo CController::createUrl('attachment/batchedit') ?>" id="ele_update_atts" title="Update Attachments" class="c_m_a_d_batch">
-			  Update
+      <li href="<?php echo CController::createUrl('attachment/batchedit') ?>" id="ele_update_atts" class="c_m_a_d_batch">
+			  <?php echo Yii::t('cp','Update Content') ?>
 		  </li>
       <?php
       }
@@ -125,18 +131,18 @@
       <?php
 	    if( $top_leaf->model_type != 'attachment' ) {
       ?>
-	    <li href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" title="Move Articles" class="c_m_a_d_batch">
-			  copy
+	    <li href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" class="c_m_a_d_batch">
+			  <?php echo Yii::t('cp','Copy Content') ?>
 		  </li>    
 	    <?php
       }
       ?>
-      <li class="c_m_a_d_tip dN">Pls Select C</li>
+      <li class="c_m_a_d_tip dN"><?php echo Yii::t('cp','No Selected') ?></li>
     </ul>  	  
 	</li>
 	
 	<li class="">
-	  <span class="ele_refresh flR csP mt5P radius4 mr5P">Refresh</span>
+	  <span class="ele_refresh flR csP mt5P radius4 mr5P"><?php echo Yii::t('cp','Refresh') ?></span>
 	</li>
 	<!--
 	<li class="list_symbol">

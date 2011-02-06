@@ -579,6 +579,8 @@ class CategoryController extends Controller
 					$transaction->commit();	
 					
 					if( $_GET['ajax'] == 'ajax' ) {
+					  $str = Yii::t('cp','Create Success On ').Time::now();
+					  Yii::app()->user->setFlash('success',$str);
 						$this->renderPartial('create_next',array( 'model' => $model) ,false, true );			
 						exit;			
 					}else {							

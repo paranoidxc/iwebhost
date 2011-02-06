@@ -11,8 +11,21 @@ return array(
   'Articles'        => '网站内容',
   'Attachment'      => '网站附件',
   
-  
+  'Create Node'     => '新建节点',
+  'Update Node'     => '编辑节点',
+  'Move Node'       => '移动节点',
+  'Deelte Node'     => '删除节点',
   //ilist table thead column
+  'Create Node'     => '新建节点',
+  'Ident Label'     => '唯一标识',
+  'Node Content Type' => '节点内容类型',
+  'Name'            => '名称',
+  'Album Tpl'       => '封面模板文件名',
+  'List Tpl'        => '列表模板文件名',
+  'Content Tpl'     => '内容模板文件名',
+  'Parent Leaf Id'  => '上级节点名称',
+  'Partial'         => '局部模板',
+  
   'Edit'            => '编辑',
   'Sid'             => '序号',
   'Itype'           => '反馈类型',  
@@ -66,9 +79,18 @@ return array(
   'On'                  => '于',
   
   'More Actions'        => '更多操作',
+  
   'Delete Content'      => '删除所选内容',
+  'Copy Content'        => '复制选项内容',
   'Move Content'        => '移动所选内容',
+  'Update Content'      => '更新所选内容',
   'No Selected'         => '请选择内容',
+  'Select All'          => "全选",
+  'Select None'         => "全不选",
+  'new'                 => '新建',
+  'Stared'              => '重点',
+  'Unstared'            => '取消重点',
+  'Refresh'             => '刷新',
   
   //panel 
   'Close'               => '关闭',
@@ -117,7 +139,7 @@ return array(
   'en_us'           => 'English',
   
   'Incorrect username or password.' => '账户密码错误',
-  
+  'Create Success On '              => '新建成功在 ',
   //Time.php
   'on'              => '在',
   'ago'             => '之前',

@@ -19,6 +19,7 @@ define('THUMB_SIZE',  '160_120');
 define('GAVATAR_SIZE','48_48');
 define('LARGE_SIZE',  '800_600');
 
+define('IHOST_STUDIO', 'http://www.google.com');
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 
 // specify how many levels of call stack should be shown in each log message

@@ -5,8 +5,11 @@
 	  public $close,$min,$max;
 	  
 		public function init() {
+		  
 		  if( $this->ftitle == "Prowed By ihost; &copy; huangxc 1985-‘" ){
+		    $this->ftitle ="<a href='".IHOST_STUDIO."' target='_blank' >".$this->ftitle;
 		    $this->ftitle .= date('y');  
+		    $this->ftitle .= "</a>";
 		  }
 		  $this->close  = Yii::t('cp', 'Close');
 		  $this->min    = Yii::t('cp', 'Min');
