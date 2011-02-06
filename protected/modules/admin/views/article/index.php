@@ -4,7 +4,7 @@
   ?>
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('article/index', array('keyword' => '')) ?>" />
   <input type="hidden" name='model_type' value="iarticle" class="model_type" />      
-  
+  <input type="hidden" class="top_leaf_id" value="1" />
   <p class=''>
     <ul class="actions"> 	      
       <li>&nbsp;</li>
@@ -13,7 +13,12 @@
     	    <?php echo Yii::t('cp','More Actions');?> <span class="more"></span>
     	  </span>
     	  <ul class='dN c_m_a_d'>
-    	    <li class="ele_delete c_m_a_d_batch" title="Delete" href="<?php echo CController::createUrl('article/delete') ?>"><?php echo Yii::t('cp','Delete Content') ?></li>
+    	    <li class="ele_delete c_m_a_d_batch" title="<?php echo Yii::t('cp','delete')?>" href="<?php echo CController::createUrl('article/delete') ?>">
+    	      <?php echo Yii::t('cp','Delete Content') ?>
+    	    </li>
+    	    <li class="ele_content_move c_m_a_d_batch" title="<?php echo Yii::t('cp','move')?>" href="<?php echo CController::createUrl('article/move')?>" >
+    	      <?php echo Yii::t('cp','Move Content')?>
+    	    </li>    	    
     	    <li class="c_m_a_d_tip" title="No Selected"><?php echo Yii::t('cp','No Selected') ?></li>
         </ul>
       </li>
@@ -35,7 +40,7 @@
     <table class='ilist'>
       <thead>
         <tr>
-          <th class='w20P taC pr2p pl2p '><input type='checkbox' class="ele_list_all" /></th>
+          <th class='w20P taC pr2P pl2P '><input type='checkbox' class="ele_list_all" /></th>
           <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
           <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
           <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>

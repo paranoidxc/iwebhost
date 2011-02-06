@@ -42,6 +42,7 @@ return array(
   'Preview'         => '预览',
   
   'delete'          => '删除',
+  'move'            => '移动',
   'reset'           => '撤销',
   'Go to:'          => '跳转到:',  
   'Advanced Search' => '高级搜索',
@@ -66,6 +67,7 @@ return array(
   
   'More Actions'        => '更多操作',
   'Delete Content'      => '删除所选内容',
+  'Move Content'        => '移动所选内容',
   'No Selected'         => '请选择内容',
   
   //panel 

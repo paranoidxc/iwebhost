@@ -897,8 +897,10 @@ $(document).ready(function(){
 	    }
 	  }
 	  else if( wrap.find('.return_panel').length > 0 && wrap.find('.return_panel').val() != "") {	   	   	    
+	    alert("!");
 	    parent_panel = $('#'+wrap.find('.return_panel').val());
-	    var url = parent_panel.find('.ele_refresh_url').val();	    	    
+	    var url = parent_panel.find('.ele_refresh_url').val();	    
+	    
 	  }else if( wrap.find('.ele_refresh_url').length > 0 ) {	    	    
 	    parent_panel = wrap;
 	    if( wrap.find('.leaf_content').length > 0 ){	 	      
@@ -919,10 +921,12 @@ $(document).ready(function(){
         url       : url,
         success   : function(html) {     
           idebug( 'search_result_wrap length = '+parent_panel.find( '.search_result_wrap').length  );
+          if( parent_panel ) {
+            formLay(parent_panel,'h');
+          }
           if( parent_panel.find('.leaf_content').length > 0  ){                   
             idebug(' update leaf content');
-            parent_panel.find('.leaf_content').html(html);
-            formLay(parent_panel,'h');
+            parent_panel.find('.leaf_content').html(html);            
           }
           else if( parent_panel.find('.search_result_wrap').length > 0 ){            
             idebug(' update leaf search_result_wrap ');
@@ -1032,7 +1036,8 @@ $(document).ready(function(){
 	
 	//98f13708210194c475687be6106a3b84  移动节点
 	$('.ele_move_leaf').live('click',function(){
-	  parent_panel = wrap = getPanel($(this));
+	  //parent_panel = wrap = getPanel($(this));
+	  wrap = getPanel($(this));
 	  $.ajax({
 	    type: 'get',
 	    cache: false,
@@ -1330,12 +1335,17 @@ $(document).ready(function(){
 	$('.ele_content_move').click(function(){
 	  parent_panel = wrap = getPanel($(this));
 	  var leaf_panel_id = 'move_leaf_panel_'+$('#leaf_id').val();
+	  if( wrap.find('#leaf_content_move_url').length > 0 ){
+	    var url = $('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val()+'&panel_ident='+wrap.attr('id');  
+	  }else{
+	    var url = $(this).attr('href')+'&top_leaf_id='+wrap.find('.top_leaf_id').val()+'&panel_ident='+wrap.attr('id');  
+	  }
 		if( isExist( leaf_panel_id) ){
 		  return false;
 		}
 		$.ajax({
 			type:	'get',
-			url:	$('#leaf_content_move_url').val()+'&top_leaf_id='+$('#top_leaf_id').val()+'&panel_ident='+wrap.attr('id'),
+			url:	url,
 			cache:	false,
 			success:	function(html){
 			  popup_panel( $(html).attr('id',leaf_panel_id) );			  
@@ -1344,7 +1354,6 @@ $(document).ready(function(){
 			complete: function(){
 			  formLay(parent_panel,'s');
 			}
-			
 		})		
 				
 		return false;
