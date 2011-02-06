@@ -17,6 +17,15 @@
 
 @import url('console.attachment.css');
 
+.hidden_like_span {
+  border: none;  
+  background: #E2E2E2;
+  color: #4592AD;  
+  font-weight: bold;  
+  padding: 0 3px;
+  text-align: right;
+}
+
 .choose_lang_wrap {
   position: absolute; 
   right: 9px; 

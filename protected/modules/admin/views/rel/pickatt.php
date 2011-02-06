@@ -1,6 +1,6 @@
 <div class='mac_panel_wrap w600P' >
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>"Pick Attachment") )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp',"Pick Attachment")) )
 ?>
 <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
 
@@ -48,7 +48,7 @@
   <select class="dN rel_imagerange">
   </select>
   <input type="hidden" class="rtype" value="<?php echo $rtype; ?>" />
-  <?php echo CHtml::submitButton('OK', array( 'class' => 'ibtn blue att_return_submit')); ?>
+  <?php echo CHtml::submitButton( Yii::t('cp', 'Submit'), array( 'class' => 'ibtn blue att_return_submit')); ?>
 </div>   
 <div class="ajax_overlay" ></div>
 <?php

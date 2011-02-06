@@ -32,7 +32,7 @@
             value="Cancel All Uploads" onclick="swfu.cancelQueue();"
   	        disabled="disabled"
   	        style="display: none; margin-left: 2px; font-size: 8pt; height: 29px; " />
-  	  <span class="ele_refresh flR csP radius4">Refresh</span>
+  	  <span class="ele_refresh flR csP radius4"><?php echo Yii::t('cp','Refresh') ?></span>
     </div>
     <div id="divStatus" class='dN' >0 Files Uploaded</div>
     <div class="fieldset flash dN" id="fsUploadProgress">

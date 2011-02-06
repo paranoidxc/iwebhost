@@ -14,8 +14,11 @@ return array(
   'Create Node'     => '新建节点',
   'Update Node'     => '编辑节点',
   'Move Node'       => '移动节点',
-  'Deelte Node'     => '删除节点',
+  'Delete Node'     => '删除节点',
+  
   //ilist table thead column
+  
+  
   'Create Node'     => '新建节点',
   'Ident Label'     => '唯一标识',
   'Node Content Type' => '节点内容类型',
@@ -73,6 +76,7 @@ return array(
   
   'Manage'              => '管理',
   'New'                 => '新建',
+  'Submit'              => '确定',
   'Create'              => '新建',
   'Save'                => '更新',
   'Suc'                 => '成功',
@@ -93,6 +97,9 @@ return array(
   'Refresh'             => '刷新',
   
   //panel 
+  'Pick Attachment'         =>      '选择关联附件',
+  'Pick Attachment Gallery' => '选择关联集合',
+  'Move to'                 => '移动到',
   'Close'               => '关闭',
   'Min'                 => '最小化',
   'Max'                 => '最大化',
@@ -134,6 +141,7 @@ return array(
   'Record No'                     => '备案号',
   'Is Oops'                       => '是否关闭',
   'Oops Tips'                     => '关闭提示信息',  
+  
   //language info
   'zh_cn'           => '简体中文',
   'en_us'           => 'English',
