@@ -1,5 +1,5 @@
 <?php
-	echo "<ul class='api_categorys_ul' id='top_tree' render_url='".CController::createurl('category/leafs', array('ajax' => 'ajax'))."'>";
+	echo "<ul class='api_categorys_ul api_tree_categorys_ul' id='top_tree' render_url='".CController::createurl('category/leafs', array('ajax' => 'ajax'))."'>";
 		$temp_depth = 0;			
 		$class="fold";
 		$class="open";
@@ -14,7 +14,7 @@
 		foreach( $nodes as $leaf ) {
       $odd_even_index = $odd_even_count%2;
       $odd_even_count ++;
-      //$class = 'open';      
+      //$class = 'open';
       if( $icat[$leaf->id] ){
         if( $icat[$leaf->id]['class'] != '' ){
           $_class = $icat[$leaf->id]['class'];  

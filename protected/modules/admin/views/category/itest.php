@@ -53,10 +53,11 @@
 
 <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax')) ?>" />
 
+<input type="hidden" value="<?php echo CController::createUrl('category/iclass')?>" class="url_leaf_set_class" />
 <input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax') ) ?>" id="leaf_content_view_url" />
-<input type="hidden"  value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
-<input type="hidden"  value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
-<input type="hidden"  value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   id="sort_leaf_url"/>
+<input type="hidden" value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
+<input type="hidden" value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
+<input type="hidden" value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   id="sort_leaf_url"/>
 
 <input type="hidden"  value="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"   class="artiles_stared_url"/>
 <input type="hidden"  value="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"   class="artiles_unstared_url"/>

@@ -58,7 +58,7 @@ class CategoryController extends Controller
 	public function actionIclass(){
 	  $id     = $_GET['id'];
 	  $class  = $_GET['class'];
-	  
+	  print_r($class);
 	  $icat = Yii::app()->user->getState('scategory');
     if( $icat[$id] ){
       $icat[$id]['class'] = $class;

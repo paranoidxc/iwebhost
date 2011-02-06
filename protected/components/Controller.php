@@ -28,7 +28,7 @@ class Controller extends CController
       $_scategory = Category::model()->findAll(array('select'=> 'id,name'));
       $__scategory = array();
       foreach( $_scategory as $icat ) {
-        $__scategory[$icat['id']] =  $icat['name'];
+        $__scategory[$icat['id']]['id'] =   $icat['name'];
       }
       unset($_scategory);
       Yii::app()->user->setState('scategory',$__scategory);            

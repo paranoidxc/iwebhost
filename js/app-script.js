@@ -779,9 +779,9 @@ $(document).ready(function(){
 	  var wrap = getPanel($(this));
 	  wrap.find('.move_category_id').val( $(this).attr('rel_id') );
 	  wrap.find('.move_category_name').val( $(this).attr('rel_name') );
+	  wrap.find('.tree_leaf_current').removeClass('tree_leaf_current');
+  	$(this).addClass('tree_leaf_current');  	     
 	  
-	  //$('#move_category_id').attr('value', $(this).attr('rel_id'));
-	  //$('#move_category_name').attr('value',$(this).attr('rel_name'));
 	})	
 	
 	/*accb8413de43b01d42bc9f1af5aceab0 添加节点*/
