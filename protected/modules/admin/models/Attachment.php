@@ -65,7 +65,8 @@ class Attachment extends CActiveRecord
   }
   
   public function getimage(){
-    return UPFILES_DIR.'/'.$this->path.'.'.$this->extension;
+    //return UPFILES_DIR.'/'.$this->path.'.'.$this->extension;        
+    return UPFILES_DIR.'/'.$this->path.'_'.$this->w.'_'.$this->h.'.'.$this->extension;
   }
   
   public function getlarge(){

@@ -11,27 +11,15 @@
     height: 250px;
     background: #D1D7E2;
   }
-  .ilogin_wrap #sign_in {
-    padding:10px;
-  }
-  .ilogin_wrap .login_column_main {
-    margin-left: 200px;    
-    background: #F2F2F2;    
+  
+  .ilogin_wrap .login_column_main {          
   }
   .login_column_main .ipwd,
   .login_column_main .itext {
     padding: 5px;
     border: 1px solid #CCC;
-  }
-  #sign_in .note {
-    text-indent: 0;
-    margin-left: -10px;
-  }
-  
-  
-  
-  .login_column_main h3 {
-    background: url(http://www.iparanoid.co.cc/styles/panel_images/column_item_normal.png) repeat-x 0px 0px;    
+  }  
+  .login_column_main h3 {    
     color: black;
     font-size: 2em;
     height: 61px;

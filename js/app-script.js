@@ -160,16 +160,22 @@ function parentOne(ele,exp){
 
 
 $(document).ready(function(){
+  
+  /*02dcd9e5975fcca9ac9e448618e5cea4 放大图片 zoom_photo*/  
+  $('.zoom_photo').live('click',function(){        
+    var header = $('#FlatPanelHeader').val();
+    var footer = $('#FlatPanelFooter').val();
+    var img_html = "<div class='taC w100S'><img class='p2P' src='"+$(this).attr('href')+"' alt='' width='500' /></div>";
+    var panel_html = "<div class='mac_panel_wrap w600P'>" + header + img_html + footer + "</div>";
+    popup_panel( $(panel_html) );
+    return false;
+  })
+  
   $('.choose_lang_wrap').hover(function(){  
   	if( $('.choose_lang_ul_wrap').css('display') != 'block' ) {
   		$('.choose_lang_ul_wrap').stop(true,true).slideDown();	
-  	}  	
-    //$(this).addClass('hover').stop(true,true).fadeIn().find('ul').slideDown();
-  },function(){
-    //var that = $(this);
-   // $(this).find('ul').stop(true,true).slideUp('fast',function(){
-     // that.removeClass('hover');  
-    //});
+  	}  	  
+  },function(){    
   });
 
   $('.choose_lang_ul_wrap').hover(function(){
@@ -183,8 +189,8 @@ $(document).ready(function(){
   });
   
   // fun1 login function  
-  $('.ilogin_wrap .login_column_main').hide();  
-  $($('.ilogin_wrap .login_column_main')[0]).show();
+  //$('.ilogin_wrap .login_column_main').hide();  
+  //$($('.ilogin_wrap .login_column_main')[0]).show();
   
   $($('.ilogin_wrap .login_column_nav li')[0]).addClass('current');
   

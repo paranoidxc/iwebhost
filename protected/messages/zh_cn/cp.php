@@ -78,5 +78,7 @@ return array(
   'zh_cn'           => '简体中文',
   'en_us'           => 'English',
   
+  'Incorrect username or password.' => '账户密码错误',
+  
 );
 ?>

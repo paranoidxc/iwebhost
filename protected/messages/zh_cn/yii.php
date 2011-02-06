@@ -209,5 +209,5 @@ return array (
   '{controller} cannot find the requested view "{view}".' => '{controller} 无法找到请求的视图 "{view}".',
   '{controller} contains improperly nested widget tags in its view "{view}". A {widget} widget does not have an endWidget() call.' => '{controller} 在它的 view "{view}" 中含有未被适当巢状套叠的 widget 标签. {widget} widget 中没有呼叫 endWidget().',
   '{controller} has an extra endWidget({id}) call in its view.' => '{controller} 在它的视图中有一个额外的 endWidget({id}) 呼叫.',
-  '{widget} cannot find the view "{view}".' => '{widget} 无法找到这个视图 "{view}".',
+  '{widget} cannot find the view "{view}".' => '{widget} 无法找到这个视图 "{view}".',  
 );

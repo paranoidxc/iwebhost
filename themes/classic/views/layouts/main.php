@@ -48,6 +48,9 @@
 </head>
 
 <body>
+<textarea class="dN" id="FlatPanelHeader"><?php echo FlatmacpanelString::header() ?></textarea>
+<textarea class="dN" id="FlatPanelFooter"><?php echo FlatmacpanelString::footer() ?></textarea>
+</div>
 
 <div class="container" id="page">
 

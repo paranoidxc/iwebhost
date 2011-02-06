@@ -7,6 +7,7 @@
 .required span.required {
   color: #8C0505;
 }
+.iform_table_wrap,
 .itable {
  	border-collapse: collapse;
 	margin: 0;
@@ -88,7 +89,8 @@
 .ilist tbody tr:hover td {
   color: #EFEFEF;
 }
-  
+
+.iform_table_wrap tbody th,
 .itable tbody th {	
 	color: #4f6b72;	
 	text-transform: capitalize;
@@ -96,20 +98,22 @@
 	text-align: right;	
 	vertical-align: middle;
 }
+.iform_table_wrap tbody td,
 .itable tbody td {	
 	text-align: left;
 	vertical-align: top;
 	padding: 6px 6px 6px 6px;	
 	color: #4f6b72;
 }
+.iform_table_wrap tbody td input[type='password'],
+.iform_table_wrap tbody td input[type='text'],
 .itable tbody td input[type='text'] {
 	background-color: #F2F2F2;
 	border: solid #B1B1B1;
 	border-width: 1px 0px 0px 1px;
 	color: #333;
 	/*display: block;*/
-	font-size: 12px;	
-	width: 400px;
+	font-size: 12px;
 	padding:5px;
 	/*background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;*/	
 	background: #FFF;	
@@ -117,6 +121,11 @@
 	border-style:solid;
   border-width:1px;
 }
+
+.itable tbody td input[type='text'] {
+  width: 400px;
+}
+  
 .itable tbody td textarea {		
 	background: #FFF;
 	border: 1px solid #CCCCCC;	  

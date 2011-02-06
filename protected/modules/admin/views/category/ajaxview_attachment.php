@@ -10,7 +10,7 @@
       echo '<li>';
       if( $t->is_image() ){
       echo '<div class="thumb_wrap">';
-      echo "<a class='lightbox' href='$t->image' >";
+      echo "<a class='lightbox zoom_photo' href='$t->image' >";
       echo '<img src="'.$t->thumb.'" alt=""  /> ';
       echo '</a>';
       echo '</div>';

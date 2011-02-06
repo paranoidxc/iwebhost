@@ -72,6 +72,9 @@
   padding-top: 20px;
   -moz-border-radius-bottomleft: 5px;
   -moz-border-radius-bottomright: 5px;
+  
+  -webkit-box-shadow:0px 0px 6px #000;
+  -moz-box-shadow:0px 0px 6px #000;
 }
 .choose_lang_ul_wrap ul {
   margin-top: 2px;
