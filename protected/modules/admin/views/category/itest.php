@@ -11,24 +11,24 @@
           echo '<li>
           <a  href="'.CController::createUrl('category/create').'"
 	            title="'.Yii::t('cp','Create Node').'" 
-	            class="ele_create_category active"></a>';
+	            class="ele_create_leaf active ioverpanel"></a>';
 	        echo '</li>';	        
           echo '<li>
           <a href="'.CController::createUrl('category/update').'"
  	           title="'.Yii::t('cp','Upload Node').'" 
- 	           class="ele_update_leaf"></a>';
+ 	           class="ele_update_leaf ioverpanel"></a>';
           echo '</li>';
           
           echo '<li>
             <a href="'.CController::createUrl('category/move').'"
  	             title="'.Yii::t('cp','Move Node').'" 
- 	             class="ele_move_leaf"></a>';
+ 	             class="ele_move_leaf ioverpanel"></a>';
  	       echo '</li>';
  	       
           echo '<li>
             <a href="'.CController::createUrl('category/delete').'"
    	        title="'.Yii::t('cp','Delete Node').'" 
-     	      class="ele_del_leaf"></a>';
+     	      class="ele_del_leaf ioverpanel"></a>';
           echo '</li>';
         echo '</ul>';        
       echo '</td>';
@@ -40,12 +40,21 @@
     echo '</td>';
     echo '<td style="height: 100%; width: 100%;">';
   // top actions 
+  
+  if( $top_leaf->model_type == 'attachment' ) {
+    $url_content_move =  CController::createUrl('attachment/move');
+    $url_content_del  = CController::createUrl('attachment/delete');
+  }else{
+    $url_content_move = CController::createUrl('article/move');
+    $url_content_del  = CController::createUrl('article/delete');
+    $url_content_copy = CController::createUrl('article/copy');
+  }
 ?>
 
 
 
-<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="top_leaf_id"/>
-<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="cur_leaf_id"/>
+<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="top_leaf_id" class="top_leaf_id"/>
+<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="cur_leaf_id" class="cur_leaf_id"/>
 
 
 <input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />
@@ -62,23 +71,7 @@
 <input type="hidden"  value="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"   class="artiles_stared_url"/>
 <input type="hidden"  value="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"   class="artiles_unstared_url"/>
 
-<?php 
-  if( $top_leaf->model_type == 'attachment' ) {
-    ?>
-    <input type="hidden"  value="<?php echo CController::createUrl('attachment/move') ?>"   id="leaf_content_move_url"/>
-    <input type="hidden"  value="<?php echo CController::createUrl('attachment/delete') ?>" id="leaf_content_del_url"/>
-    <?php
-  }
-  else{
-    ?>
-    <input type="hidden"  value="<?php echo CController::createUrl('article/move') ?>"    id="leaf_content_move_url"/>
-    <input type="hidden"  value="<?php echo CController::createUrl('article/delete') ?>"  id="leaf_content_del_url"/>
-    <?
-  }
-?>
-
-
-<div id="leaf_articles_wrap"  class="osX">
+<div class=" leaf_content_wrap osX">
 
 <ul class="actions"> 	
  
@@ -112,12 +105,14 @@
 	    <?php echo Yii::t('cp','More Actions')?> <span class="more"></span>
 	  </span>
 	  <ul class='dN c_m_a_d'>
-	    <li id="artiles_stared" title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
-	    <li id="artiles_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
-      <li id="artiles_move" title="Move Articles" class="c_m_a_d_batch ele_content_move">
+	    <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
+	      class="ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
+	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
+	      class="ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
+      <li href="<?php echo $url_content_move; ?>" title="<?php echo Yii::t('cp','Move Content')?>" class="c_m_a_d_batch ele_content_move">
         <?php echo Yii::t('cp','Move Content')?>
       </li> 
-      <li href="<?php echo CController::createUrl('article/delete') ?>" id="ele_delete_articles" class="c_m_a_d_batch">
+      <li href="<?php echo $url_content_del; ?>" class="ele_delete c_m_a_d_batch">
         <?php echo Yii::t('cp','Delete Content') ?>
       </li>
       <?php
@@ -132,7 +127,7 @@
       <?php
 	    if( $top_leaf->model_type != 'attachment' ) {
       ?>
-	    <li href="<?php echo CController::createUrl('article/copy') ?>" id="artiles_copy" class="c_m_a_d_batch">
+	    <li href="<?php echo $url_content_copy; ?>" class="ele_copy c_m_a_d_batch">
 			  <?php echo Yii::t('cp','Copy Content') ?>
 		  </li>    
 	    <?php

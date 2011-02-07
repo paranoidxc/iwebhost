@@ -3,9 +3,9 @@
     <?php echo Yii::app()->user->getFlash('success'); ?>
   </div>
 <?php } ?>
-  
+<input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 <div class='step'>
-  <h1>Next</h1>
+  <h1><?php echo Yii::t('cp', 'Choose Next') ?>:</h1>
   <ul>
     <li>
       <a href="<?php echo CController::createUrl('category/create') ?>" class='create_article_continue ibtn blue' >

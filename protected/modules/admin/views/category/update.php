@@ -2,6 +2,7 @@
 if( !$is_update ) {
   ?>
   <div class='mac_panel_wrap w600P' >
+  <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
 <?php  
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp','Edit').' '.$model->id) )
 ?>
@@ -11,7 +12,6 @@ if( !$is_update ) {
 
 
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'leafs' => $leafs, 'model_type' => $model_type)); ?>
-
 
 <?php
 if( !$is_update ) {

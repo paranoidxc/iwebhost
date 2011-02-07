@@ -14,7 +14,9 @@
 			$style_text_indent = (10*$depth+10).'px';
 			$style_chapters_indent =(10*$depth+10+32).'px';
 			
-			$pick_class = 'leaf_pick';
+			//$pick_class = 'leaf_pick';
+			
+			$pick_class = 'to_dest';
 			
 			if( $leaf->lft +1 == $leaf->rgt ) {
 				$handle_class = 'stand';

@@ -193,23 +193,21 @@ class ArticleController extends IController
 
   public function actionStared(){ 
     if(Yii::app()->request->isPostRequest){	 
-      $ids = $_POST['ids'];
-      echo $ids;
-      $sql = " update article set is_star = 1 where FIND_IN_SET(id, '$ids')";
-      Article::model()->findAllBySql($sql);    
+      $ids = $_POST['ids'];            
+      Article::model()->updateAll( array('is_star' => 1), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
+      echo count( explode(',',$ids ) ).' content has beed Started';      
     }else{      
       $model=$this->loadModel();
       $model->is_star = 1;
-      $model->save();    
+      $model->save();
     }   
   }
   
   public function actionUnstared(){
     if(Yii::app()->request->isPostRequest){	   
-      $ids = $_POST['ids'];
-      echo $ids;
-      $sql = " update article set is_star = 0 where FIND_IN_SET(id, '$ids')";
-      Article::model()->findAllBySql($sql);
+      $ids = $_POST['ids'];                       
+      Article::model()->updateAll( array('is_star' => 0), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );
+      echo count( explode(',',$ids ) ).' content has beed Unstarted';      
     }else{
       $model=$this->loadModel();
       $model->is_star = 0;

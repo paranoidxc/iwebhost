@@ -180,13 +180,13 @@
   background: url(action_32.png) no-repeat 0 0;  
 }
 
-.leaf-sidebar li a.ele_create_category {
+.leaf-sidebar li a.ele_create_leaf {
   background-position: -32px -32px;
 }
-.leaf-sidebar li a.ele_create_category.active {
+.leaf-sidebar li a.ele_create_leaf.active {
   background-position: 0px -32px;
 }
-.leaf-sidebar li a.ele_create_category.active:hover {
+.leaf-sidebar li a.ele_create_leaf.active:hover {
   background-position: -96px -32px;
 }
 .leaf-sidebar li a.ele_update_leaf {
@@ -358,7 +358,7 @@ div.errorSummary {
 	background: gray;
 	background-color: rgba(0,0,0,0.2);
 }
-#leaf_articles_wrap {
+.leaf_content_wrap {
 	float: left;
   /*width: 522px;;	
   width: 478px;*/  
@@ -367,7 +367,7 @@ div.errorSummary {
 	height: 100%;
 	/*height: 722px;*/
 }
-#leaf_articles{
+.leaf_content {
   overflow: auto;	
   width: 522px;;
   width: 478px;

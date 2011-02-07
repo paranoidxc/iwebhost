@@ -549,7 +549,8 @@ class CategoryController extends Controller
 			$model->parent_leaf_id = $_GET['leaf_id'];
 			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
 		}		
-
+    $panel_ident = $_REQUEST['panel_ident'];
+    
 		if(isset($_POST['Category']))
 		{
 		  $model->attributes=$_POST['Category'];
@@ -581,7 +582,7 @@ class CategoryController extends Controller
 					if( $_GET['ajax'] == 'ajax' ) {
 					  $str = Yii::t('cp','Create Success On ').Time::now();
 					  Yii::app()->user->setFlash('success',$str);
-						$this->renderPartial('create_next',array( 'model' => $model) ,false, true );			
+						$this->renderPartial('create_next',array( 'model' => $model, 'panel_ident' =>  $panel_ident) ,false, true );			
 						exit;			
 					}else {							
 						$this->redirect(array('leafs'));
@@ -742,11 +743,11 @@ class CategoryController extends Controller
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
-		
-		if( isset( $_POST['Category']['parent_leaf_id'] ) ) {		
-			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];
-			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);			
-		} else {			
+		$panel_ident = $_REQUEST['panel_ident'];
+		if( isset( $_POST['Category']['parent_leaf_id'] ) &&  strlen($_POST['Category']['parent_leaf_id']) > 0 ) {		
+			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];						
+			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);				
+		} else {		  
 			$sql = 	" SELECT parent.name, parent.id ".
 				 	" FROM category AS node,".
 					" category AS parent ".
@@ -760,19 +761,18 @@ class CategoryController extends Controller
 					break;
 				}				
 				$model->parent_leaf = $obj;		
-			}
+			}			
 		}		
 
 		if(isset($_POST['Category']))
-		{						
+		{		  
 			$model->attributes=$_POST['Category'];		
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 			  if( isset($_GET['ajax']) ) {      	  
     	    $str = 'Data saved suc  On '.Time::now();
 					Yii::app()->user->setFlash('success',$str);
-					$is_update = true;					
-					
+					$is_update = true;
         }else {
     	    $this->redirect(array('view','id'=>$model->id));
         }
@@ -784,14 +784,15 @@ class CategoryController extends Controller
 				'model'       => $model,
 				'model_type'	=> $_GET['model_type'],
 				'is_update'   =>  $is_update,
-				'ajax'	      => 'ajax'
+				'ajax'	      => 'ajax',
+				'panel_ident' => $panel_ident
 				),false,true);
 		}else {					
 			$this->render('update',array(
 				'model'=>$model,
 			));
 		}
-				
+
 	}
 
 	/**
