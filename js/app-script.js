@@ -16,72 +16,66 @@ function uploadTips(ele,str) {
   confirm_diglog.animate({
     'top': ( wrap.height() -confirm_diglog.height() )/2,
   },{ duration: 500 });
-  
-  
+    
   setTimeout( function(){
     confirm_diglog.find('.tip_diglog_close').unbind();
     confirm_diglog.fadeOut("slow",function(){
       $(this).remove();
     });
-  }, 3000 );
-  
+  }, 3000 );  
   
   confirm_diglog.find('.tip_diglog_close').click(function(){    
     confirm_diglog.fadeOut("slow",function(){
       $(this).remove();
-    });
-    //.remove();     
+    });    
   })
-  
 }
 
 function init_article_sort() {
-		$("#article_drag_ele").sortable({
-		  handle: '.handle',
-		  start: function(event, ui) { 		    
-		  },
-			update: function(event, ui) {
-				var fruitOrder = $(this).sortable('toArray').toString();
-				//console.log( fruitOrder );
+	$("#article_drag_ele").sortable({
+	  handle: '.handle',
+	  start: function(event, ui) { 		    
+	  },
+		update: function(event, ui) {
+			var fruitOrder = $(this).sortable('toArray').toString();
+			//console.log( fruitOrder );
 
-				var serial = $('#article_drag_ele').sortable('serialize');
-				$.ajax({
-					type: "post",
-					url: $('#sort_content_url').val(),
-					data: serial,
-					success: function(html) { 	
-						//console.log(html);
-						$('#article_drag_ele').effect("highlight", {}, 1000);			
-					}		
-				});
-				//alert( $('#article_drag_ele').sortable('serialize') );
-				//console.log( $(this).attr('rel_data_id') ) ;
-			}
-		});
+			var serial = $('#article_drag_ele').sortable('serialize');
+			$.ajax({
+				type: "post",
+				url: $('#sort_content_url').val(),
+				data: serial,
+				success: function(html) { 	
+					//console.log(html);
+					$('#article_drag_ele').effect("highlight", {}, 1000);			
+				}		
+			});				
+		}
+	});
 }
 	
 	/*
 	* drag the datablock and sort it in real-time	
 	*/
-	function init_datablock_sort() {	
-	$('.data_block_hir').sortable({		 
-		handle: 'span.handle'
-		/*
-		update: function(event, ui) {			
-			var serial = $(this).sortable('serialize');			
-			var that = $(this);					
-			$.ajax({
-					type: "post",
-					url:   that.attr('href'),
-					data: 	serial,
-					success: function(html) { 							
-						that.effect("highlight", {}, 1000);			
-					}		
-			});
-		}		
-		*/
-	});	
-	};	
+function init_datablock_sort() {	
+  $('.data_block_hir').sortable({		 
+  	handle: 'span.handle'
+  	/*
+  	update: function(event, ui) {			
+  		var serial = $(this).sortable('serialize');			
+  		var that = $(this);					
+  		$.ajax({
+  				type: "post",
+  				url:   that.attr('href'),
+  				data: 	serial,
+  				success: function(html) { 							
+  					that.effect("highlight", {}, 1000);			
+  				}		
+  		});
+  	}		
+  	*/
+  });	
+};	
 		
 	function init_datablock_droppable() {			
 	$(".data_block_hir li").droppable({
@@ -140,7 +134,6 @@ function init_article_sort() {
 					});
 						
 				});
-								
 				//console.log( $item );
 				//var $list = $($item.find('a').attr('href')).find('.connectedSortable');			
 			}
@@ -186,11 +179,7 @@ $(document).ready(function(){
   
   $('.advanced_search').live('click',function(){
     $('.'+$(this).attr('data')).toggle();
-  });
-  
-  // fun1 login function  
-  //$('.ilogin_wrap .login_column_main').hide();  
-  //$($('.ilogin_wrap .login_column_main')[0]).show();
+  });  
   
   $($('.ilogin_wrap .login_column_nav li')[0]).addClass('current');
   
@@ -216,23 +205,8 @@ $(document).ready(function(){
 	    $('.iactions').addClass('hover');
 	  }else{
 	    $('.iactions').removeClass('hover');
-	  }
-	  /*
-		if( $('.highlight_selected').length > 0 ){
-			$('.iactions').addClass('hover');
-		}else {
-			$('.iactions').removeClass('hover');
-		}*/
+	  }	  
 	};
-	
-	/*
-	$('.item_checkbox :checkbox').live('click',function(){
-	  $(this).parent().parent().toggleClass('highlight_selected', $(this).is(':checked') );
-	  renderArticlesActions();	  
-	});		
-	*/
-	
-	
 	
 	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/
 	$('.pick').live('click',function(){
@@ -285,11 +259,8 @@ $(document).ready(function(){
 	/* 3adf93e4b9161c1409b6bc3e228c9439 返回关联图片 return attachment pick   */
 	$('.rpick').live('click',function(){	  
 	  var wrap = getPanel($(this));
-	  wrap.find('li.active').removeClass('active');
-	  
-	  $(this).addClass('active');
-	  //var tr_ele = parentOne( $(this), 'li');
-	  //tr_ele.addClass('active');	   
+	  wrap.find('li.active').removeClass('active');	  
+	  $(this).addClass('active');	  
 	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
 	  wrap.find('.rel_imagerange').html( $(this).find('select').html() ).show();
 	  wrap.find('.rel_id').val( $(this).attr('rel_id') );	  
@@ -354,14 +325,6 @@ $(document).ready(function(){
 	    //console.log( _is.start );
 	    return ;
 	  }
-	  
-	  /*
-	  var wrap = getPanel($(this));	  
-	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
-	  var rel_path        = wrap.find('.rel_path').val();
-	  var rel_id          = wrap.find('.rel_id').val();
-	  var rel_screen_name = wrap.find('.rel_screen_name').val();
-	  */
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
 	  
 	  /*display the select thumbnail*/
@@ -487,12 +450,8 @@ $(document).ready(function(){
         cct_option_div_hide($(this));
 	  }
   });
-	
-  
-  
 
-  // fun7	    
-  
+  // fun7	      
   function category_sortable() {      
   	$(".category_sortable").sortable({
   	  placeholder: 'ui-state-highlight',
@@ -575,13 +534,8 @@ $(document).ready(function(){
 		imageBtnClose:'/images/lightbox-btn-close.gif',
 		imageBtnPrev: '/images/lightbox-btn-prev.gif',
 		imageBtnNext: '/images/lightbox-btn-next.gif',		
-   });
-   	
-	$('.tree ul li').sortable({
-		//update: function(event,ui){
-		//	ui.item.unbind('click');
-		//}
-	});
+  });
+   		
   function renderCategoryLeafs() {    
     $.ajax({
       type: 'get',
@@ -687,8 +641,7 @@ $(document).ready(function(){
 	init_datablock_droppable();
 	/*
 	* display the children datablock 
-	*/
-	//$('.data_block_hir>li[id*=sort]').live('click',function(){
+	*/	
 		$('.data_block_hir>li>span.block_ele').live('click',function(){	
 		//var that = $(this);		
 		var that = $(this).parent();
@@ -711,9 +664,7 @@ $(document).ready(function(){
 		});
 		
 	})
-	
-	
-	
+
 	/*
 	* draggble the mac panel
 	*/
@@ -723,23 +674,14 @@ $(document).ready(function(){
 	 });
 	
 	/*mac_panel_click = function(){	  */
-	  $('.mac_panel_wrap').live('click',function(){
-	    
-	    var cur_z = $(this).css('z-index');
-	    idebug( 'init ' + cur_z );
-	    idebug( 'reset' + z );	    
-	    z++;
-	    $(this).css( { 'z-index':z } ); 	    
-	  });  	  
-	  /*
-	};
-	mac_panel_click();
-	*/
-	function reset_mac_panel_click(){
-    //$('.mac_panel_wrap').die('click','mac_panel_click');
-    //mac_panel_click();
-	}
-	
+	$('.mac_panel_wrap').live('click',function(){
+    var cur_z = $(this).css('z-index');
+    idebug( 'init ' + cur_z );
+    idebug( 'reset' + z );	    
+    z++;
+    $(this).css( { 'z-index':z } ); 	    
+  });
+    
 	function init_mac_panel_drag() {	  
 	  $('.mac_panel_wrap').draggable({
 	    start: function(event, ui) { 	      
@@ -767,22 +709,7 @@ $(document).ready(function(){
 	  wrap.find('.tree_leaf_current').removeClass('tree_leaf_current');
   	$(this).addClass('tree_leaf_current');	     
 	  
-	})	
-	
-	/*accb8413de43b01d42bc9f1af5aceab0 添加节点*/
-	/*
-	$('.ele_create_leaf').live('click',function () {
-	  wrap = getPanel($(this));
-	  $.ajax({
-			type:		"get",
-			url:		$(this).attr('href')+'&model_type='+wrap.find('.model_type').val()+'&ajax=ajax&id=1&leaf_id='+wrap.find('.cur_leaf_id').val(),
-			success:	function (html) {
-			  popup_panel( $(html) );
-			}			
-		});
-		return false;
-  });
-  */
+	})
   
   /*d7c8386e98d5b2185c276b93b32c84e3 编辑节点*/	
 	$('.ele_update_leaf').live('click', function() {			  
@@ -1589,11 +1516,7 @@ $(document).ready(function(){
 			}
 		});				
 		return false;
-	}
-	
-	
-	//$('.article_ajax_form').live('submit',form_submit);	
-	//alert( $('.article_ajax_form').length );
+	}	
 	$('.article_ajax_form').submit(form_submit);
 		
 	$('.actions>li').hover(function(){
