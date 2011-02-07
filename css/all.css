@@ -137,9 +137,9 @@
 
 .unstared,
 .stared {
-  display: block;
+  display: inline-block;
   width: 15px;
-  height: 15px;
+  height: 15px;    
   background: url(img/mail.png) no-repeat 0 0;
   cursor: pointer;
 }

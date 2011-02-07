@@ -68,9 +68,6 @@
 <input type="hidden" value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
 <input type="hidden" value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   id="sort_leaf_url"/>
 
-<input type="hidden"  value="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"   class="artiles_stared_url"/>
-<input type="hidden"  value="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"   class="artiles_unstared_url"/>
-
 <div class=" leaf_content_wrap osX">
 
 <ul class="actions"> 	
@@ -139,16 +136,7 @@
 	
 	<li class="">
 	  <span class="ele_refresh flR csP mt5P radius4 mr5P"><?php echo Yii::t('cp','Refresh') ?></span>
-	</li>
-	<!--
-	<li class="list_symbol">
-	  <a href="#" title="#" class=""></a>
- 	</li>
- 	
- 	<li class="thumb_symbol">
-	  <a href="#" title="#" class=""></a>
- 	</li>
-  -->
+	</li>	
 </ul>
 
 <?php

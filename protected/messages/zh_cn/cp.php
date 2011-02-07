@@ -45,6 +45,8 @@ return array(
   'Update_time'     => '更新时间',
   'Category'        => '节点',
   'stared?'         => "重点?",
+  'stared'          => "重点",
+  'unstared'        => "非重点",
   'Sort'            => '排序值',
   'Link'            => '链接地址',
   'Tpl'             => '模板文件名',
@@ -161,6 +163,8 @@ return array(
   'hour'            => '时',
   'minutes'         => '分',
   'minute'          => '分',
+  'seconds'         => '秒',
+  'second'          => '秒',
   
 );
 ?>

@@ -8,7 +8,18 @@
       <input type='checkbox' value="<?php echo $_instance->id; ?>" class="ele_item" />
     </td>
     <td class='w80P taC'><?php echo $_instance->id ?></td>
-    <td class="content_item" data="<?php echo $_instance->id; ?>" ><?php echo $_instance->title ?></td>    
+    <td class='w40P taC vaM'>
+     <?php
+        $is_star          = $_instance->is_star ? 'stared' : 'unstared';        
+        $star_action = $is_star == 'stared' ? 'unstared' : 'stared';
+      ?>
+      <span class="<?php echo $is_star?>" 
+            title="<?php echo Yii::t('cp', $is_star) ?>" 
+            href="<?php echo CController::createurl('article/'.$star_action, array('id'=> $_instance->id, 'ajax' => 'ajax') ) ?>" ></span>
+    </td>
+    <td class="content_item" data="<?php echo $_instance->id; ?>" >
+      <?php echo $_instance->title ?>
+    </td>
     <td class='w100P taC' ><?php echo Time::timeAgoInWords($_instance->create_time, array('short'=>true) )?></td>
     <td class='w100P taC ' >  
       <span class="<?php echo $_instance->create_time != $_instance->update_time ? 'fontHighLight' : '' ?> ">      

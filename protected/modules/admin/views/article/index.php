@@ -13,6 +13,10 @@
     	    <?php echo Yii::t('cp','More Actions');?> <span class="more"></span>
     	  </span>
     	  <ul class='dN c_m_a_d'>
+    	    <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
+    	      class="ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
+    	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
+    	      class="ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
     	    <li class="ele_delete c_m_a_d_batch" title="<?php echo Yii::t('cp','delete')?>" href="<?php echo CController::createUrl('article/delete') ?>">
     	      <?php echo Yii::t('cp','Delete Content') ?>
     	    </li>
@@ -42,6 +46,7 @@
         <tr>
           <th class='w20P taC pr2P pl2P '><input type='checkbox' class="ele_list_all" /></th>
           <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
+          <th class='w40P taC vaM'><?php echo Yii::t('cp','stared?') ?></th>
           <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
           <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>
           <th class='w100P taC' ><?php echo Yii::t('cp','Update_time') ?></th>          
