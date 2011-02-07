@@ -1044,7 +1044,7 @@ $(document).ready(function(){
 	    x = parseInt(_wrap.css('left'));	    
 	    y = parseInt(_wrap.css('top') );	    
 	    z++;
-	    //z = parseInt(_wrap.css('z-index'))+1;	    
+	    //z = parseInt(_wrap.css('z-index'))+1;	
 	    _wrap.remove();
 	  }else{
 	    reset_panel_postion();	  
@@ -1683,7 +1683,6 @@ $(document).ready(function(){
     if( wrap.find('.leaf_content').length > 0 ){
       url += '&model_type='+wrap.find('.model_type').val()+'&ajax=ajax&id='+wrap.find('.cur_leaf_id').val();
     }
-    
     $.ajax({
 	    type: 'get',
 	    cache: false,

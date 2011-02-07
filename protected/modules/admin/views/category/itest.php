@@ -103,9 +103,9 @@
 	  </span>
 	  <ul class='dN c_m_a_d'>
 	    <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
-	      class="ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
+	      class="c_m_a_d_batch ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
 	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
-	      class="ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
+	      class="c_m_a_d_batch ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
       <li href="<?php echo $url_content_move; ?>" title="<?php echo Yii::t('cp','Move Content')?>" class="c_m_a_d_batch ele_content_move">
         <?php echo Yii::t('cp','Move Content')?>
       </li> 

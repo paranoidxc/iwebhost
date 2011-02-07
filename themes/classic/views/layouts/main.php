@@ -24,20 +24,21 @@
 	$cs = Yii::app()->getClientScript();
 	
 	Yii::app()->clientScript->registerCoreScript('jquery');  
-	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');	
+	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');			
+	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');
+	
 	$cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
 	$cs->registerScriptFile($baseUrl.'/js/fieldSelection.js');
 	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
 	//$cs->registerScriptFile($baseUrl.'/js/tree.js');		
-
-	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');
-  
+/*
+	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');  
 	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
+	*/
 	$cs->registerCssFile($baseUrl.'/css/main.css');	
 	$cs->registerCssFile($baseUrl.'/css/all.css');	
 	$cs->registerCssFile($baseUrl.'/css/console.api.categorys.css');
@@ -52,7 +53,7 @@
 <textarea class="dN" id="FlatPanelFooter"><?php echo FlatmacpanelString::footer() ?></textarea>
 </div>
 
-<div class="container" id="page">
+<!--<div class="container" id="page">-->
 
 	<div id="mainmenu" style="position: relative">
 		<?php $this->widget('zii.widgets.CMenu',array(
@@ -98,7 +99,10 @@
   <div style="position: fixed; bottom: 10px; right: 10px; z-index: 2;">
     <img src="<?php echo Yii::app()->request->baseUrl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>
   </div>
-</div><!-- page -->
+
+<!--</div>-->
+
+<!-- page -->
 
 </body>
 </html>
