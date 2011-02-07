@@ -1194,14 +1194,16 @@ $(document).ready(function(){
 	    var ident_panel= $(this).attr('data');
 		  if( isExist(ident_panel) ){
 		    return false;
-		  }
+		  }		  
 		  $.fn.imasker({
-        'z-index'	   : z
-      });    
+        'z-index'	   : (++z)+10,
+        'background' :'#000 url(/images/load.gif) no-repeat 50% 50%',
+      });   
       $.ajax({
   	    type: 'get',
   	    cache: false,
   	    url: url,
+  	    global : false,   	    
   	    success: function(html){
   	      popup_panel( $(html).attr('id',ident_panel ) );
   	      $.fn.imasker_hide();
