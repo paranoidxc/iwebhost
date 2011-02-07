@@ -36,7 +36,7 @@
   ?>
   <tfoot>
     <tr class="hover_none">
-      <td colspan="5" class='taR ipagination  p5P pr20P'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
+      <td colspan="6" class='taR ipagination  p5P pr20P'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
     </tr>
   </tfoot>
   <?php 

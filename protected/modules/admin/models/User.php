@@ -68,10 +68,15 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username'  => Yii::t('cp','Username'),
-			'password'  => Yii::t('cp','Password'),
-			'email'     => Yii::t('cp','Email'),
-			'parent_id' => 'Parent',
+			'username'            => Yii::t('cp','Username'),
+			'password'            => Yii::t('cp','Password'),
+			'email'               => Yii::t('cp','Email'),
+			'c_time'              => Yii::t('cp','Account Create Time'),
+			'current_login_time'  => Yii::t('cp','Current Login Time'),
+  		'current_ip'          => Yii::t('cp','Current IP'),
+  		'last_ip'             => Yii::t('cp','Last IP'),
+  		'last_logout_time'    => Yii::t('cp','Last Logout Time'),
+			'parent_id'           => 'Parent',
 		);
 	}
 

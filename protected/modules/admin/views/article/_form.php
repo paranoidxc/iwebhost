@@ -147,7 +147,7 @@
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'category_id'); ?></th>
   		<td>
   			<?php echo $form->hiddenField($model,'category_id'); ?>	  			
-  			<span class="filter"><?php echo $leaf->id ?></span>
+  			<span class="filter radius4"><?php echo $leaf->id ?></span>
   		  <?php echo $leaf->name ?>
   			<?php //echo $form->textField($model,'category_id'); ?>
   			<?php //echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ?>
@@ -185,7 +185,7 @@
   </div>
   
   <div class="taR h30P lh30P pr10P ">
-  		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue bigrounded')); ?>
+  		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
   </div> 
 <?php $this->endWidget(); ?>
 </div>

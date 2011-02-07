@@ -12,31 +12,31 @@
         <td><?php echo $current_user['username']; ?></td>
       </tr>      
       <tr>
-        <th><?php echo Yii::t('cp','Account Create Time:')?>:</th>
+        <th><?php echo Yii::t('cp','Account Create Time')?>:</th>
         <td><?php echo $current_user['c_time']; ?></td>
       </tr>      
       <tr>
-        <th><?php echo Yii::t('cp', 'Current Login Time:');?></th>
+        <th><?php echo Yii::t('cp', 'Current Login Time');?></th>
         <td><?php echo $current_user['current_login_time']; ?></td>
       </tr>
       <tr>
-        <th><?php echo Yii::t('cp', 'Current Login IP:');?></th>
+        <th><?php echo Yii::t('cp', 'Current IP');?></th>
         <td><?php echo $current_user['current_ip']; ?></td>
       </tr>
       <tr>
-        <th><?php echo Yii::t('cp', 'Login Count:');?></th>
+        <th><?php echo Yii::t('cp', 'Login Count');?></th>
         <td>
-          [<?php echo $current_user['login_count']; ?>]          
+          <span class="filter radius4"><?php echo $current_user['login_count']; ?></span>
           <?php echo Yii::t('cp', 'Times Login System')?>
         </td>
       </tr>
 
       <tr>
-        <th><?php echo Yii::t('cp','Last IP:')?></th>
+        <th><?php echo Yii::t('cp','Last IP')?></th>
         <td><?php echo $current_user['last_ip']; ?></td>
       </tr>
       <tr>
-        <th><?php echo Yii::t('cp','Last Logout Time:')?></th>
+        <th><?php echo Yii::t('cp','Last Logout Time')?></th>
         <td><?php echo $current_user['last_logout_time']; ?></td>
       </tr>
       
@@ -60,7 +60,7 @@
     ?>      
       <tr rel_href="<?php echo CController::createUrl('article/update', array('id'=> $_instance->id, 'ajax'=> 'ajax') ); ?>" >
         <td class="content_item" data="<?php echo $_instance->id; ?>" >
-          <?php echo $_instance->pv?> - <?php echo $_instance->title ?>
+          <span class="filter radius4"><?php echo $_instance->pv?></span> <?php echo $_instance->title ?>
         </td>
       </tr>
     <?php

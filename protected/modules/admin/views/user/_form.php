@@ -43,11 +43,62 @@
           <?php echo $form->error($model,'email'); ?>
         </td>
       </tr>
+      
+      <?php
+        if( !$model->isNewRecord ){
+      ?>
+      <tr>
+        <th><?php echo $form->labelEx($model,'c_time'); ?></th>
+        <td>
+          <?php echo $model->c_time ?>          
+        </td>
+      </tr>
+      
+      <tr>
+        <th><?php echo $form->labelEx($model,'current_login_time'); ?></th>
+        <td>
+          <?php echo $model->current_login_time ?>          
+        </td>
+      </tr>
+      
+      <tr>
+        <th><?php echo $form->labelEx($model,'current_ip'); ?></th>
+        <td>
+          <?php echo $model->current_ip ?>          
+        </td>
+      </tr>
+      
+      <tr>
+        <th><?php echo $form->labelEx($model,'last_logout_time'); ?></th>
+        <td>
+          <?php echo $model->last_logout_time ?>          
+        </td>
+      </tr>
+      
+      <tr>
+        <th><?php echo $form->labelEx($model,'last_ip'); ?></th>
+        <td>
+          <?php echo $model->last_ip ?>          
+        </td>
+      </tr>
+ 
+      <tr>
+        <th><?php echo Yii::t('cp', 'Login Count');?></th>
+        <td>
+          <span class="filter radius4"><?php echo $model->login_count ?></span>
+          <?php echo Yii::t('cp', 'Times Login System')?>
+        </td>
+      </tr>
+
+      <?php
+        }
+      ?>
+      
     </tbody>
   </table>
   
   <div class="taR h30P lh30P pr10P pt5P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue bigrounded')); ?>
+  	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
   </div>
 
 <?php $this->endWidget(); ?>

@@ -3,7 +3,7 @@ if( !$is_update ) {
   ?>
   <div class='mac_panel_wrap w600P'>
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Admin '.$model->id.' : '.cnSubstr($model->username,0,20)) )
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp','Admin').' <span class="filter radius4">'.$model->id.'</span> '.cnSubstr($model->username,0,20)) )
 ?>
   <?php
 }
