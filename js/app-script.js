@@ -1006,6 +1006,7 @@ $(document).ready(function(){
 	/* JAVASCRIPT_START */
 	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
 	var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_wrap=null, parent_panel = null, class_ioverpanel = 'ioverpanel';
+	var ajax_str = '&ajax=ajax';
 	function reset_panel_postion(){	  	
 	  z++;  
 	  if( x >= 250 ){
@@ -1162,8 +1163,7 @@ $(document).ready(function(){
         formLay(wrap);
       }
     }
-  }
-  
+  }  
   
   /*9d607a663f3e9b0a90c3c8d4426640dc 类mac_panel_wrap DOM的 关闭 , 最小化, 最大化事件 */
   var wrap_remove = function(){
@@ -1173,19 +1173,11 @@ $(document).ready(function(){
 	  var wrap = getPanel($(this));
 	  formLay(getParentPanleByWrap(wrap),'h');
 	  wrap.remove();
-	  //getPanel($(this)).find('.dialog')
-	  //wrap.getPanel($(this)).remove();
-	  //var wrap = getPanel($(this));
-	  //wrap.find('.return_panel').val()
-	  //formLay(wrap);
-	  //wrap.remove();
 	});	
 	$('.mac_panel_wrap .min').live('click',function(){
 	  getPanel($(this)).slideUp();
 	});	
-	$('.mac_panel_wrap .max').live('click',function(){	
-	  //alert( $(window).height() );
-	  //alert( document.body.scrollHeight );
+	$('.mac_panel_wrap .max').live('click',function(){		  
 	  var h = $(window).height()+'px';
 	  getPanel($(this)).css({
 	    width: '100%',
@@ -1194,8 +1186,31 @@ $(document).ready(function(){
 	    left: 0
 	  })
 	});
-		
-		
+	
+	/*8a161950585ef087328ba6dd992caac1 navigation 点击导航*/
+	$('#mainmenu>ul>li>a').click(function(){
+	  if( $(this).attr('data') != undefined ){
+	    var url = $(this).attr('href')+ajax_str;  	    
+	    var ident_panel= $(this).attr('data');
+		  if( isExist(ident_panel) ){
+		    return false;
+		  }
+		  $.fn.imasker({
+        'z-index'	   : z
+      });    
+      $.ajax({
+  	    type: 'get',
+  	    cache: false,
+  	    url: url,
+  	    success: function(html){
+  	      popup_panel( $(html).attr('id',ident_panel ) );
+  	      $.fn.imasker_hide();
+  	    }
+  	  });
+	    return false;
+	  }	  
+	});
+	
 	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建条目(文章, 节点, 用户 === )  */
 	var fun_item_new = function () {
 	  parent_wrap = wrap = getPanel($(this));
@@ -1371,7 +1386,7 @@ $(document).ready(function(){
 	/*864577c5de51168219098730aff9add0 批量编辑附件*/
 	$('#ele_update_atts').click(function(){
 	  wrap = getPanel($(this));
-	  var leaf_panel_id = 'update_atts_leaf_panel_'+$('#leaf_id').val();
+	  var leaf_panel_id = 'update_atts_leaf_panel_'+wrap.find('.top_leaf_id').val();
 		if( isExist( leaf_panel_id) ){
 		  return false;
 		}

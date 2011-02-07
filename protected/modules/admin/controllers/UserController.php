@@ -156,8 +156,8 @@ class UserController extends IController
       $opt['is_partial']    = true;
 	  }
 	  $criteria->order = 'id desc';
-	  $opt['criteria'] =  $criteria;
-	  parent::actionIndex($opt);	
+	  $opt['criteria'] =  $criteria;	  
+	  parent::actionIndex($opt);
 	}
 
 	/**

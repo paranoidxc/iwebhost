@@ -95,7 +95,11 @@ class IController extends Controller
 	      //'pagination' => $pagination, 'select_pagination' => $select_pagination 
 	      //),false,true);
 	  }else{
-	    $this->render('index', $opt['tpl_params'], false, true );
+	    if( $_GET['ajax'] == 'ajax'){
+	      $this->renderPartial('index', $opt['tpl_params'], false, true );  
+	    }else{
+	      $this->render('index', $opt['tpl_params'], false, true );  
+	    }
 	     //$this->render('index',array(  			
   			//'list'  =>  $list,
   			//'pagination' => $pagination, 'select_pagination' => $select_pagination
