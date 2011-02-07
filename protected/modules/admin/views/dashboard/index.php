@@ -92,7 +92,7 @@
         <td><?php echo $_SERVER['SERVER_ADDR'];?></td>
       </tr>
       <tr>
-        <th>magic_quote_gpc：</th>
+        <th>magic_quote_gpc:</th>
         <td><?php echo API::get_magic_quotes_gpc(); ?></td>
       </tr>
       <tr>

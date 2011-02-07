@@ -84,19 +84,17 @@
 	<ul>
 	<li>
 		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>
-			<?php echo Yii::t('cp','zh_cn'); ?>&nbsp;&nbsp;
+			简体中午&nbsp;&nbsp;
 		</a>
 	</li>
 	<li>
 		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >
-			<?php echo Yii::t('cp','en_us'); ?>&nbsp;&nbsp;
+			English&nbsp;&nbsp;
 		</a>
 		</li>
 </ul>
 </div>
 	<?php echo $content; ?>
-	
-
   <div style="position: fixed; bottom: 10px; right: 10px; z-index: 2;">
     <img src="<?php echo Yii::app()->request->baseUrl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>
   </div>

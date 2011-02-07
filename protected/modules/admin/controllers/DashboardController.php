@@ -1,6 +1,6 @@
 <?php
 
-class DashboardController extends Controller
+class DashboardController extends IController
 {
 	public function actionIndex()
 	{

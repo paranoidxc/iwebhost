@@ -1758,8 +1758,8 @@ $(document).ready(function(){
     var that = $(this);
     var url = wrap.find('.ele_refresh_url').val();  
     if( wrap.find('.leaf_content').length > 0 ){
-      url += '&model_type='+$('#model_type').val()+'&ajax=ajax&id='+$('#leaf_id').val();
-    }    
+      url += '&model_type='+wrap.find('.model_type').val()+'&ajax=ajax&id='+wrap.find('.cur_leaf_id').val();
+    }
     
     $.ajax({
 	    type: 'get',

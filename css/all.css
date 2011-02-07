@@ -312,6 +312,9 @@ div.errorSummary {
 #mainmenu {
   background: url(api_categorys_img/mac-menu-bar.png) no-repeat 0 0px;
   background: url(api_categorys_img/mac-menu-bar.png) repeat-x 0 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 #mainmenu ul
 {
