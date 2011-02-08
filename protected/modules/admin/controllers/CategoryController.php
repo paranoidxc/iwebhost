@@ -423,14 +423,19 @@ class CategoryController extends IController
 	  $leafs = Category::model()->ileafs(
         array( 'ident' => $ident ,'include' => true )
 	  );
-	  
-	  $top_leaf = $model = Category::model()->find('ident = :ident', array( ':ident' => $ident) );	  
-	  
+	  $top_leaf = $model = Category::model()->find('ident = :ident', array( ':ident' => $ident) );	  	  
+    
 	  if( $_GET['ajax'] == 'ajax' ){
+	    $this->renderPartial('itest',array(
+				'leafs'     => $leafs,
+				'top_leaf'  => $top_leaf
+			),false,true);
+	    /*
 	    $this->renderPartial('_leafs',array(
 				'leafs'     => $leafs,
 				'top_leaf'  => $top_leaf
 			),false,true);
+			*/
 	  }else{
 	    $this->render('itest',array(
 				'leafs'     => $leafs,

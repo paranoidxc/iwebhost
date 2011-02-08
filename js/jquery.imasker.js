@@ -13,9 +13,9 @@
         
     $height = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
     $width = $(window).width();    
-    
+  	options = $.extend($.fn.imasker.defaults,options);
+
 		if( $.fn.imasker.defaults.masker == null ) {			
-			options = $.extend($.fn.imasker.defaults,options);
 		 	$.fn.imasker.defaults.masker = $masker = $('<div></div>');
       $masker.attr('id', options.id);
 		 	$masker.css({
@@ -33,7 +33,8 @@
 	 		$.fn.imasker.defaults.masker.css({
 		 		'height': $height,	 		
 		 		'width' : $width,
-        'display': 'block'
+        'z-index' : options['z-index'],
+        'display': 'block',
 	 		});
 	 	};	 	
 

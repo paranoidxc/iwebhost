@@ -4374,3 +4374,6 @@ in H:\projects\iwebhost\index.php (91)
 2011/02/08 21:07:11 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
 in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (769)
 in H:\projects\iwebhost\index.php (91)
+2011/02/08 21:49:13 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (774)
+in H:\projects\iwebhost\index.php (91)

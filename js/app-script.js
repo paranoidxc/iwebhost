@@ -131,8 +131,7 @@ $(document).ready(function(){
 			$($(this).addClass('current').find('a').attr('data')).stop(true,true).slideDown();
 			return false;
 		});
-	});
-	
+	});	
 	
 	function isContentSelected(){
 	  if( $('.cb_article:checked').length > 0 || $('.ele_item:checked').length > 0  ) {	    
@@ -693,7 +692,7 @@ $('.lightbox').lightBox({
 			url:		url,
 			cache: false,			
 			success:	function(html) {			
-			  $('.icategory_tree').html( html );	
+			  parent_panel.find('.icategory_tree').html( html );	
 			  if( str ){            
 			    formLay(parent_panel,'h');
           uploadTips(parent_panel, str);
@@ -991,9 +990,9 @@ $('.lightbox').lightBox({
 	    var ident_panel= $(this).attr('data');
 		  if( isExist(ident_panel) ){
 		    return false;
-		  }		  
+		  };		  
 		  $.fn.imasker({
-        'z-index'	   : (++z)+10,
+        'z-index'	   : z+10,
         'background' :'#000 url(/images/load.gif) no-repeat 50% 50%',
       });   
       $.ajax({
@@ -1003,6 +1002,9 @@ $('.lightbox').lightBox({
   	    global : false,   	    
   	    success: function(html){
   	      popup_panel( $(html).attr('id',ident_panel ) );
+  	      if( url.indexOf('admin/category')!= -1 ){
+  	        bindLeafClick();
+  	      }
   	      $.fn.imasker_hide();
   	    }
   	  });
@@ -1073,8 +1075,6 @@ $('.lightbox').lightBox({
 		});
 		return false;
   });
-	
-	
 	
 	/* b44da0a79dce2105c33f132c44842c28 移动文章 */
 	$('.ele_content_move').click(function(){
@@ -1275,7 +1275,7 @@ $('.lightbox').lightBox({
 	    clearTimeout(timeouthandle);  
 	  }	  
 		var that = $(this);
-		var leaf_id = $('#Article_category_id').val();	
+		//var leaf_id = $('#Article_category_id').val();	
 		wrap = getPanel($(this));						
 		parent_panel = '';
 		if( wrap.find('.return_panel').length > 0 ){
@@ -1299,11 +1299,13 @@ $('.lightbox').lightBox({
 			    if(iform.find('.article_ajax_form').length >0) {
 			      iform.find('.article_ajax_form').submit( form_submit );  
 			    }			    
-			    if( that.attr('action').indexOf('category') > 0 ){			      
+			    if( that.attr('action').indexOf('admin/category') > 0 ){	
+			      idebug( ' renderPartLeafs ' );
 			      renderPartLeafs();
 		      }else if(that.attr('action').indexOf('setting') > 0 ) {
 		      }
 		      else{		        
+		        idebug( ' render ');
 		        render();
 		      }
 			  }			  
@@ -1362,8 +1364,6 @@ $('.lightbox').lightBox({
 	  $('#cb_all').attr('checked',false);
 	});
 	
-	
-	
 	/*d606a89c78a6a590167232caea08fa68  更新图片尺寸 */	
 	$('.new_resize').live('click',function(){
 	  var li = $(this).parent().next().clone()
@@ -1376,8 +1376,7 @@ $('.lightbox').lightBox({
     var _wrap = getPanel($(this));
     _wrap.find('.extra_link_area_outer').val( $(this).attr('link_outer') );
     _wrap.find('.extra_link_area_inner').val( $(this).attr('link_inner') );
-  });
-	
+  });	
   
   new function($) {
   $.fn.setCursorPosition = function(pos) {
@@ -1392,8 +1391,6 @@ $('.lightbox').lightBox({
     }
   }
 }(jQuery);
-
-
 
   $('.replace').live('click',function(e){
     /*
@@ -1410,7 +1407,6 @@ $('.lightbox').lightBox({
     //setCaretToPos($(this),4);   
   }
 	
-  
   function setCaretToPos (input, pos) {
     setSelectionRange(input, pos, pos);
   }
