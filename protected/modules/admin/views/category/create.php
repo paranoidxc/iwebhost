@@ -3,8 +3,7 @@
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp','Create Node')) )
 ?>
 
-<?php echo $return_panel_ident?>
-
+<input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'model_type' => $model_type,'return_panel_ident' => $return_panel_ident )); ?>
 <div class="ajax_overlay" ></div>
 <?php

@@ -48,6 +48,8 @@
     $url_content_move = CController::createUrl('article/move');
     $url_content_del  = CController::createUrl('article/delete');
     $url_content_copy = CController::createUrl('article/copy');
+    
+    $url_sort_content = CController::createUrl('article/sortarticle');
   }
 ?>
 
@@ -58,15 +60,12 @@
 
 
 <input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />
-<input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type; ?>"   id="model_type" class="model_type" />
-
-<input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax')) ?>" />
-
+<input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type; ?>" class="model_type" />
+<input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax')) ?>" class='ele_refresh_url' />
 <input type="hidden" value="<?php echo CController::createUrl('category/iclass')?>" class="url_leaf_set_class" />
-<input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax') ) ?>" id="leaf_content_view_url" />
-<input type="hidden" value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>"   id="leaf_render_url"/>
-<input type="hidden" value="<?php echo CController::createUrl('article/sortarticle') ?>"   id="sort_content_url"/>
-<input type="hidden" value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   id="sort_leaf_url"/>
+<input type="hidden" value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>" class="leaf_render_url"/>
+<input type="hidden" value="<?php echo $url_sort_content; ?>"   class="sort_content_url"/>
+<input type="hidden" value="<?php echo CController::createUrl('category/sort', array('ajax'=>'ajax')) ?>"   class="url_sort_leaf"/>
 
 <div class=" leaf_content_wrap osX">
 

@@ -1,4 +1,4 @@
-<div id="article_drag_ele">
+<div class="draggable_wrap">
 <?php
   foreach( $list as $a ){
 ?>
@@ -37,12 +37,19 @@
 <?php
   }
 ?>
-<table class="w100S">  
+<?php
+if( !empty($pagination) ){
+  ?>
+  <table class="w100S">  
   <tr class="hover_none ">
       <td colspan="5" class='taR ipagination  p5P pr20P'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
   </tr>
 </table>  
+  <?php
+ }
+?>
+
 </div>
 <script type="text/javascript">
-	init_article_sort();
+	init_content_sort();
 </script>

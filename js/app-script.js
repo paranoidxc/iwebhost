@@ -30,118 +30,30 @@ function uploadTips(ele,str) {
     });    
   })
 }
-
-function init_article_sort() {
-	$("#article_drag_ele").sortable({
+/*c8ed6d21d94817d062662ea37da34b37 排序内容 init_content_sort */
+function init_content_sort() {
+  var wrap = '';
+	$(".draggable_wrap").sortable({
 	  handle: '.handle',
-	  start: function(event, ui) { 		    
+	  start: function(event, ui) { 		    	    
+	    wrap = getPanel($(this));	    
 	  },
 		update: function(event, ui) {
-			var fruitOrder = $(this).sortable('toArray').toString();
-			//console.log( fruitOrder );
-
-			var serial = $('#article_drag_ele').sortable('serialize');
+			var fruitOrder = $(this).sortable('toArray').toString();			
+			idebug( fruitOrder );
+			formLay(wrap);
+			var serial = wrap.find('.draggable_wrap').sortable('serialize');			
 			$.ajax({
 				type: "post",
-				url: $('#sort_content_url').val(),
+				url: wrap.find('.sort_content_url').val(),
 				data: serial,
-				success: function(html) { 	
-					//console.log(html);
-					$('#article_drag_ele').effect("highlight", {}, 1000);			
+				success: function(html) {										
+					formLay(wrap,'h');
 				}		
 			});				
 		}
 	});
 }
-	
-	/*
-	* drag the datablock and sort it in real-time	
-	*/
-function init_datablock_sort() {	
-  $('.data_block_hir').sortable({		 
-  	handle: 'span.handle'
-  	/*
-  	update: function(event, ui) {			
-  		var serial = $(this).sortable('serialize');			
-  		var that = $(this);					
-  		$.ajax({
-  				type: "post",
-  				url:   that.attr('href'),
-  				data: 	serial,
-  				success: function(html) { 							
-  					that.effect("highlight", {}, 1000);			
-  				}		
-  		});
-  	}		
-  	*/
-  });	
-};	
-		
-	function init_datablock_droppable() {			
-	$(".data_block_hir li").droppable({
-			accept: ".data_block_hir li",					
-			hoverClass: "ui-state-hover",
-			drop: function(ev, ui) {
-				var $item = $(this);
-				//console.log( $(this).html() );
-				$darg_parent = '';				
-				ui.draggable.hide('slow', function() {				
-					//$item.parent().append					
-					//$(this).appendTo($item.parent()).show('slow');					
-					//$(this).after(  ).show('slow');				
-					
-					//拖拽的父元素
-					$drag_parent = $(this).parent();
-					
-					//拖拽到父元素
-					$parent = $item.parent();
-					
-					if( $drag_parent.attr('id') == $parent.attr('id') ) {												;
-					}else {	
-						if( $(this).hasClass('selected') ){							
-							$(this).show();
-							return ;
-						}
-						
-						$.ajax({
-							type: 	"post",
-							url: 	$parent.attr('move_href'),
-							data: 	"&p_id="+$parent.attr('rel_id')+'&id='+$(this).attr('rel_id'),
-							success:	function(html){
-								//console.log( html );
-							}
-						})
-						
-					}
-					$(this).insertAfter( $item ).show();
-					
-					$drag_parent.find('.temp').hide();
-					$parent.find('.temp').hide();										
-					
-					if( $drag_parent.find('li[id*=sort]').length == 0 ) {						
-						$drag_parent.nextAll('.data_block_hir').remove();						
-						$drag_parent.find('.temp').show();
-					}
-					
-					var serial = $parent.sortable('serialize');									
-					$.ajax({
-						type: "post",
-						url:   $parent.attr('href'),
-						data: 	serial,
-						success: function(html) { 							
-							$parent.effect("highlight", {}, 1000);			
-						}		
-					});
-						
-				});
-				//console.log( $item );
-				//var $list = $($item.find('a').attr('href')).find('.connectedSortable');			
-			}
-		});
-	}
-	
-
-
 /*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
 function parentOne(ele,exp){	  
   if( ele.parent().find(exp).length > 0  ) {      
@@ -150,7 +62,37 @@ function parentOne(ele,exp){
     return parentOne(ele.parent(), exp);
   }	      
 }
+/*693a9fdd4c2fd0700968fba0d07ff3c0 取得当前DOM的父元素中含有类mac_panel_wrap */
+function getPanel(that){
+  return parentOne(that,'.mac_panel_wrap');
+}
 
+/* TODO */
+/* JAVASCRIPT_START */
+/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
+var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_panel = null, class_ioverpanel = 'ioverpanel';
+var ajax_str = '&ajax=ajax';	
+var boolean_idebug = true;
+
+function idebug(obj) {
+  if( boolean_idebug ){
+    if( $.browser.mozilla ){
+      console.log(obj);  
+    }
+  }
+}
+
+function formLay(wrap,t){
+  idebug('Call formLay');    
+  if( wrap == null ){return;};
+  if( t == 'h') {
+    idebug('ajax overlay display ='+t);
+    
+    wrap.find('.ajax_overlay').hide();  
+  }else{
+    wrap.find('.ajax_overlay').css('z-index',z).show();
+  }
+}
 
 $(document).ready(function(){
   
@@ -451,193 +393,93 @@ $(document).ready(function(){
 	  }
   });
 
-  // fun7	      
-  function category_sortable() {      
-  	$(".category_sortable").sortable({
-  	  placeholder: 'ui-state-highlight',
-  	  start: function() {
-  	    $(".category_sortable p span.leaf").unbind();
-  	    prevPagesOrder = $(this).sortable('toArray');
-  	  },
-  	  stop: function() {
-  	    bindLeafClick();
-  	  },
-  	  update: function(event, ui){
-  	    var first = ui.item;
-  	    var second = first.prev();
-  	    if( second.length > 0 ){
-  	      var id2 = second.attr('data_id');
-  	    }else{
-  	      id2 = -1;
-  	    }	    
-  	    $.ajax({
-  				type: 'get', 
-  				//url:	'/index.php?r=admin/category/sort&ajax=ajax&id1='+first.attr('data_id')+'&id2='+id2,
-  				         ///index.php?r=admin/category/sort&ajax=ajax
-  				url:	$('#sort_leaf_url').val()+'&id1='+first.attr('data_id')+'&id2='+id2,
-  				cache:	false,
-  				success:	function(html){						
-  					if( html.indexOf('STOP') != -1 ){
-  						$_this.show().attr('style','');										
-  					}else{
-  					}			
-  					bindLeafClick();			
-  				},
-  				error:		function(){		
-  				}					
-  			})
-  	  }
-  	});
-  };
-  category_sortable(); 
-	
-	/* 3c0d364a98ce192722f577cf3227c2eb 点击节点显示内容 */
-	var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
-	function bindLeafClick(){
-  	$('.api_categorys_ul p span.leaf').each(function(item) {
-  	  $(this).click(function(ev) {	 
-  	    wrap = getPanel($(this));  	      	    
-  	    if( $(this).attr('data_id') == wrap.find('.top_leaf_id').val() ){
-  	      wrap.find('.ele_del_leaf').removeClass('active');
-  	      wrap.find('.ele_move_leaf').removeClass('active');
-  	      wrap.find('.ele_update_leaf').removeClass('active');  	      
-  	    }else{
-  	      wrap.find('.ele_del_leaf').addClass('active');
-  	      wrap.find('.ele_move_leaf').addClass('active');
-  	      wrap.find('.ele_update_leaf').addClass('active');
-  	    }  	    
-  	    var url = wrap.find('.ele_refresh_url').val() +'&model_type='+wrap.find('.model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id');  	    
-  	    wrap.find('.cur_leaf_id').val( $(this).attr('data_id') );
-  	    $('.api_categorys_ul p.tree_leaf_current').removeClass('tree_leaf_current');
-  	    $(this).parent().addClass('tree_leaf_current');  	      	    
-  	    $.ajax({
-            type: 'get',
-            dataType: 'html',
-            cache: false,            
-            url: url,
-            success: function(html) {                
+/* 0a0313640368beb1dd3f7fbc9f42e93a 节点排序 category_sortable     */
+function category_sortable() {      
+  var wrap = '';
+	$(".category_sortable").sortable({
+	  placeholder: 'ui-state-highlight',
+	  start: function() {
+	    $(".category_sortable p span.leaf").unbind();
+	    prevPagesOrder = $(this).sortable('toArray');
+	    wrap = getPanel($(this));
+	  },
+	  stop: function() {
+	    bindLeafClick();
+	  },
+	  update: function(event, ui){	    
+	    var first = ui.item;
+	    var second = first.prev();
+	    if( second.length > 0 ){
+	      var id2 = second.attr('data_id');
+	    }else{
+	      id2 = -1;
+	    }
+	    formLay(wrap);
+	    $.ajax({
+				type: 'get',  				
+				url:	wrap.find('.url_sort_leaf').val()+'&id1='+first.attr('data_id')+'&id2='+id2,
+				cache:	false,
+				success:	function(html){						
+					if( html.indexOf('STOP') != -1 ){
+						$_this.show().attr('style','');										
+					}else{
+					}			
+					bindLeafClick();
+					formLay(wrap,'h');
+				},
+				error:		function(){		
+				}					
+			})
+	  }
+	});
+};
+category_sortable();
+
+/* 3c0d364a98ce192722f577cf3227c2eb 点击节点显示内容 */
+var loading = $('<li class="loading"><img src="/images/ajax-loader.gif" /></li>');
+function bindLeafClick(){
+	$('.api_categorys_ul p span.leaf').each(function(item) {
+	  $(this).click(function(ev) {	 
+	    wrap = getPanel($(this));  	      	    
+	    if( $(this).attr('data_id') == wrap.find('.top_leaf_id').val() ){
+	      wrap.find('.ele_del_leaf').removeClass('active');
+	      wrap.find('.ele_move_leaf').removeClass('active');
+	      wrap.find('.ele_update_leaf').removeClass('active');  	      
+	    }else{
+	      wrap.find('.ele_del_leaf').addClass('active');
+	      wrap.find('.ele_move_leaf').addClass('active');
+	      wrap.find('.ele_update_leaf').addClass('active');
+	    }  	    
+	    var url = wrap.find('.ele_refresh_url').val() +'&model_type='+wrap.find('.model_type').val()+'&ajax=ajax&id=' + $(this).attr('data_id');  	    
+	    wrap.find('.cur_leaf_id').val( $(this).attr('data_id') );
+	    $('.api_categorys_ul p.tree_leaf_current').removeClass('tree_leaf_current');
+	    $(this).parent().addClass('tree_leaf_current');  	      	    
+	    $.ajax({
+          type: 'get',
+          dataType: 'html',
+          cache: false,            
+          url: url,
+          success: function(html) {
+            if( wrap != null )                {
               wrap.find('.leaf_content').html(html);
               wrap.find('.ele_list_all').attr('checked',false);
-              //$('#leaf_articles').html(html);                             
             }
-        });
-  	  });
-    });
-  };
-	bindLeafClick();
-	
-	
-	
-  $('.lightbox').lightBox({		
-		imageLoading: '/images/lightbox-ico-loading.gif',
-		imageBtnClose:'/images/lightbox-btn-close.gif',
-		imageBtnPrev: '/images/lightbox-btn-prev.gif',
-		imageBtnNext: '/images/lightbox-btn-next.gif',		
+            //$('#leaf_articles').html(html);                             
+          }
+      });
+	  });
   });
-   		
-  function renderCategoryLeafs() {    
-    $.ajax({
-      type: 'get',
-      cache:  false,
-      url:  $('#top_tree').attr('render_url'),
-      success:  function(html){
-        $('#top_tree').replaceWith(html);
-      }
-    });    
-  }
-  
-	$(".tree ul li span.leaf").droppable({
-		accept: ".tree ul li span.leaf",
-		hoverClass: "touch",
-		drop: function(ev, ui) {						
-			// 拖动到 $item 元素的下方
-			$item = $(this);			
-			ui.draggable.hide('slow', function() {
-				//拖拽的父元素			
-				$drag_parent = $(this).parent();					
-				$_this = $(this);
-				//拖拽到 $item的父元素
-				$parent = $item.parent();
-				if( $(this).attr('sort_url') ){						
-					$(this).show();
-					/* TODO
-				$.ajax({
-					type: 	'get', 
-					url:	$(this).attr('sort_url')+'&ajax=ajax&id1='+$item.attr('data_id')+'&id2='+$(this).attr('data_id'),
-					cache:	false,
-					success:	function(html){						
-						if( html.indexOf('STOP') != -1 ){
-							$_this.show().attr('style','');										
-						}else{
-						  */
-						  /*  render the partial leafs */
-						  /*
-						  renderCategoryLeafs();
-						}						
-					},
-					error:		function(){
-						
-					}					
-				})				*/
-				}
-			});
-		}
-	});
-	
-	/*
-	* create hierarchicla node
-	*/
-	$('.data_block_hir h2').live('click', function(){
-		$that = $(this);
-		$.ajax({
-			type:	'get',
-			url:	$that.attr('create_href'),
-			cache: 	false,
-			success:	function(html){
-				var pop = $("<div title='view article' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 1000, 
-					minWidth: 600
-				});	
-			}
-		});
-	});
-	/*
-	* edit hierarchicla node
-	*/
-	$('.data_block_hir>li>span.block_ele').live('dblclick',function(){
-		$that = $(this).parent();
-		$.ajax({			
-			url:	$that.attr('edit_href'),
-			type:	'get',
-			cache:	false,
-			success:	function(html){
-				var pop = $("<div title='edit note ' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 1000, 
-					minWidth: 600
-				});			
-			}
-		});
-	});
-	
-	
-  function removeDataScroll() {
-     $('#("#hir_wrap"').jScrollPaneRemove();
-  }
-  function initDataScroll(){
-//    $('#hir_wrap').jScrollHorizontalPane();
-    $("#hir_wrap").jScrollPane({showArrows:true, scrollbarWidth: 17, arrowSize: 21,reinitialiseOnImageLoad: true}); 
-  }
-  function resetDataScroll() {
-    removeDataScroll();
-    initDataScroll();
-  }
+};
+bindLeafClick();
 
-  initDataScroll();
-
-	init_datablock_sort();
-	init_datablock_droppable();
+	
+	
+$('.lightbox').lightBox({		
+	imageLoading: '/images/lightbox-ico-loading.gif',
+	imageBtnClose:'/images/lightbox-btn-close.gif',
+	imageBtnPrev: '/images/lightbox-btn-prev.gif',
+	imageBtnNext: '/images/lightbox-btn-next.gif',		
+});
 	/*
 	* display the children datablock 
 	*/	
@@ -661,7 +503,6 @@ $(document).ready(function(){
         resetDataScroll();
 			}
 		});
-		
 	})
 
 	/*
@@ -774,25 +615,6 @@ $(document).ready(function(){
 		return false;				
 	})
 	
-
-	
-	$('.ele_create_new_leaf').live('click', function() {		
-		//console.log( $(this).attr('href') );
-		$.ajax({
-			type:		"get",
-			url:		$(this).attr('href')+'&ajax=ajax&leaf_id='+$('#leaf_id').val(),
-			success:	function(html) {
-				var pop = $("<div title='my god' ></div").html(html);
-				pop.insertAfter($('body')).dialog( {			
-					width: 600, 
-					minWidth: 600
-				});		
-				//console.log( 'ajax create new leaf get suc' );
-			}
-		});
-		return false;
-	});
-	
 	function renderDataBlock(ele){
 		$.ajax({
 			type:	'get',
@@ -864,8 +686,8 @@ $(document).ready(function(){
 	}
 	
 	//fun19
-	function renderPartLeafs(str) {
-	  var url = $('#leaf_render_url').val();
+	function renderPartLeafs(str) {	  
+	  var url = parent_panel.find('.leaf_render_url').val();
 	  $.ajax({
 			type:		"get",
 			url:		url,
@@ -1001,11 +823,7 @@ $(document).ready(function(){
 		return false;
 	});
   
-	/* TODO */
-	/* JAVASCRIPT_START */
-	/* 881518a1d877c78958dd6f7e7fe11f8c 全局变量定义*/
-	var x =y = 0, z = 1000000, distance = 25, wrap=null, parent_wrap=null, parent_panel = null, class_ioverpanel = 'ioverpanel';
-	var ajax_str = '&ajax=ajax';
+	
 	function reset_panel_postion(){	  	
 	  z++;  
 	  if( x >= 250 ){
@@ -1092,13 +910,6 @@ $(document).ready(function(){
     $.fn.imasker_hide();
     */
   }
-
-	
-	function idebug(obj) {
-	  if( $.browser.mozilla ){
-	    console.log(obj);  
-	  }
-	}
 	
 	/*4e134a399e16e6edf848985f4b93e107 取得当前的文章ids*/
 	function get_ids(){
@@ -1115,10 +926,7 @@ $(document).ready(function(){
 		return _temp_ids;
 	}
 	
-	/*693a9fdd4c2fd0700968fba0d07ff3c0 取得当前DOM的父元素中含有类mac_panel_wrap */
-	function getPanel(that){
-    return parentOne(that,'.mac_panel_wrap');
-  }
+	
   
   function getParentPanleByWrap(wrap){
 	if( wrap.find('.return_panel').length > 0 && wrap.find('.return_panel').val() != "" ){    
@@ -1139,17 +947,7 @@ $(document).ready(function(){
   function hideConfirm(wrap){
     wrap.find('.confirm_diglog').remove();
   }
-  function formLay(wrap,t){
-    idebug('Call formLay');    
-    if( wrap == null ){return;};
-    if( t == 'h') {
-      idebug('ajax overlay display ='+t);
-      
-      wrap.find('.ajax_overlay').hide();  
-    }else{
-      wrap.find('.ajax_overlay').css('z-index',z).show();
-    }
-  }
+ 
   
   function formError(wrap){
     wrap.find('.errorSummary').hide();
@@ -1214,7 +1012,7 @@ $(document).ready(function(){
 	
 	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建条目(文章, 节点, 用户 === )  */
 	var fun_item_new = function () {
-	  parent_wrap = wrap = getPanel($(this));
+	  parent_panel =  wrap = getPanel($(this));
 	   
 	  if( wrap.find('.model_type').val()== "attachment" ){	
       if( wrap.find('.attachment_form_wrap').length > 0 ){
@@ -1228,9 +1026,7 @@ $(document).ready(function(){
 	    return false;
 	  }
 	  
-	  //console.log( parent_wrap.find('.ele_refresh_url').val() );
-	  var panel_model = wrap.find('.model_type');
-	  //$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+$('#leaf_id').val()+'&panel_ident='+wrap.attr('id'),
+	  var panel_model = wrap.find('.model_type');	  
 	  var url = $(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+wrap.find('.cur_leaf_id').val()+'&panel_ident='+wrap.attr('id');
 		$.ajax({
 			type:		"get",
@@ -1302,31 +1098,12 @@ $(document).ready(function(){
 		})		
 				
 		return false;
-  });
-  
-	$('#artiles_move_bak').click(function(){		
-	  wrap = getPanel($(this));
-	  var leaf_panel_id = 'move_leaf_panel_'+$('#leaf_id').val();
-		if( isExist( leaf_panel_id) ){
-		  return false;
-		}
-		$.ajax({
-			type:	'get',
-			url:	wrap.find('.leaf_content_move_url').val()+'&top_leaf_id='+wrap.find('.top_leaf_id').val()+'&panel_ident='+wrap.attr('id'),
-			cache:	false,
-			success:	function(html){
-			  popup_panel( $(html).attr('id',leaf_panel_id) );
-			}
-		})		
-		return false;
-	});
+  });	
 	
 	/* eeab0810def3336d891534c6bf06c26e  提交移动文章*/
 	$('.ajax_move_form').live('submit',function(){
 	  wrap = getPanel($(this));		
-	  parent_panel = $('#'+wrap.find('.return_panel').val());
-	  //dialog = wrap.find('.panel_middle .middle .feedback');
-		//dialog.html('');
+	  parent_panel = $('#'+wrap.find('.return_panel').val());	  
 		var ids = get_ids();			
 		$.ajax({
 			type: "post",
@@ -1674,12 +1451,10 @@ $(document).ready(function(){
     return false;
   })
   
-  $('.ipagination .yiiPager li a ').live('click',function(){
-    
+  $('.ipagination .yiiPager li a').live('click',function(){
     if( $(this).parent().hasClass('hidden') ){
       return false;
     }
-    
     wrap = getPanel( $(this) );
 	  var that = $(this);	  
 	  var url = that.attr('href');
@@ -1721,6 +1496,5 @@ $(document).ready(function(){
 	    }
 	  })
     return false;  
-  });
-  
+  });  
 });

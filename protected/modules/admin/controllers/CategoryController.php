@@ -503,11 +503,11 @@ class CategoryController extends IController
 		if( $_GET['model_type'] == 'attachment' ){
 		  $opt['tpl'] = 'ajaxview_attachment';
 		  $opt['controllerId'] = 'Attachment';
-	  }else{
-	    //$criteria->order=" articles.sort_id DESC ";
+	  }else{	    
 	    $opt['tpl'] = 'ajaxview';
 	    $opt['controllerId'] = 'Article';
 	    $criteria->order      = 'create_time DESC';
+	    $criteria->order=" t.sort_id DESC ";
 	    $opt['page_size'] = 12;
 	  }	  
 		$criteria->condition = " t.category_id = :category_id ";
@@ -543,6 +543,7 @@ class CategoryController extends IController
 	public function actionCreate()
 	{
 		$model=new Category();
+		$panel_ident = $_REQUEST['panel_ident'];
 		if( isset( $_GET['leaf_id'] ) ) {
 			$model->parent_leaf_id = $_GET['leaf_id'];
 			$model->parent_leaf = Category::model()->findByPk($_GET['leaf_id']);			
@@ -596,9 +597,10 @@ class CategoryController extends IController
 		$model->content_type = 1;
 		if( $_GET['ajax'] == 'ajax' ) {
 			$this->renderPartial('create', array(
-				'model' => $model,
-				'model_type' => $_GET['model_type'],
-				'ajax'  => true
+				'model'       => $model,
+				'model_type'  => $_GET['model_type'],
+				'panel_ident' => $panel_ident,
+				'ajax'        => true
 			), false, true );			
 		}else {					
 			$this->render('create',array(
