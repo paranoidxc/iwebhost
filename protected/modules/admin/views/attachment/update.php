@@ -6,9 +6,7 @@
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=> Yii::t('cp','Edit').' <span class="filter radius4">'.$model->id.'</span> '.cnSubstr($model->screen_name,0,10)) );
   }
 ?>
-
   <div class='iform'>
-
   	<?php if(Yii::app()->user->hasFlash('success')) {?>
       <div class="flash_suc">
         <?php echo Yii::app()->user->getFlash('success'); ?>
@@ -19,7 +17,7 @@
     	'id'=>'article-form',
     	'enableAjaxValidation'=>false,
     	'htmlOptions' => array(
-    		'class' => 'atts_ajax_form'
+    		'class' => 'article_ajax_form'
     	)
     )); ?>
     
@@ -137,12 +135,12 @@
     	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
     </div>
     <?php $this->endWidget(); ?>
-  </div>
-  <div class="ajax_overlay" ></div>
+  </div>  
 <?php
   if( !$is_update ) {
   $this->endWidget('application.extensions.Flatmacpanel');	 
 ?>
+<div class="ajax_overlay" ></div>
 </div>
   <?php
   }

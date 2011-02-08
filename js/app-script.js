@@ -718,36 +718,6 @@ $('.lightbox').lightBox({
 		});
 	}
 	
-	
-	/*2599fdc3f5b684e0373ab4579d0bb848 提交编辑附件*/
-	
-	$('.atts_ajax_form').live('submit',function(){
-	  if( timeouthandle != undefined ){
-	    clearTimeout(timeouthandle);  
-	  }
-	  var that = $(this);
-	  wrap = getPanel($(this));
-	  var iform = wrap.find('.panel_middle .middle .iform');
-	  dialog = wrap.find('.panel_middle .middle .feedback');
-	  dialog.html('');
-	  $.ajax({
-	    type:		$(this).attr('method'),
-			url:		$(this).attr('action'),
-			data:		$(this).serialize(),
-			success:	function(html) {
-			  //iform.html( html );
-			  if( html.indexOf('mac_panel_wrap') != -1 ){			    
-			    wrap.html( html );
-			  }else{
-			    iform.html( html );
-			    dialog.addClass('feedback_on').html(html).show();
-      		timeouthandle = setTimeout( "dialog.slideUp()" , 3000 );
-			  }
-		  }
-	  });
-	  return false;
-	});
-	
 	$('.ajax_form').live('submit',function(){	  
 		idebug( 'ajax_form submit');		
 		
@@ -769,8 +739,7 @@ $('.lightbox').lightBox({
 				}
 				$dialog.html(html);
 			}
-		});		
-		
+		});
 		return false;
 	});	
 		
@@ -1217,15 +1186,12 @@ $('.lightbox').lightBox({
 	/*9e57007bcc35507dfc5bc7b8f2efb076 编辑文章 */
 	$('dl.thumbnail .title,.content_item').live('click',function(){
 	  wrap = getPanel($(this));	  
-	  //var url = $(this).parent().attr('rel_href');	  
 	  var url = $(this).parent().attr('rel_href')+"&panel_ident="+wrap.attr('id');  
 	  idebug(' model_type = '+wrap.find('.model_type').val() );
 	  var popup_panel_id = wrap.find('.model_type').val()+$(this).attr('data');
-	  
 	  if( isExist( popup_panel_id ) ) {	    
 	    return false;
 	  }
-	  
 	  formLay(wrap);
 		$.ajax({
 			url:	url,

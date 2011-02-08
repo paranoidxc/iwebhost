@@ -102,9 +102,28 @@ class AttachmentController extends IController
     $screen_name  =  basename($_FILES[$upload_name]['name']);
     $time = time();
     $file_name = $time.'.'.$file_extension;
-    //$img_ext = array("jpg", "jpeg", "png", "gif");
-    
-    if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], ATMS_SAVE_DIR.$file_name)) {	  	
+    //$img_ext = array("jpg", "jpeg", "png", "gif");    
+    $y = date('Y');
+    $m = date('m');
+    $d = date('d');
+    if( file_exists(ATMS_SAVE_DIR.$y) ){
+      if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m) ){
+        if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d) ){
+        }else{
+          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+        }
+      }else{
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+      }
+    }else{
+      mkdir( ATMS_SAVE_DIR.$y );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+    }    
+    $put_file_to_dir = ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d.'/';
+    $put_file_path = $y.'/'.$m.'/'.$d.'/';
+    if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], $put_file_to_dir.$file_name)) {	  	
 		  exit(0);
 	  }
 	  
@@ -114,7 +133,7 @@ class AttachmentController extends IController
 	  $w = 0;
 	  $h = 0;
 	  if( in_array($file_extension,API::$image_extension) ){
-	    $image = Yii::app()->image->load(ATMS_SAVE_DIR.$file_name);
+	    $image = Yii::app()->image->load($put_file_to_dir.$file_name);
 	    $w = $image->width;	    
 	    $h = $image->height;
 	    $is_image = true;
@@ -122,7 +141,7 @@ class AttachmentController extends IController
 	  
 	  $ati = array(
 	    'screen_name' => $screen_name,
-	    'path'        => $time,
+	    'path'        => $put_file_path.$time,
 	    'w' => $w,
 	    'h' => $h,
   	  'c_time' => Time::now(),
@@ -133,9 +152,9 @@ class AttachmentController extends IController
 	  if($model->save()){
 	    if( $is_image ){
 	      
-	      $file_path_l = ATMS_SAVE_DIR.$time.'_800_600'.'.'.$file_extension;
-        $file_path_t = ATMS_SAVE_DIR.$time.'_160_120'.'.'.$file_extension;
-        $file_path_g = ATMS_SAVE_DIR.$time.'_48_48'.'.'.$file_extension;        
+	      $file_path_l = $put_file_to_dir.$time.'_800_600'.'.'.$file_extension;
+        $file_path_t = $put_file_to_dir.$time.'_160_120'.'.'.$file_extension;
+        $file_path_g = $put_file_to_dir.$time.'_48_48'.'.'.$file_extension;        
         
         $image->resize(800, 600);
         $image->save($file_path_l);          	            
@@ -152,7 +171,7 @@ class AttachmentController extends IController
         $model->tips .= '_160*120_,';
         $model->tips .= '__48*48__,';
         $model->save();
-        rename(ATMS_SAVE_DIR.$file_name, ATMS_SAVE_DIR.$time.'_'.$w.'_'.$h.'.'.$file_extension );
+        rename($put_file_to_dir.$file_name, $put_file_to_dir.$time.'_'.$w.'_'.$h.'.'.$file_extension );
       }
 	  }
 	 
@@ -247,26 +266,25 @@ class AttachmentController extends IController
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+    $is_partial = false;
+    $panel_ident = $_REQUEST['panel_ident'];
 		if(isset($_POST['Attachment']))
 		{
 			$model->attributes=$_POST['Attachment'];
-			if($model->save())
-			if( isset($_GET['ajax']) ) {
+			if($model->save()){
+			  if( isset($_GET['ajax']) ) {
 					//echo 'update attachment suc';
 					if($model->is_image()){
   					$resize_w = $_POST['resize_w'];
   					$resize_h = $_POST['resize_h'];
-  					
   					if( is_array( $resize_w ) && count( $resize_w) > 0 ){
   					  for( $i=0; $i<count($resize_w); $i++ ){
-  					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){					      
+  					    if( is_numeric($resize_w[$i]) && is_numeric($resize_h[$i]) ){			      
   					      $image = Yii::app()->image->load(ATMS_SAVE_DIR.$model->path.'_'.$model->w.'_'.$model->h.'.'.$model->extension);
-  					      //$path_info = pathinfo( ATMS_SAVE_DIR.$model->path );
-                  $_path= ATMS_SAVE_DIR.$model->path.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
+  					      list($y,$m,$d,$iname) =  explode('/',$model->path);
+                  $_path= ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d.'/'.$iname.'_'.$resize_w[$i].'_'.$resize_h[$i].'.'.$model->extension; 
                   $image->resize($resize_w[$i], $resize_h[$i]);
                   $image->save($_path);
                   if( isset($tips) ){
@@ -282,23 +300,20 @@ class AttachmentController extends IController
   					  }
   					}
 					}
-					
 					$str = 'Data Updated Suc On '.Time::now();
 					Yii::app()->user->setFlash('success',$str);
-					
-					$this->renderPartial('update',array(
-			    'model'=>$model,'is_update' => true
-		      ),false,true);
-		      exit;
+					$is_partial = true;					
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
 				}	
+			}
 		}
 
-    if( $_GET['ajax'] == 'ajax' ){      
+    if( isset($_GET['ajax']) ){     
       $this->renderPartial('update',array(
 			  'model'     =>$model,
-			  'is_update' => false
+			  'is_update' => $is_partial,
+			  'panel_ident' =>  $panel_ident
 		  ),false,true);
     }else{
 		  $this->render('update',array(
