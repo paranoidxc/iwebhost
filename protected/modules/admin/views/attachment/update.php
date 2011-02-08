@@ -3,7 +3,7 @@
 ?>
 <div class='mac_panel_wrap w600P'>
 <?php  
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Edit '.$model->id.' - '.cnSubstr($model->screen_name,0,10)) );
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=> Yii::t('cp','Edit').' <span class="filter radius4">'.$model->id.'</span> '.cnSubstr($model->screen_name,0,10)) );
   }
 ?>
 
@@ -26,8 +26,12 @@
     <?php echo $form->errorSummary($model); ?>	
   
     <div class="ml20P pt10P">
-  	  <a data="field_normal" class="form_tab form_tab_selected"><span>Normal Field</span></a>
-  	  <a data="extra_link_wrap" class="form_tab"><span>Extra Link</span></a>
+  	  <a data="field_normal" class="form_tab form_tab_selected">
+  	    <span><?php echo Yii::t('cp','Normal Field')?></span>
+  	  </a>
+  	  <a data="extra_link_wrap" class="form_tab">
+  	    <span><?php echo Yii::t('cp','Extra Link')?></span>
+  	  </a>
   	</div>
   	
   	<div class="form_field_wrap field_normal">
@@ -52,7 +56,8 @@
     	      <div class="flL w200p ml20P bcBlue p5p">
     	        <ul>
     	          <li>
-    	            width*height <span class="new_resize csP" >+</span>
+    	            <?php echo Yii::t('cp','Width') ?>*<?php echo Yii::t('cp','Height')?>    	            
+    	            <span class="new_resize csP" title="<?php echo Yii::t('cp','Add') ?>" >+</span>
     	          </li>        	      
     	          <li>
     	            <input type="text" size="4" name="resize_w[]" class="image_resize_input" autocomplete="off" />
@@ -80,7 +85,7 @@
     	  <tr>
     	    <th class='alt leftborder'><?php echo $form->labelEx($model,'w'); ?></td>
     	    <td>
-    	      <?php echo $model->h ?>
+    	      <?php echo $model->w ?>
     	      <?php //echo $form->textField($model,'w',array('size'=>60,'maxlength'=>100)); ?>
     	      <?php //echo $form->error($model,'w'); ?>
     	    </td>
@@ -122,14 +127,14 @@
   	  </ul>
   	  
   	  <div>
-  	    <textarea class="extra_link_area_outer">link outer</textarea>
-  	    <textarea class="extra_link_area_inner">link inner</textarea>
+  	    <textarea class="extra_link_area_outer"><?php echo Yii::t('cp','Outer Link') ?></textarea>
+  	    <textarea class="extra_link_area_inner"><?php echo Yii::t('cp','Inter Link') ?></textarea>
   	  </div>
       <div class="clB"></div>
     </div><!--extra_link_wrap end-->
   	
     <div class="taR h30P lh30P pr10P pt5P">
-    	<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array( 'class' => 'ibtn blue')); ?>
+    	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
     </div>
     <?php $this->endWidget(); ?>
   </div>

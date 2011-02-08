@@ -117,11 +117,12 @@ class Attachment extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'screen_name' => 'Screen Name',
-			'path' => 'Path',
-			'w' => 'W',
-			'h' => 'H',
+			'id'          => 'ID',
+			'screen_name' => Yii::t('cp','Screen Name'),
+			'memo'        => Yii::t('cp','Memo'),
+			'path'        => 'Path',
+			'w'           => Yii::t('cp','Width'),
+			'h'           => Yii::t('cp','Height'),
 		);
 	}
 

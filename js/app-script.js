@@ -141,12 +141,15 @@ $(document).ready(function(){
     }
 	}
 	//var articels_action = false;	
-	function renderArticlesActions() {	  
-	  if( $('.cb_article:checked').length > 0 ) {
-	    $('.iactions').addClass('hover');
-	  }else{
-	    $('.iactions').removeClass('hover');
-	  }	  
+	function renderArticlesActions() {
+	  /*	  
+	  if( _wrap != undefined ){
+  	  if( _wrap.find('.cb_article:checked').length > 0 ) {
+  	    _wrap.find('.iactions').addClass('hover');
+  	  }else{
+  	    _wrap.find(('.iactions').removeClass('hover');
+  	  }	  
+	  }*/
 	};
 	
 	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/
@@ -1124,13 +1127,11 @@ $('.lightbox').lightBox({
 		return false;
 	});
 	
-	/*f1ce042a27aa18b121377beab2615c57 删除文章*/
+	/* f1ce042a27aa18b121377beab2615c57 删除文章*/
 	/* 445a7cc846392ddd2a897553267de1ca 拷贝文章*/
-	$('.ele_delete,.ele_copy,.ele_stared,.ele_unstared').click(function(){	  
-	  
+	$('.ele_delete,.ele_copy,.ele_stared,.ele_unstared').live('click',function(){	  
 	  parent_panel = wrap = getPanel($(this));
-	  var that = $(this);
-	  
+	  var that = $(this);	  
 	  if( $(this).hasClass('ele_delete') ){
 	    iconfirm('Are you really want to delete choose content ?');
 	  }else if( $(this).hasClass('ele_copy') ){
@@ -1163,7 +1164,7 @@ $('.lightbox').lightBox({
 	});
 	
 	/*864577c5de51168219098730aff9add0 批量编辑附件*/
-	$('#ele_update_atts').click(function(){
+	$('.ele_update_atts').live('click',function(){
 	  wrap = getPanel($(this));
 	  var leaf_panel_id = 'update_atts_leaf_panel_'+wrap.find('.top_leaf_id').val();
 		if( isExist( leaf_panel_id) ){
@@ -1314,9 +1315,8 @@ $('.lightbox').lightBox({
 		return false;
 	}	
 	$('.article_ajax_form').submit(form_submit);
-		
-	$('.actions>li').hover(function(){
-	  },function(){
+	
+	$('.actions>li').live('hover',function(){	  
 	  $(this).find('ul').fadeOut();
 	  $(this).find('span').removeClass('hover');
 	})
@@ -1334,34 +1334,30 @@ $('.lightbox').lightBox({
 	    } 
 	  }
 	  $(this).next().css({'z-index': z-1}).show();
-	});
-	
-	$('.ele_list_all').click(function(){
-	  var wrap = getPanel($(this));
-	  if( $(this).is(':checked') ){
-	    wrap.find('.ele_item').attr('checked',true);
+	});	
+  
+	$('.ele_list_all').live('click',function(e){	  
+	  var wrap = getPanel($(this));	  
+	  //$(e.target).hasClass('ele_list_all')
+    if( $(this).is(':checked') ){
+    wrap.find('.ele_item').attr('checked',true);
+    wrap.find('.cb_article').attr('checked',true);	
     }else{
       wrap.find('.ele_item').attr('checked',false);
-    }
-	  
-	});
+      wrap.find('.cb_article').attr('checked',false);	    
+    }	  
+	  e.stopPropagation();	  	      
+	});	
 	
-	$('#cb_all').click(function(e){
-	  if( $(this).is(':checked') ){
-	    $('.cb_article').attr('checked',true);	
-	  }else{
-	    $('.cb_article').attr('checked',false);	    
-	  }
-	  renderArticlesActions();	  
-	  e.stopPropagation();	  
-	});		
 	$('.c_s_m_d_a').live('click',function(){
-	  $('.cb_article').attr('checked',true);
-	  $('#cb_all').attr('checked',true);
+	  var wrap = getPanel($(this));
+	  wrap.find('.cb_article').attr('checked',true);
+	  wrap.find('.ele_list_all').attr('checked',true);
 	});
 	$('.c_s_m_d_n').live('click',function(){
-	  $('.cb_article').attr('checked',false);
-	  $('#cb_all').attr('checked',false);
+	  var wrap = getPanel($(this));
+	  wrap.find('.cb_article').attr('checked',false);
+	  wrap.find('.ele_list_all').attr('checked',false);
 	});
 	
 	/*d606a89c78a6a590167232caea08fa68  更新图片尺寸 */	
@@ -1402,8 +1398,7 @@ $('.lightbox').lightBox({
     e.preventDefault();    
   });
   function iupdate(){
-    var range = $(this).getSelection();
-    //alert( range.start );
+    var range = $(this).getSelection();    
     //setCaretToPos($(this),4);   
   }
 	

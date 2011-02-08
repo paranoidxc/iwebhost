@@ -20,7 +20,7 @@
       echo '<span class="crP atts content_item"
               data = "'.$t->id.'"
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 
-              rel_id="'.$t->id.'" title="'.$t->screen_name.'">Edit</span>';
+              rel_id="'.$t->id.'" title="'.$t->screen_name.'">'.Yii::t('cp','Edit').'</span>';
       echo '</p>';
       }else{        
         echo '<img src="/default_image/unknown.png" alt="" /> ';        
@@ -29,7 +29,7 @@
         echo '<span class="crP atts content_item"
               data = "'.$t->id.'"
               rel_url="'.CController::createurl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ) ).'" 
-              rel_id="'.$t->id.'" title="'.$t->screen_name.'">Edit</span>';
+              rel_id="'.$t->id.'" title="'.$t->screen_name.'">'.Yii::t('cp','Edit').'</span>';
         echo '</p>';
       }
       echo '</li>';

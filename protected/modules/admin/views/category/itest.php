@@ -78,7 +78,7 @@
  	
  	<li>
 	  <span class="c_s_m">
-  	  <input type="checkbox" id="cb_all" class="ele_list_all" /><span class="more"></span>
+  	  <input type="checkbox" class="ele_list_all" /><span class="more"></span>
 	  </span>
 	  <ul class='dN c_s_m_d'>
 	    <li class="c_s_m_d_a"><?php echo Yii::t('cp','Select All') ?></li>
@@ -100,11 +100,7 @@
 	  <span class="c_m_a">
 	    <?php echo Yii::t('cp','More Actions')?> <span class="more"></span>
 	  </span>
-	  <ul class='dN c_m_a_d'>
-	    <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
-	      class="c_m_a_d_batch ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
-	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
-	      class="c_m_a_d_batch ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
+	  <ul class='dN c_m_a_d'>	    
       <li href="<?php echo $url_content_move; ?>" title="<?php echo Yii::t('cp','Move Content')?>" class="c_m_a_d_batch ele_content_move">
         <?php echo Yii::t('cp','Move Content')?>
       </li> 
@@ -114,7 +110,7 @@
       <?php
 	    if( $top_leaf->model_type == 'attachment' ) {
       ?>
-      <li href="<?php echo CController::createUrl('attachment/batchedit') ?>" id="ele_update_atts" class="c_m_a_d_batch">
+      <li href="<?php echo CController::createUrl('attachment/batchedit') ?>" class="ele_update_atts c_m_a_d_batch">
 			  <?php echo Yii::t('cp','Update Content') ?>
 		  </li>
       <?php
@@ -123,6 +119,10 @@
       <?php
 	    if( $top_leaf->model_type != 'attachment' ) {
       ?>
+      <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
+	      class="c_m_a_d_batch ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
+	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
+	      class="c_m_a_d_batch ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
 	    <li href="<?php echo $url_content_copy; ?>" class="ele_copy c_m_a_d_batch">
 			  <?php echo Yii::t('cp','Copy Content') ?>
 		  </li>    
