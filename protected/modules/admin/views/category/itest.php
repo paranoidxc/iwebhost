@@ -55,8 +55,8 @@
 
 
 
-<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="top_leaf_id" class="top_leaf_id"/>
-<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>"  id="cur_leaf_id" class="cur_leaf_id"/>
+<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>" class="top_leaf_id"/>
+<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>" class="cur_leaf_id"/>
 
 
 <input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />

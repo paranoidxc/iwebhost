@@ -8,9 +8,16 @@ class SettingController extends Controller
 	  if( !$sconfig ){
 	    $sconfig=new Sconfig;
 	  }	  
-		$this->render('index',array(
-		  'sconfig' => $sconfig,
-		));
+	  if($_GET['ajax'] == 'ajax'){
+	    $this->renderPartial('index',array(
+  		  'sconfig' => $sconfig,
+  		));
+	  }else{
+  	  $this->render('index',array(
+  		  'sconfig' => $sconfig,
+  		));  
+	  }
+		
 	}
 	public function actionSconfig() {
 	  if(Yii::app()->request->isPostRequest) {
