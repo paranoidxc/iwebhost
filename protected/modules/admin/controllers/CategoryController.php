@@ -1,17 +1,17 @@
 <?php
 
-class CategoryController extends Controller
+class CategoryController extends IController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	//public $layout='//layouts/column2';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
-	private $_model;
+	//private $_model;
 
 	/**
 	 * @return array action filters
@@ -497,45 +497,43 @@ class CategoryController extends Controller
 	 * Displays a particular model.
 	 */
 	public function actionView()
-	{
-			//$model = Category::model()->with('articles')->findByPk($_GET['id']);
-			//' t.id = :id ',
-			//array(':id' => $_GET['id'] )			
-			$criteria = new CDbCriteria;
-			if( $_GET['model_type'] == 'attachment' ){
-		  }else{
-		    $criteria->order=" articles.sort_id DESC ";  
-		  }		  
-			$criteria->condition = " t.id = :id ";
-			$criteria->params = array(
-				':id' => $_GET['id']
-			);
-			//$model = Category::model()->with('articles')->findByPk( 21 , $criteria );			
-			if( $_GET['model_type'] == 'attachment' ){
-		    $model = Category::model()->with('attachments')->find( $criteria );
-		    $this->renderPartial( 'ajaxview_attachment', array(
-  				'model'=> $model,
-  				false,true
-  			)); 
-		  }else{
-			  $model = Category::model()->with('articles')->find( $criteria );
-			  $this->renderPartial( 'ajaxview', array(
-  				'model'=> $model,
-  				false,true
-  			));
-		  }
-			exit;
-		if(isset($_GET['ajax'])) {			
-			$model = Category::model()->with('articles')->findByPk($_GET['id']);			
-			$this->renderPartial( 'ajaxview', array(
-				'model'=>$this->$model,
+	{  
+		$criteria = new CDbCriteria;		
+		$model=$this->loadModel();
+		if( $_GET['model_type'] == 'attachment' ){
+		  $opt['tpl'] = 'ajaxview_attachment';
+		  $opt['controllerId'] = 'Attachment';
+	  }else{
+	    //$criteria->order=" articles.sort_id DESC ";
+	    $opt['tpl'] = 'ajaxview';
+	    $opt['controllerId'] = 'Article';
+	    $criteria->order      = 'create_time DESC';
+	    $opt['page_size'] = 12;
+	  }	  
+		$criteria->condition = " t.category_id = :category_id ";
+		$criteria->params = array(
+		  ':category_id' => $_GET['id']
+		);
+		$opt['criteria'] =  $criteria;		
+		$opt['tpl_params']['model'] = $model;
+		parent::actionIndex($opt);
+		/*
+		//$model = Category::model()->with('articles')->find( $criteria );
+		$criteria->condition = " t.id = :id ";
+		if( $_GET['model_type'] == 'attachment' ){
+	    $model = Category::model()->with('attachments')->find( $criteria );
+	    $this->renderPartial( 'ajaxview_attachment', array(
+				'model'=> $model,
+				false,true
+			)); 
+	  }else{
+		  $model = Category::model()->with('articles')->find( $criteria );
+		  $this->renderPartial( 'ajaxview', array(
+				'model'=> $model,
 				false,true
 			));
-		}else {					
-			$this->render('view',array(
-				'model'=>$this->loadModel(),
-			));
-		}
+	  }				
+	  */
 	}
 
 	/**

@@ -215,9 +215,10 @@ class Article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'leaf' 			=> array( self::BELONGS_TO , 'Category', 	'category_id' ),
-			'attachment'	=> array( self::BELONGS_TO,  'Attachment',	'attachment_id'),
-			'gallery'		=> array( self::BELONGS_TO,  'Category',	'gallery_id')
+			'leaf' 			   => array( self::BELONGS_TO , 'Category', 	'category_id' ),
+			'attachment'	 => array( self::BELONGS_TO,  'Attachment',	'attachment_id'),
+			'gallery'		   => array( self::BELONGS_TO,  'Category',	'gallery_id')			
+			
 		);
 	}
 

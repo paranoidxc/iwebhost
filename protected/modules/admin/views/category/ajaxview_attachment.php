@@ -5,8 +5,8 @@
     
 <ul class='atm_photos' >
 <?php
-  if( $model ){
-    foreach($model->attachments as $t){
+  if( $list ){
+    foreach($list as $t){
       echo '<li>';
       if( $t->is_image() ){
       echo '<div class="thumb_wrap">';

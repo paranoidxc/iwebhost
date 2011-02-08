@@ -1,6 +1,6 @@
 <div id="article_drag_ele">
 <?php
-  foreach( $model->articles as $a ){
+  foreach( $list as $a ){
 ?>
 <table  class="w100S bcc" 
         id="sort_<?php echo $a->id; ?>"
@@ -32,11 +32,16 @@
       <span class='fs15P csP' >&raquo;</span>
       <?php //echo $a->update_datetime; ?>
     </td>
-  </tr>
+  </tr>  
 </table>
 <?php
   }
 ?>
+<table class="w100S">  
+  <tr class="hover_none ">
+      <td colspan="5" class='taR ipagination  p5P pr20P'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
+  </tr>
+</table>  
 </div>
 <script type="text/javascript">
 	init_article_sort();

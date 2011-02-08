@@ -519,8 +519,7 @@ $(document).ready(function(){
               wrap.find('.leaf_content').html(html);
               wrap.find('.ele_list_all').attr('checked',false);
               //$('#leaf_articles').html(html);                             
-            } 
-  	       
+            }
         });
   	  });
     });
@@ -1351,7 +1350,8 @@ $(document).ready(function(){
 	/*f1ce042a27aa18b121377beab2615c57 删除文章*/
 	/* 445a7cc846392ddd2a897553267de1ca 拷贝文章*/
 	$('.ele_delete,.ele_copy,.ele_stared,.ele_unstared').click(function(){	  
-	  wrap = getPanel($(this));
+	  
+	  parent_panel = wrap = getPanel($(this));
 	  var that = $(this);
 	  
 	  if( $(this).hasClass('ele_delete') ){
@@ -1380,7 +1380,7 @@ $(document).ready(function(){
     wrap.find('.confirm_dialog_cancel').click( function() {
       hideConfirm(wrap);
       formLay(wrap,'h');
-      wrap = null;
+      parent_panel = wrap = null;
     })
 		return false;
 	});
@@ -1664,7 +1664,11 @@ $(document).ready(function(){
 	    cache: false,
 	    url: url,
 	    success:function(html){	      
-	      wrap.find('.search_result_wrap').html(html);
+	      if( wrap.find('.search_result_wrap').length > 0 ){
+	        wrap.find('.search_result_wrap').html(html);  
+	      }else if( wrap.find('.leaf_content').length > 0 ) {
+	        wrap.find('.leaf_content').html(html);  	        
+	      }
 	    }
 	  })
     return false;
@@ -1687,7 +1691,11 @@ $(document).ready(function(){
 	    cache: false,
 	    url: url,
 	    success:function(html){
-	      wrap.find('.search_result_wrap').html(html);
+	      if( wrap.find('.search_result_wrap').length > 0 ){
+	        wrap.find('.search_result_wrap').html(html);  
+	      }else if( wrap.find('.leaf_content').length > 0 ) {
+	        wrap.find('.leaf_content').html(html);  	        
+	      }
 	    }
 	  })
     return false;

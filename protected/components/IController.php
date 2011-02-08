@@ -48,19 +48,16 @@ class IController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex($opt=null) {
-	  $controllerId = $this->controllerId;	  
+	  $controllerId = strlen($opt['controllerId']) > 0 ? $opt['controllerId'] : $this->controllerId;	  
 	  if( !is_array($opt) ){
 	    $criteria=new CDbCriteria;
-	    $keyword = trim($_GET['keyword']);			  
-      //$criteria->condition  = 'question like :keyword OR answer like :keyword';
-      //$criteria->params     = array(':keyword'=>"%$keyword%");      
+	    $keyword = trim($_GET['keyword']);      
 	  }else{
 	    extract($opt);
-	  }
-	  
+	  }	  
     $imodel = new $controllerId;
     $item_count = call_user_func( array( $imodel, 'count') , $criteria );    
-    $page_size = 10;          
+    $page_size = strlen($opt['page_size']) > 0 ? $opt['page_size'] : 10;          
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      
     $pagination = new CLinkPager();
@@ -88,22 +85,15 @@ class IController extends Controller
     // echo Chtml::listBox('category_id',1,$leafs) 
     //print_r($opt['tpl_params']);
     
-	  if( $is_partial ){
+	  if( $is_partial ){	    
 	    $this->renderPartial('_index', $opt['tpl_params'], false, true );
-	    //$this->renderPartial('_index',array(
-	      //'list' => $list, 
-	      //'pagination' => $pagination, 'select_pagination' => $select_pagination 
-	      //),false,true);
 	  }else{
-	    if( $_GET['ajax'] == 'ajax'){
-	      $this->renderPartial('index', $opt['tpl_params'], false, true );  
+	    $tpl = strlen( $opt['tpl'] ) > 0 ? $opt['tpl'] : 'index';
+	    if( $_GET['ajax'] == 'ajax'){	      
+	      $this->renderPartial($tpl, $opt['tpl_params'], false, true );  
 	    }else{
-	      $this->render('index', $opt['tpl_params'], false, true );  
+	      $this->render($tpl, $opt['tpl_params'], false, true );  
 	    }
-	     //$this->render('index',array(  			
-  			//'list'  =>  $list,
-  			//'pagination' => $pagination, 'select_pagination' => $select_pagination
-  		//),false,true);
 	  } 
 	}
 	
