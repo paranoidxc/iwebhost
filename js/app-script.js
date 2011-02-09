@@ -1,11 +1,11 @@
 function uploadTips(ele,str) {     
+  var wrap = parentOne(ele,'.mac_panel_wrap');  
   var confirm_diglog = $('<div class="tip_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
   confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');  
   confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue tip_diglog_close" type="button" value="Close" />') );        
   confirm_diglog.append( confirm_diglog_ibtn_wrap );    
   confirm_diglog.addClass('radius7 ');
   confirm_diglog.addClass('boxshadow ');
-  var wrap = parentOne(ele,'.mac_panel_wrap');
   wrap.append( confirm_diglog );    
   confirm_diglog.css({ 'position' : 'absolute', 'background' : '#FFF', 'z-index': wrap.css('z-index') })    
   confirm_diglog.css({
@@ -56,8 +56,9 @@ function init_content_sort() {
 }
 /*8a8bb7cd343aa2ad99b7d762030857a2  取得当前DOM给定的父元素 */
 function parentOne(ele,exp){	  
-  if( ele.parent().find(exp).length > 0  ) {      
-    return ele;      
+  //if( ele.parent().find(exp).length > 0 ) {      
+  if( ele.parent().find(exp).length > 0 || ele.hasClass(exp) ) {
+    return ele;
   }else{
     return parentOne(ele.parent(), exp);
   }	      
@@ -252,6 +253,7 @@ $(document).ready(function(){
 	  var rel_gavatar = wrap.find('.rel_gavatar').attr('src');
 	  // return_wrap = form td column
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
+	  var parent_panel = getPanel(return_wrap);
 	  if( return_wrap.find('.unlink_default').length > 0 ) {
 	    return_wrap.find('.unlink_default').hide();
 	  }
@@ -265,23 +267,25 @@ $(document).ready(function(){
 	  if( rtype == '' ){
 	  }else if( rtype == 'article_link_image' ){
 	    var image = upfiles_dir + rel_path+rel_imagerange+'.'+rel_extension;
-	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';
-	    
+	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';	    
+	    /*
 	    var selection = $('#Article_content').getSelection();	    
-	    
-	    //setCaretToPos(document.getElementById('Article_content'),selection.start + 4 );
 	    $('#Article_content').replaceSelection(str, true);
-	    //setCaretToPos(document.getElementById('Article_content'),selection.start + 4 + str.length );
-	    //$('#Article_content').replaceSelection('\r\n', true);
 	    setCaretToPos(document.getElementById('Article_content'),selection.start);
 	    $('#Article_content').replaceSelection(' ', true);
 	    setCaretToPos(document.getElementById('Article_content'),selection.start+1+str.length);	    
 	    $('#Article_content').replaceSelection(' ', true);
-	    setCaretToPos(document.getElementById('Article_content'),selection.start+2+str.length);	    
-	    //var _is = $('#Article_content').getSelection();
-	    //console.log(  _is );
-	    //console.log( _is['start'] );
-	    //console.log( _is.start );
+	    setCaretToPos(document.getElementById('Article_content'),selection.start+2+str.length);	    	    
+	    */
+	    //TODO 
+	    var _content = parent_panel.find('#Article_content');
+	    var selection = _content.getSelection();	    	    
+	    _content.replaceSelection(str, true);
+	    setCaretToPos(_content,selection.start);
+	    _content.replaceSelection(' ', true);
+	    setCaretToPos(_content,selection.start+1+str.length);	    
+	    _content.replaceSelection(' ', true);
+	    setCaretToPos(_content,selection.start+2+str.length);
 	    return ;
 	  }
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;

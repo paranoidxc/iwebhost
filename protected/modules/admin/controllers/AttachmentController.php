@@ -110,16 +110,16 @@ class AttachmentController extends IController
       if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m) ){
         if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d) ){
         }else{
-          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d, 0700 );
         }
       }else{
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m );
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m ,0700 );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0700 );
       }
     }else{
-      mkdir( ATMS_SAVE_DIR.$y );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d );
+      mkdir( ATMS_SAVE_DIR.$y ,0700 );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m,0700  );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0700 );
     }    
     $put_file_to_dir = ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d.'/';
     $put_file_path = $y.'/'.$m.'/'.$d.'/';
