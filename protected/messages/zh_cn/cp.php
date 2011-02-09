@@ -106,7 +106,12 @@ return array(
   'Unstared'            => '取消重点',
   'Refresh'             => '刷新',
   
+
   //panel 
+  'Edit Article'            => '编辑文章',
+  'Edit Admin'              => '编辑管理员',
+  'Edit Feedback'           => "编辑信息反馈",
+  'Create Feedback'         => "新建信息反馈",
   'Pick Attachment'         =>      '选择关联附件',
   'Pick Attachment Gallery' => '选择关联集合',
   'Move to'                 => '移动到',

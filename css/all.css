@@ -33,23 +33,11 @@
   padding: 1px;
   border: 1px solid transparent;  
   min-width: 140px; 
-  z-index: 100000000; 
-}
-.choose_lang_wrap.hover {
-/*
-  border: 1px solid #666666;
-  background: #A8A8A8;  
-  */
-}
-.choose_lang_wrap div {    
-  text-align: right;
-}
-.choose_lang_wrap.hover div {  
-  
+  z-index: 10000; 
 }
 
-.choose_lang_wrap .ul_wrap {
- 
+.choose_lang_wrap div {    
+  text-align: right;
 }
 
 .choose_lang_wrap h1 {  
@@ -59,14 +47,14 @@
   color: #000;
   margin-top: -2px;
   text-decoration: none;  
-  text-shadow: 0 1px 0 #FFF; 
+  text-shadow: 0 1px 0 #FFF;   
   background: #A8A8A8 url("api_categorys_img/mac-menu-bar.png") repeat-x scroll 0 0; 
-
 }
+
 
 .choose_lang_ul_wrap {
   position: absolute;  
-  z-index: 99999999; 
+  z-index: 9999;   
   right: 15px;
   top: 0;
   background: #ccc url("api_categorys_img/mac-menu-bar.png") repeat-x scroll 0 0; 

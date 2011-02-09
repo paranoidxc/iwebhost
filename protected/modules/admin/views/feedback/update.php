@@ -3,7 +3,7 @@ if( !$is_update ) {
   ?>
   <div class='mac_panel_wrap w600P'>
 <?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>'Feedback '.$model->id) );
+  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp','Edit Feedback').' <span class="filter radius4">'.$model->id.'</span>') );
 ?>
   <?php
 }

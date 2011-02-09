@@ -23,7 +23,7 @@
           </td>
           <td class="left_ct" >
             <span class="ct close" title="$this->close"></span>
-            <span class="ct min" title="$this->min"></span>
+            <!--<span class="ct min" title="$this->min"></span>-->
             <span class="ct max" title="$this->max"></span>
           </td>
           <td class="right"></td>

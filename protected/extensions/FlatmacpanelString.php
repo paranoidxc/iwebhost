@@ -19,7 +19,7 @@
         </td>
         <td class="left_ct" >
           <span class="ct close" title="$that->close"></span>
-          <span class="ct min" title="$that->min"></span>
+          <!--<span class="ct min" title="$that->min"></span>-->
           <span class="ct max" title="$that->max"></span>
         </td>
         <td class="right"></td>
