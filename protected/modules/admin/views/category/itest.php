@@ -15,7 +15,7 @@
 	        echo '</li>';	        
           echo '<li>
           <a href="'.CController::createUrl('category/update').'"
- 	           title="'.Yii::t('cp','Upload Node').'" 
+ 	           title="'.Yii::t('cp','Update Node').'" 
  	           class="ele_update_leaf ioverpanel"></a>';
           echo '</li>';
           

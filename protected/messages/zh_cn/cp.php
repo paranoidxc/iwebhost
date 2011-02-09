@@ -17,9 +17,6 @@ return array(
   'Delete Node'     => '删除节点',
   
   //ilist table thead column
-  
-  
-  'Create Node'     => '新建节点',
   'Ident Label'     => '唯一标识',
   'Node Content Type' => '节点内容类型',
   'Name'            => '名称',

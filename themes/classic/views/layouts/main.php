@@ -17,8 +17,6 @@
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/fileprogress.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/handlers.js"></script>
 
-	
-
 <?php  
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
@@ -60,7 +58,7 @@
 			'items'=>array(
 			  array('label'=>Yii::t('cp','Website'),'url'=>array('/site/index') ),
 			  array('label'=>Yii::t('cp', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-			  array('label'=>Yii::t('cp','Login').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+			  array('label'=>Yii::t('cp','Logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>Yii::t('cp','Dashboard'), 'url'=>array('/admin/Dashboard/index')),
 				array('label'=>Yii::t('cp','ROOT'), 'url'=>array('/admin/category/iroot') ,'linkOptions' => array( 'data' => 'panel_root' )),
 				array('label'=>Yii::t('cp','Navigation'), 'url'=>array('/admin/category/inavigation'),'linkOptions' => array( 'data' => 'panel_inavigation' ) ),
@@ -70,7 +68,7 @@
 				array('label'=>Yii::t('cp','Admins'), 'url'=>array('/admin/user/index'),'linkOptions' => array( 'data' => 'nav_panel_admins' )),
 				array('label'=>Yii::t('cp','Feedback'), 'url'=>array('/admin/feedback/index'),'linkOptions' => array( 'data' => 'nav_panel_feedback' )),
 				array('label'=>Yii::t('cp','Settings'), 'url'=>array('/admin/setting/index'),'linkOptions' => array( 'data' => 'nav_panel_settings' )),
-				//array('label'=>'Settings', 'url'=>array('/admin/setting/index')),		
+				//array('label'=>'Settings', 'url'=>array('/admin/setting/index')),
 			),
 		)); ?>
 		

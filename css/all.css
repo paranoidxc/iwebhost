@@ -360,8 +360,10 @@ div.errorSummary {
 }
 .leaf_content {
   overflow: auto;	
+  /*
   width: 522px;;
   width: 478px;
+  */
   height: 353px;  
 }
 #content {
