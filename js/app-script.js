@@ -200,7 +200,7 @@ $(document).ready(function(){
 	$('.search_form').live('submit',function(){	  
 	  wrap = getPanel( $(this) );
 	  var that = $(this);
-	  var url = that.attr('action')+'&keyword='+that.find('.keyword').val();
+	  var url = that.attr('action')+ ajax_str +'&keyword='+that.find('.keyword').val();
 	  if( that.find('.leaf_id').length > 0 ){
 	    url += "&leaf_id="+that.find('.leaf_id').val();
 	  }
@@ -209,13 +209,22 @@ $(document).ready(function(){
 	      url += "&is_include="+that.find('.is_include').val();
       }
 	  }
-	  
+	  if( that.find('.model_type').length > 0 ){	    	    
+	    url += "&model_type="+that.find('.model_type').val();      
+	  }
+	  if( that.find('.cur_leaf_id').length > 0 ){	    	    
+	    url += "&id="+that.find('.cur_leaf_id').val();      
+	  }	  	  
 	  $.ajax({
 	    type: that.attr('method'),
 	    cache: false,
 	    url: url,
-	    success:function(html){	      
-	      wrap.find('.search_result_wrap').html(html);
+	    success:function(html){
+	      if( wrap.find('.leaf_content').length > 0 ){
+	        wrap.find('.leaf_content').html(html);  
+	      }else if( wrap.find('.search_result_wrap').length > 0 ) {
+	        wrap.find('.search_result_wrap').html(html);  
+	      }
 	     // wrap = null;
 	    }
 	  })

@@ -505,40 +505,45 @@ class CategoryController extends IController
 	{  
 		$criteria = new CDbCriteria;		
 		$model=$this->loadModel();
+		$keyword = trim($_GET['keyword']);	
+		$criteria->params  = array();
+		$is_include = $_GET['is_include'];
+		$criteria->condition  = ' find_in_set(category_id, :category_id)';
+		if( $is_include ) {		  
+      $leafs = Category::model()->findAll( array( 
+        'select' => 'id, name',
+        'condition'  => ' rgt <= :rgt AND lft >= :lft ',
+        'params'    => array( ':rgt' => $model->rgt, ':lft' => $model->lft )
+      ) );
+      $all_leafs = '';
+      foreach( $leafs as $_leaf ){
+        $all_leafs .= $_leaf->id.',';
+      }        
+      $criteria->params[':category_id'] = $all_leafs;
+		}else{      
+      $criteria->params[':category_id'] = $model->id;
+		}
 		if( $_GET['model_type'] == 'attachment' ){
 		  $opt['tpl'] = 'ajaxview_attachment';
 		  $opt['controllerId'] = 'Attachment';
+		  if( strlen( $keyword ) > 0 ){
+	      $criteria->condition .= " AND t.screen_name like :keyword ";
+	      $criteria->params[':keyword'] = "%$keyword%";
+	    }
 	  }else{	    
 	    $opt['tpl'] = 'ajaxview';
-	    $opt['controllerId'] = 'Article';
+	    $opt['controllerId'] = 'Article';		  
+	    if( strlen( $keyword ) > 0 ){
+	      $criteria->condition .= " AND t.title like :keyword ";
+	      $criteria->params[':keyword'] = "%$keyword%";
+	    }
 	    $criteria->order      = 'create_time DESC';
 	    $criteria->order=" t.sort_id DESC ";
 	    $opt['page_size'] = 12;
-	  }	  
-		$criteria->condition = " t.category_id = :category_id ";
-		$criteria->params = array(
-		  ':category_id' => $_GET['id']
-		);
+	  }
 		$opt['criteria'] =  $criteria;		
 		$opt['tpl_params']['model'] = $model;
 		parent::actionIndex($opt);
-		/*
-		//$model = Category::model()->with('articles')->find( $criteria );
-		$criteria->condition = " t.id = :id ";
-		if( $_GET['model_type'] == 'attachment' ){
-	    $model = Category::model()->with('attachments')->find( $criteria );
-	    $this->renderPartial( 'ajaxview_attachment', array(
-				'model'=> $model,
-				false,true
-			)); 
-	  }else{
-		  $model = Category::model()->with('articles')->find( $criteria );
-		  $this->renderPartial( 'ajaxview', array(
-				'model'=> $model,
-				false,true
-			));
-	  }				
-	  */
 	}
 
 	/**

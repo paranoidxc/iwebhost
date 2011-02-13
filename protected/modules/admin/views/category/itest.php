@@ -32,7 +32,7 @@
           echo '</li>';
         echo '</ul>';        
       echo '</td>';
-    echo '<td style="height: 100%">';
+    echo '<td style="height: 100%; vertical-align: top;">';
   
     echo "<div class='icategory_tree'>";
       $this->renderPartial('_test_node',array( 'nodes' => $leafs,'return_id' => 'xxx' ) );
@@ -48,19 +48,11 @@
     $url_content_move = CController::createUrl('article/move');
     $url_content_del  = CController::createUrl('article/delete');
     $url_content_copy = CController::createUrl('article/copy');
-    
     $url_sort_content = CController::createUrl('article/sortarticle');
   }
 ?>
 
-
-
-<input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>" class="top_leaf_id"/>
-<input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>" class="cur_leaf_id"/>
-
-
 <input type="hidden" name='leaf_id'      value="<?php echo $top_leaf->id; ?>"           id="leaf_id"  />
-<input type="hidden" name='model_type'   value="<?php echo $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type; ?>" class="model_type" />
 <input type="hidden" value="<?php echo CController::createUrl('category/view', array('ajax' => 'ajax')) ?>" class='ele_refresh_url' />
 <input type="hidden" value="<?php echo CController::createUrl('category/iclass')?>" class="url_leaf_set_class" />
 <input type="hidden" value="<?php echo CController::createUrl('category/part_leafs',array('top_leaf_id' => $top_leaf->id)) ?>" class="leaf_render_url"/>
@@ -138,6 +130,18 @@
 	</li>	
 </ul>
 
+<div class="w100S">
+<form action="<?php echo CController::createUrl('category/view') ?>" method="get" class="search_form">
+    <input type="hidden" name='model_type'  value="<?php echo $top_leaf->model_type == '' ? 'model_type' : $top_leaf->model_type; ?>" class="model_type" />
+    <input type="hidden" name='top_leaf_id' value="<?php echo $top_leaf->id; ?>" class="top_leaf_id"/>
+    <input type="hidden" name='cur_leaf_id' value="<?php echo $top_leaf->id; ?>" class="cur_leaf_id"/>
+    <input type="text" name="keyword" class="radius15 isearch_input keyword" />
+    <input type="checkbox" name="is_include" class="is_include" value="1" id="is_include<?php echo time()?>" />
+    <label for="is_include<?php echo time();?>" ><?php echo Yii::t('cp','Include Sub Node Content') ?></label>
+</form>
+</div>
+  
+    
 <?php
   echo '<div id="leaf_articles" class="leaf_content">';
   
