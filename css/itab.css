@@ -1,8 +1,7 @@
-.form_tab {  
-  background-image: url(img/super-button-overlay.png);
-  background-color: #91BD09;  
-  background-color: #F9FCF9;
-  border: 1px solid rgba(0, 0, 0, 0.246094);
+.form_tab {    
+  background: #F9FCF9  url(img/alert-overlay.png) repeat-x 0 0;
+  border: 1px solid #696969;
+  border: 1px solid rgba(0, 0, 0, 0.246094);  
   border-bottom: none;
   border-bottom-left-radius: 0px 0px;
   border-bottom-right-radius: 0px 0px;
@@ -34,10 +33,9 @@
 .form_tab:hover span {
    color: #FFF;
 }
-.form_tab span {
+.form_tab span {  
   border-bottom-left-radius: 14px 14px;
-  border-bottom-right-radius: 14px 14px;  
-  border-top: 1px solid rgba(255, 255, 255, 0.199219);
+  border-bottom-right-radius: 14px 14px; 
   border-top-left-radius: 14px 14px;
   border-top-right-radius: 14px 14px;
   -moz-border-radius: 14px;
@@ -94,6 +92,7 @@
 
 .inner_tab_selected{
   background-image: url(img/super-button-overlay.png);  
+  background-image: url(img/alert-overlay.png);
   border: 1px solid rgba(0, 0, 0, 0.246094);  
   border-bottom-left-radius: 3px 3px;
   border-bottom-right-radius: 3px 3px;

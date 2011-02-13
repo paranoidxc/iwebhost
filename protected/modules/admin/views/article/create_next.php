@@ -1,6 +1,8 @@
-<div class="feedback_suc">
-	<p>create  suc On <?php echo Time::now();?> </p>
-</div>
+<?php if(Yii::app()->user->hasFlash('success')) {?>
+  <div class="flash_suc">
+    <?php echo Yii::app()->user->getFlash('success'); ?>
+  </div>
+<?php } ?>
 <input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 
 <div class='step'>

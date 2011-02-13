@@ -43,16 +43,16 @@
       <div id="attachment_form" >
         <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
           <div>
-			      <span id="spanButtonPlaceHolder">Upload Attachment</span>
+			      <span id="spanButtonPlaceHolder"><?php echo Yii::t('cp','Upload Attachment') ?></span>
 			      <input id="ibtnCancel" 
 			            type="button"
-			            value="Cancel All Uploads" onclick="swfu.cancelQueue();"
+			            value="<?php echo Yii::t('cp','Cancel All Uploads') ?>" onclick="swfu.cancelQueue();"
 			  	        disabled="disabled"
 			  	        class='ibtn blue'
 			  	        style="margin-top: 6px;"/>
 		      </div>
-		      <div id="divStatus">0 Files Uploaded</div>
-		      <p class="progress">Upload Queue</p>
+		      <div id="divStatus">0 <?php echo Yii::t('cp','Files Uploaded') ?></div>
+		      <p class="progress"><?php echo Yii::t('cp','Upload Queue') ?></p>
 		      <div class="fieldset flash" id="fsUploadProgress">
 			      <span class="legend dN">Upload Queue</span>
 		      </div>

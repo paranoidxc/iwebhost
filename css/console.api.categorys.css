@@ -18,11 +18,12 @@ ul.api_categorys_ul li p {
   cursor: url(img/openhand.cur), default !important;
   background-repeat:repeat-x;
   background-color:#d8edff;    
-  border:solid 1px #c3e2fd;  
+  
   background-position:0px 0px;
   background-repeat:repeat-x;
+  background: #FFF;
   border-color: rgba(118,157,192,0);
-  background-color: rgba(171,214,255,0);  
+  background-color: rgba(171,214,255,0);    
   -webkit-transition-property:background-color, border-color;
   -webkit-transition-duration:.25s ;
   -webkit-transition-timing-function: ease-out;    

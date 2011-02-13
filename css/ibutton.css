@@ -7,6 +7,7 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;  
+  /*font: 14px/100% 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;*/
   font: 14px/100% 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti !important;
   font-weight:bold;
   padding: .3em 1.2em .4em;  

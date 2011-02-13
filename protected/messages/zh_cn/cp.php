@@ -11,7 +11,8 @@ return array(
   'Articles'        => '网站内容',
   'Attachment'      => '网站附件',
   
-  'Create Node'     => '新建节点',
+  'Create Article'  => '新建文章',
+  'Create Node'     => '新建节点',    
   'Update Node'     => '编辑节点',
   'Move Node'       => '移动节点',
   'Delete Node'     => '删除节点',
@@ -69,6 +70,10 @@ return array(
   'Advanced Search' => '高级搜索',
   'Select Node'     => "选择节点",
   'Include Sub Node Content'  => '包含子节点内容',
+  'Upload Attachment'         => '上载',
+  'Cancel All Uploads'        => '取消上载',
+  'Files Uploaded'            => '个文件上载',
+  'Upload Queue'              => '上载队列',
   
   'Admins Manage'   => '配置管理员',
   'Account'         => '帐号',
@@ -109,7 +114,7 @@ return array(
   'Edit Admin'              => '编辑管理员',
   'Edit Feedback'           => "编辑信息反馈",
   'Create Feedback'         => "新建信息反馈",
-  'Pick Attachment'         =>      '选择关联附件',
+  'Pick Attachment'         => '选择关联附件',
   'Pick Attachment Gallery' => '选择关联集合',
   'Move to'                 => '移动到',
   'Admin'                   => '管理员',
@@ -161,7 +166,7 @@ return array(
   'en_us'           => 'English',
   
   'Incorrect username or password.' => '账户密码错误',
-  'Create Success On '              => '新建成功在 ',
+  'Create Success On '              => '数据新建成功于',
   //Time.php
   'on'              => '在',
   'ago'             => '之前',
@@ -178,5 +183,6 @@ return array(
   'seconds'         => '秒',
   'second'          => '秒',
   
+  'Data saved success On ' => '数据更新成功于',
 );
 ?>

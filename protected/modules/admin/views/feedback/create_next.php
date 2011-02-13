@@ -1,13 +1,8 @@
-<div class="feedback_suc">
-	<p>
-	  <?php echo Yii::t('cp', 'Create') ?> 	
-	  <?php echo Yii::t('cp', 'Feedback') ?> 
-	  <?php echo Yii::t('cp', 'Suc') ?>  
-	  <?php echo Yii::t('cp', 'On') ?> 
-	  <?php echo Time::now();?>
-	  <!--Panel Ident = <?php echo $panel_ident;?>-->
-	</p>
-</div>
+<?php if(Yii::app()->user->hasFlash('success')) {?>
+  <div class="flash_suc">
+    <?php echo Yii::app()->user->getFlash('success'); ?>
+  </div>
+<?php } ?>
 
 <input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
 

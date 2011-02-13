@@ -56,6 +56,8 @@ class UserController extends IController
 			$model->c_time = Time::now();
 			if($model->save()){
 			  if( isset($_GET['ajax']) ){
+			    $str = Yii::t('cp','Create Success On ').Time::now();
+			    Yii::app()->user->setFlash('success',$str);
 			    $this->renderPartial('create_next', array(
   				  'model' => $model,
   				  'panel_ident' => $panel_ident
@@ -95,8 +97,8 @@ class UserController extends IController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save()){
-  			if( isset($_GET['ajax']) ) {
-  					$str = 'Data saved! On '.date("Y-m-d H:i:s") ;
+  			if( isset($_GET['ajax']) ) {  					
+  					$str = Yii::t('cp','Data saved success On ').Time::now();
   					Yii::app()->user->setFlash('success',$str);
   					$is_update = true;					
   				}else {

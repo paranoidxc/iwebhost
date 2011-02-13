@@ -775,7 +775,7 @@ class CategoryController extends IController
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
 			  if( isset($_GET['ajax']) ) {      	  
-    	    $str = 'Data saved suc  On '.Time::now();
+    	    $str = Yii::t('cp','Data saved success On ').Time::now();
 					Yii::app()->user->setFlash('success',$str);
 					$is_update = true;
         }else {

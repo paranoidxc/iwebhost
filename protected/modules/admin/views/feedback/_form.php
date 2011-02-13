@@ -68,7 +68,7 @@
   </table>
   
   <div class="taR h30P lh30P pr10P pt5P">
-  	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue bigrounded')); ?>
+  	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
   </div>
 
 <?php $this->endWidget(); ?>

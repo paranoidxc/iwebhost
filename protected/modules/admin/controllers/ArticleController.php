@@ -41,7 +41,7 @@ class ArticleController extends IController
       $criteria->params     = array(':keyword'=>"%$keyword%");      
       $opt['is_partial']    = true;
 	  }
-	  
+	  $opt['page_size'] = 20;
     $leaf_id    = $_GET['leaf_id'];
     $is_include = $_GET['is_include'];
     if( strlen( $leaf_id) > 0 ){
@@ -253,6 +253,9 @@ class ArticleController extends IController
 		  }
 			if($model->save()){
 				if( isset($_GET['ajax']) ) {
+				  $str = Yii::t('cp','Create Success On ').Time::now();
+					Yii::app()->user->setFlash('success',$str);
+					  
   				$this->renderPartial('create_next', array(
     				'model' => $model,
     				'leafs'	=> $leafs,
@@ -260,7 +263,7 @@ class ArticleController extends IController
     				'panel_ident' =>  $panel_ident,    				
     			),false,true);
     			exit;
-					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );						
+					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );
 				}else {
 					$this->redirect(array('view','id'=>$model->id));	
 				}			
@@ -303,8 +306,8 @@ class ArticleController extends IController
 			$model->attributes=$_POST['Article'];
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
-				if( isset($_GET['ajax']) ) {
-					$str = 'Data saved! On '.Time::now();
+				if( isset($_GET['ajax']) ) {					
+					$str = Yii::t('cp','Data saved success On ').Time::now();
 					Yii::app()->user->setFlash('success',$str);
 					$is_update = true;					
 				}else {

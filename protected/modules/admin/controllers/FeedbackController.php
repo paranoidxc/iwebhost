@@ -58,6 +58,8 @@ class FeedbackController extends IController
 			  $model->addTags('tag1, tag2, tag3')->save();
 			  
 			  if( isset($_GET['ajax']) ){
+			    $str = Yii::t('cp','Create Success On ').Time::now();
+			    Yii::app()->user->setFlash('success',$str);
 			    $this->renderPartial('create_next', array(
   				  'model' => $model,
   				  'panel_ident' => $panel_ident
@@ -98,8 +100,8 @@ class FeedbackController extends IController
 			$model->attributes=$_POST['Feedback'];
 			$model->a_time = Time::now();
 			if($model->save()){
-  			if( isset($_GET['ajax']) ) {
-					$str = 'Data saved! On '.Time::now();
+  			if( isset($_GET['ajax']) ) {					
+					$str = Yii::t('cp','Data saved success On ').Time::now();
 					Yii::app()->user->setFlash('success',$str);
 					$is_update = true;					
 				}else {
