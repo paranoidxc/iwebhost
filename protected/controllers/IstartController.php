@@ -23,6 +23,13 @@ class IstartController extends Controller
 		return $r;		
 	}
 	
+	public function actionPortfolio(){	  
+		Yii::app()->theme='istart';
+		$category = Category::model()->findbyPk($_GET['id']);
+		Yii::app()->name = $category->name .' - Portfolio';
+		$this->renderPartial('portfolio', array( 'category' => $category ) ,false,true);
+	}
+	
 	/**
 	 * Category function
 	 *
@@ -59,21 +66,15 @@ class IstartController extends Controller
 				$this->location.= "<li class='link'><span class='location_left'></span><a class='location_middle' href='".CController::createUrl('istart/category', array( 'id' => $path[$i]['id']) )."'>".$path[$i]['name']."</a><span class='location_right' ></span></li>";
 				$this->location.= "<li><span class='symbol'>»</span></li>";					
 			}
-		}		
+		}
 		
-		if(strlen(trim($category->template)) > 0){		  
-			if( $category->partial ){			  
-				$this->renderPartial($category->template, array( 'category' => $category ) ,false,true);	
-			}else{
-				$this->render($category->template, array( 'category' => $category ) );	
-			}			
-		}else{		  
-			if( $category->partial ){					  
-				$this->renderPartial('category',array( 'category' => $category ),false,true );
-			}else{							  
-				$this->render('category',array( 'category' => $category ) );
-			}			
-		}		
+		$this->renderPartial('category',array( 'category' => $category ),false,true );
+		exit;
+		if( $category->partial ){					  
+			$this->renderPartial('category',array( 'category' => $category ),false,true );
+		}else{			  	  
+			$this->render('category',array( 'category' => $category ) );
+		}
 	}
 	
 	public function actionxBook(){
@@ -207,7 +208,7 @@ class IstartController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+			//'accessControl', // perform access control for CRUD operations
 		);
 	}
 	

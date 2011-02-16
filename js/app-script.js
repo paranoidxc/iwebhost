@@ -976,12 +976,25 @@ $('.lightbox').lightBox({
 	});	
 	$('.mac_panel_wrap .max').live('click',function(){		  
 	  var h = $(window).height()+'px';
-	  getPanel($(this)).css({
-	    width: '100%',
-	    height: h,
-	    top: 0,
-	    left: 0
-	  })
+	  var wrap = getPanel($(this));
+	  if( wrap.css('width') != '100%' ) {
+	    wrap.attr('_width', wrap.css('width'))
+	    .attr('_height', wrap.css('height'))
+	    .attr('_top',wrap.css('top'))
+	    .attr('_left', wrap.css('left'))
+	    .css({
+  	    width: '100%',	    
+  	    top: 0,
+  	    left: 0
+  	  })
+	  }else{
+	    wrap.css({
+	      width:  wrap.attr('_width'),	      
+	      height: wrap.attr('_height'),
+	      top:    wrap.attr('_top'),
+	      left:    wrap.attr('_left')
+	    })
+	  }	  
 	});
 	
 	/*8a161950585ef087328ba6dd992caac1 navigation 点击导航*/
@@ -1015,8 +1028,8 @@ $('.lightbox').lightBox({
 	
 	/* 32cfe6c19200b67afb7c3d0e1c43eadb 新建条目(文章, 节点, 用户 === )  */
 	var fun_item_new = function () {
-	  parent_panel =  wrap = getPanel($(this));
-	  if( wrap.find('.model_type').val()== "attachment" ){	
+	  parent_panel =  wrap = getPanel($(this));	  
+	  if( wrap.find('.model_type').val()== "attachment" && $(this).attr('href').indexOf('category/create') == -1 ){	
       if( wrap.find('.attachment_form_wrap').length > 0 ){
         if( wrap.find('.attachment_form_wrap').css('display') == 'block' ){
           wrap.find('.attachment_form_wrap').hide();

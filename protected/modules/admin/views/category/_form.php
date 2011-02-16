@@ -82,7 +82,7 @@
     	?>
     	
     	<?php
-    	  if( $model_type != 'attachment') {
+    	  //if( $model_type != 'attachment') {
     	?>
     	<tr>
     		<th><?php echo $form->labelEx($model,'partial'); ?></th>
@@ -154,7 +154,7 @@
     		</td>
     	</tr>
       <?php
-      }
+     // }
       ?>
     	</tbody>
     </table>

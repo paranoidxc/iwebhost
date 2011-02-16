@@ -32,21 +32,29 @@
 		<div id="logo"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/istartpage.png" title="<?php echo CHtml::encode(Yii::app()->name);?>"/></div>
 		<?php 
 		if( !Yii::app()->user->isGuest ) {
-			echo CHtml::link( 'Go to Conosle Page', CController::createurl('admin/category/iroot') , array('target' => '_blank', 'class' => 'console_link') );
+			//echo CHtml::link( 'Go to Conosle Page', CController::createurl('admin/category/iroot') , array('target' => '_blank', 'class' => 'console_link') );
 		}
 		?>
 		<div id="navigation">
 			<ul>
-				<li><a href="/">Home</a></li>								
+				<li><a href="/">Home</a></li>	
+				<li><a href="<?php echo CController::createurl('istart/category', array('id' => 52 )) ?>">Books</a></li>	
+				<li><a href="<?php echo CController::createurl('istart/category', array('id' => 60 ))?>">Wikipedia</a></li>	
+				<li><a href="<?php echo CController::createurl('istart/category', array('id' => 57 )) ?>">Cappuccino</a></li>	
+				<li><a href="<?php echo CController::createurl('istart/portfolio', array('id' => 187 )) ?>">968 Portfolio</a></li>	
+				<li><a href="<?php echo CController::createurl('istart/portfolio', array('id' => 188 )) ?>">ihost Portfolio</a></li>	
 				<?php 
+				/*
 					if( $this->page_navigation ){					
 					foreach( $this->page_navigation as $nav ){					
 					echo '<li><a href="'.CController::createurl('istart/category', array('id' => $nav['category_id'] ) ).'" >';
 					echo $nav['name'];
 					echo '</a></li>';
 					echo "\n";
-					}
-				}?>				
+					}	
+				}
+				*/
+				?>				
 			</ul>
 		</div>
 	</div><!-- header -->

@@ -4669,3 +4669,71 @@ Stack trace:
 #15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest('admin/category/...')
 #16 H:\projects\iwebhost\index.php(91): CApplication->run()
 #17 {main} REQUEST_URI=/index.php?r=admin/category/view&ajax=ajax&model_type=model_type&ajax=ajax&id=1&_=1297608412916
+2011/02/16 17:45:58 [error] [system.db.CDbCommand] Error in querying SQL:  SELECT parent.name, parent.id  FROM category AS node, category AS parent  WHERE node.lft BETWEEN parent.lft AND parent.rgt  AND node.id =   ORDER BY parent.lft DESC
+in H:\projects\iwebhost\protected\modules\admin\models\Category.php (127)
+in H:\projects\iwebhost\protected\controllers\IstartController.php (48)
+in H:\projects\iwebhost\index.php (91)
+2011/02/16 17:45:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY parent.lft DESC' at line 1' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php:377
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbCommand.php(266): CDbCommand->queryInternal('fetchAll', 2, Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(1373): CDbCommand->queryAll()
+#2 H:\projects\iwebhost\protected\modules\admin\models\Category.php(127): CActiveRecord->findAllBySql(' SELECT parent....')
+#3 H:\projects\iwebhost\protected\controllers\IstartController.php(48): Category->getPath(NULL)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): IstartController->actionCategory()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('category')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/category')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=istart/category&id=67
+2011/02/16 17:46:18 [error] [exception.CException] exception 'CException' with message '属性 "Category.template" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('template')
+#1 H:\projects\iwebhost\protected\modules\admin\models\Category.php(75): CActiveRecord->__get('template')
+#2 H:\projects\iwebhost\protected\controllers\IstartController.php(64): Category->__get('template')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): IstartController->actionCategory()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(129): CController->runAction(Object(CInlineAction))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('category')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/category')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(91): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=istart/category&id=187
+2011/02/16 19:46:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message '您未被授权执行这个动作' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), '???????????????...')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(1049): CFilter->filter(Object(CFilterChain))
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\filters\CFilterChain.php(126): CInlineFilter->filter(Object(CFilterChain))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(283): CFilterChain->run()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('portfolio')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/portfoli...')
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 H:\projects\iwebhost\index.php(91): CApplication->run()
+#11 {main} REQUEST_URI=/index.php?r=istart/portfolio&id=187
+2011/02/16 19:54:34 [error] [php] Object of class IstartController could not be converted to string (H:\projects\iwebhost\protected\controllers\IstartController.php:76)
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): IstartController->runAction()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): IstartController->runActionWithFilters()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): IstartController->run()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(91): CWebApplication->run()
+REQUEST_URI=/index.php?r=istart/category&id=52
+in H:\projects\iwebhost\protected\controllers\IstartController.php (76)
+in H:\projects\iwebhost\index.php (91)
