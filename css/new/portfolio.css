@@ -13,14 +13,17 @@ body {
   /* 160 120 */
   margin-top: 100px;
 }
-#vlightbox {
-  /*
-  */
+#vlightbox {  
   zoom:1;
   overflow: hidden;
   width: 400px;
   margin: auto;
 }
+
+#vlightbox div.a_wrap {
+  height:130px;
+}
+
 #vlightbox a {
   text-align: center;
 }
@@ -32,6 +35,8 @@ body {
   border: 3px solid #AF1D5C;
 }
 
+
+
 div.img_wrap {
   margin: 0;
   padding: 0;
@@ -40,8 +45,8 @@ div.img_wrap {
 /*  background: #000 url(images/cel-bg.gif) repeat; */
   margin-bottom: 5px;
   margin-right: 10px;
-  padding: 2px;
-  text-align: center;
+  width: 172px;
+  text-align: left;  
 }
 div.img_wrap p {
   margin: 0;

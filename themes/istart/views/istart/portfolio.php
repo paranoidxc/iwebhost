@@ -27,9 +27,9 @@
   <div id="vlightbox">
   <?php
     foreach($category->images as $t){	     	        
-	        echo "<div class='img_wrap'><a class='vlightbox' href='".$t->image."' title='$t->screen_name' >";
+	        echo "<div class='img_wrap'><div class='a_wrap'><a class='vlightbox' href='".$t->image."' title='$t->screen_name' >";
 	        echo "<img src='$t->thumb' title='' alt='' /> ";
-          echo '</a>';
+          echo '</a></div>';
           echo '<p>'.$t->screen_name.'</p>';
           echo '</div>';
 	  }		  
