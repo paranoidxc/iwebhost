@@ -7,7 +7,7 @@
   $theme_baseurl = API::get_theme_baseurl();  
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
-?>	
+?>
 	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/form.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />  
 <!--
@@ -75,14 +75,16 @@
 <!-- page -->
 <?php
 	Yii::app()->clientScript->registerCoreScript('jquery');  
+	/*
 	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
-	
+	$cs->registerScriptFile($theme_baseurl.'/js/'.API::get_lang().'.js');
 	$cs->registerScriptFile($theme_baseurl.'/js/console.api.categorys.js');			
 	$cs->registerScriptFile($theme_baseurl.'/js/fieldSelection.js');
 	$cs->registerScriptFile($theme_baseurl.'/js/app-script.js');	
+	*/
   /*
   $cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
 	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');	
@@ -94,5 +96,13 @@
 	$cs->registerCssFile($theme_baseurl.'/css/main.css');	
 	$cs->registerCssFile($theme_baseurl.'/css/all.css');	
 ?>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery-ui-1.8.2.custom.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery.em.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery.imasker.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/i18n/<?php echo API::get_lang(); ?>.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/console.api.categorys.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/fieldSelection.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/app-script.js"></script>
 </body>
 </html>

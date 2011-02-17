@@ -7,6 +7,10 @@ class API {
     return $r[0]['version'];    
   }
   
+  public static function get_lang() {
+    return Yii::app()->language;
+  }  
+  
   public static function get_theme_baseurl($prefix=false) {
     if( $prefix ){
       return $prefix.Yii::app()->theme->baseUrl;

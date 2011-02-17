@@ -590,7 +590,7 @@ $('.lightbox').lightBox({
   /*d7c8386e98d5b2185c276b93b32c84e3 编辑节点*/	
 	$('.ele_update_leaf').live('click', function() {			  
 	  if( !$(this).hasClass('active') ){
-	    alert('top leaf');
+	    alert(G_TOP_LEAF_CANT);
 	    return false;
 	  }
 		var parent_panel =  wrap = getPanel($(this));		
@@ -621,7 +621,7 @@ $('.lightbox').lightBox({
 	  //首节点不能删除
 	  parent_panel = wrap = getPanel($(this));
 	  if( wrap.find('.top_leaf_id').val() == wrap.find('.cur_leaf_id').val() ){	 
-	    alert(' Top Leaf Cannot Be Delete!');
+	    alert(G_TOP_LEAF_CANT);
 	    return false;
 	  }
 	  
@@ -783,7 +783,7 @@ $('.lightbox').lightBox({
 	$('.ele_move_leaf').live('click',function(){
 	  var parent_panel = wrap = getPanel($(this));
 	  if( !$(this).hasClass('active') ){
-	    alert( 'top leaf ');
+	    alert(G_TOP_LEAF_CANT);
 	    return false;
 	  }
 	  wrap = getPanel($(this));	  
@@ -834,14 +834,14 @@ $('.lightbox').lightBox({
 
   function iconfirm(str) {      
     if( wrap == null ){
-      alert(' wrap is null please init');
+      alert(G_WRAP_NULL_WRAN_STR);
       return;
     }
     formLay(wrap);
     var confirm_diglog = $('<div class="confirm_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
     confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');
-    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_okay" type="button" value="Okay" />') );
-    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_cancel" type="button" value="Cancel" />') );        
+    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_okay" type="button" value="'+G_OKAY_STR+'" />') );
+    confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue confirm_dialog_cancel" type="button" value="'+G_CANCEL_STR+'" />') );        
     confirm_diglog.append( confirm_diglog_ibtn_wrap );    
     confirm_diglog.addClass('radius7 ');
     confirm_diglog.addClass('boxshadow ');
@@ -1143,13 +1143,13 @@ $('.lightbox').lightBox({
 	  parent_panel = wrap = getPanel($(this));
 	  var that = $(this);	  
 	  if( $(this).hasClass('ele_delete') ){
-	    iconfirm('Are you really want to delete choose content ?');
+	    iconfirm(G_DELETE_STR);
 	  }else if( $(this).hasClass('ele_copy') ){
-	    iconfirm('Are you really want to copy choose content ?');
+	    iconfirm(G_COPY_STR);
 	  }else if( $(this).hasClass('ele_stared')  ){
-	    iconfirm('Are you really want to Start choose content ?');
+	    iconfirm(G_STARTED_STR);
 	  }else if( $(this).hasClass('ele_unstared')  ){
-	    iconfirm('Are you really want to Unstart choose content ?');
+	    iconfirm(G_UNSTARTED_STR);
     }
     wrap.find('.confirm_dialog_okay').click( function() {
       hideConfirm(wrap);
