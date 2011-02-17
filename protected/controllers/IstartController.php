@@ -120,9 +120,11 @@ class IstartController extends Controller
 	public function actionIndex()
 	{		
 	  //$this->redirect( array( 'site/login' ));
+	  //print_r()
+	  //print_r( Yii::app()->theme );
 	  
 		Yii::app()->name = 'iStartPage v0.2 beta';
-		Yii::app()->theme='istart';		
+		Yii::app()->theme='istart';				
 		//Yii::import('application.modules.admin.article');
 	//	$article = Yii::app()->getModule('article');
 	//	$data = $article::model()->find(1);					

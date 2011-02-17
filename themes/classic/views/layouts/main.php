@@ -2,47 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />  		
-
-  
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/console.css" />  
-
-<!--	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" /> -->
-
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.css" />
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.queue.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/fileprogress.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/swfupload/handlers.js"></script>
-
+	<meta name="language" content="en" /> 
 <?php  
+  $theme_baseurl = API::get_theme_baseurl();  
 	$baseUrl = Yii::app()->baseUrl; 
 	$cs = Yii::app()->getClientScript();
-	
-	Yii::app()->clientScript->registerCoreScript('jquery');  
-	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');	
-	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');		
-	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
-	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');
-	
-	$cs->registerScriptFile($baseUrl.'/js/console.api.categorys.js');		
-	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
-	$cs->registerScriptFile($baseUrl.'/js/fieldSelection.js');
-	$cs->registerScriptFile($baseUrl.'/js/app-script.js');
-	//$cs->registerScriptFile($baseUrl.'/js/tree.js');		
-/*
-	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');  
-	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
-	*/
-	$cs->registerCssFile($baseUrl.'/css/main.css');	
-	$cs->registerCssFile($baseUrl.'/css/all.css');	
-	$cs->registerCssFile($baseUrl.'/css/console.api.categorys.css');
-	
-	
 ?>	
+	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/form.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />  
+<!--
+  <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/console.css" />  
+  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" />
+-->
+
+<link   type="text/css"        href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />  
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -67,8 +44,7 @@
 				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/admin/article/index'),'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 				array('label'=>Yii::t('cp','Admins'), 'url'=>array('/admin/user/index'),'linkOptions' => array( 'data' => 'nav_panel_admins' )),
 				array('label'=>Yii::t('cp','Feedback'), 'url'=>array('/admin/feedback/index'),'linkOptions' => array( 'data' => 'nav_panel_feedback' )),
-				array('label'=>Yii::t('cp','Settings'), 'url'=>array('/admin/setting/index'),'linkOptions' => array( 'data' => 'nav_panel_settings' )),
-				//array('label'=>'Settings', 'url'=>array('/admin/setting/index')),
+				array('label'=>Yii::t('cp','Settings'), 'url'=>array('/admin/setting/index'),'linkOptions' => array( 'data' => 'nav_panel_settings' )),				
 			),
 		)); ?>
 		
@@ -93,14 +69,30 @@
 		</li>
 </ul>
 </div>
-	<?php echo $content; ?>
-  <div style="position: fixed; bottom: 10px; right: 10px; z-index: 2;">
-    <img src="<?php echo Yii::app()->request->baseUrl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>
-  </div>
-
+	<?php echo $content; ?>  
+  <img id="ihost_logo" src="<?php echo $theme_baseurl;?>/images/ihost-gray.png" alt="ihost" title="ihost"/>  
 <!--</div>-->
-
 <!-- page -->
-
+<?php
+	Yii::app()->clientScript->registerCoreScript('jquery');  
+	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');		
+	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
+	
+	$cs->registerScriptFile($theme_baseurl.'/js/console.api.categorys.js');			
+	$cs->registerScriptFile($theme_baseurl.'/js/fieldSelection.js');
+	$cs->registerScriptFile($theme_baseurl.'/js/app-script.js');	
+  /*
+  $cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
+	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');	
+  $cs->registerScriptFile($baseUrl.'/js/tree.js');		
+	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');  
+	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
+	$cs->registerCssFile($theme_baseurl.'/css/console.api.categorys.css');
+	*/
+	$cs->registerCssFile($theme_baseurl.'/css/main.css');	
+	$cs->registerCssFile($theme_baseurl.'/css/all.css');	
+?>
 </body>
 </html>

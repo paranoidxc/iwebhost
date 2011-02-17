@@ -1,0 +1,125 @@
+.form_tab {    
+  background: #F9FCF9  url(img/alert-overlay.png) repeat-x 0 0;
+  border: 1px solid #696969;
+  border: 1px solid rgba(0, 0, 0, 0.246094);  
+  border-bottom: none;
+  border-bottom-left-radius: 0px 0px;
+  border-bottom-right-radius: 0px 0px;
+  border-top-left-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;  
+  -moz-border-radius: 3px 3px  0 0 ;
+
+  font-size: 13px;
+  padding: 0px;
+  color: #CCC;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  overflow: visible;  
+  position: relative;
+  text-decoration: none;
+  width: auto;  
+}
+
+.form_tab_selected,
+.form_tab:hover {
+  background-color: #749A02;
+  background-color: #F9FCF9;
+  background-color: #696969;
+  color: #FFF;
+}
+.form_tab:hover span {
+   color: #FFF;
+}
+.form_tab span {  
+  border-bottom-left-radius: 14px 14px;
+  border-bottom-right-radius: 14px 14px; 
+  border-top-left-radius: 14px 14px;
+  border-top-right-radius: 14px 14px;
+  -moz-border-radius: 14px;
+  display: inline-block;
+  line-height: 1;
+  padding: 4px 15px 6px;
+  color:#696969;
+}
+.form_tab_selected span {
+  color: #FFF;
+}
+
+.form_field_wrap {
+  background-color: #749A02;
+  background-color: #696969;
+  background: #FFF;
+  border-top: 2px solid #696969;;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.form_field_wrap textarea{
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+
+
+.iform{
+  /*
+  background: #EEE;
+  border-bottom-left-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  border-top-left-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  -moz-border-radius: 5px;
+  margin: 0px 0px 10px;
+  padding: 5px;
+  background: yellow;
+  */
+}
+
+.inner_tab {
+  border: 1px solid transparent;    
+  color: #666;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.inner_tab_selected{
+  background-image: url(img/super-button-overlay.png);  
+  background-image: url(img/alert-overlay.png);
+  border: 1px solid rgba(0, 0, 0, 0.246094);  
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;
+  -moz-border-radius: 3px ;
+  color: #FFF;  
+  background-color: #696969;
+  
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  text-decoration: none;
+}
+.inner_wrap {
+  background-color: white;
+  border: 1px solid #afafaf;
+  padding: 5px;
+}
+
+.preview{
+  height: 300px;
+	width: 98%;
+	overflow: auto;		
+}
+.preview p {
+  line-height: 16px;
+  margin-bottom: 18px;
+}

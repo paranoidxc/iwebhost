@@ -63,7 +63,7 @@
 		var swfu;
 		//window.onload = function() {
 			var settings = {
-				flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",				
+				flash_url : "<?php echo API::get_theme_baseurl(); ?>/swfupload/swfupload.swf",				
 				upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model ? $model->id : '' ) ) ?>",
         //upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => $model->id ) ) ?>",
         button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,

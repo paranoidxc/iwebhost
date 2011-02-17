@@ -1,0 +1,267 @@
+.clear {
+  clear: both;
+}
+.dN {
+  display: none;
+}
+.required span.required {
+  color: #8C0505;
+}
+.iform_table_wrap,
+.itable {
+ 	border-collapse: collapse;
+	margin: 0;
+	padding: 0;  
+	background: #FFF;    	
+}
+.itable caption {
+	padding: 0 0 5px 0;
+	font: 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
+  font-weight: bold;
+}
+
+.errorMessage {
+  color: #8C0505;
+  font-weight: bold;
+}
+
+.ilist_dash,
+.ilist {
+  border-collapse: collapse;
+  width: 100%;  
+  background: #FFF;
+	table-layout:fixed;
+}
+.ilist thead th {  
+  color: #000;
+  height: 21px;  
+  line-height: 21px;
+  line-height: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background: #E2E2E2 url(console/ilist_thead_th_bg.png) repeat-x 0 1px;
+}
+
+.ilist_dash th,
+.ilist_dash td {
+  vertical-align: top;
+  padding: 5px;
+}
+
+
+.ilist_dash th {
+  color: #313131;        
+  text-align: right;
+  width: 120px;  
+  border-right: 1px solid #FFFFFF;
+}
+
+.ilist_dash tr {
+  border: 1px solid #313131;  
+  border-color: #fff;
+  font-weight:bold;
+  background: #efefef url(panel_images/column_item_normal.png) repeat-x 0 50%;    
+}
+
+.ilist tbody td {      
+  padding-top: 2px;
+  padding-bottom: 2px;
+  vertical-align: top;
+  overflow: hidden;
+}
+.ilist tbody tr {
+  line-height: 20px;
+}
+
+.ilist tbody tr:nth-child(odd){    
+}
+
+
+.ilist tbody tr:nth-child(even) td{  
+  background: #efefef;
+}
+
+.ilist tbody tr:hover td {
+  background: #1875E8;
+  color: #EFEFEF;
+}
+.ilist tbody tr:hover td {
+  color: #EFEFEF;
+}
+
+.iform_table_wrap tbody th,
+.itable tbody th {	
+	color: #4f6b72;	
+	text-transform: capitalize;
+	padding: 6px 0px 6px 12px;
+	text-align: right;	
+	vertical-align: middle;
+}
+.iform_table_wrap tbody td,
+.itable tbody td {	
+	text-align: left;
+	vertical-align: top;
+	padding: 6px 6px 6px 6px;	
+	color: #4f6b72;
+}
+.iform_table_wrap tbody td input[type='password'],
+.iform_table_wrap tbody td input[type='text'],
+.itable tbody td input[type='text'] {
+	background-color: #F2F2F2;
+	border: solid #B1B1B1;
+	border-width: 1px 0px 0px 1px;
+	color: #333;
+	/*display: block;*/
+	font-size: 12px;
+	padding:5px;
+	/*background: #EFEFEF url(api_categorys_img/form-field-bg.gif) repeat-x 0 0;*/	
+	background: #FFF;	
+	border-color:#CCCCCC #999999 #999999 #CCCCCC;
+	border-style:solid;
+  border-width:1px;
+}
+
+.itable tbody td input[type='text'] {
+  width: 400px;
+}
+  
+.itable tbody td textarea {		
+	background: #FFF;
+	border: 1px solid #CCCCCC;	  
+	border-color:#CCCCCC #999999 #999999 #CCCCCC;
+	width: 400px;
+  height: 50px;
+  padding: 5px;	
+	font-size: 12px;
+}
+.itable tbody td textarea[name*=content] {
+  
+}
+
+.itable tbody td input.image_resize_input{
+  width: 34px;
+}
+
+.itable tbody td textarea:focus,
+.itable tbody td input[type='text']:focus {	
+  border-color: #73A6FF #1875E8 #1875E8 #73A6FF;
+}
+.itable tbody td input[type='text'].small {
+	width: 100px;
+}
+.itable tbody td p {
+	/*clear: both;	
+	line-height: 26px;*/
+}
+.itable tbody td p label.normal {  
+	height: 100%;
+	display: inline;
+	text-align: right;		
+	line-height: 26px;
+}
+
+
+.pick {
+  cursor: pointer;  
+}
+.pick:hover {
+  background: #73A6FF;
+  color: #FFF;
+}
+
+.origin_collect,
+.dest_collect,
+.dest_thumbnail,
+.orgin_thumbnail {
+  position: relative;    
+}
+
+.dest_thumbnail img,
+.orgin_thumbnail img{  
+  border: 1px solid #313131;
+  border-color: #313131 #313131 #131313 #131313;
+  padding: 1px;
+}
+
+.unlink_default,
+/*.unlink_default_collect,*/
+/*.unlink_collect,*/
+.unlink_dest ,
+.unlink_default {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background:  url(img/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+.unlink_default_collect,
+.unlink_collect {  
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background:  url(img/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+
+.reset_default_collect,
+.reset_default{
+  position: relative;
+  width: 20px;
+  height: 16px;
+  background: url(img/reset.png) no-repeat;
+  text-indent: -100000px;
+  cursor: pointer;
+}
+
+.unlink_dest:over ,
+.unlink_default:hover {
+  background: url(img/close_a.png);
+}
+
+
+.origin_collect,
+.dest_collect,
+.orgin_thumbnail,
+.dest_thumbnail {
+  float: left;
+  text-align: center;
+  padding: 5px;
+  /*border: 2px solid #73A6FF; */
+  margin-right: 10px;
+  background: #FFF;
+  padding: #CCC;
+  position: relative;
+}
+
+.origin_collect,
+.dest_collect {
+  border: 2px solid #73A6FF;
+}
+.dest_gallery_close,
+.dest_thumbnail_close {
+  position: absolute;		
+  top: 0;
+  right: 0;	
+	display: block;
+	height:20px;
+	width:20px;	
+	cursor: pointer;
+}
+.dest_gallery_close:hover,
+.dest_thumbnail_close:hover {
+  background: #CCC;
+  color: red;
+}
+
+.exchange_symbol {
+  float: left;  
+  margin-right: 10px;  
+}
+.orgin_thumbnail p,
+.dest_thumbnail p {   
+}

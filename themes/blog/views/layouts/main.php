@@ -10,16 +10,19 @@
 	<meta name="robots" content="all" /> 
 <?php
 	$baseUrl = Yii::app()->baseUrl; 
+	$theme_baseurl = API::get_theme_baseurl();
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');			
-	$cs->registerCssFile($baseUrl.'/css/jScrollPane.css');
+	$cs->registerCssFile($theme_baseurl.'/css/jScrollPane.css');	
+	$cs->registerCssFile($theme_baseurl.'/css/blog.css');
 	$cs->registerScriptFile($baseUrl.'/js/jquery-1.2.6.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.hotkeys.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.mousewheel.js');		
 	$cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
-	$cs->registerScriptFile($baseUrl.'/js/blog.js');
-	$cs->registerCssFile($baseUrl.'/css/blog/blog.css');	
+	$cs->registerScriptFile($theme_baseurl.'/js/blog.js');
+	
+	
 ?>	
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -30,8 +33,6 @@
 <div class="container" id="page">	
   <h1 id="site-title">程序员第</h1>
 	<?php echo $content; ?>
-	
-	
 	<footer>
 	  <h1>About this Blog</h1>
   	<p>
