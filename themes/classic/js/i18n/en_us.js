@@ -10,3 +10,4 @@ var G_TOP_LEAF_CANT  = 'This operation can not execute on top node!';
 var G_WRAP_NULL_WRAN_STR= 'Please init wrap variable before execute operation!';
 var G_OKAY_STR = 'Okay';
 var G_CANCEL_STR = 'Cancel';
+var G_CLOSE_STR = 'Close';

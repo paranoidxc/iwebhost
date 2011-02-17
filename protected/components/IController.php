@@ -33,10 +33,11 @@ class IController extends Controller
 	{
 		if($this->_model===null)
 		{
-			if(isset($_GET['id']))
-			$controllerId = $this->controllerId;
-			$imodel = new $controllerId;
-				$this->_model=$imodel->findbyPk($_GET['id']);
+			if(isset($_GET['id'])){
+  			$controllerId = $this->controllerId;
+	  		$imodel = new $controllerId;
+				$this->_model=$imodel->findbyPk($_GET['id']);  
+			}			
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -97,6 +98,47 @@ class IController extends Controller
 	  } 
 	}
 	
+	
+	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionUpdate()
+	{
+		$model=$this->loadModel();
+    $panel_ident = $_REQUEST['panel_ident'];
+    
+    // Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST[$this->controllerId]))
+		{
+			$model->attributes=$_POST[$this->controllerId];
+			$model->a_time = Time::now();
+			if($model->save()){
+  			if( isset($_GET['ajax']) ) {					
+					$str = Yii::t('cp','Data saved success On ').Time::now();
+					Yii::app()->user->setFlash('success',$str);
+					$is_update = true;					
+				}else {
+					$this->redirect(array('view','id'=>$model->id));	
+				}	  
+			}
+		}
+		
+    if( isset($_GET['ajax']) ){
+    	$this->renderPartial('update',array(
+    		'model'       =>  $model,
+    		'is_update'   =>  $is_update,
+    		'panel_ident' =>  $panel_ident
+    	),false,true);	  
+		}else{
+  		$this->render('update',array(
+  			'model'=>$model,
+  		));  
+		}
+	}	
+	
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -113,15 +155,9 @@ class IController extends Controller
 					$item->delete();
 					//echo $item->title;
 				} 
-				echo $str = count($ids).' '.$this->controllerId.' has been deleted on '.Time::now();
-				//Yii::app()->user->setFlash('success',$str);
-				//echo "delete done";
-			}
-			// we only allow deletion via POST request
-			//$this->loadModel()->delete();
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			//if(!isset($_GET['ajax']))
-			//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$item =  count($ids) > 1 ? 'Item' : 'Items';
+				echo $str = count($ids).' '.Yii::t('cp',$item.' Data deleted Success On ').Time::now();				
+			}			
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

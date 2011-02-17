@@ -181,8 +181,9 @@ return array(
   'minutes'         => '分',
   'minute'          => '分',
   'seconds'         => '秒',
-  'second'          => '秒',
-  
+  'second'          => '秒',  
+  'Item Data deleted Success On '=> '条内容删除成功于',
+  'Items Data deleted Success On '=> '条内容删除成功于',
   'Data saved success On ' => '数据更新成功于',
 );
 ?>

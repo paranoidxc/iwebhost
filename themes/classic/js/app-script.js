@@ -2,7 +2,7 @@ function uploadTips(ele,str) {
   var wrap = parentOne(ele,'.mac_panel_wrap');  
   var confirm_diglog = $('<div class="tip_diglog p10P" />').html('<h1 class="fs16P">'+str+'</h1>');
   confirm_diglog_ibtn_wrap = $('<div class="taR mt10P" >');  
-  confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue tip_diglog_close" type="button" value="Close" />') );        
+  confirm_diglog_ibtn_wrap.append( $('<input class="ibtn blue tip_diglog_close" type="button" value="'+G_CLOSE_STR+'" />') );        
   confirm_diglog.append( confirm_diglog_ibtn_wrap );    
   confirm_diglog.addClass('radius7 ');
   confirm_diglog.addClass('boxshadow ');

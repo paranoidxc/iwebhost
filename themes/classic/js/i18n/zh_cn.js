@@ -10,3 +10,4 @@ var G_TOP_LEAF_CANT  = '该项操作不能应用在顶部节点!';
 var G_WRAP_NULL_WRAN_STR = '执行该项操作之前请初始化JAVASCRIPT 变量 wrap!';
 var G_OKAY_STR = '确定';
 var G_CANCEL_STR = '取消';
+var G_CLOSE_STR = '关闭';
