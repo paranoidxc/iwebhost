@@ -603,8 +603,9 @@ class CategoryController extends IController
 				}				
 			}
 		}
-    
-		$model->content_type = 1;
+		if( empty($model->content_type) ){
+		  $model->content_type = 1;  
+		}
 		if( $_GET['ajax'] == 'ajax' ) {
 			$this->renderPartial('create', array(
 				'model'       => $model,

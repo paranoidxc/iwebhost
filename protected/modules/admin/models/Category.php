@@ -17,14 +17,29 @@ class Category extends CActiveRecord
 	public $depth;
 	public $parent_leaf_id;
 	public $parent_leaf;	
-	public $content_types  = array(  0 => 'Album Art Collect'  ,
-								1 => 'Include Sub Block Topics', 
-								2 => 'Just Self Topics',
-								3 => 'Outside Category Topics',
-								4 => 'Self First Topic',
-								5 => 'Outside Single Topic',
-								6 => 'Internation Link ( URL )',
-								7 => 'Empty' );
+	//public $content_types  = array(  
+	              //0 => Yii::t('cp', 'Album Art Collect')
+								//1 => Yii::t('cp','Include Sub Nodes Topics'), 
+								//2 => Yii::t('cp','Just Self Topics'),
+								//3 => Yii::t('cp','Outside Category Topics'),
+								//4 => Yii::t('cp','Self First Topic'),
+								//5 => 'Outside Single Topic',
+								//6 => Yii::t('cp','Internation Link ( URL )'),
+								//7 => Yii::t('cp','Empty')
+		//						);
+		
+	public function getContent_Types(){
+	  return array(
+  	  0 => Yii::t('cp','Album Art Collect'),
+    	1 => Yii::t('cp','Include Sub Nodes Content'),
+  	  2 => Yii::t('cp','Just Self Content'),
+  	  //3 => Yii::t('cp','Outside Category Content'),
+  	  4 => Yii::t('cp','Self First Content'),
+  	  //5 => 'Outside Single Content',
+  	  6 => Yii::t('cp','Internation Link ( URL )'),
+  	  7 => Yii::t('cp','Empty'),
+	  );
+	}
 
   /**
   * PHP getter magic method.
@@ -480,6 +495,7 @@ class Category extends CActiveRecord
       'list_tpl'        => Yii::t('cp','List Tpl'),
       'topic_tpl'       => Yii::t('cp','Content Tpl'),
       'parent_leaf_id'  => Yii::t('cp','Parent Leaf Id'),
+      'uri'             => Yii::t('cp', 'URL'),
 		);
 	}
 

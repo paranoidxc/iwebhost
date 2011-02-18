@@ -126,7 +126,7 @@
     			?>
     			<div class="uri <?php echo $model->content_type==6 ? '' : 'dN'?>"  >
     			  <p>
-    			    <?php echo $form->labelEx($model,'uri', array('class' => 'normal' )); ?>		
+    			    <?php echo $form->labelEx($model,'uri', array('class' => 'normal' )); ?> (http://www.google.com)<br/>
     			    <?php echo $form->textField($model,'uri'); ?>				
     			  </p>
     			</div>
