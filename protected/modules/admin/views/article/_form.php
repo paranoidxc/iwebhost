@@ -20,7 +20,8 @@
 	<div class="ml20P pt10P">
 	  <a data="field_normal" class="form_tab form_tab_selected"><span><?php echo Yii::t('cp','Normal Field')?></span></a>
 	  <a data="field_content" class="form_tab"><span><?php echo Yii::t('cp','Content Field')?></span></a>	  
-	</div>	
+	  <a data="field_seo" class="form_tab"><span><?php echo Yii::t('cp','Seo Field')?></span></a>	  
+	</div>
 	
 	<div class="form_field_wrap field_normal">
   	<table class='itable'>
@@ -182,8 +183,33 @@
 		<div class="dN inner_wrap preview">
 		  <?php echo Yii::t('cp','Preview') ?>
   	</div>
-  </div>
+  </div>  
   
+  <div class="dN form_field_wrap field_seo">
+	  <table class='itable'>
+  	  <tbody>
+  	    <tr>
+  	      <th class='alt leftborder'><?php echo $form->labelEx($model,'seo_keywords'); ?></th>
+    		  <td>
+    			  <?php echo $form->textField($model,'seo_keywords'); ?>
+    		    <br/>
+    			  <?php echo Yii::t('cp', 'At Most 3 Words,Words separate by comma(,)') ?>
+    			  <?php echo $form->error($model,'seo_keywords'); ?>
+    		  </td>
+  	    </tr>
+  	    <tr>
+  	      <th class='alt leftborder'><?php echo $form->labelEx($model,'seo_description'); ?></th>
+    		  <td>
+    			  <?php echo $form->textArea($model,'seo_description', array('rows' => '10','cols'=> 100) ); ?>
+    			  <br/>
+    			  <?php echo Yii::t('cp', 'At Most 100 Words') ?>
+    			  <?php echo $form->error($model,'seo_description'); ?>
+    		  </td>
+  	    </tr>
+  	  </tbody>
+  	</table>
+	</div>
+		
   <div class="taR h30P lh30P pr10P ">
   		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
   </div> 

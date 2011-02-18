@@ -194,7 +194,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('attachment_id, gallery_id,content,is_star,rich,tpl,pv','default'),
+			array('attachment_id, gallery_id,content,is_star,rich,tpl,pv,seo_keywords,seo_description','default'),
 			array('title, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
@@ -241,6 +241,8 @@ class Article extends CActiveRecord
 			'pv'          => Yii::t('cp','Pv'),
 			'category_id' => Yii::t('cp','Category'),
 			'is_star'     => Yii::t('cp','stared?'),
+  		'seo_keywords'      => Yii::t('cp', 'Seo Keywords'),
+  		'seo_description'   => Yii::t('cp', 'Seo Description'),
 		);
 	}
 

@@ -42,6 +42,8 @@ return array(
   'Create_time'     => '创建时间',
   'Update_time'     => '更新时间',
   'Category'        => '节点',
+  'Seo Keywords'    => 'Seo搜索关键字',
+  'Seo Description' => 'Seo搜索描述',
   'stared?'         => "重点?",
   'stared'          => "重点",
   'unstared'        => "非重点",
@@ -51,6 +53,7 @@ return array(
   'Pv'              => '点击量',
   'Normal Field'    => '普通字段',
   'Content Field'   => '内容字段',
+  'Seo Field'       => 'Seo 字段',
   'Extra Link'      => '图片链接',
   'Outer Link'      => '外链',
   'Inter Link'      => '内链',
@@ -185,5 +188,8 @@ return array(
   'Item Data deleted Success On '=> '条内容删除成功于',
   'Items Data deleted Success On '=> '条内容删除成功于',
   'Data saved success On ' => '数据更新成功于',
+  'At Most 3 Words,Words separate by comma(,)' => '最多3个关键字,关键字之间用半角逗号分开',
+  'At Most 100 Words'     => '最多100个字',
+  
 );
 ?>
