@@ -142,7 +142,8 @@ class Category extends CActiveRecord
 		$parents = $this->findAllBySql($sql);		
 		$path = array();
 		foreach( $parents as $obj )	{			
-			
+				array_push($path, array('name'=>$obj->name, 'id'=>$obj->id, 'type' => 'category'));
+/*
 			if( $obj->datablock ){				
 				$path = $this->getNavigationBlock($obj->datablock,$path);
 				//array_push($path, array('name'=>$obj->name, 'id'=>$obj->id, 'type' => 'category'));	
@@ -150,6 +151,7 @@ class Category extends CActiveRecord
 			}else{
 				array_push($path, array('name'=>$obj->name, 'id'=>$obj->id, 'type' => 'category'));
 			}
+*/
 		}		
 		return $path;
 	}

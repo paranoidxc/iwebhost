@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(null);
 // change the following paths if necessary
 $website_dir = dirname(__FILE__);
 $g_upfiles_dir = '/upfiles';
