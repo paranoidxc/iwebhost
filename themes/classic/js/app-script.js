@@ -1050,6 +1050,7 @@ $('.lightbox').lightBox({
 			success:	function (html) {			  
 			  popup_panel( $(html) );
 			  init_mac_panel_drag();
+			  widgInit();
 			}			
 		});
 		return false;

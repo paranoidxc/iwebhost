@@ -10,11 +10,12 @@
 ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/form.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/jquery-ui-1.8.2.custom.css" />  
+  <link rel="stylesheet" type="text/css" href="<?php echo $theme_baseurl; ?>/css/widgEditor.css" /> 
 <!--
   <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/console.css" />  
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" />
 -->
-
+<script type="text/javascript" src="<?php echo API::get_theme_baseurl(); ?>/js/widgEditor.js"></script>
 <link   type="text/css"        href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />  
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>

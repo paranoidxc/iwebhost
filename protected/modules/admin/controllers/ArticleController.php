@@ -271,6 +271,7 @@ class ArticleController extends IController
 		}
 		
 	  if( isset($_GET['ajax']) ) {
+	    echo "OOOOOOOOOOOOOOOOOOO";
   		$this->renderPartial('create', array(
   			'model' => $model,
   			'leafs'	=> $leafs,
@@ -278,11 +279,12 @@ class ArticleController extends IController
   			'panel_ident' =>  $panel_ident,  			
 			),false,true);					
 		}else {
+		  
 			$this->render('create',array(
 				'model'	=>	$model,
 				'leafs' => 	$leafs,
 				'leaf'	=> $leaf,
-			));
+			),false,true);
 		}
 		
 		

@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	var swfu;		
-	var settings = {
-		flash_url : "<?php echo Yii::app()->request->baseUrl; ?>/swfupload/swfupload.swf",
+	var settings = {		
+		flash_url : "<?php echo API::get_theme_baseurl(); ?>/swfupload/swfupload.swf",
     upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '' ) ) ?>",    
     button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 		post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
