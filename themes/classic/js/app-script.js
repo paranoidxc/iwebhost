@@ -95,6 +95,9 @@ function formLay(wrap,t){
   }
 }
 
+
+	
+	
 $(document).ready(function(){
   
   /*02dcd9e5975fcca9ac9e448618e5cea4 放大图片 zoom_photo*/  
@@ -175,8 +178,10 @@ $(document).ready(function(){
 	  }*/
 	};
 	
-	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/
+	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/	
+	var ithis;
 	$('.pick').live('click',function(){
+	  ithis = this;
 	  if( $(this).attr('rtype') == undefined ){	    
 	    var uri = $(this).attr('uri');		
 	  }else if( $(this).attr('rtype') == 'article_link_image' ){
@@ -279,11 +284,22 @@ $(document).ready(function(){
 	  var rel_screen_name = wrap.find('.rel_screen_name').val();	  
 	  var rtype           = wrap.find('.rtype').val();
 	  var upfiles_dir     = wrap.find('.upfiles_dir').val();
-	  if( rtype == '' ){
-	  }else if( rtype == 'article_link_image' ){
-	    var image = upfiles_dir + rel_path+rel_imagerange+'.'+rel_extension;
-	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';	    
+	  if( rtype == '' ){	    
+	  }else if( rtype == 'article_link_image' ){  	    
 	    /*
+	    var theToolbar = ithis.parentNode.parentNode.widgToolbarObject;	    
+	    var theWidgEditor = theToolbar.widgEditorObject;
+	    var theIframe = theWidgEditor.theIframe;
+	    var theSelection = "";
+	    */
+	    var image = upfiles_dir + rel_path+rel_imagerange+'.'+rel_extension;	    
+	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';
+	    var image_html = "<img alt=\"" + str + "\" src=\"" + image + "\" />"
+	    //alert( parent_panel.find('.widgEditor_id').attr('id') );
+	    widgSetContent(parent_panel.find('.widgEditor_id').val(), image,str );	    
+	    /* IE selections */
+	    /*
+	    //todo1
 	    var selection = $('#Article_content').getSelection();	    
 	    $('#Article_content').replaceSelection(str, true);
 	    setCaretToPos(document.getElementById('Article_content'),selection.start);
@@ -292,7 +308,8 @@ $(document).ready(function(){
 	    $('#Article_content').replaceSelection(' ', true);
 	    setCaretToPos(document.getElementById('Article_content'),selection.start+2+str.length);	    	    
 	    */
-	    //TODO 
+	    //TODO2 start  
+	    /*
 	    var _content = parent_panel.find('#Article_content');
 	    var selection = _content.getSelection();	    	    
 	    _content.replaceSelection(str, true);
@@ -301,6 +318,8 @@ $(document).ready(function(){
 	    setCaretToPos(_content,selection.start+1+str.length);	    
 	    _content.replaceSelection(' ', true);
 	    setCaretToPos(_content,selection.start+2+str.length);
+	    */
+	    //TODO2 end
 	    return ;
 	  }
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
@@ -1068,7 +1087,8 @@ $('.lightbox').lightBox({
 			url:		$(this).attr('href')+'&ajax=ajax&id=1&leaf_id='+parent_panel.find('.cur_leaf_id').val()+'&panel_ident='+panel_ident,
 			success:	function (html) {			  
 			  popup_panel( $(html) ,wrap);
-			  init_mac_panel_drag();			  
+			  init_mac_panel_drag();				  
+			  widgInit();
 			}			
 		});
 	  return false;	  
@@ -1085,6 +1105,7 @@ $('.lightbox').lightBox({
 			success:	function(html){
 			  popup_panel( $(html),wrap );		
 			  init_mac_panel_drag();
+			  widgInit();
 			}
 		});
 		return false;
@@ -1233,6 +1254,7 @@ $('.lightbox').lightBox({
 			success:	function(html){
 			  popup_panel( $(html).attr('id',popup_panel_id) );		
 			  init_mac_panel_drag();
+			  widgInit();
 			}
 		});
 	});
@@ -1280,12 +1302,15 @@ $('.lightbox').lightBox({
 	var timeouthandle;
 	/* 9e57007bcc35507dfc5bc7b8f2efb076 更新文章*/
 	function form_submit(){	  
+	  //alert( document.getElementById('article_content').value );
+	  
 	  if( timeouthandle != undefined ){
 	    clearTimeout(timeouthandle);  
 	  }	  
 		var that = $(this);
 		//var leaf_id = $('#Article_category_id').val();	
 		wrap = getPanel($(this));						
+		widgUpdate( wrap.find('.widgEditor_id').val() );
 		parent_panel = '';
 		if( wrap.find('.return_panel').length > 0 ){
 		  if( wrap.find('.return_panel').val() != '' ){
@@ -1300,11 +1325,14 @@ $('.lightbox').lightBox({
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
 			success:	function(html) {		  
-			  if( html.indexOf('mac_panel_wrap') != -1 ){			    			    			    			    
+			  if( html.indexOf('mac_panel_wrap') != -1 ){	
+			    alert("1");
 			    popup_panel( $(html) , wrap );
 			  }else{			    
-			    //iform.replaceWith(html);			    			    
+			    alert("2");
+			    //iform.replaceWith(html);			    				    
 			    iform.html(html);			    
+			    
 			    if(iform.find('.article_ajax_form').length >0) {
 			      iform.find('.article_ajax_form').submit( form_submit );  
 			    }			    
@@ -1317,12 +1345,15 @@ $('.lightbox').lightBox({
 		        idebug( ' render ');
 		        render();
 		      }
-			  }			  
+			  }			 
+			  widgInit(); 
 			}
 		});				
 		return false;
 	}	
+	
 	$('.article_ajax_form').submit(form_submit);
+	
 	
 	$('.actions>li').live('hover',function(){	  
 	  $(this).find('ul').fadeOut();

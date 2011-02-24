@@ -243,6 +243,7 @@ class ArticleController extends IController
     
 		if(isset($_POST['Article']))
 		{		
+		  print_r($_POST);
 		  $model->attributes=$_POST['Article'];
 		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
 		  $_sort_id = $leaf->first()->sort_id;
@@ -270,8 +271,7 @@ class ArticleController extends IController
 			}	
 		}
 		
-	  if( isset($_GET['ajax']) ) {
-	    echo "OOOOOOOOOOOOOOOOOOO";
+	  if( isset($_GET['ajax']) ) {	    
   		$this->renderPartial('create', array(
   			'model' => $model,
   			'leafs'	=> $leafs,
@@ -284,7 +284,7 @@ class ArticleController extends IController
 				'model'	=>	$model,
 				'leafs' => 	$leafs,
 				'leaf'	=> $leaf,
-			),false,true);
+			));
 		}
 		
 		

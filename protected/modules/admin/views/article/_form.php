@@ -6,10 +6,7 @@
 		'class' => 'article_ajax_form'
 	)
 )); ?>	
-  <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
-  111
-
-222
+  <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />  
   <p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
@@ -178,6 +175,7 @@
 	  
 	  <div class="inner_wrap write">
   		<?php //echo $form->labelEx($model,'content'); ?>
+  		<input type="hidden" class="widgEditor_id" value="article_content<?php echo time()?>" />
   		<?php echo $form->textArea($model,'content',array('rows'=>20, 'cols'=>100, 'id'=>'article_content'.time(), 'class' => 'widgEditor' )); ?>
   		<?php //echo $form->error($model,'content'); ?>		
 		</div>

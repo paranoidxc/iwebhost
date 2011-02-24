@@ -168,6 +168,7 @@ function run()
 
 
 
+var widgEditors = new Array();
 
 function widgInit()
 {
@@ -272,7 +273,77 @@ function widgEditor(replacedTextareaID)
 	/* Attach onsubmit to parent form */
 	this.modifyFormSubmit();
 	
+  //TODO ADD
+  widgEditors.push(this);
+ 
 	return true;
+}
+
+//TODO ADD
+function widgUpdate(textAreaID) {
+  for (i=0;i<widgEditors.length;i++)   {
+      if (widgEditors[i].theTextarea.id == textAreaID + "WidgTextarea")   {
+           reqEd = widgEditors[i];
+           reqEd.updateWidgInput();
+        }
+    }
+}
+
+function widgSetContent(textAreaID, image_path, image_alt ) {
+    var reqEd = null;
+    for (i=0;i<widgEditors.length;i++)   {
+        if (widgEditors[i].theTextarea.id == textAreaID + "WidgTextarea")   {
+            reqEd = widgEditors[i];
+        }
+    }
+    if (reqEd)  {
+//        reqEd.writeDocument(content);
+
+
+
+      	var theIframe = reqEd.theIframe;
+       	var theSelection = null;
+				var theRange = null;
+				
+				/* IE selections */
+				if (theIframe.contentWindow.document.selection)
+				{
+					/* Escape quotes in alt text */
+					theAlt = theAlt.replace(/"/g, "'");
+			
+					theSelection = theIframe.contentWindow.document.selection;
+					theRange = theSelection.createRange();
+					theRange.collapse(false);
+         	theRange.pasteHTML("<img alt=\"" + image_alt + "\" src=\"" + image_path + "\" />");
+					
+				}
+				/* Mozilla selections */
+				else
+				{
+					try
+					{
+						theSelection = theIframe.contentWindow.getSelection();
+					}
+					catch (e)
+					{
+						return false;
+					}
+
+					theRange = theSelection.getRangeAt(0);
+					theRange.collapse(false);
+					
+					var theImageNode = theIframe.contentWindow.document.createElement("img");
+					
+					theImageNode.src = image_path;
+					theImageNode.alt = image_alt;
+					
+					theRange.insertNode(theImageNode);
+					
+				}
+
+
+
+    }
 }
 
 
@@ -448,7 +519,11 @@ widgEditor.prototype.cleanSource = function()
 	}
 	
 	this.theInput.value = theHTML;
-	
+
+if(   $('#'+this.theExtraInput.id).length > 0) {
+   $('#'+this.theExtraInput.id).remove();
+}
+    
 	return true;
 }
 
@@ -686,6 +761,7 @@ widgEditor.prototype.insertNewParagraph = function(elementArray, succeedingEleme
 widgEditor.prototype.modifyFormSubmit = function()
 {
 	var self = this;
+
 	var theForm = this.theContainer.parentNode;
 	var oldOnsubmit = null;
 	
@@ -695,26 +771,35 @@ widgEditor.prototype.modifyFormSubmit = function()
 		theForm = theForm.parentNode;
 	}
 
+ 
+
 	/* Add onsubmit without overwriting existing function calls */
-	oldOnsubmit = theForm.onsubmit;
+	theForm.oldOnsubmit = theForm.onsubmit;
 
 	if (typeof theForm.onsubmit != "function")
 	{
 		theForm.onsubmit = function()
 		{
-			return self.updateWidgInput();
+      if(   $('#'+self.theExtraInput.id).length > 0) {
+         $('#'+self.theExtraInput.id).remove();
+      }
+     	return self.updateWidgInput();
 		}
 	}
 	else
 	{
+    alert("2");
 		theForm.onsubmit = function()
 		{
 			self.updateWidgInput();
 
-			return oldOnsubmit();			
+			return oldOnsubmit();		
 		}
 	}
 
+  if(   $('#'+self.theExtraInput.id).length > 0) {
+    $('#'+self.theExtraInput.id).remove();
+  }
 	return true;
 }
 
@@ -1010,7 +1095,7 @@ function widgToolbar(theEditor)
 
 
 /* Add button to toolbar */
-widgToolbar.prototype.addButton = function(theID, theClass, theLabel, theAction)
+widgToolbar.prototype.addButton = function(theID, theClass, theLabel, theAction )
 {
 	var menuItem = document.createElement("li");
 	var theLink = document.createElement("a");
@@ -1020,6 +1105,8 @@ widgToolbar.prototype.addButton = function(theID, theClass, theLabel, theAction)
 	menuItem.className = "widgEditButton";
 
 	theLink.href = "#";
+//  theLink.href= '/index.php?r=admin/rel/pickatt&return_id=link_pick1298548817';
+//  theLink.uri= '/index.php?r=admin/rel/pickatt&return_id=link_pick1298548817';
 	theLink.title = theLabel;
 	theLink.className = theClass;
 	theLink.action = theAction;

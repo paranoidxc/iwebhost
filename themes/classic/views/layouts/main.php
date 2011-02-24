@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/css/console.css" />  
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" />
 -->
-<script type="text/javascript" src="<?php echo API::get_theme_baseurl(); ?>/js/widgEditor.js"></script>
+
 <link   type="text/css"        href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />  
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
@@ -104,6 +104,9 @@
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/i18n/<?php echo API::get_lang(); ?>.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/console.api.categorys.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/fieldSelection.js"></script>
+
+
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/app-script.js"></script>
+<script type="text/javascript" src="<?php echo API::get_theme_baseurl(); ?>/js/widgEditor.js"></script>
 </body>
 </html>
