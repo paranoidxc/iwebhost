@@ -16,11 +16,12 @@
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jScrollHorizontalPane.css" />
 -->
 
-<link   type="text/css"        href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />  
+
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
+<link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 

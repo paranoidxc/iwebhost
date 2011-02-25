@@ -145,7 +145,7 @@
 <?php
   echo '<div id="leaf_articles" class="leaf_content">';
   
-  $this->renderPartial('ajaxview_attachment', array() , false, true);
+  //$this->renderPartial('ajaxview_attachment', array() , false, true);
   
   echo '</div>';      
   
