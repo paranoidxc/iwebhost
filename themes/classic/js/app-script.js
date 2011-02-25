@@ -1325,11 +1325,9 @@ $('.lightbox').lightBox({
 			url:		$(this).attr('action'),
 			data:		$(this).serialize(),
 			success:	function(html) {		  
-			  if( html.indexOf('mac_panel_wrap') != -1 ){	
-			    alert("1");
+			  if( html.indexOf('mac_panel_wrap') != -1 ){				    
 			    popup_panel( $(html) , wrap );
-			  }else{			    
-			    alert("2");
+			  }else{			    			    
 			    //iform.replaceWith(html);			    				    
 			    iform.html(html);			    
 			    

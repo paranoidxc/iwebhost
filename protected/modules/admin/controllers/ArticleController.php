@@ -242,8 +242,7 @@ class ArticleController extends IController
     $panel_ident = $_REQUEST['panel_ident'];
     
 		if(isset($_POST['Article']))
-		{		
-		  print_r($_POST);
+		{				  
 		  $model->attributes=$_POST['Article'];
 		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
 		  $_sort_id = $leaf->first()->sort_id;
