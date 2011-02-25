@@ -43,6 +43,7 @@
 				<li><a href="<?php echo CController::createurl('istart/category', array('id' => 57 )) ?>">Cappuccino</a></li>	
 				<li><a href="<?php echo CController::createurl('istart/portfolio', array('id' => 187 )) ?>">968 Portfolio</a></li>	
 				<li><a href="<?php echo CController::createurl('istart/portfolio', array('id' => 188 )) ?>">ihost Portfolio</a></li>	
+				<li><a href="<?php echo CController::createurl('blog/index') ?>">Blog</a></li>	
 				<?php 
 				/*
 					if( $this->page_navigation ){					
