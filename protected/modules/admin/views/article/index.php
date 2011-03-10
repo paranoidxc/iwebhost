@@ -57,7 +57,7 @@
       <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
     </div>  
   </div>
-  <div class="ajax_overlay" />    
+  <div class="ajax_overlay" ></div>
   <?php
     $this->endWidget('application.extensions.Flatmacpanel');	 
   ?>

@@ -105,6 +105,42 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+		
+	public function actionSignin() {  
+	  
+	  $model=new LoginForm;
+
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+			  $this->redirect( array( 'site/index' ));
+				//$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('signin',array('model'=>$model));
+	}
+	
+	public function actionSignup() {
+	  $model=new User;
+	  if(isset($_POST['User'])) {
+	    $model->attributes=$_POST['User'];
+			$model->c_time = Time::now();
+			if($model->save()){
+			  echo " save ok ";
+			  exit;
+			}
+	  }
+	  $this->render('signup', array('model' => $model));
+	}
 	
 	public function actionCplang(){
 	  if( strlen($_REQUEST['lang']) > 0 ){

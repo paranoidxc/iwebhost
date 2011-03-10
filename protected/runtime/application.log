@@ -6158,3 +6158,123 @@ Stack trace:
 #3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 H:\projects\iwebhost\index.php(91): CApplication->run()
 #5 {main} REQUEST_URI=/index.php?r=istart/blog
+2011/03/04 16:07:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(16): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(91): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/03/10 19:53:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(16): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/portfoli...')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(91): CApplication->run()
+#13 {main} REQUEST_URI=/index.php?r=istart/portfolio&id=187
+2011/03/10 19:53:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(16): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(91): CApplication->run()
+#13 {main} REQUEST_URI=/index.php
+2011/03/10 19:53:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(16): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/portfoli...')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(91): CApplication->run()
+#13 {main} REQUEST_URI=/index.php?r=istart/portfolio&id=187
+2011/03/10 19:54:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(16): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('istart/portfoli...')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(91): CApplication->run()
+#13 {main} REQUEST_URI=/index.php?r=istart/portfolio&id=187
+2011/03/10 20:57:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "signup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('signup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/signup
+2011/03/10 21:25:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "signup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('signup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/signup
+2011/03/10 21:28:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "signup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('signup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/signup
+2011/03/10 21:29:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "signup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('signup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/signup
+2011/03/10 21:29:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "signup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('signup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/signup

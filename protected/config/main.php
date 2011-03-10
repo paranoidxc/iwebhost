@@ -47,6 +47,10 @@ return array(
 	'language'	=> 'zh_cn',
 	// application components
 	'components'=>array(
+	  'authManager' => array(
+	    'class' => 'CDbAuthManager',
+	    'connectionID' => 'db'
+	  ),	  
 	  'errorHandler'=>array(
       'errorAction'=>'site/error',
     ),
