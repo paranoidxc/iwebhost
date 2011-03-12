@@ -86,6 +86,6 @@ function cnSubstr($str, $start, $len) {
   return $tmpstr; 
 }
 
-
+require_once('class.phpmailer.php');
 require_once($yii);
 Yii::createWebApplication($config)->run();

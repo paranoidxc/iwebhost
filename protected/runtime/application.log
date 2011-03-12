@@ -6278,3 +6278,450 @@ Stack trace:
 #3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 H:\projects\iwebhost\index.php(91): CApplication->run()
 #5 {main} REQUEST_URI=/index.php?r=site/signup
+2011/03/11 20:43:20 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "signin".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('signin', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(129): CController->render('signin', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionSignin()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signin')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signin')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/signin
+2011/03/11 20:44:01 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "signin".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('signin', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(129): CController->render('signin', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionSignin()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signin')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signin')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/signin
+2011/03/11 20:44:47 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "signin".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('signin', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(129): CController->render('signin', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionSignin()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signin')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signin')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/signin
+2011/03/11 20:45:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "siginup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('siginup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('siginup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/siginup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/siginup
+2011/03/11 20:45:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "siginup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('siginup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('siginup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/siginup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/siginup
+2011/03/11 20:46:52 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "signin".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('signin', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(129): CController->render('signin', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionSignin()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signin')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signin')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/signin
+2011/03/11 20:47:18 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "signin".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('signin', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(129): CController->render('signin', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionSignin()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('signin')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/signin')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/signin
+2011/03/11 20:57:57 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "forgot".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(111): CController->render('forgot', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:06:51 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.email" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('email')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1736): CHtml::resolveValue(Object(LoginForm), 'email')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1207): CHtml::activeInputField('password', Object(LoginForm), 'email', Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(434): CHtml::activePasswordField(Object(LoginForm), 'email', Array)
+#4 H:\projects\iwebhost\protected\views\site\forgot.php(21): CActiveForm->passwordField(Object(LoginForm), 'email', Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#9 H:\projects\iwebhost\protected\controllers\SiteController.php(111): CController->render('forgot', Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#17 H:\projects\iwebhost\index.php(91): CApplication->run()
+#18 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:28:21 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "_sign_in".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\views\site\login.php(22): CController->renderPartial('_sign_in', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('login', Array, true)
+#5 H:\projects\iwebhost\protected\controllers\SiteController.php(93): CController->render('login', Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionLogin()
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('login')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/login')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 H:\projects\iwebhost\index.php(91): CApplication->run()
+#14 {main} REQUEST_URI=/index.php?r=site/login
+2011/03/11 21:28:27 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "_sign_in".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\iwebhost\protected\views\site\login.php(22): CController->renderPartial('_sign_in', Array)
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('login', Array, true)
+#5 H:\projects\iwebhost\protected\controllers\SiteController.php(93): CController->render('login', Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionLogin()
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('login')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/login')
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 H:\projects\iwebhost\index.php(91): CApplication->run()
+#14 {main} REQUEST_URI=/index.php?r=site/login
+2011/03/11 21:43:26 [warning] [application] Failed to set unsafe attribute "username".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:43:26 [warning] [application] Failed to set unsafe attribute "email".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:43:26 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm._identity" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\models\ForgotForm.php(53): CComponent->__get('_identity')
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(120): ForgotForm->login()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:43:29 [warning] [application] Failed to set unsafe attribute "username".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:43:29 [warning] [application] Failed to set unsafe attribute "email".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:43:29 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm._identity" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\iwebhost\protected\models\ForgotForm.php(53): CComponent->__get('_identity')
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(120): ForgotForm->login()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:44:00 [warning] [application] Failed to set unsafe attribute "username".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:44:00 [warning] [application] Failed to set unsafe attribute "email".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:44:01 [warning] [application] Failed to set unsafe attribute "username".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:44:01 [warning] [application] Failed to set unsafe attribute "email".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:44:53 [error] [exception.CException] exception 'CException' with message '属性 "LoginForm.email" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('email')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1736): CHtml::resolveValue(Object(LoginForm), 'email')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1174): CHtml::activeInputField('text', Object(LoginForm), 'email', Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(412): CHtml::activeTextField(Object(LoginForm), 'email', Array)
+#4 H:\projects\iwebhost\protected\views\site\forgot.php(21): CActiveForm->textField(Object(LoginForm), 'email', Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#9 H:\projects\iwebhost\protected\controllers\SiteController.php(133): CController->render('forgot', Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#17 H:\projects\iwebhost\index.php(91): CApplication->run()
+#18 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:45:28 [warning] [application] Failed to set unsafe attribute "username".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:45:28 [warning] [application] Failed to set unsafe attribute "email".
+in H:\projects\iwebhost\protected\controllers\SiteController.php (117)
+in H:\projects\iwebhost\index.php (91)
+2011/03/11 21:49:54 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\_sign_in.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\iwebhost\protected\views\site\login.php(22): CController->renderPartial('_sign_in', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('login', Array, true)
+#12 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('login', Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#18 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#19 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#20 H:\projects\iwebhost\index.php(91): CApplication->run()
+#21 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:50:14 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\forgot.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#8 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:50:28 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\forgot.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#8 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:50:35 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\forgot.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#8 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:51:31 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\forgot.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#8 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:52:11 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.rememberMe" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('rememberMe')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1316): CHtml::resolveValue(Object(ForgotForm), 'rememberMe')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(478): CHtml::activeCheckBox(Object(ForgotForm), 'rememberMe', Array)
+#3 H:\projects\iwebhost\protected\views\site\forgot.php(26): CActiveForm->checkBox(Object(ForgotForm), 'rememberMe')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#8 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#16 H:\projects\iwebhost\index.php(91): CApplication->run()
+#17 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:53:20 [error] [exception.CException] exception 'CException' with message '属性 "ForgotForm.password" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1999): CComponent->__get('password')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1736): CHtml::resolveValue(Object(ForgotForm), 'password')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\helpers\CHtml.php(1207): CHtml::activeInputField('password', Object(ForgotForm), 'password', Array)
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\widgets\CActiveForm.php(434): CHtml::activePasswordField(Object(ForgotForm), 'password', Array)
+#4 H:\projects\iwebhost\protected\views\site\forgot.php(21): CActiveForm->passwordField(Object(ForgotForm), 'password', Array)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('forgot', Array, true)
+#9 H:\projects\iwebhost\protected\controllers\SiteController.php(134): CController->render('forgot', Array)
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#15 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#16 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#17 H:\projects\iwebhost\index.php(91): CApplication->run()
+#18 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/11 21:56:02 [error] [exception.CException] exception 'CException' with message 'ForgotForm does not have a method named "login".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('login', Array)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(125): ForgotForm->login()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/12 17:08:05 [error] [exception.CException] exception 'CException' with message '属性 "User.token" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(126): CComponent->__set('token', '19e0a0f1db3e397...')
+#1 H:\projects\iwebhost\protected\models\ForgotForm.php(63): CActiveRecord->__set('token', '19e0a0f1db3e397...')
+#2 H:\projects\iwebhost\protected\controllers\SiteController.php(114): ForgotForm->forgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 H:\projects\iwebhost\index.php(91): CApplication->run()
+#11 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/12 17:08:48 [error] [exception.CException] exception 'CException' with message '属性 "User.token" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(126): CComponent->__set('token', '94a564733664518...')
+#1 H:\projects\iwebhost\protected\models\ForgotForm.php(63): CActiveRecord->__set('token', '94a564733664518...')
+#2 H:\projects\iwebhost\protected\controllers\SiteController.php(114): ForgotForm->forgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 H:\projects\iwebhost\index.php(91): CApplication->run()
+#11 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/12 17:09:20 [error] [exception.CException] exception 'CException' with message '属性 "User.token" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(126): CComponent->__set('token', 'c04a9276240e498...')
+#1 H:\projects\iwebhost\protected\models\ForgotForm.php(63): CActiveRecord->__set('token', 'c04a9276240e498...')
+#2 H:\projects\iwebhost\protected\controllers\SiteController.php(114): ForgotForm->forgot()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionForgot()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('forgot')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/forgot')
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 H:\projects\iwebhost\index.php(91): CApplication->run()
+#11 {main} REQUEST_URI=/index.php?r=site/forgot
+2011/03/12 17:29:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "reset" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('reset')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reset')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/reset/123')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/reset/123
+2011/03/12 19:33:07 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "reset".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('reset', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\SiteController.php(115): CController->render('reset', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SiteController->actionReset()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reset')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/reset/toke...')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=site/reset/token/a1e7a0258392941bf57de7ac6f8df3f1

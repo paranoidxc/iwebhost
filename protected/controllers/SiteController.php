@@ -84,7 +84,7 @@ class SiteController extends Controller
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
+			// validate user input and redirect to the previous page if valid			
 			if($model->validate() && $model->login())
 			  $this->redirect( array( 'admin/category/iroot' ));
 				//$this->redirect(Yii::app()->user->returnUrl);
@@ -105,7 +105,38 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-		
+	
+	public function actionReset(){
+	  $token = trim($_GET['token']);
+	  $model = new ResetPasswordForm;	 
+	  if( isset($_POST['ResetPasswordForm'] ) ){
+	    $model->attributes = $_POST['ResetPasswordForm'];	    
+	    if( $model->validate() && $model->reset() ){
+	      echo 'reset ok';
+	    }
+    }else{
+      $record = User::model()->findByAttributes( array('token'=> $token) );        
+      $model->token = $record->token;
+      if( $record == null ){
+	      echo 'fuck' ;
+	      exit;
+	    }
+    }
+	  $this->render('reset', array( 'record' => $record, 'model' => $model) );	  
+	}
+	
+	public function actionForgot() {	  
+	  $model=new ForgotForm;	  
+		if(isset($_POST['ForgotForm']))
+		{
+			$model->attributes=$_POST['ForgotForm'];			
+			if($model->validate() && $model->forgot()){
+			  $this->redirect( array( 'admin/category/iroot' ));
+			}
+		}
+		$this->render('forgot',array('model'=> $model ) );
+	}
+	
 	public function actionSignin() {  
 	  
 	  $model=new LoginForm;
@@ -130,6 +161,7 @@ class SiteController extends Controller
 	}
 	
 	public function actionSignup() {
+	  
 	  $model=new User;
 	  if(isset($_POST['User'])) {
 	    $model->attributes=$_POST['User'];
