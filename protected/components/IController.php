@@ -16,6 +16,22 @@ class IController extends Controller
 	 */
 	public $_model;
 
+	public function init() {	  	  
+	  if( !Yii::app()->user->isGuest ){
+	    if( !Yii::app()->user->getState('current_user') ){
+	      Yii::app()->user->setState('current_user', User::model()->findbyPk(Yii::app()->user->id ));
+	    }	   	    
+	    $u =Yii::app()->user->getState('current_user');		    
+	    if( !$u->account_type ) {
+	      $this->redirect( array( '/' ));
+	      exit; 
+	    }
+    }    
+	  parent::init();
+	  
+	  
+	}
+	
 	/**
 	 * @return array action filters
 	 */

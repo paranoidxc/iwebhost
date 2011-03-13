@@ -6725,3 +6725,61 @@ Stack trace:
 #8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #9 H:\projects\iwebhost\index.php(91): CApplication->run()
 #10 {main} REQUEST_URI=/index.php?r=site/reset/token/a1e7a0258392941bf57de7ac6f8df3f1
+2011/03/13 22:57:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "siginup" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('siginup')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('siginup')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/siginup')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/siginup
+2011/03/13 22:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "siginin" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('siginin')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('siginin')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('site/siginin')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=site/siginin
+2011/03/13 23:13:09 [error] [exception.CException] exception 'CException' with message 'CWebUser does not have a method named "get".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('get', Array)
+#1 H:\projects\iwebhost\protected\components\IController.php(20): CWebUser->get('current_user')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): IController->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(91): CApplication->run()
+#6 {main} REQUEST_URI=/index.php?r=admin/category/iroot
+2011/03/13 23:18:41 [error] [exception.CException] exception 'CException' with message '属性 "CWebUser.login_count" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\auth\CWebUser.php(108): CComponent->__get('login_count')
+#1 H:\projects\iwebhost\protected\components\IController.php(24): CWebUser->__get('login_count')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): IController->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/Dashboard...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(91): CApplication->run()
+#6 {main} REQUEST_URI=/index.php?r=admin/Dashboard/index
+2011/03/13 23:18:56 [error] [exception.CException] exception 'CException' with message '属性 "CWebUser.login_count" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\auth\CWebUser.php(108): CComponent->__get('login_count')
+#1 H:\projects\iwebhost\protected\components\IController.php(24): CWebUser->__get('login_count')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): IController->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(91): CApplication->run()
+#6 {main} REQUEST_URI=/index.php?r=admin/category/iroot
+2011/03/13 23:22:49 [error] [exception.CException] exception 'CException' with message '属性 "User.account" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('account')
+#1 H:\projects\iwebhost\protected\components\IController.php(25): CActiveRecord->__get('account')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): IController->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/category/...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#5 H:\projects\iwebhost\index.php(91): CApplication->run()
+#6 {main} REQUEST_URI=/index.php?r=admin/category/iroot
+2011/03/13 23:23:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/site/index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/site/inde...')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(91): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=admin/site/index

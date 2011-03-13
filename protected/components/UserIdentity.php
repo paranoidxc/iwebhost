@@ -21,19 +21,18 @@ class UserIdentity extends CUserIdentity
 	  $record = User::model()->findByAttributes( array('username'=> $this->username) );
 		if( $record == null ) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
-		}else if ( $record-> password != $this->password ) {
+		} else if ( $record-> password != $this->password ) {
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
-		}else {
+		} else {
 			$this->_id = $record->id;
 			$this->errorCode=self::ERROR_NONE;			
 			$record->current_login_time 	= Time::now();
 			$record->login_count 			= $record->login_count +1;
 			$record->current_ip 			= API::get_ip();
 			$record->save();
-			Yii::app()->user->setState('current_user',$record);
+			//Yii::app()->user->setState('current_user',$record);
 		}
 		return !$this->errorCode;
-		
 		/*
 		$users=array(		  
 			'demo'=>'demo',
