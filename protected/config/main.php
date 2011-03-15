@@ -90,7 +90,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		'db'=>array(
 			//'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
-			'connectionString' => 'mysql:host=localhost;dbname=ihost',
+			'connectionString' => 'mysql:host=localhost;dbname=iblog',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
