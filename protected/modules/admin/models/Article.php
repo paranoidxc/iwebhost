@@ -194,7 +194,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('attachment_id, gallery_id,content,is_star,rich,tpl,pv,seo_keywords,seo_description','default'),
+			array('attachment_id, gallery_id,content,is_star,rich,tpl,pv,seo_keywords,seo_description,user_id,reply_count','default'),
 			array('title, category_id', 'required'),
 			array('sort_id, category_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
@@ -217,7 +217,8 @@ class Article extends CActiveRecord
 		return array(
 			'leaf' 			   => array( self::BELONGS_TO , 'Category', 	'category_id' ),
 			'attachment'	 => array( self::BELONGS_TO,  'Attachment',	'attachment_id'),
-			'gallery'		   => array( self::BELONGS_TO,  'Category',	'gallery_id')			
+			'gallery'		   => array( self::BELONGS_TO,  'Category',	'gallery_id'),
+			'author'       => array( self::BELONGS_TO, 'User', 'user_id',)
 			
 		);
 	}
