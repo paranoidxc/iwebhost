@@ -9,7 +9,14 @@
   
   <div class='iline'></div>  
   
-  <div class='p10P'>  
+  <div class='p10P'> 
+    
+    <?php if(Yii::app()->user->hasFlash('success')) {?>
+      <div class="note mb10P">
+        <?php echo Yii::app()->user->getFlash('success'); ?>
+      </div>
+    <?php } ?>
+   
   	<h1 class="note"><?php echo Yii::t('cp','Fields with * are required.')?></h1>
     <table class='itable iform_table_wrap w100S'>
       <tbody>
@@ -39,7 +46,7 @@
     		<tr class=''>
     		  <th></th>
     		  <td>
-    	    	<a href="<?php echo CController::createUrl('forum/forgot') ?>">哎呀,忘记密码了?</a>  		      
+    	    	<a href="<?php echo CController::createUrl('s/forgot') ?>">哎呀,忘记密码了?</a>  		      
     		  </td>
     		</tr>  	
     		

@@ -24,6 +24,12 @@ class Article extends CActiveRecord
       
     return parent::__get($name);
   }
+  
+  public function getScontent(){
+    return ereg_replace('<script.*</script>', '', $this->content);  
+  }
+  
+  
   public function iprint() {    
     echo '<table style="border-collapse:collapse; border: 1px solid #4A525A; font-size: 12px;">';
     echo '<tr>';
@@ -201,6 +207,9 @@ class Article extends CActiveRecord
 			array('link', 'length', 'max'=>255),
 			array('desc', 'default'),			
 			array('create_time, update_time', 'safe'),
+			
+			array('content', 'required', 'on' => 'forum' ),
+			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, subtitle, desc, content, create_time, update_time, sort_id, category_id', 'safe', 'on'=>'search'),

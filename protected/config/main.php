@@ -18,11 +18,11 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(  
-  'homeUrl'=>array('forum/signin'),
+  'homeUrl' =>array('f/index'),
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'iWebhost version 0.3 beta',
 	'theme'=>'classic',
-	'defaultController' => 'istart',
+	'defaultController' => 'f',
 	'timeZone'=>"Asia/Shanghai",
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -53,7 +53,7 @@ return array(
 	    'connectionID' => 'db'
 	  ),	  
 	  'errorHandler'=>array(
-      'errorAction'=>'site/error',
+      'errorAction'=>'s/error',
     ),
         
 	  'image'=>array(
@@ -110,7 +110,7 @@ return array(
 		*/
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-            'errorAction'=>'site/error',
+            'errorAction'=>'s/error',
         ),
 		'log'=>array(
 			'class'=>'CLogRouter',

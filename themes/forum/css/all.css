@@ -15,9 +15,16 @@ a:hover {
   text-decoration: underline;
   color: #1082c2;
 }
+.note {
+  padding: 8px;
+  background: #FFC;
+  font-weight: bold;
+  border-bottom: 1px solid #CCC;
+  color: #8C0505;
+}
 
 body {
-  background: #fff;
+  background: #fff url(bgs/gbg.png) repeat 0 0;
   font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important;  
   font-size: 12px;
   -webkit-text-size-adjust: none;
@@ -72,7 +79,8 @@ body {
 }
 
 #footer {
-  background: #FFF;
+  border-top: 1px solid #CCC;  
+  background: #fff url(bgs/gbg.png) repeat 0 0;
   color: gray;  
   padding: 20px 0;
 }
@@ -159,7 +167,9 @@ body {
 .ar_arrow {
   background: url(bgs/arrow.png) no-repeat 3px 10px;    
 }
-
+.t_ar_arrow {
+  background-position:3px 30px;    
+}
 .ar_content_wrap {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -168,7 +178,7 @@ body {
   vertical-align: top;
   margin-left: 12px;
   background: #FFF;
-  padding: 10px;  
+  
 }
 
 .ar_title a {
@@ -220,11 +230,36 @@ body {
   font-weight: bold;
   color: #969696;
 }
-
-
+.ar_content {  
+  font-size: 14px;
+  line-height: 180%;
+  color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+}
+.ar_content p {  
+  line-height: 180%;
+  margin-bottom: 18px;
+}
 
 
 /* signup page start */
 #signup_wrap {
   background: #FFF;
 }
+
+
+
+
+
+.iform_table_wrap td label {    
+  font-weight: bold;  
+  display: block;
+  margin-bottom: 5px;
+}
+.iform_table_wrap tbody td textarea {
+  width: 98%;
+  height: 400px;
+}
+

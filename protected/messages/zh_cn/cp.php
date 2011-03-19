@@ -43,6 +43,7 @@ return array(
   'A_time'          => '回复时间',
   'Homepage'        => '主页',  
   
+  'Content'         => '正文',
   'Content Manage'  => '内容管理',
   'Title'           => '标题',
   'Create_time'     => '创建时间',

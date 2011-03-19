@@ -22,7 +22,8 @@ class User extends CActiveRecord
   }
   
   public function getgravatar(){    
-    return rand(0, 100).'.png';
+    return ($this->id%100).'.png';
+    //return rand(0, 100).'.png';
   }
 	/**
 	 * Returns the static model of the specified AR class.

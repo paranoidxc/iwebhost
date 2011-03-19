@@ -11,8 +11,13 @@ class Controller extends CController
 	 */
 	public $controllerId;
 	public $actionId;
-		
+	
+	public $signoutUrl;
+	public $signinUrl;
+	public $signupUrl;
+	
 	public function init() {
+
 	  $this->isconfig=Sconfig::model()->find();	  	  
 	  $this->controllerId =  ucfirst($this->getId() );
     

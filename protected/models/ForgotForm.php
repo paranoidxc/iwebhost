@@ -50,9 +50,13 @@ class ForgotForm extends CFormModel
     date_default_timezone_set('America/Toronto');
     //include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded    
     $mail             = new PHPMailer();    
-    $body             = "    Hi $user->username:\n";
-    $body .="请点击下面的链接重新设置你的密码\n";
-    $body .="http://www.v2ex.com/reset/$user->token";
+    $body             = "    <p>Hi $user->username: </p>";
+    $body .="<p>请点击下面的链接重新设置你的密码 <p>";
+    $uri  = $_SERVER['HTTP_HOST'];
+    $uri .= Yii::app()->urlManager->createUrl('s/reset', array('token' => $user->token) ); 
+    $body .= "<p><a href='http://".$uri."'  target='_blank' title='重置密码链接' >http://".$uri."</a>";
+    //$body .= Yii::app()->urlManager->createUrl('s/reset', array('token' => $user->token) ); 
+    $body .= "</p>";
     $body             = eregi_replace("[\]",'',$body);    
     $mail->IsSMTP(); // telling the class to use SMTP
     $mail->Host       = "mail.gmail.com"; // SMTP server
