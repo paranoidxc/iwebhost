@@ -1,9 +1,9 @@
-<div class="iform radius5 newest-node" id="signup_wrap">
+<div class="iform radius5 boxshadow newest-node " id="signup_wrap">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableAjaxValidation'=>true,
 )); ?>
-  <h1>
+  <h1 class='raidus5top panel-title' >
     <a href="/" ><?php echo Yii::app()->name ?></a>&raquo;&nbsp;signin
   </h1>
   
@@ -28,13 +28,21 @@
   		      <?php echo $form->error($model,'password'); ?>		
     		  </td>
     		</tr>  		
-    		<tr>
+    		<tr class='dN'>
     		  <th><?php echo $form->checkBox($model,'rememberMe'); ?></th>
     		  <td>
     	    	<?php echo $form->label($model,'rememberMe'); ?>
   		      <?php echo $form->error($model,'rememberMe'); ?>		
     		  </td>
     		</tr>  		
+    		
+    		<tr class=''>
+    		  <th></th>
+    		  <td>
+    	    	<a href="<?php echo CController::createUrl('forum/forgot') ?>">哎呀,忘记密码了?</a>  		      
+    		  </td>
+    		</tr>  	
+    		
       </tbody>
       <tfoot>    
         <tr>

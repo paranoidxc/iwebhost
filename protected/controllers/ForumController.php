@@ -41,4 +41,16 @@ class ForumController extends Controller {
 		}		
 		$this->render('signin',array('model'=>$model));
 	}
+	
+	public function actionSignout(){
+	  $user = Yii::app()->user->getState('current_user');	  
+	  if( $user ){
+  		$user->last_logout_time = Time::now();
+  		$user->last_ip = API::get_ip();
+  		$user->save();
+		}
+		Yii::app()->user->logout();		
+		//$this->redirect( array( 'forum/signin' ));
+	  $this->redirect(Yii::app()->homeUrl);
+	}
 }

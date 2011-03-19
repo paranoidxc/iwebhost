@@ -198,7 +198,20 @@
 }
 
 .boxshadow {
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, .8);
-  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, .8);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+  background-color: white;
+}
+  
+.raidus5top {
+   -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;  
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius:5px;
+  -o-border-top-left-radius: 5px;
+  -o-border-top-right-radius: 5px;  
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

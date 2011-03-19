@@ -44,10 +44,10 @@ body {
   display: inline-block;
   height: 32px;
   padding-left: 4px;
-  margin-left: 4px;
-  background: url('bgs/nav.png');
+  margin-left: 4px;  
+  background: url('bgs/inav.png');   
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: left -99px;
 }
 
 .nav ul li a {
@@ -56,13 +56,19 @@ body {
   font-weight:bold;
   text-decoration: none;
   color: #FFF;
-  /*text-shadow:0 1px 1px #FEE369;*/
+  /*text-shadow:0 -1px 1px #111196;*/
   height: 32px;
-  line-height: 31px;
+  line-height: 30px;
   padding: 0 10px 0 6px;
-  background: url('bgs/nav.png');
+  background: url('bgs/inav.png');  
   background-repeat: no-repeat;
   background-position: right top;
+}
+.nav ul li:hover {
+  background-position: left -132px;
+}
+.nav ul li:hover a {
+  background-position: right -33px;
 }
 
 #footer {
@@ -90,31 +96,41 @@ body {
   margin-bottom: 20px;
 }
 
-.main_wrap{
+.main_wrap{  
   margin-bottom: 20px;
 }
 
 
 /*sidebar start */
 .newest-node {
-  background: #FFF;
+  background: #FFF;  
 }
-.panel-title {  
-  
+.newest-node .panel-title,
+.newest-node .panel-title h1 { 
+  font-size: 14px; 
+  color: #696969;
+  background: #FFF url(bgs/title-bg.jpg) repeat-x 0 50%;    
 }
 .newest-node h1 {
-  padding: 10px;  
+  padding: 10px;    
 }
 .iline {
   height: 1px;
-  border-bottom: 1px solid #E2E2E2;  
+  border-bottom: 1px solid #E2E2E2;
 }
 
 .newest-node a {
   color: #636A86;
   line-height: 14px;
   padding: 2px;
+  margin: 2px;
   display: inline-block;  
+  
+}
+.newest-node a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #1082c2;  
 }
 
 /*sidebar end */
@@ -141,7 +157,7 @@ body {
 }
 
 .ar_arrow {
-  background: url(bgs/arrow.png) no-repeat 2px 10px;
+  background: url(bgs/arrow.png) no-repeat 3px 10px;    
 }
 
 .ar_content_wrap {

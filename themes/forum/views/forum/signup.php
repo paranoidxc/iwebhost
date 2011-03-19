@@ -1,4 +1,4 @@
-<div class="iform radius5 newest-node" id="signup_wrap">
+<div class="iform radius5 boxshadow newest-node" id="signup_wrap">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
 	'enableAjaxValidation'=>false,
@@ -7,7 +7,7 @@
 		
 	)
 )); ?>  
-  <h1>
+  <h1 class='raidus5top panel-title' >
     <a href="/" ><?php echo Yii::app()->name ?></a>&raquo;&nbsp;signup
   </h1>
   <div class='iline'></div>  

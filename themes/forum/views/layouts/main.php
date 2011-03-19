@@ -13,7 +13,7 @@
 	$theme_baseurl = API::get_theme_baseurl();
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');					
-	$cs->registerCssFile($theme_baseurl.'/css/all.css');	
+	$cs->registerCssFile($theme_baseurl.'/css/all.css');		
 ?>	
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -28,12 +28,17 @@
       </div>
       <div class='grid6 nav'>      
         <ul>
+          <li><a href="<?php echo CController::createUrl('forum/index' ) ?>" title="首页">首页</a></li>
           <?php        
             if( Yii::app()->user->isGuest ){
-          ?>
-          <li><a href="<?php echo CController::createUrl('forum/index' ) ?>" title="首页">首页</a></li>
+          ?>          
           <li><a href="<?php echo CController::createUrl('forum/signup' ) ?>" title="注册">注册</a></li>
           <li><a href="<?php echo CController::createUrl('forum/signin' ) ?>" title="登录">登录</a></li>
+          <?php
+            }else {
+          ?>
+            <li><a href="#">Hi,<?php echo Yii::app()->user->name ?></a></li>
+            <li><a href="<?php echo CController::createUrl('forum/signout') ?>" >sign out</a></li>
           <?php
             }
           ?>
@@ -71,6 +76,10 @@
   </div>
   
 </div><!-- page -->
-
+<?php
+  $cs->registerScriptFile($theme_baseurl.'/js/jquery-1.4.2.min.js');
+	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');
+	$cs->registerScriptFile($theme_baseurl.'/js/script.js');
+?>
 </body>
 </html>

@@ -11,7 +11,7 @@
         </a>
       </td>
       <td class="w20P ar_arrow">&nbsp;</td>
-      <td class="ar_content_wrap">
+      <td class="boxshadow ar_content_wrap">
         <div class="flR reply_count">
 	        <a href="#" class=""><?php echo $inst->reply_count ?></a>
 	      </div>	    	      
@@ -25,7 +25,7 @@
           <strong><a href="#" class="dark"><?php echo $inst->author->username ?></a></strong>
           &nbsp;•&nbsp;
           <?php echo $inst->pv ?>次点击 &nbsp;•&nbsp; 
-          <span title="<?php $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
+          <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
 	    </td>
     </tr>
   </table>
