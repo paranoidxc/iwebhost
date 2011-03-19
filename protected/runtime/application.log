@@ -7961,3 +7961,14 @@ Stack trace:
 #6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #7 H:\projects\iwebhost\index.php(91): CApplication->run()
 #8 {main} REQUEST_URI=/index.php?r=s/reset&token=3cded08e995377f7396e918c18a27958
+2011/03/19 21:17:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested Reset Password does not exist.' in H:\projects\iwebhost\protected\controllers\SController.php:114
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): SController->actionReset()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reset')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('s/reset')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#7 H:\projects\iwebhost\index.php(91): CApplication->run()
+#8 {main} REQUEST_URI=/index.php?r=s/reset&token=4a54d3eb029c46e9eddb915cd7c66ace

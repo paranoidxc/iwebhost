@@ -9,7 +9,7 @@
   
   <div class='iline'></div>  
   <div class='p10P'>      
-  	<p class="note">重置用户 <?php echo $model->username ?> 密码邮件已发送至邮箱 <?php echo $model->email ?>, 请注意查收!</p>
+  	<p class="note">重置用户 <?php echo $model->username ?> 密码邮件已发送至邮箱 <?php echo $model->email ?>, 请注意查收, 如收件箱没有重置邮件,请检查下是否在垃圾邮件中!</p>
   </div>   
 <?php $this->endWidget(); ?>
 </div>

@@ -50,14 +50,16 @@ class ForgotForm extends CFormModel
     date_default_timezone_set('America/Toronto');
     //include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded    
     $mail             = new PHPMailer();    
+    $mail->CharSet = "UTF-8";
     $body             = "    <p>Hi $user->username: </p>";
     $body .="<p>请点击下面的链接重新设置你的密码 <p>";
     $uri  = $_SERVER['HTTP_HOST'];
     $uri .= Yii::app()->urlManager->createUrl('s/reset', array('token' => $user->token) ); 
     $body .= "<p><a href='http://".$uri."'  target='_blank' title='重置密码链接' >http://".$uri."</a>";
+    $body .= "<p>如果本次密码重设请求不是由你发起，你可以安全地忽略本邮件。</p>";
     //$body .= Yii::app()->urlManager->createUrl('s/reset', array('token' => $user->token) ); 
     $body .= "</p>";
-    $body             = eregi_replace("[\]",'',$body);    
+    @ $body             = eregi_replace("[\]",'',$body);    
     $mail->IsSMTP(); // telling the class to use SMTP
     $mail->Host       = "mail.gmail.com"; // SMTP server
     $mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
@@ -67,21 +69,19 @@ class ForgotForm extends CFormModel
     $mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
     $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
     $mail->Port       = 465;                   // set the SMTP port for the GMAIL server
-    $mail->Username   = "emohuang@gmail.com";  // GMAIL username
-    $mail->Password   = "tianshixc";            // GMAIL password
+    $mail->Username   = "infuzhou.webmaster@gmail.com";  // GMAIL username    
+    $mail->Password   = "ihuangxc";            // GMAIL password
     
-    $mail->SetFrom('emohuang@gmail.com', 'ihost');
+    $mail->SetFrom('infuzhou.webmaster@gmail.com', 'infuzhou');
     
-    $mail->AddReplyTo("49421240@qq.com","First Last");
+    //$mail->AddReplyTo("49421240@qq.com","First Last");
     
-    $mail->Subject    = "ihost 重新重置密码 ";
+    $mail->Subject    = "infuzhou社区重新重置用户密码";
     
     //$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
     
     $mail->MsgHTML($body);
-    
-    $address = "49421240@qq.com";
-    $mail->AddAddress($address, $user->username);
+    $mail->AddAddress($user->email, $user->username);
     
     if(!$mail->Send()) {
       //echo "Mailer Error: " . $mail->ErrorInfo;

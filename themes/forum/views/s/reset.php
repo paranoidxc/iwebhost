@@ -8,7 +8,8 @@
   <div class="p10P">
   	<p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
     <?php echo $form->hiddenField($model,'token', array('class' => 'itext') ); ?>
-    <table class='iform_table_wrap w100S'>
+    
+    <table class='itable iform_table_wrap w100S'>
       <tbody>
     	  <tr>
     		  <th><?php echo $form->labelEx($model,'password'); ?></th>

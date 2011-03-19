@@ -15,7 +15,7 @@ class TController extends Controller {
 	
 	public function actionCreate() {	  
 	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';
+		Yii::app()->theme='forum';		
 	  $model = new Article('forum');
 		$model->category_id = $_GET['f'];
 		if(isset($_POST['Article']) && !Yii::app()->user->isGuest )

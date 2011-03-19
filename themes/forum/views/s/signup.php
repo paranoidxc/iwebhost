@@ -20,7 +20,7 @@
       </div>
     <?php } ?>
     
-    <table class='itable w100S'>
+    <table class='itable iform_table_wrap w100S'>
       <tbody>
         <tr>
           <th><?php echo $form->labelEx($model,'username'); ?></th>
@@ -33,7 +33,7 @@
         <tr>
           <th><?php echo $form->labelEx($model,'password'); ?></th>
           <td>
-            <?php echo $form->textField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
+            <?php echo $form->passwordField($model,'password',array('class' => 'itext' ,'size'=>60,'maxlength'=>128)); ?>            
             <?php echo $form->error($model,'password'); ?>
           </td>
         </tr>
