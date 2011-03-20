@@ -7972,3 +7972,117 @@ Stack trace:
 #6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #7 H:\projects\iwebhost\index.php(91): CApplication->run()
 #8 {main} REQUEST_URI=/index.php?r=s/reset&token=4a54d3eb029c46e9eddb915cd7c66ace
+2011/03/20 10:27:36 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (780)
+in H:\projects\iwebhost\index.php (91)
+2011/03/20 10:40:30 [warning] [application] Failed to set unsafe attribute "parent_leaf_id".
+in H:\projects\iwebhost\protected\modules\admin\controllers\CategoryController.php (780)
+in H:\projects\iwebhost\index.php (91)
+2011/03/20 12:02:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/posts/index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php:328
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/posts/ind...')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 H:\projects\iwebhost\index.php(91): CApplication->run()
+#3 {main} REQUEST_URI=/index.php?r=admin/posts/index
+2011/03/20 12:29:20 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CController->render('index', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:29:43 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "t/index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('t/index', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CController->render('t/index', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:29:48 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "/t/index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('/t/index', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CController->render('/t/index', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:30:02 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "/t/index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('/t/index', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CController->render('/t/index', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:30:55 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(31): CController->render('index', Array)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:31:57 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', NULL, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(31): CController->render('index')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:32:31 [error] [exception.CException] exception 'CException' with message 'TController 无法找到请求的视图 "index".' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:807
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', NULL, true)
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CController->render('index')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 12:37:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested does not allow.' in H:\projects\iwebhost\protected\controllers\TController.php:33
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#7 H:\projects\iwebhost\index.php(91): CApplication->run()
+#8 {main} REQUEST_URI=/index.php?r=t/reply

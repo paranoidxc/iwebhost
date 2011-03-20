@@ -28,7 +28,7 @@
       </div>
       <div class='grid6 nav'>      
         <ul>
-          <li><a href="<?php echo Yii::app()->homeUrl ?>" title="首页">首页</a></li>
+          <li><a href="<?php echo Yii::app()->request->baseUrl; ?>" title="首页">首页</a></li>
           <?php        
             if( Yii::app()->user->isGuest ){
           ?>          

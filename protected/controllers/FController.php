@@ -9,9 +9,9 @@ class FController extends Controller {
 		  if($node===null){
 			  throw new CHttpException(404,'The requested Node does not exist.');
 		  }		  
-		  $articles = $node->forumarticles;
+		  $articles = $node->forumarticles;		  
 		}else{
-		  $articles = Article::model()->findAll( array('limit' => 20, 'order' => 'update_time desc' ) );		  
+		  $articles = Article::model()->findAll( array('limit' => 20, 'order' => 'update_time desc' ) );		  		  
 		}
 		$this->render('index', array('articles' => $articles, 'node' => $node ));
 	}	

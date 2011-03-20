@@ -23,6 +23,12 @@ a:hover {
   color: #8C0505;
 }
 
+.node-memo {
+  line-height: 18px;
+  color: #333;
+  padding: 5px 20px 5px 20px;
+}
+
 body {
   background: #fff url(bgs/gbg.png) repeat 0 0;
   font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important;  
@@ -261,5 +267,9 @@ body {
 .iform_table_wrap tbody td textarea {
   width: 98%;
   height: 400px;
+}
+.reply_wrap .iform_table_wrap tbody td textarea {
+  width: 98%;
+  height: 200px;
 }
 

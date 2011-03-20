@@ -10,6 +10,8 @@
   
   <div class='iline'></div>  
   
+  <div class="node-memo"><?php echo nl2br($node->memo) ?></div>
+  
   <div class='p10P'>  
   	<h1 class="note"><?php echo Yii::t('cp','Fields with * are required.')?></h1>
     <table class='itable iform_table_wrap w100S'>

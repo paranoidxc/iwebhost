@@ -12,8 +12,9 @@
 	      <a class="flR radius2 new-ar" href="<?php echo CController::createUrl('t/create', array('f' => $node->id) )?>">新主题</a>
   	    <?php
 	    }?>
-	  </h1>
+	  </h1>	  
 	</div>
+  <div class="node-memo"><?php echo nl2br($node->memo) ?></div>
 </div>
 <?
   } else {

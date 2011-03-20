@@ -15,7 +15,8 @@
 	      <div class='iline'></div>
 	      <div class="p10P">
   	    <?php
-  	      $nodes = Category::model()->findall( array('limit' => 20 , 'order' => 'create_time desc ') );
+  	      $nodes = API::INODE( array( 'ident_label' =>  'forum_node' ) );
+  	      //$nodes = Category::model()->findall( array('limit' => 20 , 'order' => 'create_time desc ') );
   	      foreach( $nodes as $node ){
   	    ?>
     	    <a href="<?php echo CController::createUrl('f/index', array('id' =>$node->id) ) ?>" class='radius2' title="<?php echo $node->name ?>" ><?php echo $node->name ?></a>

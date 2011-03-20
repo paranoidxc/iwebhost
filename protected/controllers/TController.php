@@ -10,8 +10,30 @@ class TController extends Controller {
 		}
 		$article->pv = $article->pv +1;
 		$article->save();
-		$this->render('index', array('inst' => $article ));
+		
+		$model = new Post;
+		$model->article_id = $article->id;
+		$this->render('index', array('inst' => $article, 'model' => $model ));
 	}		
+	
+	public function actionReply() {	    
+	  Yii::app()->name = 'infuzhou';
+		Yii::app()->theme='forum';		
+	  $model = new Post;
+	  if( isset($_POST['Post']) &&  !Yii::app()->user->isGuest ){
+	    $model->attributes=$_POST['Post'];
+		  $model->c_time  = date("Y-m-d H:i:s");
+		  $model->user_id = Yii::app()->user->id;
+		  $article = Article::model()->findByPk($model->article_id);
+		  if( $model->save() ){			    
+		    $this->redirect(array('t/index','id'=>$model->article_id) );		    
+		  }		  
+		  $this->render('index', array('inst' => $article, 'model' => $model ));		  
+	  }else {
+	    throw new CHttpException(404,'The requested does not allow.');
+	  }
+	  
+	}
 	
 	public function actionCreate() {	  
 	  Yii::app()->name = 'infuzhou';
