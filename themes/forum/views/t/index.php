@@ -3,9 +3,10 @@
 <div class="index_articles_wrap">  
   <table style="width: 100%">
     <tr>
-      <td class="author_warp pt20P">
-        <a href="#" class="radius2" title="<?php echo $inst->author->username ?>" >
-          <img src="/default_image/<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
+      <td class="author_warp pt20P">       
+        <a href="<?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?> "
+           class="radius2" title="<?php echo $inst->author->username ?>" >
+          <img src="<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>
@@ -30,7 +31,8 @@
   		    </span>
           <div class="clB h2P"></div>
           <span class="ar_extra">
-            <strong>By <a href="#" class="radius2"><?php echo $inst->author->username ?></a></strong>
+            <strong>By <a href=" <?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?>"
+            class="radius2"><?php echo $inst->author->username ?></a></strong>
             &nbsp;•&nbsp;          
             <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
             &nbsp;•&nbsp; 
@@ -43,8 +45,8 @@
           </div>
         <div>
 	    </td>
-    </tr>  
-    
+    </tr>
+    <?php if( $inst->reply_count ) {?>
      <tr>
       <td></td>
       <td></td>
@@ -55,23 +57,43 @@
   	    </div>
       <?php
         foreach( $inst->posts as $post ){
-      ?>   
-        <div class="p10P">
-          <p>            
-            <img width="32" src='/default_image/<?php echo CHtml::encode($post->auther->gravatar) ?> ' alt='<?php echo CHtml::encode($post->auther->username) ?> ' />
-            <?php echo CHtml::encode($post->auther->username) ?> 
-            <span class='timeago' title='<?php echo CHtml::encode($post->c_time) ?>'><?php echo CHtml::encode($post->c_time) ?></span>
-          </p>
-          <?php echo CHtml::encode($post->content) ?>
-        </div>      
+      ?>
+      <table class=''>
+          <tr>
+            <th class='vaT p5P reply_gravatar'>
+              <a href="<?php echo CController::createUrl('m/index', array('id' => $post->user_id) )?> "
+                title="<?php echo CHtml::encode($post->auther->username) ?>">
+                <img width="40" src='<?php echo CHtml::encode($post->auther->gravatar) ?> ' 
+                  alt='<?php echo CHtml::encode($post->auther->username) ?> ' />
+              </a>
+            </th>
+            <td class='vaT pt5P'>
+              <p class='ar_extra'>
+                <strong>
+                  <a href="<?php echo CController::createUrl('f/index', array( 'id' => $post->user_id) ) ?>" 
+                  class="radius2"><?php echo $post->auther->username?></a>
+                </strong>      
+                &nbsp;•&nbsp;         
+                <span class='timeago' title='<?php echo CHtml::encode($post->c_time) ?>'>
+                  <?php echo CHtml::encode($post->c_time) ?>
+                </span>
+              </p>
+              <div class="clB ar_content pl5P">
+                <?php echo $post->scontent ?>
+              </div>
+            </td>
+          </tr>        
+        </table>
+        
         <div class='iline'></div>
       <?php
         }
       ?>
       </div>
       </td>
-    </tr>
+    </tr>    
 <?php
+  }
   if( !Yii::app()->user->isGuest ){
 ?>      
     <tr>
@@ -92,7 +114,8 @@
                 <tbody>
                   <tr>    		  
               		  <td>                  	  
-                  		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
+              		    
+                  		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50,'class' => 'widgEditor')); ?>
                   		<?php echo $form->error($model,'content'); ?>
               		  </td>
               		</tr>   

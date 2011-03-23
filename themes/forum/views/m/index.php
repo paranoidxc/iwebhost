@@ -5,7 +5,7 @@
     <tr>
       <td class="author_warp pt20P">
         <a href="#">
-          <img src="/default_image/<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" />
+          <img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>

@@ -1,12 +1,12 @@
 <?php
 class API {  
-  public static $image_extension  = array("jpg", "jpeg", "png", "gif");
+  public static $image_extension  = array("jpg", "jpeg", "png", "gif");      
   public static function mysql_version(){    
     $sql = " select version() as version";
     $r = Yii::app()->db->createCommand($sql)->queryAll();    
     return $r[0]['version'];    
   }
-  
+    
   public static function get_lang() {
     return Yii::app()->language;
   }  

@@ -13,8 +13,9 @@
 	$theme_baseurl = API::get_theme_baseurl();
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');					
-	$cs->registerCssFile($theme_baseurl.'/css/all.css');		
-?>	
+	$cs->registerCssFile($theme_baseurl.'/css/all.css');			
+	$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
+?>
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -28,7 +29,7 @@
       </div>
       <div class='grid6 nav'>      
         <ul>
-          <li><a href="<?php echo Yii::app()->request->baseUrl; ?>" title="首页">首页</a></li>
+          <li><a href="/" title="首页">首页</a></li>
           <?php        
             if( Yii::app()->user->isGuest ){
           ?>          
@@ -55,17 +56,19 @@
 	  <div class="container clearfix">  
 	    <div class="grid11 first copyfight">
 	      <p class="mb10P">
-  	      <strong>
-  	        <a href="#">About</a>
-  	      </strong>
-  	      &nbsp;•&nbsp;
-  	      <strong>
-  	        <a href="#">FAQ</a>
-  	      </strong>
-  	      &nbsp;•&nbsp;
-  	      <strong>
-  	        <a href="#">Support</a>
-  	      </strong>
+  	      <?php  	        
+  	        $ipage = Category::model()->findByAttributes( array('ident_label' => 'ipage') );
+  	        for( $i=0; $i< count($ipage->articles); $i++ ){
+  	        //foreach( $ipage->articles as $inst) {  	          
+  	          $inst = $ipage->articles[$i];  	          
+  	      ?>
+    	      <strong>
+    	        <a href="#"><?php echo $inst->title ?></a>
+    	      </strong>
+      	    <?php if( $i != count($ipage->articles)-1 ) { echo '&nbsp;•&nbsp;'; } ?>
+    	    <?php
+  	        }
+  	      ?>
 	      <p>
 	      
 	      Infuzhou(VERSION: 0.1) Maintained by 
@@ -78,8 +81,9 @@
 </div><!-- page -->
 <?php
   $cs->registerScriptFile($theme_baseurl.'/js/jquery-1.4.2.min.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/script.js');
+	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');	
+	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
 ?>
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>
 </body>
 </html>

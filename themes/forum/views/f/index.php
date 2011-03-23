@@ -43,7 +43,7 @@
       <td class="author_warp">
         <a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->author->id )) ?>" 
             class="radius2" title="<?php echo $inst->author->username ?>" >
-          <img src="/default_image/<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
+          <img src="<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow">&nbsp;</td>

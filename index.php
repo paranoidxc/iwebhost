@@ -8,7 +8,18 @@ $atms_dave_dir = $website_dir.'/upfiles/';
 //$atms_dave_dir = '/home/huangxc/upfiles/';
 
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/main.php';
+
+switch($_SERVER['HTTP_HOST']){
+  case 'local.infuzhou.com':
+  case 'www.infuzhou.co.cc':
+  case 'infuzhou.co.cc':
+    $config=dirname(__FILE__).'/protected/config/infuzhou.php';
+    break;
+  default:
+    $config=dirname(__FILE__).'/protected/config/main.php';
+    break;
+}
+
 
 // remove the following lines when in production mode
 define('WEBSITE_DIR',$website_dir);

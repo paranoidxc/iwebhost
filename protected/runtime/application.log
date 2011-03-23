@@ -8086,3 +8086,145 @@ Stack trace:
 #6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #7 H:\projects\iwebhost\index.php(91): CApplication->run()
 #8 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/20 14:08:45 [error] [exception.CException] exception 'CException' with message '属性 "User.name" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:131
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(110): CComponent->__get('name')
+#1 H:\projects\iwebhost\protected\modules\admin\models\User.php(21): CActiveRecord->__get('name')
+#2 H:\projects\iwebhost\themes\forum\views\t\index.php(71): User->__get('name')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(119): require('H:\projects\iwe...')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CBaseController.php(88): CBaseController->renderInternal('H:\projects\iwe...', Array, true)
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(798): CBaseController->renderFile('H:\projects\iwe...', Array, true)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(739): CController->renderPartial('index', Array, true)
+#7 H:\projects\iwebhost\protected\controllers\TController.php(16): CController->render('index', Array)
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionIndex()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('index')
+#13 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/index')
+#14 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#15 H:\projects\iwebhost\index.php(91): CApplication->run()
+#16 {main} REQUEST_URI=/index.php?r=t/index&id=708
+2011/03/20 14:24:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('list')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('list')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('m/list')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=m/list
+2011/03/20 14:24:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('list')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('list')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('m/list')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=m/list
+2011/03/20 14:24:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('list')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('list')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('m/list')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=m/list
+2011/03/20 14:24:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('list')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('list')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('m/list')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=m/list
+2011/03/20 14:29:43 [error] [exception.CException] exception 'CException' with message '属性 "Article.reply_time" 未被定义.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CComponent.php:173
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(126): CComponent->__set('reply_time', '2011-03-20 14:2...')
+#1 H:\projects\iwebhost\protected\controllers\TController.php(30): CActiveRecord->__set('reply_time', '2011-03-20 14:2...')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#7 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#8 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#9 H:\projects\iwebhost\index.php(91): CApplication->run()
+#10 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/22 00:16:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "css" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('css')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('css')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/css/widgConte...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=t/css/widgContent.css
+2011/03/22 00:16:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "css" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('css')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('css')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/css/widgConte...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=t/css/widgContent.css
+2011/03/22 00:17:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 ".." 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('..')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('..')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/../css/widgCo...')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(91): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=t/../css/widgContent.css
+2011/03/22 19:55:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested does not allow.' in H:\projects\iwebhost\protected\controllers\TController.php:41
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionReply()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('reply')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/reply')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#7 H:\projects\iwebhost\index.php(91): CApplication->run()
+#8 {main} REQUEST_URI=/index.php?r=t/reply
+2011/03/22 21:48:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'localhost' (10061)' in H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php:269
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(242): CDbConnection->open()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\CDbConnection.php(221): CDbConnection->setActive(true)
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CModule.php(363): CDbConnection->init()
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(391): CModule->getComponent('db')
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(553): CApplication->getDb()
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(2048): CActiveRecord->getDbConnection()
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\db\ar\CActiveRecord.php(353): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 H:\projects\iwebhost\protected\modules\admin\models\Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 H:\projects\iwebhost\protected\components\Controller.php(21): Sconfig::model()
+#9 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(323): Controller->init()
+#10 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('')
+#11 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 H:\projects\iwebhost\index.php(100): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/03/22 22:06:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "list" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('list')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('list')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('m/list')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(102): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=m/list
+2011/03/23 22:37:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested Node does not exist.' in H:\projects\iwebhost\protected\controllers\TController.php:88
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\actions\CInlineAction.php(32): TController->actionCreate()
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(300): CInlineAction->run()
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('create')
+#5 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('t/create')
+#6 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#7 H:\projects\iwebhost\index.php(102): CApplication->run()
+#8 {main} REQUEST_URI=/index.php?r=t/create
+2011/03/23 22:44:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "singin" 动作.' in H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php:439
+Stack trace:
+#0 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CController.php(262): CController->missingAction('singin')
+#1 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(324): CController->run('singin')
+#2 H:\projects\yii-download\yii-1.1.3.r2247\framework\web\CWebApplication.php(121): CWebApplication->runController('s/singin')
+#3 H:\projects\yii-download\yii-1.1.3.r2247\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 H:\projects\iwebhost\index.php(102): CApplication->run()
+#5 {main} REQUEST_URI=/index.php?r=s/singin

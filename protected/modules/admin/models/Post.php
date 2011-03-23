@@ -12,6 +12,21 @@
  */
 class Post extends CActiveRecord
 {
+  
+  public function __get($name)
+  {    
+    $getter='get'.$name;
+    if(method_exists($this,$getter))
+      return $this->$getter();
+      
+    return parent::__get($name);
+  }
+   
+  public function getScontent(){
+    return ereg_replace('<script.*</script>', '', $this->content);  
+  }
+  
+  
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Post the static model class

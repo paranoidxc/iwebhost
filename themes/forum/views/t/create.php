@@ -24,10 +24,9 @@
     		  </td>
     		</tr>    		
     		<tr>    		  
-    		  <td>
-    		    <?php echo $form->labelEx($model,'content', array('for'=> 'article_content'.time() )) ?>
+    		  <td>    		    
     		    <?php echo $form->textArea($model,'content',array('rows'=>50, 'cols'=>140, 'id'=>'article_content'.time(), 'class' => 'widgEditor' )); ?>
-  		      <?php echo $form->error($model,'content'); ?>
+  		      <?php echo $form->error($model,'content'); ?>  		      
     		  </td>
     		</tr>
       </tbody>

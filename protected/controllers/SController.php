@@ -42,6 +42,7 @@ class SController extends Controller {
 		Yii::app()->theme='forum';
 		if( !Yii::app()->user->isGuest ){
 		  $this->render('diffsignin');
+		  exit;
 		}
 		
 		$model=new LoginForm;		

@@ -144,7 +144,7 @@ body {
 .newest-node a:hover {
   text-decoration: none;
   color: #fff;
-  background: #1082c2;  
+  background-color: #1082c2;  
 }
 
 /*sidebar end */
@@ -184,7 +184,6 @@ body {
   vertical-align: top;
   margin-left: 12px;
   background: #FFF;
-  
 }
 
 .ar_title a {
@@ -237,18 +236,31 @@ body {
   color: #969696;
 }
 .ar_content {  
-  font-size: 14px;
-  line-height: 180%;
+  font-size: 14px;  
   color: black;
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
+.ar_content div,  
 .ar_content p {  
-  line-height: 180%;
-  margin-bottom: 18px;
+  padding: 0;
+  margin: 0;  
+  line-height: 24px;    
+  margin-bottom: 10px;
 }
-
+.ar_content ol,
+.ar_content ul {
+  list-style-type: disc;
+  margin-left: 40px;
+  line-height: 20px;  
+  margin-bottom: 10px;
+}
+.ar_content ol {
+  list-style-type: decimal;
+}
 
 /* signup page start */
 #signup_wrap {
@@ -272,4 +284,45 @@ body {
   width: 98%;
   height: 200px;
 }
+.reply_wrap .reply_gravatar a {
+  border: 1px solid #FFF;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+}
+.reply_wrap .reply_gravatar a:hover {
+  background: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+}
+.reply_wrap .reply_gravatar a img {
+  margin-top: 1px;
+}
 
+.widgContainer {  
+  border: 1px solid #AFAFAF; 
+}
+
+.newest-node .widgContainer ul li a,
+.newest-node .widgContainer ul li {
+  height: 27px;
+  width: 27px;
+}
+.newest-node .widgContainer a:hover {
+  background-color: transparent;
+}

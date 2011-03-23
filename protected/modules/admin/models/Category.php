@@ -443,7 +443,7 @@ class Category extends CActiveRecord
       $articles = $this->articles;      
     }
     if( $split ){
-      return array( $articles, $pagination);  
+      return array( $articles, $pagination);
     }else{
       return $articles;
     }    

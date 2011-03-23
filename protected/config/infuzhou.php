@@ -22,7 +22,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'iWebhost version 0.3 beta',
 	'theme'=>'classic',
-	'defaultController' => 'istart',
+	'defaultController' => 'f',
 	'timeZone'=>"Asia/Shanghai",
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -67,7 +67,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-			
+			'loginUrl'    => array('s/signin'),
 		),
 		// uncomment the following to enable URLs in path-format
 		
@@ -91,10 +91,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		'db'=>array(
 			//'connectionString' => 'mysql:host=localhost;dbname=parano2_iwebhost',
-			'connectionString' => 'mysql:host=localhost;dbname=iblog',
+			'connectionString' => 'mysql:host=localhost;dbname=infuzhou',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'infuzhou_user',
+			'password' => 'infuzhou_pwd',
 			'charset' => 'utf8',
 		),
 
