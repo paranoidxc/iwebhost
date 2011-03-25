@@ -20,8 +20,8 @@
 return array(  
   'homeUrl' =>array('f/index'),
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'iWebhost version 0.3 beta',
-	'theme'=>'classic',
+	'name'=>'infuzhou beta',
+	'theme'=>'forum',
 	'defaultController' => 'f',
 	'timeZone'=>"Asia/Shanghai",
 	// preloading 'log' component
