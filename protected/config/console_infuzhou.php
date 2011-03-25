@@ -72,9 +72,9 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
-			'urlFormat'     =>'path',
-			'showScriptName'=>false,
-			'urlSuffix'     =>'.html',
+			//'urlFormat'     =>'path',
+			//'showScriptName'=>false,
+			//'urlSuffix'     =>'.html',
 			'rules'=>array(
 			  'ilogin' => 'site/login',
 			  'blog' => 'blog/index',

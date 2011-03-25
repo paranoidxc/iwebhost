@@ -9,6 +9,8 @@ $atms_dave_dir = $website_dir.'/upfiles/';
 
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
 
+//print_r($_SERVER);
+
 switch($_SERVER['HTTP_HOST']){
   case 'local.infuzhou.com':
   case 'www.infuzhou.co.cc':
@@ -20,6 +22,10 @@ switch($_SERVER['HTTP_HOST']){
     break;
 }
 
+if( strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/login') !== false 
+  || strpos($_SERVER['REQUEST_URI'], 'index.php?r=admin/') !== false ){  
+  $config=dirname(__FILE__).'/protected/config/console_infuzhou.php';
+}
 
 // remove the following lines when in production mode
 define('WEBSITE_DIR',$website_dir);
