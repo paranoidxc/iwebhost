@@ -315,6 +315,9 @@ body {
 .reply_wrap .reply_gravatar a img {
   margin-top: 1px;
 }
+.reply_wrap .iline:last-child {
+  border: none;
+}
 
 .widgContainer {  
   border: 1px solid #AFAFAF; 

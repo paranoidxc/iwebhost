@@ -60,14 +60,14 @@
       ?>
       <table class=''>
           <tr>
-            <th class='vaT p5P reply_gravatar'>
+            <th class='vaT p10P reply_gravatar'>
               <a href="<?php echo CController::createUrl('m/index', array('id' => $post->user_id) )?> "
                 title="<?php echo CHtml::encode($post->auther->username) ?>">
                 <img width="40" src='<?php echo CHtml::encode($post->auther->gravatar) ?> ' 
                   alt='<?php echo CHtml::encode($post->auther->username) ?> ' />
               </a>
             </th>
-            <td class='vaT pt5P'>
+            <td class='vaT pt10P'>
               <p class='ar_extra'>
                 <strong>
                   <a href="<?php echo CController::createUrl('f/index', array( 'id' => $post->user_id) ) ?>" 
