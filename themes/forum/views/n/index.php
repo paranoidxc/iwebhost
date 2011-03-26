@@ -23,7 +23,7 @@
 		    </span>
         <div class="clB h2P"></div>
           <a href="<?php echo CController::createUrl('t/index',array('id' => $inst->article_id) ) ?>" 
-          class="fs16P"><?php echo cnSub( CHtml::encode(strip_tags($inst->post->content)), 26 ) ?></a>
+          class="fs16P <?php echo $inst->is_read ? 'read' : 'unread' ?>"><?php echo cnSub( strip_tags($inst->post->content), 26 ) ?></a>
 	    </td>
     </tr>
   </table>
