@@ -37,7 +37,12 @@ class TController extends Controller {
 		  $article->pv = $article->pv +1;
 		  $article->save();
     }
-		
+
+    //article auther read the reply
+    if( $article->user_id == Yii::app()->user->id ) {
+      Notification::model()->article_auther_readed_notices($article->id,Yii::app()->user->id);
+    }
+
 		$model = new Post;		
 		$model->content = "<p></p>";
 		$model->article_id = $article->id;

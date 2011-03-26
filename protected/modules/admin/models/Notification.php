@@ -45,9 +45,18 @@ class Notification extends CActiveRecord
 		);
 	}
 
+  public function article_auther_readed_notices($article_id,$user_id) {
+    self::model()->updateAll( 
+        array( 'is_read' => 1 ), 
+        'user_id =:user_id AND article_id =:article_id ',
+        array(':user_id'=> $user_id, ':article_id'=>$article_id )
+    );
+
+  }
+
   public function scopes() {
     return array(
-      'itest' => array(
+      'notices_count' => array(
         'condition' => "is_read = 0 AND user_id =  ".Yii::app()->user->id,
       ),
     );
