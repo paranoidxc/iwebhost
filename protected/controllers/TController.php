@@ -25,8 +25,6 @@ class TController extends Controller {
 	
 	
 	public function actionIndex(){			  
-		Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';			
 		$article = Article::model()->findByPk($_GET['id']);
 		if($article===null){
 			throw new CHttpException(404,'The requested Topic does not exist.');
@@ -50,8 +48,6 @@ class TController extends Controller {
 	}		
 	
 	public function actionReply() {	    
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';		
 	  $model  = new Post;	  
     $now    = date("Y-m-d H:i:s");
 	  if( isset($_POST['Post']) &&  !Yii::app()->user->isGuest ){
@@ -92,8 +88,6 @@ class TController extends Controller {
 	}
 	
 	public function actionCreate() {	  
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';		
 	  $model = new Article('forum');
 	  $model->content = "<p></p>";
 		$model->category_id = $_GET['f'];
@@ -116,8 +110,5 @@ class TController extends Controller {
 		}
 	  $this->render('create', array('model'=>$model, 'node' => $node) );
 	}
-	
-	
-	
  
 }

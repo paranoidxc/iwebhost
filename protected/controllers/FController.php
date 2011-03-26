@@ -2,8 +2,6 @@
 
 class FController extends Controller {	
 	public function actionIndex(){			  
-		Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';		
 		if( isset( $_GET['id'] ) ){
 		  $node = Category::model()->findByPk($_GET['id']);		  
 		  if($node===null){

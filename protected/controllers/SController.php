@@ -2,15 +2,11 @@
 
 class SController extends Controller {	
 	public function actionIndex(){			  		
-	  Yii::app()->name = 'infuzhou';
-	  Yii::app()->theme='forum';	
 		$this->render('index');
 	}
 	
 	public function actionError()
 	{
-	  Yii::app()->name = 'infuzhou';
-	  Yii::app()->theme='forum';	
     if($error=Yii::app()->errorHandler->error)
     {
     	if(Yii::app()->request->isAjaxRequest)
@@ -22,8 +18,6 @@ class SController extends Controller {
 	
 	
 	public function actionSignup() {
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';		
 		$model=new User;
 	  if(isset($_POST['User'])) {
 	    $model->attributes=$_POST['User'];
@@ -38,8 +32,6 @@ class SController extends Controller {
 	  $this->render('signup', array('model' => $model));
 	}
 	public function actionSignin() {
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';
 		if( !Yii::app()->user->isGuest ){
 		  $this->render('diffsignin');
 		  exit;
@@ -83,8 +75,6 @@ class SController extends Controller {
 	}
 	
 	public function actionForgot() {
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';		
 	  $model=new ForgotForm;	  
 		if(isset($_POST['ForgotForm'])) {
 			$model->attributes=$_POST['ForgotForm'];			
@@ -97,8 +87,6 @@ class SController extends Controller {
 	}
 
 	public function actionReset(){
-	  Yii::app()->name = 'infuzhou';
-		Yii::app()->theme='forum';
 	  $token = trim($_GET['token']);
 	  $model = new ResetPasswordForm;	 
 	  if( isset($_POST['ResetPasswordForm'] ) ){
