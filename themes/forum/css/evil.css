@@ -38,8 +38,9 @@
 .csD { cursor: url(img/openhand.cur), default !important; }
 .csP { cursor: pointer; }
 
-.fs16P { font-size: 16px; }
+.fs14P { font-size: 14px; }
 .fs15p {font-size: 15px; }
+.fs16P { font-size: 16px; }
 
 .flL { float: left; }
 .flR { float: right; }
@@ -95,6 +96,7 @@
 .h400P { height: 400px; }
 
 .lh20P { line-height: 20px; }
+.lh26P { line-height: 26px; }
 .lh30P { line-height: 30px; }
 .lh40P { line-height: 40px; }
 .lh50P { line-height: 50px; }
@@ -113,6 +115,7 @@
 .pr5P { padding-right: 5px; }
 .pr10P { padding-right: 10px; }
 .pr20P { padding-right: 20px; }
+.pl10P { padding-left: 10px; }
 .pl2P { padding-left: 2px; }
 .pl3P { padding-left: 3px; }
 .pl4P { padding-left: 4px; }

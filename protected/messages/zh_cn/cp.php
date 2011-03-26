@@ -138,6 +138,7 @@ return array(
   
   
   'Fields with * are required.'   => '带*号字段为必填项.',
+  'Sign'                          => '个人签名',  
   'Username'                      => '帐号',  
   'Password'                      => '密码',
   'Remember me next time'         => '记住我',

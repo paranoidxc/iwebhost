@@ -250,7 +250,7 @@ body {
 .ar_content p {  
   padding: 0;
   margin: 0;  
-  line-height: 24px;    
+  line-height: 22px;    
   margin-bottom: 10px;
 }
 .ar_content ol,
@@ -342,4 +342,9 @@ body {
 .read:link,
 .read:visited {
   color: gray;
+}
+.itable tbody td textarea.sign {
+  width: 90%;
+  height: 80px;
+  font-size: 14px;
 }
