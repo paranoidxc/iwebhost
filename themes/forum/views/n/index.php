@@ -1,3 +1,14 @@
+<div class='radius5 mb20P boxshadow newest-node '>  
+  <div class="radius5 panel-title ">
+	  <h1 class="radius5 ">
+	    <a href="/" ><?php echo Yii::app()->name ?></a>
+	    &raquo;&nbsp;
+      你的提醒
+	  </h1>	  
+	</div>
+  <div class="node-memo">如果你的发表的主题有其他会员回复的话，这里的提醒系统应该会有记录的哦：)</div>
+</div>
+
 <?php
   foreach( $notices as $inst ) {
 ?>
