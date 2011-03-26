@@ -22,6 +22,7 @@ class NController extends Controller {
 
   public function actionIndex() {
     $u =  User::model()->findByPk( Yii::app()->user->id );
+    $this->_pageTitle = '主题回复提醒'.API::lchart();
     $this->render('index', array('notices' => $u->notices) );
   }
 

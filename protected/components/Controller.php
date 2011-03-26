@@ -15,7 +15,8 @@ class Controller extends CController
 	public $signoutUrl;
 	public $signinUrl;
 	public $signupUrl;
-	
+  public $_pageTitle;	
+
 	public function init() {
 
 	  $this->isconfig=Sconfig::model()->find();	  	  

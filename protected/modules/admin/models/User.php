@@ -58,6 +58,7 @@ class User extends CActiveRecord
 			array('email','unique'),
 			array('email','email'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
+			array('username,password', 'length', 'min'=>6),
 			array('username, email', 'length', 'max'=>100),
 			array('password', 'length', 'max'=>128),
 			// The following rule is used by search().

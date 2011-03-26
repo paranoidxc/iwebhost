@@ -5,6 +5,7 @@ class MController extends Controller {
 		if($m===null){
 			throw new CHttpException(404,'The requested Member does not exist.');
 		}		
+    $this->_pageTitle = $m->username.API::lchart();
 		$this->render('index', array('m' => $m));
 	}	
 }

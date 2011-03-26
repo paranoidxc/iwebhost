@@ -3,13 +3,15 @@
 class FController extends Controller {	
 	public function actionIndex(){			  
 		if( isset( $_GET['id'] ) ){
+      // sepcial node 
 		  $node = Category::model()->findByPk($_GET['id']);		  
 		  if($node===null){
 			  throw new CHttpException(404,'The requested Node does not exist.');
 		  }		  
+      $this->_pageTitle = $node->name.API::lchart();
 		  $articles = $node->forumarticles;		  
 		}else{
-		  //$articles = Article::model()->findAll( array('limit' => 20, 'order' => 'update_time desc' ) );
+      //site index 
 		  $model = Category::model()->findByAttributes( array('ident_label' => 'forum_node') );
 		  $criteria = new CDbCriteria;
 		  $criteria->condition  = ' find_in_set(category_id, :category_id)';

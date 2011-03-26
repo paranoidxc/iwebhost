@@ -1,6 +1,10 @@
 <?php
 class API {  
   public static $image_extension  = array("jpg", "jpeg", "png", "gif");      
+  public static function lchart() {
+    return '&nbsp;&laquo;&nbsp;';
+  }
+
   public static function mysql_version(){    
     $sql = " select version() as version";
     $r = Yii::app()->db->createCommand($sql)->queryAll();    

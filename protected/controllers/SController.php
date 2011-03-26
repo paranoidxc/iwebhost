@@ -5,17 +5,15 @@ class SController extends Controller {
 		$this->render('index');
 	}
 	
-	public function actionError()
-	{
-    if($error=Yii::app()->errorHandler->error)
-    {
-    	if(Yii::app()->request->isAjaxRequest)
+	public function actionError() {
+    if($error=Yii::app()->errorHandler->error) {
+    	if(Yii::app()->request->isAjaxRequest) {
     		echo $error['message'];
-    	else
-        	$this->render('error', $error);
+      } else {
+       	$this->render('error', $error);
+      }
     }
 	}
-	
 	
 	public function actionSignup() {
 		$model=new User;
@@ -29,8 +27,10 @@ class SController extends Controller {
 			  exit;
 			}
 	  }
+    $this->_pageTitle = '新用户注册'.API::lchart();
 	  $this->render('signup', array('model' => $model));
 	}
+
 	public function actionSignin() {
 		if( !Yii::app()->user->isGuest ){
 		  $this->render('diffsignin');
@@ -43,11 +43,15 @@ class SController extends Controller {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}		
-    //print_r( $_SERVER['HTTP_REFERER'] );
-		if( Yii::app()->user->returnUrl == '/index.php' ) {
-		  Yii::app()->user->returnUrl = $_SERVER['HTTP_REFERER'];
-		}		
-		
+    // if user valid return to previou url except some sepcial url
+    if( strpos( $_SERVER['HTTP_REFERER'], 'signin' ) === false  
+        &&
+        strpos( $_SERVER['HTTP_REFERER'], 'signup' ) === false  
+        &&
+        strpos( $_SERVER['HTTP_REFERER'], 'signout' ) === false  
+        ) {
+		    Yii::app()->user->returnUrl = $_SERVER['HTTP_REFERER'];
+    }
 		if(isset($_POST['LoginForm']))
 		{		  
 			$model->attributes=$_POST['LoginForm'];		
@@ -56,6 +60,7 @@ class SController extends Controller {
 			  exit;
 			}
 		}		
+    $this->_pageTitle = '用户登录'.API::lchart();
 		$this->render('signin',array('model'=>$model));
 	}
 	
@@ -83,6 +88,7 @@ class SController extends Controller {
 			  exit;
 			}
 		}
+    $this->_pageTitle = '找回密码'.API::lchart();
 		$this->render('forgot',array('model'=> $model ) );
 	}
 
@@ -104,6 +110,7 @@ class SController extends Controller {
 	      exit;
 	    }
     }
+    $this->_pageTitle = '重新设置密码'.API::lchart();
 	  $this->render('reset', array( 'record' => $record, 'model' => $model) );	  
 	}
 	
