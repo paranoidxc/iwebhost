@@ -31,9 +31,18 @@ class TController extends Controller {
 		if($article===null){
 			throw new CHttpException(404,'The requested Topic does not exist.');
 		}
-		$article->pv = $article->pv +1;
-		$article->save();
-		
+
+    // page view plus expcet the owner of the article
+    if( $article->user_id != Yii::app()->user->id ) {
+		  $article->pv = $article->pv +1;
+		  $article->save();
+    }
+
+    //article auther read the reply
+    if( $article->user_id == Yii::app()->user->id ) {
+      Notification::model()->article_auther_readed_notices($article->id,Yii::app()->user->id);
+    }
+
 		$model = new Post;		
 		$model->content = "<p></p>";
 		$model->article_id = $article->id;
@@ -43,22 +52,35 @@ class TController extends Controller {
 	public function actionReply() {	    
 	  Yii::app()->name = 'infuzhou';
 		Yii::app()->theme='forum';		
-	  $model = new Post;	  
+	  $model  = new Post;	  
+    $now    = date("Y-m-d H:i:s");
 	  if( isset($_POST['Post']) &&  !Yii::app()->user->isGuest ){
 	    $model->attributes=$_POST['Post'];
-		  $model->c_time  = date("Y-m-d H:i:s");
+		  $model->c_time  = $now;
 		  $model->user_id = Yii::app()->user->id;
 		  $article = Article::model()->findByPk($model->article_id);
 		  if( strlen($article->content) > 0 ){
 		    $model->content = str_replace('<div><br /></div>','<div>&nbsp;</div>',$model->content);
 		  }
-		  if( $model->save() ){			    
+		  if( $model->save() ){
 		    $article->reply_count ++;
-		    $article->reply_time = date("Y-m-d H:i:s");		    
+		    $article->reply_time = $now;
 		    $article->save();
 		    
+        // add Notification except the auther of the article
+        if( $article->user_id != Yii::app()->user->id ) {
+          $n = new Notification;
+          $n->attributes = array( 
+              'user_id'     => $article->user_id,
+              'article_id'  => $article->id,
+              'post_id'     => $model->id,
+              'c_time'      => $now,
+              );
+          $n->save();
+        }
 		    $this->redirect(array('t/index','id'=>$model->article_id) );		    
-		  }		  
+		  }
+
 		  if( $model->content == ''){
 		    $model->content = "<p></p>";
 		  }

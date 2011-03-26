@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="keywords" content="" /> 
-  <meta name="description" content="Creative Colorful Project in China" /> 
+  <meta name="keywords" content="福州,福州社区,福州论坛,福州分类信息" /> 
+  <meta name="description" content="fuzhou,infuzhou,ifuzhou forum" /> 
 	<meta name="author" content="Designed by xiaochuanhuang,huangxc" /> 
 	<meta name="copyright" content="huangxc" /> 
 	<meta name="company" content="huangxc" /> 
@@ -38,7 +38,10 @@
           <?php
             }else {
           ?>
-            <li><a href="<?php echo CController::createUrl('m/index' , array('id' => Yii::app()->user->id )) ?>">Hi,<?php echo Yii::app()->user->name ?></a></li>
+            <li><a href="<?php echo CController::createUrl('m/index' , 
+            array('id' => Yii::app()->user->id )) ?>">Hi,<?php echo Yii::app()->user->name ?></a></li>
+            <li><a href="<?php echo CController::createUrl('n/index') ?>" >
+            <?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
             <li><a href="<?php echo CController::createUrl('s/signout') ?>" >登出</a></li>
           <?php
             }

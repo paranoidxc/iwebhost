@@ -331,3 +331,15 @@ body {
 .newest-node .widgContainer a:hover {
   background-color: transparent;
 }
+
+
+.unread,
+.unread:link,
+.unread:visited {
+  color: #8C0505;
+}
+.read,
+.read:link,
+.read:visited {
+  color: gray;
+}

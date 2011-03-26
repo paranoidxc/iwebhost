@@ -5,8 +5,8 @@
     <tr>
       <td class="author_warp pt20P">       
         <a href="<?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?> "
-           class="radius2" title="<?php echo $inst->author->username ?>" >
-          <img src="<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
+           class="radius2" title="<?php echo $inst->auther->username ?>" >
+          <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>
@@ -32,7 +32,7 @@
           <div class="clB h2P"></div>
           <span class="ar_extra">
             <strong>By <a href=" <?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?>"
-            class="radius2"><?php echo $inst->author->username ?></a></strong>
+            class="radius2"><?php echo $inst->auther->username ?></a></strong>
             &nbsp;•&nbsp;          
             <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
             &nbsp;•&nbsp; 

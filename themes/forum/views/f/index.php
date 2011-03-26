@@ -41,9 +41,9 @@
   <table style="width: 100%">
     <tr>
       <td class="author_warp">
-        <a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->author->id )) ?>" 
-            class="radius2" title="<?php echo $inst->author->username ?>" >
-          <img src="<?php echo $inst->author->gravatar ?>" alt="<?php echo $inst->author->username ?>" />
+        <a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->auther->id )) ?>" 
+            class="radius2" title="<?php echo $inst->auther->username ?>" >
+          <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow">&nbsp;</td>
@@ -58,7 +58,7 @@
         <span class="ar_extra">
           <strong><a href="<?php echo CController::createUrl('f/index', array( 'id' => $inst->leaf->id) ) ?>" class="raidus"><?php echo $inst->leaf->name ?></a></strong>
           &nbsp;•&nbsp;
-          <strong><a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->author->id )) ?>" class="dark"><?php echo $inst->author->username ?></a></strong>
+          <strong><a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->auther->id )) ?>" class="dark"><?php echo $inst->auther->username ?></a></strong>
           &nbsp;•&nbsp;
           <?php echo $inst->pv ?>次点击 
           &nbsp;•&nbsp; 
