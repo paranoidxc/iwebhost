@@ -16,7 +16,6 @@ class SController extends Controller {
     }
 	}
 	
-	
 	public function actionSignup() {
 		$model=new User;
 	  if(isset($_POST['User'])) {
@@ -43,11 +42,15 @@ class SController extends Controller {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}		
-    //print_r( $_SERVER['HTTP_REFERER'] );
-		if( Yii::app()->user->returnUrl == '/index.php' ) {
-		  Yii::app()->user->returnUrl = $_SERVER['HTTP_REFERER'];
-		}		
-		
+    // if user valid return to previou url except some sepcial url
+    if( strpos( $_SERVER['HTTP_REFERER'], 'signin' ) === false  
+        &&
+        strpos( $_SERVER['HTTP_REFERER'], 'signup' ) === false  
+        &&
+        strpos( $_SERVER['HTTP_REFERER'], 'signout' ) === false  
+        ) {
+		    Yii::app()->user->returnUrl = $_SERVER['HTTP_REFERER'];
+    }
 		if(isset($_POST['LoginForm']))
 		{		  
 			$model->attributes=$_POST['LoginForm'];		
