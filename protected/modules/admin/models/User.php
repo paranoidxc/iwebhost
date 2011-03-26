@@ -58,9 +58,9 @@ class User extends CActiveRecord
 			array('email','unique'),
 			array('email','email'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
-			array('username,password', 'length', 'min'=>6),
+			array('username,password', 'length', 'min'=>5),
 			array('username, email', 'length', 'max'=>30),
-			array('sign', 'length', 'max'=>100),
+			array('sign', 'length', 'max'=>500),
 			array('password', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -76,7 +76,8 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-      'notices'   => array( self::HAS_MANY, 'Notification', 'user_id', 'order' => 'is_read ASC, c_time DESC' ),
+      'notices'     => array( self::HAS_MANY, 'Notification', 'user_id','order' => 'is_read ASC, c_time DESC' ),
+      'articles'    => array( self::HAS_MANY, 'Article',      'user_id','order' => 'create_time DESC' ),
 		);
 	}
 
@@ -95,6 +96,7 @@ class User extends CActiveRecord
   		'current_ip'          => Yii::t('cp','Current IP'),
   		'last_ip'             => Yii::t('cp','Last IP'),
   		'last_logout_time'    => Yii::t('cp','Last Logout Time'),
+  		'sign'                => Yii::t('cp','Sign'),
 			'parent_id'           => 'Parent',
 		);
 	}

@@ -47,6 +47,7 @@
           ?>
             <li><a href="<?php echo CController::createUrl('m/index' , 
             array('id' => Yii::app()->user->id )) ?>">Hi,<?php echo Yii::app()->user->name ?></a></li>
+            <li><a href="<?php echo CController::createUrl('m/setting') ?>" >设置</a>
             <li><a href="<?php echo CController::createUrl('n/index') ?>" >
             <?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
             <li><a href="<?php echo CController::createUrl('s/signout') ?>" >登出</a></li>
