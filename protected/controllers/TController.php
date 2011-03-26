@@ -44,6 +44,7 @@ class TController extends Controller {
 		$model = new Post;		
 		$model->content = "<p></p>";
 		$model->article_id = $article->id;
+    $this->_pageTitle = CHtml::encode( $article->title).API::lchart().$article->leaf->name.API::lchart();
 		$this->render('index', array('inst' => $article, 'model' => $model ));
 	}		
 	
@@ -108,6 +109,8 @@ class TController extends Controller {
 		if( $model->content == ''){
 		  $model->content = "<p></p>";
 		}
+
+    $this->_pageTitle = '新主题'.API::lchart().$node->name.API::lchart();
 	  $this->render('create', array('model'=>$model, 'node' => $node) );
 	}
  
