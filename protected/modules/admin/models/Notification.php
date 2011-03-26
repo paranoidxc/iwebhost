@@ -45,6 +45,14 @@ class Notification extends CActiveRecord
 		);
 	}
 
+  public function scopes() {
+    return array(
+      'itest' => array(
+        'condition' => "is_read = 0 AND user_id =  ".Yii::app()->user->id,
+      ),
+    );
+  }
+
 	/**
 	 * @return array relational rules.
 	 */

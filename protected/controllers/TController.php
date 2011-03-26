@@ -31,8 +31,12 @@ class TController extends Controller {
 		if($article===null){
 			throw new CHttpException(404,'The requested Topic does not exist.');
 		}
-		$article->pv = $article->pv +1;
-		$article->save();
+
+    // page view plus expcet the owner of the article
+    if( $article->user_id != Yii::app()->user->id ) {
+		  $article->pv = $article->pv +1;
+		  $article->save();
+    }
 		
 		$model = new Post;		
 		$model->content = "<p></p>";
@@ -53,22 +57,25 @@ class TController extends Controller {
 		  if( strlen($article->content) > 0 ){
 		    $model->content = str_replace('<div><br /></div>','<div>&nbsp;</div>',$model->content);
 		  }
-		  if( $model->save() ){			    
+		  if( $model->save() ){
 		    $article->reply_count ++;
 		    $article->reply_time = $now;
 		    $article->save();
 		    
-        // add Notification
-        $n = new Notification;
-        $n->attributes = array( 
-            'user_id'     => $article->user_id,
-            'article_id'  => $article->id,
-            'post_id'     => $model->id,
-            'c_time'      => $now,
-        );
-        $n->save();
+        // add Notification except the auther of the article
+        if( $article->user_id != Yii::app()->user->id ) {
+          $n = new Notification;
+          $n->attributes = array( 
+              'user_id'     => $article->user_id,
+              'article_id'  => $article->id,
+              'post_id'     => $model->id,
+              'c_time'      => $now,
+              );
+          $n->save();
+        }
 		    $this->redirect(array('t/index','id'=>$model->article_id) );		    
-		  }		  
+		  }
+
 		  if( $model->content == ''){
 		    $model->content = "<p></p>";
 		  }
