@@ -6,7 +6,8 @@ $g_upfiles_dir = '/upfiles';
 $atms_dave_dir = $website_dir.'/upfiles/';
 
 //$atms_dave_dir = '/home/huangxc/upfiles/';
-
+// require the shortcut function
+require( dirname(__FILE__).'/protected/globals.php' );
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
 
 //print_r($_SERVER);

@@ -76,10 +76,23 @@ return array(
 			'showScriptName'=>false,
 			'urlSuffix'     =>'.html',
 			'rules'=>array(
-			  'ilogin' => 'site/login',
-			  'blog' => 'blog/index',
-			  'api' => 'blog/api',
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+			  'ilogin'      => 'site/login',
+			  'blog'        => 'blog/index',
+			  'api'         => 'blog/api',
+        'signin'      => 's/signin',
+        'signup'      => 's/signup',
+        'signout'     => 's/signout',
+        'forgot'      => 's/forgot',
+        'settings'    => 'm/setting',
+        'notifications'=> 'n/index',
+				
+        'node'           => 'f/index',
+
+        'topic/<id:\d+>'=>'t/index',
+				'topic/create/<id:\d+>'=>'t/create',
+				'topic/create'=>'t/create',
+
+				'<controller:\w+>/<id:\d+>'=>'<controller>/index',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
