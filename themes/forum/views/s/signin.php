@@ -46,7 +46,7 @@
     		<tr class=''>
     		  <th></th>
     		  <td>
-    	    	<a href="<?php echo CController::createUrl('s/forgot') ?>">哎呀,忘记密码了?</a>  		      
+    	    	<a href="<?php echo bu('forgot') ?>">哎呀,忘记密码了?</a>  		      
     		  </td>
     		</tr>  	
     		
