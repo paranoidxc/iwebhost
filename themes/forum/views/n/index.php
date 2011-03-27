@@ -6,7 +6,10 @@
       你的提醒
 	  </h1>	  
 	</div>
-  <div class="node-memo">如果你的发表的主题有其他会员回复的话，这里的提醒系统应该会有记录的哦：)</div>
+  <div class="node-memo">
+    <span class="flR fs12P "><a class="radius2" href="<?php echo url('n/clear') ?>" title="清除所有的提醒" >清除提醒</a></span>
+    如果你的发表的主题有其他会员回复的话，这里的提醒系统应该会有记录的哦：)
+  </div>
 </div>
 
 <?php
@@ -24,6 +27,7 @@
       <td class="w20P ar_arrow">&nbsp;</td>
       <td class="boxshadow p10P ar_content_wrap">
 		    <span class="fs16P lh130S" >
+          <span class="flR fs12P"><a href="<?php echo url('n/del', array('id' => $inst->id ) )?>" title="删除" >删除</a></span>
           <span class="ar_extra">
 		      在
           <span title="<?php echo $inst->c_time ?>" class="timeago" ><?php echo $inst->c_time ?></span>

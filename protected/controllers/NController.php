@@ -11,7 +11,7 @@ class NController extends Controller {
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index'),
+				'actions'=>array('index','del','clear'),
 				'users'=>array('@'),
 			),
 			array('deny',
@@ -24,6 +24,25 @@ class NController extends Controller {
     $u =  User::model()->findByPk( Yii::app()->user->id );
     $this->_pageTitle = '主题回复提醒'.API::lchart();
     $this->render('index', array('notices' => $u->notices) );
+  }
+  
+  public function actionClear() {
+    $user_id = user()->id;
+    $all = Notification::model()->deleteAll( " user_id = $user_id ");
+    $this->redirect( array('n/index') );
+  }
+
+  public function actionDel() {
+    $u = $_GET['id'];
+    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $n = Notification::model()->findByPk( $_GET['id'] );
+    if( $n === null ) {	
+      throw new CHttpException(404,'The requested Node does not exist.');
+    }
+    if( $n->user_id == user()->id ) {
+      $n->delete();
+    }
+    $this->redirect( array('n/index') );
   }
 
 }

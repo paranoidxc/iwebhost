@@ -38,8 +38,10 @@
 .csD { cursor: url(img/openhand.cur), default !important; }
 .csP { cursor: pointer; }
 
+.fs10P { font-size: 10px; }
+.fs12P { font-size: 12px; }
 .fs14P { font-size: 14px; }
-.fs15p {font-size: 15px; }
+.fs15p { font-size: 15px; }
 .fs16P { font-size: 16px; }
 
 .flL { float: left; }
