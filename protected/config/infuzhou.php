@@ -84,8 +84,10 @@ return array(
         'signout'     => 's/signout',
         'forgot'      => 's/forgot',
         'settings'    => 'm/setting',
+
         'notifications'=> 'n/index',
-				
+        'notifications/<action:\w+>'=> 'n/<action>',
+
         'node/<id:\d+>'        => 'f/index',
         'node'                 => 'f/index',
 
