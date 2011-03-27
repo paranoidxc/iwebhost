@@ -54,6 +54,7 @@ class User extends CActiveRecord
 		return array(
 		  array('current_login_time,last_logout_time,login_count,token,sign','default'),
 			array('username, password, email,c_time', 'required'),
+      array('username,password', 'match', 'pattern'=>'/^([a-z0-9_])+$/', 'message' => '字符范围26个英文字符(a-z),数字(0-9)和下划线(_)'),
 			array('username','unique'),
 			array('email','unique'),
 			array('email','email'),
