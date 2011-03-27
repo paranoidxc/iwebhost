@@ -4,7 +4,7 @@
   <table style="width: 100%">
     <tr>
       <td class="author_warp pt20P">       
-        <a href="<?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?> "
+        <a href="<?php echo url('m/index', array('id' => $inst->auther->username) )?> "
            class="radius2" title="<?php echo $inst->auther->username ?>" >
           <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
         </a>
@@ -31,7 +31,7 @@
   		    </span>
           <div class="clB h2P"></div>
           <span class="ar_extra">
-            <strong>By <a href=" <?php echo CController::createUrl('m/index', array('id' => $inst->user_id) )?>"
+            <strong>By <a href=" <?php echo url('m/index', array('id' => $inst->auther->username) )?>"
             class="radius2"><?php echo $inst->auther->username ?></a></strong>
             &nbsp;•&nbsp;          
             <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
@@ -61,7 +61,7 @@
       <table class=''>
           <tr>
             <th class='vaT p10P reply_gravatar'>
-              <a href="<?php echo CController::createUrl('m/index', array('id' => $post->user_id) )?> "
+              <a href="<?php echo url('m/index', array('id' => $post->auther->username) )?> "
                 title="<?php echo CHtml::encode($post->auther->username) ?>">
                 <img width="40" src='<?php echo CHtml::encode($post->auther->gravatar) ?> ' 
                   alt='<?php echo CHtml::encode($post->auther->username) ?> ' />
@@ -70,7 +70,7 @@
             <td class='vaT pt10P'>
               <p class='ar_extra'>
                 <strong>
-                  <a href="<?php echo CController::createUrl('f/index', array( 'id' => $post->user_id) ) ?>" 
+                  <a href="<?php echo url('m/index', array( 'id' => $post->auther->username) ) ?>" 
                   class="radius2"><?php echo $post->auther->username?></a>
                 </strong>      
                 &nbsp;•&nbsp;         

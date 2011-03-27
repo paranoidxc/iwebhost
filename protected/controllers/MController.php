@@ -23,7 +23,7 @@ class MController extends Controller {
 	}
 
 	public function actionIndex(){			  
-		$m = User::model()->findByPk($_GET['id']);
+    $m = is_numeric( $_GET['id'] ) ? User::model()->findByPk($_GET['id']) : User::model()->findByAttributes( array('username' => $_GET['id'] ) );
 		if($m===null){
 			throw new CHttpException(404,'The requested Member does not exist.');
 		}		
