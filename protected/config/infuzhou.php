@@ -86,11 +86,15 @@ return array(
         'settings'    => 'm/setting',
         'notifications'=> 'n/index',
 				
-        'node'           => 'f/index',
+        'node/<id:\d+>'        => 'f/index',
+        'node'                 => 'f/index',
 
-        'topic/<id:\d+>'=>'t/index',
-				'topic/create/<id:\d+>'=>'t/create',
-				'topic/create'=>'t/create',
+        'topic/<id:\d+>'        =>'t/index',
+				'topic/create/<id:\d+>' =>'t/create',
+				'topic/create'          =>'t/create',
+
+        'member'                => 'm/list',
+        'member/<id:\d+>'       =>'m/index',
 
 				'<controller:\w+>/<id:\d+>'=>'<controller>/index',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
