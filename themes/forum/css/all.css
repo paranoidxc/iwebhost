@@ -263,7 +263,9 @@ body {
 .ar_content ol {
   list-style-type: decimal;
 }
-
+.ar_content img {  
+  max-width: 570px;
+}
 /* signup page start */
 #signup_wrap {
   background: #FFF;

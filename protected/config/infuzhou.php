@@ -95,6 +95,7 @@ return array(
 
         'member'                => 'm/list',
         'member/<id:\d+>'       =>'m/index',
+        'member/<id:\w+>'       =>'m/index',
 
 				'<controller:\w+>/<id:\d+>'=>'<controller>/index',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

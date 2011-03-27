@@ -34,8 +34,9 @@ function user()
  * This is the shortcut to Yii::app()->createUrl()
  */
 function url($route,$params=array(),$ampersand='&')
-{
-    return Yii::app()->createUrl($route,$params,$ampersand);
+{ 
+  //return Yii::app()->createUrl($route,$params,$ampersand);
+  return Yii::app()->urlManager->createUrl($route, $params, $ampersand);
 }
  
 /**

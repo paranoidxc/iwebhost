@@ -38,15 +38,14 @@
         <ul>
           <li><a href="/" title="首页">首页</a></li>
           <?php        
-            if( Yii::app()->user->isGuest ){
+            if( user()->isGuest ){
           ?>          
           <li><a href="<?php echo bu('signup.html' ) ?>" title="注册">注册</a></li>
           <li><a href="<?php echo bu('signin.html' ) ?>" title="登录">登录</a></li>
           <?php
             }else {
           ?>
-            <li><a href="<?php echo CController::createUrl('m/index' , 
-            array('id' => Yii::app()->user->id )) ?>">Hi,<?php echo Yii::app()->user->name ?></a></li>
+            <li><a href="<?php echo url('m/index',array('id' => user()->name ) ) ?>">Hi,<?php echo user()->name ?></a></li>
             <li><a href="<?php echo bu('settings.html') ?>" >设置</a>
             <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
             <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
