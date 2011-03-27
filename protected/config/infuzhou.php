@@ -86,7 +86,8 @@ return array(
         'settings'    => 'm/setting',
         'notifications'=> 'n/index',
 				
-        'node'           => 'f/index',
+        'node/<id:\d+>'        => 'f/index',
+        'node'                 => 'f/index',
 
         'topic/<id:\d+>'        =>'t/index',
 				'topic/create/<id:\d+>' =>'t/create',
