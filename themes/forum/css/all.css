@@ -42,10 +42,11 @@ body {
 }
 #header {    
   height: 80px;
-}
-#header h1 {
-  padding-top: 15px;  
-}
+  margin-bottom: 20px;
+  background: url(bgs/gnav.png) repeat-x 0 0px;
+  }#header h1 {
+    padding-top: 8px;  
+  }
 
 .nav {
   height: 80px;
@@ -53,37 +54,29 @@ body {
 }
 .nav ul {
   list-style: none;
-  padding: 20px 2px 0 0;
 }
-.nav ul li {
+.nav ul li {  
   display: inline-block;
-  height: 32px;
-  padding-left: 4px;
-  margin-left: 4px;  
-  background: url('bgs/inav.png');   
-  background-repeat: no-repeat;
-  background-position: left -99px;
+  height: 52px;
 }
 
 .nav ul li a {
-  display: block;   
-  font-size:12px;
+  display: block;
   font-weight:bold;
   text-decoration: none;
-  color: #FFF;
-  /*text-shadow:0 -1px 1px #111196;*/
-  height: 32px;
-  line-height: 30px;
-  padding: 0 10px 0 6px;
-  background: url('bgs/inav.png');  
-  background-repeat: no-repeat;
-  background-position: right top;
+  height: 100%;  
+  line-height: 50px;
+  padding: 0 20px;
+  color: #515151;
 }
 .nav ul li:hover {
   background-position: left -132px;
+  background: url('bgs/ihover.png') 0 0px;  
+
 }
 .nav ul li:hover a {
   background-position: right -33px;
+  background: url('bgs/ihover.png') right 0px;
 }
 
 #footer {
