@@ -38,6 +38,7 @@ class LoginForm extends CFormModel
 		return array(
   		'username'  => Yii::t('cp','Username'),
   		'password'  => Yii::t('cp','Password'),
+  		'email'     => Yii::t('cp','Email'),
 		  'rememberMe'=> Yii::t('cp','Remember me next time'),
 		);
 	}
