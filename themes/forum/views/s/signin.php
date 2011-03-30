@@ -21,7 +21,11 @@
     <table class='itable iform_table_wrap w100S'>
       <tbody>
     	  <tr>
-    		  <th><?php echo $form->labelEx($model,'username'); ?></th>
+    		  <th>
+            <?php echo $form->labelEx($model,'username'); ?>
+            /
+            <?php echo $form->labelEx($model,'email'); ?><span class="required">*</span>
+          </th>
     		  <td>
     		    <?php echo $form->textField($model,'username', array('class' => 'itext') ); ?>
   		      <?php echo $form->error($model,'username'); ?>

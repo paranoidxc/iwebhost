@@ -18,12 +18,17 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-	  $record = User::model()->findByAttributes( array('username'=> $this->username) );
+    if( strpos($this->username,'@') === false ) {
+	    $record = User::model()->findByAttributes( array('username'=> $this->username) );
+    }else{
+	    $record = User::model()->findByAttributes( array('email'=> $this->username) );
+    }
 		if( $record == null ) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		} else if ( $record-> password != $this->password ) {
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		} else {
+      $this->username = $record->username;
 			$this->_id = $record->id;
 			$this->errorCode=self::ERROR_NONE;			
 			$record->current_login_time 	= Time::now();
