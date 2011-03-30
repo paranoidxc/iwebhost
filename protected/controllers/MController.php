@@ -38,16 +38,26 @@ class MController extends Controller {
   }
 
   public function actionSetting() {
-		$m = User::model()->findByPk( Yii::app()->user->id );
+    $m = new SettingForm;	 
+		$user = User::model()->findByPk( Yii::app()->user->id );
+    $m->id = $user->id;
+    $m->sign = $user->sign;
 
-    if( isset($_POST['User']) ){
-        $m->attributes = $_POST['User'];
-        $m->save();
-        $str = '会员资料已保存!';
-				Yii::app()->user->setFlash('success',$str);
+    if( isset($_POST['SettingForm'] ) ){
+      $m->attributes = $_POST['SettingForm'];
+      if( $m->validate() && $m->setting() ){
+        $str = '会员资料已保存,';
+        if(strlen($m->password)>0) {
+          $str.= "密码已更新!";
+        }else{
+          $str.= "密码未更新!";
+        }
+			  Yii::app()->user->setFlash('success',$str);
+       }
     }
+    $m->password = $m->rpassword = '';
     $this->_pageTitle = '会员资料设置'.API::lchart();
-    $this->render( 'setting', array( 'm' => $m ) );
+    $this->render('setting', array( 'm' => $m, 'user' => $user ) );	  
   }
 
 }

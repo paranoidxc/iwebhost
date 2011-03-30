@@ -5,7 +5,7 @@
     <tr>
       <td class="author_warp pt20P">
         <a href="#">
-          <img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" />
+          <img src="<?php echo $user->gravatar ?>" alt="<?php echo $user->username ?>" />
         </a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>
@@ -31,22 +31,48 @@
     'class' => 'mb20P'
 	)
 )); ?>  
-  
+  	<?php //echo $form->errorSummary($m); ?>
+
   <table class='itable iform_table_wrap w100S mt10P'>
      <tbody>
         <tr>
-          <th class='w100P'><?php echo $form->labelEx($m,'username'); ?></th>
+          <th class='w100P'><?php echo $form->labelEx($user,'username'); ?></th>
           <td>
-            <?php echo $m->username ?>
+            <?php echo $user->username ?>
           </td>
         </tr>
         <tr>
-          <th class=''><?php echo $form->labelEx($m,'sign'); ?></th>
+          <th class=''><?php echo $form->labelEx($user,'sign'); ?></th>
           <td>
             <?php echo $form->textArea($m,'sign',array('rows'=>5, 'cols'=>100, 'class'=>'sign' ) ) ?>
             <?php echo $form->error($m,'sign'); ?>		
           </td>
         </tr>
+
+        <tr>
+          <td colspan="2">不修改密码,下面2个字段不需要填写!</td>
+        </tr>
+      
+        <tr>
+          <th class=''><?php echo $form->labelEx($m,'password'); ?></th>
+          <td>
+            <?php echo $m->password ?>
+            <?php echo $form->passwordField($m,'password'); ?>		
+            <?php echo $form->error($m,'password'); ?>		
+          </td>
+        </tr>
+      
+        <tr>
+          <th class=''><?php echo $form->labelEx($m,'rpassword'); ?></th>
+          <td>
+            <?php echo $form->passwordField($m,'rpassword'); ?>		
+            <?php echo $form->error($m,'rpassword'); ?>		
+          </td>
+        </tr>
+
+
+
+
 
          <tr>
           <th></th>
