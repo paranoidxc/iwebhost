@@ -68,16 +68,16 @@ body {
   line-height: 50px;
   padding: 0 20px;
   color: #515151;
-  background: transparent url('bgs/ihover.png') 0 -999px;  
+  background: transparent url('bgs/ihover.png') no-repeat 0 -999px;  
 }
 .nav ul li:hover {
   background-position: left -132px;
-  background: url('bgs/ihover.png') 0 0px;  
+  background: url('bgs/ihover.png') no-repeat 0 0px;  
 
 }
 .nav ul li:hover a {
   background-position: right -33px;
-  background: url('bgs/ihover.png') right 0px;
+  background: url('bgs/ihover.png') no-repeat right 0px;
 }
 
 #footer {
