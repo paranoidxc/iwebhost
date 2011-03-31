@@ -32,7 +32,7 @@ a:hover {
 }
 
 body {
-  background: #fff url(bgs/gbg.png) repeat 0 0;
+  background: #CCC url(bgs/gbg.png) repeat 0 0;
   font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important;  
   font-size: 12px;
   -webkit-text-size-adjust: none;
@@ -68,6 +68,7 @@ body {
   line-height: 50px;
   padding: 0 20px;
   color: #515151;
+  background: transparent url('bgs/ihover.png') 0 -999px;  
 }
 .nav ul li:hover {
   background-position: left -132px;
