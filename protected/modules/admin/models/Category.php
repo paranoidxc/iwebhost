@@ -471,7 +471,7 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		  'forumarticles' 	=> array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' forumarticles.update_time DESC '),
+		  'forumarticles' 	=> array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' forumarticles.reply_time DESC '),
 			'articles' 	      => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' articles.sort_id DESC '),
 			'attachments'     => array( self::HAS_MANY,     'Attachment','category_id' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),
