@@ -88,3 +88,18 @@ function dump($target)
 {
   return CVarDumper::dump($target, 10, true) ;
 }
+
+$colorful = "#093 #639 #693 #606 #669 #066 #033 #339 #999 #4588CE #9C0909 #171717 #CA0B0B #5FB509 #363636 #FF5900";
+$colorful_array = explode(' ',$colorful);
+
+function colorful($s='i l u'){
+	global $colorful_array;	
+	$color =  $colorful_array[rand(0,count($colorful_array)-1)];	
+	return "<span style='color: $color' >".$s."</span>";
+}
+
+function colorfulV($s='i l u'){
+	global $colorful_array;	
+	return $colorful_array[rand(0,count($colorful_array)-1)];	
+}
+

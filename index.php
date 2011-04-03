@@ -48,27 +48,11 @@ function _debug($s) {
 	print_r("<br/>");
 }
 
-$colorful = "#093 #639 #693 #606 #669 #066 #033 #339 #999 #4588CE #9C0909 #171717 #CA0B0B #5FB509 #363636 #FF5900";
-$colorful_array = explode(' ',$colorful);
 $img_ext = array("jpg", "jpeg", "png", "gif");
-
-
-function colorful($s='my love--!'){
-	global $colorful_array;	
-	$color =  $colorful_array[rand(0,count($colorful_array)-1)];	
-	return "<span style='color: $color' >".$s."</span>";
-}
-
-function colorfulV($s='my love--!'){
-	global $colorful_array;	
-	return $colorful_array[rand(0,count($colorful_array)-1)];	
-}
-
 
 function cnSub($str,$len){
   return cnSubStr($str,0,$len);
 }
-
 
 function cnSubstr($str, $start, $len) { 
   //$str_tmp = $len - $start; 
