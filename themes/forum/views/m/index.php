@@ -26,7 +26,7 @@
 	          <span class='timeago' title="<?php echo $m->c_time ?>" > <?php echo $m->c_time ?></span>
 	        </p>
           <p class='ft14P mt10P lh20P cgray'>
-              <?php echo CHtml::encode($m->sign ) ?>
+              <?php echo colorful(CHtml::encode($m->sign )) ?>
           </p>
 	      </div>
         
