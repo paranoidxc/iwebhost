@@ -142,6 +142,22 @@
   			<?php echo $form->error($model,'sort_id'); ?>
   		</td>
   	</tr>	
+ 
+    <tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'user_id'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'user_id',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->error($model,'user_id'); ?>
+  		</td>
+  	</tr>	
+ 
+    <tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'allow_reply'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'allow_reply',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->error($model,'allow_reply'); ?>
+  		</td>
+  	</tr>	
   	
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'category_id'); ?></th>

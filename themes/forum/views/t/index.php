@@ -14,10 +14,15 @@
         <div class="radius5top">
 	        <h1 class="raidus5top panel-title">	          
 	          <a href="/" class="radius2"><?php echo Yii::app()->name ?></a>
-	          &raquo;&nbsp;
-	          <a href="<?php echo CController::createUrl('f/index', array('id' => $inst->leaf->id) )?>"
+            <?php if($inst->allow_reply) {
+              ?>
+	            &raquo;&nbsp;
+	            <a href="<?php echo CController::createUrl('f/index', array('id' => $inst->leaf->id) )?>"
 	             class="radius2"><?php echo $inst->leaf->name ?></a>
-	          <?php if( !Yii::app()->user->isGuest ) {?>
+              <?php
+            }
+            ?>
+	          <?php if( !Yii::app()->user->isGuest && $inst->allow_reply ) {?>
 	          <a href="<?php echo CController::createUrl('t/create', array('f'=> $inst->leaf->id ) ) ?>"
 	            class='flR radius2 new-ar'>新主题</a>
   	        <?php }?>
@@ -37,8 +42,12 @@
             <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
             &nbsp;•&nbsp; 
             <?php echo $inst->pv ?>次点击 
-            &nbsp;•&nbsp; 
-            <a href="#" class="radius2"><?php echo count($inst->posts); ?>次回复</a>
+            <?php if( $inst->allow_reply) {
+              ?>
+              &nbsp;•&nbsp; 
+              <a href="#" class="radius2"><?php echo count($inst->posts); ?>次回复</a>
+              <?php
+            }?>
           </span>
           <div class="clB mt10P ar_content">
             <?php echo $inst->scontent ?>
@@ -94,7 +103,7 @@
     </tr>    
 <?php
   }
-  if( !Yii::app()->user->isGuest ){
+  if( !Yii::app()->user->isGuest && $inst->allow_reply ){
 ?>      
     <tr>
       <td></td>
