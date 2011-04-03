@@ -112,15 +112,19 @@ body {
 
 
 /*sidebar start */
+.block_wrap ,
 .newest-node {
   background: #FFF;  
 }
+
+.block_wrap h1 ,
 .newest-node .panel-title,
 .newest-node .panel-title h1 { 
   font-size: 14px; 
   color: #696969;
   background: #FFF url(bgs/title-bg.jpg) repeat-x 0 50%;    
 }
+.block_wrap h1,
 .newest-node h1 {
   padding: 10px;    
 }

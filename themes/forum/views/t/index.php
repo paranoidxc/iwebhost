@@ -17,13 +17,13 @@
             <?php if($inst->allow_reply) {
               ?>
 	            &raquo;&nbsp;
-	            <a href="<?php echo CController::createUrl('f/index', array('id' => $inst->leaf->id) )?>"
+	            <a href="<?php echo url('f/index', array('id' => $inst->leaf->id) )?>"
 	             class="radius2"><?php echo $inst->leaf->name ?></a>
               <?php
             }
             ?>
 	          <?php if( !Yii::app()->user->isGuest && $inst->allow_reply ) {?>
-	          <a href="<?php echo CController::createUrl('t/create', array('f'=> $inst->leaf->id ) ) ?>"
+	          <a href="<?php echo url('t/create', array('f'=> $inst->leaf->id ) ) ?>"
 	            class='flR radius2 new-ar'>新主题</a>
   	        <?php }?>
 	        </h1>
@@ -45,7 +45,7 @@
             <?php if( $inst->allow_reply) {
               ?>
               &nbsp;•&nbsp; 
-              <a href="#" class="radius2"><?php echo count($inst->posts); ?>次回复</a>
+              <?php echo count($inst->posts); ?>次回复
               <?php
             }?>
           </span>
@@ -60,44 +60,23 @@
       <td></td>
       <td></td>
       <td>
-      <div class="radius5 mt20P boxshadow newest-node reply_wrap">
+      <div class="radius5 mt20P boxshadow block_wrap reply_wrap">
         <div class="raidus5top panel-title">
-  	      <h1 class="raidus5top"><?php echo count($inst->posts)?> 回复</h1>
+  	      <h1 class="raidus5top">
+            <span> <?php echo count($posts)?> 回复 </span>
+            <?php if($_GET['s'] ) {?>
+              <a href="<?php echo url('t/index', array('id' => $inst->id ) ) ?> " class="flR radius2" >显示全部</a>
+            <?php }else{ ?>
+              <a href="<?php echo url('t/index', array('id' => $inst->id,'s'=>'1' ) ) ?> " class="flR radius2" >只看楼主</a>
+            <?php } ?>
+          </h1>
   	    </div>
-      <?php
-        foreach( $inst->posts as $post ){
-      ?>
-      <table class=''>
-          <tr>
-            <th class='vaT p10P reply_gravatar'>
-              <a href="<?php echo url('m/index', array('id' => $post->auther->username) )?> "
-                title="<?php echo CHtml::encode($post->auther->username) ?>">
-                <img width="40" src='<?php echo CHtml::encode($post->auther->gravatar) ?> ' 
-                  alt='<?php echo CHtml::encode($post->auther->username) ?> ' />
-              </a>
-            </th>
-            <td class='vaT pt10P'>
-              <p class='ar_extra'>
-                <strong>
-                  <a href="<?php echo url('m/index', array( 'id' => $post->auther->username) ) ?>" 
-                  class="radius2"><?php echo $post->auther->username?></a>
-                </strong>      
-                &nbsp;•&nbsp;         
-                <span class='timeago' title='<?php echo CHtml::encode($post->c_time) ?>'>
-                  <?php echo CHtml::encode($post->c_time) ?>
-                </span>
-              </p>
-              <div class="clB ar_content pl5P">
-                <?php echo $post->scontent ?>
-              </div>
-            </td>
-          </tr>        
-        </table>
-        
         <div class='iline'></div>
-      <?php
-        }
-      ?>
+        
+        <!--topic reply start -->
+        <?php $this->renderPartial('_posts', array('posts' => $posts ) ) ?>
+        <!--topic reply end -->
+
       </div>
       </td>
     </tr>    

@@ -41,11 +41,19 @@ class TController extends Controller {
       Notification::model()->article_auther_readed_notices($article->id,Yii::app()->user->id);
     }
 
-		$model = new Post;		
+		$model = new Post;
 		$model->content = "<p></p>";
 		$model->article_id = $article->id;
     $this->_pageTitle = CHtml::encode( $article->title).API::lchart().$article->leaf->name.API::lchart();
-		$this->render('index', array('inst' => $article, 'model' => $model ));
+    if( $_GET['s'] ){
+      $criteria = new CDbCriteria;
+      $criteria->condition="t.user_id = $article->user_id AND t.article_id = $article->id";
+      $criteria->order= 't.c_time DESC ';
+      $posts = Post::model()->findAll($criteria);
+    }else{
+      $posts = $article->posts;
+    }
+		$this->render('index', array('inst' => $article, 'model' => $model, 'posts' => $posts  ));
 	}		
 	
 	public function actionReply() {	    
