@@ -72,7 +72,7 @@
   	          $inst = $ipage->articles[$i];  	          
   	      ?>
     	      <strong>
-    	        <a href="#"><?php echo $inst->title ?></a>
+    	        <a href="<?echo url('topic/index', array('id' => $inst->id) ) ?>"><?php echo $inst->title ?></a>
     	      </strong>
       	    <?php if( $i != count($ipage->articles)-1 ) { echo '&nbsp;•&nbsp;'; } ?>
     	    <?php
