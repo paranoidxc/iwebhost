@@ -42,6 +42,14 @@
           </td>
         </tr>
         <tr>
+          <th class='w100P'><?php echo $form->labelEx($user,'email'); ?></th>
+          <td>
+            <?php echo $user->email ?>
+          </td>
+        </tr>
+
+
+        <tr>
           <th class=''><?php echo $form->labelEx($user,'sign'); ?></th>
           <td>
             <?php echo $form->textArea($m,'sign',array('rows'=>5, 'cols'=>100, 'class'=>'sign' ) ) ?>
@@ -50,7 +58,7 @@
         </tr>
 
         <tr>
-          <td colspan="2">不修改密码,下面2个字段不需要填写!</td>
+          <th></th><td>不修改密码,下面2个字段不需要填写!</td>
         </tr>
       
         <tr>
