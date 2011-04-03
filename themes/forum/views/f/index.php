@@ -41,7 +41,7 @@
   <table style="width: 100%">
     <tr>
       <td class="author_warp">
-        <a href="<?php echo CController::createUrl('m/index' , array('id' => $inst->auther->id )) ?>" 
+        <a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" 
             class="radius2" title="<?php echo $inst->auther->username ?>" >
           <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
         </a>

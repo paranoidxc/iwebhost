@@ -13,7 +13,7 @@ class MController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow', 
-				'actions'=>array('setting'),
+				'actions'=>array('setting','you'),
 				'users'=>array('@'),
 			),			
 			array('deny', 
@@ -21,6 +21,15 @@ class MController extends Controller {
 			),
 		);
 	}
+
+  public function actionYou(){
+   $m = User::model()->findByPk( User()->id );
+		if($m===null){
+			throw new CHttpException(404,'The requested Member does not exist.');
+		}		
+    $this->_pageTitle = $m->username.API::lchart();
+		$this->render('index', array('m' => $m));
+  }
 
 	public function actionIndex(){			  
     $m = is_numeric( $_GET['id'] ) ? User::model()->findByPk($_GET['id']) : User::model()->findByAttributes( array('username' => $_GET['id'] ) );

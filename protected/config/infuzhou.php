@@ -95,6 +95,7 @@ return array(
 				'topic/create/<id:\d+>' =>'t/create',
 				'topic/create'          =>'t/create',
 
+        'you'                   => 'm/you',
         'member'                => 'm/list',
         'member/<id:\d+>'       =>'m/index',
         'member/<id:\w+>'       =>'m/index',

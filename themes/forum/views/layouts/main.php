@@ -45,7 +45,7 @@
           <?php
             }else {
           ?>
-            <li><a href="<?php echo url('m/index',array('id' => user()->name ) ) ?>">Hi,<?php echo user()->name ?></a></li>
+            <li><a href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a></li>
             <li><a href="<?php echo bu('settings.html') ?>" >设置</a>
             <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
             <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
