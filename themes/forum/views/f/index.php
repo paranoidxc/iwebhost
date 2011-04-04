@@ -1,3 +1,4 @@
+
 <?php 
   if( $node ){
 ?>
@@ -41,9 +42,13 @@
   <p>该节点下还没有主题哦,没有主题哦~:)</p>
 </div>
 <?php    
+  }else{
+    //<!-- include latest new articles  -->
+    if( count($latest_articles) != 0 ){
+      $this->renderPartial('_latest_articles', array('latest_articles' => $latest_articles ) );
+    }
   }
 ?>
-
 
 <?php  
   foreach($articles as $inst){

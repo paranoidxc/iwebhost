@@ -22,7 +22,7 @@ class User extends CActiveRecord
   }
   
   public function getgravatar(){    
-    //return '/default_image/'.($this->id%100).'.png';
+    return '/default_image/'.($this->id%100).'.png';
     return "http://www.gravatar.com/avatar/".md5($this->email)."?s=80&d=identicon&rating=PG";
     
     //return rand(0, 100).'.png';
