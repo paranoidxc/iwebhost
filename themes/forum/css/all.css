@@ -333,7 +333,6 @@ body {
   background-color: transparent;
 }
 
-
 .unread,
 .unread:link,
 .unread:visited {
@@ -349,3 +348,16 @@ body {
   height: 80px;
   font-size: 14px;
 }
+
+.nodeunlove,
+.nodelove {
+  width: 15px;
+  height: 15px;
+  background: url(bgs/mail.png) no-repeat 2px -18px;
+  text-indent: -10000px;
+}
+.nodelove {
+  background-position: -18px -18px;
+}
+
+

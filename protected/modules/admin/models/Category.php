@@ -41,6 +41,13 @@ class Category extends CActiveRecord
 	  );
 	}
 
+  public function getIslove() {
+    $category_id  = $this->id;
+    $user_id      = User()->id;
+    $record = ManyCategoryUser::model()->findByAttributes( 
+        array('category_id' => $category_id, 'user_id' => $user_id ) );
+    return $record === null ? false : true;
+  }
   /**
   * PHP getter magic method.
   * This method is overridden here so that ActiveRecord will look first
@@ -471,7 +478,8 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		  'forumarticles' 	=> array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' forumarticles.reply_time DESC '),
+		  'forumarticles' 	    => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' forumarticles.reply_time DESC '),
+		  'forumarticlesCount' 	=> array( self::STAT,      'Article', 'category_id'  ),
 			'articles' 	      => array( self::HAS_MANY,      'Article', 'category_id' , 'order'=>' articles.sort_id DESC '),
 			'attachments'     => array( self::HAS_MANY,     'Attachment','category_id' ),			
 			'datablock' => array( self::HAS_ONE, 'DataBlock', 'category_id' ),

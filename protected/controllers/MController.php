@@ -13,7 +13,7 @@ class MController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow', 
-				'actions'=>array('setting','you'),
+				'actions'=>array('setting','you','love','unlove','nodes'),
 				'users'=>array('@'),
 			),			
 			array('deny', 
@@ -21,6 +21,34 @@ class MController extends Controller {
 			),
 		);
 	}
+
+  public function actionNodes() {
+    $u = User::model()->findByPk( User()->id );
+    $this->render( 'nodes', array( 'user' => $u ) );
+  }
+
+  public function actionUnlove() {
+    if(  $_GET['f'] ) {
+      $node = Category::model()->findByPk($_GET['f']);
+      $record = ManyCategoryUser::model()->findByAttributes( array('category_id' => $node->id, 'user_id'=>User()->id) );
+      $record->delete();
+    }
+    $this->redirect( rurl() );
+  }
+
+  public function actionLove() {
+    if(  $_GET['f'] ) {
+      $node = Category::model()->findByPk($_GET['f']);
+      $record = ManyCategoryUser::model()->findByAttributes( array('category_id' => $node->id, 'user_id'=>User()->id) );
+      if( $record === null ){
+        $rel = new ManyCategoryUser;
+        $rel->category_id = $node->id;
+        $rel->user_id     = User()->id;
+        $rel->save();
+      }
+    }
+    $this->redirect( rurl() );
+  }
 
   public function actionYou(){
    $m = User::model()->findByPk( User()->id );

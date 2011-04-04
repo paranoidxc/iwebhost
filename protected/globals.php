@@ -103,3 +103,6 @@ function colorfulV($s='i l u'){
 	return $colorful_array[rand(0,count($colorful_array)-1)];	
 }
 
+function rurl() {
+  return $_SERVER['HTTP_REFERER'];
+}
