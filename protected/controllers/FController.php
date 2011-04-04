@@ -2,6 +2,9 @@
 
 class FController extends Controller {	
 	public function actionIndex(){			  
+    $_criteria = new CDbCriteria;
+    $_criteria->condition  = ' find_in_set(category_id, :category_id)';
+ 
 		if( isset( $_GET['id'] ) ){
       // sepcial node 
 		  $node = Category::model()->findByPk($_GET['id']);		  
@@ -10,6 +13,7 @@ class FController extends Controller {
 		  }		  
       $this->_pageTitle = $node->name.API::lchart();
 		  $articles = $node->forumarticles;		  
+      $_criteria->params[':category_id'] = $node->id;
 		}else{
       //site index 
 		  $model = Category::model()->findByAttributes( array('ident_label' => 'forum_node') );
@@ -28,7 +32,11 @@ class FController extends Controller {
       }        
       $criteria->params[':category_id'] = $all_leafs;
       $articles = Article::model()->findAll( $criteria );
+      
+      $_criteria->params[':category_id'] = $all_leafs;
 		}
-		$this->render('index', array('articles' => $articles, 'node' => $node ));
+
+    $latest_articles = Article::model()->latest()->findAll($_criteria);
+		$this->render('index', array('latest_articles' => $latest_articles, 'articles' => $articles, 'node' => $node ));
 	}	
 }

@@ -172,7 +172,12 @@ class Article extends CActiveRecord
       'first' => array(
         'order' => ' sort_id asc ',
         'limit' => 1
-      )
+      ),
+      'latest'  => array(
+        'condition' => 'reply_count <=5 ',
+        'order' => 'update_time DESC',
+        'limit' => '10',
+      ),
     );            
   }
 	/**
