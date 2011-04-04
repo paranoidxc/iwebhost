@@ -7,6 +7,17 @@
 	    <a href="/" ><?php echo Yii::app()->name ?></a>
 	    &raquo;&nbsp;
 	    <?php echo $node->name ?>
+      <?php 
+        if( !User()->isGuest &&  $node->islove ) {
+      ?>
+        <a class='radius2 nodelove' href="<?php echo url('m/unlove', array('f' => $node->id)  ) ?>">取消收藏</a>
+      <?php
+        }else if( !User()->isGuest ) {
+      ?>
+        <a class='radius2 nodeunlove' href="<?php echo url('m/love', array('f' => $node->id)  ) ?>">收藏</a>
+      <?php
+      }
+      ?>
 	    <?php if( !Yii::app()->user->isGuest ) {
 	      ?>
 	      <a class="flR radius2 new-ar" href="<?php echo CController::createUrl('t/create', array('f' => $node->id) )?>">新主题</a>

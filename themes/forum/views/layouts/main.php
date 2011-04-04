@@ -31,10 +31,10 @@
 <div class="ibg" id="page">
   <div id="header">
     <div class="container">
-      <div class='grid6 first'>
+      <div class='grid3 first'>
         <h1 title="infuzhou 社区"><a href="/"><img src="<?php echo $theme_baseurl?>/css/bgs/logo.png" alt='' /></a></h1>
       </div>
-      <div class='grid6 nav'>      
+      <div class='grid9 nav'>      
         <ul>
           <li><a href="/" title="首页">首页</a></li>
           <?php        
@@ -46,6 +46,7 @@
             }else {
           ?>
             <li><a href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a></li>
+            <li><a href="<?php echo url('m/nodes' ) ?>">节点</a></li>
             <li><a href="<?php echo bu('settings.html') ?>" >设置</a>
             <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
             <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
