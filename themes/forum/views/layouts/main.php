@@ -43,11 +43,15 @@
           <?php
             }else {
           ?>
-            <li><a href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a></li>
-            <li><a href="<?php echo url('m/nodes' ) ?>">节点</a></li>
-            <li><a href="<?php echo bu('settings.html') ?>" >设置</a>
-            <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
-            <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
+            <li id='signin_user_wrap'>
+              <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
+              <ul class='dN signin_user_menu'>
+                <li><a href="<?php echo url('m/nodes' ) ?>">收藏的节点</a></li>
+                <li><a href="<?php echo bu('settings.html') ?>" >资料设置</a></li>
+                <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
+              </ul>
+            </li>
+           <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
           <?php
             }
           ?>
