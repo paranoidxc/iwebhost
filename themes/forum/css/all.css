@@ -361,4 +361,11 @@ body {
   background-position: -18px -18px;
 }
 
-
+.member_topics { 
+  clear: both;
+  }.member_topics  a {
+    float: left;
+    width: 70%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+  }

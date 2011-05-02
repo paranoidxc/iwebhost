@@ -74,7 +74,7 @@
         <span class="ar_extra">
           <strong><a href="<?php echo url('f/index', array( 'id' => $inst->leaf->id) ) ?>" class="raidus"><?php echo $inst->leaf->name ?></a></strong>
           &nbsp;•&nbsp;
-          <strong><a href="<?php echo url('m/index' , array('id' => $inst->auther->id )) ?>" class="dark"><?php echo $inst->auther->username ?></a></strong>
+          <strong><a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" class="dark"><?php echo $inst->auther->username ?></a></strong>
           &nbsp;•&nbsp;
           <?php echo $inst->pv ?>次点击 
           &nbsp;•&nbsp; 
