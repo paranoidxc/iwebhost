@@ -10,7 +10,7 @@
   <?php
   foreach( $users as $user ) {
   ?>
-    <a href="<?php echo CController::createUrl('m/index',array('id' => $user->id ) )?>"
+    <a href="<?php echo CController::createUrl('m/index',array('id' => $user->username ) )?>"
        class="" title="<?echo $user->username; ?>">
       <img src=<?php echo $user->gravatar ?> alt=""/>
     </a>
