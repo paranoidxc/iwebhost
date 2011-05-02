@@ -80,6 +80,30 @@ body {
   background-position: right -33px;
   background: url('bgs/ihover.png') no-repeat right 0px;
 }
+.signin_wrap {
+  position: relative;
+  }.signin_user_menu {
+    position: absolute;
+    border-bottom: 1px solid #ccc;
+    }.nav .signin_user_menu li {
+      width: 120px;
+      height: 30px;
+      display: block;
+      background-color: #FFF;
+      }.nav .signin_user_menu li a ,
+        .nav .signin_user_menu li a:hover {
+          border-left: 1px solid #ccc;
+          border-top: none;
+          border-bottom: none;
+          text-align: left;
+          text-indent: 20px;
+          padding: 0;
+          height: 30px;
+          line-height: 30px;
+          background-color: #FFF;
+        }.nav .signin_user_menu li a:hover {
+          background:#FFF url('bgs/ihover.png') no-repeat right 0px;
+        }
 
 #footer {
   border-top: 1px solid #CCC;  
@@ -369,3 +393,4 @@ body {
     overflow: hidden;
     text-overflow:ellipsis;
   }
+
