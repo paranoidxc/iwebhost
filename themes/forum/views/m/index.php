@@ -35,7 +35,7 @@
         <?php
         foreach( $m->articles as $inst ){
         ?>
-        <div>
+        <div class='member_topics'>
           <p class='pl10P lh20P'>
             <strong>
               <a class='radius2' href="<?php echo CController::createUrl('t/index', array( 'id' => $inst->id) ) ?>" >

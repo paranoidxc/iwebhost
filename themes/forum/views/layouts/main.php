@@ -17,14 +17,12 @@
 	$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
 ?>
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
-  <title>
-  <?php 
+  <title> <?php 
   if( !empty($this->_pageTitle) ) {
     echo $this->_pageTitle;
   }
   echo Yii::app()->name;
-  ?>
-  </title>
+  ?> </title>
 </head>
 <!-- I Love You -->
 <body>
