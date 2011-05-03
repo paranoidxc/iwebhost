@@ -104,16 +104,20 @@
 .lh50P { line-height: 50px; }
 .lh60P { line-height: 60px; }
 .lh130S { line-height: 130%; }
+
 .pr2P { padding-right: 2px; }
 .pl2P { padding-left: 2px; }
 .p2P { padding: 2px; }
 .p5P { padding: 5px; }
 .p5P { padding: 5px; }
 .p10P { padding: 10px; }
-.pt5P {padding-top: 5px;}
+
+.pt5P { padding-top: 5px;}
 .pt10P { padding-top: 10px; } 
 .pt15P { padding-top: 15px; } 
 .pt20P { padding-top: 20px; } 
+.pt80P { padding-top: 80px; } 
+
 .pr5P { padding-right: 5px; }
 .pr10P { padding-right: 10px; }
 .pr20P { padding-right: 20px; }
@@ -134,6 +138,7 @@
 .mt5P { margin-top: 5px; }
 .mt10P { margin-top: 10px; }
 .mt20P { margin-top: 20px; }
+.mt80P { margin-top: 80px; }
 
 .mb5P { margin-bottom: 5px; }
 .mb10P { margin-bottom: 10px; }

@@ -42,15 +42,20 @@ body {
   background: url(bgs/bg.png) repeat 0 0;
 }
 #header {    
-  height: 80px;
-  margin-bottom: 20px;
+  height: 60px;
   background: url(bgs/gnav.png) repeat-x 0 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000000;
+  left: 0;
+  top: -1px;
   }#header h1 {
     padding-top: 8px;  
   }
 
 .nav {
   height: 80px;
+  height: 60px;
   text-align: right;
 }
 .nav ul {

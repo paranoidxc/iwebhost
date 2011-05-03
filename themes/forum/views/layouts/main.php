@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div>
+  <div class='pt80P'>
 	  <?php echo $content; ?>
 	</div>
 	
