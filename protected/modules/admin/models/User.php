@@ -23,8 +23,11 @@ class User extends CActiveRecord
   
   public function getgravatar(){    
     //return '/default_image/'.($this->id%100).'.png';
-    return "http://www.gravatar.com/avatar/".md5($this->email)."?s=80&d=identicon&rating=PG";
-    
+    if( empty($this->avatar) ){
+      return "http://www.gravatar.com/avatar/".md5($this->email)."?s=80&d=identicon&rating=PG";
+    }else{
+      return UPFILES_DIR.'/avatars/'.$this->avatar;
+    }
     //return rand(0, 100).'.png';
   }
 	/**
@@ -52,7 +55,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('current_login_time,last_logout_time,login_count,token,sign','default'),
+		  array('current_login_time,last_logout_time,login_count,token,sign,avatar','default'),
 			array('username, password, email,c_time', 'required'),
       array('username,password', 'match', 'pattern'=>'/^([a-z0-9_])+$/', 'message' => '字符范围26个英文字符(a-z),数字(0-9)和下划线(_)'),
 			array('username','unique'),
@@ -99,6 +102,7 @@ class User extends CActiveRecord
   		'last_ip'             => Yii::t('cp','Last IP'),
   		'last_logout_time'    => Yii::t('cp','Last Logout Time'),
   		'sign'                => Yii::t('cp','Sign'),
+  		'avatar'              => Yii::t('cp','Avatar'),
 			'parent_id'           => 'Parent',
 		);
 	}

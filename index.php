@@ -4,6 +4,7 @@ error_reporting(null);
 $website_dir = dirname(__FILE__);
 $g_upfiles_dir = '/upfiles';
 $atms_dave_dir = $website_dir.'/upfiles/';
+$avts_dir = $website_dir.$g_upfiles_dir.'/avatars/';
 
 //$atms_dave_dir = '/home/huangxc/upfiles/';
 // require the shortcut function
@@ -32,6 +33,7 @@ if( strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/login') !== false
 define('WEBSITE_DIR',$website_dir);
 define('ATMS_SAVE_DIR',$atms_dave_dir);
 define('UPFILES_DIR', $g_upfiles_dir);
+define('UPFILES_AVTS_DIR', $avts_dir);
 
 define('THUMB_SIZE',  '160_120');
 define('GAVATAR_SIZE','48_48');
