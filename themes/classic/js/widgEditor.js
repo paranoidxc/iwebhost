@@ -507,7 +507,8 @@ widgEditor.prototype.cleanSource = function()
 	theHTML = theHTML.replace(/(<img [^>]+[^\/])>/g, "$1 />");
 	
 	/* Remove empty tags */
-	theHTML = theHTML.replace(/(<[^\/]>|<[^\/][^>]*[^\/]>)\s*<\/[^>]*>/g, "");
+  //todo
+//	theHTML = theHTML.replace(/(<[^\/]>|<[^\/][^>]*[^\/]>)\s*<\/[^>]*>/g, "");
 	
 	if (this.wysiwyg)
 	{
