@@ -6,13 +6,15 @@ class SettingForm extends CFormModel
 	public $password;
 	public $rpassword;
   public $sign;
+  public $avatar;
 	public function rules()
 	{
 		return array(			
       array('password', 'match', 'pattern'=>'/^([a-z0-9_])+$/', 'message' => '字符范围26个英文字符(a-z),数字(0-9)和下划线(_)'),
     	array('password', 'length', 'allowEmpty' => true, 'min'=>5),
 			array('password, rpassword,id,sign', 'default'),		
-			array('rpassword', 'compare','compareAttribute'=>'password', 'message' =>'两次密码必须一致!' )	
+			array('rpassword', 'compare','compareAttribute'=>'password', 'message' =>'两次密码必须一致!'),
+      array('avatar', 'file', 'allowEmpty'=>true, 'types'=>'jpg, gif, png'),
 		);
 	}
 	
@@ -39,7 +41,17 @@ class SettingForm extends CFormModel
       if( strlen($this->password) > 0 ) {
         $record->password = $this->password;
       }
-      $record->save(false);
+      if( $this->avatar ) {
+        $name = md5($record->id).$this->avatar;
+        $avatar_path = UPFILES_AVTS_DIR.'/'.$name;
+        $this->avatar->saveAs( $avatar_path );
+        $record->avatar = $this->avatar = $name;
+        $avatar = Yii::app()->image->load($avatar_path);
+        $avatar->resize(80, 80);
+        $avatar->save($avatar_path);
+        unset($avatar);
+      }
+      $record->save(false); 
       return true;
     }
 	}

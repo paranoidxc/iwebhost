@@ -82,6 +82,9 @@ class MController extends Controller {
 
     if( isset($_POST['SettingForm'] ) ){
       $m->attributes = $_POST['SettingForm'];
+      $m->avatar = CUploadedFile::getInstance($m,'avatar');
+      // $user->avatar->saveAs('/home/paranoid/projects/infuzhou/123.jpg');
+      // $user->save(false);
       if( $m->validate() && $m->setting() ){
         $str = '会员资料已保存,';
         if(strlen($m->password)>0) {
@@ -91,6 +94,7 @@ class MController extends Controller {
         }
 			  Yii::app()->user->setFlash('success',$str);
        }
+		   $user = User::model()->findByPk( Yii::app()->user->id );
     }
     $m->password = $m->rpassword = '';
     $this->_pageTitle = '会员资料设置'.API::lchart();

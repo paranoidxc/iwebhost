@@ -28,7 +28,8 @@
 	'id'=>'user-form',
 	'enableAjaxValidation'=>false,
 	'htmlOptions' => array(
-    'class' => 'mb20P'
+    'class' => 'mb20P',
+    'enctype'=>'multipart/form-data'
 	)
 )); ?>  
   	<?php //echo $form->errorSummary($m); ?>
@@ -41,6 +42,7 @@
             <?php echo $user->username ?>
           </td>
         </tr>
+        
         <tr>
           <th class='w100P'><?php echo $form->labelEx($user,'email'); ?></th>
           <td>
@@ -48,6 +50,16 @@
           </td>
         </tr>
 
+        <tr>
+          <th class='w100P'><?php echo $form->labelEx($user,'avatar'); ?></th>
+          <td>
+            <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="80" />
+            <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="46" />
+            <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="24" />
+            <br/>
+            <?php echo $form->fileField($m, 'avatar'); ?>
+          </td>
+        </tr>
 
         <tr>
           <th class=''><?php echo $form->labelEx($user,'sign'); ?></th>
