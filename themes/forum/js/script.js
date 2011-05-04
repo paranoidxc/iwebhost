@@ -1,4 +1,25 @@
 $(document).ready(function(){
+
+  $('.member-photos').click(function(){
+    var that = $(this);
+    var uri = $(this).attr('href');
+    $.ajax({
+			type: 'get',
+			cache: false,
+			url: uri,
+			success:function(html){			  
+        that.next().html(html);
+			}
+		});
+  });
+
+  $('.member-photos-pick ul li').live('click',function(){
+    var alt = $(this).attr('name');
+    var image = $(this).attr('href');
+    widgSetContent('id_widgEditor', image, alt);
+  });
+
+
   $(window).scroll(function() { 
     if( $(this).scrollTop() == 0 ){
       $('#header').css({ 'opacity': '1', });

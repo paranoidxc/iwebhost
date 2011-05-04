@@ -9,7 +9,7 @@ class MController extends Controller {
 	{
 		return array(
 			array('allow',  
-				'actions'=>array('index','list'),
+				'actions'=>array('index','list','photos'),
 				'users'=>array('*'),
 			),
 			array('allow', 
@@ -21,6 +21,16 @@ class MController extends Controller {
 			),
 		);
 	}
+
+  public function actionPhotos() {
+    $criteria = new CDbCriteria; 
+    $criteria->limit        =  9;
+    $photos = Attachment::model()->findAll($criteria);
+    $this->renderPartial('photos', array(
+          'photos' => $photos
+    ),false,true);
+  }
+
 
   public function actionNodes() {
     $u = User::model()->findByPk( User()->id );
@@ -60,9 +70,10 @@ class MController extends Controller {
   }
 
 	public function actionIndex(){			  
-    $m = is_numeric( $_GET['id'] ) ? User::model()->findByPk($_GET['id']) : User::model()->findByAttributes( array('username' => $_GET['id'] ) );
+    // $m = is_numeric( $_GET['id'] ) ? User::model()->findByPk($_GET['id']) : User::model()->findByAttributes( array('username' => $_GET['id'] ) );
+    $m = User::model()->findByAttributes( array('username' => $_GET['id'] ) );
 		if($m===null){
-			throw new CHttpException(404,'The requested Member does not exist.');
+      throw new CHttpException(404,'The requested Member does not exist.');
 		}		
     $this->_pageTitle = $m->username.API::lchart();
 		$this->render('index', array('m' => $m));

@@ -25,6 +25,26 @@
   	    </div>
 	    </div>	    
 	    
+      <div class="radius5 boxshadow mt20P newest-node">
+	      <div class='raidus5top panel-title'>
+	        <h1 class="raidus5top">最近注册会员</h1>
+        </div>
+	      <div class='iline'></div>
+	      <div class='p10P'>
+          <?php
+            $latest_member = User::model()->findAll( 
+                array( 'condition' => 'account_type = 0',
+                       'order' => 'c_time DESC',
+                       'limit' => '10'  ) );
+            foreach( $latest_member as $m ) {
+              ?>
+              <a href="<?php echo url('m/index', array('id'=>$m->username) ); ?>" title="<?php echo $m->username; ?>" ><img src="<?php echo $m->gravatar; ?>" width='48' alt="<?php echo $m->username;?>" /></a>
+              <?php
+            }
+          ?>
+  	    </div>
+	    </div><!--最近注册会员-->
+	    
 	    <div class="radius5 boxshadow mt20P newest-node">
 	      <div class='raidus5top panel-title'>
 	        <h1 class="raidus5top">广告</h1>

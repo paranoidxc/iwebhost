@@ -14,7 +14,7 @@ class SettingForm extends CFormModel
     	array('password', 'length', 'allowEmpty' => true, 'min'=>5),
 			array('password, rpassword,id,sign', 'default'),		
 			array('rpassword', 'compare','compareAttribute'=>'password', 'message' =>'两次密码必须一致!'),
-      array('avatar', 'file', 'allowEmpty'=>true, 'types'=>'jpg, gif, png'),
+      array('avatar', 'file', 'allowEmpty'=>true, 'types'=>'jpg,jpeg, gif, png'),
 		);
 	}
 	

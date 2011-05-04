@@ -1,9 +1,9 @@
  <?php
         foreach($posts as $post ){
       ?>
-      <table class=''>
-          <tr>
-            <th class='vaT p10P reply_gravatar'>
+      <table class='reply_table w100S'>
+          <tr class='w100S'>
+            <th class='vaT p10P w20P'>
               <a href="<?php echo url('m/index', array('id' => $post->auther->username) )?> "
                 title="<?php echo CHtml::encode($post->auther->username) ?>">
                 <img width="40" src='<?php echo CHtml::encode($post->auther->gravatar) ?> ' 

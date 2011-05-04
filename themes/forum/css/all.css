@@ -4,6 +4,7 @@
 @import url('form.css');
 @import url('itable.css');
 @import url('ibutton.css');
+@import url('ibtn.css');
 
 a:link, a:visited, a:active {
   color: #636a86;
@@ -57,34 +58,28 @@ body {
   height: 80px;
   height: 60px;
   text-align: right;
-}
-.nav ul {
-  list-style: none;
-}
-.nav ul li {  
-  display: inline-block;
-  height: 52px;
-}
+  }.nav ul {
+    list-style: none;
+  }.nav ul li {  
+    display: inline-block;
+    height: 52px;
+  }.nav ul li a {
+    display: block;
+    font-weight:bold;
+    text-decoration: none;
+    height: 100%;  
+    line-height: 50px;
+    padding: 0 20px;
+    color: #515151;
+    background: transparent url('bgs/ihover.png') no-repeat 0 -999px;  
+  } .nav ul li:hover {
+    background-position: left -132px;
+    background: url('bgs/ihover.png') no-repeat 0 0px;  
+  }.nav ul li:hover a {
+    background-position: right -33px;
+    background: url('bgs/ihover.png') no-repeat right 0px;
+  }
 
-.nav ul li a {
-  display: block;
-  font-weight:bold;
-  text-decoration: none;
-  height: 100%;  
-  line-height: 50px;
-  padding: 0 20px;
-  color: #515151;
-  background: transparent url('bgs/ihover.png') no-repeat 0 -999px;  
-}
-.nav ul li:hover {
-  background-position: left -132px;
-  background: url('bgs/ihover.png') no-repeat 0 0px;  
-
-}
-.nav ul li:hover a {
-  background-position: right -33px;
-  background: url('bgs/ihover.png') no-repeat right 0px;
-}
 .signin_wrap {
   position: relative;
   }.signin_user_menu {
@@ -303,6 +298,9 @@ body {
 
 
 
+.reply_table tr:hover {    
+  background: #efefff;
+}
 .iform_table_wrap td label {    
   font-weight: bold;  
   display: block;
@@ -399,3 +397,19 @@ body {
     text-overflow:ellipsis;
   }
 
+
+.member-photos-pick ul {
+  margin-left: 50px;
+  }.member-photos-pick ul li {
+  float: left;
+  width: 160px;
+  overflow: hidden;
+  height: 140px;
+  margin-right: 10px;
+  }.member-photos-pick ul li span{
+    display: block;
+    width: 160px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+  }
