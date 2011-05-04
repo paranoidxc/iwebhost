@@ -102,15 +102,17 @@
                 <tbody>
                   <tr>    		  
               		  <td>                  	  
-              		    
-                  		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50,'class' => 'widgEditor')); ?>
+                      <span class='member-photos dN' href='<?php echo url('m/photos') ?>' >相册图片</span>
+                      <div class='member-photos-pick dN'></div>
+                  		<?php echo $form->textArea($model,'content',array('rows'=>6,
+                            'cols'=>50,'class' => 'widgEditor', 'id' => 'id_widgEditor')); ?>
                   		<?php echo $form->error($model,'content'); ?>
               		  </td>
               		</tr>   
               	<tfoot>    
                   <tr>    		  
               		  <td>    		    
-              	    	<?php echo CHtml::submitButton(Yii::t('cp','Create'), array('class'=>'ibtn blue') ); ?>
+              	    	<?php echo CHtml::submitButton(Yii::t('cp','Create'), array('class'=>'') ); ?>
               		  </td>
               		</tr>  	  		
                 </tfoot> 		

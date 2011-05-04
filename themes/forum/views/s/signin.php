@@ -23,8 +23,7 @@
     	  <tr>
     		  <th>
             <?php echo $form->labelEx($model,'username'); ?>
-            /
-            <?php echo $form->labelEx($model,'email'); ?><span class="required">*</span>
+            (<?php echo $form->labelEx($model,'email',array('for'=>'LoginForm_username') )?></span>)
           </th>
     		  <td>
     		    <?php echo $form->textField($model,'username', array('class' => 'itext') ); ?>
