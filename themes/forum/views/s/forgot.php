@@ -34,7 +34,7 @@
         <tr>
     		  <th></th>
     		  <td>
-    	    	<?php echo CHtml::submitButton('发送重置密码邮件', array('class'=>'ibtn blue') ); ?>
+    	    	&nbsp;<?php echo CHtml::submitButton('发送重置密码邮件', array('class'=>'ibtn blue') ); ?>
     		  </td>
     		</tr>  	  		
       </tfoot>

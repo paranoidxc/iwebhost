@@ -40,8 +40,8 @@
                        'limit' => '10'  ) );
             foreach( $latest_member as $m ) {
               ?>
-              <a href="<?php echo url('m/index', array('id'=>$m->username) ); ?>"
-                class="mb5P" title="<?php echo $m->username; ?>" ><img src="<?php echo $m->gravatar; ?>" width='48' alt="<?php echo $m->username;?>" /></a>
+              <a href="<?php echo url('m/index', array('id'=>$m->username) ); ?>" title="<?php echo $m->username; ?>" ><img src="<?php echo $m->gravatar; ?>"
+                class='mb5P' width='48' alt="<?php echo $m->username;?>" /></a>
               <?php
             }
           ?>

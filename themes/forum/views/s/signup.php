@@ -49,7 +49,7 @@
         <tr>
           <th></th>
           <td>
-            <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
+            <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','注册') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
           </td>
         </tr>
         
