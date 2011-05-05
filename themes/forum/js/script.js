@@ -1,4 +1,10 @@
 $(document).ready(function(){
+  $('#widg_add_height').click(function(){
+    $('.widgIframe').animate({ height: '+='+$(this).attr('data') });
+  });
+  $('#widg_dec_height').click(function(){
+    $('.widgIframe').animate({ height: '-='+$(this).attr('data') });
+  });
 
   $('.member-photos').click(function(){
     var that = $(this);

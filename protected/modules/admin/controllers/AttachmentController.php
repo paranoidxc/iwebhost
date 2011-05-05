@@ -82,10 +82,12 @@ class AttachmentController extends IController
   public function actionUpload()
   {    
     $category_id = $_GET['category_id'];
+    $user_id     = $_GET['user_id'];
     if( strlen( trim($category_id) ) ==  0 ) {
       //$category_id = 30;
       $category_id = Category::model()->autoCreate();      
     }    
+
     if (isset($_POST["PHPSESSID"])) {
 		  session_id($_POST["PHPSESSID"]);
 	  } else if (isset($_GET["PHPSESSID"])) {
@@ -147,6 +149,7 @@ class AttachmentController extends IController
   	  'c_time' => Time::now(),
   	  'extension' => $file_extension,
 	    'category_id' => $category_id,
+      'user_id'     => $user_id,
     );
 	  $model->attributes=$ati;
 	  if($model->save()){

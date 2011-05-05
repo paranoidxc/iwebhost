@@ -12,7 +12,7 @@
   ?>
     <a href="<?php echo CController::createUrl('m/index',array('id' => $user->username ) )?>"
        class="" title="<?echo $user->username; ?>">
-      <img src=<?php echo $user->gravatar ?> alt=""/>
+      <img src="<?php echo $user->gravatar ?>" alt=""/>
     </a>
   <?php
   }

@@ -28,8 +28,6 @@ class IController extends Controller
 	    }
     }    
 	  parent::init();
-	  
-	  
 	}
 	
 	/**

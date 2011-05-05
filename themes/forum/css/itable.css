@@ -24,6 +24,7 @@
 .errorMessage {
   color: #8C0505;
   font-weight: bold;
+  margin-top: 2px;
 }
 
 .ilist_dash,

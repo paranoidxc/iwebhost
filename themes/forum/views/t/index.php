@@ -102,17 +102,21 @@
                 <tbody>
                   <tr>    		  
               		  <td>                  	  
-                      <span class='member-photos dN' href='<?php echo url('m/photos') ?>' >相册图片</span>
-                      <div class='member-photos-pick dN'></div>
+                      <span class='member-photos' href='<?php echo url('m/photos') ?>' >相册图片</span>
+                      <div class='member-photos-pick '></div>
                   		<?php echo $form->textArea($model,'content',array('rows'=>6,
                             'cols'=>50,'class' => 'widgEditor', 'id' => 'id_widgEditor')); ?>
+                      <p class='widg-extra'>
+                        <span id="widg_add_height" class='csP' data='200'>增高200px</span>
+                        <span id="widg_dec_height" class='csP' data='200'>减少200px</span>
+                      </p>
                   		<?php echo $form->error($model,'content'); ?>
               		  </td>
               		</tr>   
               	<tfoot>    
                   <tr>    		  
               		  <td>    		    
-              	    	<?php echo CHtml::submitButton(Yii::t('cp','Create'), array('class'=>'') ); ?>
+              	    	&nbsp;<?php echo CHtml::submitButton(Yii::t('cp','提交回复'), array('class'=>'') ); ?>
               		  </td>
               		</tr>  	  		
                 </tfoot> 		
