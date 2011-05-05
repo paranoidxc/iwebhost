@@ -37,7 +37,6 @@
         ?>
         <div class='member_topics'>
           <p class='pl10P lh20P'>
-            <strong>
               <a class='radius2' href="<?php echo CController::createUrl('t/index', array( 'id' => $inst->id) ) ?>" >
               <?php echo CHtml::encode($inst->title) ?>
               </a>
@@ -48,7 +47,6 @@
                 &nbsp;•&nbsp;
                 <?php echo CHtml::encode($inst->reply_count) ?> 次回复
               </span>
-            <strong>
           </p>
         </div>
         <?php

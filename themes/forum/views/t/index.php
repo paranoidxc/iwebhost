@@ -35,7 +35,7 @@
   		      <?php echo CHtml::encode($inst->title) ?>
   		    </span>
           <div class="clB h2P"></div>
-          <span class="ar_extra">
+          <span class="pl5P ar_extra">
             <strong>By <a href=" <?php echo url('m/index', array('id' => $inst->auther->username) )?>"
             class="radius2"><?php echo $inst->auther->username ?></a></strong>
             &nbsp;•&nbsp;          
