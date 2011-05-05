@@ -35,7 +35,7 @@
   		      <?php echo CHtml::encode($inst->title) ?>
   		    </span>
           <div class="clB h2P"></div>
-          <span class="pl5P ar_extra">
+          <span class="ar_extra">
             <strong>By <a href=" <?php echo url('m/index', array('id' => $inst->auther->username) )?>"
             class="radius2"><?php echo $inst->auther->username ?></a></strong>
             &nbsp;•&nbsp;          
@@ -106,9 +106,9 @@
                       <div class='member-photos-pick '></div>
                   		<?php echo $form->textArea($model,'content',array('rows'=>6,
                             'cols'=>50,'class' => 'widgEditor', 'id' => 'id_widgEditor')); ?>
-                      <p class='widg-extra'>
-                        <span id="widg_add_height" class='csP' data='200'>增高200px</span>
-                        <span id="widg_dec_height" class='csP' data='200'>减少200px</span>
+                      <p class='widg-extra'>     
+                        <span id="widg_add_height" class='csP' data='200'>增高几行</span>
+                        <span id="widg_dec_height" class='csP' data='200'>降低几行</span>
                       </p>
                   		<?php echo $form->error($model,'content'); ?>
               		  </td>
