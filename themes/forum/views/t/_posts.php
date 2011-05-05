@@ -16,7 +16,6 @@
                   <a href="<?php echo url('m/index', array( 'id' => $post->auther->username) ) ?>" 
                   class="radius2"><?php echo $post->auther->username?></a>
                 </strong>      
-                <?php echo $post->user_id ?>
                 &nbsp;•&nbsp;         
                 <span class='timeago' title='<?php echo CHtml::encode($post->c_time) ?>'>
                   <?php echo CHtml::encode($post->c_time) ?>
