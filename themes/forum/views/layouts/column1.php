@@ -27,7 +27,7 @@
       <div class="radius5 boxshadow mt20P side-box">
 	      <div class='raidus5top panel-title'>
 	        <h1 class="raidus5top">
-          <a href="" style='float: right; margin: 0;padding: 0;'>全部</a>
+          <a href="<?php echo url('m/list')?>" style='float: right; margin: 0;padding: 0;'>全部</a>
           最近注册会员
           </h1>
         </div>
