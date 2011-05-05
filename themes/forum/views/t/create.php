@@ -27,8 +27,8 @@
     		  <td>    		    
     		    <?php echo $form->textArea($model,'content',array('rows'=>50, 'cols'=>140, 'id'=>'article_content'.time(), 'class' => 'widgEditor' )); ?>
             <p class='widg-extra'>
-              <span id="widg_add_height" class='csP' data='200'>增高200px</span>
-              <span id="widg_dec_height" class='csP' data='200'>减少200px</span>
+              <span id="widg_add_height" class='csP' data='200'>增高几行</span>
+              <span id="widg_dec_height" class='csP' data='200'>降低几行</span>
             </p>
   		      <?php echo $form->error($model,'content'); ?>  		      
     		  </td>

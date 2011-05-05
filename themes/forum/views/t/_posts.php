@@ -11,7 +11,7 @@
               </a>
             </th>
             <td class='vaT pt10P'>
-              <p class='ar_extra'>
+              <p class='pl5P ar_extra'>
                 <strong>
                   <a href="<?php echo url('m/index', array( 'id' => $post->auther->username) ) ?>" 
                   class="radius2"><?php echo $post->auther->username?></a>
