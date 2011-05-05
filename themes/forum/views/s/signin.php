@@ -1,7 +1,7 @@
 <div class="iform radius5 boxshadow newest-node " id="signup_wrap">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
-	'enableAjaxValidation'=>true,
+	'enableAjaxValidation'=>false,
 )); ?>
   <h1 class='raidus5top panel-title' >
     <a href="/" ><?php echo Yii::app()->name ?></a>&raquo;&nbsp;signin
@@ -58,7 +58,7 @@
         <tr>
     		  <th></th>
     		  <td>
-    	    	<?php echo CHtml::submitButton(Yii::t('cp','Login'), array('class'=>'ibtn blue') ); ?>
+    	    	&nbsp;<?php echo CHtml::submitButton(Yii::t('cp','Login'), array('class'=>'ibtn blue') ); ?>
     		  </td>
     		</tr>  	  		
       </tfoot>

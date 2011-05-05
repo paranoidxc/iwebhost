@@ -31,7 +31,7 @@
         <tr>
     		  <th></th>
     		  <td>
-    	    	<?php echo CHtml::submitButton('重置密码', array('class'=>'ibtn blue') ); ?>
+    	    	&nbsp;<?php echo CHtml::submitButton('重置密码', array('class'=>'ibtn blue') ); ?>
     		  </td>
     		</tr>  	  		
       </tfoot>
