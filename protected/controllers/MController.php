@@ -24,6 +24,9 @@ class MController extends Controller {
 
   public function actionPhotos() {
     $criteria = new CDbCriteria; 
+    $criteria->condition = 'user_id = :user_id';
+    $criteria->params = array( ':user_id' => User()->id );
+    $criteria->order        =  'c_time DESC';
     $criteria->limit        =  9;
     $photos = Attachment::model()->findAll($criteria);
     $this->renderPartial('photos', array(

@@ -8,3 +8,8 @@
 <?php } ?>
 </ul>
 <div class='clB'></div>
+
+<div class="bgTips p5P">
+  <?php $this->renderPartial('_upload'); ?>
+</div>
+<div class='clB'></div>

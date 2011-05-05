@@ -90,7 +90,7 @@ class Attachment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('category_id,extension,memo,tips,c_time', 'default'),
+		  array('category_id,extension,memo,tips,c_time,user_id', 'default'),
 			array('screen_name, path, w, h', 'required'),
 			array('w, h', 'numerical', 'integerOnly'=>true),
 			array('screen_name, path', 'length', 'max'=>255),

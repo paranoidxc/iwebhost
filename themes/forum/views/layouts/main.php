@@ -12,10 +12,15 @@
 	$baseUrl = Yii::app()->baseUrl; 
 	$theme_baseurl = API::get_theme_baseurl();
 	$cs = Yii::app()->getClientScript();
-	//Yii::app()->clientScript->registerCoreScript('jquery');					
+	//Yii::app()->clientScript->registerCoreScript('jquery');				
 	$cs->registerCssFile($theme_baseurl.'/css/all.css');			
 	$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
 ?>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
+<link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
   <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
   <title> <?php 
   if( !empty($this->_pageTitle) ) {
