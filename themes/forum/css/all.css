@@ -182,7 +182,7 @@ vertical-align: middle;
 }
 
 .index_articles_wrap {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   clear: both;
   }.author_wrap {    
   display: block;
@@ -216,7 +216,7 @@ vertical-align: middle;
   height: 14px;
   }.item_bottom {
   background: url(bgs/wrap_bottom.png) no-repeat 9px 0;
-  height: 26px;
+  height: 11px;
   }.item_content {
     background: url(bgs/wrap_cont.png) repeat-y 9px 0;
   }
