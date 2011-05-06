@@ -53,36 +53,39 @@
 <?php  
   foreach($articles as $inst){
 ?>
+
 <div class="index_articles_wrap">  
-  <table style="width: 100%">
-    <tr>
-      <td class="author_warp">
-        <a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" 
-            class="" title="<?php echo $inst->auther->username ?>" >
-          <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
-        </a>
-      </td>
-      <td class="w20P ar_arrow">&nbsp;</td>
-      <td class="boxshadow p10P ar_content_wrap">
-        <div class="flR reply_count">
-	        <a href="<?php echo url('t/index', array('id' => $inst->id ) ) ?>" class=""><?php echo $inst->reply_count ?></a>
-	      </div>	    	      
-		    <span class="fs16P lh130S ar_title" >
-		      <a href="<?php echo url('t/index',array('id' => $inst->id)) ?>" class="radius2"><?php echo CHtml::encode($inst->title) ?></a>
-		    </span>
-        <div class="clB h2P"></div>
-        <span class="ar_extra">
-          <strong><a href="<?php echo url('f/index', array( 'id' => $inst->leaf->id) ) ?>" class="raidus"><?php echo $inst->leaf->name ?></a></strong>
-          &nbsp;•&nbsp;
-          <strong><a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" class="dark"><?php echo $inst->auther->username ?></a></strong>
-          &nbsp;•&nbsp;
-          <?php echo $inst->pv ?>次点击 
-          &nbsp;•&nbsp; 
-          <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
-	    </td>
-    </tr>
-  </table>
-</div>
+  <a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" 
+     class="author_wrap" title="<?php echo $inst->auther->username ?>" >
+     <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
+  </a>
+  <div class='item_box'>  
+    <div class="item_top"></div>
+    <div class="item_arrow"></div>
+    <div class='item_content'>
+      <div class="flR reply_count">
+	      <a href="<?php echo url('t/index', array('id' => $inst->id,'#' => $inst->reply_count ) ) ?>" class=""><?php echo $inst->reply_count ?></a>
+	    </div>	    	
+      <p class="fs16P lh130S item_ar_title" >
+		    <a href="<?php echo url('t/index',array('id' => $inst->id)) ?>" 
+           class="radius2"><?php echo CHtml::encode($inst->title) ?></a>
+		  </p>
+      <p class="item_ar_extra">
+        <strong>
+          <a href="<?php echo url('f/index', array( 'id' => $inst->leaf->id) ) ?>" 
+          class="raidus"><?php echo $inst->leaf->name ?></a>
+        </strong>&nbsp;•&nbsp;
+        <strong>
+          <a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" 
+          class="dark"><?php echo $inst->auther->username ?></a>
+        </strong>&nbsp;•&nbsp;
+        <?php echo $inst->pv ?>次点击&nbsp;•&nbsp; 
+        <span title="<?php echo $inst->create_time ?>" class="timeago" ><?php echo $inst->create_time ?></span>
+      </p>
+    </div><!-- item_content end-->
+    <div class='item_bottom'></div>
+  </div><!-- item_box end -->
+</div><!-- index_articles_wrap end -->
 <?php
   }
 ?>

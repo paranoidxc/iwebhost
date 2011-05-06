@@ -169,36 +169,60 @@ body {
   height: 1px;
   border-bottom: 1px solid #E2E2E2;
 }
+.author_warp {
+  width: 50px;
+}.author_warp a {
+  display: block;
+  text-align: center;
+  background-color: white;
+}.author_warp a img {
+width: 48px;
+padding: 2px;
+vertical-align: middle;
+}
 
 .index_articles_wrap {
   margin-bottom: 20px;
-}
-.author_warp{
-  width: 50px;      
-}
-.author_warp a {    
+  clear: both;
+  }.author_wrap {    
   display: block;
   text-align: center;  
-  /*
-  padding-top: 1px;    
-  -webkit-box-shadow: 0 2px 5px rgba(16, 130, 194,0.5);
-  -moz-box-shadow: 0 2px 5px rgba(16, 130, 194, 0.5);
-  -o-box-shadow: 0 2px 5px rgba(16, 130, 194, 0.5);
-  box-shadow: 0 2px 5px rgba(16, 130, 194, 0.5);
-  border: 1px solid #FFF;;   
-  */
+  margin-top: 4px;
   background-color: white;
-}
-.author_warp a img {    
+  width: 52px;
+  float:left;
+  }.author_wrap img {    
   width: 48px;
-  padding: 2px;
+  padding: 1px;
+  border: 1px solid #aaa;
   vertical-align: middle;
-}
+  }.author_wrap:hover img {    
+    border: 1px solid #696969;
+  }
+.item_box {
+  position: relative;
+  z-index: 9999;
+  margin-left: 58px;
+  }.item_arrow {
+  background: url(bgs/arrow.png) no-repeat right 0;
+  float: left;
+  width: 15px;
+  height: 21px;
+  position: relative;
+  top: -5px;
+  z-index: 10000;
+  }.item_top {
+  background: url(bgs/wrap_top.png) no-repeat 9px 0;
+  height: 14px;
+  }.item_bottom {
+  background: url(bgs/wrap_bottom.png) no-repeat 9px 0;
+  height: 26px;
+  }.item_content {
+    background: url(bgs/wrap_cont.png) repeat-y 9px 0;
+  }
 
-.ar_arrow {
-  background: url(bgs/arrow.png) no-repeat 3px 10px;    
-}
 .t_ar_arrow {
+  background: url(bgs/t_arrow.png) no-repeat right 0;
   background-position:3px 30px;    
 }
 .ar_content_wrap {
@@ -211,18 +235,16 @@ body {
   background: #FFF;
 }
 
-.ar_title a {
-  padding: 0 2px;
+.item_ar_title {
+  padding: 0 25px;
 }
-.ar_title a:hover {
-  text-decoration: none;
-  background: #1082c2;
-  color: #FFF;    
+.item_ar_title a:hover {
+  text-decoration: underline;
 }
 .reply_count {
   position: relative;
   top: -10px;
-  right: -10px;  
+  right: 1px;  
 }
 
 .reply_count a {
@@ -256,10 +278,15 @@ body {
   text-decoration: none;
 } 
 
-.ar_extra {
-  font-size: 10px;
+.ar_extra ,
+.item_ar_extra {
   font-weight: bold;
-  color: #969696;
+  color: #969696; 
+  margin-top: 3px;
+  font-size: 10px;
+}
+.item_ar_extra {
+  padding: 2px 25px;
 }
 .ar_content {  
   font-size: 14px;  
