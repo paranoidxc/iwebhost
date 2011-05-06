@@ -14,6 +14,7 @@
   
   <div class='p10P'>  
   	<h1 class="note"><?php echo Yii::t('cp','Fields with * are required.')?></h1>
+    <span class='dN' id='member-photos-url' href='<?php echo url('m/photos') ?>' >相册图片</span>
     <table class='itable iform_table_wrap w100S'>
       <tbody>
         <tr>    		  
@@ -24,8 +25,10 @@
     		  </td>
     		</tr>    		
     		<tr>    		  
-    		  <td>    		    
-    		    <?php echo $form->textArea($model,'content',array('rows'=>50, 'cols'=>140, 'id'=>'article_content'.time(), 'class' => 'widgEditor' )); ?>
+    		  <td>    		      
+            <div class='member-photos-pick '></div>
+    		    <?php echo $form->textArea($model,'content',array('rows'=>50, 'cols'=>140, 'id'=>'article_content', 
+                  'class' => 'widgEditor' )); ?>
             <p class='widg-extra'>
               <span id="widg_add_height" class='csP' data='200'>增高几行</span>
               <span id="widg_dec_height" class='csP' data='200'>降低几行</span>

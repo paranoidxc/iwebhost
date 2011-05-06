@@ -6,15 +6,14 @@ $(document).ready(function(){
     $('.widgIframe').animate({ height: '-='+$(this).attr('data') });
   });
 
-  $('.member-photos').click(function(){
-    var that = $(this);
-    var uri = $(this).attr('href');
+  $('.member-photos').live('click',function(){
+    var uri = $('#member-photos-url').attr('href');
     $.ajax({
 			type: 'get',
 			cache: false,
 			url: uri,
 			success:function(html){			  
-        that.next().html(html);
+       $('.member-photos-pick').html(html);
 			}
 		});
   });
@@ -22,7 +21,12 @@ $(document).ready(function(){
   $('.member-photos-pick ul li').live('click',function(){
     var alt = $(this).attr('name');
     var image = $(this).attr('href');
-    widgSetContent('id_widgEditor', image, alt);
+    if( $('#id_widgEditor').length > 0 ) {
+      widgSetContent('id_widgEditor', image, alt);
+    }
+    if( $('#article_content').length > 0 ) {
+      widgSetContent('article_content', image, alt);
+    }
   });
 
 
