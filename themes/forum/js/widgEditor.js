@@ -106,6 +106,7 @@ widgToolbarItems.push("hyperlink");
 widgToolbarItems.push("unorderedlist");
 widgToolbarItems.push("orderedlist");
 widgToolbarItems.push("image");
+widgToolbarItems.push("snsimage");
 widgToolbarItems.push("htmlsource");
 widgToolbarItems.push("blockformat");
 
@@ -1052,33 +1053,35 @@ function widgToolbar(theEditor)
 		switch (widgToolbarItems[i])
 		{
 			case "bold":
-				this.addButton(this.theList.id + "ButtonBold", "widgButtonBold", "Bold", "bold");
+				this.addButton(this.theList.id + "ButtonBold", "widgButtonBold", "粗体", "bold");
 				
 				break;
 				
 			case "italic":
-				this.addButton(this.theList.id + "ButtonItalic", "widgButtonItalic", "Italic", "italic");
+				this.addButton(this.theList.id + "ButtonItalic", "widgButtonItalic", "斜体", "italic");
 				
 				break;
 				
 			case "hyperlink":
-				this.addButton(this.theList.id + "ButtonLink", "widgButtonLink", "Hyperlink", "link");
+				this.addButton(this.theList.id + "ButtonLink", "widgButtonLink", "超链接", "link");
 				
 				break;
 				
 			case "unorderedlist":
-				this.addButton(this.theList.id + "ButtonUnordered", "widgButtonUnordered", "Unordered List", "insertunorderedlist");
+				this.addButton(this.theList.id + "ButtonUnordered", "widgButtonUnordered", "无序列表", "insertunorderedlist");
 				
 				break;
 				
 			case "orderedlist":
-				this.addButton(this.theList.id + "ButtonOrdered", "widgButtonOrdered", "Ordered List", "insertorderedlist");
+				this.addButton(this.theList.id + "ButtonOrdered", "widgButtonOrdered", "有序列表", "insertorderedlist");
 				
 				break;
 				
 			case "image":
-				this.addButton(this.theList.id + "ButtonImage", "widgButtonImage", "Insert Image", "image");
-				
+				this.addButton(this.theList.id + "ButtonImage", "widgButtonImage", "关联外部图片", "image");
+				break;
+	  	case "snsimage":
+				this.addButton(this.theList.id + "ButtonSnsImage", "member-photos widgButtonImage", "上载图片", "");
 				break;
 				
 			case "htmlsource":
