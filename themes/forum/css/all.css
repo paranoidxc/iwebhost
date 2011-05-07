@@ -475,7 +475,9 @@ div.member-photos-loading,
   }.member-photos-pick ul.pul li span:hover {
     color: #313131;
   }
-
+.ipagination {
+  margin-bottom: 2px;
+}
 
 ul.yiiPager {
  font-size:11px;
@@ -487,50 +489,44 @@ ul.yiiPager {
 }
 ul.yiiPager li
 {
- display:inline;
+ display:inline-block;
+ height: 18px;
  border: 1px solid #efefef;
- padding: 1px 0 ;
  border-color: #efefef #ccc #ccc #efefef;   
 }
 ul.yiiPager .hidden a:hover,
 ul.yiiPager a:link,
 ul.yiiPager a:visited {  
+  height: 16px;
+  line-height: 16px;
   padding: 0px 6px ;
+  margin: 0;
+  display: block;
   text-decoration:none;
   border: 1px solid #313131;
   border-color: #fff;
-  font-weight:bold; 
   color: #666666; 
-  background: #efefef url(bgs/column_item_normal.png) no-repeat 0 50%;
+  background: #efefef url(panel_images/column_item_normal.png) no-repeat 0 50%;
 }
 
-ul.yiiPager .page a
-{
- font-weight:normal; 
- font-weight:bold;
- background: #efefef url(bgs/column_item_normal.png) no-repeat 0 50%;
+ul.yiiPager .page a {
+ font-weight: normal;
+ background: #efefef url(panel_images/column_item_normal.png) no-repeat 0 50%;
 }
-ul.yiiPager a:hover
-{
-  font-weight: bold;
-  color: #313131;
+ul.yiiPager a:hover { color: #313131;
 }
 
-ul.yiiPager .selected a
-{  
+ul.yiiPager .selected a {  
  font-weight:bold;
  color: #313131;
 }
 ul.yiiPager .hidden a:hover,
-ul.yiiPager .hidden a
-{
+ul.yiiPager .hidden a {
   cursor: text;
- /*border:solid 1px #DEDEDE;*/
- color: #999; 
+  color: #999; 
 }
 
 ul.yiiPager .first,
-ul.yiiPager .last
-{
+ul.yiiPager .last {
  display:none;
 }
