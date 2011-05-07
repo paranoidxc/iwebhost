@@ -448,7 +448,10 @@ div.member-photos-loading,
 .member-photos-pick.member-photos-loading {
   background: url(bgs/photo-loader.gif) no-repeat 50% 0;
   height: 20px;
-  }.member-photos-pick div.photos ul.pul {
+  }
+  .member-photos-pick.member-photos-loading div{
+    display: none;
+  } .member-photos-pick div.photos ul.pul {
   margin-left: 50px;
   }.member-photos-pick ul.pul li {
   float: left;
