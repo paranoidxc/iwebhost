@@ -11,11 +11,13 @@
       <?php 
         if( !User()->isGuest &&  $node->islove ) {
       ?>
-        <a class='radius2 nodelove' href="<?php echo url('m/unlove', array('f' => $node->id)  ) ?>">取消收藏</a>
+        <a class='radius2 nodelove' href="<?php echo url('m/unlove', array('f' => $node->id)  ) ?>"
+        title="取消收藏" >取消收藏</a>
       <?php
         }else if( !User()->isGuest ) {
       ?>
-        <a class='radius2 nodeunlove' href="<?php echo url('m/love', array('f' => $node->id)  ) ?>">收藏</a>
+        <a class='radius2 nodeunlove' href="<?php echo url('m/love', array('f' => $node->id)  ) ?>"
+        title="收藏" >收藏</a>
       <?php
       }
       ?>

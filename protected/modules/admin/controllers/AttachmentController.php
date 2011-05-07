@@ -159,10 +159,14 @@ class AttachmentController extends IController
         $file_path_t = $put_file_to_dir.$time.'_160_120'.'.'.$file_extension;
         $file_path_g = $put_file_to_dir.$time.'_48_48'.'.'.$file_extension;        
         
-        $image->resize(800, 600);
+        if( $w >800 && $h>600){
+          $image->resize(800, 600);
+        }
         $image->save($file_path_l);          	            
         
-        $image->resize(160, 120);
+        if( $w >160 && $h>120){
+          $image->resize(160, 120);
+        }
         //,Image::NONE);        
         $image->save($file_path_t);
         
