@@ -103,7 +103,6 @@
                 <tbody>
                   <tr>    		  
               		  <td>                  	  
-                      <span class='dN member-photos' href='<?php echo url('m/photos') ?>' ></span>
                       <div class='member-photos-pick '></div>
                   		<?php echo $form->textArea($model,'content',array('rows'=>6,
                             'cols'=>50,'class' => 'widgEditor', 'id' => 'id_widgEditor')); ?>

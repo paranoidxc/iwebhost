@@ -24,9 +24,9 @@ class User extends CActiveRecord
   public function getgravatar(){    
     //return '/default_image/'.($this->id%100).'.png';
     if( empty($this->avatar) ){
-      return "http://www.gravatar.com/avatar/".md5($this->email)."?s=80&d=identicon&rating=PG";
+#  return "http://www.gravatar.com/avatar/".md5($this->email)."?s=80&d=identicon&rating=PG";
     }else{
-      return UPFILES_DIR.'/avatars/'.$this->avatar;
+#      return UPFILES_DIR.'/avatars/'.$this->avatar;
     }
     //return rand(0, 100).'.png';
   }

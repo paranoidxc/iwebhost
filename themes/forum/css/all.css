@@ -179,7 +179,10 @@ body {
 }.author_warp a img {
 width: 48px;
 padding: 2px;
-vertical-align: middle;
+vertical-align: middle; 
+border: 1px solid #aaa;
+} .author_warp a:hover img {
+  border: 1px solid #696969;
 }
 
 .index_articles_wrap {
@@ -194,7 +197,7 @@ vertical-align: middle;
   float:left;
   }.author_wrap img {    
   width: 48px;
-  padding: 1px;
+  padding: 2px;
   border: 1px solid #aaa;
   vertical-align: middle;
   }.author_wrap:hover img {    
@@ -223,8 +226,7 @@ vertical-align: middle;
   }
 
 .t_ar_arrow {
-  background: url(bgs/t_arrow.png) no-repeat right 0;
-  background-position:3px 30px;    
+  background: url(bgs/arrow.png) no-repeat right 30px;
 }
 .ar_content_wrap {
   -webkit-border-radius: 4px;
@@ -442,18 +444,89 @@ vertical-align: middle;
   }
 
 
-.member-photos-pick ul {
+div.member-photos-loading,
+.member-photos-pick.member-photos-loading {
+  background: url(bgs/photo-loader.gif) no-repeat 50% 0;
+  height: 20px;
+  }.member-photos-pick div.photos ul.pul {
   margin-left: 50px;
-  }.member-photos-pick ul li {
+  }.member-photos-pick ul.pul li {
   float: left;
-  width: 160px;
+  width: 168px;
   overflow: hidden;
-  height: 140px;
+  height: 150px;
   margin-right: 10px;
-  }.member-photos-pick ul li span{
+  border: 1px solid #AAAAAA;
+  margin-bottom: 10px;
+  }.member-photos-pick ul.pul li:hover {
+    border: 1px solid #696969;
+  }.member-photos-pick ul.pul li a{
+    display: block;
+    width: 160px;
+    height: 120px;
+  }.member-photos-pick ul.pul li span{
     display: block;
     width: 160px;
     height: 20px;
     line-height: 20px;
+    text-indent: 4px;
     overflow: hidden;
+    cursor: pointer;
+  }.member-photos-pick ul.pul li span:hover {
+    color: #313131;
   }
+.ipagination {
+  margin-bottom: 2px;
+}
+
+ul.yiiPager {
+ font-size:11px;
+ border:0;
+ margin:0;
+ padding:0;
+ line-height:100%;
+ display:inline;
+}
+ul.yiiPager li
+{
+ display:inline-block;
+ height: 18px;
+ border: 1px solid #efefef;
+ border-color: #efefef #ccc #ccc #efefef;   
+}
+ul.yiiPager .hidden a:hover,
+ul.yiiPager a:link,
+ul.yiiPager a:visited {  
+  height: 16px;
+  line-height: 16px;
+  padding: 0px 6px ;
+  margin: 0;
+  display: block;
+  text-decoration:none;
+  border: 1px solid #313131;
+  border-color: #fff;
+  color: #666666; 
+  background: #efefef url(panel_images/column_item_normal.png) no-repeat 0 50%;
+}
+
+ul.yiiPager .page a {
+ font-weight: normal;
+ background: #efefef url(panel_images/column_item_normal.png) no-repeat 0 50%;
+}
+ul.yiiPager a:hover { color: #313131;
+}
+
+ul.yiiPager .selected a {  
+ font-weight:bold;
+ color: #313131;
+}
+ul.yiiPager .hidden a:hover,
+ul.yiiPager .hidden a {
+  cursor: text;
+  color: #999; 
+}
+
+ul.yiiPager .first,
+ul.yiiPager .last {
+ display:none;
+}
