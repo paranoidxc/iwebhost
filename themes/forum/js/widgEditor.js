@@ -1081,7 +1081,7 @@ function widgToolbar(theEditor)
 				this.addButton(this.theList.id + "ButtonImage", "widgButtonImage", "关联外部图片", "image");
 				break;
 	  	case "snsimage":
-				this.addButton(this.theList.id + "ButtonSnsImage", "member-photos widgButtonImage", "上载图片", "");
+				this.addButton(this.theList.id + "ButtonSnsImage", "member-photos widgButtonImage", "上载图片", "null");
 				break;
 				
 			case "htmlsource":
@@ -1119,8 +1119,10 @@ widgToolbar.prototype.addButton = function(theID, theClass, theLabel, theAction 
 //  theLink.uri= '/index.php?r=admin/rel/pickatt&return_id=link_pick1298548817';
 	theLink.title = theLabel;
 	theLink.className = theClass;
-	theLink.action = theAction;
-	theLink.onclick = widgToolbarAction;
+  if( theAction != "null") {
+	  theLink.action = theAction;
+	  theLink.onclick = widgToolbarAction;
+  }
 	theLink.onmouseover = widgToolbarMouseover;
 
 	theLink.appendChild(theText);

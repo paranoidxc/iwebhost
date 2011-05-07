@@ -7,18 +7,43 @@ $(document).ready(function(){
   });
 
   $('.member-photos').live('click',function(){
+    $('.member-photos-pick').addClass('member-photos-loading');
     var uri = $('#member-photos-url').attr('href');
     $.ajax({
 			type: 'get',
 			cache: false,
 			url: uri,
 			success:function(html){			  
-       $('.member-photos-pick').html(html);
+        $('.member-photos-pick').html(html);
+        $('.member-photos-pick').removeClass('member-photos-loading');
 			}
 		});
+    return false;
+  });  
+  
+  $('.ipagination .yiiPager li a').live('click',function(){
+    if( $(this).parent().hasClass('hidden') || $(this).parent().hasClass('selected')) {
+      return false;
+    };
+    $('div.photos').addClass('member-photos-loading').empty();
+	  var that = $(this);
+	  var url = that.attr('href');
+	  if( url.indexOf('keyword') == -1 ) {
+	    url += '&keyword=';
+	  }
+	  $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: url,
+	    success:function(html){
+        $('div.photos').html(html);
+        $('div.photos').removeClass('member-photos-loading');
+	    }
+	  })
+    return false;
   });
 
-  $('.member-photos-pick ul li').live('click',function(){
+  $('.member-photos-pick ul li span').live('click',function(){
     var alt = $(this).attr('name');
     var image = $(this).attr('href');
     if( $('#id_widgEditor').length > 0 ) {

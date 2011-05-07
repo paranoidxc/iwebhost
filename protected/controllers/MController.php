@@ -27,10 +27,29 @@ class MController extends Controller {
     $criteria->condition = 'user_id = :user_id';
     $criteria->params = array( ':user_id' => User()->id );
     $criteria->order        =  'c_time DESC';
-    $criteria->limit        =  9;
+
+    if( isset($_GET['keyword']) ){
+      $partial_tpl = '_photos';
+    }else{
+      $partial_tpl = 'photos';
+    }
+
+    $item_count = Attachment::model()->count($criteria);    
+    $pages =new CPagination($item_count);
+    $pages->setPageSize($page_size);      
+    $pagination = new CLinkPager();
+    $pagination->cssFile=false;
+    $pagination->setPages($pages);    
+    $pagination->init();      
+    $criteria->limit        =  6; 
+    $criteria->offset       = $pages->offset;
+    $select_pagination = new  CListPager();    
+
     $photos = Attachment::model()->findAll($criteria);
-    $this->renderPartial('photos', array(
-          'photos' => $photos
+    $this->renderPartial($partial_tpl, array(
+          'photos' => $photos,
+          'pagination' => $pagination,
+          'select_pagination' => $select_pagination,
     ),false,true);
   }
 
