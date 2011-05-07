@@ -192,6 +192,7 @@ function uploadComplete(file) {
     $('.swfloadstatus').hide();
     $('.swfloadstatus').hide();
     $('#fsUploadProgress').hide();
+    member_photo_reload();
 	}
 }
 

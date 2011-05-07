@@ -48,14 +48,11 @@
   	    </div>
 	    </div><!--最近注册会员-->
 	    
-	    <div class="radius5 boxshadow mt20P side-box">
-	      <div class='raidus5top panel-title'>
-	        <h1 class="raidus5top">广告</h1>
-	      </div>
-	      <div class='iline'></div>
+	    <div class="radius5 boxshadow mt20P side-box ad-box">
+        <div class="ad-tag"></div>	  
 	      <div class='p10P'>
   	      <a href="http://shop62908070.taobao.com/" title="磬厘妆品淘宝店" target="_blank">
-  	      <img src="/qlzp.jpg" alt="" width="192"/>
+  	      <img src="/qlzp.jpg" alt="" width="200"/>
   	      </a>
   	    </div>
 	    </div>
