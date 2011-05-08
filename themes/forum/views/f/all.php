@@ -30,7 +30,9 @@
         echo $node->islove ? 'nodelove':'nodeunlove';
         echo "' >&nbsp;&nbsp;&nbsp;</span>";
         echo '<span style="margin-left:'.$margin_left.'">';
+        echo '<a href="'.url('f/index',array('id'=>$node->id) ).'">';
         echo $node->name;
+        echo '</a>';
         echo '</span>';
         echo '</li>';
       }
