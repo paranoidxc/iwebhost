@@ -9,7 +9,9 @@
 	  <div class="grid3">
 	    <div class="radius5 boxshadow newest-node">
 	      <div class='raidus5top panel-title'>
-	        <h1 class="raidus5top">最新节点</h1>
+	        <h1 class="raidus5top">
+          <a href="<?php echo url('f/all')?>" title="全部节点" class='flR'>全部</a>
+          最新节点</h1>
 	      </div>
 	      <div class='iline'></div>
 	      <div class="p10P">
@@ -27,7 +29,7 @@
       <div class="radius5 boxshadow mt20P side-box">
 	      <div class='raidus5top panel-title'>
 	        <h1 class="raidus5top">
-          <a href="<?php echo url('m/list')?>" style='float: right; margin: 0;padding: 0;'>全部</a>
+          <a href="<?php echo url('m/list')?>" tltle="全部会员" class='flR'>全部</a>
           最近注册会员
           </h1>
         </div>

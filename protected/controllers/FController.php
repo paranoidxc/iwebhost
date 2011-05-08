@@ -1,6 +1,28 @@
 <?php
 
 class FController extends Controller {	
+  public function actionAll() {
+    $nodes = API::INODE( array( 'ident_label' =>  'forum_node' ) );
+    $this->render('all',array(
+          'nodes' => $nodes
+          ) ,false,true);
+  }
+
+  public function actionLove(){
+//    $record = ManyCategoryUser::model()->findAllByAttributes(array( 'user_id'=>User()->id) );
+ //   $record->deleteAll();
+    $record = ManyCategoryUser::model()->deleteAll(array( 'user_id'=>User()->id) );
+
+    $nodes = $_POST['nodes'];
+    foreach($nodes as $node ){
+      $rel = new ManyCategoryUser;
+      $rel->category_id = $node;
+      $rel->user_id     = User()->id;
+      $rel->save();
+    }
+    $this->redirect( rurl() );
+  }
+
 	public function actionIndex(){			  
     $_criteria = new CDbCriteria;
     $_criteria->condition  = ' find_in_set(category_id, :category_id)';

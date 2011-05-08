@@ -36,6 +36,16 @@ function member_photo_reload() {
 };
 
 $(document).ready(function(){
+  /*收藏节点 全选/全不选 */
+  $('#love-all').click(function(){
+    if( $(this).is(':checked') ){
+      $('.love-sep').attr('checked',true);
+    }else{
+      $('.love-sep').attr('checked',false);
+    }
+  });
+
+
   $('#widg_add_height').click(function(){
     $('.widgIframe').animate({ height: '+='+$(this).attr('data') });
   });
