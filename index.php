@@ -18,6 +18,8 @@ switch($_SERVER['HTTP_HOST']){
   case 'www.infuzhou.co.cc':
   case 'infuzhou.co.cc':
     $config=dirname(__FILE__).'/protected/config/infuzhou.php';
+    $fg_config=dirname(__FILE__).'/protected/config/fg_config.php';
+    require $fg_config;
     break;
   default:
     $config=dirname(__FILE__).'/protected/config/main.php';
@@ -25,9 +27,18 @@ switch($_SERVER['HTTP_HOST']){
 }
 
 if( strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/login') !== false 
+  || strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/logout') !== false 
   || strpos($_SERVER['REQUEST_URI'], 'index.php?r=admin/') !== false ){  
-  $config=dirname(__FILE__).'/protected/config/console_infuzhou.php';
+  //$config=dirname(__FILE__).'/protected/config/console_infuzhou.php';
+  $bg_config=dirname(__FILE__).'/protected/config/bg_config.php';
+  require $bg_config;
 }
+
+$config=dirname(__FILE__).'/protected/config/global_infuzhou.php';
+require $config;
+$config_ar['theme'] = $sep_config_ar['theme']; 
+$config_ar['components']['urlManager']  = $sep_config_ar['components']['urlManager']; 
+
 
 // remove the following lines when in production mode
 define('WEBSITE_DIR',$website_dir);
@@ -92,4 +103,4 @@ function cnSubstr($str, $start, $len) {
 
 require_once('class.phpmailer.php');
 require_once($yii);
-Yii::createWebApplication($config)->run();
+Yii::createWebApplication($config_ar)->run();

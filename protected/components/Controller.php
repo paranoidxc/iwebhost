@@ -19,6 +19,9 @@ class Controller extends CController
 
 	public function init() {
 
+//   Yii::app()->theme = 'forum';
+//   Yii::app()->name = 'ifuckforum';
+
 	  $this->isconfig=Sconfig::model()->find();	  	  
 	  $this->controllerId =  ucfirst($this->getId() );
     
