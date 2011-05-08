@@ -39,6 +39,7 @@
     <?php 
     if( !User()->isGuest ){
     ?> 
+    <p class='iline'></p>
     <input type="checkbox" id="love-all"/><label for="love-all" class='csP'>全选/全不选</label>&nbsp;
     <input type="submit" value="收藏选中节点" />
     <?php 
