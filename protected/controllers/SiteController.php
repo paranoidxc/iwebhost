@@ -98,6 +98,8 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{		
+    echo '----';
+    echo User()->id;
 		$user = Yii::app()->user->getState('current_user');
 		$user->last_logout_time = Time::now();
 		$user->last_ip = API::get_ip();
@@ -138,7 +140,6 @@ class SiteController extends Controller
 	}
 	
 	public function actionSignin() {  
-	  
 	  $model=new LoginForm;
 
 		// if it is ajax validation request

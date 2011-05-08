@@ -23,7 +23,7 @@ class FController extends Controller {
     $this->redirect( rurl() );
   }
 
-	public function actionIndex(){			  
+	public function actionIndex(){			 
     $_criteria = new CDbCriteria;
     $_criteria->condition  = ' find_in_set(category_id, :category_id)';
  
