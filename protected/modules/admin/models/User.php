@@ -82,6 +82,7 @@ class User extends CActiveRecord
 		return array(
       'notices'     => array( self::HAS_MANY, 'Notification', 'user_id','order' => 'is_read ASC, c_time DESC' ),
       'articles'    => array( self::HAS_MANY, 'Article',      'user_id','order' => 'create_time DESC' ),
+      'latest5'    => array( self::HAS_MANY, 'Article',      'user_id','order' => 'create_time DESC' , 'limit' => 5),
       'love_nodes'  => array( self::MANY_MANY,'Category',     'many_category_user(user_id,category_id )' ),
 		);
 	}
