@@ -28,7 +28,7 @@
 	    }?>
 	  </h1>	  
 	</div>
-  <div class="node-memo"><?php echo nl2br($node->memo) ?></div>
+  <div class="node-memo fwB"><?php echo nl2br($node->memo) ?></div>
 </div>
 <?
   } else {
