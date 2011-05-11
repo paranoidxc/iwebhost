@@ -29,7 +29,6 @@ a:hover {
 .node-memo {
   line-height: 26px;
   font-size: 14px;
-  font-weight: bold;
   color: #333;
   padding: 5px 20px 5px 20px;
 }
@@ -554,3 +553,56 @@ ul.yiiPager .first,
 ul.yiiPager .last {
  display:none;
 }
+
+.member_wall {
+  zoom: 1; 
+  overflow: hidden; 
+  height: 180px; 
+  width: 210px;
+  margin:10px 10px 0 0;
+  border: 1px solid #efefef;
+  padding: 2px;
+  margin-bottom: 10px;
+  float: left;
+  }.member_wall:hover {
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+    -o-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+  }.member_wall p {
+    text-align: right;
+    line-height: 14px;
+    }.member_wall p span.love {
+      width: 15px;
+      height: 15px;
+      background: url(bgs/love.png) no-repeat 0 50%;
+      padding-left: 15px;
+    }.member_wall p a {
+      margin: 0;
+      padding:0;
+    }.member_wall p a img {
+      margin: 0;
+      padding:0;
+
+    }.member_wall ul {
+      }.member_wall ul li {
+        font-weight: normal; 
+        overflow: hidden; 
+        margin-bottom: 2px; 
+        height: 26px; 
+        color: #FFF;
+        }.member_wall ul li {
+        }.member_wall ul li a {
+          margin: 0; 
+          padding: 0;
+          text-indent: 5px; 
+          color: #FFF; 
+          height: 26px; 
+          line-height: 26px; 
+          display: block;
+        }.member_wall ul li a:hover {
+          text-decoration: none;
+          background: #ccc;
+          color: #000;
+        }

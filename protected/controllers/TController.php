@@ -25,7 +25,12 @@ class TController extends Controller {
 	
 	
 	public function actionIndex(){			  
-		$article = Article::model()->findByPk($_GET['id']);
+    if( is_numeric( $_GET['id']) ) {
+		  $article = Article::model()->findByPk($_GET['id']);
+    }else{
+		  $article = Article::model()->findByAttributes( array('ident_label' => $_GET['id'] ) );
+    }
+
 		if($article===null){
 			throw new CHttpException(404,'The requested Topic does not exist.');
 		}

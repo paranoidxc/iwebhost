@@ -102,6 +102,14 @@
   			<?php echo $form->error($model,'title'); ?>
   		</td>
   	</tr>
+ 
+    <tr>
+  		<th class='alt leftborder'><?php echo $form->labelEx($model,'ident_label'); ?></th>
+  		<td>
+  			<?php echo $form->textField($model,'ident_label',array('size'=>60,'maxlength'=>100)); ?>
+  			<?php echo $form->error($model,'ident_label'); ?>
+  		</td>
+  	</tr>
   
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'link'); ?></th>

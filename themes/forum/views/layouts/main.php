@@ -80,7 +80,14 @@
   	          $inst = $ipage->articles[$i];  	          
   	      ?>
     	      <strong>
-    	        <a href="<?echo url('topic/index', array('id' => $inst->id) ) ?>"><?php echo $inst->title ?></a>
+              <?php
+                if( strlen(trim($inst->ident_label))  > 0 ) {
+                    $_artile_args = $inst->ident_label;
+                }else{
+                    $_artile_args = $inst->id;
+                }
+              ?>
+    	        <a href="<?echo url('topic/index', array('id' => $_artile_args ) ) ?>"><?php echo $inst->title ?></a>
     	      </strong>
       	    <?php if( $i != count($ipage->articles)-1 ) { echo '&nbsp;•&nbsp;'; } ?>
     	    <?php
