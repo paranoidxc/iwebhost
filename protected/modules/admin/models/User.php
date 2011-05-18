@@ -84,6 +84,8 @@ class User extends CActiveRecord
       'articles'    => array( self::HAS_MANY, 'Article',      'user_id','order' => 'create_time DESC' ),
       'latest5'    => array( self::HAS_MANY, 'Article',      'user_id','order' => 'create_time DESC' , 'limit' => 5),
       'love_nodes'  => array( self::MANY_MANY,'Category',     'many_category_user(user_id,category_id )' ),
+      'attack_list'  => array( self::MANY_MANY,'User',     'many_attack_accept(attack_id,accept_id)' ),
+      'accept_list'  => array( self::MANY_MANY,'User',     'many_attack_accept(accept_id,attack_id )' ),
 		);
 	}
 
