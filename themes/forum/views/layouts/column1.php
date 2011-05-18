@@ -7,7 +7,7 @@
 	  </div>
 	  
 	  <div class="grid3">
-	    <div class="radius5 boxshadow newest-node">
+	    <div class="radius5 boxshadow side-box">
 	      <div class='raidus5top panel-title'>
 	        <h1 class="raidus5top">
           <a href="<?php echo url('f/all')?>" title="全部节点" class='flR'>全部</a>

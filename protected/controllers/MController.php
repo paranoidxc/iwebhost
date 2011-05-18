@@ -13,7 +13,7 @@ class MController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow', 
-				'actions'=>array('setting','you','love','unlove','nodes'),
+				'actions'=>array('setting','you','love','unlove','nodes','lovem'),
 				'users'=>array('@'),
 			),			
 			array('deny', 
@@ -81,6 +81,29 @@ class MController extends Controller {
     }
     $this->redirect( rurl() );
   }
+
+  public function actionLovem() {
+    $users = $_POST['users'];
+    $love_users = $_POST['love_users'];
+    
+    $accept_list = implode(',' ,$users);
+    $c = new CDbCriteria;
+    $c->condition = 'find_in_set(accept_id, :accept_id) AND attack_id = :attack_id';
+    $c->params[':accept_id'] =  $accept_list;
+    $c->params[':attack_id'] =  User()->id;
+    ManyAttackAccept::model()->deleteAll( $c );
+    
+    foreach( $love_users as $love ){
+      $rel = new ManyAttackAccept();
+      $rel->attack_id = User()->id;
+      $rel->accept_id = $love;
+      $rel->save();
+    }
+
+    $this->redirect( rurl() );
+  }
+
+
 
   public function actionYou(){
    $m = User::model()->findByPk( User()->id );

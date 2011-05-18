@@ -153,7 +153,11 @@ body {
       .side-box h1,
       .newest-node h1 {
         padding: 10px;    
-      } .newest-node a {
+      } .side-box h1 a {
+          padding: 0;
+          margin: 0;
+      } .side-box a ,
+        .newest-node a {
         color: #636A86;
         line-height: 14px;
         padding: 2px;
