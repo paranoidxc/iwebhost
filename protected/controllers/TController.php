@@ -50,10 +50,11 @@ class TController extends Controller {
 		$model->content = "<p></p>";
 		$model->article_id = $article->id;
     $this->_pageTitle = CHtml::encode( $article->title).API::lchart().$article->leaf->name.API::lchart();
+    // only show the author reply
     if( $_GET['s'] ){
       $criteria = new CDbCriteria;
       $criteria->condition="t.user_id = $article->user_id AND t.article_id = $article->id";
-      $criteria->order= 't.c_time DESC ';
+      $criteria->order= 't.c_time ASC ';
       $posts = Post::model()->findAll($criteria);
     }else{
       $posts = $article->posts;

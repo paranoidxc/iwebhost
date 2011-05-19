@@ -235,7 +235,7 @@ class Article extends CActiveRecord
 			'attachment'	 => array( self::BELONGS_TO,  'Attachment',	'attachment_id'),
 			'gallery'		   => array( self::BELONGS_TO,  'Category',	'gallery_id'),
 			'auther'       => array( self::BELONGS_TO, 'User', 'user_id'),
-			'posts'        => array( self::HAS_MANY, 'Post', 'article_id','order'=>' posts.c_time DESC '),
+			'posts'        => array( self::HAS_MANY, 'Post', 'article_id','order'=>' posts.c_time ASC '),
       'notices'      => array( self::HAS_MANY, 'Notification', 'article_id' ),
 		);
 	}
