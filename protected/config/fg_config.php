@@ -24,9 +24,9 @@
         '/'                 => 'f/index',
 
         'topic/<id:\d+>'        =>'t/index',
-        'topic/<id:\w+>'         =>'t/index',
-				'topic/create/<id:\d+>' =>'t/create',
 				'topic/create'          =>'t/create',
+        'topic/<id:\w+>'         =>'t/index',
+				//'topic/create/<id:\d+>' =>'t/create',
 
         'you'                   => 'm/you',
         'member'                => 'm/list',

@@ -11,10 +11,18 @@
   <?php
   foreach( $users as $user ) {
   ?>
-    <div class="member_wall">
+    <div class="member_wall <?php echo $user->isJiQing() ? 'member_jiqing' :'' ?>">
       <p >
-        <input type="checkbox" checked name='users[]' value="<?php echo $user->id; ?>"/>
-        <input type="checkbox" class="love-sep" name='love_users[]' value="<?php echo $user->id; ?>"/>
+        <?php 
+          if( !User()->isGuest ){
+        ?>
+        <input type="hidden" name='users[]' value="<?php echo $user->id; ?>"/>
+        <input  type="checkbox" class="love-sep" name='love_users[]' 
+                <?php echo $user->isAccept() ? "checked" :''?>
+                value="<?php echo $user->id; ?>"/>
+        <?php 
+          }
+        ?>
         <span class='love' title="喜欢">100</span>
         <a href="<?php echo CController::createUrl('m/index',array('id' => $user->username ) )?>"
          class="" title="<?echo $user->username; ?>"><img src="<?php echo $user->gravatar ?>" alt=""
@@ -37,10 +45,15 @@
   }
   ?>
       <div class='clB'></div>
-      <p class='iline'></p>
-      <input type="checkbox" id="love-all" value="喜欢选择用户" /><label for="love-all" class='csP'>全选/全不选</label>
+      <?php 
+        if( !User()->isGuest ){
+      ?>
+      <input type="checkbox" id="love-all" value="喜欢选择用户" />
+      <label for="love-all" class='csP'>全选/全不选</label>
       <input type="submit" value="喜欢选择用户" />
+      <?php
+        }
+      ?>
     </form>
   </div>
 </div>
-

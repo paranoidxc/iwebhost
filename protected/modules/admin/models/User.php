@@ -30,6 +30,34 @@ class User extends CActiveRecord
     }
     //return rand(0, 100).'.png';
   }
+
+  public function isJiQing() {
+    if( $this->isAttack() && $this->isAccept() ) {
+      return true;
+    }
+    return false;
+  }
+
+  public function isAttack() {
+    $r = false;
+    $record = ManyAttackAccept::model()->findByAttributes( 
+        array('attack_id' => $this->id, 'accept_id' => User()->id ) );
+    if( $record != null ){
+      $r = true;
+    }
+    return $r;
+  }
+
+  public function isAccept() {
+    $r = false;
+    $record = ManyAttackAccept::model()->findByAttributes( 
+        array('attack_id' => User()->id, 'accept_id' => $this->id ) );
+    if( $record != null ){
+      $r = true;
+    }
+    return $r;
+  }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return User the static model class
