@@ -105,6 +105,7 @@
 </div><!-- page -->
 <?php
   $cs->registerScriptFile($theme_baseurl.'/js/jquery-1.4.2.min.js');
+	$cs->registerScriptFile($theme_baseurl.'/js/jquery.Jcrop.min.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
 ?>

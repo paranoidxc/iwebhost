@@ -35,7 +35,58 @@ function member_photo_reload() {
     return false;
 };
 
+function checkCoords() {
+  if (parseInt($('#w').val())) return true;
+	alert('请先在原头像图片选择要截取区域.');
+	return false;
+};
+
 $(document).ready(function(){
+  var cropbox_h ,cropbox_w;
+  $('#cropbox').one('load',function(){
+    cropbox_h =  $(this).height();
+    cropbox_w =  $(this).width();
+  });
+  function showPreview(coords) {
+    if (parseInt(coords.w) > 0) {
+		  var rx = 80 / coords.w;
+			var ry = 80 / coords.h;
+  		$('#cropbox_preview').css({
+  			width: Math.round(rx * cropbox_w) + 'px',
+				height: Math.round(ry * cropbox_h) + 'px',
+				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+				marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			});
+		}
+	}
+	function updateCoords(c) {
+  	$('#x').val(c.x);
+		$('#y').val(c.y);
+		$('#w').val(c.w);
+		$('#h').val(c.h);
+		var coords = c;
+		if (parseInt(coords.w) > 0) {
+		  var rx = 80 / coords.w;
+			var ry = 80 / coords.h;
+
+			$('#cropbox_preview').css({
+				width: Math.round(rx * cropbox_w) + 'px',
+				height: Math.round(ry * cropbox_h) + 'px',
+				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+				marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			});
+		}
+  };
+
+  $('#cropbox').Jcrop({
+  		aspectRatio: 1,
+			onSelect: updateCoords,
+			onChange: showPreview,
+			//onSelect: showPreview,
+			minSize:			[ 80, 80 ]
+	});
+
+
   /*收藏节点 全选/全不选 */
   $('#love-all').click(function(){
     if( $(this).is(':checked') ){

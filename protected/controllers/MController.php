@@ -13,7 +13,7 @@ class MController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow', 
-				'actions'=>array('setting','you','love','unlove','nodes','lovem'),
+				'actions'=>array('gravatar','setting','you','love','unlove','nodes','lovem'),
 				'users'=>array('@'),
 			),			
 			array('deny', 
@@ -21,6 +21,23 @@ class MController extends Controller {
 			),
 		);
 	}
+
+  public function actionGravatar() {
+    $user = User::model()->findByPk( User()->id );
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $targ_w = $targ_h = 80;
+      $image = Yii::app()->image->load( UPFILES_AVTS_DIR.'/source_'.$user->avatar );
+      $x = intval( $_POST['x']);
+      $y = intval( $_POST['y']);
+      $w = $_POST['w'];
+      $h = $_POST['h'];
+      $image->crop($w,$h,"$y","$x")->resize($targ_w,$targ_h);
+      $image->save(UPFILES_AVTS_DIR.'/'.$user->avatar);
+      $this->redirect('setting');
+      exit;
+    }
+    $this->render('gravatar',array('user'=>$user),false,true);
+  }
 
   public function actionPhotos() {
     $criteria = new CDbCriteria; 

@@ -21,6 +21,16 @@ class User extends CActiveRecord
     return parent::__get($name);
   }
   
+  public function getIsUploadGravatar() {
+    if( empty($this->avatar) ){
+      return false;
+    }
+    return true;
+  }
+  public function getSourceGravatar() {
+    return UPFILES_DIR.'/avatars/source_'.$this->avatar;
+  }
+
   public function getgravatar(){    
     //return '/default_image/'.($this->id%100).'.png';
     if( empty($this->avatar) ){

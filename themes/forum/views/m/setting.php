@@ -56,8 +56,16 @@
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="80" />
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="46" />
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="24" />
+            <?php
+            if( !empty($user->avatar) ){
+            ?>
+            <a href="<?php echo  url('m/gravatar') ?>" >不喜欢系统自动截的头像?</a>
+            <?php
+            }
+            ?>
             <br/>
-            <?php echo $form->fileField($m, 'avatar'); ?>
+            <?php echo $form->fileField($m, 'avatar'); ?><br/>上载个人头像限制1M容量
+            <?php echo $form->error($m, 'avatar'); ?>
           </td>
         </tr>
 
@@ -90,11 +98,7 @@
           </td>
         </tr>
 
-
-
-
-
-         <tr>
+        <tr>
           <th></th>
           <td>
             <?php echo CHtml::submitButton('保存设置', array( 'class' => 'ibtn blue')); ?>
