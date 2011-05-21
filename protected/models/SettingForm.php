@@ -14,7 +14,7 @@ class SettingForm extends CFormModel
     	array('password', 'length', 'allowEmpty' => true, 'min'=>5),
 			array('password, rpassword,id,sign', 'default'),		
 			array('rpassword', 'compare','compareAttribute'=>'password', 'message' =>'两次密码必须一致!'),
-      array('avatar', 'file', 'allowEmpty'=>true, 'types'=>'jpg,jpeg, gif, png'),
+      array('avatar', 'file', 'allowEmpty'=>true,'maxSize' => '1048576', 'types'=>'jpg,jpeg, gif, png'),
 		);
 	}
 	
@@ -47,7 +47,13 @@ class SettingForm extends CFormModel
         $avatar_path = UPFILES_AVTS_DIR.'/'.$name;
         $this->avatar->saveAs( $source_avatar_path );
         $record->avatar = $this->avatar = $name;
+
         $avatar = Yii::app()->image->load($source_avatar_path);
+        if($avatar->width > 600 || $avatar->height > 400 ){
+          $avatar->resize(600, 400,Image::NONE);
+        }
+        $avatar->save($source_avatar_path);
+
         $avatar->resize(80, 80);
         $avatar->save($avatar_path);
         unset($avatar);
