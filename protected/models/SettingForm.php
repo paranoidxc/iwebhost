@@ -42,11 +42,12 @@ class SettingForm extends CFormModel
         $record->password = $this->password;
       }
       if( $this->avatar ) {
-        $name = md5($record->id).$this->avatar;
+        $name = md5($record->id).'.'.strtolower($this->avatar->getExtensionName());
+        $source_avatar_path = UPFILES_AVTS_DIR.'/source_'.$name;
         $avatar_path = UPFILES_AVTS_DIR.'/'.$name;
-        $this->avatar->saveAs( $avatar_path );
+        $this->avatar->saveAs( $source_avatar_path );
         $record->avatar = $this->avatar = $name;
-        $avatar = Yii::app()->image->load($avatar_path);
+        $avatar = Yii::app()->image->load($source_avatar_path);
         $avatar->resize(80, 80);
         $avatar->save($avatar_path);
         unset($avatar);

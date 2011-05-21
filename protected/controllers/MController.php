@@ -13,7 +13,7 @@ class MController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow', 
-				'actions'=>array('setting','you','love','unlove','nodes','lovem'),
+				'actions'=>array('gravatar','setting','you','love','unlove','nodes','lovem'),
 				'users'=>array('@'),
 			),			
 			array('deny', 
@@ -21,6 +21,11 @@ class MController extends Controller {
 			),
 		);
 	}
+
+  public function actionGravatar() {
+    $user = User::model()->findByPk( User()->id );
+    $this->render('gravatar',array('user'=>$user),false,true);
+  }
 
   public function actionPhotos() {
     $criteria = new CDbCriteria; 

@@ -56,6 +56,7 @@
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="80" />
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="46" />
             <img src="<?php echo $user->gravatar ?>" alt="当前头像" width="24" />
+            <a href="<?php echo  url('m/gravatar') ?>" >不喜欢系统自动截的头像?</a>
             <br/>
             <?php echo $form->fileField($m, 'avatar'); ?>
           </td>
@@ -90,11 +91,7 @@
           </td>
         </tr>
 
-
-
-
-
-         <tr>
+        <tr>
           <th></th>
           <td>
             <?php echo CHtml::submitButton('保存设置', array( 'class' => 'ibtn blue')); ?>
