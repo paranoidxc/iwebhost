@@ -1,4 +1,4 @@
-<div class="iform radius5 boxshadow newest-node " id="signup_wrap">
+<div class="iform radius5 boxshadow newest-node fix_mce_toolbar_a " id="signup_wrap">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',	
 )); ?>
@@ -25,11 +25,11 @@
     		  </td>
     		</tr>    		
     		<tr>    		  
-    		  <td>    		      
+    		  <td>    		      	
             <div class='member-photos-pick '></div>
-    		    <?php echo $form->textArea($model,'content',array('rows'=>50, 'cols'=>140, 'id'=>'article_content', 
-                  'class' => 'widgEditor' )); ?>
-            <p class='widg-extra'>
+    		    <?php echo $form->textArea($model,'content',array('rows'=>40, 'cols'=>200, 'id'=>'article_content', 
+                  'class' => 'widgEditor tinymce' )); ?>
+            <p class='widg-extra dN'>
               <span id="widg_add_height" class='csP' data='200'>增高几行</span>
               <span id="widg_dec_height" class='csP' data='200'>降低几行</span>
             </p>

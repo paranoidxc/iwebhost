@@ -1,4 +1,5 @@
 <div class='photos'>
+  <span class='photos_close'>关闭</span>
   <ul class='pul'>
   <?php foreach($photos as $p) { ?>
     <li>

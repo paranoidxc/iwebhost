@@ -47,7 +47,7 @@ class TController extends Controller {
     }
 
 		$model = new Post;
-		$model->content = "<p></p>";
+//		$model->content = "<p></p>";
 		$model->article_id = $article->id;
     $this->_pageTitle = CHtml::encode( $article->title).API::lchart().$article->leaf->name.API::lchart();
     // only show the author reply
@@ -70,9 +70,11 @@ class TController extends Controller {
 		  $model->c_time  = $now;
 		  $model->user_id = Yii::app()->user->id;
 		  $article = Article::model()->findByPk($model->article_id);
+      /*
 		  if( strlen($article->content) > 0 ){
 		    $model->content = str_replace('<div><br /></div>','<div>&nbsp;</div>',$model->content);
 		  }
+      */
 		  if( $model->save() ){
 		    $article->reply_count ++;
 		    $article->reply_time = $now;
@@ -93,9 +95,18 @@ class TController extends Controller {
 		  }
 
 		  if( $model->content == ''){
-		    $model->content = "<p></p>";
+//		    $model->content = "<p></p>";
 		  }
-		  $this->render('index', array('inst' => $article, 'model' => $model ));		  
+      // only show the author reply
+      if( $_GET['s'] ){
+        $criteria = new CDbCriteria;
+        $criteria->condition="t.user_id = $article->user_id AND t.article_id = $article->id";
+        $criteria->order= 't.c_time ASC ';
+        $posts = Post::model()->findAll($criteria);
+      }else{
+        $posts = $article->posts;
+      }
+		  $this->render('index', array('inst' => $article, 'model' => $model,'posts' => $posts ));		  
 	  }else {
 	    throw new CHttpException(404,'The requested does not allow.');
 	  }
@@ -104,7 +115,7 @@ class TController extends Controller {
 	
 	public function actionCreate() {	  
 	  $model = new Article('forum');
-	  $model->content = "<p></p>";
+//	  $model->content = "<p></p>";
 		$model->category_id = $_GET['f'];
 		if(isset($_POST['Article']) && !Yii::app()->user->isGuest )
 		{
@@ -121,7 +132,7 @@ class TController extends Controller {
 			throw new CHttpException(404,'The requested Node does not exist.');
 		}
 		if( $model->content == ''){
-		  $model->content = "<p></p>";
+//		  $model->content = "<p></p>";
 		}
 
     $this->_pageTitle = '新主题'.API::lchart().$node->name.API::lchart();
