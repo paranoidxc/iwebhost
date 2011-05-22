@@ -42,19 +42,23 @@ function checkCoords() {
 };
 
 $(document).ready(function(){
+    function myCustomClearup(type,value){
+    alert("FFFFFFFF");
+    };
   $('textarea.tinymce').tinymce({
      // Location of TinyMCE script
 			script_url : '/themes/forum/js/tiny_mce/tiny_mce.js',
 
 			// General options
-			theme : "advanced",
+		theme : "advanced",
+			plugins : "autolink,media,fullscreen",
 //			plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
 
 			// Theme options
-			theme_advanced_buttons1 : "example,save,newdocument,|,bold,italic,underline,strikethrough",
+			theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,strikethrough,|,bullist,numlist,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,example,media,fullscreen,cleanup",
       //,|,justifyleft,justifycenter,justifyright,justifyfull,",
 			///theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-//			theme_advanced_buttons2 : "",
+			theme_advanced_buttons2 : "",
 			theme_advanced_buttons3 : "",
 //			theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
 			theme_advanced_buttons4 : "",
@@ -78,6 +82,11 @@ $(document).ready(function(){
 				username : "Some User",
 				staffid : "991234"
 			},
+      fullscreen_settings : {
+        setup: function(ed) {
+          $('#mce_fullscreen_container').css({'z-index': 200000000});
+        },
+      },
       setup : function(ed) {
         ed.addButton('example', {
           title: '上载图片/个人站内图片选择',
@@ -146,10 +155,8 @@ $(document).ready(function(){
   		aspectRatio: 1,
 			onSelect: updateCoords,
 			onChange: showPreview,
-			//onSelect: showPreview,
 			minSize:			[ 80, 80 ]
 	});
-
 
   /*收藏节点 全选/全不选 */
   $('#love-all').click(function(){
