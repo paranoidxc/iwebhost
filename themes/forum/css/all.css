@@ -492,20 +492,28 @@ div.member-photos-loading,
   }.member-photos-pick ul.pul li {
   float: left;
   width: 168px;
+  width: 196px;
   overflow: hidden;
   height: 150px;
+  height: 182px;
   margin-right: 10px;
-  border: 1px solid #AAAAAA;
   margin-bottom: 10px;
+  background: url('bgs/feed-frame.png') no-repeat 0 0;
+  text-align: center;
   }.member-photos-pick ul.pul li:hover {
-    border: 1px solid #696969;
   }.member-photos-pick ul.pul li a{
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
     display: block;
     width: 160px;
-    height: 120px;
+    width: 98%;
+    height: 130px;
   }.member-photos-pick ul.pul li span{
     display: block;
+    overflow: hidden;
     width: 160px;
+    width: 98%;
     height: 20px;
     line-height: 20px;
     text-indent: 4px;
@@ -630,3 +638,10 @@ ul.yiiPager .last {
           background: #ccc;
           color: #000;
         }
+
+.top_fuck {
+  z-index: 10000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

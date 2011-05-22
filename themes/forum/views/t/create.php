@@ -3,8 +3,9 @@
 	'id'=>'login-form',	
 )); ?>
   <h1 class='raidus5top panel-title' >
-    <a href="/" class="radius2" ><?php echo Yii::app()->name ?></a>&raquo;&nbsp;
-    <a href="<?php echo CController::createUrl('f/index', array('id' => $node->id ) )?>" class="radius2"><?php echo $node->name ?></a>&raquo;&nbsp;
+    <a href="/" class="radius2" ><?php echo Yii::app()->name ?></a>&nbsp;&raquo;&nbsp;
+    <a href="<?php echo CController::createUrl('f/index', array('id' => $node->id ) )?>"
+    class="radius2"><?php echo $node->name ?></a>&nbsp;&raquo;&nbsp;
     新主题
   </h1>
   
