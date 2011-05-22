@@ -34,7 +34,7 @@ if( strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/login') !== false
   require $bg_config;
 }
 
-$config=dirname(__FILE__).'/protected/config/global_infuzhou.php';
+$config=dirname(__FILE__).'/protected/config/global_config.php';
 require $config;
 $config_ar['theme'] = $sep_config_ar['theme']; 
 $config_ar['components']['urlManager']  = $sep_config_ar['components']['urlManager']; 
