@@ -88,7 +88,7 @@
       <td></td>
       <td></td>
       <td >  
-        <div class="radius5 mt20P boxshadow newest-node reply_wrap">
+        <div class="radius5 mt20P boxshadow newest-node reply_wrap fix_mce_toolbar_a">
           <div class="raidus5top panel-title">
   	        <h1 class="raidus5top">添加你的回复</h1>
   	      </div>
@@ -105,8 +105,8 @@
               		  <td>                  	  
                       <div class='member-photos-pick '></div>
                   		<?php echo $form->textArea($model,'content',array('rows'=>6,
-                            'cols'=>50,'class' => 'widgEditor', 'id' => 'id_widgEditor')); ?>
-                      <p class='widg-extra'>     
+                            'cols'=>100,'class' => 'widgEditor tinymce', 'id' => 'article_content')); ?>
+                      <p class='widg-extra dN'>     
                         <span id="widg_add_height" class='csP' data='200'>增高几行</span>
                         <span id="widg_dec_height" class='csP' data='200'>降低几行</span>
                       </p>
