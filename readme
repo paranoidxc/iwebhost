@@ -1,0 +1,2 @@
+$ mkdir -p -m 777 upfiles/avatars
+$ chmod 777 upfiles

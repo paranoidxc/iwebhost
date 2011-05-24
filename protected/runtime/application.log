@@ -1,0 +1,167 @@
+2011/05/24 17:21:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'infuzhou_user'@'localhost' (using password: YES)' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php:348
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(297): CDbConnection->open()
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(275): CDbConnection->setActive(true)
+#2 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CModule.php(372): CDbConnection->init()
+#3 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(426): CModule->getComponent('db')
+#4 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(607): CApplication->getDb()
+#5 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(2236): CActiveRecord->getDbConnection()
+#6 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 /home/paranoid/projects/infuzhou/protected/modules/admin/models/Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 /home/paranoid/projects/infuzhou/protected/components/Controller.php(25): Sconfig::model()
+#9 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(327): Controller->init()
+#10 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('f/index')
+#11 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#12 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/05/24 17:21:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'infuzhou_user'@'localhost' (using password: YES)' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php:348
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(297): CDbConnection->open()
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(275): CDbConnection->setActive(true)
+#2 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CModule.php(372): CDbConnection->init()
+#3 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(426): CModule->getComponent('db')
+#4 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(607): CApplication->getDb()
+#5 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(2236): CActiveRecord->getDbConnection()
+#6 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 /home/paranoid/projects/infuzhou/protected/modules/admin/models/Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 /home/paranoid/projects/infuzhou/protected/components/Controller.php(25): Sconfig::model()
+#9 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(327): Controller->init()
+#10 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('f/index')
+#11 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#12 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/05/24 17:21:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'infuzhou_user'@'localhost' (using password: YES)' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php:348
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(297): CDbConnection->open()
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(275): CDbConnection->setActive(true)
+#2 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CModule.php(372): CDbConnection->init()
+#3 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(426): CModule->getComponent('db')
+#4 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(607): CApplication->getDb()
+#5 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(2236): CActiveRecord->getDbConnection()
+#6 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 /home/paranoid/projects/infuzhou/protected/modules/admin/models/Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 /home/paranoid/projects/infuzhou/protected/components/Controller.php(25): Sconfig::model()
+#9 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(327): Controller->init()
+#10 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('f/index')
+#11 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#12 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/05/24 17:21:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection 无法开启数据库连线: SQLSTATE[28000] [1045] Access denied for user 'infuzhou_user'@'localhost' (using password: YES)' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php:348
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(297): CDbConnection->open()
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/CDbConnection.php(275): CDbConnection->setActive(true)
+#2 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CModule.php(372): CDbConnection->init()
+#3 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(426): CModule->getComponent('db')
+#4 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(607): CApplication->getDb()
+#5 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(2236): CActiveRecord->getDbConnection()
+#6 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Sconfig))
+#7 /home/paranoid/projects/infuzhou/protected/modules/admin/models/Sconfig.php(19): CActiveRecord::model('Sconfig')
+#8 /home/paranoid/projects/infuzhou/protected/components/Controller.php(25): Sconfig::model()
+#9 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(327): Controller->init()
+#10 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('f/index')
+#11 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#12 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#13 {main} REQUEST_URI=/
+2011/05/24 17:25:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/24 17:25:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/24 17:25:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/24 17:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/24 17:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/24 17:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/24 17:25:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/24 17:25:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/24 17:25:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/24 17:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/24 17:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/24 17:25:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/24 17:26:16 [error] [exception.CException] exception 'CException' with message 'image file not found' in /home/paranoid/projects/infuzhou/protected/extensions/image/Image.php:78
+Stack trace:
+#0 /home/paranoid/projects/infuzhou/protected/extensions/image/CImageComponent.php(41): Image->__construct('/home/paranoid/...', Array)
+#1 /home/paranoid/projects/infuzhou/protected/models/SettingForm.php(51): CImageComponent->load('/home/paranoid/...')
+#2 /home/paranoid/projects/infuzhou/protected/controllers/MController.php(161): SettingForm->setting()
+#3 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/actions/CInlineAction.php(50): MController->actionSetting()
+#4 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#5 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CController.php(1122): CFilter->filter(Object(CFilterChain))
+#8 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CController.php(283): CFilterChain->run()
+#11 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(328): CController->run('setting')
+#13 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('m/setting')
+#14 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#15 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#16 {main} REQUEST_URI=/settings.html
+2011/05/24 17:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/24 17:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
