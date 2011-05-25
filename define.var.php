@@ -20,5 +20,7 @@ define("AVATAR_WIDTH", 80);
 define("AVATAR_HEIGHT", 80);
 define("AVATAR_PREFIX", 'source_');
 
+define("ADMIN_URL", "/index.php?r=admin/Dashboard/index");
+
 $ATT_IMG_AUTO_SIZE = array( '160_120', '40_40', '600_400', '800_600' );
 $img_ext = array("jpg", "jpeg", "png", "gif");

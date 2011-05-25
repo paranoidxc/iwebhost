@@ -163,7 +163,11 @@ body {
         padding: 2px;
         margin: 2px;
         display: inline-block;
-      }.fix_mce_toolbar_a a {
+      }.ad-box a {
+        padding: 0;
+        margin: 0;
+      }
+      .fix_mce_toolbar_a a {
         display: inline;
         margin: 0;
         padding: 0;

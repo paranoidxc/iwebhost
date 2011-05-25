@@ -33,20 +33,42 @@
 <!--<div class="container" id="page">-->
 
 	<div id="mainmenu" style="position: relative">
-		<?php $this->widget('zii.widgets.CMenu',array(
+		<?php 
+      $_isAdmin = User::model()->findByPk(User()->id)->account_type;
+      $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-			  array('label'=>Yii::t('cp','Website'),'url'=>array('/site/index') ),
+			  array('label'=>Yii::t('cp','Website'),
+              'url'=>array('/') ,
+              'linkOptions' => array('target' => '_blank') ),
 			  array('label'=>Yii::t('cp', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 			  array('label'=>Yii::t('cp','Logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>Yii::t('cp','Dashboard'), 'url'=>array('/admin/Dashboard/index')),
-				array('label'=>Yii::t('cp','ROOT'), 'url'=>array('/admin/category/iroot') ,'linkOptions' => array( 'data' => 'panel_root' )),
-				array('label'=>Yii::t('cp','Navigation'), 'url'=>array('/admin/category/inavigation'),'linkOptions' => array( 'data' => 'panel_inavigation' ) ),
-				array('label'=>Yii::t('cp','Category'), 'url'=>array('/admin/category/icategory'),'linkOptions' => array( 'data' => 'panel_icategory' )),
-				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/admin/category/iattachment'),'linkOptions' => array( 'data' => 'panel_iattachment' )),
-				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/admin/article/index'),'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
-				array('label'=>Yii::t('cp','Admins'), 'url'=>array('/admin/user/index'),'linkOptions' => array( 'data' => 'nav_panel_admins' )),
-				array('label'=>Yii::t('cp','Feedback'), 'url'=>array('/admin/feedback/index'),'linkOptions' => array( 'data' => 'nav_panel_feedback' )),
-				array('label'=>Yii::t('cp','Settings'), 'url'=>array('/admin/setting/index'),'linkOptions' => array( 'data' => 'nav_panel_settings' )),				
+				array('label'=>Yii::t('cp','Dashboard'), 'url'=>array('/admin/Dashboard/index'),
+          'visible' => $_isAdmin,
+          ),
+				array('label'=>Yii::t('cp','ROOT'), 'url'=>array('/admin/category/iroot') ,
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'panel_root' )),
+				array('label'=>Yii::t('cp','Navigation'), 'url'=>array('/admin/category/inavigation'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'panel_inavigation' ) ),
+				array('label'=>Yii::t('cp','Category'), 'url'=>array('/admin/category/icategory'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'panel_icategory' )),
+				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/admin/category/iattachment'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'panel_iattachment' )),
+				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/admin/article/index'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
+				array('label'=>Yii::t('cp','Admins'), 'url'=>array('/admin/user/index'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'nav_panel_admins' )),
+				array('label'=>Yii::t('cp','Feedback'), 'url'=>array('/admin/feedback/index'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'nav_panel_feedback' )),
+				array('label'=>Yii::t('cp','Settings'), 'url'=>array('/admin/setting/index'),
+          'visible' => $_isAdmin,
+          'linkOptions' => array( 'data' => 'nav_panel_settings' )),				
 			),
 		)); ?>
 		

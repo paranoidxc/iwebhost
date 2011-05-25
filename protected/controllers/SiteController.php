@@ -71,6 +71,10 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+    if( !User()->isGuest && User::model()->findByPk(User()->id)->account_type == 1 ) {
+      $this->redirect(ADMIN_URL);
+      exit;
+    }
 		$model=new LoginForm;
 
 		// if it is ajax validation request
