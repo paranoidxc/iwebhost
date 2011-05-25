@@ -106,3 +106,46 @@ function colorfulV($s='i l u'){
 function rurl() {
   return $_SERVER['HTTP_REFERER'];
 }
+
+function cnSub($str,$len){
+  return cnSubStr($str,0,$len);
+}
+
+/* substr by byte  not character */
+function cnSubstr($str, $start, $len) { 
+  $tmpstr = ""; 
+  $strlen = $start + $len; 
+  $i = 0;  
+  $n = $pos = 0;   
+  while( $n < $strlen ){   
+    $ascnum = ord(substr($str, $i, 1)) ;      
+    if( $ascnum > 224) { 
+      $step = 3;
+      $pos += 3;
+    }elseif ($ascnum>=192) {
+      $step = 2;      
+      $pos += 2;
+    }elseif ($ascnum >0) {
+      $step = 1;      
+      $pos += 1;
+    } else {
+      break;
+    }
+    if( $n >= $start ){
+      $tmpstr .= substr($str, $i, $step); 
+    }
+    $i += $step;    
+    if( $pos%3 == 0){
+      $n ++;
+    }
+  }
+  if( $i<strlen($str) ){
+    $tmpstr .= "…";   
+  }   
+  return $tmpstr; 
+}
+
+function _debug($s) {
+	print_r($s);
+	print_r("<br/>");
+}
