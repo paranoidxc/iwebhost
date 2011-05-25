@@ -28,6 +28,17 @@ class Article extends CActiveRecord
   public function getScontent(){
     return ereg_replace('<script.*</script>', '', $this->content);  
   }
+  public function getClearContent() {
+    return htmlspacilchars($this->content);
+  }
+
+  public function getUrlArg() {
+    if( strlen(trim($this->ident_label)) >0  ) {
+      return trim($this->ident_label);
+    }
+    return $this->id;
+  }
+
   
   
   public function iprint() {    

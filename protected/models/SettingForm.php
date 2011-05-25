@@ -43,18 +43,18 @@ class SettingForm extends CFormModel
       }
       if( $this->avatar ) {
         $name = md5($record->id).'.'.strtolower($this->avatar->getExtensionName());
-        $source_avatar_path = UPFILES_AVTS_DIR.'/source_'.$name;
+        $source_avatar_path = UPFILES_AVTS_DIR.'/'.AVATAR_PREFIX.$name;
         $avatar_path = UPFILES_AVTS_DIR.'/'.$name;
         $this->avatar->saveAs( $source_avatar_path );
         $record->avatar = $this->avatar = $name;
 
         $avatar = Yii::app()->image->load($source_avatar_path);
-        if($avatar->width > 600 || $avatar->height > 400 ){
-          $avatar->resize(600, 400);
+        if($avatar->width > AVATAR_MAX_WIDTH || $avatar->height > AVATAR_MAX_HEIGHT ){
+          $avatar->resize(AVATAR_MAX_WIDTH, AVATAR_MAX_HEIGHT);
         }
         $avatar->save($source_avatar_path);
 
-        $avatar->resize(80, 80);
+        $avatar->resize(AVATAR_WIDTH, AVATAR_HEIGHT);
         $avatar->save($avatar_path);
         unset($avatar);
       }

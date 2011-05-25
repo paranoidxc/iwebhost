@@ -41,6 +41,13 @@ class Category extends CActiveRecord
 	  );
 	}
 
+  public function getUrlArg() {
+    if( strlen(trim($this->ident_label)) >0  ) {
+      return trim($this->ident_label);
+    }
+    return $this->id;
+  }
+
   public function getIslove() {
     $category_id  = $this->id;
     $user_id      = User()->id;

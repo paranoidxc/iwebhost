@@ -21,6 +21,7 @@
         'notifications/<action:\w+>'=> 'n/<action>',
 
         'node/<id:\d+>'        => 'f/index',
+        'node/<id:\w+>'        => 'f/index',
         '/'                 => 'f/index',
 
         'topic/<id:\d+>'        =>'t/index',
