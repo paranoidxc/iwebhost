@@ -12,6 +12,8 @@
           <h1 class="raidus5top panel-title">	  
             <a href="/" class="radius2"><?php echo Yii::app()->name ?></a>
 	          &raquo;&nbsp;
+            <a href="<?php echo url('m/setting')?>">资料设置</a>
+	          &raquo;&nbsp;
             截取头像
           </h1>  
           <div class='iline'></div>    

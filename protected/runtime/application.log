@@ -165,3 +165,321 @@ Stack trace:
 #1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
 #2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
 #3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:21:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:21:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:21:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:21:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:21:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:21:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:21:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:21:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:21:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:21:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:21:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:21:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:22:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:22:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpeg
+2011/05/25 09:22:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:22:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:22:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:24:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:24:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:24:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:24:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:24:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:24:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:25:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:25:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpg
+2011/05/25 09:25:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:25:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:25:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:25:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpg".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('upfiles/avatars...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/upfiles/avatars/aab3238922bcc25a6f606eb525ffdc56.jpg
+2011/05/25 09:25:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:25:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:25:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:25:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:25:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:25:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:26:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:26:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:26:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:26:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:26:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:26:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:26:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png
+2011/05/25 09:26:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/ibtn.css".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/ibtn.css
+2011/05/25 09:26:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/forum/css/bgs/ad-tag.png".' in /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php:332
+Stack trace:
+#0 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/web/CWebApplication.php(121): CWebApplication->runController('themes/forum/cs...')
+#1 /home/paranoid/projects/yii-download/yii-1.1.3.r2247/framework/base/CApplication.php(155): CWebApplication->processRequest()
+#2 /home/paranoid/projects/infuzhou/index.php(106): CApplication->run()
+#3 {main} REQUEST_URI=/themes/forum/css/bgs/ad-tag.png

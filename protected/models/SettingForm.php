@@ -50,7 +50,7 @@ class SettingForm extends CFormModel
 
         $avatar = Yii::app()->image->load($source_avatar_path);
         if($avatar->width > 600 || $avatar->height > 400 ){
-          $avatar->resize(600, 400,Image::NONE);
+          $avatar->resize(600, 400);
         }
         $avatar->save($source_avatar_path);
 
