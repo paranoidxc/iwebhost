@@ -23,7 +23,7 @@
     </td>
     <td class="vaM taL content_item" data="<?php echo $a->id; ?>" >
       <?php echo $a->title; ?>&nbsp;-&nbsp;
-      <?php echo cnSub( CHtml::encode($a->content) , 10); ?>
+      <?php echo cnSub( $a->clearcontent , 10); ?>
     </td>
     <td class="vaM taR w100P">      
       <?php echo Time::timeAgoInWords($a->create_time, array('short'=>true) ) ;?>

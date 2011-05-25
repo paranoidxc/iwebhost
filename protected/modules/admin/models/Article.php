@@ -29,7 +29,7 @@ class Article extends CActiveRecord
     return ereg_replace('<script.*</script>', '', $this->content);  
   }
   public function getClearContent() {
-    return htmlspacilchars($this->content);
+    return strip_tags($this->content);
   }
 
   public function getUrlArg() {
@@ -38,8 +38,6 @@ class Article extends CActiveRecord
     }
     return $this->id;
   }
-
-  
   
   public function iprint() {    
     echo '<table style="border-collapse:collapse; border: 1px solid #4A525A; font-size: 12px;">';
