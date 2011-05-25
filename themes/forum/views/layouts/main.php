@@ -48,6 +48,10 @@
           <?php
             }else {
           ?>
+            <?php if(  User::model()->findByPk( user()->id )->account_type == 1 ) {
+            ?>
+            <li><a href="/index.php?r=admin/category/iroot" target="_blank" >后台管理</a></li>
+            <?php } ?>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
               <ul class='dN signin_user_menu'>
