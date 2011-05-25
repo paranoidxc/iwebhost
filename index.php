@@ -6,18 +6,19 @@ $g_upfiles_dir = '/upfiles';
 $atms_dave_dir = $website_dir.'/upfiles/';
 $avts_dir = $website_dir.$g_upfiles_dir.'/avatars/';
 
-//$atms_dave_dir = '/home/huangxc/upfiles/';
-// require the shortcut function
+// require the shortcut function file
 require_once( dirname(__FILE__).'/protected/globals.php' );
+
 $yii=dirname(__FILE__).'/../yii-download/yii-1.1.3.r2247/framework/yii.php';
 
 //print_r($_SERVER);
+
+// require front config
 
 switch($_SERVER['HTTP_HOST']){
   case 'local.infuzhou.com':
   case 'www.infuzhou.co.cc':
   case 'infuzhou.co.cc':
-    $config=dirname(__FILE__).'/protected/config/infuzhou.php';
     $fg_config=dirname(__FILE__).'/protected/config/fg_config.php';
     require $fg_config;
     break;
@@ -26,16 +27,34 @@ switch($_SERVER['HTTP_HOST']){
     break;
 }
 
+// require background config
+$bg_url = array(
+    'index.php?r=site/login',
+    'index.php?r=site/logout',
+    'index.php?r=admin/',
+);
+foreach( $bg_url as $url ) {
+  if( strpos($_SERVER['REQUEST_URI'], $url ) !== false ) {
+    $bg_config=dirname(__FILE__).'/protected/config/bg_config.php';
+    require $bg_config;
+    break;
+  }
+}
+
+/*
 if( strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/login') !== false 
   || strpos($_SERVER['REQUEST_URI'], 'index.php?r=site/logout') !== false 
   || strpos($_SERVER['REQUEST_URI'], 'index.php?r=admin/') !== false ){  
-  //$config=dirname(__FILE__).'/protected/config/console_infuzhou.php';
   $bg_config=dirname(__FILE__).'/protected/config/bg_config.php';
   require $bg_config;
 }
+*/
 
+// require global config
 $config=dirname(__FILE__).'/protected/config/global_config.php';
 require $config;
+
+// replace the config
 $config_ar['theme'] = $sep_config_ar['theme']; 
 $config_ar['components']['urlManager']  = $sep_config_ar['components']['urlManager']; 
 
