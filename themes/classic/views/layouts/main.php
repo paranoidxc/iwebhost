@@ -127,6 +127,7 @@
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/i18n/<?php echo API::get_lang(); ?>.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/console.api.categorys.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/fieldSelection.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/tiny_mce/jquery.tinymce.js"></script>
 
 
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/app-script.js"></script>
