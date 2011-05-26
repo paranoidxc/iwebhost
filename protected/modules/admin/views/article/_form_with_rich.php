@@ -18,7 +18,7 @@
 	</div>
 	
 	<div class="dN form_field_wrap field_rich">
-    <textarea id="Article_rich" class='tinymce'></textarea>
+    <textarea id="Article_rich" class='tinymce mceEditor'></textarea>
 	  <?php //echo $form->textArea($model,'rich'); ?>
 	</div>
 	
