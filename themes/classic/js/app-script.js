@@ -95,8 +95,8 @@ function formLay(wrap,t){
   }
 }
 
-function reload_tinymce() {
-	$('textarea.mceEditor').tinymce({
+function reload_tinymce(wrap_id) {
+  $('#'+wrap_id+' textarea.mceEditor').tinymce({
 			script_url : '/themes/classic/js/tiny_mce/tiny_mce.js',
 		  theme : "advanced",
 			plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
@@ -402,40 +402,17 @@ $('textarea.tinymce').tinymce({
 	  var upfiles_dir     = wrap.find('.upfiles_dir').val();
 	  if( rtype == '' ){	    
 	  }else if( rtype == 'article_link_image' ){  	    
-	    /*
-	    var theToolbar = ithis.parentNode.parentNode.widgToolbarObject;	    
-	    var theWidgEditor = theToolbar.widgEditorObject;
-	    var theIframe = theWidgEditor.theIframe;
-	    var theSelection = "";
-	    */
+      //alert("!!!!");
+	    //alert(parent_panel.find('.widgEditor_id').val());
 	    var image = upfiles_dir + rel_path+rel_imagerange+'.'+rel_extension;	    
-	    var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';
-	    var image_html = "<img alt=\"" + str + "\" src=\"" + image + "\" />"
-	    //alert( parent_panel.find('.widgEditor_id').attr('id') );
-	    widgSetContent(parent_panel.find('.widgEditor_id').val(), image,str );	    
-	    /* IE selections */
-	    /*
-	    //todo1
-	    var selection = $('#Article_content').getSelection();	    
-	    $('#Article_content').replaceSelection(str, true);
-	    setCaretToPos(document.getElementById('Article_content'),selection.start);
-	    $('#Article_content').replaceSelection(' ', true);
-	    setCaretToPos(document.getElementById('Article_content'),selection.start+1+str.length);	    
-	    $('#Article_content').replaceSelection(' ', true);
-	    setCaretToPos(document.getElementById('Article_content'),selection.start+2+str.length);	    	    
-	    */
-	    //TODO2 start  
-	    /*
-	    var _content = parent_panel.find('#Article_content');
-	    var selection = _content.getSelection();	    	    
-	    _content.replaceSelection(str, true);
-	    setCaretToPos(_content,selection.start);
-	    _content.replaceSelection(' ', true);
-	    setCaretToPos(_content,selection.start+1+str.length);	    
-	    _content.replaceSelection(' ', true);
-	    setCaretToPos(_content,selection.start+2+str.length);
-	    */
-	    //TODO2 end
+	   // var str = '!['+rel_screen_name+ ']('+image+' "'+rel_screen_name+'")';
+	    var img_html = "<img alt=\"" + image + "\" src=\"" + image + "\" />"
+//      $("#article_contentfuck").tinymce().execCommand("mceInsertContent",false,"<b>fuck</b>");
+      //$("#article_contentfuck").tinymce().execCommand("mceInsertContent",false,img_html);
+      //$("#article_contentfuck").tinymce().execCommand("mceInsertContent",false,"<B>--------------</B>");
+	    $(parent_panel.find('.widgEditor_id').val()).tinymce().execCommand('mceInsertContent',false,img_html);
+      //parent_pane.find(".mceEditor").tinymce().execCommand('mceInsertContent',false,img_html);
+	    //widgSetContent(parent_panel.find('.widgEditor_id').val(), image,str );	    
 	    return ;
 	  }
 	  var str = 'ID:'+rel_id +"\n"+ ' NAME:'+rel_screen_name;
@@ -449,7 +426,7 @@ $('textarea.tinymce').tinymce({
 	  return_wrap.find('.dest_thumbnail').show();
 	  wrap.remove();
 	});
-	
+
 	$('.reset_default_collect').live('click',function(){
 	  $(this).parent().find('span').show();
 	  //$(this).prev().show();
@@ -1370,7 +1347,7 @@ $('.lightbox').lightBox({
 			success:	function(html){
 			  popup_panel( $(html).attr('id',popup_panel_id) );		
 			  init_mac_panel_drag();
-        reload_tinymce();
+        reload_tinymce(popup_panel_id);;
 			  //widgInit();
 			}
 		});

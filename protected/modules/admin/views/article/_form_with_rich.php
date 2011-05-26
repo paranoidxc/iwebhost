@@ -17,8 +17,9 @@
 	  <a data="field_rich" class="form_tab"><span>Rich Text</span></a>
 	</div>
 	
-	<div class="dN form_field_wrap field_rich">
-    <textarea id="Article_rich" class='tinymce mceEditor'></textarea>
+	<div class="dN form_field_wrap field_rich">	
+    <input type="text" class="widgEditor_id" value="#article_content<?php echo time()?>" /><br/>
+    <textarea id="article_content<?php echo time();?>" class='mceEditor' ></textarea>
 	  <?php //echo $form->textArea($model,'rich'); ?>
 	</div>
 	
