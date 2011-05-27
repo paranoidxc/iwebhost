@@ -112,16 +112,16 @@ class AttachmentController extends IController
       if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m) ){
         if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d) ){
         }else{
-          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d, 0700 );
+          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d, 0777 );
         }
       }else{
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m ,0700 );
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0700 );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m ,0777 );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777 );
       }
     }else{
-      mkdir( ATMS_SAVE_DIR.$y ,0700 );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m,0700  );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0700 );
+      mkdir( ATMS_SAVE_DIR.$y ,0777 );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m,0777  );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777 );
     }    
     $put_file_to_dir = ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d.'/';
     $put_file_path = $y.'/'.$m.'/'.$d.'/';
@@ -134,7 +134,7 @@ class AttachmentController extends IController
 	  $is_image = false;
 	  $w = 0;
 	  $h = 0;
-	  if( in_array($file_extension,API::$image_extension) ){
+	  if( in_array(strtolower($file_extension),API::$image_extension) ){
 	    $image = Yii::app()->image->load($put_file_to_dir.$file_name);
 	    $w = $image->width;	    
 	    $h = $image->height;
