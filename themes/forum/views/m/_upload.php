@@ -7,7 +7,7 @@
 		post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
     file_size_limit : "1 MB",
     file_upload_limit: 2,
-    file_types : "*.jpg;*.gif,*.png",
+    file_types : "*.jpg;*.jpeg;*.gif;*.png",
     file_types_description: 'Image Files',
 		custom_settings : {
 				progressTarget : "fsUploadProgress",

@@ -90,7 +90,7 @@ $(document).ready(function(){
       setup : function(ed) {
         ed.addButton('example', {
           title: '上载图片/个人站内图片选择',
-          class: 'mce_image',
+          'class': 'mce_image',
           alt: '上载图片/个人站内图片选择',
           onclick: function() {
             $('.member-photos-pick').addClass('member-photos-loading').show();

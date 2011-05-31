@@ -26,7 +26,7 @@
   	    </div>
 	    </div>	    
 	    
-      <div class="radius5 boxshadow mt20P side-box">
+      <div class="radius5 boxshadow mt20P side-box side-member-box">
 	      <div class='raidus5top panel-title'>
 	        <h1 class="raidus5top">
           <a href="<?php echo url('m/list')?>" tltle="全部会员" class='flR'>全部</a>
