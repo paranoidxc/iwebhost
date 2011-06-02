@@ -101,10 +101,10 @@
   
 </div><!-- page -->
 <?php
-  $cs->registerScriptFile($theme_baseurl.'/js/jquery-1.4.2.min.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/jquery.Jcrop.min.js');	
-	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');	
-	$cs->registerScriptFile($theme_baseurl.'/js/tiny_mce/jquery.tinymce.js');	
+  $cs->registerScriptFile($baseUrl.'/js/jquery-1.4.2.min.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.Jcrop.min.js');	
+	$cs->registerScriptFile($baseUrl.'/js/jquery.timeago.js');	
+	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/jquery.tinymce.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
 ?>
 <!--<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>-->

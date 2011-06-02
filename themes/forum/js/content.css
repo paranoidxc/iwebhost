@@ -84,7 +84,9 @@ th {
 }
 
 /* Image and table specific aligns */
-
+img {
+	vertical-align: top;
+}
 img.left, table.left {
 	float: left;
 	text-align: inherit;
