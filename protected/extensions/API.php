@@ -1,6 +1,8 @@
 <?php
 class API {  
-  public static $image_extension  = array("jpg", "jpeg", "png", "gif");      
+  public static $IMAGE_EXTENSION  = array("jpg", "jpeg", "png", "gif");      
+  public static $ATT_IMG_AUTO_SIZE = array('800_600','600_400','160_120','40_40');
+
   public static function lchart() {
     return '&nbsp;&laquo;&nbsp;';
   }
