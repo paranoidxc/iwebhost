@@ -77,10 +77,9 @@
 	  <div class="container clearfix">  
 	    <div class="grid11 first copyfight">
 	      <p class="mb10P">
-  	      <?php  	        
-  	        $ipage = Category::model()->findByAttributes( array('ident_label' => 'ipage') );
-  	        for( $i=0; $i< count($ipage->articles); $i++ ){
-  	        //foreach( $ipage->articles as $inst) {  	          
+  	      <?php
+            $ipage = API::node(array('ident_label' => 'ipage'));
+  	        for( $i=0; $i< count($ipage->articles( array('order' => 'sort_id asc') ) ); $i++ ){
   	          $inst = $ipage->articles[$i];  	          
   	      ?>
     	      <strong>

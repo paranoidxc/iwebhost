@@ -173,6 +173,15 @@ class API {
     }
   }
   
+  /*
+     $opt = array( 'id' => 1 );           return single category obj
+     $opt = array( 'id' => '1,2,3' );     return list category obj
+     $opt = array( 'ident' => '1' );      reutrn signle category obj
+     $opt = array( 'ident' => '1,2,3' );  return list category obj
+     $opt = array( 'ident_label' => '1' );      return single category obj
+     $opt = array( 'ident_label' => '1,2,3' );  return list category obj
+     !!!>> not include sub category in return list category obj
+   */
   public static function node($opt) {    
     if( is_array( $opt ) ) {
       return Category::model()->node($opt);
