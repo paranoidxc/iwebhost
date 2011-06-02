@@ -1,6 +1,7 @@
 <?php
 //print_r($_SERVER);
-error_reporting(null);
+error_reporting(E_ERROR|E_WARNING|E_PARSE);
+//error_reporting(null);
 
 // require user config about variables
 require_once 'define.var.php';
