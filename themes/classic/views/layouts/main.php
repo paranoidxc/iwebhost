@@ -35,6 +35,7 @@
 	<div id="mainmenu" style="position: relative">
 		<?php 
       $_isAdmin = User::model()->findByPk(User()->id)->account_type;
+      $_isAdmin = $_isAdmin != 1 ? false : true;
       $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 			  array('label'=>Yii::t('cp','Website'),
