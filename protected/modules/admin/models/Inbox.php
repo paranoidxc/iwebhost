@@ -57,7 +57,7 @@ class Inbox extends CActiveRecord
 		return array(
         'source' => array( self::BELONGS_TO, 'User', 'source_id'),
         'dest'   => array( self::BELONGS_TO, 'User', 'dest_id'),
-        'posts'  => array( self::HAS_MANY, 'Inbox', 'parent_id' ),
+        'posts'  => array( self::HAS_MANY, 'Inbox', 'parent_id' ,'order' => 'c_time ASC'),
 		);
 	}
 
