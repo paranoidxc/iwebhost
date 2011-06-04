@@ -52,6 +52,7 @@
             ?>
             <li><a href="<?php echo ADMIN_URL; ?>" target="_blank" >后台管理</a></li>
             <?php } ?>
+            <li><a href="<?php echo url('ib/index') ?>" >私信</a></li>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
               <ul class='dN signin_user_menu'>

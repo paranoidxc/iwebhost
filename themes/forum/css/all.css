@@ -472,6 +472,11 @@ border: 1px solid #aaa;
 
 .member_topics { 
   clear: both;
+  font-size: 14px;
+  padding: 2px 0;
+  }.member_topics:nth-child(odd) { 
+    background: #eee;
+  }.member_topics:nth-child(even) { 
   }.member_topics  a {
     float: left;
     width: 70%;
