@@ -83,14 +83,10 @@
 <div class='dN choose_lang_ul_wrap'>
 	<ul>
 	<li>
-		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>
-			简体中午&nbsp;&nbsp;
-		</a>
+		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'zh_cn') ); ?>'>简体中午&nbsp;&nbsp;</a>
 	</li>
 	<li>
-		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >
-			English&nbsp;&nbsp;
-		</a>
+		<a href='<?php echo CController::createUrl('/site/cplang', array('lang'=> 'en_us') ); ?>' >English&nbsp;&nbsp;</a>
 		</li>
 </ul>
 </div>
@@ -100,24 +96,6 @@
 <!-- page -->
 <?php
 	Yii::app()->clientScript->registerCoreScript('jquery');  
-	/*
-	$cs->registerScriptFile($baseUrl.'/js/jquery-ui-1.8.2.custom.min.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.em.js');		
-	$cs->registerScriptFile($baseUrl.'/js/jquery.lightbox-0.5.min.js');
-	$cs->registerScriptFile($baseUrl.'/js/jquery.imasker.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/'.API::get_lang().'.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/console.api.categorys.js');			
-	$cs->registerScriptFile($theme_baseurl.'/js/fieldSelection.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/app-script.js');	
-	*/
-  /*
-  $cs->registerScriptFile($baseUrl.'/js/jScrollPane.js');
-	$cs->registerScriptFile($baseUrl.'/js/jScrollHorizontalPane.js');	
-  $cs->registerScriptFile($baseUrl.'/js/tree.js');		
-	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/tiny_mce.js');  
-	$cs->registerCssFile($baseUrl.'/css/jquery.lightbox-0.5.css');	
-	$cs->registerCssFile($theme_baseurl.'/css/console.api.categorys.css');
-	*/
 	$cs->registerCssFile($theme_baseurl.'/css/main.css');	
 	$cs->registerCssFile($theme_baseurl.'/css/all.css');	
 ?>
@@ -128,7 +106,7 @@
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/i18n/<?php echo API::get_lang(); ?>.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/console.api.categorys.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/fieldSelection.js"></script>
-<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/tiny_mce/jquery.tinymce.js"></script>
 
 
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/js/app-script.js"></script>
