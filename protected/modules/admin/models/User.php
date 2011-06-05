@@ -110,6 +110,24 @@ class User extends CActiveRecord
 		);
 	}
 
+  public function getUnread_outbox_count() {
+    $list = Inbox::model()->findAll( "source_id = $this->id AND parent_id = 0");
+    $ids = '';
+    foreach( $list as $l ) {
+      $ids .= $l->id.',';
+    }
+    return Inbox::model()->count( " is_read = 0 AND dest_id = $this->id AND find_in_set(parent_id,'$ids')" );
+  }
+  public function getUnread_inbox_count() {
+    $list = Inbox::model()->findAll( "dest_id = $this->id AND parent_id = 0");
+    $ids = '';
+    foreach( $list as $l ) {
+      $ids .= $l->id.',';
+    }
+    $a =  Inbox::model()->count( " is_read = 0 AND dest_id = $this->id AND find_in_set(parent_id, '$ids' )" );
+    $b =  Inbox::model()->count( " is_read = 0 AND dest_id = $this->id AND parent_id = 0 " );
+    return $a+$b;
+  }
 	/**
 	 * @return array relational rules.
 	 */
@@ -124,6 +142,7 @@ class User extends CActiveRecord
       'love_nodes'  => array( self::MANY_MANY,'Category',     'many_category_user(user_id,category_id )' ),
       'attack_list'  => array( self::MANY_MANY,'User',     'many_attack_accept(attack_id,accept_id)' ),
       'accept_list'  => array( self::MANY_MANY,'User',     'many_attack_accept(accept_id,attack_id )' ),
+      'unread_mail_count'     => array( self::STAT, 'Inbox', 'dest_id','condition' => " is_read = 0 " ),
 		);
 	}
 

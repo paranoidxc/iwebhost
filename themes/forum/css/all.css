@@ -227,7 +227,11 @@ border: 1px solid #aaa;
   padding: 2px;
   border: 1px solid #aaa;
   vertical-align: middle;
-  }.author_wrap:hover img {    
+  }.big_author_wrap img {    
+    padding: 2px;
+    border: 1px solid #aaa;
+  }.big_author_wrap:hover img ,
+   .author_wrap:hover img {    
     border: 1px solid #696969;
   }
 .item_box {

@@ -17,30 +17,33 @@
 	      </div>
         <div class='iline'></div>        
         <p class='p10P fs14P' >
-        <a href="<?php echo url('ib/index') ?>">收信箱</a>
-        发信箱
+        <a href="<?php echo url('ib/index') ?>">收信箱</a><?php echo $m->unread_inbox_count ?>
+        发信箱 <?php echo $m->unread_outbox_count?>
         </p>
         <div class='iline mb5P'></div>
+        <table>
         <?php
         foreach( $mails as $mail ){
         ?>
-        <div class='member_topics'>
-          <p class='pl10P lh20P'>
-              <a href="<?php echo url('m/index', array('id' => $mail->dest->username) ); ?>" style="width: 40px"><img width="40" src="<?php echo $mail->dest->gravatar ?>"
+        <tr style="">
+            <th class='vaT w50P pl10P' style="border-right: 5px solid #093;">
+              <a href="<?php echo url('m/index', array('id' => $mail->dest->username) ) ?>"
+                  style="width: 40px"><img width="40" src="<?php echo $mail->dest->gravatar ?>"
               alt="" title="<?php echo $mail->dest->username; ?>" /></a>
-              <a class='radius2' 
-                href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo CHtml::encode($mail->memo) ?></a>
-              <span class='ar_extra timeago' title='<?php echo $mail->c_time ?>'>
+            </th>
+            <td class='pl10P vaT'>
+              <p class='timeago' title='<?php echo $mail->c_time ?>'>
                 <?php echo CHtml::encode($mail->c_time) ?>
-              </span>
-              <span class='ar_extra'>
-                &nbsp;•&nbsp;
-              </span>
-          </p>
-        </div>
+              </p>
+              <a class='' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo CHtml::encode($mail->memo) ?></a>
+           </td>
+         </tr>
+         <tr style="height: 1px">
+         </tr>
         <?php
         }
         ?>
+        </table>
         <div class='mt10P'></div>
 	    </td>
     </tr>

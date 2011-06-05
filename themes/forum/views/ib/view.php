@@ -2,9 +2,7 @@
   <table style="width: 100%">
     <tr>
       <td class="author_warp pt20P">
-        <a href="#">
-          <img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" />
-        </a>
+        <a href="#"><img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" /></a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>
       <td class="boxshadow ar_content_wrap newest-node">
@@ -17,55 +15,62 @@
 	      </div>
         <div class='iline mb5P'></div>
         <div class="p10P">
-          <table>
+          <table style="width: 100%">
             <tr>
-              <th>
-                <img src="<?php echo $model->source->gravatar ?>" /><br/>
-                <?php echo $model->source->username ?>
+              <th style="width:30%;"></th>
+              <th style="text-align: right; width:100px;">
+                <div class="w100P taC">
+                  <a class="big_author_wrap" href="<?php echo url('m/index', array( 'id' => $model->source->username) )?>" ><img src="<?php echo $model->source->gravatar ?>" /></a>
+                  <br/>
+                  <a href="<?php echo url('m/index', array( 'id' => $model->source->username) )?>" ><?php echo $model->source->username ?></a>
+                </div>
               </th>
-              <th>
-                发给
+              <th class="text-align: center">VS.</th>
+              <th style="text-align: left; width: 100px;">
+                <div class="w100P taC">
+                  <a class="big_author_wrap" href="<?php echo url('m/index', array( 'id' => $model->source->username)
+                )?>"><img src="<?php echo $model->dest->gravatar ?>" /></a>
+                  <br/>
+                  <a href="<?php echo url('m/index', array( 'id' => $model->source->username) )?>" ><?php echo $model->dest->username ?></a>
+                </div>
               </th>
-              <th>
-                <img src="<?php echo $model->dest->gravatar ?>" /><br/>
-                <?php echo $model->dest->username ?>
-              </th>
+              <th style="width:30%;"></th>
             </tr>
           </table>
         </div>
 
-<table class='itable iform_table_wrap w100S'>
+<table class='w100S'>
   <tr>
-    <th width="100">
+    <th class="w50P pl10P vaT">
       <img width="40" src="<?php echo $model->source->gravatar ?>" /><br/>
     </th>
-    <td>
-      <?php echo $model->source->username ?> - 
-      <?php echo CHtml::encode( $model->c_time); ?><br/>
-      <?php echo CHtml::encode( $model->memo); ?>
-      <?php $temp_id = $model->source_id ?>
+    <td class='pl10P vaT' style='border-left: 5px solid #093; '>
+      <p class=''><?php echo CHtml::encode( $model->c_time); ?></p>
+      <div class="fs14P mt5P pl20P "><?php echo nl2br($model->memo); ?></div>
+      <?php $temp_id = $model->source_id ; $temp_color = "#093"; ?>
       <?php 
       if( $model->posts ) {
         foreach( $model->posts as $post ) {
           if( $post->source_id == $temp_id ) {
         ?>   
-          <br/>
-          <?php echo $post->source->username ?> - 
-          <?php echo CHtml::encode( $post->c_time); ?><br/>
-          <?php echo CHtml::encode( $post->memo); ?>
+          <div class="iline mt5P mb5P"></div>
+          <p class=''><?php echo CHtml::encode( $post->c_time); ?></p>
+          <div class="fs14P mt5P pl20P"><?php echo nl2br($post->memo); ?></div>
         <?php
           }else{
+            $temp_color =  $temp_color == "#093" ? "#FF5900" : "#093";
           ?>
+            <div class="h5P"></div>
             </td>
           </tr>
-          <tr> 
-            <th width="100">
+          <tr>
+            <th class="w50P pl10P pt5P vaT">
               <img width="40" src="<?php echo $post->source->gravatar ?>" /><br/>
             </th>
-            <td> 
-              <?php echo $post->source->username ?> - 
-              <?php echo CHtml::encode( $post->c_time); ?><br/>
-              <?php echo CHtml::encode( $post->memo); ?>
+            <td class="pl10P pt5P" style="border-top: 1px solid <?php echo $temp_color;?>;
+                border-left: 5px solid <?php echo $temp_color; ?>"> 
+              <p class=''><?php echo CHtml::encode( $post->c_time); ?></p>
+              <div class="fs14P mt5P pl20P  "><?php echo nl2br($post->memo); ?></div>
           <?php
           }
           $temp_id = $post->source_id;
@@ -84,8 +89,9 @@
 
 <!--reply form start -->
       <tr>
-        <th><img width="40" src="<?php echo $m->gravatar ?>" alt="" title="" /></th>
-        <td>
+        <th class="w50P pl10P vaT pt5P"><img width="40" src="<?php echo $m->gravatar ?>" alt="" title="" /></th>
+        <td class='vaT pt5P' style='border-left: 5px solid #FFF; '>
+
               <?php $form=$this->beginWidget('CActiveForm', array( 'action' => array('ib/r'))); ?>   
               <?php echo $form->hiddenField($nmodel,'dest_id'); ?>
               <?php echo $form->hiddenField($nmodel,'parent_id'); ?>

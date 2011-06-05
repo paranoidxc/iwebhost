@@ -11,7 +11,7 @@ class IbController extends Controller {
 		return array(
 			array('allow',
 				'actions'=>array('outbox','index','c','v','r'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('deny',
 				'users'=>array('*'),
@@ -46,6 +46,7 @@ class IbController extends Controller {
       $nmodel->attributes = $_POST['Inbox'];
       $nmodel->source_id = $u->id;
       $nmodel->c_time    = Time::now();
+      $nmodel->memo =  strip_tags($nmodel->memo);
       if( $nmodel->save() ){
         $this->redirect( array('v', 'id' => $nmodel->parent_id) );
         exit;
@@ -64,9 +65,16 @@ class IbController extends Controller {
       throw new CHttpException(404,'The requested Node does not exist.');
     }
     $nmodel = new Inbox; 
-    $nmodel->dest_id    = $model->dest_id;
+    $nmodel->dest_id    = User()->id == $model->source_id ? $model->dest_id : $model->source_id;
     $nmodel->parent_id  = $model->id;
     $u =  User::model()->findByPk( Yii::app()->user->id );
+
+    if( $u->id == $model->dest_id ) {
+      // dest user read the mail
+      $model->is_read = 1;
+      $model->save(false);
+    }
+
     $this->render('view', array( 'm' => $u , 'model'=> $model,'nmodel' => $nmodel ), false ,true );
   }
 
@@ -78,6 +86,7 @@ class IbController extends Controller {
       $dest_user =  User::model()->findByPk( $_POST['Inbox']['dest_id'] );
       $model->c_time = Time::now();
       $model->source_id = $u->id;
+      $model->memo =  strip_tags($model->memo);
       if( $model->save() ) {
         $this->redirect( array('index' ) );
         exit;
