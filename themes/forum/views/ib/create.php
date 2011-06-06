@@ -23,20 +23,23 @@
 	'id'=>'login-form',	
 )); ?>
                 <?php echo $form->hiddenField($model,'dest_id'); ?>
-          <table class='itable iform_table_wrap w100S'>
+          <table class=' w100S'>
             <tr>
-              <th class='w100P'>写给Ta</th>
+              <th class='w100P vaT taR p10P '>写给Ta</th>
               <td>
-                <img src="<?php echo $dest_user->gravatar?>" 
+                <div class="taC w100P" >
+                <a class="big_author_wrap" 
+                href="<?php echo url('m/index',array('id' => $dest_user->username ) )?>" ><img src="<?php echo $dest_user->gravatar?>" 
                   alt="<?php echo $dest_user->username?>" 
-                   title="<?php echo $dest_user->username?>"  /><br/>
+                   title="<?php echo $dest_user->username?>"  /></a>
                 <?php echo $dest_user->username; ?>
+                </div>
               </td>
             </tr>
             <tr>
-              <th>私信内容</th>
+              <th class='vaT taR p10P ' >私信内容</th>
               <td>
-                <?php echo $form->textArea($model,'memo',array('rows'=>20, 'cols'=>200,'class' => '' )); ?> 
+                <?php echo $form->textArea($model,'memo',array('rows'=>10, 'cols'=>60,'class' => 'inbox_field' )); ?> 
                 <?php echo $form->error($model,'memo'); ?> 
               </td>
             </tr>
