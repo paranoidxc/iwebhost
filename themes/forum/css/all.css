@@ -63,6 +63,7 @@ body {
   }.nav ul li {  
     display: inline-block;
     height: 52px;
+    position: relative;
   }.nav ul li a {
     display: block;
     font-weight:bold;
@@ -79,6 +80,44 @@ body {
     background-position: right -33px;
     background: url('bgs/ihover.png') no-repeat right 0px;
   }
+  .mail_not {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #FFF;
+    font-weight: bold;
+    display: block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: url(bgs/not_red.png) no-repeat 0 0;
+  }
+.mail_tab {
+  position: relative;
+  padding-right: 18px;
+}
+.mail_tab .mail_not{
+    position: absolute;
+    top: -8px;
+    right: 5px;
+}
+.mail_tab .l_inbox_not{
+   color: #FFF:
+   font-weight: bold;
+   display: inline-block;
+   width: 18px;
+   height: 18px;
+   line-height: 18px;
+   text-align: center;
+   background: url(bgs/not_red.png) no-repeat 0 0;
+}
+.mail_tab .inbox_not{
+    background: url(bgs/not_blue.png) no-repeat 0 0;
+}
+.mail_tab .outbox_not{
+    background: url(bgs/not_yellow.png) no-repeat 0 0;
+}
 
 .signin_wrap {
   position: relative;

@@ -47,6 +47,14 @@ class Inbox extends CActiveRecord
 		);
 	}
 
+  public function getUnread_outbox_count() {
+    return Inbox::model()->count( "is_read =0 AND dest_id = ".User()->id." AND parent_id = $this->id " );
+  }
+  public function getUnread_inbox_count() {
+    $a = Inbox::model()->count( "is_read =0 AND dest_id = ".User()->id." AND parent_id = $this->id " );
+    $b = $this->is_read ? 0 : 1;
+    return $a+$b;
+  }
 	/**
 	 * @return array relational rules.
 	 */

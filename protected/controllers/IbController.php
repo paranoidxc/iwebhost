@@ -21,14 +21,14 @@ class IbController extends Controller {
 
   public function actionOutbox() {
     // outbox mails 
-    $mails = Inbox::model()->findAllByAttributes( array('source_id' => User()->id, 'parent_id' => 0 ) );
+    $mails = Inbox::model()->findAllByAttributes( array('source_id' => User()->id, 'parent_id' => 0), array('order' => 'c_time DESC') );
     $u =  User::model()->findByPk( Yii::app()->user->id );
     $this->render( 'outbox', array( 'mails' => $mails, 'm' => $u  ) ,false,true );
   }
 
   public function actionIndex() {
     // inbox mails
-    $inboxs = Inbox::model()->findAllByAttributes( array('dest_id' => User()->id, 'parent_id' => 0 ) );
+    $inboxs = Inbox::model()->findAllByAttributes( array('dest_id' => User()->id, 'parent_id' => 0) , array( 'order' => 'c_time DESC' ) );
     $u =  User::model()->findByPk( Yii::app()->user->id );
     $this->render( 'index', array( 'mails' => $inboxs, 'm' => $u  ) ,false,true );
   }
@@ -73,7 +73,8 @@ class IbController extends Controller {
       // dest user read the mail
       $model->is_read = 1;
       $model->save(false);
-    }
+    } 
+    Inbox::model()->updateAll( array('is_read'=> 1), " dest_id = $u->id AND parent_id = $model->id " );
 
     $this->render('view', array( 'm' => $u , 'model'=> $model,'nmodel' => $nmodel ), false ,true );
   }

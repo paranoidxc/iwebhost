@@ -18,9 +18,14 @@
 	        </h1>
 	      </div>
         <div class='iline'></div>        
-        <p class='p10P fs14P' >
-        收信箱 <?php echo $m->unread_inbox_count ?>
-        <a href="<?php echo url('ib/outbox'); ?>" >发信箱 <?php echo $m->unread_outbox_count?></a>
+        <p class='p10P fs14P mail_wrap' >
+          <span class='mail_tab'>
+            收信箱 
+            <span class='mail_not inbox_not'><?php echo $m->unread_inbox_count ?></span>
+          </span>
+          <span class='mail_tab'>
+            <a href="<?php echo url('ib/outbox'); ?>" >发信箱</a><span class='mail_not outbox_not'><?php echo $m->unread_outbox_count?></span>
+          </span>
         </p>
         <div class='iline mb5P'></div>
         <table>
@@ -33,33 +38,16 @@
                   style="width: 40px"><img width="40" src="<?php echo $mail->source->gravatar ?>"
               alt="" title="<?php echo $mail->source->username; ?>" /></a>
             </th>
-            <td class='pl10P vaT'>
+            <td class='pl10P vaT mail_tab'>
               <p class='timeago' title='<?php echo $mail->c_time ?>'>
                 <?php echo CHtml::encode($mail->c_time) ?>
               </p>
-              <a class='' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo CHtml::encode($mail->memo) ?></a>
+              <span class='inbox_not l_inbox_not'><?php echo $mail->unread_inbox_count ?></span>
+              <a class='fs14P' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo cnSub($mail->memo,30) ?></a>
            </td>
          </tr>
          <tr style="height: 1px">
          </tr>
-
-           <!--
-        <div class=''>
-          <p class='pl10P lh20P'> 
-              <a href="<?php echo url('m/index', array('id' => $mail->source->username) ) ?>"
-                  style="width: 40px"><img width="40" src="<?php echo $mail->source->gravatar ?>"
-              alt="" title="<?php echo $mail->source->username; ?>" /></a>
-              <a class='radius2' 
-              href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo CHtml::encode($mail->memo) ?></a>
-              <span class=' timeago' title='<?php echo $mail->c_time ?>'>
-                <?php echo CHtml::encode($mail->c_time) ?>
-              </span>
-              <span class='ar_extra'>
-                &nbsp;•&nbsp;
-              </span>
-          </p>
-        </div>
-        -->
         <?php
         }
         ?>

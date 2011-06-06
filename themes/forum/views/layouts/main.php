@@ -52,8 +52,16 @@
             ?>
             <li><a href="<?php echo ADMIN_URL; ?>" target="_blank" >后台管理</a></li>
             <?php } ?>
-            <li><a href="<?php echo url('ib/index') ?>" >私信 <?php echo User::model()->findByPk( User()->id )->unread_mail_count ?>
-</a></li>
+            <li>
+              <a href="<?php echo url('ib/index') ?>" >私信</a>
+              <?php 
+                if( User::model()->findByPk( User()->id ) > 0 ){
+              ?>
+              <span class='mail_not'><?php echo User::model()->findByPk( User()->id )->unread_mail_count ?></span>
+              <?php 
+                }
+              ?>
+            </li>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
               <ul class='dN signin_user_menu'>

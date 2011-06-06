@@ -16,9 +16,15 @@
 	        </h1>
 	      </div>
         <div class='iline'></div>        
-        <p class='p10P fs14P' >
-        <a href="<?php echo url('ib/index') ?>">收信箱</a><?php echo $m->unread_inbox_count ?>
-        发信箱 <?php echo $m->unread_outbox_count?>
+        
+        <p class='p10P fs14P mail_wrap' >
+          <span class='mail_tab'>
+            <a href="<?php echo url('ib/index') ?>">收信箱</a><span class='mail_not inbox_not'><?php
+            echo $m->unread_inbox_count ?></span>
+          </span>
+          <span class='mail_tab'>
+            发信箱 <span class='mail_not outbox_not'><?php echo $m->unread_outbox_count?></span>
+          </span>
         </p>
         <div class='iline mb5P'></div>
         <table>
@@ -31,11 +37,13 @@
                   style="width: 40px"><img width="40" src="<?php echo $mail->dest->gravatar ?>"
               alt="" title="<?php echo $mail->dest->username; ?>" /></a>
             </th>
-            <td class='pl10P vaT'>
+            <td class='pl10P vaT mail_tab'>
               <p class='timeago' title='<?php echo $mail->c_time ?>'>
                 <?php echo CHtml::encode($mail->c_time) ?>
               </p>
-              <a class='' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo CHtml::encode($mail->memo) ?></a>
+              <span class='outbox_not l_inbox_not'><?php echo $mail->unread_outbox_count ?></span>
+              <a class='fs14P' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo
+              cnSub($mail->memo,28) ?></a>
            </td>
          </tr>
          <tr style="height: 1px">
