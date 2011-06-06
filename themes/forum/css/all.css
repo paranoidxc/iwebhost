@@ -118,6 +118,12 @@ body {
 .mail_tab .outbox_not{
     background: url(bgs/not_yellow.png) no-repeat 0 0;
 }
+.inbox_field { 
+  border: 1px solid #666;
+  max-width: 500px;
+  font-size: 14px;
+  border-color: #666 #CCC #CCC #666;  
+}
 
 .signin_wrap {
   position: relative;

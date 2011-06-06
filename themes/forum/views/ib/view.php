@@ -46,7 +46,7 @@
     </th>
     <td class='pl10P vaT' style='border-left: 5px solid #093; '>
       <p class=''><?php echo CHtml::encode( $model->c_time); ?></p>
-      <div class="fs14P mt5P pl20P "><?php echo nl2br($model->memo); ?></div>
+      <div class="fs14P mt5P pl20P lh18P"><?php echo nl2br($model->memo); ?></div>
       <?php $temp_id = $model->source_id ; $temp_color = "#093"; ?>
       <?php 
       if( $model->posts ) {
@@ -55,7 +55,7 @@
         ?>   
           <div class="iline mt5P mb5P"></div>
           <p class=''><?php echo CHtml::encode( $post->c_time); ?></p>
-          <div class="fs14P mt5P pl20P"><?php echo nl2br($post->memo); ?></div>
+          <div class="fs14P mt5P pl20P lh18P"><?php echo nl2br($post->memo); ?></div>
         <?php
           }else{
             $temp_color =  $temp_color == "#093" ? "#FF5900" : "#093";
@@ -70,7 +70,7 @@
             <td class="pl10P pt5P" style="border-top: 1px solid <?php echo $temp_color;?>;
                 border-left: 5px solid <?php echo $temp_color; ?>"> 
               <p class=''><?php echo CHtml::encode( $post->c_time); ?></p>
-              <div class="fs14P mt5P pl20P  "><?php echo nl2br($post->memo); ?></div>
+              <div class="fs14P mt5P pl20P lh18P "><?php echo nl2br($post->memo); ?></div>
           <?php
           }
           $temp_id = $post->source_id;
@@ -95,7 +95,7 @@
               <?php $form=$this->beginWidget('CActiveForm', array( 'action' => array('ib/r'))); ?>   
               <?php echo $form->hiddenField($nmodel,'dest_id'); ?>
               <?php echo $form->hiddenField($nmodel,'parent_id'); ?>
-              <?php echo $form->textArea($nmodel,'memo',array('rows'=>10, 'cols'=>60,'class' => '' )); ?> 
+              <?php echo $form->textArea($nmodel,'memo',array('rows'=>10, 'cols'=>60,'class' => 'inbox_field' )); ?> 
               <?php echo $form->error($nmodel,'memo'); ?> 
               <br/>
               <?php echo CHtml::submitButton('发送') ?>
