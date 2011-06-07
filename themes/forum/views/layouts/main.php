@@ -22,9 +22,9 @@
   */
   ?>
   <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swf.all.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.timeago.js"></script>
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/tiny_mce/jquery.tinymce.js"></script>
-  <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.Jcrop.min.js"></script>
   <script type="text/javascript" src="<?php echo $theme_baseurl?>/js/script.js"></script>
 
