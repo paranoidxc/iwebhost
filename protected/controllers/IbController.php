@@ -22,14 +22,14 @@ class IbController extends Controller {
   public function actionOutbox() {
     // outbox mails 
     $mails = Inbox::model()->findAllByAttributes( array('source_id' => User()->id, 'parent_id' => 0), array('order' => 'c_time DESC') );
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =& $this->iuser;
     $this->render( 'outbox', array( 'mails' => $mails, 'm' => $u  ) ,false,true );
   }
 
   public function actionIndex() {
     // inbox mails
     $inboxs = Inbox::model()->findAllByAttributes( array('dest_id' => User()->id, 'parent_id' => 0) , array( 'order' => 'c_time DESC' ) );
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =&  $this->iuser;
     $this->render( 'index', array( 'mails' => $inboxs, 'm' => $u  ) ,false,true );
   }
 
@@ -40,8 +40,7 @@ class IbController extends Controller {
       if($model==null && ( $model->source_id != User()->id || $model->dest_id != User()->id) ) {
         throw new CHttpException(404,'The requested Node does not exist.');
       }
-      
-      $u =  User::model()->findByPk( Yii::app()->user->id );
+      $u =& $this->iuser;
       $nmodel = new Inbox;
       $nmodel->attributes = $_POST['Inbox'];
       $nmodel->source_id = $u->id;
@@ -67,7 +66,7 @@ class IbController extends Controller {
     $nmodel = new Inbox; 
     $nmodel->dest_id    = User()->id == $model->source_id ? $model->dest_id : $model->source_id;
     $nmodel->parent_id  = $model->id;
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =& $this->iuser;
 
     if( $u->id == $model->dest_id ) {
       // dest user read the mail
@@ -80,7 +79,7 @@ class IbController extends Controller {
   }
 
   public function actionC() {
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =& $this->iuser;
     $model = new Inbox;
     if( isset($_POST['Inbox']) ) {
       $model->attributes = $_POST['Inbox'];

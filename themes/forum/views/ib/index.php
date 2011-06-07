@@ -4,9 +4,7 @@
   <table style="width: 100%">
     <tr>
       <td class="author_warp pt20P">
-        <a href="#">
-          <img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" />
-        </a>
+        <a href="#"><img src="<?php echo $m->gravatar ?>" alt="<?php echo $m->username ?>" /></a>
       </td>
       <td class="w20P ar_arrow t_ar_arrow">&nbsp;</td>
       <td class="boxshadow ar_content_wrap newest-node">
@@ -21,10 +19,21 @@
         <p class='p10P fs14P mail_wrap' >
           <span class='mail_tab'>
             收信箱 
-            <span class='mail_not inbox_not'><?php echo $m->unread_inbox_count ?></span>
+            <?php
+            if( ($_t_unread_inbox_count = $m->unread_inbox_count) > 0 ) {
+            ?>
+            <span class='mail_not inbox_not'><?php echo $_t_unread_inbox_count ?></span>
+            <?php
+            }
+            ?>
           </span>
           <span class='mail_tab'>
-            <a href="<?php echo url('ib/outbox'); ?>" >发信箱</a><span class='mail_not outbox_not'><?php echo $m->unread_outbox_count?></span>
+            <a href="<?php echo url('ib/outbox'); ?>" >发信箱</a><?php 
+            if( ($_t_unread_outbox_count = $m->unread_outbox_count) > 0 ) {
+            ?><span class='mail_not outbox_not'><?php echo $_t_unread_outbox_count?></span>
+            <?php
+            }
+            ?>
           </span>
         </p>
         <div class='iline mb5P'></div>
@@ -42,7 +51,12 @@
               <p class='timeago' title='<?php echo $mail->c_time ?>'>
                 <?php echo CHtml::encode($mail->c_time) ?>
               </p>
-              <span class='inbox_not l_inbox_not'><?php echo $mail->unread_inbox_count ?></span>
+              <?php 
+              if( ($_t_mail_unread_inbox_count = $mail->unread_inbox_count)  > 0 ) {
+              ?>
+              <span class='inbox_not l_inbox_not'><?php echo $_t_mail_unread_inbox_count;?></span>
+              <?php
+              }?>
               <a class='fs14P' href="<?php echo url('ib/v', array( 'id' => $mail->id) ) ?>" ><?php echo cnSub($mail->memo,30) ?></a>
            </td>
          </tr>
