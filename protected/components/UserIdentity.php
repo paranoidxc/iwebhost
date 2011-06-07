@@ -35,7 +35,7 @@ class UserIdentity extends CUserIdentity
 			$record->login_count 			= $record->login_count +1;
 			$record->current_ip 			= API::get_ip();
 			$record->save();
-			//Yii::app()->user->setState('current_user',$record);
+			Yii::app()->user->setState('current_user',$record);
 		}
 		return !$this->errorCode;
 		/*

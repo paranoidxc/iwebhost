@@ -45,6 +45,9 @@ $(document).ready(function(){
     function myCustomClearup(type,value){
     alert("FFFFFFFF");
     };
+
+  if( $('textarea.tinymce').length > 0 ){
+
   $('textarea.tinymce').tinymce({
      // Location of TinyMCE script
 			script_url : '/js/tiny_mce/tiny_mce.js',
@@ -109,11 +112,11 @@ $(document).ready(function(){
       });
     }
   });
+  };
 
   $('.photos_close').live('click',function(){
       $('.member-photos-pick').slideUp();
   });
-
 
   var cropbox_h ,cropbox_w;
   $('#cropbox').one('load',function(){

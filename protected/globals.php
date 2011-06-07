@@ -29,7 +29,7 @@ function user()
 {
     return Yii::app()->getUser();
 }
- 
+
 /**
  * This is the shortcut to Yii::app()->createUrl()
  */

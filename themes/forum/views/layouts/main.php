@@ -22,8 +22,14 @@
   */
   ?>
   <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swf.all.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.timeago.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/tiny_mce/jquery.tinymce.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.Jcrop.min.js"></script>
+  <script type="text/javascript" src="<?php echo $theme_baseurl?>/js/script.js"></script>
+
   <link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
-  <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
+  <link rel="shortcut icon" href="<?php echo $baseUrl; ?>/images/favicon.ico" />
 <title><?php 
   if( !empty($this->_pageTitle) ) {
     echo $this->_pageTitle;
@@ -50,23 +56,29 @@
           <?php
             }else {
           ?>
-            <?php if(  User::model()->findByPk( user()->id )->account_type == 1 ) {
+            <?php if( $this->iuser->account_type == 1 ) {
             ?>
             <li><a href="<?php echo ADMIN_URL; ?>" target="_blank" >后台管理</a></li>
             <?php } ?>
             <li>
               <a href="<?php echo url('ib/index') ?>" >私信</a>
               <?php 
-                if( User::model()->findByPk( User()->id ) > 0 ){
+              if( ( $_t_unread_mail_count = $this->iuser->unread_mail_count ) > 0 ) {
               ?>
-              <span class='mail_not'><?php echo User::model()->findByPk( User()->id )->unread_mail_count ?></span>
+              <span class='mail_not'><?php echo $_t_unread_mail_count ?></span>
               <?php 
                 }
               ?>
             </li>
            <li>
             <a href="<?php echo bu('notifications.html') ?>" >提醒</a>
-            <span class="mail_not"><?php echo Notification::model()->notices_count()->count() ?></span>
+            <?php
+            if( ( $_t_notices_count  = Notification::model()->notices_count()->count() ) > 0 ) {
+            ?>
+            <span class="mail_not"><?php echo $_t_notices_count ;?></span>
+            <?php
+            }
+            ?>
            </li>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
@@ -114,6 +126,8 @@
   </div>
   
 </div><!-- page -->
+
+
 <?php
 /*
   $cs->registerScriptFile($baseUrl.'/js/jquery-1.4.2.min.js');
@@ -121,13 +135,8 @@
 	$cs->registerScriptFile($baseUrl.'/js/jquery.timeago.js');	
 	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/jquery.tinymce.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
+  <script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>
 */
 ?>
-<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.Jcrop.min.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.timeago.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl?>/js/tiny_mce/jquery.tinymce.js"></script>
-<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/script.js"></script>
-<!--<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>-->
 </body>
 </html>

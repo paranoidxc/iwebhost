@@ -16,6 +16,7 @@ class Controller extends CController
 	public $signinUrl;
 	public $signupUrl;
   public $_pageTitle;	
+  public $iuser;
 
 	public function init() {
 
@@ -46,6 +47,11 @@ class Controller extends CController
 	    //echo "oops";
 	    //exit;
 	  }
+
+    if( !Yii::app()->user->isGuest ) {
+      $this->iuser = User::model()->findByPk( Yii::app()->user->id );
+    }
+
 	}
 	
 	public $layout='//layouts/column1';
