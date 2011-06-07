@@ -15,13 +15,15 @@
 	//Yii::app()->clientScript->registerCoreScript('jquery');				
 	$cs->registerCssFile($theme_baseurl.'/css/all.css');			
 	//$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
-?>
-<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
-<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
-<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
-<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
-<link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
-<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
+  /*<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
+  <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
+  <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
+  <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
+  */
+  ?>
+  <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swf.all.js"></script>
+  <link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
+  <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
 <title><?php 
   if( !empty($this->_pageTitle) ) {
     echo $this->_pageTitle;
@@ -62,12 +64,15 @@
                 }
               ?>
             </li>
+           <li>
+            <a href="<?php echo bu('notifications.html') ?>" >提醒</a>
+            <span class="mail_not"><?php echo Notification::model()->notices_count()->count() ?></span>
+           </li>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
               <ul class='dN signin_user_menu'>
                 <li><a href="<?php echo url('m/nodes' ) ?>">收藏的节点</a></li>
                 <li><a href="<?php echo bu('settings.html') ?>" >资料设置</a></li>
-                <li><a href="<?php echo bu('notifications.html') ?>" ><?php echo Notification::model()->notices_count()->count() ?>&nbsp;条提醒</a></li>
               </ul>
             </li>
            <li><a href="<?php echo bu('signout.html') ?>" >登出</a></li>
@@ -110,12 +115,19 @@
   
 </div><!-- page -->
 <?php
+/*
   $cs->registerScriptFile($baseUrl.'/js/jquery-1.4.2.min.js');
 	$cs->registerScriptFile($baseUrl.'/js/jquery.Jcrop.min.js');	
 	$cs->registerScriptFile($baseUrl.'/js/jquery.timeago.js');	
 	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/jquery.tinymce.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
+*/
 ?>
+<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.Jcrop.min.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.timeago.js"></script>
+<script type="text/javascript" src="<?php echo $baseUrl?>/js/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/script.js"></script>
 <!--<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>-->
 </body>
 </html>
