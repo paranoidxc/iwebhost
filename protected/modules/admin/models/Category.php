@@ -255,7 +255,7 @@ class Category extends CActiveRecord
 	  $ident_label  = $opt['ident_label'];
 	  $criteria=new CDbCriteria;        
     $is_list = false;
-	  if( $id > 0 ){
+	  if( strlen($id) > 0 ){
 	    if( strpos($id,',') === false ){
 	      $criteria->condition  = 'id =:id';
       }else{
@@ -288,6 +288,8 @@ class Category extends CActiveRecord
 	}
 	
 	
+  /*
+     deprecated funciton 
 	public function vleafs($id=1,$depth=1){
 		$sql =  " SELECT node.* ,  (COUNT(parent.name) - (sub_tree.depth + 1)) AS depth".
 				" FROM category AS node, ".
@@ -310,7 +312,8 @@ class Category extends CActiveRecord
 				" ORDER BY node.lft, node.sort_id desc ";
 		 return $this->findAllBySql($sql);	
 	}
-	
+  */
+
 	public function articles_to_s() {		
 		$r = '';
 		foreach( $this->articles as $article ) {

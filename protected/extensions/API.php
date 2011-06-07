@@ -1,6 +1,8 @@
 <?php
 class API {  
-  public static $image_extension  = array("jpg", "jpeg", "png", "gif");      
+  public static $IMAGE_EXTENSION  = array("jpg", "jpeg", "png", "gif");      
+  public static $ATT_IMG_AUTO_SIZE = array('800_600','600_400','160_120','40_40');
+
   public static function lchart() {
     return '&nbsp;&laquo;&nbsp;';
   }
@@ -171,6 +173,15 @@ class API {
     }
   }
   
+  /*
+     $opt = array( 'id' => 1 );           return single category obj
+     $opt = array( 'id' => '1,2,3' );     return list category obj
+     $opt = array( 'ident' => '1' );      reutrn signle category obj
+     $opt = array( 'ident' => '1,2,3' );  return list category obj
+     $opt = array( 'ident_label' => '1' );      return single category obj
+     $opt = array( 'ident_label' => '1,2,3' );  return list category obj
+     !!!>> not include sub category in return list category obj
+   */
   public static function node($opt) {    
     if( is_array( $opt ) ) {
       return Category::model()->node($opt);

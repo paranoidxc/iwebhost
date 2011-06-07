@@ -135,8 +135,10 @@ function cnSubstr($str, $start, $len) {
       $tmpstr .= substr($str, $i, $step); 
     }
     $i += $step;    
-    if( $pos%3 == 0){
+//    if( $pos%3 == 0){
+    if( $pos >= 3 ){
       $n ++;
+      $pos = 0;
     }
   }
   if( $i<strlen($str) ){

@@ -134,7 +134,7 @@ class AttachmentController extends IController
 	  $is_image = false;
 	  $w = 0;
 	  $h = 0;
-	  if( in_array(strtolower($file_extension),API::$image_extension) ){
+	  if( in_array(strtolower($file_extension),API::$IMAGE_EXTENSION) ){
 	    $image = Yii::app()->image->load($put_file_to_dir.$file_name);
 	    $w = $image->width;	    
 	    $h = $image->height;

@@ -17,6 +17,7 @@
 	          <a href="<?php echo CController::createUrl('m/list') ?>" class="radius2">会员</a>
 	          &raquo;&nbsp;
 	          <?php echo $m->username ;?>
+            <a href="<?php echo url('ib/c',array('dest_id' => $m->id ) ); ?>" >发私信给Ta</a>
 	        </h1>
 	      </div>
         <div class='iline'></div>        

@@ -90,7 +90,8 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid			
 			if($model->validate() && $model->login())
-			  $this->redirect( array( 'admin/category/iroot' ));
+			  //$this->redirect( array( 'admin/category/iroot' ));
+        $this->redirect(ADMIN_URL);
 				//$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form

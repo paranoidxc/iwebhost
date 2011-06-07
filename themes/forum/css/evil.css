@@ -78,6 +78,8 @@
 .dN { display: none; }
 .dB { display: block; }
 
+.ti10P { text-indent: 10px; }
+.ti20P { text-indent: 20px; }
 .taL { text-align: left; }
 .taC { text-align: center; }
 .taR { text-align: right; }
@@ -85,6 +87,7 @@
 .h2P { height: 2px; }
 .h3P { height: 3px; }
 .h5P { height: 5px; }
+.h10P { height: 10px; }
 .h16P { height: 16px; } 
 .h20P { height: 20px; }
 .h26P { height: 26px; }
@@ -97,6 +100,7 @@
 .h200P { height: 200px; }
 .h400P { height: 400px; }
 
+.lh18P { line-height: 18px; }
 .lh20P { line-height: 20px; }
 .lh26P { line-height: 26px; }
 .lh30P { line-height: 30px; }
@@ -107,6 +111,7 @@
 
 .pr2P { padding-right: 2px; }
 .pl2P { padding-left: 2px; }
+.pl20P { padding-left: 20px; }
 .p2P { padding: 2px; }
 .p5P { padding: 5px; }
 .p5P { padding: 5px; }

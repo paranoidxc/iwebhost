@@ -15,7 +15,7 @@ var EmotionsDialog = {
 			border : 0
 		}));
 
-		tinyMCEPopup.close();
+//		tinyMCEPopup.close();
 	}
 };
 

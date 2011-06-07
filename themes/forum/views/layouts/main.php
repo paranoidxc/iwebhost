@@ -14,20 +14,20 @@
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');				
 	$cs->registerCssFile($theme_baseurl.'/css/all.css');			
-	$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
+	//$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
 ?>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/fileprogress.js"></script>
 <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/handlers.js"></script>
 <link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />
-  <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
-  <title> <?php 
+<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" />
+<title><?php 
   if( !empty($this->_pageTitle) ) {
     echo $this->_pageTitle;
   }
   echo Yii::app()->name;
-  ?> </title>
+  ?></title>
 </head>
 <!-- It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife. -->
 <body>
@@ -50,8 +50,18 @@
           ?>
             <?php if(  User::model()->findByPk( user()->id )->account_type == 1 ) {
             ?>
-            <li><a href="/index.php?r=admin/category/iroot" target="_blank" >后台管理</a></li>
+            <li><a href="<?php echo ADMIN_URL; ?>" target="_blank" >后台管理</a></li>
             <?php } ?>
+            <li>
+              <a href="<?php echo url('ib/index') ?>" >私信</a>
+              <?php 
+                if( User::model()->findByPk( User()->id ) > 0 ){
+              ?>
+              <span class='mail_not'><?php echo User::model()->findByPk( User()->id )->unread_mail_count ?></span>
+              <?php 
+                }
+              ?>
+            </li>
             <li id='signin_user_wrap'>
               <a id='signin_user_link' href="<?php echo url('m/you' ) ?>">Hi,<?php echo user()->name ?></a>
               <ul class='dN signin_user_menu'>
@@ -77,10 +87,9 @@
 	  <div class="container clearfix">  
 	    <div class="grid11 first copyfight">
 	      <p class="mb10P">
-  	      <?php  	        
-  	        $ipage = Category::model()->findByAttributes( array('ident_label' => 'ipage') );
-  	        for( $i=0; $i< count($ipage->articles); $i++ ){
-  	        //foreach( $ipage->articles as $inst) {  	          
+  	      <?php
+            $ipage = API::node(array('ident_label' => 'ipage'));
+  	        for( $i=0; $i< count($ipage->articles( array('order' => 'sort_id asc') ) ); $i++ ){
   	          $inst = $ipage->articles[$i];  	          
   	      ?>
     	      <strong>
@@ -101,10 +110,10 @@
   
 </div><!-- page -->
 <?php
-  $cs->registerScriptFile($theme_baseurl.'/js/jquery-1.4.2.min.js');
-	$cs->registerScriptFile($theme_baseurl.'/js/jquery.Jcrop.min.js');	
-	$cs->registerScriptFile($theme_baseurl.'/js/jquery.timeago.js');	
-	$cs->registerScriptFile($theme_baseurl.'/js/tiny_mce/jquery.tinymce.js');	
+  $cs->registerScriptFile($baseUrl.'/js/jquery-1.4.2.min.js');
+	$cs->registerScriptFile($baseUrl.'/js/jquery.Jcrop.min.js');	
+	$cs->registerScriptFile($baseUrl.'/js/jquery.timeago.js');	
+	$cs->registerScriptFile($baseUrl.'/js/tiny_mce/jquery.tinymce.js');	
 	$cs->registerScriptFile($theme_baseurl.'/js/script.js');	
 ?>
 <!--<script type="text/javascript" src="<?php echo $theme_baseurl?>/js/widgEditor.js"></script>-->

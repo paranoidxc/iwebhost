@@ -26,9 +26,18 @@
   
   <div class='p5P'>
     <form action="<?php echo CController::createUrl('user/index') ?>" method="get" class="search_form">        
+      <input type="text" name="keyword" class="keyword search_input" /><input type="submit" value="submit" class='search_submit'/>
+    </form>
+  </div>
+
+
+<!--
+  <div class='p5P'>
+    <form action="<?php echo CController::createUrl('user/index') ?>" method="get" class="search_form">        
       <input type="text" name="keyword" class="radius15 search_input keyword" />
     </form>
   </div>
+-->
 
   <div class="iform">        
     <table class='ilist'>

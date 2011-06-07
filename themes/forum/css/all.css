@@ -63,6 +63,7 @@ body {
   }.nav ul li {  
     display: inline-block;
     height: 52px;
+    position: relative;
   }.nav ul li a {
     display: block;
     font-weight:bold;
@@ -79,6 +80,50 @@ body {
     background-position: right -33px;
     background: url('bgs/ihover.png') no-repeat right 0px;
   }
+  .mail_not {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #FFF;
+    font-weight: bold;
+    display: block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: url(bgs/not_red.png) no-repeat 0 0;
+  }
+.mail_tab {
+  position: relative;
+  padding-right: 18px;
+}
+.mail_tab .mail_not{
+    position: absolute;
+    top: -8px;
+    right: 5px;
+}
+.mail_tab .l_inbox_not{
+   color: #FFF:
+   font-weight: bold;
+   display: inline-block;
+   width: 18px;
+   height: 18px;
+   line-height: 18px;
+   text-align: center;
+   background: url(bgs/not_red.png) no-repeat 0 0;
+}
+.mail_tab .inbox_not{
+    background: url(bgs/not_blue.png) no-repeat 0 0;
+}
+.mail_tab .outbox_not{
+    background: url(bgs/not_yellow.png) no-repeat 0 0;
+}
+.inbox_field { 
+  border: 1px solid #666;
+  max-width: 500px;
+  font-size: 14px;
+  border-color: #666 #CCC #CCC #666;  
+}
 
 .signin_wrap {
   position: relative;
@@ -227,7 +272,11 @@ border: 1px solid #aaa;
   padding: 2px;
   border: 1px solid #aaa;
   vertical-align: middle;
-  }.author_wrap:hover img {    
+  }.big_author_wrap img {    
+    padding: 2px;
+    border: 1px solid #aaa;
+  }.big_author_wrap:hover img ,
+   .author_wrap:hover img {    
     border: 1px solid #696969;
   }
 .item_box {
@@ -472,6 +521,11 @@ border: 1px solid #aaa;
 
 .member_topics { 
   clear: both;
+  font-size: 14px;
+  padding: 2px 0;
+  }.member_topics:nth-child(odd) { 
+    background: #eee;
+  }.member_topics:nth-child(even) { 
   }.member_topics  a {
     float: left;
     width: 70%;
@@ -498,7 +552,7 @@ div.member-photos-loading,
      right: 0;
   }
   .member-photos-pick div.photos ul.pul {
-  margin-left: 50px;
+  margin-left: 0px;
   }.member-photos-pick ul.pul li {
   float: left;
   width: 168px;

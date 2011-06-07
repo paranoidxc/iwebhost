@@ -1,2 +1,4 @@
-$ mkdir -p -m 777 upfiles/avatars
-$ chmod 777 upfiles
+# this github not include sql database construct file!!!
+$ mkdir -p -m 777 upfiles/avatars   # user avatar upload here
+$ chmod 777 upfiles                 # attachment upload here
+$ chmod -R 777 protected            # Yii require
