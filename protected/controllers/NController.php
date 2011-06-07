@@ -21,20 +21,19 @@ class NController extends Controller {
 	}
 
   public function actionIndex() {
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =& $this->iuser;
     $this->_pageTitle = '主题回复提醒'.API::lchart();
     $this->render('index', array('notices' => $u->notices) );
   }
   
   public function actionClear() {
-    $user_id = user()->id;
+    $user_id =& user()->id;
     $all = Notification::model()->deleteAll( " user_id = $user_id ");
     $this->redirect( array('n/index') );
   }
 
   public function actionDel() {
-    $u = $_GET['id'];
-    $u =  User::model()->findByPk( Yii::app()->user->id );
+    $u =& $this->iuser;
     $n = Notification::model()->findByPk( $_GET['id'] );
     if( $n === null ) {	
       throw new CHttpException(404,'The requested Node does not exist.');

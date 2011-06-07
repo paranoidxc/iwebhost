@@ -23,7 +23,7 @@ class MController extends Controller {
 	}
 
   public function actionGravatar() {
-    $user = User::model()->findByPk( User()->id );
+    $user =& $this->iuser;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $targ_w = $targ_h = 80;
       $image = Yii::app()->image->load( UPFILES_AVTS_DIR.'/source_'.$user->avatar );
@@ -72,7 +72,7 @@ class MController extends Controller {
 
 
   public function actionNodes() {
-    $u = User::model()->findByPk( User()->id );
+    $u =& $this->iuser;
     $this->render( 'nodes', array( 'user' => $u ) );
   }
 
@@ -123,7 +123,7 @@ class MController extends Controller {
 
 
   public function actionYou(){
-   $m = User::model()->findByPk( User()->id );
+   $m =& $this->iuser;
 		if($m===null){
 			throw new CHttpException(404,'The requested Member does not exist.');
 		}		
@@ -149,7 +149,7 @@ class MController extends Controller {
 
   public function actionSetting() {
     $m = new SettingForm;	 
-		$user = User::model()->findByPk( Yii::app()->user->id );
+		$user =& $this->iuser;
     $m->id = $user->id;
     $m->sign = $user->sign;
 
