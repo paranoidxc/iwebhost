@@ -31,11 +31,11 @@
   
   <div style="padding: 5px">
     <form action="<?php echo CController::createUrl('article/index') ?>" method="get" class="search_form">        
-      <input type="text" name="keyword" class="radius15 search_input keyword" />
+      <input type="text" name="keyword" class="search_input keyword has_adv_search" /><input type="submit" value="submit" class='search_submit'/>
       <span class="advanced_search" data="advanced_search_wrap"><?php echo Yii::t('cp','Advanced Search') ?></span>
       <div class=" advanced_search_wrap">        
         <p><?php echo Yii::t('cp','Select Node'); ?><?php echo Chtml::listBox('category_id',1,$leafs,array('size' => 1, 'default' => 'all', 'class' => 'leaf_id' ) ) ?></p>
-        <p><input type="checkbox" name="is_include" class="is_include" value="1"> <?php echo Yii::t('cp','Include Sub Node Content') ?></p>
+        <p><input type="checkbox" name="is_include" class="is_include" value="1" checked> <?php echo Yii::t('cp','Include Sub Node Content') ?></p>
       </div>
     </form>
   </div>

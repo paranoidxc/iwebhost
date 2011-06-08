@@ -25,6 +25,9 @@
 .w800P .search_input {  
   width: 686px; 
 }
+.w800P .has_adv_search {  
+  width: 640px; 
+}
 
 .w800P .new_search_input ,
 .w600P .new_search_input {

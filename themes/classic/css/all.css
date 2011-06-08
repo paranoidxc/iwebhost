@@ -256,6 +256,8 @@ div.errorSummary {
 	background: #FED6D2;
 	padding: 5px;
   margin: 3px;
+  background: #FFF url(console/error.png) no-repeat 10px 50%;
+  min-height: 104px;
 }
 
 .note {  
@@ -273,6 +275,8 @@ div.errorSummary {
   padding: 5px;
   margin: 3px;
   font-size: 12px;
+  background: #FFF url(console/okay.png) no-repeat 10px 50%;
+  min-height: 104px;
 }
 
 .step {  

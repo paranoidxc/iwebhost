@@ -77,7 +77,7 @@ return array(
   'move'            => '移动',
   'reset'           => '撤销',
   'Go to:'          => '跳转到:',  
-  'Advanced Search' => '高级搜索',
+  'Advanced Search' => '过滤',
   'Select Node'     => "选择节点",
   'Include Sub Node Content'  => '包含子节点内容',
   'Upload Attachment'         => '上载',
