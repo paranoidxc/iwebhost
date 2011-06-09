@@ -67,7 +67,9 @@ div.errorSummary ,
   line-height: 24px;
   text-indent: 20px;
 }
-div.errorSummary,
+div.errorSummary {
+  display: none;
+}
 .flash_suc,
 .feedback_suc,
 .feedback_on {
@@ -77,6 +79,8 @@ div.errorSummary,
   background: #ffffcc;
   margin-bottom: 10px;
 }
+span.required,
+div.errorMessage,
 div.errorSummary {
   color: #c36;
 }
@@ -87,4 +91,31 @@ div.errorSummary ul {
 div.errorSummary ul li {
   padding: 0;
   margin: 0;
+}
+
+
+
+.channel_ul {
+  margin-top: 20px;
+}
+.channel_ul li {
+  line-height:20px;
+}
+.channel_ul li a:visited ,
+.channel_ul li a {
+  padding: 2px 0;
+  color: #131313;
+  display: block;
+  width: 100%;
+  text-indent: 20px;
+  line-height: 20px;
+  height: 20px;
+  text-decoration: none;
+}
+.channel_ul li a:hover {
+  background: #E3E9FF;
+}
+.channel_ul li a.select {
+  background: #BCF;
+  font-weight: bold;
 }

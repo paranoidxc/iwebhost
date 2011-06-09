@@ -8,4 +8,10 @@ $(document).ready(function(){
       $('.item-sep').parent().parent().removeClass('select');
     }
   });
+
+  $("form .itable tbody tr").click(function(){
+    $('form .itable tr.focus').removeClass('focus');
+    $(this).addClass('focus');
+  })
+
 }); 

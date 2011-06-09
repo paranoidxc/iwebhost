@@ -32,6 +32,10 @@
   border-bottom: 1px solid #efefef;
 }
 
+form .itable tr.focus {
+  background: #ffffcc;
+}
+
 * html .iform .itable th ,
 * html .iform .itable td {
   line-height: 30px;

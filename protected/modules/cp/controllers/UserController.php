@@ -55,32 +55,12 @@ class UserController extends IController
 			$model->attributes=$_POST['User'];
 			$model->c_time = Time::now();
 			if($model->save()){
-			  if( isset($_GET['ajax']) ){
-			    $str = Yii::t('cp','Create Success On ').Time::now();
-			    Yii::app()->user->setFlash('success',$str);
-			    $this->renderPartial('create_next', array(
-  				  'model' => $model,
-  				  'panel_ident' => $panel_ident
-  			  ),false,true);
-  			  exit;
-		    }else{
-			    $str = Yii::t('cp','Create Success On ').Time::now();
+			    $str = '用户 '.$model->username.' 已新建 '.Time::now();
 			    Yii::app()->user->setFlash('success',$str);
 		      $this->redirect(array('update','id'=>$model->id));
-		    }
 			}
 		}
-    if( isset($_GET['ajax']) ){
-      $this->renderPartial('create',array(
-  			'model'       =>$model,
-  			'panel_ident' => $panel_ident
-  		),false,true);      
-    }else{
-      $this->render('create',array(
-  			'model'=>$model,
-  		));  
-    }
-		
+    $this->render('create',array( 'model'=>$model,)); 
 	}
 
 	/**
@@ -99,25 +79,13 @@ class UserController extends IController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save()){
-				$str = Yii::t('cp','Data saved success On ').Time::now();
+				$str = '用户 '.$model->username.' 已更新 ' .Time::now();
   			Yii::app()->user->setFlash('success',$str);
  				$this->redirect(array('update','id'=>$model->id));	
 			}
 			//$this->redirect(array('view','id'=>$model->id));
 		}
-    
-		if( isset($_GET['ajax']) ){
-    	$this->renderPartial('update',array(
-    		'model'       =>  $model,
-    		'is_update'   =>  $is_update,
-    		'panel_ident' =>  $panel_ident
-    	),false,true);	  
-		}else{
-  		$this->render('update',array(
-  			'model'=>$model,
-  		));  
-		}
-		
+		$this->render('update',array( 'model'=>$model,));  
 	}
 
 	/**
@@ -134,7 +102,7 @@ class UserController extends IController
 					  $a->delete();  
 					}
 				}
-				$str = count($ids).' Users  has been deleted on '.Time::now();
+				$str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
   			Yii::app()->user->setFlash('success',$str);
 			}
     }

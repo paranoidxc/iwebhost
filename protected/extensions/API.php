@@ -3,6 +3,21 @@ class API {
   public static $IMAGE_EXTENSION  = array("jpg", "jpeg", "png", "gif");      
   public static $ATT_IMG_AUTO_SIZE = array('800_600','600_400','160_120','40_40');
 
+  public static function isaction($uri) {
+    $r = '';
+    if( is_array($uri) ) {
+      foreach( $uri as $u ) {
+        if( strpos($_SERVER['REQUEST_URI'], $u ) !== false ) {
+          $r = 'select';
+          break;
+        }
+      }
+    }else{
+      $r = strpos($_SERVER['REQUEST_URI'], $uri ) !== false  ? 'select' : '';
+    }
+    return $r;
+  }
+
   public static function lchart() {
     return '&nbsp;&laquo;&nbsp;';
   }

@@ -1,6 +1,6 @@
 <div id="search_wrap"> 
   <div class='w_left'>ihost console logo</div>
-  <form action="<?php echo CController::createUrl('user/index') ?>" method="post" class="search_form">        
+  <form action="<?php echo CController::createUrl('user/index') ?>" method="get" class="search_form">        
       <input type="text" name="keyword" class="keyword search_input" value="<?php echo $keyword?>" /><input type="submit" value="submit" class='search_submit'/>
   </form>
 </div>

@@ -4,6 +4,9 @@
 
     'components'=>array(
   		'urlManager'=>array(
+        'urlFormat' => 'path',
+        'showScriptName'=>false,
+			  'urlSuffix'     =>'.html',
         'rules'=>array(
 			  'ilogin' => 'site/login',
 			  'blog' => 'blog/index',

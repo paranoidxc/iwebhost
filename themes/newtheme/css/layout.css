@@ -5,10 +5,11 @@
 }
 
 #search_wrap{
-  height: 30px;
-  line-height: 30px;
   border-bottom: 1px solid #ccc;
 }
+#search_wrap form {
+  margin: 10px 0;
+} 
 
 #middle_wrap{
   

@@ -95,12 +95,14 @@
       ?>
       
     </tbody>
+    <tfoot>
     <tr>
       <th> </th>
       <td>
       	<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
       </td>
     <tr>
+    </tfoot>
   </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
