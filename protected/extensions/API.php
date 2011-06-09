@@ -6,6 +6,9 @@ class API {
   public static function lchart() {
     return '&nbsp;&laquo;&nbsp;';
   }
+  public static function rchart() {
+    return '&nbsp;&raquo;&nbsp;';
+  }
 
   public static function mysql_version(){    
     $sql = " select version() as version";

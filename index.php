@@ -37,6 +37,12 @@ foreach( $bg_url as $url ) {
   }
 }
 
+switch($_SERVER['HTTP_HOST']){
+  case 'new.infuzhou.com':
+    $bg_config=dirname(__FILE__).'/protected/config/newtheme_config.php';
+    require_once $bg_config;
+}
+
 // require global config
 $config=dirname(__FILE__).'/protected/config/global_config.php';
 require_once $config;

@@ -1,0 +1,31 @@
+#top_wrap{
+  height: 24px;
+  line-height: 24px;
+  border-bottom: 1px solid #ccc;
+}
+
+#search_wrap{
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+#middle_wrap{
+  
+  } #w_location { 
+    line-height: 24px;
+    height: 24px;
+  }*  html #w_location { 
+    margin-left: -3px;
+  } #w_action {
+    height: 30px;
+    line-height: 30px;
+  } #w_left,
+    .w_left{
+    width: 240px;
+    float: left;
+  } #right_wrap{
+    margin-left: 240px;
+  }
+
+

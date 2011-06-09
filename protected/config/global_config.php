@@ -26,6 +26,7 @@ return $config_ar = array(
 
 	'modules'=>array(
         'admin',
+        'cp',
         'gii'=>array(
             'class'=>'system.gii.GiiModule',
             'password'=>'xiaochuan',

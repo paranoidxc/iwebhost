@@ -1,0 +1,50 @@
+#w_location {
+  color: #00C;
+  text-decoration: none;
+  background:#C8D6FF;
+  padding: 0 0 0 10px;
+}
+#w_action {
+  background:#E3E9FF;
+  border-bottom: #E5E5E5;
+}
+
+#w_content .list  {
+  width: 100%;
+}
+#w_content .list tr th {
+  line-height: 28px;
+}
+#w_content .list tr td {
+  line-height: 26px;
+  background: #edf0f9;
+  border-bottom: 1px #CCC solid;
+}
+
+#w_content .list tr.select td {
+  background: #FFFFCC;
+} 
+
+
+.iform .itable th ,
+.iform .itable td {
+  line-height: 28px;
+  border-bottom: 1px solid #efefef;
+}
+
+* html .iform .itable th ,
+* html .iform .itable td {
+  line-height: 30px;
+}
+
+.iform .itable th {
+  text-align: right;
+  padding-right: 10px;
+  vertical-align: top;
+  color: #36c;
+  font-weight: normal;
+}
+
+.iform .itable td {
+  vertical-align: top;
+}
