@@ -6,6 +6,7 @@ return array(
   'Logout'          => '退出系统',
   'Dashboard'       => '仪表盘',
   'Admins'          => '管理员',
+  'Users'           => '用户管理',
   'Feedback'        => '信息反馈',
   'Settings'        => '系统配置',
   'Articles'        => '网站内容',

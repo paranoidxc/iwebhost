@@ -15,22 +15,26 @@ body {
   min-width: 800px;
 }
 #top_wrap {
-  padding:2px 0 2px 5px;
   color: #c36;
-  border: 1px solid #E5E5E5;
-  border-top: 2px solid #EDF0F9;
-  border-right: 0;
-  border-left: 0;
-  background: url(bgs/b_5dae6e31.png) repeat-x 0 -35px;
+  border-top: 2px solid #BAD3EA;
+  height: 30px;
+  line-height: 30px;
+  background: url(bgs/b_5dae6e31.png) repeat-x 0 -40px;
 }
 #top_wrap a:visited,
 #top_wrap a {
   color: #36c;
   text-decoration: none;
+  display: inline-block;
+  padding: 0 5px;
 } 
+
+#top_wrap ul li a:hover {
+  background: #EDF0F9;
+} 
+
 #top_wrap li {
   display: inline;
-  margin: 0 5px;
 }
 
 #right_wrap {

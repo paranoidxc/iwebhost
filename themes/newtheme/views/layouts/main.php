@@ -41,7 +41,7 @@
 				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/index'),
           'visible' => $_isAdmin,
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
-				array('label'=>Yii::t('cp','Admins'), 'url'=>array('/cp/user/index'),
+				array('label'=>Yii::t('cp','Users'), 'url'=>array('/cp/user/index'),
           'visible' => $_isAdmin,
           'linkOptions' => array( 'data' => 'nav_panel_admins' )),
 				array('label'=>Yii::t('cp','Feedback'), 'url'=>array('/cp/feedback/index'),
