@@ -95,16 +95,38 @@ function formLay(wrap,t){
   }
 }
 
+var ithis;
+function fun_att_pick() {
+  ithis = this;
+	  if( $(this).attr('rtype') == undefined ){	    
+	    var uri = $(this).attr('uri');		
+	  }else if( $(this).attr('rtype') == 'article_link_image' ){
+	    var uri = $(this).attr('uri')+'&rtype='+$(this).attr('rtype');
+	  }	  
+    alert('1');
+		wrap = getPanel($(this));		
+    alert('2');
+		var popup_panel_id = 'prefix_'+$(this).attr('id');
+	  if( isExist( popup_panel_id ) ) {	    
+	    return false;
+	  }
+		$.ajax({
+			type: 'get',
+			cache: false,
+			url: uri,
+			success:function(html){			  
+			  popup_panel( $(html).attr('id',popup_panel_id) );
+			}
+		});
+}
+
 function reload_tinymce(wrap_id) {
   $('#'+wrap_id+' textarea.mceEditor').tinymce({
 			script_url : '/js/tiny_mce/tiny_mce.js',
 		  theme : "advanced",
 			//plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,emotions",
 			plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,emotions",
-			theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect,emotions",
-//			theme_advanced_buttons2 : "",
-//			theme_advanced_buttons3 : "",
-//			theme_advanced_buttons4 : "",
+			theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect,emotions,custimage",
 			theme_advanced_toolbar_location : "top",
 			theme_advanced_toolbar_align : "left",
 			theme_advanced_statusbar_location : "bottom",
@@ -124,27 +146,14 @@ function reload_tinymce(wrap_id) {
         },
       },
       setup : function(ed) {
-        ed.addButton('example', {
+        ed.addButton('custimage', {
           title: '上载图片/个人站内图片选择',
           class: 'mce_image',
           alt: '上载图片/个人站内图片选择',
-          onclick: function() {
-            $('.member-photos-pick').addClass('member-photos-loading').show();
-            var uri = $('#member-photos-url').attr('href');
-            $.ajax({
-        			type: 'get',
-			        cache: false,
-          		url: uri,
-          		success:function(html){			  
-                $('.member-photos-pick').html(html);
-                $('.member-photos-pick').removeClass('member-photos-loading');
-			      }
-		      });
-          return false;
-        }
-      });
-    }
-  });
+          onclick: fun_att_pick
+        });
+      }
+    });
 }
 $(document).ready(function(){
 /* tiny mce */
@@ -296,7 +305,7 @@ $('textarea.tinymce').tinymce({
 	};
 	
 	/*a8866c09a3ff02198ac19d9759cf9e70  attachment pick handle*/	
-	var ithis;
+	//var ithis;
 	$('.pick').live('click',function(){
 	  ithis = this;
 	  if( $(this).attr('rtype') == undefined ){	    
@@ -976,9 +985,10 @@ $('.lightbox').lightBox({
 	    y = parseInt(_wrap.css('top') );	    
 	    z++;
 	    //z = parseInt(_wrap.css('z-index'))+1;	
+      ele.attr('id', _wrap.attr('id') );
 	    _wrap.remove();
 	  }else{
-	    reset_panel_postion();	  
+	    reset_panel_postion();
     }
 	  $('body').append( ele );	  
 	  ele.css({	    
@@ -1438,8 +1448,9 @@ $('.lightbox').lightBox({
 		        idebug( ' render ');
 		        render();
 		      }
-			  }			 
-			  widgInit(); 
+			  }
+			  //widgInit(); 
+        reload_tinymce( wrap.attr('id') );
 			}
 		});				
 		return false;

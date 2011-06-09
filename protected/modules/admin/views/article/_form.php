@@ -183,10 +183,11 @@
   	</table>
   </div>
 	
+  <!--内容字段 start-->
 	<div class="dN form_field_wrap field_content">  
 	  <div style="margin-bottom: 5px">
-	    <span data="write" class="inner_tab inner_tab_selected" > <?php echo Yii::t('cp','Write')?> </span>
-	    <span data="preview" class="inner_tab" url=<?php echo CController::createUrl('article/preview') ?> > <?php echo Yii::t('cp','Preview')?> </span>
+	    <span data="write" class="inner_tab inner_tab_selected dN" > <?php echo Yii::t('cp','Write')?> </span>
+	    <span data="preview" class="inner_tab dN" url=<?php echo CController::createUrl('article/preview') ?> > <?php echo Yii::t('cp','Preview')?> </span>
 	    <span class="dN replace">insert " Foo " text </span>
 	    <span class='alt tdU pick'
   		  id="link_pick<?php echo time(); ?>"
@@ -194,14 +195,14 @@
   			uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'link_pick'.time() ) ); ?>">
   			<?php echo Yii::t('cp','Insert Images') ?>
   	  </span>
-  	  
-	  </div>
+	  </div> <!--内容字段 end-->
 	  
 	  <div class="inner_wrap write">
-  		<?php //echo $form->labelEx($model,'content'); ?>
-  		<input type="hidden" class="widgEditor_id" value="article_content<?php echo time()?>" />
-  		<?php echo $form->textArea($model,'content',array('rows'=>20, 'cols'=>100, 'id'=>'article_content'.time(), 'class' => 'widgEditor' )); ?>
-  		<?php //echo $form->error($model,'content'); ?>		
+  		<?php //echo $form->labelEx($model,'content'); ?>  
+  		<input type="hidden" class="widgEditor_id" value="#article_content<?php echo time()?>" /> 
+      <!--<textarea id="article_content<?php echo time();?>" class='mceEditor' ></textarea> -->
+  		<?php echo $form->textArea($model,'content',array('rows'=>20, 'cols'=>100, 'id'=>'article_content'.time(), 'class' => 'mceEditor' )); ?>
+  		<?php echo $form->error($model,'content'); ?>		
 		</div>
 		
 		<div class="dN inner_wrap preview">

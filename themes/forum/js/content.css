@@ -86,6 +86,7 @@ th {
 /* Image and table specific aligns */
 img {
 	vertical-align: top;
+  max-width: 600px;
 }
 img.left, table.left {
 	float: left;
