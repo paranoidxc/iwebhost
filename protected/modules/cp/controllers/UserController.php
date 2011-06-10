@@ -136,12 +136,13 @@ class UserController extends GController
 	public function actionIndex()
 	{	
 	  $criteria=new CDbCriteria;
+    $criteria->condition = ' 1=1 ';
 		if( isset($_REQUEST['keyword']) || !empty($_REQUEST['keyword']) || strlen($_REQUEST['keyword']) >0  ){
 		  $keyword = trim($_REQUEST['keyword']);			  
-      $criteria->condition  = 'username like :keyword OR email like :keyword ';
+      $criteria->condition  .= ' AND ( username like :keyword OR email like :keyword )';
       $criteria->params     = array(':keyword'=>"%$keyword%");            
       //$opt['is_partial']    = true;
-      $opt['tpl_params']['keyword'] = $_REQUEST['keyword'];
+      $keyword = $opt['tpl_params']['keyword'] =& $_REQUEST['keyword'];
 	  }
 	  $criteria->order = 'id desc';
 	  $opt['criteria'] =  $criteria;	  

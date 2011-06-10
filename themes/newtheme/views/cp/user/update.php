@@ -1,17 +1,9 @@
-<div id="w_search">
-  <div class='w_left'>ihost console logo</div>
-  <form action="<?php echo CController::createUrl('user/index') ?>" method="post" class="search_form">        
-      <input type="text" name="keyword" class="keyword search_input" /><input type="submit" value="submit" class='search_submit'/>
-  </form>
-</div>
-
+<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_middle">
-
   <div id="w_left"> 
     <?php echo $this->renderPartial( '_left' ) ?>
   </div>
-
-    
+  
   <div id="w_right">
     <div></div><!-- clear ele for fuck ie -->
     <div id="w_location" >

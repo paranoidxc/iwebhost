@@ -72,15 +72,26 @@ class FeedbackController extends GController
 	public function actionIndex()
 	{	
 		$criteria=new CDbCriteria;
+    $criteria->condition = ' 1=1 ';
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword              = trim($_GET['keyword']);			  
       $criteria->condition  = 'question like :keyword OR answer like :keyword';
       $criteria->params     = array(':keyword'=>"%$keyword%"); 
-//      $opt['is_partial']    = true;   
       $opt['tpl_params']['keyword'] = $_REQUEST['keyword'];
 	  }
 	  $criteria->order      = 'a_time DESC';
-	  $opt['criteria'] =  $criteria;
+    if( isset($_GET['is_answer']) && !empty($_GET['is_answer']) ) {
+      if( $_GET['is_answer'] == 0 ){
+        $criteria->condition .= " AND answer = '' ";
+      }else{
+        $criteria->condition .= " AND answer != '' ";
+      }
+//      $criteria->params[':is_answer'] =& $_GET['is_answer'];
+      $opt['tpl_params']['is_answer'] =& $_GET['is_answer'];
+    }
+    
+    $opt['criteria'] =  $criteria;
+
 	  parent::actionIndex($opt);
 	}
   

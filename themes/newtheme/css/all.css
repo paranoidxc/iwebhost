@@ -51,6 +51,9 @@ body {
   border-color: #666 #CCC #CCC #666;
   width: 400px;
 }
+.itext.w100P {
+  width: 100px;
+}
 .search_input {
   margin: 1px;
 }

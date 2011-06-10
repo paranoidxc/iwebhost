@@ -1,9 +1,4 @@
-<div id="w_search" >
-  <div class='w_left'>ihost console logo</div>
-  <form action="<?php echo CController::createUrl('feedback/index') ?>" method="get" class="search_form">
-    <input type="text" name="keyword" class=" search_input keyword"  value="<?php echo $keyword?>"/><input type="submit" value="submit" class='search_submit'/>
-  </form>
-</div>
+<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 
 <div id="w_middle">
   <div id="w_left">

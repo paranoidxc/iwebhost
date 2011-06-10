@@ -15,6 +15,7 @@ class GController extends Controller
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	public $_model;
+  public $tpl_params;
 
 	public function init() {	  	  
 	  if( !Yii::app()->user->isGuest ){
@@ -69,7 +70,26 @@ class GController extends Controller
 	    $keyword = trim($_GET['keyword']);      
 	  }else{
 	    extract($opt);
-	  }	  
+	  }
+
+    if( isset($_GET['id_start']) && !empty($_GET['id_start']) ) {
+      $criteria->condition .= " AND id >= :id_start ";
+      $criteria->params[':id_start'] =& $_GET['id_start'];
+      $tpl_params['id_start'] =& $_GET['id_start'];
+    }
+    if( isset($_GET['id_end']) && !empty($_GET['id_end']) ) {
+      $criteria->condition .= " AND id <= :id_end ";
+      $criteria->params[':id_end'] =& $_GET['id_end'];
+      $tpl_params['id_end'] =& $_GET['id_end'];
+    }
+
+    if( isset($_GET['account_type']) && !empty($_GET['account_type']) ) {
+      $criteria->condition .= " AND account_type = :account_type ";
+      $criteria->params[':account_type'] =& $_GET['account_type'];
+      $tpl_params['account_type'] =& $_GET['account_type'];
+    }
+
+
     $imodel = new $controllerId;
     $item_count = call_user_func( array( $imodel, 'count') , $criteria );    
     $page_size = strlen($opt['page_size']) > 0 ? $opt['page_size'] : 10;          
@@ -83,7 +103,7 @@ class GController extends Controller
     $criteria->offset       = $pages->offset;
     $select_pagination = new  CListPager();
     $select_pagination->header = Yii::t('cp','Go to:');
-    $select_pagination->htmlOptions['onchange']="";
+//    $select_pagination->htmlOptions['onchange']="";
     
     $select_pagination->setPages($pages);    
     $select_pagination->init();    
@@ -96,10 +116,11 @@ class GController extends Controller
     $opt['tpl_params']['list']        = $list;
     $opt['tpl_params']['pagination']  = $pagination;
     $opt['tpl_params']['select_pagination']  = $select_pagination;
-    
+
     // echo Chtml::listBox('category_id',1,$leafs) 
     //print_r($opt['tpl_params']);
     
+    $this->tpl_params =& $tpl_params;
 	  if( $is_partial ){	    
 	    $this->renderPartial('_index', $opt['tpl_params'], false, true );
 	  }else{
