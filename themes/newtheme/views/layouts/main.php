@@ -12,7 +12,7 @@
 </head>
 <body>
   
-  <div id="top_wrap">
+  <div id="w_top">
 		<?php 
       $_isAdmin = User::model()->findByPk(User()->id)->account_type;
       $_isAdmin = $_isAdmin != 1 ? false : true;

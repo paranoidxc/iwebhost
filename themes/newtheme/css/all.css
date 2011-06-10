@@ -14,31 +14,31 @@ body {
   font-family: arial,sans-serif;
   min-width: 800px;
 }
-#top_wrap {
+#w_top {
   color: #c36;
   border-top: 2px solid #BAD3EA;
   height: 30px;
   line-height: 30px;
   background: url(bgs/b_5dae6e31.png) repeat-x 0 -40px;
 }
-#top_wrap a:visited,
-#top_wrap a {
+#w_top a:visited,
+#w_top a {
   color: #36c;
   text-decoration: none;
   display: inline-block;
   padding: 0 5px;
 } 
 
-#top_wrap ul li.select a,
-#top_wrap ul li a:hover {
+#w_top ul li.select a,
+#w_top ul li a:hover {
   background: #EDF0F9;
 } 
 
-#top_wrap li {
+#w_top li {
   display: inline;
 }
 
-#right_wrap {
+#w_right {
   border: 4px solid #BCF;
   border-right:none;
 }
