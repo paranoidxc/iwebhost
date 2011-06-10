@@ -43,7 +43,7 @@
       <table class='list'>
         <thead>
           <tr>
-            <th class='vaM w20P taC pr2P pl2P'><input type='checkbox' id="item-all" class="ele_list_all" /></th>
+            <th class='vaM w20P taC pr2P pl2P'><input type='checkbox' class="item-all" /></th>
             <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
             <th class='w160P taL'><span class="radius4 filter"><?php echo Yii::t('cp','Account') ?></span></th>
             <th class='w160P taL'><?php echo Yii::t('cp','Password') ?></th>

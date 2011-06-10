@@ -29,6 +29,7 @@ body {
   padding: 0 5px;
 } 
 
+#top_wrap ul li.select a,
 #top_wrap ul li a:hover {
   background: #EDF0F9;
 } 

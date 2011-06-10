@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#item-all').click(function(){
+  $('.item-all').click(function(){
     if( $(this).is(':checked') ){
       $('.item-sep').attr('checked',true);
       $('.item-sep').parent().parent().addClass('select');

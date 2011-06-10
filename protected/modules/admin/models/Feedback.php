@@ -22,49 +22,6 @@ class Feedback extends CActiveRecord
 		return parent::model($className);
 	}
 
- function behaviors() {
-    return array(
-        'tags' => array(
-            'class' => 'ext.yiiext.behaviors.model.taggable.ETaggableBehavior',
-            // Table where tags are stored
-            'tagTable' => 'Tag',
-            // Cross-table that stores tag-model connections.
-            // By default it's your_model_tableTag
-            'tagBindingTable' => 'modelTag',
-            // Foreign key in cross-table.
-            // By default it's your_model_tableId
-            //'modelTableFk' => 'id',
-            // Tag table PK field
-            'tagTablePk' => 'id',
-            // Tag name field
-            'tagTableName' => 'name',
-            // Tag counter field
-            // if null (default) does not write tag counts to DB
-            'tagTableCount' => 'count',
-            // Tag binding table tag ID
-            'tagBindingTableTagId' => 'tagId',
-            // Caching component ID.
-            // false by default.
-            'cacheID' => 'cache',
- 
-            // Save nonexisting tags.
-            // When false, throws exception when saving nonexisting tag.
-            'createTagsAutomatically' => true,
- 
-            // Default tag selection criteria
-            'scope' => array(
-                //'condition' => ' t.user_id = :user_id ',
-                //'params' => array( ':user_id' => Yii::app()->user->id ),
-            ),
- 
-            // Values to insert to tag table on adding tag
-            'insertValues' => array(
-                'user_id' => Yii::app()->user->id,
-            ),
-        )
-    );
-}
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -81,8 +38,8 @@ class Feedback extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		  array('q_time, a_time', 'default'),
-			array('email, homepage, question, answer, itype', 'required'),
+		  array('q_time, a_time,itype', 'default'),
+			array('email, homepage, question ', 'required'),
 			array('email, homepage, answer, itype', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

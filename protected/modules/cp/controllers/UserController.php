@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends IController
+class UserController extends GController
 {
 	/**
 	 * Specifies the access control rules.
