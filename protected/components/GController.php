@@ -89,6 +89,7 @@ class GController extends Controller
       $tpl_params['account_type'] =& $_GET['account_type'];
     }
 
+    $tpl_params['is_hide_adv'] =& $_GET['is_hide_adv'];
 
     $imodel = new $controllerId;
     $item_count = call_user_func( array( $imodel, 'count') , $criteria );    

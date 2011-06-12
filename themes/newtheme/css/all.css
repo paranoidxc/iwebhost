@@ -2,6 +2,8 @@
 @import url('evil.css');
 @import url('grid.css');
 @import url('layout.css');
+@import url('api.categorys.css');
+
 /*
 @import url('top.css');
 @import url('search.css');
@@ -124,6 +126,20 @@ div.errorSummary ul li {
   background: #E3E9FF;
 }
 .channel_ul li a.select {
+  background: #BCF;
+  font-weight: bold;
+}
+
+
+
+.to_dest a:visited,
+.to_dest a {
+  color: #000;
+  width: 100%;
+  display: inline-block;
+}
+
+.to_dest p.select {
   background: #BCF;
   font-weight: bold;
 }

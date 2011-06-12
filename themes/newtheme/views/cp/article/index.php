@@ -1,64 +1,59 @@
-<div class='mac_panel_wrap w800P' id="panel_article">
-  <?php  
-    $this->beginWidget('application.extensions.Smacpanel',array('title'=>Yii::t('cp','Content Manage')) );
-  ?>
-  <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('article/index', array('keyword' => '')) ?>" />
-  <input type="hidden" name='model_type' value="iarticle" class="model_type" />      
-  <input type="hidden" class="top_leaf_id" value="1" />
-  <p class=''>
-    <ul class="actions"> 	      
-      <li>&nbsp;</li>
-      <li>	  
-    	  <span class="c_m_a">
-    	    <?php echo Yii::t('cp','More Actions');?> <span class="more"></span>
-    	  </span>
-    	  <ul class='dN c_m_a_d'>
-    	    <li href="<?php echo CController::createUrl('article/stared', array('ajax'=>'ajax')) ?>"
-    	      class="ele_stared"   title="Stared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Stared')?></li>      
-    	    <li href="<?php echo CController::createUrl('article/unstared', array('ajax'=>'ajax')) ?>"
-    	      class="ele_unstared" title="Unstared Articles" class="c_m_a_d_batch"><?php echo Yii::t('cp','Unstared')?></li>
-    	    <li class="ele_delete c_m_a_d_batch" title="<?php echo Yii::t('cp','delete')?>" href="<?php echo CController::createUrl('article/delete') ?>">
-    	      <?php echo Yii::t('cp','Delete Content') ?>
-    	    </li>
-    	    <li class="ele_content_move c_m_a_d_batch" title="<?php echo Yii::t('cp','move')?>" href="<?php echo CController::createUrl('article/move')?>" >
-    	      <?php echo Yii::t('cp','Move Content')?>
-    	    </li>    	    
-    	    <li class="c_m_a_d_tip" title="No Selected"><?php echo Yii::t('cp','No Selected') ?></li>
-        </ul>
-      </li>
-    </ul>
-  </p>
-  
-  <div style="padding: 5px">
-    <form action="<?php echo CController::createUrl('article/index') ?>" method="get" class="search_form">        
-      <input type="text" name="keyword" class="search_input keyword has_adv_search" /><input type="submit" value="submit" class='search_submit'/>
-      <span class="advanced_search" data="advanced_search_wrap"><?php echo Yii::t('cp','Advanced Search') ?></span>
-      <div class=" advanced_search_wrap">        
-        <p><?php echo Yii::t('cp','Select Node'); ?><?php echo Chtml::listBox('category_id',1,$leafs,array('size' => 1, 'default' => 'all', 'class' => 'leaf_id' ) ) ?></p>
-        <p><input type="checkbox" name="is_include" class="is_include" value="1" checked> <?php echo Yii::t('cp','Include Sub Node Content') ?></p>
-      </div>
-    </form>
+<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
+<div id="w_middle">
+  <div id="w_left">
+    <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree),false,true) ?>
   </div>
 
-  <div class="iform">        
-    <table class='ilist'>
-      <thead>
-        <tr>
-          <th class='w20P taC pr2P pl2P '><input type='checkbox' class="ele_list_all" /></th>
-          <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
-          <th class='w40P taC vaM'><?php echo Yii::t('cp','stared?') ?></th>
-          <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
-          <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>
-          <th class='w100P taC' ><?php echo Yii::t('cp','Update_time') ?></th>          
-        </tr>
-      </thead>              
-    </table>
-    <div class='mb10P ofA search_result_wrap' style="max-height: 300px">        
-      <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
-    </div>  
+  <div id="w_right">
+    <div></div>
+    
+    <div id="w_location"> 
+      Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/article/index') ?>" >Article</a><?php echo API::rchart();?>Index
+    </div>
+
+<?php if(Yii::app()->user->hasFlash('success')) {?>
+    <div class="flash_suc">
+      <?php echo Yii::app()->user->getFlash('success'); ?>
+    </div>
+<?php } ?>
+<?php if(Yii::app()->user->hasFlash('error')) {?>
+    <div class="error">
+      <?php echo Yii::app()->user->getFlash('error'); ?>
+    </div>
+ <?php } ?>
+
+
+    <form action="<?php echo url('/cp/user/batch') ?>" method="post" >
+      
+      <div id="w_action">
+        <div class='pl20P pt3P' >
+          <a href="<?echo url('/cp/article/create', array('leaf_id' => $category->id) ) ?>" >new article</a>
+          <input type="submit" value="删除" name="delete" />
+        </div>
+        <div class='flR pr20P' style="margin-top: -28px;">
+          <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+        </div>
+      </div><!--end w_action -->
+
+      <div id="w_content">
+        <table class='list'>
+          <thead>
+            <tr>
+              <th class='w20P taC pr2P pl2P '><input type='checkbox' class="item-all" /></th>
+              <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
+              <th class='w40P taC vaM'><?php echo Yii::t('cp','stared?') ?></th>
+              <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
+              <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>
+              <th class='w100P taC' ><?php echo Yii::t('cp','Update_time') ?></th>          
+            </tr>
+          </thead>              
+            <?php echo $this->renderPartial('_index',
+                array('list'=>$list, 'pagination' => $pagination,
+                  'select_pagination' => $select_pagination)); ?>
+        </table>
+      </div><!-- end w_content -->
+    </form>
+
   </div>
-  <div class="ajax_overlay" ></div>
-  <?php
-    $this->endWidget('application.extensions.Flatmacpanel');	 
-  ?>
 </div>
+

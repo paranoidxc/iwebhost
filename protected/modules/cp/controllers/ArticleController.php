@@ -1,6 +1,6 @@
 <?php
 
-class ArticleController extends IController
+class ArticleController extends GController
 {  
   
   public function actionPreview() {
@@ -17,6 +17,10 @@ class ArticleController extends IController
 		//array_unshift( $leafs , array( '--ALL Nodes--' ) );
 		return array( $leafs );
 	}
+
+  public function getTree() {
+    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+  }
 	
 	public function actionSortarticle() {
 		$sort = $_POST['sort'];
@@ -35,15 +39,26 @@ class ArticleController extends IController
 	{	  
 	  list($leafs) = $this->getRelData();
 	  $criteria=new CDbCriteria;
+    $criteria->condition = " 1=1 ";
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0 || strlen($_GET['leaf_id'] ) > 0 ){
 		  $keyword = trim($_GET['keyword']);			  
-      $criteria->condition  = 'title like :keyword ';
+      $criteria->condition  .= ' AND title like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%");      
-      $opt['is_partial']    = true;
 	  }
-	  $opt['page_size'] = 20;
-    $leaf_id    = $_GET['leaf_id'];
-    $is_include = $_GET['is_include'];
+
+    /*
+    if( isset($_GET['category_id']) || !empty($_GET['category_id']) ) {
+      $criteria->condition  .= ' AND category_id = :category_id ';
+      $criteria->params[':category_id'] = 1;
+    }
+    */
+
+
+	  $opt['page_size'] = 15;
+    //$leaf_id    = $_GET['leaf_id'];
+    $leaf_id =& $_GET['category_id'];
+//    $is_include = $_GET['is_include'];
+    $is_include = true;
     if( strlen( $leaf_id) > 0 ){
       $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
       if( $is_include ){
@@ -60,61 +75,24 @@ class ArticleController extends IController
         $criteria->params[':category_id'] = $all_leafs;
       }else{
         $criteria->params[':category_id'] = $leaf_id;  
-      }          
+      }
     }
+
+    if( strlen($leaf_id) > 0 ) {
+      $category = Category::model()->findByPk($leaf_id);
+    }else{
+      $category = Category::model()->findByPk(1);
+    }
+
 	  $criteria->order        = 'update_time DESC';
 	  $opt['criteria']        =  $criteria;
-	  $opt['tpl_params']      = array( 'leafs' => $leafs );
+
+    $leaf_tree =& $this->getTree();
+	  $opt['tpl_params']      = array( 'leafs' => $leafs,'category' => $category,'leaf_tree' => $leaf_tree );
+
 	  parent::actionIndex($opt);
 	  
 	}
-	public function actioncxIndex() {
-	  	  
-	  //print_r( ucfirst($this->getId() ) );	  
-	  //$this->actionId     = $this->getAction()->getId();
-	  $controllerId = $this->controllerId;	  
-	  
-	  $criteria=new CDbCriteria;
-		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
-		  $keyword = trim($_GET['keyword']);			  
-      $criteria->condition  = 'title like :keyword ';
-      $criteria->params     = array(':keyword'=>"%$keyword%");
-      $is_partial = true;		  
-	  }
-    $imodel = new $controllerId;
-    $item_count = call_user_func( array( $imodel, 'count') , $criteria );
-    
-    $page_size = 10;          
-    $pages =new CPagination($item_count);
-    $pages->setPageSize($page_size);      
-    $pagination = new CLinkPager();
-    $pagination->cssFile=false;
-    $pagination->setPages($pages);    
-    $pagination->init();      
-    $criteria->limit        =  $page_size;
-    $criteria->offset       = $pages->offset;
-    $select_pagination = new  CListPager();
-    $select_pagination->header = '跳转到:';
-    $select_pagination->htmlOptions['onchange']="";
-    
-    $select_pagination->setPages($pages);    
-    $select_pagination->init();    
-    $list = call_user_func( array( $imodel, 'findAll') , $criteria );
-    
-	  if( $is_partial ){
-	    $this->renderPartial('_index',array(
-	      'list' => $list, 
-	      'pagination' => $pagination, 'select_pagination' => $select_pagination 
-	      ),false,true);
-	  }else{
-	     $this->render('index',array(  			
-  			'list'  =>  $list,
-  			'pagination' => $pagination, 'select_pagination' => $select_pagination
-  		),false,true);
-	  }
-	}
-
-
 
 	/**
 	*  Copy a list of article in same category
@@ -234,15 +212,9 @@ class ArticleController extends IController
 		$model=new Article;
 		$model->category_id = $_GET['leaf_id'];
 		list( $leafs ) = $this->getRelData();
-				
-		$leaf  = Category::model()->findByPk($_GET['leaf_id']);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-    $panel_ident = $_REQUEST['panel_ident'];
-    
-		if(isset($_POST['Article']))
-		{				  
+		$leaf  = Category::model()->findByPk($_REQUEST['leaf_id']);
+      print_r($_REQUEST['leaf_id'] );
+		if(isset($_POST['Article'])) {				  
 		  $model->attributes=$_POST['Article'];
 		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
 		  $_sort_id = $leaf->first()->sort_id;
@@ -252,42 +224,15 @@ class ArticleController extends IController
 		    $model->sort_id = 1;
 		  }
 			if($model->save()){
-				if( isset($_GET['ajax']) ) {
-				  $str = Yii::t('cp','Create Success On ').Time::now();
-					Yii::app()->user->setFlash('success',$str);
-					  
-  				$this->renderPartial('create_next', array(
-    				'model' => $model,
-    				'leafs'	=> $leafs,
-    				'leaf'	=> $leaf,
-    				'panel_ident' =>  $panel_ident,    				
-    			),false,true);
-    			exit;
-					//$this->renderPartial('create_next',array( 'model' =>  $model ), false,true );
-				}else {
-					$this->redirect(array('view','id'=>$model->id));	
-				}			
+			  $str = Yii::t('cp','Create Success On ').Time::now();
+			  Yii::app()->user->setFlash('success',$str);
+			  $this->redirect(array('update','id'=>$model->id));	
 			}	
 		}
-		
-	  if( isset($_GET['ajax']) ) {	    
-  		$this->renderPartial('create', array(
-  			'model' => $model,
-  			'leafs'	=> $leafs,
-  			'leaf'	=> $leaf,
-  			'panel_ident' =>  $panel_ident,  			
-			),false,true);					
-		}else {
-		  
-			$this->render('create',array(
-				'model'	=>	$model,
-				'leafs' => 	$leafs,
-				'leaf'	=> $leaf,
-			));
-		}
-		
-		
-		
+
+    $leaf_tree = $this->getTree();
+
+		$this->render('create',array( 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leafs' => 	$leafs, 'leaf'	=> $leaf ));
 	}
 
 	/**
@@ -296,39 +241,20 @@ class ArticleController extends IController
 	 */
 	public function actionUpdate()
 	{
-		$model=$this->loadModel();
+		$model=$this->loadModel(); 
 		list( $leafs ) = $this->getRelData();
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-    $panel_ident = $_REQUEST['panel_ident'];
-        
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
-				if( isset($_GET['ajax']) ) {					
-					$str = Yii::t('cp','Data saved success On ').Time::now();
-					Yii::app()->user->setFlash('success',$str);
-					$is_update = true;					
-				}else {
-					$this->redirect(array('view','id'=>$model->id));	
-				}	
+			  $str = Yii::t('cp','Data saved success On ').Time::now();
+				Yii::app()->user->setFlash('success',$str);
+				$this->redirect(array('update','id'=>$model->id));	
 			}							
 		}
-		if( isset($_GET['ajax']) ) {
-			$this->renderPartial('update',array(
-				'model'	      =>	$model,
-  			'is_update'   =>  $is_update,
-  			'panel_ident' =>  $panel_ident,
-				'leafs'	      =>	$leafs
-			),false,true);
-		}else {			
-			$this->render('update',array(
-				'model'	=>	$model,
-				'leafs'	=>	$leafs
-			));
-		}
+    $leaf_tree =& $this->getTree();
+  	$this->render('update',array( 'model'	=>	$model, 'leafs'	=>	$leafs, 'leaf_tree' => $leaf_tree ));
 	}
 
 	

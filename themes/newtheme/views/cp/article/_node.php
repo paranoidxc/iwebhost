@@ -1,5 +1,5 @@
 <?php
-	echo "<ul class='api_categorys_ul' id='top_tree' render_url='".CController::createurl('category/leafs', array('ajax' => 'ajax'))."'>";
+	echo "<ul class='api_categorys_ul' id='top_tree' >";
 		$temp_depth = 0;			
 		$class="fold";
 		$handle_class = 'f_'.$class;
@@ -20,15 +20,21 @@
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" >';
         echo '<p 
-              class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+              return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+              style="text-indent: '.$style_text_indent.'" title="'.$name.'">';
+        echo "<a href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'>";
+        echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
-        echo' <span class="leaf">';    				
+        echo '<span class="leaf">';
 			}else if( $depth > $temp_depth ) {
 			  echo '<ul class="'.$class.'"><li class="'.$class.'">';
         echo '<p 
-              class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-              style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+              class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+              return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+              style="text-indent: '.$style_text_indent.'" title="'.$name.'">';
+        echo "<a href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'>";
+        echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf"  >';    				
 			}else if( $depth < $temp_depth ) {
@@ -37,21 +43,28 @@
     		}
     		echo '<li class="'.$class.'">';
         echo '<p 
-           class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-           style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
+           class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+           return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+           style="text-indent: '.$style_text_indent.'" title="'.$name.'">';
+        echo "<a href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'>";
+        echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf">';        		
   		}else if( $depth == $temp_depth ){
     		echo '</li><li class="'.$class.'">';
         echo '<p 
-                class="to_dest" return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
-                style="text-indent: '.$style_text_indent.'" title="'.$name.'"><span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
+                class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+                return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
+                style="text-indent: '.$style_text_indent.'" title="'.$name.'">';
+        echo "<a href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'>";
+        echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
         echo '<span class="leaf">';
-  		}  		
-			echo $name;
-  		echo '</span></p>';  		
-  		
+  		}
+      echo $name;
+  		echo '</span>';
+      echo '</a>';
+      echo '</p>';  		
   		$temp_depth = $depth;
 		}				
 		for($i=0; $i < $temp_depth; $i ++ ) {

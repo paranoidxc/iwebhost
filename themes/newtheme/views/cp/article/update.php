@@ -1,26 +1,23 @@
-<?php
-if( !$is_update ) {
-  ?>
-  <div class='mac_panel_wrap w800P'>
-<?php
-  $this->beginWidget('application.extensions.Flatmacpanel',array('title'=> Yii::t('cp','Edit Article').' <span class="filter radius4">'.$model->id.'</span> '.cnSubstr($model->title,0,20)) )
-?>
-  <?php
-}
-?>
+<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
+<div id="w_middle">
+  <div id="w_left"> 
+    <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree),false,true) ?>
+  </div>
+  
+  <div id="w_right">
+    <div></div><!-- clear ele for fuck ie -->
+    <div id="w_location" >
+    Console<?php echo API::rchart();?><a href="<?php echo url('/cp/Article/index') ?>"
+    >Article</a><?php echo API::rchart();?><a href="<?php echo url('/cp/article/index',
+    array('category_id' => $model->category_id ) ) ?>" ><?php echo $model->leaf->name ?></a><?php echo API::rchart();?>Update 
+# <?php echo $model->id ;?> - <?php echo cnSubstr($model->title,0,20) ?>
+    </div>
+    
+    <div id="w_content">
+      <?php echo $this->renderPartial('_form',
+        array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf,'panel_ident' => $panel_ident)); ?>
+    </div>
 
-<input type="hidden" class='return_panel' value="<?php echo $panel_ident; ?>" />
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf,'panel_ident' => $panel_ident)); ?>
-
-<?php
-if( !$is_update ) {
-  ?>  
-  <div class="ajax_overlay" ></div>
-  <?php
-  $this->endWidget('application.extensions.Flatmacpanel');	 
-?>
+  </div>
 </div>
-  <?php
-}
-?>
 

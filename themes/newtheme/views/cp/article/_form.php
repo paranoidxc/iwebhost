@@ -6,7 +6,6 @@
 		'class' => 'article_ajax_form'
 	)
 )); ?>	
-  <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />  
   <p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
@@ -16,15 +15,28 @@
 	
 	<?php echo $form->errorSummary($model); ?>		  
 	
-	<div class="ml20P pt10P">
-	  <a data="field_normal" class="form_tab form_tab_selected"><span><?php echo Yii::t('cp','Normal Field')?></span></a>
-	  <a data="field_content" class="form_tab"><span><?php echo Yii::t('cp','Content Field')?></span></a>	  
-	  <a data="field_seo" class="form_tab"><span><?php echo Yii::t('cp','Seo Field')?></span></a>	  
-	</div>
-	
-	<div class="form_field_wrap field_normal">
-  	<table class='itable'>
+  <table class='itable w100S'>
+    <tfoot>
+      <tr>
+       <th></th>
+       <td>
+  		      <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'),
+                array( 'class' => 'ibtn blue')); ?>
+       </td>
+     </tr>
+    </tfoot>
   	<tbody>
+
+  <!--内容字段 start-->
+  <tr>
+    <td colspan="2" class='pl10P'>
+      <input type="hidden" class="widgEditor_id" value="#article_content<?php echo time()?>" /> 
+  		<?php echo $form->textArea($model,'content',
+          array('rows'=>40, 'cols'=>40, 'id'=>'article_content'.time(), 'class' => 'tinymce mceEditor' )); ?>
+  		<?php echo $form->error($model,'content'); ?>		
+    </td>
+  </tr>
+
   	<tr>
   		<th>
   	  <span class='alt tdU pick'
@@ -98,7 +110,7 @@
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'title'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
+  			<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100,'class'=>'itext')); ?>
   			<?php echo $form->error($model,'title'); ?>
   		</td>
   	</tr>
@@ -106,7 +118,8 @@
     <tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'ident_label'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'ident_label',array('size'=>60,'maxlength'=>100)); ?>
+  			<?php echo $form->textField($model,'ident_label',
+            array('size'=>60,'maxlength'=>100,'class' => 'itext')); ?>
   			<?php echo $form->error($model,'ident_label'); ?>
   		</td>
   	</tr>
@@ -114,7 +127,8 @@
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'link'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
+  			<?php echo $form->textField($model,'link',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'link'); ?>
   		</td>
   	</tr>	
@@ -130,7 +144,8 @@
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'tpl'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'tpl',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->textField($model,'tpl',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'tpl'); ?>
   		</td>
   	</tr>	
@@ -138,7 +153,8 @@
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'pv'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'pv',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->textField($model,'pv',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'pv'); ?>
   		</td>
   	</tr>	
@@ -146,7 +162,8 @@
   	<tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'sort_id'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'sort_id',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->textField($model,'sort_id',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'sort_id'); ?>
   		</td>
   	</tr>	
@@ -154,7 +171,8 @@
     <tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'user_id'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'user_id',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->textField($model,'user_id',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'user_id'); ?>
   		</td>
   	</tr>	
@@ -162,7 +180,8 @@
     <tr>
   		<th class='alt leftborder'><?php echo $form->labelEx($model,'allow_reply'); ?></th>
   		<td>
-  			<?php echo $form->textField($model,'allow_reply',array('size'=>60,'maxlength'=>255 )); ?>
+  			<?php echo $form->textField($model,'allow_reply',
+            array('size'=>60,'maxlength'=>255,'class' => 'itext' )); ?>
   			<?php echo $form->error($model,'allow_reply'); ?>
   		</td>
   	</tr>	
@@ -173,9 +192,6 @@
   			<?php echo $form->hiddenField($model,'category_id'); ?>	  			
   			<span class="filter radius4"><?php echo $leaf->id ?></span>
   		  <?php echo $leaf->name ?>
-  			<?php //echo $form->textField($model,'category_id'); ?>
-  			<?php //echo $form->listbox($model, 'category_id', $leafs, array( 'size' => 1)  ) ?>
-  			<?php //echo $form->error($model,'category_id'); ?>
   		</td>
   	</tr>
   	
@@ -183,33 +199,7 @@
   	</table>
   </div>
 	
-  <!--内容字段 start-->
-	<div class="dN form_field_wrap field_content">  
-	  <div style="margin-bottom: 5px">
-	    <span data="write" class="inner_tab inner_tab_selected dN" > <?php echo Yii::t('cp','Write')?> </span>
-	    <span data="preview" class="inner_tab dN" url=<?php echo CController::createUrl('article/preview') ?> > <?php echo Yii::t('cp','Preview')?> </span>
-	    <span class="dN replace">insert " Foo " text </span>
-	    <span class='alt tdU pick'
-  		  id="link_pick<?php echo time(); ?>"
-  		  rtype="article_link_image"
-  			uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'link_pick'.time() ) ); ?>">
-  			<?php echo Yii::t('cp','Insert Images') ?>
-  	  </span>
-	  </div> <!--内容字段 end-->
-	  
-	  <div class="inner_wrap write">
-  		<?php //echo $form->labelEx($model,'content'); ?>  
-  		<input type="hidden" class="widgEditor_id" value="#article_content<?php echo time()?>" /> 
-      <!--<textarea id="article_content<?php echo time();?>" class='mceEditor' ></textarea> -->
-  		<?php echo $form->textArea($model,'content',array('rows'=>20, 'cols'=>100, 'id'=>'article_content'.time(), 'class' => 'mceEditor' )); ?>
-  		<?php echo $form->error($model,'content'); ?>		
-		</div>
-		
-		<div class="dN inner_wrap preview">
-		  <?php echo Yii::t('cp','Preview') ?>
-  	</div>
-  </div>  
-  
+ 
   <div class="dN form_field_wrap field_seo">
 	  <table class='itable'>
   	  <tbody>
@@ -232,12 +222,8 @@
     		  </td>
   	    </tr>
   	  </tbody>
-  	</table>
-	</div>
+ 	</table>
 		
-  <div class="taR h30P lh30P pr10P ">
-  		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
-  </div> 
 <?php $this->endWidget(); ?>
 </div>
 <!-- form -->

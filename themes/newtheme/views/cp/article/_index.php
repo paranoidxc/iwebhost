@@ -1,11 +1,9 @@
-<table class='ilist'>
-  <tbody class="">
 <?php          
   foreach( $list as $_instance) {
 ?>
-  <tr rel_href="<?php echo CController::createUrl('article/update', array('id'=> $_instance->id, 'ajax'=> 'ajax') ); ?>" >          
+  <tr>          
     <td class='w20P taC pr2P pl2P '>
-      <input type='checkbox' value="<?php echo $_instance->id; ?>" class="ele_item" />
+      <input type='checkbox' value="<?php echo $_instance->id; ?>" name="ids[]" class="item-sep" />
     </td>
     <td class='w80P taC'><?php echo $_instance->id ?></td>
     <td class='w40P taC vaM'>
@@ -18,7 +16,7 @@
             href="<?php echo CController::createurl('article/'.$star_action, array('id'=> $_instance->id, 'ajax' => 'ajax') ) ?>" ></span>
     </td>
     <td class="content_item" data="<?php echo $_instance->id; ?>" >
-      <?php echo $_instance->title ?>
+      <a href="<?php echo url('/cp/article/update',array( 'id' => $_instance->id) ) ?>"><?php echo $_instance->title ?></a>
     </td>
     <td class='w100P taC' ><?php echo Time::timeAgoInWords($_instance->create_time, array('short'=>true) )?></td>
     <td class='w100P taC ' >  
@@ -42,4 +40,3 @@
   <?php 
   }
   ?>
-</table>

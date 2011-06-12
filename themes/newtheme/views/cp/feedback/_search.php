@@ -1,7 +1,7 @@
 <div id="w_search" >
   <div class='w_left'>ihost console logo</div>
   <form action="<?php echo CController::createUrl('feedback/index') ?>" method="get" class="search_form">
-    <input type="hidden" id="is_hide_adv" value="<?php echo count($this->tpl_params); ?>" />   
+    <input type="hidden" id="is_hide_adv" name="is_hide_adv" value="<?php echo $this->tpl_params['is_hide_adv']; ?>" />   
     <input type="hidden" name="is_answer" value="<?php echo $this->tpl_params['is_answer']; ?>" />
     <input type="text" name="keyword" class=" search_input keyword"  value="<?php echo $keyword?>"/> 
     <input type="submit" value="submit" class='search_submit'/>
