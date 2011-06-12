@@ -46,14 +46,6 @@ class ArticleController extends GController
       $criteria->params     = array(':keyword'=>"%$keyword%");      
 	  }
 
-    /*
-    if( isset($_GET['category_id']) || !empty($_GET['category_id']) ) {
-      $criteria->condition  .= ' AND category_id = :category_id ';
-      $criteria->params[':category_id'] = 1;
-    }
-    */
-
-
 	  $opt['page_size'] = 15;
     //$leaf_id    = $_GET['leaf_id'];
     $leaf_id =& $_GET['category_id'];

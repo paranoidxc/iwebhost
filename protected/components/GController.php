@@ -167,7 +167,7 @@ class GController extends Controller
   public function actionBatch() {
   	if(Yii::app()->request->isPostRequest) {
       $type = $_POST['type'];
-			if( count($_POST['ids']) >0 && $type=="删除") {
+			if( count($_POST['ids']) > 0 && $type=="删除") {
 				$ids =& $_POST['ids'];
 				foreach( $ids as $id) {
 				  $imodel = new $this->controllerId;
@@ -176,8 +176,8 @@ class GController extends Controller
 				}
         $str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
       	Yii::app()->user->setFlash('success',$str);
-        $this->redirect( array('index') );
 			}
+      $this->redirect( array('index') );
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

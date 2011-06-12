@@ -43,9 +43,9 @@
           'itemOptions' => array('class' => API::isaction('cp/category/icategory') ),
           'linkOptions' => array( 'data' => 'panel_icategory' )),
 
-				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/category/iattachment'),
+				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/attachment/index'),
           'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/category/iattachment') ),
+          'itemOptions' => array('class' => API::isaction('cp/attachment/index') ),
           'linkOptions' => array( 'data' => 'panel_iattachment' )),
 
 				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/index'),

@@ -1,6 +1,6 @@
 <?php
 
-class AttachmentController extends IController
+class AttachmentController extends GController
 {
 	
 	public function filters()
@@ -20,10 +20,10 @@ class AttachmentController extends IController
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','upload','pick','move','BatchEdit','BatchUpdate'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','batch'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -273,10 +273,6 @@ class AttachmentController extends IController
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-    $is_partial = false;
-    $panel_ident = $_REQUEST['panel_ident'];
 		if(isset($_POST['Attachment']))
 		{
 			$model->attributes=$_POST['Attachment'];
@@ -307,27 +303,35 @@ class AttachmentController extends IController
   					  }
   					}
 					}
+				}else {
 					$str = 'Data Updated Suc On '.Time::now();
 					Yii::app()->user->setFlash('success',$str);
-					$is_partial = true;					
-				}else {
-					$this->redirect(array('view','id'=>$model->id));	
+					$this->redirect(array('update','id'=>$model->id));	
 				}	
 			}
 		}
 
-    if( isset($_GET['ajax']) ){     
-      $this->renderPartial('update',array(
-			  'model'     =>$model,
-			  'is_update' => $is_partial,
-			  'panel_ident' =>  $panel_ident
-		  ),false,true);
-    }else{
-		  $this->render('update',array(
-			  'model'=>$model,
-		  ));
-		}
+    $leaf_tree =& $this->getTree();
+    $this->render('update',array( 'model'=>$model,'leaf_tree' => $leaf_tree),false,true);
 	}
+
+  /*
+  public function actionBatch() {
+    if(Yii::app()->request->isPostRequest) {
+		  if( count($_POST['ids']) >0 ) {
+				$ids = $_POST['ids'];
+				foreach( $ids as $id) {
+					$a = Attachment::model()->findByPk($id);
+				  $a->delete();  
+				}
+				$str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
+  			Yii::app()->user->setFlash('success',$str);
+			}
+    }
+
+    $this->redirect( array('index') );
+  }
+  */
 
 	/**
 	 * Deletes a particular model.
@@ -359,12 +363,32 @@ class AttachmentController extends IController
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Attachment');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+
+  public function getTree() { 
+    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+  }
+
+	public function actionIndex() {
+	  $criteria=new CDbCriteria;
+    $criteria->condition = " 1=1 ";
+		if( isset($_GET['keyword']) || !empty($_GET['keyword']) 
+        || strlen($_GET['keyword']) >0 || strlen($_GET['leaf_id'] ) > 0 ){
+		  $keyword = trim($_GET['keyword']);			  
+      $criteria->condition  .= ' AND screen_name like :keyword ';
+      $criteria->params     = array(':keyword'=>"%$keyword%");      
+	  }
+
+    $leaf_id =& $_GET['category_id'];
+    if( strlen($leaf_id) > 0 ) {
+      $category = Category::model()->findByPk($leaf_id);
+    }else{
+      $category = Category::model()->findByPk(1);
+    }
+
+    $leaf_tree =& $this->getTree();
+    $opt['criteria']        =  $criteria;
+	  $opt['tpl_params']      = array( 'category' => $category,'leaf_tree' => $leaf_tree );
+    parent::actionIndex($opt);
 	}
 
 	/**

@@ -27,7 +27,7 @@
       
       <div id="w_action">
         <div class='pl20P pt3P' >
-          <a href="<?echo url('/cp/article/create', array('leaf_id' => $category->id) ) ?>" >new article</a>
+          <a class='action' href="<?echo url('/cp/article/create', array('leaf_id' => $category->id) ) ?>" >new article</a>
           <input type="submit" value="删除" name="delete" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">

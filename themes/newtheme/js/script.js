@@ -1,19 +1,20 @@
 $(document).ready(function(){
-  $('.load_focus').focus();
   
-  if( $("#is_hide_adv").val().length > 0 ) {
-    $('.w_adv_search').show();
+ $('.load_focus').focus();
+  
+  if( $("#is_hide_adv").length > 0 ) {
+    if( $("#is_hide_adv").val().length > 0 ) {
+      $('.w_adv_search').show();
+    }
   }
   
   $(".toggle_w_adv_search").click(function(){
-//    $('.w_adv_search').slideToggle();
     $('.w_adv_search').toggle();
     if( $('.w_adv_search').css('display') == 'block' ) {
       $('#is_hide_adv').val( 'show');
     }else{
       $('#is_hide_adv').val('');
     }
-
   });
 
   $('.item-all').click(function(){

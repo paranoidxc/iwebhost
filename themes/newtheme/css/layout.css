@@ -28,5 +28,7 @@
   } #w_right{
     margin-left: 240px;
   }
-
-
+  #w_content {
+    overflow: hidden;
+    height: 1%;
+  }

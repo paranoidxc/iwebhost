@@ -53,7 +53,7 @@ class Attachment extends CActiveRecord
   }
   
   public function is_image(){
-    return in_array($this->extension,API::$image_extension);
+    return in_array($this->extension,API::$IMAGE_EXTENSION);
   }
   
   public function getCimage($opt){
