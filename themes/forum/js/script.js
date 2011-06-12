@@ -70,10 +70,10 @@ $(document).ready(function(){
 			theme_advanced_toolbar_align : "left",
 			theme_advanced_statusbar_location : "bottom",
 			theme_advanced_resizing : true,
+      relative_urls: false,
 
 			// Example content CSS (should be your site CSS)
 			content_css : "/themes/forum/js/content.css",
-
 			// Drop lists for link/image/media/template dialogs
 			template_external_list_url : "lists/template_list.js",
 			external_link_list_url : "lists/link_list.js",
