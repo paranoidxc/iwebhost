@@ -1,6 +1,18 @@
 $(document).ready(function(){
+  $('.control_tree').click(function(){
+    $('#w_left').show().css({
+      'position':'absolute' ,
+      'background':'#FFF',
+      'top':'60px',
+      'border':'2px solid #CCC',
+      'width':'500px',
+      'height':'500px',
+      'z-index':'10000000',
+      'overflow': 'auto'
+    });
+  });
   
- $('.load_focus').focus();
+  $('.load_focus').focus();
   
   if( $("#is_hide_adv").length > 0 ) {
     if( $("#is_hide_adv").val().length > 0 ) {

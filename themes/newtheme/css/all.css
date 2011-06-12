@@ -57,6 +57,20 @@ body {
 .itext.w100P {
   width: 100px;
 }
+.isubmit {
+  border: 1px outset #CCC;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 20px;
+  cursor: pointer;
+}.isubmit:hover {
+  border: 1px inset #CCC;
+}.isubmit:active {
+  background: #C36;
+  color: #FFF;
+  border: 1px outset #F36;
+}
+
 .search_input {
   margin: 1px;
 }
