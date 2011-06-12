@@ -205,7 +205,6 @@ class ArticleController extends GController
 		$model->category_id = $_GET['leaf_id'];
 		list( $leafs ) = $this->getRelData();
 		$leaf  = Category::model()->findByPk($_REQUEST['leaf_id']);
-      print_r($_REQUEST['leaf_id'] );
 		if(isset($_POST['Article'])) {				  
 		  $model->attributes=$_POST['Article'];
 		  $model->update_time = $model->create_time = date("Y-m-d H:i:s");
