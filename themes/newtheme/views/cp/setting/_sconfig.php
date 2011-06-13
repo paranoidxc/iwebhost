@@ -1,7 +1,7 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
   'action'  => CController::createUrl('setting/sconfig'),
-  'htmlOptions' =>array( 'enctype' => 'multipart/form-data','class' => 'article_ajax_form')
+  'htmlOptions' =>array( 'enctype' => 'multipart/form-data','class' => 'iform')
   )); 
 ?>
   <?php if(Yii::app()->user->hasFlash('success')) {?>
@@ -30,7 +30,8 @@
       <tr>
   	  	<th><?php echo $form->labelEx($sconfig,'description'); ?></th>
   		  <td>
-  		    <?php echo $form->textArea($sconfig,'description',array('rows'=>20, 'cols'=>100)); ?>
+  		    <?php echo $form->textArea($sconfig,'description',
+              array('rows'=>10, 'cols'=>100,'class' => 'itext')); ?>
   	  	  <?php echo $form->error($sconfig,'description'); ?>
   	  	</td>
   	  </tr>
@@ -38,7 +39,8 @@
   	  <tr>
   	  	<th><?php echo $form->labelEx($sconfig,'keyword'); ?></th>
   		  <td>    		    
-  		    <?php echo $form->textArea($sconfig,'keyword',array('rows'=>20, 'cols'=>100)); ?>
+  		    <?php echo $form->textArea($sconfig,'keyword',
+              array('rows'=>10, 'cols'=>100,'class'=>'itext')); ?>
   	  	  <?php echo $form->error($sconfig,'keywords'); ?>
   	  	</td>
   	  </tr>
@@ -62,15 +64,19 @@
       <tr>
         <th><?php echo $form->labelEx($sconfig,'oops_tips'); ?></th>
         <td>
-          <?php echo $form->textArea($sconfig,'oops_tips',array('rows'=>20, 'cols'=>100)); ?>
+          <?php echo $form->textArea($sconfig,'oops_tips',
+              array('rows'=>10, 'cols'=>100,'class' => 'itext')); ?>
   	  	  <?php echo $form->error($sconfig,'oops_tips'); ?>
   	  	</td>
       </tr>
     </tbody>
     <tfoot>
+      <tr>
+        <th></th>
+        <td>
+          <?php echo CHtml::submitButton( Yii::t('cp','Save'), array('class'=>'ibtn blue') ); ?>
+        </td>
+      </tr>
     </tfoot>
   </table> 
-<div class="taR pr10P pt5P">
-  <?php echo CHtml::submitButton( Yii::t('cp','Save'), array('class'=>'ibtn blue') ); ?>
-</div>    
 <?php $this->endWidget(); ?>

@@ -175,9 +175,6 @@ div.errorSummary ul li {
 .control_tree {
   padding: 0 8px;
   height: 100%;
-  margin: 0;
-  line-height: 24px;
-  height: 24px;
   display: inline-block;
   cursor: pointer;
   border-right: 4px solid #C8D6FF;

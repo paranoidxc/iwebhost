@@ -1,6 +1,6 @@
 <?php
 
-class SettingController extends Controller
+class SettingController extends GController
 {
 	public function actionIndex()
 	{	  
@@ -46,9 +46,9 @@ class SettingController extends Controller
 	      $sconfig=new Sconfig;
 	    }
 	  }
-	  $this->renderPartial('_sconfig',array(
-      'sconfig' => $sconfig,  		
-    ),false,true);	
+	  //$this->renderPartial('_sconfig',array( 'sconfig' => $sconfig,  		),false,true);	
+
+    $this->redirect( 'index' );
 	}
 
   public function filters()
