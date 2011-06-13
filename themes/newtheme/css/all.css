@@ -4,7 +4,6 @@
 @import url('layout.css');
 @import url('api.categorys.css');
 @import url('api.attachment.css');
-
 /*
 @import url('top.css');
 @import url('search.css');
@@ -152,8 +151,9 @@ div.errorSummary ul li {
   color: #000;
   width: 100%;
   display: inline-block;
+  height: 100%;
+  line-height: 100%;
 }
-
 .to_dest p.select {
   background: #BCF;
   font-weight: bold;
@@ -170,4 +170,42 @@ div.errorSummary ul li {
 }
 .action:hover {
   text-decoration: underline;
+}
+
+.control_tree {
+  padding: 0 8px;
+  height: 100%;
+  margin: 0;
+  line-height: 24px;
+  height: 24px;
+  display: inline-block;
+  cursor: pointer;
+  border-right: 4px solid #C8D6FF;
+  border-left: 4px solid #C8D6FF;
+}
+* html .control_tree {
+  height: 22px;
+  line-height: 22px;
+}
+.control_tree.focus {
+  background: #FFF;
+  border-right: 4px solid #EDF0F9;
+  border-left: 4px solid #EDF0F9;
+}
+#w_left.show {
+  position: absolute;
+  background:#FFF;
+  top:60px;
+  border:4px solid #EDF0F9;
+  border-top: none;
+  width:500px;
+  height:500px;
+  z-index:10000000;
+  margin-left:10px;
+  overflow: auto;
+}
+
+
+.mceStatusbar.mceFirst.mceLast {
+  line-height: 16px;
 }

@@ -4,6 +4,7 @@
   background:#C8D6FF;
   padding: 0 0 0 10px;
 }
+
 #w_action {
   background:#E3E9FF;
   border-bottom: #E5E5E5;
@@ -51,4 +52,8 @@ form .itable tr.focus {
 
 .iform .itable td {
   vertical-align: top;
+}
+.iform .itable td label {
+  display: inline-block;
+  width: 100px;
 }

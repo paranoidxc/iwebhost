@@ -37,11 +37,25 @@ foreach( $bg_url as $url ) {
   }
 }
 
+$bg_url = array(
+    '/cp/',
+);
+
+foreach( $bg_url as $url ) {
+  if( strpos($_SERVER['REQUEST_URI'], $url ) !== false ) {
+    $bg_config=dirname(__FILE__).'/protected/config/newtheme_config.php';
+    require_once $bg_config;
+    break;
+  }
+}
+
+/*
 switch($_SERVER['HTTP_HOST']){
   case 'new.infuzhou.com':
     $bg_config=dirname(__FILE__).'/protected/config/newtheme_config.php';
     require_once $bg_config;
 }
+*/
 
 // require global config
 $config=dirname(__FILE__).'/protected/config/global_config.php';

@@ -8,11 +8,16 @@ ul.api_categorys_ul li p {
   margin-left: 0px;  
   font-size: 13px;
   cursor: pointer;    
-  background-repeat:repeat-x;
-  background-color:#d8edff;    
+  
   border:solid 1px #c3e2fd;  
+  background-color:#FFF;    
+  border: none;
+
+
   background-position:0px 0px;
   background-repeat:repeat-x;
+  background: #FFF;
+  border-color: none;
   border-color: rgba(118,157,192,0);
   background-color: rgba(171,214,255,0);
   -webkit-transition-property:background-color, border-color;
@@ -67,10 +72,12 @@ ul.api_categorys_ul span.fold{
   display: inline-block;
 }
 ul.api_categorys_ul span.leaf {
-  display: inline-block;  
+  display: inline-block; 
+  /*
   height: 12px;
   line-height: 12px;  
   overflow: hidden;
+  */
   text-indent: 0;
   text-overflow: ellipsis;  
 }
