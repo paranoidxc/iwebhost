@@ -7,10 +7,6 @@ class ArticleController extends GController
     echo ereg_replace('<script.*</script>', '', Markdown($_POST['content']));
   }
   
-	public function actionTest() {
-		echo "!";
-	}
-	
 	public function getRelData() {		
 		$_data = Category::model()->getTreeById();
 		$leafs = CHtml::listdata($_data, 'id','name');		
@@ -18,8 +14,9 @@ class ArticleController extends GController
 		return array( $leafs );
 	}
 
-  public function getTree() {
-    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+  public function getTree($top_leaf) {
+    return Category::model()->ileafs( array( 'id' => $top_leaf ,'include' => true ) );
+//    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
   }
 	
 	public function actionSortarticle() {
@@ -35,7 +32,15 @@ class ArticleController extends GController
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($value='')
+
+
+  public function actionInnode() {
+    $cur_leaf = $_GET['category_id'];
+    $this->actionIndex('',206,$cur_leaf);
+  }
+
+
+	public function actionIndex($value='',$top_leaf='',$cur_leaf='')
 	{	  
 	  list($leafs) = $this->getRelData();
 	  $criteria=new CDbCriteria;
@@ -48,8 +53,16 @@ class ArticleController extends GController
 
 	  $opt['page_size'] = 15;
     //$leaf_id    = $_GET['leaf_id'];
-    $leaf_id =& $_GET['category_id'];
+    /*
+    if( strlen($top_leaf) > 0 ) {
+      $leaf_id =& $top_leaf;
+    }else{
+      $leaf_id =& $_GET['category_id'];
+    }
+    */
+    $leaf_id = $cur_leaf;
 //    $is_include = $_GET['is_include'];
+
     $is_include = true;
     if( strlen( $leaf_id) > 0 ){
       $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
@@ -79,7 +92,7 @@ class ArticleController extends GController
 	  $criteria->order        = 'update_time DESC';
 	  $opt['criteria']        =  $criteria;
 
-    $leaf_tree =& $this->getTree();
+    $leaf_tree =& $this->getTree($top_leaf);
 	  $opt['tpl_params']      = array( 'leafs' => $leafs,'category' => $category,'leaf_tree' => $leaf_tree );
 
 	  parent::actionIndex($opt);
@@ -144,7 +157,7 @@ class ArticleController extends GController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','preview','Sortarticle'),
+				'actions'=>array('index','view','preview','Sortarticle','innode'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

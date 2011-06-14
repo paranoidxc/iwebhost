@@ -28,6 +28,7 @@
           'itemOptions' => array('class' => API::isaction('cp/Dashboard') ),
           ),
 
+        /*
 				array('label'=>Yii::t('cp','ROOT'), 'url'=>array('/cp/category/iroot') ,
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/category/iroot') ),
@@ -42,6 +43,14 @@
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/category/icategory') ),
           'linkOptions' => array( 'data' => 'panel_icategory' )),
+          */
+
+
+        array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/innode/206' ),
+          'visible' => $_isAdmin,
+          'itemOptions' => array('class' => API::isaction('cp/article') ),
+          'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
+
 
 				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/attachment/index'),
           'visible' => $_isAdmin,

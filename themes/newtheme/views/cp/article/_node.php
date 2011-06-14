@@ -20,10 +20,10 @@
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" >';
         echo '<p 
-              class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+              class="to_dest '.API::isaction('/cp/article/'.action().'/category_id/'.$leaf->id). '"
               return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               title="'.$name.'">';
-        echo "<a  href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'
+        echo "<a  href='".url('/cp/article/'.action(), array('category_id' => $leaf->id) )."'
                   style='text-indent:".$style_text_indent."'>";
         echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
@@ -31,10 +31,10 @@
 			}else if( $depth > $temp_depth ) {
 			  echo '<ul class="'.$class.'"><li class="'.$class.'">';
         echo '<p 
-              class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+              class="to_dest '.API::isaction('/cp/article/'.action().'/category_id/'.$leaf->id). '"
               return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               title="'.$name.'">';
-        echo "<a  href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'
+        echo "<a  href='".url('/cp/article/'.action(), array('category_id' => $leaf->id) )."'
                   style='text-indent:".$style_text_indent."'>";
         echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
@@ -45,10 +45,10 @@
     		}
     		echo '<li class="'.$class.'">';
         echo '<p 
-           class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+           class="to_dest '.API::isaction('/cp/article/'.action().'/category_id/'.$leaf->id). '"
            return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
            title="'.$name.'">';
-        echo "<a  href='".url('/cp/article/index', array('category_id' => $leaf->id) )."'
+        echo "<a  href='".url('/cp/article/'.action(), array('category_id' => $leaf->id) )."'
                   style='text-indent:".$style_text_indent."'>";
         echo '<span class="'.$handle_class.'" data_id="'.$id.'" >&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';
@@ -56,10 +56,10 @@
   		}else if( $depth == $temp_depth ){
     		echo '</li><li class="'.$class.'">';
         echo '<p 
-                class="to_dest '.API::isaction('/cp/article/index/category_id/'.$leaf->id). '"
+                class="to_dest '.API::isaction('/cp/article/'.action().'/category_id/'.$leaf->id). '"
                 return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
                 title="'.$name.'">';
-        echo "<a  href='".url('/cp/article/index', array('category_id' => $leaf->id) )."' 
+        echo "<a  href='".url('/cp/article/'.action(), array('category_id' => $leaf->id) )."' 
                   style='text-indent:".$style_text_indent."'>";
         echo '<span class="'.$handle_class.'" data_id="'.$id.'">&nbsp;&nbsp;</span>';
         echo '<span class="'.$class.'" >&nbsp;&nbsp;</span>';

@@ -30,6 +30,9 @@ function user()
     return Yii::app()->getUser();
 }
 
+function action() {
+  return Yii::app()->controller->action->ID;
+}
 /**
  * This is the shortcut to Yii::app()->createUrl()
  */
