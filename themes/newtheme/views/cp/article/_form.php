@@ -156,7 +156,8 @@
         <tr>
           <td class='pl10P'>
             <p class='alt tdU pick' id="pick<?php echo time(); ?>"			        
-              uri="<?php echo CController::createUrl('rel/pickatt', array('return_id'=>'pick'.time() ) ); ?>">
+                uri="<?php echo CController::createUrl('rel/pickatt',
+                array('return_id'=>'pick'.time(),'rtype' => 'article_link_image' ) ); ?>">
               <?php echo Yii::t('cp','Link Attachment') ?>
             </p>
             <div>
