@@ -14,9 +14,12 @@ class ArticleController extends GController
 		return array( $leafs );
 	}
 
-  public function getTree($top_leaf) {
-    return Category::model()->ileafs( array( 'id' => $top_leaf ,'include' => true ) );
-//    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+  public function getTree($top_leaf='') {
+    if( strlen($top_leaf) > 0 ) {
+      return Category::model()->ileafs( array( 'id' => $top_leaf ,'include' => true ) );
+    }else{
+      return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+    }
   }
 	
 	public function actionSortarticle() {
@@ -53,14 +56,11 @@ class ArticleController extends GController
 
 	  $opt['page_size'] = 15;
     //$leaf_id    = $_GET['leaf_id'];
-    /*
-    if( strlen($top_leaf) > 0 ) {
-      $leaf_id =& $top_leaf;
+    if( strlen($cur_leaf) > 0 ) {
+      $leaf_id =& $cur_leaf;
     }else{
       $leaf_id =& $_GET['category_id'];
     }
-    */
-    $leaf_id = $cur_leaf;
 //    $is_include = $_GET['is_include'];
 
     $is_include = true;
