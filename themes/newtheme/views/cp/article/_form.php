@@ -99,6 +99,17 @@
             </p>
           </td>
         </tr>
+        
+        <tr>
+          <td class='pl10P'>
+            <p class='alt tdU pick' id="pick<?php echo time(); ?>"
+              uri="<?php echo CController::createUrl('rel/picknode',
+              array('return_id'=>'pick'.time(),'rtype' => 'multiple' ) ); ?>">
+              <label>副节点</label> 
+            </p>
+          </td>
+        </tr>
+        
       
         <tr>
           <td class='pl10P'>

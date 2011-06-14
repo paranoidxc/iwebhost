@@ -57,17 +57,19 @@ body {
   width: 100px;
 }
 .isubmit {
-  border: 1px outset #CCC;
+  /*border: 1px outset #CCC;*/
   font-size: 14px;
   font-weight: bold;
   padding: 5px 20px;
   cursor: pointer;
 }.isubmit:hover {
-  border: 1px inset #CCC;
+/*  border: 1px inset #CCC; */
 }.isubmit:active {
+/*
+ * border: 1px outset #F36; 
   background: #C36;
   color: #FFF;
-  border: 1px outset #F36;
+ * */
 }
 
 .search_input {

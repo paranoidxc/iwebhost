@@ -63,9 +63,7 @@ ul.api_categorys_ul .f_open:hover {
 
 ul.api_categorys_ul span.open,
 ul.api_categorys_ul span.fold{
-  background-image: url(api_categorys_img/commonIconsObjActEnabled.png);
-  background-position: -464px 50%;
-  background-repeat: no-repeat;   
+  background: url(api_categorys_img/commonIconsObjActEnabled.png) no-repeat -464px 50%;
   height: 16px;
 	width: 16px;
   line-height: 16px;

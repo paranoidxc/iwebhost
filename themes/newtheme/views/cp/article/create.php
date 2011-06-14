@@ -10,7 +10,10 @@
     <div></div><!-- clear ele for fuck ie -->
     <div id="w_location" > 
     <span class="control_tree" >类别</span>
-    <a href="<?php echo url('cp/article/index') ?>" >文章列表</a><?php echo API::rchart();?>Create
+    <a href="<?php echo url('cp/article/index') ?>" >文章列表</a>
+    <?php echo API::rchart();?>
+    <a href="<?php echo url('/cp/article/'.$action, array('category_id' => $model->category_id ) ) ?>" ><?php echo $model->leaf->name ?></a><?php echo API::rchart();?>
+    Create
     </div>
     
     <div id="w_content">

@@ -1,3 +1,14 @@
+<table class='list'>
+          <thead>
+            <tr>
+              <th class='w20P taC pr2P pl2P '><input type='checkbox' class="item-all" /></th>
+              <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
+              <th class='w40P taC vaM'><?php echo Yii::t('cp','stared?') ?></th>
+              <th class='taL'><span class="filter radius4"><?php echo Yii::t('cp','Title') ?></span></th> 
+              <th class='w100P taC' ><?php echo Yii::t('cp','Create_time') ?></th>
+              <th class='w100P taC' ><?php echo Yii::t('cp','Update_time') ?></th>          
+            </tr>
+          </thead>              
 <?php          
   foreach( $list as $_instance) {
 ?>
@@ -16,7 +27,7 @@
             href="<?php echo CController::createurl('article/'.$star_action, array('id'=> $_instance->id, 'ajax' => 'ajax') ) ?>" ></span>
     </td>
     <td class="content_item" data="<?php echo $_instance->id; ?>" >
-      <a href="<?php echo url('/cp/article/update',array( 'id' => $_instance->id) ) ?>"><?php echo $_instance->title ?></a>
+      <a href="<?php echo url('/cp/article/update',array( 'id' => $_instance->id, 'action' => action() ) ) ?>"><?php echo $_instance->title ?></a>
     </td>
     <td class='w100P taC' ><?php echo Time::timeAgoInWords($_instance->create_time, array('short'=>true) )?></td>
     <td class='w100P taC ' >  
@@ -40,3 +51,4 @@
   <?php 
   }
   ?>
+  </table>

@@ -74,6 +74,59 @@ $(document).ready(function(){
 	  return_wrap.find('input').attr('value', rel_id);	
 	  $('.unlink_dest').attr('origin_value',input_default_value);
 	  $('.dest_thumbnail').show();
+	  wrap.remove();
+	});
+
+  $('.to_dest').live('click',function(){	  
+	  var wrap = getPanel($(this));
+	  var _div = parentOne( wrap.find('.move_category_id'),'div');	  
+	  if( _div.css('display') != 'block' ){
+	    _div.slideDown();
+	  }
+	  wrap.find('.move_category_id').val( $(this).attr('rel_id') );
+	  wrap.find('.move_category_name').val( $(this).attr('rel_name') );
+	  wrap.find('.tree_leaf_current').removeClass('tree_leaf_current');
+  	$(this).addClass('tree_leaf_current');	     
+	});
+
+  $('.mtl_to_dest').live('click',function(){
+    if( $(this).hasClass('select') ) {
+      $(this).removeClass('select');
+    }else{
+      $(this).addClass('select');
+    }
+  });
+  $('.mtl_return_submit').live('click',function() {
+	  var wrap = getPanel($(this));	  
+	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent();
+    var t = '';
+    wrap.find('.select').each(function(){
+      t += $(this).attr('rel_name');
+      t += "<input type='text' size='10' name='mtl_category_ids[]' value="+$(this).attr('rel_id')+" />";
+      t += "<br/>";
+    });
+    return_wrap.append( t );
+	
+  });
+
+
+
+  $('.collect_return_submit').live('click',function(){	  
+	  var wrap = getPanel($(this));	  
+	  //var return_wrap = $('#'+wrap.find('.return_id').val()).parent().next();
+	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent();
+	  var rel_name        = wrap.find('.node_name').val();
+	  var rel_id          = wrap.find('.node_id').val();
+	  
+	  return_wrap.find('.dest_collect_name').html( rel_name );
+	  return_wrap.find('.dest_collect').show();
+	  var input_default_value = return_wrap.find('input').val();
+	  return_wrap.find('input').attr('value', rel_id);	  
+	  return_wrap.find('.unlink_collect').attr('origin_value',input_default_value);
+	  if( return_wrap.find('.unlink_default_collect').length > 0 ){
+	    return_wrap.find('.unlink_default_collect').hide();  
+	  };
+	  wrap.remove();
 	});
 
 

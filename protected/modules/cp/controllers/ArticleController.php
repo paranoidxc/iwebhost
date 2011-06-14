@@ -38,12 +38,13 @@ class ArticleController extends GController
 
 
   public function actionInnode() {
-    $cur_leaf = $_GET['category_id'];
-    $this->actionIndex('',206,$cur_leaf);
+    $top_leaf = 206;
+    $cur_leaf = $_GET['category_id'] ? $_GET['category_id'] : $top_leaf;
+    $this->actionIndex($top_leaf,$cur_leaf);
   }
 
 
-	public function actionIndex($value='',$top_leaf='',$cur_leaf='')
+	public function actionIndex($top_leaf='',$cur_leaf='')
 	{	  
 	  list($leafs) = $this->getRelData();
 	  $criteria=new CDbCriteria;
@@ -93,7 +94,7 @@ class ArticleController extends GController
 	  $opt['criteria']        =  $criteria;
 
     $leaf_tree =& $this->getTree($top_leaf);
-	  $opt['tpl_params']      = array( 'leafs' => $leafs,'category' => $category,'leaf_tree' => $leaf_tree );
+	  $opt['tpl_params']      = array( 'top_leaf' => $top_leaf, 'leafs' => $leafs,'category' => $category,'leaf_tree' => $leaf_tree );
 
 	  parent::actionIndex($opt);
 	  
@@ -214,6 +215,7 @@ class ArticleController extends GController
 	 */
 	public function actionCreate()
 	{
+    $action = $_GET['action'];
 		$model=new Article;
 		$model->category_id = $_GET['leaf_id'];
 		list( $leafs ) = $this->getRelData();
@@ -230,13 +232,12 @@ class ArticleController extends GController
 			if($model->save()){
 			  $str = Yii::t('cp','Create Success On ').Time::now();
 			  Yii::app()->user->setFlash('success',$str);
-			  $this->redirect(array('update','id'=>$model->id));	
+			  $this->redirect(array('update','id'=>$model->id, 'action' => $action));	
 			}	
 		}
 
     $leaf_tree = $this->getTree();
-
-		$this->render('create',array( 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leafs' => 	$leafs, 'leaf'	=> $leaf ));
+		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leafs' => 	$leafs, 'leaf'	=> $leaf ));
 	}
 
 	/**
@@ -258,7 +259,8 @@ class ArticleController extends GController
 			}							
 		}
     $leaf_tree =& $this->getTree();
-  	$this->render('update',array( 'model'	=>	$model, 'leafs'	=>	$leafs, 'leaf_tree' => $leaf_tree ));
+    $action = $_GET['action'];
+  	$this->render('update',array( 'action' => $action, 'model'	=>	$model, 'leafs'	=>	$leafs, 'leaf_tree' => $leaf_tree ));
 	}
 
 	

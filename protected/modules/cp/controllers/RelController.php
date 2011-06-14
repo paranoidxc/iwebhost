@@ -50,8 +50,13 @@ class RelController extends Controller
 	}
 	
 	public function actionPicknode(){
-		$return_id = $_GET['return_id'];
-		$this->renderPartial('picknode',array('return_id' => $return_id),false,true);	
+		$return_id =& $_GET['return_id'];
+		$rtype     =& $_GET['rtype'];
+    $tpl = 'picknode';
+    if( $rtype == "multiple") {
+      $tpl = 'multiple_node';
+    }
+    $this->renderPartial($tpl,array('return_id' => $return_id),false,true);	
 	}
 	
 
