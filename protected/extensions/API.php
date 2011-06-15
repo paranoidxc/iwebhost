@@ -24,6 +24,28 @@ class API {
   public static function rchart() {
     return '&nbsp;&raquo;&nbsp;';
   }
+ 
+  public static function upload_prefix_dir() {
+    $y = date('Y');
+    $m = date('m');
+    $d = date('d');
+    if( file_exists(ATMS_SAVE_DIR.$y) ){
+      if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m) ){
+        if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d) ){
+        }else{
+          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d, 0777 );
+        }
+      }else{
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m ,0777 );
+        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777 );
+      }
+    }else{
+      mkdir( ATMS_SAVE_DIR.$y ,0777 );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m,0777  );
+      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777);
+    }    
+    return $y.'/'.$m.'/'.$d.'/';
+  }
 
   public static function mysql_version(){    
     $sql = " select version() as version";
