@@ -102,11 +102,11 @@ $(document).ready(function(){
     var t = '';
     wrap.find('.select').each(function(){
       t += $(this).attr('rel_name');
-      t += "<input type='text' size='10' name='mtl_category_ids[]' value="+$(this).attr('rel_id')+" />";
+      t += "<input type='text' size='10' name='category_article_ids[]' value="+$(this).attr('rel_id')+" />";
       t += "<br/>";
     });
     return_wrap.append( t );
-	
+    wrap.remove();
   });
 
 

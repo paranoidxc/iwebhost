@@ -107,6 +107,17 @@
               array('return_id'=>'pick'.time(),'rtype' => 'multiple' ) ); ?>">
               <label>副节点</label> 
             </p>
+
+            <div>
+            <?php 
+              foreach($model->categorys as $_m_categors) {
+            ?>
+              <p><?php echo $_m_categors->id.'  '.$_m_categors->name;?></p>
+            <?php
+              }
+            ?>
+            </div>
+
           </td>
         </tr>
         

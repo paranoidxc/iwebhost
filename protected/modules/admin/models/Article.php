@@ -246,6 +246,7 @@ class Article extends CActiveRecord
 			'auther'       => array( self::BELONGS_TO, 'User', 'user_id'),
 			'posts'        => array( self::HAS_MANY, 'Post', 'article_id','order'=>' posts.c_time ASC '),
       'notices'      => array( self::HAS_MANY, 'Notification', 'article_id' ),
+      'categorys'      => array( self::MANY_MANY, 'Category', 'many_category_article(article_id,category_id)' ),
 		);
 	}
 
