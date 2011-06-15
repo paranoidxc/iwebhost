@@ -24,7 +24,8 @@
       ?>
       <span class="<?php echo $is_star?>" 
             title="<?php echo Yii::t('cp', $is_star) ?>" 
-            href="<?php echo CController::createurl('article/'.$star_action, array('id'=> $_instance->id, 'ajax' => 'ajax') ) ?>" ></span>
+            href="<?php echo CController::createurl('article/'.$star_action, array('id'=>
+            $_instance->id, 'ajax' => 'ajax') ) ?>" ><?php echo $_instance->is_star;?></span>
     </td>
     <td class="content_item" data="<?php echo $_instance->id; ?>" >
       <a href="<?php echo url('/cp/article/update',array( 'id' => $_instance->id, 'action' => action() ) ) ?>"><?php echo $_instance->title ?></a>

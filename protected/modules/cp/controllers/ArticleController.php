@@ -101,23 +101,6 @@ class ArticleController extends GController
 	}
 
 	/**
-	*  Copy a list of article in same category
-	*/
-	public function actionCopy(){
-		if( isset($_POST['ids']) ){			
-			$ids = explode(',',$_POST['ids']);
-			foreach( $ids as $id ){
-				$at = Article::model()->findByPk($id);
-				$new = new Article();							
-				$new->attributes =$at->attributes;
-				unset($new->attributes['id']);			
-				$new->title = $new->title .' - copy';							
-				$new->save();
-			}
-			echo count($ids)." record(s) are copy done! ";			
-		}
-	}
-	/**
 	*  Move a list of article to another category
 	*/
 	public function actionMove() {		
@@ -315,4 +298,43 @@ class ArticleController extends GController
 			Yii::app()->end();
 		}
 	}
+
+  public function actionBatch() {
+    if(Yii::app()->request->isPostRequest) {
+      $type = $_POST['type'];
+		  $ids =& $_POST['ids'];
+			if( count($ids) > 0 && $type=="删除") {
+				foreach( $ids as $id) {
+				  $imodel = new $this->controllerId;
+					$item = $imodel->findByPk($id);
+					$item->delete();
+				}
+        $str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
+			}elseif ( count($ids) > 0 && $type=="复制") {
+	      /* Copy a list of article in same category */
+        foreach( $ids as $id ) {
+          $at = Article::model()->findByPk($id);
+          $new = new Article();							
+          $new->attributes =$at->attributes;
+          unset($new->attributes['id']);			
+          $new->title = $new->title .' - copy';							
+          $new->save();
+        }
+        $str = '已复制 '.count($ids).' 个用户数据 '.Time::now();
+			}elseif ( count($ids) > 0 && $type=="重点") {
+        $ids = join(',',$ids);
+        Article::model()->updateAll( array('is_star' => 1), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
+        $str = '已打重点 '.count($ids).' 个用户数据 '.Time::now();
+			}elseif ( count($ids) > 0 && $type=="非重点") {
+        $ids = join(',',$ids);
+        Article::model()->updateAll( array('is_star' => 0), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
+        $str = '已取消重点 '.count($ids).' 个用户数据 '.Time::now();
+      }
+     	Yii::app()->user->setFlash('success',$str);
+      $this->redirect( rurl() );
+		} else {
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+    }
+
+  }
 }

@@ -41,7 +41,11 @@
       <div id="w_action">
         <div class='pl20P pt3P' >
           <a class='action' href="<?echo url('/cp/article/create', array('action' => action(), 'leaf_id' => $category->id) ) ?>" >new article</a>
+          <input type="submit" value="复制" name="type" />
+          <input type="submit" value="重点" name="type" />
+          <input type="submit" value="非重点" name="type" />
           <input type="submit" value="删除" name="type" />
+          <input type="submit" value="移动" name="type" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
