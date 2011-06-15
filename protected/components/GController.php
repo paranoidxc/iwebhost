@@ -177,7 +177,7 @@ class GController extends Controller
         $str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
       	Yii::app()->user->setFlash('success',$str);
 			}
-      $this->redirect( array('index') );
+      $this->redirect( rurl() );
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

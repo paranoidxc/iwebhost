@@ -29,22 +29,22 @@
 
 <tbody>
   <tr>
-    <td class='vaT' style="60%">
-      <table class=''>
+    <td class='vaT' style="width: 60%">
+      <table class='w100S'>
         <tr>
           <td colspan="" class='pl10P'>
             <input type="hidden" class="widgEditor_id" value="#article_content<?php echo time()?>" /> 
             <?php echo $form->textArea($model,'content',
-              array('rows'=>40, 'cols'=>40, 'id'=>'article_content'.time(), 'class' => 'tinymce mceEditor' )); ?>
+              array('rows'=>40, 'id'=>'article_content'.time(), 'class' => 'w100S tinymce mceEditor' )); ?>
             <?php echo $form->error($model,'content'); ?>		
           </td>
         </tr>
       </table>
     </td><!--内容字段 end-->
 
-    <td class='vaT' style="40%">
+    <td class='vaT' style="width: 40%">
 
-      <table class='itable'>
+      <table class='itable w100S'>
         <tr>
          <td class="pl10P">
             <p><?php echo $form->labelEx($model,'title'); ?></p>

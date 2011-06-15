@@ -162,7 +162,7 @@ class ArticleController extends GController
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','test', 'move', 'copy','stared','unstared'),
+				'actions'=>array('create','update','test', 'move', 'copy','stared','unstared','batch'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -270,8 +270,6 @@ class ArticleController extends GController
     $action = $_GET['action'];
   	$this->render('update',array( 'action' => $action, 'model'	=>	$model, 'leafs'	=>	$leafs, 'leaf_tree' => $leaf_tree ));
 	}
-
-	
 
 	
 	/**

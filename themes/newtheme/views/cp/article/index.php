@@ -36,12 +36,12 @@
  <?php } ?>
 
 
-    <form action="<?php echo url('/cp/user/batch') ?>" method="post" >
+    <form action="<?php echo url('/cp/article/batch') ?>" method="post" >
       
       <div id="w_action">
         <div class='pl20P pt3P' >
           <a class='action' href="<?echo url('/cp/article/create', array('action' => action(), 'leaf_id' => $category->id) ) ?>" >new article</a>
-          <input type="submit" value="删除" name="delete" />
+          <input type="submit" value="删除" name="type" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
