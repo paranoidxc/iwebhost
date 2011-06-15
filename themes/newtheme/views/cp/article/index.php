@@ -24,19 +24,9 @@
       <?php echo API::rchart();?>Index
     </div>
 
-<?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-<?php } ?>
-<?php if(Yii::app()->user->hasFlash('error')) {?>
-    <div class="error">
-      <?php echo Yii::app()->user->getFlash('error'); ?>
-    </div>
- <?php } ?>
+    <?php echo $this->renderPartial( '//layouts/flash') ?>
 
-
-    <form action="<?php echo url('/cp/article/batch') ?>" method="post" >
+    <form action="<?php echo url('/cp/article/batch') ?>" method="post" class='batch_form' >
       
       <div id="w_action">
         <div class='pl20P pt3P' >
@@ -45,7 +35,8 @@
           <input type="submit" value="重点" name="type" />
           <input type="submit" value="非重点" name="type" />
           <input type="submit" value="删除" name="type" />
-          <input type="submit" value="移动" name="type" />
+          <input type="submit" value="移动" name="type" class='pick'
+              uri="<?php echo url('/cp/article/move',array('top_leaf_id' => $top_leaf ) ) ?>" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>

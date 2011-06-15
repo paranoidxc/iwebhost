@@ -5,7 +5,6 @@
 
 <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
 
-<form action="<?php echo CController::createurl('article/move') ?>" method="post" class="ajax_move_form" id="article_ajax_move">
 
   <div style="height: 400px; overflow: auto; background: #FFF;">
   <?php
@@ -15,10 +14,9 @@
    <div class="taR h30P lh30P pt5P pr10P">    
     <input type="text" name="category_id"  class="move_category_id hidden_like_span" readonly = true /> - 
     <input type="text" name="category_name" class="move_category_name hidden_like_span" readonly = true />  
-    <?php echo CHtml::submitButton( Yii::t('cp','Submit'), array( 'class' => 'ibtn blue')); ?>
+    <?php echo CHtml::submitButton( Yii::t('cp','Submit'), array( 'class' => 'ibtn blue batch_move')); ?>
   </div>  
   
-</form>
 
 <div class="ajax_overlay" />
 

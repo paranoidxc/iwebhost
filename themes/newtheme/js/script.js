@@ -1,4 +1,39 @@
 $(document).ready(function(){
+  function parentOne(ele,exp){	  
+    if( ele.parent().find(exp).length > 0 || ele.hasClass(exp) ) {
+      return ele;
+    }else{
+      return parentOne(ele.parent(), exp);
+    }	      
+  }
+
+  function getPanel(that){ return parentOne(that,'.mac_panel_wrap'); }
+	function get_ids(){
+	  var _temp_ids = '';
+	  $('.item-sep').each(function(){
+		  if( $(this).is(":checked") ){
+		    if( _temp_ids == "") {
+				  _temp_ids += $(this).val();
+			  }else {
+				  _temp_ids += ','+$(this).val();
+			  }	
+		  }
+		});
+		return _temp_ids;
+	}
+
+
+  $('.batch_move').live('click',function() {
+    $.ajax({
+      type: 'post',
+      url: $('.batch_form').find("input[value=移动]").attr('uri'),
+//      data: 'ids='+get_ids()+'&category_id='+$('.move_category_id').val(),
+      data: $('.batch_form').serialize()+'&category_id='+$('.move_category_id').val(),
+      success: function(html) {
+        alert(html);
+      }
+    });
+  });
 
 	$('.pick').live('click',function(){
     var uri = $(this).attr('uri');
@@ -15,20 +50,9 @@ $(document).ready(function(){
         $(document.body).append( $(html) );
 			}
 		});
+    return false;
 	});		
   
-  function parentOne(ele,exp){	  
-    if( ele.parent().find(exp).length > 0 || ele.hasClass(exp) ) {
-      return ele;
-    }else{
-      return parentOne(ele.parent(), exp);
-    }	      
-  }
-
-  function getPanel(that){
-    return parentOne(that,'.mac_panel_wrap');
-  }
-
   $('.rpick').live('click',function(){	  
 	  var wrap = getPanel($(this));
 	  wrap.find('li.active').removeClass('active');	  
@@ -87,6 +111,7 @@ $(document).ready(function(){
 	  wrap.find('.move_category_name').val( $(this).attr('rel_name') );
 	  wrap.find('.tree_leaf_current').removeClass('tree_leaf_current');
   	$(this).addClass('tree_leaf_current');	     
+    return false;
 	});
 
   $('.mtl_to_dest').live('click',function(){
@@ -96,6 +121,7 @@ $(document).ready(function(){
       $(this).addClass('select');
     }
   });
+
   $('.mtl_return_submit').live('click',function() {
 	  var wrap = getPanel($(this));	  
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent();

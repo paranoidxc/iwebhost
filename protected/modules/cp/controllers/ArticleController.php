@@ -107,10 +107,11 @@ class ArticleController extends GController
 		
 	  $panel_ident = $_REQUEST['panel_ident'];
 	  
-		if( isset($_POST['category_id']) ){			
+		if( isset($_POST['category_id']) ){
 			$category_id = $_POST['category_id'];
 			$category = Category::model()->findByPk($category_id);
-			$ids = explode(',',$_POST['ids']);			
+      $ids =& $_POST['ids'];
+//			$ids = explode(',',$_POST['ids']);			
 			foreach( $ids as $id) {				
 				$at = Article::model()->findByPk($id);
 				if( $at ) {									
@@ -300,9 +301,13 @@ class ArticleController extends GController
 	}
 
   public function actionBatch() {
+    print_r($_POST);
+    exit;
     if(Yii::app()->request->isPostRequest) {
       $type = $_POST['type'];
 		  $ids =& $_POST['ids'];
+      echo $type;
+      exit;
 			if( count($ids) > 0 && $type=="删除") {
 				foreach( $ids as $id) {
 				  $imodel = new $this->controllerId;
