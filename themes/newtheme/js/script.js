@@ -178,6 +178,21 @@ $(document).ready(function(){
     }
   });
 
+  $('.batch_form input[type=submit]').click(function(){
+      if( confirm("process") ) {
+        return true;
+      }
+      return false;
+  });
+
+  $('.item-sep').click(function(){
+    if( $(this).is(':checked') ){
+      $(this).parent().parent().addClass('select');
+    }else{
+      $(this).parent().parent().removeClass('select');
+    }
+  });
+
   $('.item-all').click(function(){
     if( $(this).is(':checked') ){
       $('.item-sep').attr('checked',true);
