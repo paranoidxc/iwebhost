@@ -20,7 +20,9 @@
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" >';
         echo '<p 
-              class="to_dest '.API::isaction('/cp/article/'.action().'/category_id/'.$leaf->id.'/'). '"
+              class="to_dest '.API::isaction( array(
+              '/cp/article/'.action().'/category_id/'.$leaf->id.'.html',
+              '/cp/article/'.action().'.html' )). '"
               return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               title="'.$name.'">';
         echo "<a  href='".url('/cp/article/'.action($action), array('category_id' => $leaf->id) )."'
