@@ -1,6 +1,7 @@
 <div id="w_search"> 
   <div class='w_left'>ihost console logo</div>
   <form action="<?php echo CController::createUrl('/cp/article/'.action()) ?>" method="get" class="search_form">        
+      <input type="hidden" name="category_id" value="<?php echo $this->tpl_params['cur_leaf']->id ?>" />
       <input type="hidden" id="is_hide_adv" name="is_hide_adv" value="<?php echo $this->tpl_params['is_hide_adv']; ?>" />
       <input type="hidden" name="account_type" value="<?php echo $this->tpl_params['account_type']; ?>" />
       <input type="text" name="keyword" 

@@ -70,8 +70,9 @@ class ArticleController extends GController
     $criteria->condition = " 1=1 ";
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0 || strlen($_GET['leaf_id'] ) > 0 ){
 		  $keyword = trim($_GET['keyword']);			  
-      $criteria->condition  .= ' AND title like :keyword ';
+      $criteria->condition  .= ' AND title like :keyword ';  
       $criteria->params     = array(':keyword'=>"%$keyword%");      
+      $opt['tpl_params']['keyword'] =& $_REQUEST['keyword'];
 	  }
 	  $opt['page_size'] = 15;
 
@@ -99,7 +100,10 @@ class ArticleController extends GController
     $criteria->order        = 'update_time DESC';
 	  $opt['criteria']        =  $criteria;
     $leaf_tree =& $this->getTree($top_leaf_id);
-	  $opt['tpl_params']      = array( 'top_leaf' => $top_leaf, 'cur_leaf' => $cur_leaf, 'leaf_tree' => $leaf_tree );
+	  $opt['tpl_params']['top_leaf']  = $top_leaf;
+	  $opt['tpl_params']['cur_leaf']  = $cur_leaf;
+	  $opt['tpl_params']['leaf_tree'] = $leaf_tree;
+//	  $opt['tpl_params']    = array( 'top_leaf' => $top_leaf, 'cur_leaf' => $cur_leaf, 'leaf_tree' => $leaf_tree );
 	  parent::actionIndex($opt);
 	}
 
