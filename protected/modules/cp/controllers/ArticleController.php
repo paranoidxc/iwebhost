@@ -246,11 +246,13 @@ class ArticleController extends GController
 			if($model->save()){
 
         ManyCategoryArticle::model()->deleteAllByAttributes( array('article_id' => $model->id ) );
-        foreach( $_POST['category_article_ids'] as $m_category_id ) {
-          $_model = new ManyCategoryArticle;
-          $_model->article_id = $model->id;
-          $_model->category_id = $m_category_id;
-          $_model->save();
+        if( count( $_POST['category_article_ids'] ) > 0 ) {
+          foreach( $_POST['category_article_ids'] as $m_category_id ) {
+            $_model = new ManyCategoryArticle;
+            $_model->article_id = $model->id;
+            $_model->category_id = $m_category_id;
+            $_model->save();
+          }
         }
 			  $str = Yii::t('cp','Data saved success On ').Time::now();
 				Yii::app()->user->setFlash('success',$str);
