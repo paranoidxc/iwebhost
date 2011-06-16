@@ -45,10 +45,17 @@
           'linkOptions' => array( 'data' => 'panel_icategory' )),
           */
 
-
-        array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/innode/206' ),
+        
+        array('label'=>'ipage', 'url'=>array('/cp/article/ipage/208' ),
           'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/article') ),
+          'itemOptions' => array('class' => API::isaction('cp/article/ipage/') ),
+          'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
+
+
+
+        array('label'=>'infuhzou ar', 'url'=>array('/cp/article/innode/206' ),
+          'visible' => $_isAdmin,
+          'itemOptions' => array('class' => API::isaction('cp/article/innode') ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
 

@@ -35,18 +35,37 @@ class ArticleController extends GController
 	/**
 	 * Lists all models.
 	 */
-
-
-  public function actionInnode() {
-    $top_leaf = 206;
-    $cur_leaf = $_GET['category_id'] ? $_GET['category_id'] : $top_leaf;
-    $this->actionIndex($top_leaf,$cur_leaf);
+  public function actionIpage() {
+    $top_leaf_id = 208;
+    $cur_leaf_id = $_GET['category_id'] ? $_GET['category_id'] : $top_leaf_id;
+    $this->actionIndex($top_leaf_id,$cur_leaf_id);
   }
 
 
-	public function actionIndex($top_leaf='',$cur_leaf='')
+
+  public function actionInnode() {
+    $top_leaf_id = 206;
+    $cur_leaf_id = $_GET['category_id'] ? $_GET['category_id'] : $top_leaf_id;
+    $this->actionIndex($top_leaf_id,$cur_leaf_id);
+  }
+
+
+	public function actionIndex($top_leaf_id='',$cur_leaf_id='')
 	{	  
-	  list($leafs) = $this->getRelData();
+    // fetch top leaf
+    if( strlen($top_leaf_id) > 0 ) {
+      $top_leaf = Category::model()->findByPk($top_leaf_id);
+    }else{
+      $top_leaf = Category::model()->findByPk(1);
+    }
+    // fetch current leaf
+    if( strlen(trim($cur_leaf_id)) > 0 ) {
+      $cur_leaf = $category = Category::model()->findByPk($cur_leaf_id);
+    }else{
+      $cur_leaf_id =& $_GET['category_id'];
+      $cur_leaf = $category = Category::model()->findByPk($cur_leaf_id);
+    }
+
 	  $criteria=new CDbCriteria;
     $criteria->condition = " 1=1 ";
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0 || strlen($_GET['leaf_id'] ) > 0 ){
@@ -54,25 +73,18 @@ class ArticleController extends GController
       $criteria->condition  .= ' AND title like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%");      
 	  }
-
 	  $opt['page_size'] = 15;
-    //$leaf_id    = $_GET['leaf_id'];
-    if( strlen($cur_leaf) > 0 ) {
-      $leaf_id =& $cur_leaf;
-    }else{
-      $leaf_id =& $_GET['category_id'];
-    }
+
 //    $is_include = $_GET['is_include'];
 
     $is_include = true;
-    if( strlen( $leaf_id) > 0 ){
+    if( strlen( $cur_leaf_id) > 0 ){
       $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
       if( $is_include ){
-        $leaf = Category::model()->findbypk($leaf_id);          
         $leafs = Category::model()->findAll( array( 
           'select' => 'id, name',
           'condition'  => ' rgt <= :rgt AND lft >= :lft ',
-          'params'    => array( ':rgt' => $leaf->rgt, ':lft' => $leaf->lft )
+          'params'    => array( ':rgt' => $cur_leaf->rgt, ':lft' => $cur_leaf->lft )
         ) );
         $all_leafs = '';
         foreach( $leafs as $_leaf ){
@@ -80,24 +92,15 @@ class ArticleController extends GController
         }        
         $criteria->params[':category_id'] = $all_leafs;
       }else{
-        $criteria->params[':category_id'] = $leaf_id;  
+        $criteria->params[':category_id'] = $cur_leaf_id;  
       }
     }
 
-    if( strlen($leaf_id) > 0 ) {
-      $category = Category::model()->findByPk($leaf_id);
-    }else{
-      $category = Category::model()->findByPk(1);
-    }
-
-	  $criteria->order        = 'update_time DESC';
+    $criteria->order        = 'update_time DESC';
 	  $opt['criteria']        =  $criteria;
-
-    $leaf_tree =& $this->getTree($top_leaf);
-	  $opt['tpl_params']      = array( 'top_leaf' => $top_leaf, 'leafs' => $leafs,'category' => $category,'leaf_tree' => $leaf_tree );
-
+    $leaf_tree =& $this->getTree($top_leaf_id);
+	  $opt['tpl_params']      = array( 'top_leaf' => $top_leaf, 'cur_leaf' => $cur_leaf, 'leaf_tree' => $leaf_tree );
 	  parent::actionIndex($opt);
-	  
 	}
 
 	/**
@@ -142,7 +145,7 @@ class ArticleController extends GController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','preview','Sortarticle','innode'),
+				'actions'=>array('index','view','preview','Sortarticle','innode','ipage'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -202,7 +205,6 @@ class ArticleController extends GController
     $action = $_GET['action'];
 		$model=new Article;
 		$model->category_id = $_GET['leaf_id'];
-		list( $leafs ) = $this->getRelData();
 		$leaf  = Category::model()->findByPk($_REQUEST['leaf_id']);
 		if(isset($_POST['Article'])) {				  
 		  $model->attributes=$_POST['Article'];
@@ -221,7 +223,7 @@ class ArticleController extends GController
 		}
 
     $leaf_tree = $this->getTree();
-		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leafs' => 	$leafs, 'leaf'	=> $leaf ));
+		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leaf'	=> $leaf ));
 	}
 
 	/**
@@ -230,8 +232,9 @@ class ArticleController extends GController
 	 */
 	public function actionUpdate()
 	{
+    $action       =& $_GET['action'];
+    $top_leaf_id  =& $_GET['top_leaf_id'];
 		$model=$this->loadModel(); 
-		list( $leafs ) = $this->getRelData();
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];
@@ -250,9 +253,9 @@ class ArticleController extends GController
 				$this->redirect(array('update','id'=>$model->id));	
 			}							
 		}
-    $leaf_tree =& $this->getTree();
-    $action = $_GET['action'];
-  	$this->render('update',array( 'action' => $action, 'model'	=>	$model, 'leafs'	=>	$leafs, 'leaf_tree' => $leaf_tree ));
+    $leaf_tree =& $this->getTree($top_leaf_id);
+    $top_leaf = Category::Model()->findByPk($top_leaf_id);
+  	$this->render('update',array( 'action' => $action, 'model'	=>	$model, 'top_leaf' => $top_leaf, 'leaf_tree' => $leaf_tree ));
 	}
 
 	
@@ -301,13 +304,9 @@ class ArticleController extends GController
 	}
 
   public function actionBatch() {
-    print_r($_POST);
-    exit;
     if(Yii::app()->request->isPostRequest) {
       $type = $_POST['type'];
 		  $ids =& $_POST['ids'];
-      echo $type;
-      exit;
 			if( count($ids) > 0 && $type=="删除") {
 				foreach( $ids as $id) {
 				  $imodel = new $this->controllerId;

@@ -30,7 +30,10 @@ function user()
     return Yii::app()->getUser();
 }
 
-function action() {
+function action($a='') {
+  if( strlen($a) > 0 ) {
+    return $a;
+  }
   return Yii::app()->controller->action->ID;
 }
 /**

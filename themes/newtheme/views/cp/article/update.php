@@ -1,7 +1,7 @@
 <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_middle">
   <div class="dN" id="w_left"> 
-    <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree),false,true) ?>
+    <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree,'action' => $action ),false,true) ?>
   </div>
   
   <div id="wx_right">
@@ -16,7 +16,7 @@
     
     <div id="w_content">
       <?php echo $this->renderPartial('_form',
-        array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf,'panel_ident' => $panel_ident)); ?>
+        array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf)); ?>
     </div>
 
   </div>

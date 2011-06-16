@@ -9,15 +9,15 @@
     
     <div id="w_location"> 
       <?php 
-      if( $category->id == $top_leaf ) {
+      if( $cur_leaf->id == $top_leaf->id ) {
       ?>
-      <a href="<?php echo url('cp/article/'.action()) ?>" >Top Leaf</a>
+      <a href="<?php echo url('cp/article/'.action()) ?>" ><?php echo $top_leaf->name;?></a>
       <?php
       }else{
       ?>
-      <a href="<?php echo url('cp/article/'.action()) ?>" >Article</a>
+      <a href="<?php echo url('cp/article/'.action()) ?>" ><?php echo $top_leaf->name; ?></a>
       <?php echo API::rchart();?><a href="<?php echo url('cp/article/'.action(), array('category_id'
-      => $category->id) ) ?>" ><?php echo $category->name;?></a>
+      => $cur_leaf->id) ) ?>" ><?php echo $cur_leaf->name;?></a>
       <?php 
       }
       ?>
@@ -30,13 +30,13 @@
       
       <div id="w_action">
         <div class='pl20P pt3P' >
-          <a class='action' href="<?echo url('/cp/article/create', array('action' => action(), 'leaf_id' => $category->id) ) ?>" >new article</a>
+          <a class='action' href="<?echo url('/cp/article/create', array('action' => action(), 'leaf_id' => $cur_leaf->id) ) ?>" >new article</a>
           <input type="submit" value="复制" name="type" />
           <input type="submit" value="重点" name="type" />
           <input type="submit" value="非重点" name="type" />
           <input type="submit" value="删除" name="type" />
           <input type="submit" value="移动" name="type" class='pick'
-              uri="<?php echo url('/cp/article/move',array('top_leaf_id' => $top_leaf ) ) ?>" />
+              uri="<?php echo url('/cp/article/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
@@ -45,7 +45,9 @@
 
       <div id="w_content">
             <?php echo $this->renderPartial('_index',
-                array('list'=>$list, 'pagination' => $pagination,
+                array('list'=>$list,
+                  'top_leaf' => $top_leaf,
+                  'pagination' => $pagination,
                   'select_pagination' => $select_pagination)); ?>
       </div><!-- end w_content -->
     </form>
