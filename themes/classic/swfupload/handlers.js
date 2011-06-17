@@ -194,3 +194,10 @@ function queueComplete(numFilesUploaded) {
 	var status = document.getElementById("divStatus");
 	status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";
 }
+
+
+function cpqueueComplete(numFilesUploaded) {
+	var status = document.getElementById("divStatus");
+	status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";
+  window.location.href = window.location.href ;
+}

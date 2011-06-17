@@ -33,7 +33,7 @@
                   'select_pagination' => $select_pagination)); ?>
       </div><!-- end w_content -->
     </form>
-
+    <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
   </div>
 </div>
 

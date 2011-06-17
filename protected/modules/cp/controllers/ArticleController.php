@@ -206,8 +206,8 @@ class ArticleController extends GController
 	 */
 	public function actionCreate()
 	{
-    $action = $_GET['action'];
-		$model=new Article;
+    $action =& $_GET['action'];
+		$model = new Article;
 		$model->category_id = $_GET['leaf_id'];
 		$leaf  = Category::model()->findByPk($_REQUEST['leaf_id']);
 		if(isset($_POST['Article'])) {				  

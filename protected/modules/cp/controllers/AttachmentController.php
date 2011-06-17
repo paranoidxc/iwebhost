@@ -19,6 +19,11 @@ class AttachmentController extends GController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('upload'),
+				'users'=>array('*'),
+			),
+	
+			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','upload','pick','move','BatchEdit','BatchUpdate'),
 				'users'=>array('@'),
 			),
@@ -81,6 +86,7 @@ class AttachmentController extends GController
    **/
   public function actionUpload()
   {    
+
     $category_id = $_GET['category_id'];
     $user_id     = $_GET['user_id'];
     if( strlen( trim($category_id) ) ==  0 ) {
@@ -88,14 +94,7 @@ class AttachmentController extends GController
       $category_id = Category::model()->autoCreate();      
     }    
 
-    if (isset($_POST["PHPSESSID"])) {
-		  session_id($_POST["PHPSESSID"]);
-	  } else if (isset($_GET["PHPSESSID"])) {
-		  session_id($_GET["PHPSESSID"]);
-	  }
-	  session_start();
 	  ini_set("html_errors", "0");
-    
     $upload_name = "Filedata";
     $path_info = pathinfo($_FILES[$upload_name]['name']);
 	  $file_extension = $path_info["extension"];
@@ -104,28 +103,12 @@ class AttachmentController extends GController
     $screen_name  =  basename($_FILES[$upload_name]['name']);
     $time = time();
     $file_name = $time.'.'.$file_extension;
-    //$img_ext = array("jpg", "jpeg", "png", "gif");    
-    $y = date('Y');
-    $m = date('m');
-    $d = date('d');
-    if( file_exists(ATMS_SAVE_DIR.$y) ){
-      if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m) ){
-        if( file_exists(ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d) ){
-        }else{
-          mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d, 0777 );
-        }
-      }else{
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m ,0777 );
-        mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777 );
-      }
-    }else{
-      mkdir( ATMS_SAVE_DIR.$y ,0777 );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m,0777  );
-      mkdir( ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d ,0777 );
-    }    
-    $put_file_to_dir = ATMS_SAVE_DIR.$y.'/'.$m.'/'.$d.'/';
-    $put_file_path = $y.'/'.$m.'/'.$d.'/';
+
+    $put_file_path = API::upload_prefix_dir();
+    $put_file_to_dir = ATMS_SAVE_DIR.$put_file_path;
+
     if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], $put_file_to_dir.$file_name)) {	  	
+      echo 'fuck';
 		  exit(0);
 	  }
 	  
@@ -200,27 +183,29 @@ class AttachmentController extends GController
 	 */
 	public function actionCreate()
 	{	  
-    
-		$model=new Attachment;
+    $action =& $_GET['action'];
+    $cur_leaf_id =& $_GET['leaf_id'];
+    $cur_leaf = Category::model()->findByPk($cur_leaf_id);
+    $leafs = Category::model()->findAll( array( 
+          'select' => 'id, name',
+          'condition'  => ' rgt <= :rgt AND lft >= :lft ',
+          'params'    => array( ':rgt' => $cur_leaf->rgt, ':lft' => $cur_leaf->lft )
+    ) );
+    $all_leafs = '';
+    foreach( $leafs as $_leaf ){
+      $all_leafs .= $_leaf->id.',';
+    }        
+    $model = new Attachment;
+    $criteria=new CDbCriteria;
+    $criteria->condition = ' find_in_set(category_id, :category_id)';
+    $criteria->limit = '10000';
+    $criteria->order =' c_time DESC ';
+    $criteria->params[':category_id'] = $all_leafs;
+    $list = $model->findAll( $criteria );
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Attachment']))
-		{
-			$model->attributes=$_POST['Attachment'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-		
-		$leafs = Category::model()->ileafs(
-      array( 'ident' => 'attachment' ,'include' => true )
-	  );	
-
-		$this->render('create',array(
-			'model' => $model,
-			'leafs' => $leafs
-		));
+    $leaf_tree = $this->getTree(30);
+		$this->render('create',array( 'list' => $list,'cur_leaf'=>$cur_leaf,
+                          'leaf_tree' => $leaf_tree,'action' => $action) );
 	}
 
   public function actionBatchUpdate(){
@@ -341,28 +326,6 @@ class AttachmentController extends GController
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
 	 /*
-	public function actionDelete()
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-		  if( strlen($_POST['ids']) >0 ) {
-	    	$ids = explode(',',$_POST['ids']);
-			  foreach( $ids as $id) {
-				  $a = Attachment::model()->findByPk($id);
-			  	$a->delete();					
-			  }
-		  }
-			// we only allow deletion via POST request
-			//$this->loadModel()->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			//if(!isset($_GET['ajax']))
-				//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-*/
 	/**
 	 * Lists all models.
 	 */
@@ -417,6 +380,7 @@ class AttachmentController extends GController
       }
     }
 
+    $criteria->order =' c_time DESC ';
     $leaf_tree =& $this->getTree($top_leaf_id);
     $opt['criteria']        =  $criteria;
     $opt['tpl_params']['top_leaf']  =& $top_leaf;
@@ -426,25 +390,6 @@ class AttachmentController extends GController
     parent::actionIndex($opt);
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Attachment('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Attachment']))
-			$model->attributes=$_GET['Attachment'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
 	public function loadModel()
 	{
 		if($this->_model===null)
@@ -457,10 +402,6 @@ class AttachmentController extends GController
 		return $this->_model;
 	}
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
 	protected function performAjaxValidation($model)
 	{
 		if(isset($_POST['ajax']) && $_POST['ajax']==='attachment-form')
