@@ -58,7 +58,92 @@ class GController extends Controller
 		}
 		return $this->_model;
 	}
+
+  public function actionLeaf_update() {
+    $cur_leaf_id =& $_GET['cur_leaf_id'];
+    $model        = Category::model()->findByPk($cur_leaf_id);
+
+		if( isset( $_POST['Category']['parent_leaf_id'] ) &&  strlen($_POST['Category']['parent_leaf_id']) > 0 ) {		
+			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];						
+			$model->parent_leaf = Category::model()->findByPk($_POST['Category']['parent_leaf_id']);				
+		} else {		  
+			$sql = 	" SELECT parent.name, parent.id ".
+				 	" FROM category AS node,".
+					" category AS parent ".
+					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
+					" AND node.id = $model->id ".
+					" ORDER BY parent.lft ";					
+			$path = Category::model()->findAllBysql($sql);
+			$temp_parent;
+			foreach( $path as $obj ) {								
+				if( $obj->id  == $model->id ) {					
+					break;
+				}				
+				$model->parent_leaf = $obj;		
+			}			
+		}		
+
+		if(isset($_POST['Category']))
+		{		  
+			$model->attributes=$_POST['Category'];		
+			$model->update_time = date("Y-m-d H:i:s");
+			if($model->save()){
+    	    $str = Yii::t('cp','Data saved success On ').Time::now();
+					Yii::app()->user->setFlash('success',$str);
+    	    $this->redirect(array('leaf_update','cur_leaf_id'=>$model->id));
+			}
+		}
+    $this->render('//cp/category/create',array( 'model'=>$model),false,true );
+  }
 	
+
+  public function actionLeaf_create() {
+    $model=new Category();
+    $parent_leaf_id = $_GET['parent_leaf_id'];
+    $parent_leaf = Category::model()->findByPk($parent_leaf_id);
+    $model->parent_leaf_id =& $parent_leaf_id;
+    $model->parent_leaf =& $parent_leaf;
+
+		if(isset($_POST['Category']))
+		{
+		  $model->attributes=$_POST['Category'];
+			// ==2 is pass the validate 
+			// validate reutrn "[]" string
+			if( strlen(CActiveForm::validate($model)) == 2 ) {
+				
+				$cmodel = Category::model();
+				$transaction = $cmodel->dbConnection->beginTransaction();				
+				try {          
+					$leaf_model = Category::model();								
+					
+					$parent_leaf = $leaf_model->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
+
+					$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
+					$cmodel->dbConnection->createCommand($update_rgt)->execute();
+          
+					$update_lft = " UPDATE category SET lft = lft + 2 WHERE  lft > $parent_leaf->lft ";					
+					$cmodel->dbConnection->createCommand($update_lft)->execute();					
+				
+					$model->lft = $parent_leaf->lft + 1;
+					$model->rgt = $parent_leaf->lft + 2;
+				
+					$model->create_time = date("Y-m-d H:i:s");
+				
+					$model->save();
+					$transaction->commit();	
+					
+			    $str = Yii::t('cp','Create Success On ').Time::now();
+			    Yii::app()->user->setFlash('success',$str);
+          $this->redirect( array('leaf_update', 'cur_leaf_id' => $model->id ) );
+				}catch(Exception $e) {
+				//	print($e);
+					print(" exception ");					
+					$transaction->rollBack();
+				}				
+			}
+		}
+    $this->render('//cp/category/create',array( 'model'=>$model),false,true );
+  }
 	
 	/**
 	 * Lists all models.

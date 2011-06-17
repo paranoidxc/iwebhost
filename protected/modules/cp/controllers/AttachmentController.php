@@ -24,7 +24,7 @@ class AttachmentController extends GController
 			),
 	
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','upload','pick','move','BatchEdit','BatchUpdate'),
+				'actions'=>array('index','view','upload','pick','move','BatchEdit','BatchUpdate','leaf_create','leaf_update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

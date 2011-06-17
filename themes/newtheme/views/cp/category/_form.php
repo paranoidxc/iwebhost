@@ -1,5 +1,4 @@
 <div class="iform">
-
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'category-form',
 	'enableAjaxValidation'=>false,	
@@ -9,6 +8,7 @@
 	)); ?>
 	
 	<p class="note"><?php echo Yii::t('cp','Fields with * are required.') ?></p>
+
   <?php if(Yii::app()->user->hasFlash('success')) {?>
     <div class="flash_suc">
       <?php echo Yii::app()->user->getFlash('success'); ?>
