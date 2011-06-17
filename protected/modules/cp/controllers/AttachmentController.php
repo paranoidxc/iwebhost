@@ -272,6 +272,8 @@ class AttachmentController extends GController
 	 */
 	public function actionUpdate()
 	{
+    $action       =& $_GET['action'];
+    $top_leaf_id  =& $_GET['top_leaf_id'];
 		$model=$this->loadModel();
 		if(isset($_POST['Attachment']))
 		{
@@ -306,13 +308,14 @@ class AttachmentController extends GController
 				}else {
 					$str = 'Data Updated Suc On '.Time::now();
 					Yii::app()->user->setFlash('success',$str);
-					$this->redirect(array('update','id'=>$model->id));	
+					$this->redirect(array('update','id'=>$model->id,'action' => $action, 'top_leaf_id' => $top_leaf_id ));	
 				}	
 			}
 		}
-
-    $leaf_tree =& $this->getTree();
-    $this->render('update',array( 'model'=>$model,'leaf_tree' => $leaf_tree),false,true);
+    $top_leaf = Category::Model()->findByPk($top_leaf_id);
+    $leaf_tree =& $this->getTree($top_leaf_id);
+    $this->render('update',array( 'model'=>$model,
+          'leaf_tree' => $leaf_tree,'action' => $action, 'top_leaf' => $top_leaf),false,true);
 	}
 
   /*
@@ -363,12 +366,28 @@ class AttachmentController extends GController
 	/**
 	 * Lists all models.
 	 */
-
-  public function getTree() { 
-    return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+  public function getTree($top_leaf='') {
+    if( strlen($top_leaf) > 0 ) {
+      return Category::model()->ileafs( array( 'id' => $top_leaf ,'include' => true ) );
+    }else{
+      return Category::model()->ileafs( array( 'ident' => 'Root' ,'include' => true ) );
+    }
   }
 
-	public function actionIndex() {
+	public function actionIndex($top_leaf_id='',$cur_leaf_id='') {
+
+    //fetch top leaf
+    if( strlen($top_leaf_id) == 0 ) {
+      $top_leaf_id = 30;
+    }
+    $top_leaf = Category::model()->findByPk($top_leaf_id);
+
+    //fetch current leaf
+    if( strlen($cur_leaf_id) == 0 ) {
+      $cur_leaf_id  =& $_GET['category_id'];
+    }
+    $cur_leaf     = Category::model()->findByPk($cur_leaf_id);
+
 	  $criteria=new CDbCriteria;
     $criteria->condition = " 1=1 ";
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) 
@@ -376,18 +395,34 @@ class AttachmentController extends GController
 		  $keyword = trim($_GET['keyword']);			  
       $criteria->condition  .= ' AND screen_name like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%");      
+      $opt['tpl_params']['keyword'] =& $_REQUEST['keyword'];
 	  }
 
-    $leaf_id =& $_GET['category_id'];
-    if( strlen($leaf_id) > 0 ) {
-      $category = Category::model()->findByPk($leaf_id);
-    }else{
-      $category = Category::model()->findByPk(1);
+    $is_include = true;
+    if( strlen( $cur_leaf_id) > 0 ){
+      $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
+      if( $is_include ){
+        $leafs = Category::model()->findAll( array( 
+          'select' => 'id, name',
+          'condition'  => ' rgt <= :rgt AND lft >= :lft ',
+          'params'    => array( ':rgt' => $cur_leaf->rgt, ':lft' => $cur_leaf->lft )
+        ) );
+        $all_leafs = '';
+        foreach( $leafs as $_leaf ){
+          $all_leafs .= $_leaf->id.',';
+        }        
+        $criteria->params[':category_id'] = $all_leafs;
+      }else{
+        $criteria->params[':category_id'] = $cur_leaf_id;  
+      }
     }
 
-    $leaf_tree =& $this->getTree();
+    $leaf_tree =& $this->getTree($top_leaf_id);
     $opt['criteria']        =  $criteria;
-	  $opt['tpl_params']      = array( 'category' => $category,'leaf_tree' => $leaf_tree );
+    $opt['tpl_params']['top_leaf']  =& $top_leaf;
+    $opt['tpl_params']['cur_leaf']  =& $cur_leaf;
+    $opt['tpl_params']['leaf_tree'] =& $leaf_tree;
+
     parent::actionIndex($opt);
 	}
 

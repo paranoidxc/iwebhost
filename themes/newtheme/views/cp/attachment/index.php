@@ -11,19 +11,9 @@
       Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
     </div>
 
-<?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-<?php } ?>
-<?php if(Yii::app()->user->hasFlash('error')) {?>
-    <div class="error">
-      <?php echo Yii::app()->user->getFlash('error'); ?>
-    </div>
- <?php } ?>
+    <?php echo $this->renderPartial( '//layouts/flash') ?>
 
-
-    <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" >
+    <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
       
       <div id="w_action">
         <div class='pl20P pt3P' >
@@ -39,6 +29,7 @@
       <div id="w_content">
             <?php echo $this->renderPartial('_index',
                 array('list'=>$list, 'pagination' => $pagination,
+                  'top_leaf' => $top_leaf,
                   'select_pagination' => $select_pagination)); ?>
       </div><!-- end w_content -->
     </form>

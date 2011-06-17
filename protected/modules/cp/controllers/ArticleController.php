@@ -256,7 +256,7 @@ class ArticleController extends GController
         }
 			  $str = Yii::t('cp','Data saved success On ').Time::now();
 				Yii::app()->user->setFlash('success',$str);
-				$this->redirect(array('update','id'=>$model->id));	
+				$this->redirect(array('update','id'=>$model->id,'action' => $action, 'top_leaf_id' => $top_leaf_id ));	
 			}							
 		}
     $leaf_tree =& $this->getTree($top_leaf_id);

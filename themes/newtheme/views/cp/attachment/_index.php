@@ -14,9 +14,10 @@
       echo '<input type="checkbox" class="item-sep" name="ids[]" value="'.$t->id.'"  >';
       echo '<span class="crP atts"
               data = "'.$t->id.'"
-              href="'.url('/cp/attachment/update',array('id' => $t->id ) ).'" 
+              href="'.url('/cp/attachment/update',array('id' => $t->id,'action' => action() ) ).'" 
               rel_id="'.$t->id.'" title="'.$t->screen_name.'">';
-      echo '<a href="'.url('/cp/attachment/update',array('id' => $t->id ) ).'" >'.Yii::t('cp','Edit').'</a>';
+      echo '<a href="'.url('/cp/attachment/update',array('id' => $t->id, 'action' => action(),
+           'top_leaf_id' => $top_leaf->id ) ).'" >'.Yii::t('cp','Edit').'</a>';
       echo '</span>';
       echo '</p>';
       }else{        
