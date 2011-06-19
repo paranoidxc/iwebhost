@@ -51,20 +51,23 @@
 
         <td class='vaT' style='width:50%'>
           <table class='itable w100S'>
-            
-          
            <tr>
-            <td class='pl10P'>  		  
+            <td class='pl10P'>
+              <?php
+              if( $model->parent_leaf->id != 1 ) {
+              ?>
               <p class="tdU pick" id="gallery_pick<?php echo time(); ?>" 
-                  uri="<?php echo url('/cp/rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >
+                  uri="<?php echo url('/cp/rel/picknode', array('top_leaf_id' => $top_leaf->id,'return_id'=>'gallery_pick'.time() ) ); ?>" >
                   <?php echo Yii::t('cp','parent_leaf_id') ?>
               </p>
               <?php 
+              }
               if( $model->parent_leaf ) {
               ?>
               <div class="origin_collect">
                 <span><?php echo $model->parent_leaf->id?>:<?php echo $model->parent_leaf->name?></span>
-                <span class="unlink_default_collect" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+                <span class="unlink_default_collect" origin_value="0" title="<?php echo Yii::t('cp','delete')?>">
+                <?php echo $model->parent_leaf->id !=1 ? Yii::t('cp','delete') : '' ?></span>
                 <span class="reset_default_collect dN" rel_id="<?php echo $model->parent_leaf_id?>" title="<?php echo Yii::t('cp','reset')?>">
                   <?php echo Yii::t('cp','reset')?>
                 </span>  					
@@ -72,7 +75,6 @@
               <?php
               }
               ?>
-            
               <div class="dest_collect dN" >
                 <span class="dest_collect_name"></span>
                 <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
@@ -92,9 +94,6 @@
           			<?php echo $form->hiddenField($model,'parent_leaf_id') ?>	
               </td>
             </tr>
-
-
-
 
             <tr>
               <td class='pl10P'>

@@ -56,7 +56,14 @@ class RelController extends Controller
     if( $rtype == "multiple") {
       $tpl = 'multiple_node';
     }
-    $this->renderPartial($tpl,array('return_id' => $return_id),false,true);	
+    $top_leaf_id = $_GET['top_leaf_id'];
+    if( strlen($top_leaf_id) > 0 ) {
+	    $nodes  = Category::model()->ileafs( array( 'id' => $top_leaf_id,'include' => true ));
+    }else{
+	    $nodes  = Category::model()->ileafs( array( 'ident' => 'attachment','include' => true ));
+    }
+
+    $this->renderPartial($tpl,array('nodes' => $nodes,'return_id' => $return_id),false,true);	
 	}
 	
 

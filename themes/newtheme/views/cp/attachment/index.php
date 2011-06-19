@@ -9,8 +9,8 @@
     
     <div id="w_location"> 
       Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
-      <a href="<?php echo url('/cp/attachment/leaf_create', array('parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
-      <a href="<?php echo url('/cp/attachment/leaf_update', array('cur_leaf_id' => $cur_leaf->id ) )
+      <a href="<?php echo url('/cp/attachment/leaf_create', array('top_leaf_id' => $top_leaf->id ,'parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
+      <a href="<?php echo url('/cp/attachment/leaf_update', array('top_leaf_id' => $top_leaf->id ,'cur_leaf_id' => $cur_leaf->id ) )
       ?>" >edit category</a>
     </div>
 

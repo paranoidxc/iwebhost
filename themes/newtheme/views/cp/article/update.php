@@ -16,7 +16,7 @@
     
     <div id="w_content">
       <?php echo $this->renderPartial('_form',
-        array('model'=>$model, 'leafs' => $leafs, 'leaf'  => $model->leaf)); ?>
+        array('model'=>$model,'top_leaf' => $top_leaf, 'leafs' => $leafs, 'leaf'  => $model->leaf)); ?>
     </div>
 
   </div>

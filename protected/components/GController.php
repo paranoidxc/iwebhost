@@ -61,7 +61,9 @@ class GController extends Controller
 
   public function actionLeaf_update() {
     $cur_leaf_id =& $_GET['cur_leaf_id'];
-    $model        = Category::model()->findByPk($cur_leaf_id);
+    $top_leaf_id =& $_GET['top_leaf_id'];
+    $top_leaf    =& Category::model()->findByPk($top_leaf_id);
+    $model       = Category::model()->findByPk($cur_leaf_id);
 
 		if( isset( $_POST['Category']['parent_leaf_id'] ) &&  strlen($_POST['Category']['parent_leaf_id']) > 0 ) {		
 			$model->parent_leaf_id = $_POST['Category']['parent_leaf_id'];						
@@ -94,12 +96,16 @@ class GController extends Controller
     	    $this->redirect(array('leaf_update','cur_leaf_id'=>$model->id));
 			}
 		}
-    $this->render('//cp/category/create',array( 'model'=>$model),false,true );
+    $this->render('//cp/category/create',array( 'model'=>$model,'top_leaf' => $top_leaf),false,true );
   }
 	
 
   public function actionLeaf_create() {
     $model=new Category();
+    
+    $top_leaf_id =& $_GET['top_leaf_id'];
+    $top_leaf    =& Category::model()->findByPk($top_leaf_id);
+
     $parent_leaf_id = $_GET['parent_leaf_id'];
     $parent_leaf = Category::model()->findByPk($parent_leaf_id);
     $model->parent_leaf_id =& $parent_leaf_id;
@@ -143,7 +149,7 @@ class GController extends Controller
 				}				
 			}
 		}
-    $this->render('//cp/category/create',array( 'model'=>$model),false,true );
+    $this->render('//cp/category/create',array( 'model'=>$model,'top_leaf' => $top_leaf),false,true );
   }
 	
 	/**

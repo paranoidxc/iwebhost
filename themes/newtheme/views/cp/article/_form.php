@@ -100,7 +100,7 @@
           <td class='pl10P'>
             <p class='alt tdU pick' id="mulpick<?php echo time(); ?>"
               uri="<?php echo CController::createUrl('rel/picknode',
-              array('return_id'=>'mulpick'.time(),'rtype' => 'multiple' ) ); ?>">
+              array('top_leaf_id' => $top_leaf->id,'return_id'=>'mulpick'.time(),'rtype' => 'multiple' ) ); ?>">
               <label>副节点</label> 
             </p>
 

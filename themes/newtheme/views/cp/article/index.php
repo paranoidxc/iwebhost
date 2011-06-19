@@ -23,8 +23,8 @@
       ?>
       <?php echo API::rchart();?>Index
 
-      <a href="<?php echo url('/cp/attachment/leaf_create', array('parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
-      <a href="<?php echo url('/cp/attachment/leaf_update', array('cur_leaf_id' => $cur_leaf->id ) ) ?>" >edit category</a>
+      <a href="<?php echo url('/cp/attachment/leaf_create', array('top_leaf_id' => $top_leaf->id, 'parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
+      <a href="<?php echo url('/cp/attachment/leaf_update', array('top_leaf_id' => $top_leaf->id, 'cur_leaf_id' => $cur_leaf->id ) ) ?>" >edit category</a>
 
     </div>
 
@@ -34,7 +34,8 @@
       
       <div id="w_action">
         <div class='pl20P pt3P' >
-          <a class='action' href="<?echo url('/cp/article/create', array('action' => action(), 'leaf_id' => $cur_leaf->id) ) ?>" >new article</a>
+          <a class='action' href="<?echo url('/cp/article/create',
+            array('action' => action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >new article</a>
           <input type="submit" value="复制" name="type" />
           <input type="submit" value="重点" name="type" />
           <input type="submit" value="非重点" name="type" />

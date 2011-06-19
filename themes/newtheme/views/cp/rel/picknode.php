@@ -2,11 +2,6 @@
 <?php
   $this->beginWidget('application.extensions.Flatmacpanel',array('title'=>Yii::t('cp',"Pick Attachment Gallery")) )
 ?>
- <?php
-		$nodes  = Category::model()->ileafs(
-      array( 'ident' => 'attachment','include' => true )
-	  );
-	  ?>
 	  <div style="height: 400px; overflow: auto; background: #FFF;">
 	  <?php
 		$this->renderPartial('_node',array( 'nodes' => $nodes,'return_id' => $return_id ) );

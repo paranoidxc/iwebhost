@@ -209,6 +209,9 @@ class ArticleController extends GController
     $action =& $_GET['action'];
 		$model = new Article;
 		$model->category_id = $_GET['leaf_id'];
+		$top_leaf_id =& $_GET['top_leaf_id'];
+		$top_leaf    = Category::model()->findByPk($top_leaf_id);
+
 		$leaf  = Category::model()->findByPk($_REQUEST['leaf_id']);
 		if(isset($_POST['Article'])) {				  
 		  $model->attributes=$_POST['Article'];
@@ -227,7 +230,7 @@ class ArticleController extends GController
 		}
 
     $leaf_tree = $this->getTree();
-		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'leaf_tree' => $leaf_tree ,'leaf'	=> $leaf ));
+		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'top_leaf' => $top_leaf, 'leaf_tree' => $leaf_tree ,'leaf'	=> $leaf ));
 	}
 
 	/**
