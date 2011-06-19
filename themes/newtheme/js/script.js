@@ -111,6 +111,7 @@ $(document).ready(function(){
         $(document.body).append( $(html) );
 			}
 		});
+    $(document.body).imasker();
     return false;
 	});		
   
@@ -161,6 +162,7 @@ $(document).ready(function(){
 	  $('.unlink_dest').attr('origin_value',input_default_value);
 	  $('.dest_thumbnail').show();
 	  wrap.remove();
+    $(document.body).imasker_hide();
 	});
 
   $('.to_dest').live('click',function(){	  
@@ -195,6 +197,7 @@ $(document).ready(function(){
     });
     return_wrap.append( t );
     wrap.remove();
+    $(document.body).imasker_hide();
   });
 
 
@@ -215,6 +218,7 @@ $(document).ready(function(){
 	    return_wrap.find('.unlink_default_collect').hide();  
 	  };
 	  wrap.remove();
+    $(document.body).imasker_hide();
 	});
 
 
