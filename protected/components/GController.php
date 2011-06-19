@@ -79,7 +79,8 @@ class GController extends Controller
 				if( $obj->id  == $model->id ) {					
 					break;
 				}				
-				$model->parent_leaf = $obj;		
+				$model->parent_leaf     = $obj;		
+				$model->parent_leaf_id  = $obj->id;
 			}			
 		}		
 

@@ -62,7 +62,7 @@ class ArticleController extends GController
     if( strlen(trim($cur_leaf_id)) > 0 ) {
       $cur_leaf = $category = Category::model()->findByPk($cur_leaf_id);
     }else{
-      $cur_leaf_id =& $_GET['category_id'];
+      $cur_leaf_id =  (strlen($_GET['category_id']) > 0 ) ? $_GET['category_id'] : 1;
       $cur_leaf = $category = Category::model()->findByPk($cur_leaf_id);
     }
 
@@ -244,9 +244,8 @@ class ArticleController extends GController
 			$model->attributes=$_POST['Article'];
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
-
-        ManyCategoryArticle::model()->deleteAllByAttributes( array('article_id' => $model->id ) );
         if( count( $_POST['category_article_ids'] ) > 0 ) {
+          ManyCategoryArticle::model()->deleteAllByAttributes( array('article_id' => $model->id ) );
           foreach( $_POST['category_article_ids'] as $m_category_id ) {
             $_model = new ManyCategoryArticle;
             $_model->article_id = $model->id;
