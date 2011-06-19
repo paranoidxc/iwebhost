@@ -1,4 +1,22 @@
 $(document).ready(function(){
+//  _gheight = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
+//
+  function resize_layout() {
+    console.log( $(window).height() );
+    console.log( document.body.scrollHeight );
+//    _gheight = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
+    _gheight = $(window).height();
+    _gheight = _gheight-84;
+    _gwidth = $(window).width()-$('#w_left').width()-1;
+    console.log( _gheight );
+    $('#w_right').css({'height':_gheight,'width':_gwidth, 'overflow': 'auto'});
+    $('#w_left').css({'height':_gheight,'overflow':'auto'});
+  }
+  resize_layout();
+  $(window).resize( resize_layout );
+
+
+
   function parentOne(ele,exp){	  
     if( ele.parent().find(exp).length > 0 || ele.hasClass(exp) ) {
       return ele;

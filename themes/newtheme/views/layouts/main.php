@@ -25,46 +25,26 @@
       $_isAdmin = $_isAdmin != 1 ? false : true;
       $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-			  array('label'=>Yii::t('cp','Website'),
-              'url'=>array('/') ,
-              'linkOptions' => array('target' => '_blank') ),
+			  array('label'=>Yii::t('cp','Website'), 'url'=>'/', 'linkOptions' => array('target' => '_blank') ),
+
 			  array('label'=>Yii::t('cp', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+
 			  array('label'=>Yii::t('cp','Logout').' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+
 				array('label'=>Yii::t('cp','Dashboard'), 'url'=>array('/cp/Dashboard/index'),
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/Dashboard') ),
           ),
 
-        /*
-				array('label'=>Yii::t('cp','ROOT'), 'url'=>array('/cp/category/iroot') ,
-          'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/category/iroot') ),
-          'linkOptions' => array( 'data' => 'panel_root' )),
-
-				array('label'=>Yii::t('cp','Navigation'), 'url'=>array('/cp/category/inavigation'),
-          'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/category/inavigation') ),
-          'linkOptions' => array( 'data' => 'panel_inavigation' ) ),
-
-				array('label'=>Yii::t('cp','Category'), 'url'=>array('/cp/category/icategory'),
-          'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/category/icategory') ),
-          'linkOptions' => array( 'data' => 'panel_icategory' )),
-          */
-
-        
         array('label'=>'ipage', 'url'=>array('/cp/article/ipage/208' ),
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/article/ipage/') ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
-
-
         array('label'=>'infuhzou ar', 'url'=>array('/cp/article/innode/206' ),
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/article/innode') ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
-
 
 				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/attachment/index/category_id/30'),
           'visible' => $_isAdmin,

@@ -7,9 +7,10 @@
 @import url('right.css');
 @import url('pagination.css');
 body {
-  font-size: 13px;
+  font-size: 14px;
   font-family: arial,sans-serif;
   min-width: 800px;
+  background: #FAF9F8;
 }
 .mac_panel_wrap {
   border: 2px solid #BAD3EA;
@@ -43,9 +44,11 @@ body {
   display: inline;
 }
 
+#w_middle {
+  border-top: 1px solid #939494;
+}
 #w_right {
-  border: 4px solid #BCF;
-  border-right:none;
+  border-left: 1px solid #939494;
 }
 
 .itext,
