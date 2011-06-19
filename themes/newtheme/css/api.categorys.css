@@ -4,41 +4,48 @@ ul.api_categorys_ul{
 }
 ul.api_categorys_ul li p {    	
   color:#000;
+  padding: 0;
+   /*
   padding: 3px 0px 1px;  
-  margin-left: 0px;  
-  font-size: 13px;
+  height: 26px;
+  line-height: 26px;
+  padding: 5px 0px 5px;
+  font-size: 14px;
   cursor: pointer;    
-  
+  border: none;
+  */
+  /*
   border:solid 1px #c3e2fd;  
   background-color:#FFF;    
-  border: none;
-
-
+  background: #FFF;
   background-position:0px 0px;
   background-repeat:repeat-x;
-  background: #FFF;
   border-color: none;
   border-color: rgba(118,157,192,0);
   background-color: rgba(171,214,255,0);
   -webkit-transition-property:background-color, border-color;
   -webkit-transition-duration:.25s ;
   -webkit-transition-timing-function: ease-out;    
+  */
 }
 
+/*
 ul.api_categorys_ul li p:hover {  
   background: #E3E9FF;
 }
 ul.api_categorys_ul li p:active {
   background: #CCC;
 }
+*/
 ul.api_categorys_ul li p.select {
   background: #BCF;
   font-weight: bold;
 }
 ul.api_categorys_ul .f_open,
 ul.api_categorys_ul .f_fold {
-  background-image: url(api_categorys_img/treeExpandImages.png);
+  background: url(api_categorys_img/treeExpandImages.png);
 	background-position: -35px 0px;
+  background-position: -470px 0;
 	height: 16px;
 	width: 16px;	
 	line-height: 16px;	
@@ -51,6 +58,7 @@ ul.api_categorys_ul .stand {
 	display: inline-block;
 }
 
+/*
 ul.api_categorys_ul .f_fold{
   background-position: 1px 0px;
 }
@@ -60,6 +68,7 @@ ul.api_categorys_ul .f_fold:hover {
 ul.api_categorys_ul .f_open:hover {
   background-position: -53px 0px;
 }
+*/
 
 ul.api_categorys_ul span.open,
 ul.api_categorys_ul span.fold{
@@ -89,10 +98,12 @@ ul.api_categorys_ul span.open {
 * the chapters in the category tree css
 */
 ul.api_chapters_ul {  
-  font-size: 12px;
+  font-size: 14px;
   width: 100%;
   line-height: 24px;
   }
+
+  ul.api_categorys_ul li a,
   ul.api_chapters_ul li a:visited,
   ul.api_chapters_ul li a:active,	
   ul.api_chapters_ul li a {	    
@@ -100,14 +111,16 @@ ul.api_chapters_ul {
     padding-right: 5%;
     display: block;
     text-decoration: none;
-    font-weight: bold;
     text-transform: capitalize;
     color: #005ddb;
     color: #818181;
     height: 24px;
+    line-height: 24px;
+    height: 24px;
     overflow: hidden;    		
     text-overflow: ellipsis;
   }
+  ul.api_categorys_ul li a:hover,
   ul.api_chapters_ul li a:hover {	 
     color: #63284D;
     background: #FFFFCC;

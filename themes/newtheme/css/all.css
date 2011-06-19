@@ -4,11 +4,6 @@
 @import url('layout.css');
 @import url('api.categorys.css');
 @import url('api.attachment.css');
-/*
-@import url('top.css');
-@import url('search.css');
-@import url('left.css');
-*/
 @import url('right.css');
 @import url('pagination.css');
 body {

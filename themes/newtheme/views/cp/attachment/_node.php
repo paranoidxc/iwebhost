@@ -11,7 +11,7 @@
 			$depth = $leaf->depth;
 			$name = $leaf->name;
 			
-			$style_text_indent = (10*$depth+10).'px';
+			$style_text_indent = (18*$depth+5).'px';
 			$style_chapters_indent =(10*$depth+10+32).'px';
 			
 			if( $leaf->lft +1 == $leaf->rgt ) {
