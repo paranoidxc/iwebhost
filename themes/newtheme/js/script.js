@@ -66,6 +66,36 @@ $(document).ready(function(){
 	  //$(this).prev().show();
 	});
 
+
+  $('.unlink_default_collect').live('click',function(){
+    $(this).hide();    
+    var prev = $(this).prev().hide();    
+    //return_wrap = div.origin_collect
+    var return_wrap = $(this).parent().parent().parent();
+    var input = return_wrap.find('input');
+    input.attr('value', $(this).attr('origin_value') );
+    $(this).next().css('display','block');
+    $(this).hide();
+  });	
+  $('.unlink_collect').live('click',function(){
+	  var return_wrap =$(this).parent().parent().parent();
+	  var input = return_wrap.find('input');
+	  input.attr('value', $(this).attr('origin_value') );
+	  $(this).attr('origin_value','');
+	  if( return_wrap.find('.unlink_default_collect').length > 0 ){
+	    return_wrap.find('.unlink_default_collect').show();  
+	  }
+	  $(this).parent().hide();
+	});
+  $('.reset_default_collect').live('click',function(){
+	  $(this).parent().find('span').show();
+	  $(this).parent().parent().parent().find('input').attr('value', $(this).attr('rel_id') );
+	  $(this).hide();	  
+	});
+	
+
+
+
 	$('.pick').live('click',function(){
     var uri = $(this).attr('uri');
 		$.ajax({

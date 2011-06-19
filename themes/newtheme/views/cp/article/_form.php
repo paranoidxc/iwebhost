@@ -229,7 +229,7 @@
               <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
             </div>
             <p class="clear">  			  
-              <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => 'dN small' )); ?>		
+              <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => ' small' )); ?>		
             </p>
           </td>
         </tr>
