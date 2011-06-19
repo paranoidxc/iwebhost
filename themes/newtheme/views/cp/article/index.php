@@ -22,6 +22,10 @@
       }
       ?>
       <?php echo API::rchart();?>Index
+
+      <a href="<?php echo url('/cp/attachment/leaf_create', array('parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
+      <a href="<?php echo url('/cp/attachment/leaf_update', array('cur_leaf_id' => $cur_leaf->id ) ) ?>" >edit category</a>
+
     </div>
 
     <?php echo $this->renderPartial( '//layouts/flash') ?>
@@ -35,7 +39,7 @@
           <input type="submit" value="重点" name="type" />
           <input type="submit" value="非重点" name="type" />
           <input type="submit" value="删除" name="type" />
-          <input type="submit" value="移动" name="type" class='pick'
+          <input type="button" value="移动" name="type" class='pick'
               uri="<?php echo url('/cp/article/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />
         </div>
         <div class='flR pr20P' style="margin-top: -28px;">

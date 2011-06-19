@@ -43,11 +43,10 @@ class AttachmentController extends GController
 
 	public function actionMove() {		
 		
-	  $panel_ident = $_REQUEST['panel_ident'];
 		if( isset($_POST['category_id']) ){			
 			$category_id = $_POST['category_id'];
 			$category = Category::model()->findByPk($category_id);
-			$ids = explode(',',$_POST['ids']);
+      $ids =& $_POST['ids'];
 			foreach( $ids as $id) {				
 				$at = Attachment::model()->findByPk($id);
 				if( $at ) {									
@@ -58,19 +57,17 @@ class AttachmentController extends GController
 			echo count($ids)." record(s) are move to ";
 			echo $category->name;
 			exit;
-		}
-		
-		//$_data = Category::model()->getTreeById();
-		//$leafs = CHtml::listdata($_data, 'id','name');
-		
-		$leafs = Category::model()->ileafs(
+		}	
+    
+    $leafs = Category::model()->ileafs(
         array( 'id' => $_GET['top_leaf_id'],'include' => true )
 	  );	  
-				
+	  
 		$this->renderPartial('move', array(
 			'leafs' => $leafs,
 			'panel_ident' => $panel_ident,
 		),false, true);
+
 	}
 	
 	

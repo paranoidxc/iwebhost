@@ -9,12 +9,8 @@
 
   <p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
 
-  <?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-  <?php } ?>
-	
+  <?php echo $this->renderPartial('//layouts/flash'); ?>
+
 	<?php echo $form->errorSummary($model); ?>		  
 	
   <table class=' w100S'>
@@ -102,9 +98,9 @@
         
         <tr>
           <td class='pl10P'>
-            <p class='alt tdU pick' id="pick<?php echo time(); ?>"
+            <p class='alt tdU pick' id="mulpick<?php echo time(); ?>"
               uri="<?php echo CController::createUrl('rel/picknode',
-              array('return_id'=>'pick'.time(),'rtype' => 'multiple' ) ); ?>">
+              array('return_id'=>'mulpick'.time(),'rtype' => 'multiple' ) ); ?>">
               <label>副节点</label> 
             </p>
 
@@ -203,7 +199,7 @@
               </div>
             </div>
             <p class="clear">  			
-              <?php echo $form->textField($model,'attachment_id',array( 'size'=>60,'maxlength'=>255, 'class' => 'dN small', 'origin_value' => 0 )); ?>
+              <?php echo $form->textField($model,'attachment_id',array( 'size'=>60,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
             </p>
           </td>
         </tr><!--缩略图-->

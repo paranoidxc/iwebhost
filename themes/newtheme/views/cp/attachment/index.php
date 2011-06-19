@@ -21,7 +21,10 @@
       <div id="w_action">
         <div class='pl20P pt3P' >
           <span class="action"><input type="checkbox"  class='item-all mt8P' /></span>
-          <input type="submit" value="删除" name="type" />
+          <input type="submit" value="删除" name="type" /> 
+          <input type="button" value="移动" name="type" class='pick'
+              uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />
+
         </div>
 
         <div class='flR pr20P' style="margin-top: -28px;">
