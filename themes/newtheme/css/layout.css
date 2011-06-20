@@ -5,9 +5,10 @@
 }
 
 #w_search{
+  padding-left: 5px;
 }
 #w_search form {
-  margin: 10px 0;
+  margin: 2px 0 0 0;
 } 
 
 #w_middle{
@@ -25,7 +26,8 @@
     width: 240px;
     float: left;
   } #w_right{
-    margin-left: 240px;
+    float: right;
+    width: 400px;
   }
   #w_content {
     overflow: hidden;

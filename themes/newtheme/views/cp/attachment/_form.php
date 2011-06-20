@@ -1,4 +1,4 @@
-      <div id="attachment_form" >
+      <div id="attachment_form" class='dN' >
         <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
           <div>
 			      <span id="spanButtonPlaceHolder"><?php echo Yii::t('cp','Upload Attachment') ?></span>

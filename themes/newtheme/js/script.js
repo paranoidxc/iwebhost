@@ -3,13 +3,9 @@ $(document).ready(function(){
     $(this).next().toggle();
   });
   function resize_layout() {
-    //console.log( $(window).height() );
-    //console.log( document.body.scrollHeight );
-//    _gheight = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
     _gheight = $(window).height();
-    _gheight = _gheight-84;
+    _gheight = _gheight-34;
     _gwidth = $(window).width()-$('#w_left').width()-1;
-    //console.log( _gheight );
     $('#w_right').css({'height':_gheight,'width':_gwidth, 'overflow': 'auto'});
     $('#w_left').css({'height':_gheight,'overflow':'auto'});
   }
@@ -42,6 +38,11 @@ $(document).ready(function(){
   function url_refresh() {
     window.location.href = window.location.href;
   }
+
+  $('.toggle').click(function(){
+      $(this).toggleClass('on');
+      $($(this).attr('rel')).toggle();
+  });
 
   $('.action-btn').click(function(){
       if( $(this).hasClass('confirm') ) {

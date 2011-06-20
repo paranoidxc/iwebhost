@@ -1,4 +1,3 @@
-<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_middle">
   <div id="w_left">
     <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree),false,true) ?>
@@ -8,9 +7,12 @@
     <div></div>
     <div id="w_location">
       <div class="lhn-section-primary" style="float: left">
-        Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
+        Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>"
+        >Attachment</a><?php echo API::rchart();?>Index&nbsp;&nbsp;&nbsp;
       </div>
+      <span class='flL csP toggle' rel="#attachment_form">上载附件</span>
       <span class='flL csP item-all'>全选</span>
+
       <div class='settings'>
         <span class='handle'>settings...</span>
         <div>
@@ -30,18 +32,18 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div><!-- settings end-->
+
     </div>
  
     <?php echo $this->renderPartial( '//layouts/flash') ?>
-
-    <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
+    <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
+    <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
+    <div class='flR pr20P ipagination' >
+      <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+    </div>
+    <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form clB' >
       <input type="submit" value="" name="type" class='dN'/> 
-      <div id="w_action" class=''>
-        <div class='flR pr20P ipagination' >
-          <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
-        </div>
-      </div><!--end w_action -->
       <div id="w_content">
         <?php echo $this->renderPartial('_index',
                 array('list'=>$list, 'pagination' => $pagination,
@@ -49,7 +51,6 @@
                   'select_pagination' => $select_pagination)); ?>
       </div><!-- end w_content -->
     </form>
-    <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
   </div>
 </div>
 

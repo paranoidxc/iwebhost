@@ -1,5 +1,4 @@
-<div id="w_search"> 
-  <div class='w_left'>ihost console logo</div>
+<div id="w_search" style="float: left"> 
   <form action="<?php echo CController::createUrl('/cp/attachment/index') ?>" method="get" class="search_form">        
       <input type="hidden" id="is_hide_adv" name="is_hide_adv" value="<?php echo $this->tpl_params['is_hide_adv']; ?>" />
       <input type="hidden" name="account_type" value="<?php echo $this->tpl_params['account_type']; ?>" />
