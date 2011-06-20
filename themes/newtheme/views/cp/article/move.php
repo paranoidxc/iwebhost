@@ -8,7 +8,7 @@
 
   <div style="height: 400px; overflow: auto; background: #FFF;">
   <?php
-    $this->renderPartial('_node',array( 'nodes' => $leafs,'return_id' => $return_id ) );
+    $this->renderPartial('//layouts/move_node',array( 'nodes' => $leafs,'return_id' => $return_id ) );
   ?>  
   </div>
    <div class="taR h30P lh30P pt5P pr10P">    

@@ -11,6 +11,7 @@ body {
   font-family: arial,sans-serif;
   min-width: 800px;
   background: #FAF9F8;
+  color: #5A5F64;
 }
 .mac_panel_wrap {
   border: 2px solid #BAD3EA;
@@ -21,23 +22,24 @@ body {
 }
 
 #w_top {
-  color: #c36;
   border-top: 2px solid #BAD3EA;
+  border-top: 2px solid #222120;
   height: 30px;
   line-height: 30px;
   background: url(bgs/b_5dae6e31.png) repeat-x 0 -40px;
 }
 #w_top a:visited,
 #w_top a {
-  color: #36c;
   text-decoration: none;
   display: inline-block;
   padding: 0 5px;
+  color: #5A5F64;
 } 
 
 #w_top ul li.select a,
 #w_top ul li a:hover {
   background: #EDF0F9;
+  background: #E9E7E5;
 } 
 
 #w_top li {

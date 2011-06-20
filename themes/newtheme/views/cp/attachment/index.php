@@ -6,29 +6,26 @@
 
   <div id="w_right">
     <div></div>
-    
-    <div id="w_location"> 
+    <div class="lhn-section-primary">
       Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
       <a href="<?php echo url('/cp/attachment/leaf_create', array('top_leaf_id' => $top_leaf->id ,'parent_leaf_id' => $cur_leaf->id ) ) ?>" >create category</a>
-      <a href="<?php echo url('/cp/attachment/leaf_update', array('top_leaf_id' => $top_leaf->id ,'cur_leaf_id' => $cur_leaf->id ) )
-      ?>" >edit category</a>
+      <a href="<?php echo url('/cp/attachment/leaf_update', array('top_leaf_id' => $top_leaf->id ,'cur_leaf_id' => $cur_leaf->id ) ) ?>" >edit category</a>
     </div>
-
+ 
     <?php echo $this->renderPartial( '//layouts/flash') ?>
 
     <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
       
       <div id="w_action">
-        <div class='pl20P pt3P' >
+        <div class='flR pr20P' >
+          <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+        </div>
+        <div class='' >
           <span class="action"><input type="checkbox"  class='item-all mt8P' /></span>
           <input type="submit" value="删除" name="type" /> 
           <input type="button" value="移动" name="type" class='pick'
               uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />
 
-        </div>
-
-        <div class='flR pr20P' style="margin-top: -28px;">
-          <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
       </div><!--end w_action -->
 

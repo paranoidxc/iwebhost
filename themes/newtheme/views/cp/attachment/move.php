@@ -5,7 +5,7 @@
 
 <input type="hidden" class="return_panel" value="<?php echo $panel_ident;?>" />
   <?php
-    $this->renderPartial('_node',array( 'nodes' => $leafs,'return_id' => $return_id ) );
+    $this->renderPartial('//layouts/move_node',array( 'nodes' => $leafs,'return_id' => $return_id ) );
   ?>
   
   <div class="taR h30P pr10P">

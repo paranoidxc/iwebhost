@@ -1,3 +1,20 @@
+div.lhn-section-primary {
+    background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+    border-top: 1px solid #FFFFFF;
+    color: #646464 !important;
+    display: block !important;
+    font-size: 12px;
+    height: 25px !important;
+    line-height: 26px !important;
+    margin-left: 0 !important;
+    padding-top: 1px !important;
+    text-indent: 10px !important;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-weight: bold; 
+    border-bottom: 1px solid #C8C8C8;
+}
+
+
 ul.api_categorys_ul{
   width:100%;
   margin-bottom: 20px;

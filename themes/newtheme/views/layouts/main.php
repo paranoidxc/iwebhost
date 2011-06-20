@@ -36,12 +36,12 @@
           'itemOptions' => array('class' => API::isaction('cp/Dashboard') ),
           ),
 
-        array('label'=>'ipage', 'url'=>array('/cp/article/ipage/208' ),
+        array('label'=>'页脚页面', 'url'=>array('/cp/article/ipage/208' ),
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/article/ipage/') ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
-        array('label'=>'infuhzou ar', 'url'=>array('/cp/article/innode/206' ),
+        array('label'=>'社区节点', 'url'=>array('/cp/article/innode/206' ),
           'visible' => $_isAdmin,
           'itemOptions' => array('class' => API::isaction('cp/article/innode') ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
@@ -51,10 +51,10 @@
           'itemOptions' => array('class' => API::isaction('cp/attachment/index') ),
           'linkOptions' => array( 'data' => 'panel_iattachment' )),
 
-				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/index'),
-          'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/article') ),
-          'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
+//				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/index'),
+ //         'visible' => $_isAdmin,
+  //        'itemOptions' => array('class' => API::isaction('cp/article') ),
+   //       'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
 				array('label'=>Yii::t('cp','Users'), 'url'=>array('/cp/user/index'),
           'visible' => $_isAdmin,
