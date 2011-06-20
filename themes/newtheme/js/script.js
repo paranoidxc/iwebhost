@@ -1,21 +1,20 @@
 $(document).ready(function(){
-//  _gheight = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
-//
+  $('.settings .handle').click(function(){
+    $(this).next().toggle();
+  });
   function resize_layout() {
-    console.log( $(window).height() );
-    console.log( document.body.scrollHeight );
+    //console.log( $(window).height() );
+    //console.log( document.body.scrollHeight );
 //    _gheight = document.body.scrollHeight > $(window).height() ?  document.body.scrollHeight : $(window).height();
     _gheight = $(window).height();
     _gheight = _gheight-84;
     _gwidth = $(window).width()-$('#w_left').width()-1;
-    console.log( _gheight );
+    //console.log( _gheight );
     $('#w_right').css({'height':_gheight,'width':_gwidth, 'overflow': 'auto'});
     $('#w_left').css({'height':_gheight,'overflow':'auto'});
   }
   resize_layout();
   $(window).resize( resize_layout );
-
-
 
   function parentOne(ele,exp){	  
     if( ele.parent().find(exp).length > 0 || ele.hasClass(exp) ) {
@@ -44,6 +43,13 @@ $(document).ready(function(){
     window.location.href = window.location.href;
   }
 
+  $('.action-btn').click(function(){
+      if( $(this).hasClass('confirm') ) {
+        if( confirm('process') ) {
+          $('.batch_form').submit();
+        }
+      }
+  });
 
   $('.batch_move').live('click',function() {
     $.ajax({
@@ -129,7 +135,7 @@ $(document).ready(function(){
         $(document.body).append( $(html) );
 			}
 		});
-    $(document.body).imasker();
+    $(document.body).imasker({});
     return false;
 	});		
   
@@ -278,10 +284,13 @@ $(document).ready(function(){
   });
 
   $('.item-all').click(function(){
-    if( $(this).is(':checked') ){
+    //  if( $(this).is(':checked') )
+    if( $(this).attr('checked') == undefined || $(this).attr('checked') == '' ){
+      $(this).attr('checked','111').addClass('on');
       $('.item-sep').attr('checked',true);
       $('.item-sep').parent().parent().addClass('select');
     }else{
+      $(this).attr('checked','').removeClass('on');
       $('.item-sep').attr('checked',false);
       $('.item-sep').parent().parent().removeClass('select');
     }

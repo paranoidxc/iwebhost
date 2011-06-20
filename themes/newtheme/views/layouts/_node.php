@@ -1,4 +1,4 @@
-<div class="lhn-section-primary">
+<div class="categorys-primary">
   <span class="unselectable" id="sub-tree-header">栏目类别<?php echo API::rchart()?></span>
 </div>
 <?php
@@ -22,7 +22,7 @@
 			}
 			if( $depth == 0 ) {
 			  echo '<li class="'.$class.'" >';
-        echo '<p class=" '.API::isaction( array(
+        echo '<p class="itop '.API::isaction( array(
               '/cp/'.controller().'/'.action().'/category_id/'.$leaf->id.'.html',
               '/cp/'.controller().'/'.action().'.html' )). '"
               return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"

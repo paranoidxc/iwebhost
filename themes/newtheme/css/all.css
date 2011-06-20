@@ -13,11 +13,86 @@ body {
   background: #FAF9F8;
   color: #5A5F64;
 }
+a:visited,
+a {
+  color: #5A5F64;
+}
+.item-all {
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 5px;
+  margin-top: 3px;
+}
+.item-all.on { 
+  border-radius: 4px 4px 4px 4px !important;
+  background: none repeat scroll 0 0 #888685 !important;
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  color: #FBF8F6 !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.settings {
+  position: relative;
+  float: left;
+}
+.settings div {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background: #FFF;
+  border:2px solid #EFEFEF;  
+  background: none repeat scroll 0 0 #FFFFFF !important;
+  border: 1px solid #FFFFFF !important;
+  border-radius: 4px 4px 4px 4px !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+  z-index: 1009 !important;
+}
+.settings div ul li a:visited,
+.settings div ul li a,
+.settings div ul li {
+  line-height: 24px;
+  color: #000;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.settings div ul li.iline {
+  height:1px;
+  background: #CCC;
+} 
+.settings div ul li a {
+  text-indent: 2em;
+  display: block;
+}
+.settings div ul li a:hover {
+  background: #000;
+  color: #FFF;
+}
+.settings div ul li a.menu-top:hover { 
+  border-radius: 4px 4px 0 0px !important;
+}
+
+.settings div ul li a.menu-bottom:hover {
+  border-radius: 0 0 4px 4px !important;
+}
+
+.settings .handle {
+  cursor: pointer;
+  background: url(/images/setting.png) no-repeat 0 0;
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  margin-top: 4px;
+  text-indent: -111000px;
+}
+
+
 .mac_panel_wrap {
   border: 2px solid #BAD3EA;
   position: absolute;
   top: 100px;
   left: 100px;
+  z-index: 1000000;
   background: #FFF;
 }
 

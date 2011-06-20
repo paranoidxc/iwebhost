@@ -1,9 +1,16 @@
 #w_location {
   color: #00C;
   text-decoration: none;
-  background:#C8D6FF;
-  padding: 0 0 0 10px;
-  line-height: 30px;
+    background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+    border-top: 1px solid #FFFFFF;
+    color: #646464 !important;
+    display: block !important;
+    font-size: 12px;
+    height: 25px !important;
+    line-height: 26px !important;
+    margin-left: 0 !important;
+    padding-top: 1px !important;
+    border-bottom: 1px solid #C8C8C8;
 }
 
 #w_action {

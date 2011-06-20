@@ -68,7 +68,7 @@
 		'position'   :'absolute',
 		'top'        :'0',
 		'left'       :'0',
-		'z-index'	   : null,
+		'z-index'	   : '99999',
 		'masker'     : null,
     'id'         : 'imasker',
     'resizeHandler': false

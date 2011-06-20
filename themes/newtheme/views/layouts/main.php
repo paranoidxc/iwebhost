@@ -48,7 +48,7 @@
 
 				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/attachment/index/category_id/30'),
           'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/attachment/index') ),
+          'itemOptions' => array('class' => API::isaction('cp/attachment/') ),
           'linkOptions' => array( 'data' => 'panel_iattachment' )),
 
 //				array('label'=>Yii::t('cp','Articles'), 'url'=>array('/cp/article/index'),
