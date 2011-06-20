@@ -32,18 +32,16 @@
         </div>
       </div>
     </div>
-
-    <div style="clear:both"></div>
  
     <?php echo $this->renderPartial( '//layouts/flash') ?>
 
     <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
       
-      <div id="w_action" class='dN'>
+      <div id="w_action" class=''>
         <div class='flR pr20P' >
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
-        <div class='' >
+        <div class='dN' >
           <span class="action"><input type="checkbox"  class='item-all mt8P' /></span>
           <input type="submit" value="删除" name="type" /> 
           <input type="button" value="移动" name="type" class='pick'
