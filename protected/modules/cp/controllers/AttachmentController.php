@@ -357,6 +357,8 @@ class AttachmentController extends GController
       $criteria->params     = array(':keyword'=>"%$keyword%");      
       $opt['tpl_params']['keyword'] =& $_REQUEST['keyword'];
 	  }
+    
+    $opt['page_size'] = 20;
 
     $is_include = true;
     if( strlen( $cur_leaf_id) > 0 ){

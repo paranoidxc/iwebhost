@@ -46,6 +46,7 @@ $(document).ready(function(){
   $('.action-btn').click(function(){
       if( $(this).hasClass('confirm') ) {
         if( confirm('process') ) {
+          $('.batch_form').find("input[type=submit]").val( $(this).attr('type') );
           $('.batch_form').submit();
         }
       }

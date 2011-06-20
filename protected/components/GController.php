@@ -259,7 +259,7 @@ class GController extends Controller
   public function actionBatch() {
   	if(Yii::app()->request->isPostRequest) {
       $type = $_POST['type'];
-			if( count($_POST['ids']) > 0 && $type=="删除") {
+			if( count($_POST['ids']) > 0 && ( $type=="删除" || $type='delete' )) {
 				$ids =& $_POST['ids'];
 				foreach( $ids as $id) {
 				  $imodel = new $this->controllerId;

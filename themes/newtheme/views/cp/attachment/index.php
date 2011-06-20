@@ -15,7 +15,7 @@
         <span class='handle'>settings...</span>
         <div>
           <ul>
-            <li><a href="#" class='menu-top action-btn confirm delete'>删除</a></li>
+            <li><a href="#" class='menu-top action-btn confirm' type='delete'>删除</a></li>
             <li><a href="#" class='pick move' uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />移动</a></li>
 
             <li class='iline'></li>
@@ -36,22 +36,14 @@
     <?php echo $this->renderPartial( '//layouts/flash') ?>
 
     <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
-      
+      <input type="submit" value="" name="type" class='dN'/> 
       <div id="w_action" class=''>
         <div class='flR pr20P ipagination' >
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
-        <div class='dN' >
-          <span class="action"><input type="checkbox"  class='item-all mt8P' /></span>
-          <input type="submit" value="删除" name="type" /> 
-          <input type="button" value="移动" name="type" class='pick'
-              uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />
-
-        </div>
       </div><!--end w_action -->
-
       <div id="w_content">
-            <?php echo $this->renderPartial('_index',
+        <?php echo $this->renderPartial('_index',
                 array('list'=>$list, 'pagination' => $pagination,
                   'top_leaf' => $top_leaf,
                   'select_pagination' => $select_pagination)); ?>
