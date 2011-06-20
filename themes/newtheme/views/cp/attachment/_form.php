@@ -1,22 +1,22 @@
-      <div id="attachment_form" class='dN' >
-        <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
-          <div>
-			      <span id="spanButtonPlaceHolder"><?php echo Yii::t('cp','Upload Attachment') ?></span>
-			      <input id="ibtnCancel" 
-			            type="button"
-			            value="<?php echo Yii::t('cp','Cancel All Uploads') ?>" onclick="swfu.cancelQueue();"
-			  	        disabled="disabled"
-			  	        class='ibtn blue'
-			  	        style="margin-top: 6px;"/>
-		      </div>
-		      <div id="divStatus">0 <?php echo Yii::t('cp','Files Uploaded') ?></div>
-		      <p class="progress"><?php echo Yii::t('cp','Upload Queue') ?></p>
-		      <div class="fieldset flash" id="fsUploadProgress">
-			      <span class="legend dN">Upload Queue</span>
-		      </div>
-	      </form>  
-      </div>
-      
+<div id="attachment_form" class='dN' >
+  <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
+    <div>
+      <span id="spanButtonPlaceHolder"><?php echo Yii::t('cp','Upload Attachment') ?></span>
+      <input id="ibtnCancel" 
+            type="button"
+            value="<?php echo Yii::t('cp','Cancel All Uploads') ?>" onclick="swfu.cancelQueue();"
+            disabled="disabled"
+            class='ibtn blue'
+            style="margin-top: 6px;"/>
+    </div>
+    <div id="divStatus" class='dN' >0 <?php echo Yii::t('cp','Files Uploaded') ?></div>
+    <p class="progress dN" ><?php echo Yii::t('cp','Upload Queue') ?></p>
+    <div class="fieldset flash" id="fsUploadProgress">
+      <span class="legend dN">Upload Queue</span>
+    </div>
+  </form>  
+</div>
+
       
       <script type="text/javascript">
 		var swfu;

@@ -2,6 +2,14 @@ $(document).ready(function(){
   $('.settings .handle').click(function(){
     $(this).next().toggle();
   });
+
+  $(document).click(function(e){
+    if( ! $(e.target).hasClass('handle') ) {
+      $('.settings div').hide();
+    }
+  });
+
+
   function resize_layout() {
     _gheight = $(window).height();
     _gheight = _gheight-34;
