@@ -73,8 +73,11 @@ ul.api_categorys_ul li p.select {
 ul.api_categorys_ul .f_open,
 ul.api_categorys_ul .f_fold {
   background: url(api_categorys_img/treeExpandImages.png);
+  background: url(/images/fold.png) no-repeat 0 2px;
+              /*
 	background-position: -35px 0px;
   background-position: -470px 0;
+  */
 	height: 16px;
 	width: 16px;	
 	line-height: 16px;	

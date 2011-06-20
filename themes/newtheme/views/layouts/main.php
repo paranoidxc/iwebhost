@@ -10,11 +10,11 @@
 ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
   
-<script type="text/javascript" src="/themes/classic/swfupload/swfupload.js"></script>	
-<script type="text/javascript" src="/themes/classic/swfupload/swfupload.queue.js"></script> 
-<script type="text/javascript" src="/themes/classic/swfupload/fileprogress.js"></script> 
-<script type="text/javascript" src="/themes/classic/swfupload/handlers.js"></script> 
-<link  rel="stylesheet"  type="text/css"  href="/themes/classic/swfupload/swfupload.css" /> 
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/swfupload/swfupload.js"></script>	
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/swfupload/swfupload.queue.js"></script> 
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/swfupload/fileprogress.js"></script> 
+<script type="text/javascript" src="<?php echo $theme_baseurl?>/swfupload/handlers.js"></script> 
+<link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl?>/swfupload/swfupload.css" /> 
 
 </head>
 <body>
