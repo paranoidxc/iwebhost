@@ -195,7 +195,7 @@ class GController extends Controller
     $criteria->limit        =  $page_size;
     $criteria->offset       = $pages->offset;
     $select_pagination = new  CListPager();
-    $select_pagination->header = Yii::t('cp','Go to:');
+    $select_pagination->header = '<span>跳到:</span>';
 //    $select_pagination->htmlOptions['onchange']="";
     
     $select_pagination->setPages($pages);    

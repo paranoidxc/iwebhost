@@ -38,7 +38,7 @@
     <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form' >
       
       <div id="w_action" class=''>
-        <div class='flR pr20P' >
+        <div class='flR pr20P ipagination' >
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div class='dN' >

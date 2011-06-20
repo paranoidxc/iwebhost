@@ -1,28 +1,37 @@
 .ipagination {
-  margin-bottom: 2px;
+  line-height: 30px;
+  height: 30px;
+}
+.ipagination span {
+  margin: 0;
+  padding: 0;
+  line-height: 16px;
+  height: 16px;
+  display: inline-block;
 }
 
 ul.yiiPager {
- font-size:11px;
- border:0;
- margin:0;
- padding:0;
- line-height:100%;
- display:inline;
+  position: relative;
+  top: 5px;
+  display: inline-block;
 }
 ul.yiiPager li
 {
- display:inline-block;
- height: 18px;
- border: 1px solid #efefef;
- border-color: #efefef #ccc #ccc #efefef;   
+  /*
+  height: 18px;
+  */
+  float: left;
+  border: 1px solid #efefef;
+  border-color: #efefef #ccc #ccc #efefef;   
 }
 ul.yiiPager .hidden a:hover,
 ul.yiiPager a:link,
 ul.yiiPager a:visited {  
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 6px ;
   height: 16px;
   line-height: 16px;
-  padding: 0px 6px ;
   margin: 0;
   display: block;
   text-decoration:none;
@@ -53,4 +62,3 @@ ul.yiiPager .first,
 ul.yiiPager .last {
  display:none;
 }
-
