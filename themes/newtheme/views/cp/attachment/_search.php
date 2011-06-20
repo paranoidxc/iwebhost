@@ -6,8 +6,8 @@
           class="keyword search_input <?php echo (strlen($keyword) > 0 ? 'load_focus':'') ?>"
           value="<?php echo $keyword?>" />
       <input type="submit" value="submit" class='search_submit'/>
-      <span class='csP toggle_w_adv_search'>高级</span>
-      <div class='mt5P ml240P dN w_adv_search'>
+      <span class='csP toggle lh20P' rel=".w_adv_search">高级</span>
+      <div class='mt5P dN w_adv_search'>
         <table class='w100S'>
           <tr>
             <th class='w100P taL'>序号:</th>
