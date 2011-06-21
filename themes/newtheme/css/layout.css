@@ -33,21 +33,16 @@
 #w_middle{
   
   } #w_location { 
-    line-height: 24px;
-    height: 24px;
     color: #00C;
     text-decoration: none;
     background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
-    border-top: 1px solid #FFFFFF;
     color: #646464 !important;
     display: block !important;
-    font-size: 12px;
-    height: 25px !important;
-    line-height: 26px !important;
-    margin-left: 0 !important;
-    padding-top: 1px !important;
+    font-size: 14px;
+    height: 26px ;
+    line-height: 26px;
+    margin-left: 0 ;
     border-bottom: 1px solid #C8C8C8;
-
   }*  html #w_location { 
     margin-left: -3px;
   } #w_action {
@@ -65,6 +60,11 @@
   #w_content {
     clear: both;
   }
+  #w_search {
+    line-height: 26px;
+    height: 26px;
+   /* border-bottom: 1px solid #C8C8C8;*/
+  }
 
 #w_content {
   position: absolute;
@@ -77,11 +77,25 @@
 }
 #w_content .list tr th {
   line-height: 28px;
+  /*
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #CCCCCC;   
+  background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+  border-top: 1px solid #C8C8C8;
+  border-bottom: 1px solid #C8C8C8;
+  */
+  border-bottom: 1px solid #F0EEEC;
+  color: #646464;
 }
 #w_content .list tr td {
-  line-height: 26px;
-  background: #edf0f9;
-  border-bottom: 1px #CCC solid;
+  line-height: 28px;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #F0EEEC;
+  background: #FAFAFA;
+}
+#w_content .list tr td a:visited,
+#w_content .list tr td a {
+  text-decoration: none;
 }
 #w_content .list tr.select td {
   background: #FFFFCC;

@@ -6,15 +6,15 @@
       </td><!-- w_left end -->
       <td id="w_right">
         <div id="w_location"> 
-          <div class="lhn-section-primary" style="float: left">
+          <div class="location">
           <?php if( $cur_leaf->id == $top_leaf->id ) { ?>
           <a href="<?php echo url('cp/article/'.action()) ?>" ><?php echo $top_leaf->name;?></a>
           <?php }else{ ?>
           <a href="<?php echo url('cp/article/'.action()) ?>" ><?php echo $top_leaf->name; ?></a>
-          <?php echo API::rchart();?><a href="<?php echo url('cp/article/'.action(), array('category_id'
+          <?php echo API::rc();?><a href="<?php echo url('cp/article/'.action(), array('category_id'
           => $cur_leaf->id) ) ?>" ><?php echo $cur_leaf->name;?></a>
           <?php } ?>
-          <?php echo API::rchart();?>列表
+          <?php echo API::rc();?> 列表
           </div>
           <a class='action' href="<?echo url('/cp/article/create', array('action' =>
           action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>

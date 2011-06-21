@@ -24,6 +24,10 @@ class API {
   public static function rchart() {
     return '&nbsp;&raquo;&nbsp;';
   }
+
+  public static function rc() {
+    return '&raquo;';
+  }
  
   public static function upload_prefix_dir() {
     $y = date('Y');

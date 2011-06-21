@@ -8,6 +8,7 @@ $(document).ready(function(){
     }
     if( ! $(e.target).hasClass('control_tree') ) {
       $('#tree_left').hide();
+      $('.control_tree').removeClass('focus');
     }
 
   });

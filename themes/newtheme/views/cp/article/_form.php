@@ -7,7 +7,6 @@
 	)
 )); ?>
 
-  <p class="note"><?php echo Yii::t('cp','Fields with * are required.')?></p>
 
   <?php echo $this->renderPartial('//layouts/flash'); ?>
 
@@ -19,6 +18,7 @@
         <td colspan="2" class="pl8P" style="border: none">
   		      <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'),
                 array( 'class' => 'isubmit')); ?>
+          <span class="note"><?php echo Yii::t('cp','Fields with * are required.')?></span>
         </td>
       </tr>
     </thead>
