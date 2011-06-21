@@ -7,9 +7,8 @@
 
       <td id='w_right'>
         <div id="w_location">
-          <div class="lhn-section-primary" style="float: left">
-            Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>"
-            >Attachment</a><?php echo API::rchart();?>Index&nbsp;&nbsp;&nbsp;
+          <div class="location">
+            <a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rc();?> Index
           </div>
           <span class='flL csP toggle' rel="#attachment_form">上载附件</span>
           <span class='flL csP item-all'>全选</span>

@@ -24,9 +24,9 @@ $(document).ready(function(){
     _gheight = _gheight-90;
     if( $("#w_search").length > 0) {
     }else{
-      var itop = parseInt( $('#w_content').css('top') )-30;
+      //var itop = parseInt( $('#w_content').css('top') )-30;
       _gheight = _gheight+30;
-      $('#w_content').css({'top':itop+'px'});
+      $('#w_content').css({'top':'26px'});
     }
     _gwidth = $(window).width()-$('#w_left').width();
     _gwidth = $('#w_location').width()-2;
