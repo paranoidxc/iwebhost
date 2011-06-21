@@ -5,6 +5,7 @@
   padding-left: 8px;
 }
 
+
 #w_search{
   padding-left: 5px;
 }
@@ -34,21 +35,80 @@
   } #w_location { 
     line-height: 24px;
     height: 24px;
+    color: #00C;
+    text-decoration: none;
+    background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+    border-top: 1px solid #FFFFFF;
+    color: #646464 !important;
+    display: block !important;
+    font-size: 12px;
+    height: 25px !important;
+    line-height: 26px !important;
+    margin-left: 0 !important;
+    padding-top: 1px !important;
+    border-bottom: 1px solid #C8C8C8;
+
   }*  html #w_location { 
     margin-left: -3px;
   } #w_action {
     height: 30px;
-    line-height: 30px;
+    line-height: 30px;  
+    border-bottom: 1px solid #F0EEEC !important;
   } #w_left,
     .w_left{
     width: 240px;
-    float: left;
+    vertical-align: top;
+    /*padding-left: 10px;*/
   } #w_right{
-    float: right;
-    float: left;
-    width: 400px;
+    vertical-align: top;
   }
   #w_content {
-    overflow: hidden;
-    height: 1%;
+    clear: both;
   }
+
+#w_content {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  padding: 1px;
+}
+#w_content .list  {
+  width: 100%;
+}
+#w_content .list tr th {
+  line-height: 28px;
+}
+#w_content .list tr td {
+  line-height: 26px;
+  background: #edf0f9;
+  border-bottom: 1px #CCC solid;
+}
+#w_content .list tr.select td {
+  background: #FFFFCC;
+} 
+
+
+/*
+.iform .itable th ,
+.iform .itable td {
+  line-height: 28px;
+  border-bottom: 1px solid #efefef;
+  vertical-align: top;
+}
+
+form .itable tr.focus {
+  background: #ffffcc;
+}
+.iform .itable th {
+  text-align: right;
+  padding-right: 10px;
+  color: #36c;
+  font-weight: normal;
+}
+
+.iform .itable td label {
+  display: inline-block;
+  width: 100px;
+}
+*/
+

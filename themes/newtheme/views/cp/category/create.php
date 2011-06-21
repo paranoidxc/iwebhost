@@ -1,15 +1,8 @@
 <div id="m_middle">
-
-  <div id="wx_right">
-    <div></div>
-    <div id="w_location">
-    </div>
-
-
-    <div id="w_content">
-
-
-
+  <table class='w100S'>
+    <tr>
+      <td class='w100S'>
+<div id="w_con">
 <div class="iform">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'category-form',
@@ -38,18 +31,19 @@
     <tbody>
       <tr>
         
-        <td class='vaT' style='width: 50%'>
+        <td class='vaT' style='width: 60%'>
           <table class='w100S'>
             <tr>
               <td class='pl10P'>
-	              <?php echo $form->textArea($model,'memo',array('rows'=>20, 'cols'=>40, 'class' => 'itext')); ?>
+	              <?php echo $form->textArea($model,'memo',array('rows'=>20, 'cols'=>40, 'class' =>
+                      'itext w100S')); ?>
                 <?php echo $form->error($model,'memo'); ?>		
               </td>
             </tr>
           </table>
         </td>
 
-        <td class='vaT' style='width:50%'>
+        <td class='vaT' style='width:40%'>
           <table class='itable w100S'>
            <tr>
             <td class='pl10P'>
@@ -80,7 +74,8 @@
                 <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
               </div>
               <p class="clear">  			  
-                <?php echo $form->textField($model,'parent_leaf_id',array('size'=>60,'maxlength'=>255, 'class' => ' small' )); ?>		
+                <?php echo
+                $form->textField($model,'parent_leaf_id',array('size'=>60,'maxlength'=>255, 'class' => 'dN small' )); ?>		
               </p>
             </td>
           </tr>

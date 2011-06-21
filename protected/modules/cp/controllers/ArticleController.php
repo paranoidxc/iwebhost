@@ -149,7 +149,7 @@ class ArticleController extends GController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','preview','Sortarticle','innode','ipage'),
+				'actions'=>array('index','view','preview','Sortarticle','innode','ipage','leaf_create','leaf_update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -315,15 +315,14 @@ class ArticleController extends GController
     if(Yii::app()->request->isPostRequest) {
       $type = $_POST['type'];
 		  $ids =& $_POST['ids'];
-			if( count($ids) > 0 && $type=="删除") {
+			if( count($ids) > 0 && ( $type=="删除" || $type=="delete")) {
 				foreach( $ids as $id) {
 				  $imodel = new $this->controllerId;
 					$item = $imodel->findByPk($id);
 					$item->delete();
 				}
         $str = '已删除 '.count($ids).' 个用户数据 '.Time::now();
-			}elseif ( count($ids) > 0 && $type=="复制") {
-	      /* Copy a list of article in same category */
+			}elseif ( count($ids) > 0 && ( $type=="复制" || $type=="copy" )) {
         foreach( $ids as $id ) {
           $at = Article::model()->findByPk($id);
           $new = new Article();							
@@ -333,11 +332,11 @@ class ArticleController extends GController
           $new->save();
         }
         $str = '已复制 '.count($ids).' 个用户数据 '.Time::now();
-			}elseif ( count($ids) > 0 && $type=="重点") {
+			}elseif ( count($ids) > 0 && ( $type=="重点" || $type=="star" )) {
         $ids = join(',',$ids);
         Article::model()->updateAll( array('is_star' => 1), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
         $str = '已打重点 '.count($ids).' 个用户数据 '.Time::now();
-			}elseif ( count($ids) > 0 && $type=="非重点") {
+			}elseif ( count($ids) > 0 && ( $type=="非重点" || $type=="unstar" )) {
         $ids = join(',',$ids);
         Article::model()->updateAll( array('is_star' => 0), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
         $str = '已取消重点 '.count($ids).' 个用户数据 '.Time::now();

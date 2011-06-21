@@ -4,7 +4,6 @@
 @import url('layout.css');
 @import url('api.categorys.css');
 @import url('api.attachment.css');
-@import url('right.css');
 @import url('pagination.css');
 body {
   font-size: 14px;
@@ -144,10 +143,13 @@ a {
   border: 1px solid #666;
   padding: 4px 2px;
   border-color: #666 #CCC #CCC #666;
-  width: 400px;
+  width: 200px;
 }
 .itext.w100P {
   width: 100px;
+}
+.itext.w100S {
+  width: 99%;
 }
 .isubmit {
   /*border: 1px outset #CCC;*/

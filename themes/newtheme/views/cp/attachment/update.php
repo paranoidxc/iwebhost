@@ -1,40 +1,17 @@
-<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_middle">
-  <div id="w_left">
-    <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree,'action' => $action),false,true) ?>
-  </div>
-
-  <div id="w_right">
-    <div></div>
-  
-    <div id="w_location"> 
-      Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
-    </div>
-
-<?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-<?php } ?>
-<?php if(Yii::app()->user->hasFlash('error')) {?>
-    <div class="error">
-      <?php echo Yii::app()->user->getFlash('error'); ?>
-    </div>
- <?php } ?>
-
- 
- 
+  <table class='w100S'>
+    <tr>
+      <td id='w_left'>
+        <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree,'action' => $action),false,true) ?>
+      </td>
+      <td id="w_right">
+        <div id="w_location"> 
+          Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>Index
+        </div>
+        <?php echo $this->renderPartial( '//layouts/flash') ?>
+        <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_content">
-
-  
   <div class='iform'>
-
-  	<?php if(Yii::app()->user->hasFlash('success')) {?>
-      <div class="flash_suc">
-        <?php echo Yii::app()->user->getFlash('success'); ?>
-      </div>
-    <?php } ?>
-  
     <?php $form=$this->beginWidget('CActiveForm', array(
     	'id'=>'article-form',
     	'enableAjaxValidation'=>false,
@@ -42,15 +19,15 @@
     		'class' => 'article_ajax_form'
     	)
     )); ?>
-    
     <?php echo $form->errorSummary($model); ?>	
   	<table class='itable w100S mt10P'>
     	<tbody>
     	  <tr>
-          <th></th>
+          <th width="180" class='p5P'>
+    	      <img src='<?php echo $model->thumb ?>' />
+          </th>
     	    <td colspan="">
-    	      <img src='<?php echo $model->thumb ?>' class='flL image_border p2P' />
-    	      <div class="flL w100p ml20P p5p zoom ofA h150p" >
+    	      <div class="flL w100p ml20P p5p zoom ofA h150p dN" >
     	        <ul>
     	        <?php
     	          //echo str_replace(',','<br/>',$model->tips);
@@ -95,28 +72,18 @@
   	    </tr>
   	
     	  <tr>
-    	    <th class='alt leftborder'><?php echo $form->labelEx($model,'w'); ?></td>
+    	    <th class='alt leftborder'>
+          <?php echo $form->labelEx($model,'w'); ?> 
+    	    <?php echo $form->labelEx($model,'h'); ?>
+          </th>
     	    <td>
-    	      <?php echo $model->w ?>
-    	      <?php //echo $form->textField($model,'w',array('size'=>60,'maxlength'=>100)); ?>
-    	      <?php //echo $form->error($model,'w'); ?>
+    	      <?php echo $model->w ?>*<?php echo $model->h ?>
     	    </td>
     	  </tr>
     	  
-    	  <tr>
-    	    <th><?php echo $form->labelEx($model,'h'); ?></th>
-  		    <td>
-  		      <?php echo $model->h ?>
-  		      <?php //echo $form->textField($model,'h',array('size'=>60,'maxlength'=>100)); ?>
-  		      <?php //echo $form->error($model,'h'); ?>
-  		    </td>
-  		  </tr>
-  		  
- 	
         <tr>
-          <th></th>
-          <td>
-            <ul class="w200P">
+          <th>
+            <ul class="w100S">
   	    <?php
   	      $size_list = explode(',',$model->tips);	      
   	      foreach($size_list as $item){
@@ -133,15 +100,11 @@
   	    ?>
   	  </ul>
  
-          </td>
-        </tr>
-
-        <tr>
-          <th></th>
+          </th>
           <td>
-  	        <textarea class="extra_link_area_outer itext"><?php echo Yii::t('cp','Outer Link') ?></textarea>
+  	        <textarea cols='1' rows='4' class="extra_link_area_outer itext "><?php echo Yii::t('cp','Outer Link') ?></textarea>
             <br/>
-  	        <textarea class="extra_link_area_inner itext"><?php echo Yii::t('cp','Inter Link') ?></textarea>
+  	        <textarea cols='1' rows='4' class="extra_link_area_inner itext"><?php echo Yii::t('cp','Inter Link') ?></textarea>
           </td>
         </tr>
      	
@@ -156,9 +119,10 @@
         </tr>
       </tfoot>
     </table>
-	</div>
-  	
     <?php $this->endWidget(); ?>
-    </div>    
-  </div>    
+	</div>
+</div>    
+      </td>
+    </tr>
+  </table>
 </div>
