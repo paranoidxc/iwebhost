@@ -22,6 +22,12 @@ $(document).ready(function(){
     $('#w_right').css({'height':_gheight-31});
     $('#w_panel').css({'height':_gheight-31,'overflow':'auto'});
     _gheight = _gheight-90;
+    if( $("#w_search").length > 0) {
+    }else{
+      var itop = parseInt( $('#w_content').css('top') )-30;
+      _gheight = _gheight+30;
+      $('#w_content').css({'top':itop+'px'});
+    }
     _gwidth = $(window).width()-$('#w_left').width();
     _gwidth = $('#w_location').width()-2;
     $('#w_content').css({'height':_gheight,'width':_gwidth, 'overflow': 'auto'});
@@ -199,7 +205,6 @@ $(document).ready(function(){
     
     var return_wrap = $('#'+wrap.find('.return_id').val()).parent();
 
-    console.log( return_wrap );
 	  if( $('.unlink_default').length > 0 ) {
 	    $('.unlink_default').hide();
 	  }
