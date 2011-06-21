@@ -13,7 +13,7 @@
 
 	<?php echo $form->errorSummary($model); ?>		  
 	
-  <table class=' w100S'>
+  <table class='w100S'>
     <thead>
       <tr>
         <td colspan="2" class="pl8P" style="border: none">
@@ -199,7 +199,7 @@
               </div>
             </div>
             <p class="clear">  			
-              <?php echo $form->textField($model,'attachment_id',array( 'size'=>60,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
+              <?php echo $form->textField($model,'attachment_id',array( 'size'=>10,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
             </p>
           </td>
         </tr><!--缩略图-->
@@ -229,7 +229,7 @@
               <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
             </div>
             <p class="clear">  			  
-              <?php echo $form->textField($model,'gallery_id',array('size'=>60,'maxlength'=>255, 'class' => ' small' )); ?>		
+              <?php echo $form->textField($model,'gallery_id',array('size'=>10,'maxlength'=>255, 'class' => ' small' )); ?>		
             </p>
           </td>
         </tr>

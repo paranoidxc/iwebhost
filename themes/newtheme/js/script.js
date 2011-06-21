@@ -6,6 +6,10 @@ $(document).ready(function(){
     if( ! $(e.target).hasClass('handle') ) {
       $('.settings div').hide();
     }
+    if( ! $(e.target).hasClass('control_tree') ) {
+      $('#tree_left').hide();
+    }
+
   });
 
   $('.settings .handle').click(function(){
@@ -285,7 +289,7 @@ $(document).ready(function(){
 
   $('.control_tree').click(function(){
     $(this).addClass('focus');
-    $('#w_left').show().addClass('show');
+    $('#tree_left').show().addClass('show');
   });
   
   $('.load_focus').focus();

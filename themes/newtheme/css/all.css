@@ -143,6 +143,9 @@ a {
   border: 1px solid #666;
   padding: 4px 2px;
   border-color: #666 #CCC #CCC #666;
+  width: 300px;
+}
+.search_input {
   width: 200px;
 }
 .itext.w100P {
@@ -286,10 +289,10 @@ div.errorSummary ul li {
   border-right: 4px solid #EDF0F9;
   border-left: 4px solid #EDF0F9;
 }
-#w_left.show {
+#tree_left.show {
   position: absolute;
   background:#FFF;
-  top:60px;
+  top:30px;
   border:4px solid #EDF0F9;
   border-top: none;
   width:500px;

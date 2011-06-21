@@ -14,7 +14,7 @@
           <?php echo API::rchart();?><a href="<?php echo url('cp/article/'.action(), array('category_id'
           => $cur_leaf->id) ) ?>" ><?php echo $cur_leaf->name;?></a>
           <?php } ?>
-          <?php echo API::rchart();?>Index
+          <?php echo API::rchart();?>列表
           </div>
           <a class='action' href="<?echo url('/cp/article/create', array('action' =>
           action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>
