@@ -68,6 +68,68 @@
               <?php echo $form->error($model,'user_id'); ?>
           </td>
         </tr>
+
+        <tr>
+          <td class='pl10P'>
+            <p class='alt tdU pick' id="pick<?php echo time(); ?>"			        
+                uri="<?php echo CController::createUrl('rel/pickatt',
+                array('return_id'=>'pick'.time(),'rtype' => 'article_link_image' ) ); ?>">
+              <?php echo Yii::t('cp','Link Attachment') ?>
+            </p>
+            <div>
+              <?php 
+              if( $model->attachment ) {
+              ?>
+                <div class="orgin_thumbnail">
+                  <img src="<?php echo $model->attachment->gavatar?>" title="<?php echo $model->attachment->screen_name?>" />  					
+                  <span class="unlink_default" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+                  <span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  
+                  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="<?php echo Yii::t('cp','reset')?>">
+                  <?php echo Yii::t('cp','reset')?>
+                  </span>
+                </div>  				
+              <?php
+              }
+              ?>
+              <div class="dest_thumbnail dN" >
+                <img src="" alt="" />
+                <span class="unlink_dest" title="删除">删除</span>
+              </div>
+            </div>
+            <p class="clear">  			
+              <?php echo $form->textField($model,'attachment_id',array( 'size'=>10,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
+            </p>
+          </td>
+        </tr><!--缩略图-->
+        <tr>
+          <td class='pl10P'>  		  
+            <p class="tdU pick" id="gallery_pick<?php echo time(); ?>" 
+                uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >
+                <?php echo Yii::t('cp','Link Gallery') ?>
+            </p>
+            <?php 
+            if( $model->gallery ) {
+            ?>
+            <div class="origin_collect">
+              <span><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></span>
+              <span class="unlink_default_collect" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+              <span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="<?php echo Yii::t('cp','reset')?>">
+                <?php echo Yii::t('cp','reset')?>
+              </span>  					
+            </div>  				
+            <?php
+            }
+            ?>
+          
+            <div class="dest_collect dN" >
+              <span class="dest_collect_name">555</span>
+              <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
+            </div>
+            <p class="clear">  			  
+              <?php echo $form->textField($model,'gallery_id',array('size'=>10,'maxlength'=>255, 'class' => ' small' )); ?>		
+            </p>
+          </td>
+        </tr><!--关联集合-->
    
         <tr>
           <td class='pl10P'>
@@ -171,70 +233,8 @@
           </td>
         </tr>
       
-        <tr>
-          <td class='pl10P'>
-            <p class='alt tdU pick' id="pick<?php echo time(); ?>"			        
-                uri="<?php echo CController::createUrl('rel/pickatt',
-                array('return_id'=>'pick'.time(),'rtype' => 'article_link_image' ) ); ?>">
-              <?php echo Yii::t('cp','Link Attachment') ?>
-            </p>
-            <div>
-              <?php 
-              if( $model->attachment ) {
-              ?>
-                <div class="orgin_thumbnail">
-                  <img src="<?php echo $model->attachment->gavatar?>" title="<?php echo $model->attachment->screen_name?>" />  					
-                  <span class="unlink_default" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
-                  <span class="reset_default dN" rel_id="<?php echo $model->attachment_id?>"  
-                  rel_path="/upfiles/g<?php echo $model->attachment->path?>" title="<?php echo Yii::t('cp','reset')?>">
-                  <?php echo Yii::t('cp','reset')?>
-                  </span>
-                </div>  				
-              <?php
-              }
-              ?>
-              <div class="dest_thumbnail dN" >
-                <img src="" alt="" />
-                <span class="unlink_dest" title="删除">删除</span>
-              </div>
-            </div>
-            <p class="clear">  			
-              <?php echo $form->textField($model,'attachment_id',array( 'size'=>10,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
-            </p>
-          </td>
-        </tr><!--缩略图-->
-    
-        <tr>
-          <td class='pl10P'>  		  
-            <p class="tdU pick" id="gallery_pick<?php echo time(); ?>" 
-                uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >
-                <?php echo Yii::t('cp','Link Gallery') ?>
-            </p>
-            <?php 
-            if( $model->gallery ) {
-            ?>
-            <div class="origin_collect">
-              <span><?php echo $model->gallery->id?>:<?php echo $model->gallery->name?></span>
-              <span class="unlink_default_collect" origin_value="0" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
-              <span class="reset_default_collect dN" rel_id="<?php echo $model->gallery_id?>" title="<?php echo Yii::t('cp','reset')?>">
-                <?php echo Yii::t('cp','reset')?>
-              </span>  					
-            </div>  				
-            <?php
-            }
-            ?>
-          
-            <div class="dest_collect dN" >
-              <span class="dest_collect_name">555</span>
-              <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
-            </div>
-            <p class="clear">  			  
-              <?php echo $form->textField($model,'gallery_id',array('size'=>10,'maxlength'=>255, 'class' => ' small' )); ?>		
-            </p>
-          </td>
-        </tr>
    
-
+       
       </table>
 
     </td><!--other_field_end-->

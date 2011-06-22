@@ -99,7 +99,7 @@ div.location a:hover ,
   background: #FFF;
   border:2px solid #EFEFEF;  
   background: none repeat scroll 0 0 #FFFFFF !important;
-  border: 1px solid #FFFFFF !important;
+  border: 1px solid #CCC;
   border-radius: 4px 4px 4px 4px !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
   z-index: 1009 !important;
@@ -297,7 +297,7 @@ div.errorSummary ul li {
   margin-left:10px; 
   background: #FFF;
   background: none repeat scroll 0 0 #FFFFFF !important;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #CCC;
   border-radius: 4px 4px 4px 4px !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
   z-index: 1009 !important;

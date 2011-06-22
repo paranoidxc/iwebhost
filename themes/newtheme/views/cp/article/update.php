@@ -3,7 +3,7 @@
   <div id="w_right">
     <div id="w_location" >
       <div class="location">
-        <span class="control_tree" >类别</span>
+        <span class="control_tree" >栏目类别</span>
         <a href="<?php echo url('/cp/article/'.$action ) ?>" >文章列表</a>
         <?php echo API::rc();?>
         <a href="<?php echo url('/cp/article/'.$action, array('category_id' => $model->category_id )

@@ -10,7 +10,6 @@
           <div class="location">
             <a href="<?php echo url('cp/attachment/index') ?>" >附件管理</a><?php echo API::rc();?> 显示
           </div>
-          <span class='flL csP toggle' rel="#attachment_form">上载附件</span>
           <span class='flL csP item-all'>全选</span>
           <div class='settings'>
             <span class='handle'>settings...</span>
@@ -32,6 +31,7 @@
               </ul>
             </div>
           </div><!-- settings end-->
+          <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
         </div><!-- w_location end -->
         <?php echo $this->renderPartial( '//layouts/flash') ?>
         <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>

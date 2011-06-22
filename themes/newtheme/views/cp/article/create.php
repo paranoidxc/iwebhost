@@ -1,9 +1,9 @@
 <div id="m_middle">
-  <?php echo $this->renderPartial( '_left',array('div_id' => 'tree_left','leaf_tree' => $leaf_tree),false,true) ?>
+  <?php echo $this->renderPartial( '_left',array('div_id' => 'tree_left','action' => $action, 'leaf_tree' => $leaf_tree),false,true) ?>
   <div id="w_right">  
     <div id="w_location" > 
       <div class="location">
-        <span class="control_tree" >类别</span>
+        <span class="control_tree" >栏目类别</span>
         <a href="<?php echo url('/cp/article/'.$action ) ?>" >文章列表</a>
         <?php echo API::rc();?>
         <a href="<?php echo url('/cp/article/'.$action, array('category_id' => $model->category_id )

@@ -38,12 +38,14 @@
 
         array('label'=>'页脚页面', 'url'=>array('/cp/article/ipage/208' ),
           'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/article/ipage/') ),
+          'itemOptions' => array('class' => API::isaction( array(
+                'cp/article/ipage/','/action/ipage/','/action/ipage.html' ) ) ),
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
-        array('label'=>'社区节点', 'url'=>array('/cp/article/innode/206' ),
+        array('label'=>'社区节点', 'url'=>array('/cp/article/innode/206') ,
           'visible' => $_isAdmin,
-          'itemOptions' => array('class' => API::isaction('cp/article/innode') ),
+          'itemOptions' => array('class' => API::isaction( array( 
+                'cp/article/innode' ,'/action/innode/', '/action/innode.html') ) ) ,
           'linkOptions' => array( 'data' => 'nav_panel_Articles' )),
 
 				array('label'=>Yii::t('cp','Attachment'), 'url'=>array('/cp/attachment/index/category_id/30'),
