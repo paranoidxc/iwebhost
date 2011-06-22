@@ -8,5 +8,6 @@
           value="<?php echo $keyword?>" />
       <input type="submit" value="submit" class='search_submit'/>
       <span class='csP toggle lh20P' rel=".w_adv_search">高级</span>
+      <?php echo $this->renderPartial( '_adv_search' ); ?>
   </form>
 </div>

@@ -8,12 +8,12 @@ class API {
     if( is_array($uri) ) {
       foreach( $uri as $u ) {
         if( strpos($_SERVER['REQUEST_URI'], $u ) !== false ) {
-          $r = 'select';
+          $r = ' select on ';
           break;
         }
       }
     }else{
-      $r = strpos($_SERVER['REQUEST_URI'], $uri ) !== false  ? 'select' : '';
+      $r = strpos($_SERVER['REQUEST_URI'], $uri ) !== false  ? ' select on ' : '';
     }
     return $r;
   }

@@ -50,7 +50,6 @@
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div id="w_content">     
-            <?php echo $this->renderPartial( '_adv_search' ); ?>
           <form action="<?php echo url('/cp/article/batch') ?>" method="post" class='batch_form' >
             <input type="input" value="" name="type" id='isubmit' class='dN'/> 
             <?php echo $this->renderPartial('_index',

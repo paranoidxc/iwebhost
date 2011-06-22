@@ -1,45 +1,39 @@
-<?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 
 <div id="w_middle">
-  <div id="w_left">
-    <?php echo $this->renderPartial('_left') ?>
-  </div>
-
+  
   <div id="w_right">
-    <div></div>
-    
     <div id="w_location">
-      Console<?php echo API::rchart() ;?><a href="<?php echo url('cp/feedback/index') ?>" >Feedback</a><?php echo API::rchart();?>Index
-    </div>
+      <div class='location'>
+        <a href="<?php echo url('cp/feedback/index') ?>" >Feedback</a><?php echo API::rchart();?> Index
+      </div> 
+      <span class='flL csP item-all'>全选</span>
 
-<?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-<?php } ?>
-<?php if(Yii::app()->user->hasFlash('error')) {?>
-    <div class="error">
-      <?php echo Yii::app()->user->getFlash('error'); ?>
-    </div>
- <?php } ?>
-    
-
-    <form action="<?php echo url('cp/feedback/batch') ?>" method="post" >
-      <div id="w_action">
-        <div class='pl20P pt3P' >
-          <input type="submit" value="删除" name="type" />
-        </div>
-        <div class='flR pr20P' style="margin-top: -28px;">
-        <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+      <div class='settings'>
+        <span class='handle'>settings...</span>
+        <div>
+          <ul>
+            <li><a href="#" class='action-btn confirm' type='delete'>删除</a></li>
+          </ul>
         </div>
       </div>
-
-
+      <?php echo $this->renderPartial( '_left' ) ?>
+    </div>
+    
+    <?php echo $this->renderPartial( '//layouts/flash' ) ?>
+    <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
+    <div class='flR pr20P' style="margin-top: -28px;">
+      <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+    </div>
+ 
       <div id="w_content">
+        <?php echo $this->renderPartial( '_adv_search' ); ?>
+        <form action="<?php echo url('cp/feedback/batch') ?>" method="post" class='batch_form'>
+        <input type="input" value="" name="type"  id='isubmit' class='dN' />
+
         <table class='list'>
           <thead>
             <tr>
-              <th class='w20P taC pr2P pl2P'><input type='checkbox' class="item-all" /></th>
+              <th class='w20P taC pr2P pl2P'></th>
               <th class='w80P '><?php echo Yii::t('cp','Sid') ?></th>
               <th class='w80P taL'><?php echo Yii::t('cp','Itype') ?></th>
               <th class='w160P taL'><?php echo Yii::t('cp','Email') ?> </th>
@@ -49,15 +43,9 @@
               <th class='w100P taL'><?php echo Yii::t('cp','A_time') ?></th>
             </tr>
           </thead>
-<?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
-        
-
+          <?php echo $this->renderPartial('_index', array('list'=>$list, 'pagination' => $pagination, 'select_pagination' => $select_pagination)); ?>
         </table> 
- 
       </div>
-
     </form>
-
   </div>
-
 </div>

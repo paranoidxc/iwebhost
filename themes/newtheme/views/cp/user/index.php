@@ -5,6 +5,7 @@
       <div class='location'>
         <a href="<?php echo url('cp/user/index') ?>" >User</a><?php echo API::rchart();?> Index
       </div>
+      <?php echo $this->renderPartial('_left'); ?>
     </div>
 
     <?php echo $this->renderPartial('//layouts/flash'); ?>

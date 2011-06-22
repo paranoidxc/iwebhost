@@ -40,7 +40,7 @@
   	  	<th><?php echo $form->labelEx($sconfig,'keyword'); ?></th>
   		  <td>    		    
   		    <?php echo $form->textArea($sconfig,'keyword',
-              array('rows'=>10, 'cols'=>100,'class'=>'itext')); ?>
+              array('rows'=>4, 'cols'=>100,'class'=>'itext')); ?>
   	  	  <?php echo $form->error($sconfig,'keywords'); ?>
   	  	</td>
   	  </tr>
@@ -65,7 +65,7 @@
         <th><?php echo $form->labelEx($sconfig,'oops_tips'); ?></th>
         <td>
           <?php echo $form->textArea($sconfig,'oops_tips',
-              array('rows'=>10, 'cols'=>100,'class' => 'itext')); ?>
+              array('rows'=>4, 'cols'=>100,'class' => 'itext')); ?>
   	  	  <?php echo $form->error($sconfig,'oops_tips'); ?>
   	  	</td>
       </tr>
