@@ -7,9 +7,9 @@
       <td id="w_right">
         <div id="w_location"> 
           <div class='location'>
-            <a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rchart();?>
+            <a href="<?php echo url('cp/attachment/index') ?>" >附件管理</a><?php echo API::rchart();?>
           </div>
-          <span class='action on'>更新 #<?php echo $model->id.' '.$model->screen_name;?></span>
+          <span class='action on'>编辑 #<?php echo $model->id.' '.$model->screen_name;?></span>
         </div>
         <?php echo $this->renderPartial( '//layouts/flash') ?>
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>

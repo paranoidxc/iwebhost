@@ -12,8 +12,8 @@ div.location {
   float: left;  
   white-space: nowrap;
 }
-div.categorys-primary { 
-  background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+div.categorys-primary {
+  background: #DFDDDB  url('bgs/tree-top-on.jpg') repeat-x 0 0;
   display: block ;
   border-bottom: 1px solid #C8C8C8;
   width: 100%;
@@ -117,10 +117,13 @@ ul.api_categorys_ul span.open {
   ul.api_categorys_ul li p.select a {
     background: #BCF;
     font-weight: bold;
-    border-top: 1px solid #B5B4B2 !important;
+    /*border-top: 1px solid #B5B4B2 !important;*/
     background: #F6F4F2;
     background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5) repeat scroll 0 0 transparent !important;
-    border-bottom: 1px solid #B5B4B2 !important;
+/*    border-bottom: 1px solid #B5B4B2 !important;*/
+    border-top: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+    background: #DFDDDB  url('bgs/tree-on.jpg') repeat-x 0 0;
   }
   ul.api_categorys_ul li p.itop.select a {
     border-top: none !important;

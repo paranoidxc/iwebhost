@@ -8,7 +8,7 @@
       <td id='w_right'>
         <div id="w_location">
           <div class="location">
-            <a href="<?php echo url('cp/attachment/index') ?>" >Attachment</a><?php echo API::rc();?> Index
+            <a href="<?php echo url('cp/attachment/index') ?>" >附件管理</a><?php echo API::rc();?> 显示
           </div>
           <span class='flL csP toggle' rel="#attachment_form">上载附件</span>
           <span class='flL csP item-all'>全选</span>
@@ -40,7 +40,6 @@
             <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div id="w_content">
-          <?php echo $this->renderPartial( '_adv_search' ); ?>
           <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form clB' >
           <input type="submit" value="" name="type" class='dN'/> 
           <?php echo $this->renderPartial('_index',

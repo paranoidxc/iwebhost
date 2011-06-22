@@ -3,7 +3,7 @@
     
     <div id="w_location">
       <div class='location'>
-        <a href="<?php echo url('cp/user/index') ?>" >User</a><?php echo API::rchart();?> Index
+        <a href="<?php echo url('cp/user/index') ?>" >用户管理</a><?php echo API::rchart();?> 显示
       </div>
       <?php echo $this->renderPartial('_left'); ?>
     </div>
@@ -15,7 +15,6 @@
     <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 
     <div id="w_content">
-      <?php echo $this->renderPartial( '_adv_search',array(),false,true) ?>
       <form action="<?php echo url('cp/user/batch') ?>" method="post"  class='batch_form'> 
         <input type="submit" value="" name="type" class='dN'/> 
         <table class='list'>

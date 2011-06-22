@@ -24,7 +24,9 @@
 			  echo '<li class="'.$class.'" >';
         echo '<p class="itop '.API::isaction( array(
               '/cp/'.controller().'/'.action().'/category_id/'.$leaf->id.'.html',
-              '/cp/'.controller().'/'.action().'.html' )). '"
+              '/cp/'.controller().'/'.action().'.html',
+              '/'.action().'/'.$leaf->id.'.html',
+              )). '"
               return_id="'.$return_id.'" rel_id="'.$leaf->id.'" rel_name="'.$leaf->name.'"
               title="'.$name.'">';
         echo "<a  href='".url('/cp/'.controller().'/'.action($action), array('category_id' => $leaf->id) )."'
