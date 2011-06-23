@@ -18,6 +18,3 @@
   }
   ?>
 </ul>
-<div class="clear ipagination taR">
-<?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
-</div>

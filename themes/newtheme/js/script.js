@@ -117,6 +117,11 @@ $(document).ready(function(){
     });
   });
 
+  $('.wrap_cld').live('click',function(){
+      $('.mac_panel_wrap').remove(); 
+      $(document.body).imasker_hide();
+  });
+
 	$('.unlink_default').live('click',function(){
 	  var prev = $(this).prev().hide();	  		  
 	  var return_wrap = $(this).parent().parent().parent();
