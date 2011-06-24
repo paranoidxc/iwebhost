@@ -16,6 +16,7 @@ class GController extends Controller
 	 */
 	public $_model;
   public $tpl_params;
+  public $path;
 
 	public function init() {	  	  
 	  if( !Yii::app()->user->isGuest ){

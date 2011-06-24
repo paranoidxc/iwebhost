@@ -65,6 +65,8 @@ class ArticleController extends GController
       $cur_leaf_id =  (strlen($_GET['category_id']) > 0 ) ? $_GET['category_id'] : 1;
       $cur_leaf = $category = Category::model()->findByPk($cur_leaf_id);
     }
+ 
+    $this->path = Category::model()->getPath($cur_leaf_id,$top_leaf->id);		
 
 	  $criteria=new CDbCriteria;
     $criteria->condition = " 1=1 ";
@@ -228,7 +230,7 @@ class ArticleController extends GController
 			  $this->redirect(array('update','id'=>$model->id, 'action' => $action));	
 			}	
 		}
-
+    $this->path = Category::model()->getPath($model->category_id,$top_leaf->id);
     $leaf_tree = $this->getTree();
 		$this->render('create',array( 'action' => $action, 'model'	=>	$model, 'top_leaf' => $top_leaf, 'leaf_tree' => $leaf_tree ,'leaf'	=> $leaf ));
 	}
@@ -263,6 +265,7 @@ class ArticleController extends GController
 		}
     $leaf_tree =& $this->getTree($top_leaf_id);
     $top_leaf = Category::Model()->findByPk($top_leaf_id);
+    $this->path = Category::model()->getPath($model->category_id,$top_leaf->id);
   	$this->render('update',array( 'action' => $action, 'model'	=>	$model, 'top_leaf' => $top_leaf, 'leaf_tree' => $leaf_tree ));
 	}
 

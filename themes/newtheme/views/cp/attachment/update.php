@@ -4,13 +4,14 @@
       <td id='w_left'>
         <?php echo $this->renderPartial( '_left',array('leaf_tree' => $leaf_tree,'action' => $action),false,true) ?>
       </td>
+
       <td id="w_right">
+        
         <div id="w_location"> 
-          <div class='location'>
-            <a href="<?php echo url('cp/attachment/index') ?>" >附件管理</a><?php echo API::rchart();?>
-          </div>
+          <?php echo $this->renderPartial( '//layouts/_location',array('action' => $action),false,true) ?>
           <span class='action on'>编辑 #<?php echo $model->id.' '.$model->screen_name;?></span>
         </div>
+
         <?php echo $this->renderPartial( '//layouts/flash') ?>
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_content">

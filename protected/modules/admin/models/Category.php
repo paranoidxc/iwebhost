@@ -146,13 +146,19 @@ class Category extends CActiveRecord
 		return $r;
 	}
 	
-	public function getPath($id){
+	public function getPath($id,$top_id=''){
 		$sql = 	" SELECT parent.name, parent.id ".
 				 	" FROM category AS node,".
 					" category AS parent ".
 					" WHERE node.lft BETWEEN parent.lft AND parent.rgt ".
-					" AND node.id = $id ".
-					" ORDER BY parent.lft DESC";						
+					" AND node.id = $id ";
+        if( $top_id != '' ) {
+          $record = Category::model()->findByPk( $top_id );
+          if( $record != null ) {
+					  $sql .= " AND parent.lft  >=  ".$record->lft;
+          }
+        }
+					$sql .= " ORDER BY parent.lft DESC";						
 		$parents = $this->findAllBySql($sql);		
 		$path = array();
 		foreach( $parents as $obj )	{			

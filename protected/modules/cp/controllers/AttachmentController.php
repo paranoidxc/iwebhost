@@ -296,6 +296,9 @@ class AttachmentController extends GController
 		}
     $top_leaf = Category::Model()->findByPk($top_leaf_id);
     $leaf_tree =& $this->getTree($top_leaf_id);
+
+    $this->path = Category::model()->getPath($model->category_id,$top_leaf->id);		
+
     $this->render('update',array( 'model'=>$model,
           'leaf_tree' => $leaf_tree,'action' => $action, 'top_leaf' => $top_leaf),false,true);
 	}
@@ -335,7 +338,6 @@ class AttachmentController extends GController
   }
 
 	public function actionIndex($top_leaf_id='',$cur_leaf_id='') {
-
     //fetch top leaf
     if( strlen($top_leaf_id) == 0 ) {
       $top_leaf_id = 30;
@@ -344,9 +346,11 @@ class AttachmentController extends GController
 
     //fetch current leaf
     if( strlen($cur_leaf_id) == 0 ) {
-      $cur_leaf_id  =& $_GET['category_id'];
+      $cur_leaf_id  = ($_GET['category_id'] ? $_GET['category_id'] : 30);
     }
     $cur_leaf     = Category::model()->findByPk($cur_leaf_id);
+
+    $this->path = Category::model()->getPath($cur_leaf_id,$top_leaf->id);		
 
 	  $criteria=new CDbCriteria;
     $criteria->condition = " 1=1 ";

@@ -7,7 +7,8 @@
 
       <td id='w_right'>
         <div id="w_location">
-          <div class="location">
+          <?php echo $this->renderPartial('//layouts/_location',array('display' => '显示') ) ?>
+          <div class="location dN">
             <a href="<?php echo url('cp/attachment/index') ?>" >附件管理</a><?php echo API::rc();?> 显示
           </div>
           <span class='flL csP item-all'>全选</span>

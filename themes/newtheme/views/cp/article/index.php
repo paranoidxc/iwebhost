@@ -6,7 +6,9 @@
       </td><!-- w_left end -->
       <td id="w_right">
         <div id="w_location"> 
-          <div class="location">
+          <?php echo $this->renderPartial( '//layouts/_location',array('display' => '显示'),false,true) ?>
+          
+          <div class="location dN">
           <?php if( $cur_leaf->id == $top_leaf->id ) { ?>
           <a href="<?php echo url('cp/article/'.action()) ?>" ><?php echo $top_leaf->name;?></a>
           <?php }else{ ?>
@@ -16,6 +18,7 @@
           <?php } ?>
           <?php echo API::rc();?> 列表
           </div>
+
           <span class='flL csP item-all'>全选</span>
 
           <div class='settings'>
