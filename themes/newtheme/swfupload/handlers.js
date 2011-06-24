@@ -111,8 +111,16 @@ function pickatt_uploadSuccess(file, serverData) {
 		progress.setStatus("Complete.");
 		progress.toggleCancel(false);    
 		$('.swfloadstatus').hide();		
-		//alert( $('.progressWrapper:last').find('.progressName').html() );    
-		uploadTips($('.progressWrapper:last'), $('.progressWrapper:last').find('.progressName').html() );
+    var that = $('.att_search_form');
+    var url = that.attr('action')+'?keyword=';
+    $.ajax({
+      type: that.attr('method'),
+      cache: false,
+      url: url,
+      success:function(html){
+        $('.search_result_wrap').html(html);
+      }
+    });
 	} catch (ex) {
 		this.debug(ex);
 	}

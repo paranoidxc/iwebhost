@@ -16,8 +16,6 @@
           <?php } ?>
           <?php echo API::rc();?> 列表
           </div>
-          <a class='action' href="<?echo url('/cp/article/create', array('action' =>
-          action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>
           <span class='flL csP item-all'>全选</span>
 
           <div class='settings'>
@@ -42,6 +40,9 @@
               </ul>
             </div>
           </div><!-- settings end-->
+          <div class='flR'>
+          <a class='action' href="<?echo url('/cp/article/create', array('action' => action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>
+          </div>
         </div>
 
         <?php echo $this->renderPartial( '//layouts/flash') ?>

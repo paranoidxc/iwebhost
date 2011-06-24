@@ -13,6 +13,7 @@ $(document).ready(function(){
 
   });
 
+
   $('.settings .handle').click(function(){
     $(this).next().toggle();
   });
@@ -92,6 +93,7 @@ $(document).ready(function(){
   $('.toggle').click(function(){
       $(this).toggleClass('on');
       $($(this).attr('rel')).toggle();
+      /*
       if( $(this).attr('rel') == '#attachment_form') {
         var h = $('#attachment_form').innerHeight()+parseInt( $('#attachment_form').css('margin-top') );
         h += parseInt( $('#attachment_form').css('margin-bottom') );
@@ -103,6 +105,7 @@ $(document).ready(function(){
           $('#w_content').css({'top': t-h,'height': _h+h });
         }
       }
+      */
 
       if( $(this).attr('rel') == '.w_adv_search') {
         var h = $('.w_adv_search').innerHeight()+parseInt( $('.w_adv_search').css('margin-top') );
@@ -200,7 +203,41 @@ $(document).ready(function(){
 	});
 	
 
- $('.ipagination .yiiPager li a').live('click',function(){
+
+  $('.att_search_form').live('submit',function(){
+    var wrap = getPanel( $(this) );
+    var that = $(this);
+    var url = that.attr('action')+'?keyword='+that.find('.keyword').val();
+    $.ajax({
+	    type: that.attr('method'),
+	    cache: false,
+	    url: url,
+	    success:function(html){
+        wrap.find('.search_result_wrap').html(html);  
+	    }
+	  });
+    return false;
+  });
+ 
+  $('.ipagination select').live('change',function(){    
+    wrap = getPanel( $(this) );
+	  var that = $(this);	  
+	  var url = that.val();
+	  if( url.indexOf('keyword') == -1 ) {
+	    url += '?keyword=';
+	  }
+	  $.ajax({
+	    type: 'get',
+	    cache: false,
+	    url: url,
+	    success:function(html){	      
+        wrap.find('.search_result_wrap').html(html);  
+	    }
+	  })
+    return false;
+  })
+
+  $('.ipagination .yiiPager li a').live('click',function(){
     if( $(this).parent().hasClass('hidden') ){
       return false;
     }
@@ -215,11 +252,7 @@ $(document).ready(function(){
 	    cache: false,
 	    url: url,
 	    success:function(html){
-	      if( wrap.find('.search_result_wrap').length > 0 ){
-	        wrap.find('.search_result_wrap').html(html);  
-	      }else if( wrap.find('.leaf_content').length > 0 ) {
-	        wrap.find('.leaf_content').html(html);  	        
-	      }
+        wrap.find('.search_result_wrap').html(html);  
 	    }
 	  })
     return false;

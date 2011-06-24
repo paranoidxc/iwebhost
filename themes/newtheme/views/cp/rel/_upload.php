@@ -4,7 +4,6 @@
 		flash_url : "<?php echo API::get_theme_baseurl(); ?>/swfupload/swfupload.swf",
     upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '' ) ) ?>",    
     button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
-		post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
 		custom_settings : {
 				progressTarget : "fsUploadProgress",
 				cancelButtonId : "btnCancel"
@@ -22,7 +21,7 @@
 	};
 	swfu = new SWFUpload(settings);	  
 </script>
-<div id="attachment_form" >
+<div id="" >
   <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
     <div class='lh20P'>
       <span id="spanButtonPlaceHolder">Upload Attachment</span>      

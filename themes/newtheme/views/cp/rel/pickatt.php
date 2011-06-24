@@ -2,15 +2,15 @@
   <div class='categorys-primary'>请选择...<span class='action_normal wrap_cld flR'>关闭</span></div>
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
   <div class='p5P' >
-    <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="search_form">    
-      <input type="text" name="keyword" class="search_input keyword" />
+    <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="att_search_form">    
+      <input type="text" name="keyword" class="search_input big_search_input keyword" />
     </form>
   </div>
 
 <input type="hidden" class="return_id" value="<?php echo $return_id;?>" />
 <style>
   .att_pick_ul {    
-    text-aling: center;     
+    text-align: center;     
     width: 546px;
     margin: auto;
   }

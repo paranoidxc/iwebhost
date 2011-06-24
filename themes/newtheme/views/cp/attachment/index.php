@@ -34,12 +34,12 @@
           <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
         </div><!-- w_location end -->
         <?php echo $this->renderPartial( '//layouts/flash') ?>
-        <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
         <div class='flR pr20P ipagination' >
             <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div id="w_content">
+          <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
           <form action="<?php echo url('/cp/attachment/batch') ?>" method="post" class='batch_form clB' >
           <input type="submit" value="" name="type" class='dN'/> 
           <?php echo $this->renderPartial('_index',

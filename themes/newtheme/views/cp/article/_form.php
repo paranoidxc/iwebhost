@@ -97,7 +97,7 @@
               </div>
             </div>
             <p class="clear">  			
-              <?php echo $form->textField($model,'attachment_id',array( 'size'=>10,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
+              <?php echo $form->hiddenField($model,'attachment_id',array( 'size'=>10,'maxlength'=>255, 'class' => ' small', 'origin_value' => 0 )); ?>
             </p>
           </td>
         </tr><!--缩略图-->
@@ -126,7 +126,7 @@
               <span class="unlink_collect" title="<?php echo Yii::t('cp','delete')?>"><?php echo Yii::t('cp','delete')?></span>
             </div>
             <p class="clear">  			  
-              <?php echo $form->textField($model,'gallery_id',array('size'=>10,'maxlength'=>255, 'class' => ' small' )); ?>		
+              <?php echo $form->hiddenField($model,'gallery_id',array('size'=>10,'maxlength'=>255, 'class' => ' small' )); ?>		
             </p>
           </td>
         </tr><!--关联集合-->

@@ -178,6 +178,10 @@ div.location a:hover ,
   padding: 2px;
   width: 200px;
 }
+.big_search_input {
+  padding: 4px;
+  width: 400px;
+}
 .itext.w100P {
   width: 100px;
 }
