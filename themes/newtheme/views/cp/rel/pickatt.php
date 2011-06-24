@@ -27,11 +27,9 @@
     overflow: hidden;
   }
 </style>
-<div style="height: 400px; overflow: auto; background: #FFF;" class="search_result_wrap">
+
+<div class="search_result_wrap">
   <?php $this->renderPartial('_att',array( 'atts' => $atts,'pagination' => $pagination, 'select_pagination' => $select_pagination) ); ?>
-</div>
-<div class="clear ipagination taR pr10P">
-<?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
 </div>
 
 <div class="bgTips p5P">

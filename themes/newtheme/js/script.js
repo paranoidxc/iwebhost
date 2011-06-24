@@ -200,6 +200,30 @@ $(document).ready(function(){
 	});
 	
 
+ $('.ipagination .yiiPager li a').live('click',function(){
+    if( $(this).parent().hasClass('hidden') ){
+      return false;
+    }
+    wrap = getPanel( $(this) );
+	  var that = $(this);	  
+	  var url = that.attr('href');
+	  if( url.indexOf('keyword') == -1 ) {
+	    url += '?keyword=';
+	  }
+	  $.ajax({
+	    type: 'get',
+	    cache: false,
+	    url: url,
+	    success:function(html){
+	      if( wrap.find('.search_result_wrap').length > 0 ){
+	        wrap.find('.search_result_wrap').html(html);  
+	      }else if( wrap.find('.leaf_content').length > 0 ) {
+	        wrap.find('.leaf_content').html(html);  	        
+	      }
+	    }
+	  })
+    return false;
+  });
 
 
 	$('.pick').live('click',function(){
