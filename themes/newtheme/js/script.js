@@ -37,7 +37,30 @@ $(document).ready(function(){
         $('#w_content').css({'width':fu-2});
       }
     }
+
+    resize_mac_panel_wrap();
   }
+
+  function resize_mac_panel_wrap() {
+    console.log( $('.mac_panel_wrap').height() );
+    console.log( $('.mac_panel_wrap').innerHeight() );
+    var h = $('.mac_panel_wrap').height();
+
+    if( $('.mac_panel_wrap').length > 0 ){
+      var l = ( $(window).width()  - 600) /2
+      if( $(window).height()+100 < h ) {
+        var t = 50;
+      }else{
+        var t = ( $(window).height()  - h) /2
+      }
+      $('.mac_panel_wrap').css({
+        'position':'absolute',
+        'top': t,
+        'left': l
+      });
+    }
+  }
+
   resize_layout(true);
   $(window).resize( function(){
     resize_layout(true);
@@ -186,12 +209,8 @@ $(document).ready(function(){
 			cache: false,
 			url: uri,
 			success:function(html){
-        $(html).css({
-          'position':'absolute',
-          'top': '100',
-          'left':'100'
-        });
         $(document.body).append( $(html) );
+        resize_mac_panel_wrap();
 			}
 		});
     $(document.body).imasker({});
@@ -208,6 +227,7 @@ $(document).ready(function(){
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  wrap.find('.rel_path').val( $(this).attr('rel_path') );
 	  wrap.find('.rel_extension').val( $(this).attr('rel_extension') );
+    wrap.find('.wrap_footer').slideDown();
 	});
 
 	$('.att_return_submit').live('click',function(){
@@ -249,23 +269,22 @@ $(document).ready(function(){
 
   $('.to_dest').live('click',function(){	  
 	  var wrap = getPanel($(this));
-	  var _div = parentOne( wrap.find('.move_category_id'),'div');	  
-	  if( _div.css('display') != 'block' ){
-	    _div.slideDown();
-	  }
 	  wrap.find('.move_category_id').val( $(this).attr('rel_id') );
 	  wrap.find('.move_category_name').val( $(this).attr('rel_name') );
 	  wrap.find('.tree_leaf_current').removeClass('tree_leaf_current');
   	$(this).addClass('tree_leaf_current');	     
+    wrap.find('.wrap_footer').slideDown();
     return false;
 	});
 
   $('.mtl_to_dest').live('click',function(){
+	  var wrap = getPanel($(this));
     if( $(this).hasClass('select') ) {
       $(this).removeClass('select');
     }else{
       $(this).addClass('select');
     }
+    wrap.find('.wrap_footer').slideDown();
   });
 
   $('.mtl_return_submit').live('click',function() {

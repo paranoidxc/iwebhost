@@ -42,9 +42,32 @@ function checkCoords() {
 };
 
 $(document).ready(function(){
-    function myCustomClearup(type,value){
+
+  $('.ar_content img').each(function(){
+    if( $(this).attr('src').indexOf( 'upfiles/' ) != -1 ){
+      var a = $('<a href="'+$(this).attr('src')+'" rel="group" ></a>').insertBefore($(this));
+      a.append( $(this) );
+      //$(this).attr('href', $(this).attr('src') );
+      //$(this).attr('rel','group');
+    }
+
+    $(".ar_content a[rel=group]").fancybox({
+      'transitionIn'		: 'none',
+      'transitionOut'		: 'none',
+      'titlePosition' 	: 'over',
+      'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+      return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+      }
+    });
+
+
+  });
+
+
+
+  function myCustomClearup(type,value){
     alert("FFFFFFFF");
-    };
+  };
 
   if( $('textarea.tinymce').length > 0 ){
 

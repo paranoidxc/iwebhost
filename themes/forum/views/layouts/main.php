@@ -13,7 +13,8 @@
 	$theme_baseurl = API::get_theme_baseurl();
 	$cs = Yii::app()->getClientScript();
 	//Yii::app()->clientScript->registerCoreScript('jquery');				
-	$cs->registerCssFile($theme_baseurl.'/css/all.css');			
+	$cs->registerCssFile($theme_baseurl.'/css/all.css');				
+  $cs->registerCssFile($baseUrl.'/js/fancybox/jquery.fancybox-1.3.4.css');			
 	//$cs->registerCssFile($theme_baseurl.'/css/widgEditor.css');			
   /*<script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.js"></script>	
   <script type="text/javascript" src="<?php echo $theme_baseurl; ?>/swfupload/swfupload.queue.js"></script>
@@ -26,6 +27,8 @@
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.timeago.js"></script>
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/tiny_mce/jquery.tinymce.js"></script>
   <script type="text/javascript" src="<?php echo $baseUrl?>/js/jquery.Jcrop.min.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+  <script type="text/javascript" src="<?php echo $baseUrl?>/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   <script type="text/javascript" src="<?php echo $theme_baseurl?>/js/script.js"></script>
 
   <link  rel="stylesheet"  type="text/css"  href="<?php echo $theme_baseurl; ?>/swfupload/swfupload.css" />

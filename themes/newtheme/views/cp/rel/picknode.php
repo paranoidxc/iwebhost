@@ -4,7 +4,7 @@
     <?php $this->renderPartial('_node',array( 'nodes' => $nodes,'return_id' => $return_id ) ); ?>
   </div>  	
   <input type="hidden" class="return_id" value="<?php echo $return_id;?>" />
-  <div class="taR h30P pr10P pt10P">    
+  <div class="taR h30P pr10P pt10P dN wrap_footer">    
     <input type="text" name="category_id"  class="move_category_id node_id hidden_like_span" readonly="true" /> - 
     <input type="text" name="category_name" class="move_category_name node_name hidden_like_span" readonly="true" />  
     <?php echo CHtml::submitButton( Yii::t('cp','Submit'), array( 'class' => 'ibtn collect_return_submit' )); ?>
