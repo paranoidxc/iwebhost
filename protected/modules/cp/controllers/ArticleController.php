@@ -336,13 +336,15 @@ class ArticleController extends GController
         }
         $str = '已复制 '.count($ids).' 个用户数据 '.Time::now();
 			}elseif ( count($ids) > 0 && ( $type=="重点" || $type=="star" )) {
+        $count =& count($ids);
         $ids = join(',',$ids);
         Article::model()->updateAll( array('is_star' => 1), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
-        $str = '已打重点 '.count($ids).' 个用户数据 '.Time::now();
+        $str = '已打重点 '.$count.' 个用户数据 '.Time::now();
 			}elseif ( count($ids) > 0 && ( $type=="非重点" || $type=="unstar" )) {
+        $count =& count($ids);
         $ids = join(',',$ids);
         Article::model()->updateAll( array('is_star' => 0), " FIND_IN_SET(id,:ids) ", array( ':ids' => $ids) );      
-        $str = '已取消重点 '.count($ids).' 个用户数据 '.Time::now();
+        $str = '已取消重点 '.$count.' 个用户数据 '.Time::now();
       }
      	Yii::app()->user->setFlash('success',$str);
       $this->redirect( rurl() );

@@ -453,6 +453,19 @@ div.errorSummary ul li {
 .orgin_thumbnail p,
 .dest_thumbnail p {   
 }
+.stared,
+.unstared {
+  color: red;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: blue;
+  background: url("bgs/entry-action-icons.png") no-repeat scroll 0 -160px transparent;
+  text-indent: -10000em;
+}    
+.stared {
+  background-position: -17px -160px;
+}
 .mceStatusbar.mceFirst.mceLast {
   line-height: 16px;
 }

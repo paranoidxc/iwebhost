@@ -271,8 +271,9 @@ class Article extends CActiveRecord
 			'is_star'     => Yii::t('cp','stared?'),
   		'seo_keywords'      => Yii::t('cp', 'Seo Keywords'),
   		'seo_description'   => Yii::t('cp', 'Seo Description'),
-  		'allow_reply'      => Yii::t('cp', 'Allow Reply'),
-  		'user_id'      => Yii::t('cp', 'User Name'),
+  		'allow_reply'       => Yii::t('cp', 'Allow Reply'),
+  		'user_id'           => Yii::t('cp', 'User Name'),
+  		'ident_label'       => Yii::t('cp', 'Ident Label'),
 		);
 	}
 

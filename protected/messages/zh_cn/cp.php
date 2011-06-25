@@ -64,6 +64,7 @@ return array(
   'Seo Field'       => 'Seo 字段',
   'Allow Reply'     => '允许回复',
   'User Name'       => '作者',
+  'Ident Label'     => '唯一标识',
 
 
 
