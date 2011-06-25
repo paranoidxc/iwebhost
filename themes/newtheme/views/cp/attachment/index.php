@@ -35,7 +35,8 @@
           <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
         </div><!-- w_location end -->
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
-        <div class='flR pr20P ipagination' >
+        <div class='flR pr20P ipagination' style="margin-top: -28px;">
+            <?php echo $item_count ?>
             <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div id="w_content">

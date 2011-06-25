@@ -9,7 +9,7 @@
             <input type="text" class='itext w100P' name="id_end"  
               value="<?php echo $this->tpl_params['id_end']?>"/> </td>
           </tr>
-          <tr>
+          <tr class='dN'>
             <th class='taL'>注册时间:</th>
             <td><input type="text" class='itext w100P' /> - <input type="text" class='itext w100P' /> </td>
           </tr>
