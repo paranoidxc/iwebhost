@@ -71,12 +71,12 @@
 
         <tr>
           <td class='pl10P'>
-            <p class='alt tdU pick' id="pick<?php echo time(); ?>"			        
+            <label class='flL alt tdU pick' id="pick<?php echo time(); ?>"			        
                 uri="<?php echo CController::createUrl('rel/pickatt',
                 array('return_id'=>'pick'.time(),'rtype' => 'article_link_image' ) ); ?>">
               <?php echo Yii::t('cp','Link Attachment') ?>
-            </p>
-            <div>
+            </label>
+            <div class='flL'>
               <?php 
               if( $model->attachment ) {
               ?>
@@ -91,7 +91,7 @@
               <?php
               }
               ?>
-              <div class="dest_thumbnail dN" >
+              <div class="dest_thumbnail flL dN" >
                 <img src="" alt="" />
                 <span class="unlink_dest" title="删除">删除</span>
               </div>
@@ -103,10 +103,10 @@
         </tr><!--缩略图-->
         <tr>
           <td class='pl10P'>  		  
-            <p class="tdU pick" id="gallery_pick<?php echo time(); ?>" 
+            <label class="flL tdU pick" id="gallery_pick<?php echo time(); ?>" 
                 uri="<?php echo CController::createUrl('rel/picknode', array('return_id'=>'gallery_pick'.time() ) ); ?>" >
                 <?php echo Yii::t('cp','Link Gallery') ?>
-            </p>
+            </label>
             <?php 
             if( $model->gallery ) {
             ?>
@@ -160,13 +160,13 @@
         
         <tr>
           <td class='pl10P'>
-            <p class='alt tdU pick' id="mulpick<?php echo time(); ?>"
+            <label class='flL alt tdU pick' id="mulpick<?php echo time(); ?>"
               uri="<?php echo CController::createUrl('rel/picknode',
               array('top_leaf_id' => $top_leaf->id,'return_id'=>'mulpick'.time(),'rtype' => 'multiple' ) ); ?>">
-              <label>副节点</label> 
-            </p>
-
-            <div>
+            副节点</label>
+            <?php if($model->categorys ) {
+            ?>
+            <div class='mul_collect'>
             <?php 
               foreach($model->categorys as $_m_categors) {
             ?>
@@ -174,6 +174,11 @@
             <?php
               }
             ?>
+            </div>
+            <?php
+              }
+            ?>
+            <div class='dest_mul_collect dN'>
             </div>
 
           </td>

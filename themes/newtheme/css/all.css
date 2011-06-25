@@ -313,8 +313,132 @@ div.errorSummary ul li {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
   z-index: 1009 !important;
 }
+.orgin_thumbnail,
+.orgin_thumbnail {
+  display: inline-block;
+  padding: 4px ;
+}
+.dest_thumbnail img,
+.orgin_thumbnail img {
+  padding: 1px;
+  border: 1px solid #313131;
+  border-color: #313131 #313131 #131313 #131313;
+}
+
+.pick {
+  cursor: pointer;  
+}
+.pick:hover {
+  color: #73A6FF;
+}
+
+.origin_collect,
+.dest_collect,
+.dest_thumbnail,
+.orgin_thumbnail {
+  position: relative;    
+}
+
+.unlink_default,
+.unlink_dest ,
+.unlink_default {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background:  url(bgs/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+
+.unlink_mul_collect,
+.unlink_default_collect,
+.unlink_collect {  
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background:  url(bgs/close_a.png) no-repeat;
+  text-indent: -10000px;
+  cursor: pointer;  
+}
+
+.reset_default_collect,
+.reset_default{
+  position: relative;
+  width: 20px;
+  height: 16px;
+  background: url(bgs/reset.png) no-repeat;
+  text-indent: -100000px;
+  cursor: pointer;
+}
+
+.unlink_dest:hover ,
+.unlink_default:hover {
+  background: url(bgs/close_a.png);
+}
 
 
+.mul_collect,
+.dest_mul_collect,
+.origin_collect,
+.dest_collect,
+.orgin_thumbnail,
+.dest_thumbnail {
+  float: left;
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.mul_collect,
+.origin_collect {
+  border: 1px solid green;
+  margin-left: 4px;
+}
+.orgin_thumbnail img {
+  border: 1px solid green;
+  padding: 1px;
+}
+
+.dest_mul_collect,
+.dest_collect {
+  border: 1px solid #73A6FF;
+}
+.dest_thumbnail img {
+  border: 1px solid #73A6FF;
+  padding: 1px;
+}
+
+.mul_collect,
+.dest_mul_collect {
+  text-align: left;
+}
+
+.dest_gallery_close,
+.dest_thumbnail_close {
+  position: absolute;		
+  top: 0;
+  right: 0;	
+	display: block;
+	height:20px;
+	width:20px;	
+	cursor: pointer;
+}
+.dest_gallery_close:hover,
+.dest_thumbnail_close:hover {
+  background: #CCC;
+  color: red;
+}
+
+.exchange_symbol {
+  float: left;  
+  margin-right: 10px;  
+}
+.orgin_thumbnail p,
+.dest_thumbnail p {   
+}
 .mceStatusbar.mceFirst.mceLast {
   line-height: 16px;
 }

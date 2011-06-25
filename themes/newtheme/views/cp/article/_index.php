@@ -28,7 +28,7 @@
             $_instance->id, 'ajax' => 'ajax') ) ?>" ><?php echo $_instance->is_star;?></span>
     </td>
     <td class="content_item" data="<?php echo $_instance->id; ?>" >
-      <a href="<?php echo url('/cp/article/update',
+      <a class='fwB' href="<?php echo url('/cp/article/update',
             array( 'id' => $_instance->id,'top_leaf_id'=> $top_leaf->id, 'action' => action() ) ) ?>"><?php echo $_instance->title ?></a>
     </td>
     <td class='w100P taC' ><?php echo Time::niceShort($_instance->create_time); ?></td>

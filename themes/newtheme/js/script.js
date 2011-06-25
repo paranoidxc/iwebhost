@@ -353,17 +353,30 @@ $(document).ready(function(){
     }
     wrap.find('.wrap_footer').slideDown();
   });
+  
+  $('.unlink_mul_collect').live('click',function(){
+    $(this).parent().remove();
+    if( $('.dest_mul_collect p').length == 0 ){
+      $('.dest_mul_collect').fadeOut();
+    }
+  })
 
   $('.mtl_return_submit').live('click',function() {
 	  var wrap = getPanel($(this));	  
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent();
     var t = '';
     wrap.find('.select').each(function(){
+      t += "<p>";
       t += $(this).attr('rel_name');
-      t += "<input type='text' size='10' name='category_article_ids[]' value="+$(this).attr('rel_id')+" />";
-      t += "<br/>";
+      t += " <span title='删除' class='unlink_mul_collect'>删除</span>"
+      t += "<input type='hidden' size='10' name='category_article_ids[]' value="+$(this).attr('rel_id')+" />";
+      t += "</p>";
     });
-    return_wrap.append( t );
+    if( t.length > 0 ) {
+      return_wrap.find('.dest_mul_collect').empty().append( t ).show();
+    }else{
+      return_wrap.find('.dest_mul_collect').empty().append( t ).hide();
+    }
     wrap.remove();
     $(document.body).imasker_hide();
   });
