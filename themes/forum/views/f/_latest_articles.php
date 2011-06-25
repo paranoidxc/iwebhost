@@ -11,11 +11,10 @@
   <p style="line-height: 24px; height: 24px; margin-bottom: 5px;" >
     <a href="<?php echo url('m/index' , array('id' => $a->auther->username )) ?>" title="<?php echo $a->auther->username?>" ><img style="vertical-align: middle; margin-right: 5px;" width='24' src="<?php echo $a->auther->gravatar ?>" /></a>
     <a class='fwB' style="color: <?echo colorfulV() ?>"
-    href="<?echo url('t/index', array('id' => $a->id) ) ?>">
-    <?php echo (CHtml::encode($a->title)) ?>
-    </a>
+    href="<?echo url('t/index', array('id' => $a->id) ) ?>"><?php echo (CHtml::encode($a->title)) ?></a>
+    &nbsp;
     <span class="ar_extra">
-    <?php echo $a->leaf->name ?>
+    <a href="<?php echo url('f/index', array( 'id' => $inst->leaf->id) ) ?>" /><?php echo $a->leaf->name ?></a>
     &nbsp;•&nbsp;<?php echo $a->pv ?>次点击
     &nbsp;•&nbsp;<?php echo $a->reply_count ?>次回复
     </span>
