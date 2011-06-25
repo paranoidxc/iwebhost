@@ -4,7 +4,7 @@
   <div id="w_right">
     <div id="w_location">
       <div class='location'>
-        <a href="<?php echo url('cp/feedback/index') ?>" >Feedback</a><?php echo API::rchart();?> Index
+        <a href="<?php echo url('cp/feedback/index') ?>" >信息反馈</a><?php echo API::rchart();?> 显示
       </div> 
       <span class='flL csP item-all'>全选</span>
 

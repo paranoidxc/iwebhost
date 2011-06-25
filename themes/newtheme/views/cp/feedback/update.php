@@ -3,9 +3,9 @@
   <div id="w_right">
     <div id="w_location" >
       <div class='location'>
-        <a href="<?php echo url('/cp/feedback/index') ?>" >feedback</a><?php echo API::rchart();?>
+        <a href="<?php echo url('/cp/feedback/index') ?>" >信息反馈</a><?php echo API::rchart();?>
       </div>
-      <span class='action on'>Update #<?php echo $model->id?></span>
+      <span class='action on'>编辑 #<?php echo $model->id?></span>
       <?php echo $this->renderPartial( '_left') ;?>
     </div>
 
