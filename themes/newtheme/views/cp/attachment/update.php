@@ -12,7 +12,6 @@
           <span class='action on'>编辑 #<?php echo $model->id.' '.$model->screen_name;?></span>
         </div>
 
-        <?php echo $this->renderPartial( '//layouts/flash') ?>
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 <div id="w_content">
   <div class='iform'>

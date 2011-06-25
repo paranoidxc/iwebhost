@@ -48,7 +48,6 @@
           </div>
         </div>
 
-        <?php echo $this->renderPartial( '//layouts/flash') ?>
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
         <div class='flR pr20P' style="margin-top: -28px;">
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>

@@ -31,10 +31,10 @@
       <a href="<?php echo url('/cp/article/update',
             array( 'id' => $_instance->id,'top_leaf_id'=> $top_leaf->id, 'action' => action() ) ) ?>"><?php echo $_instance->title ?></a>
     </td>
-    <td class='w100P taC' ><?php echo Time::timeAgoInWords($_instance->create_time, array('short'=>true) )?></td>
+    <td class='w100P taC' ><?php echo Time::niceShort($_instance->create_time); ?></td>
     <td class='w100P taC ' >  
       <span class="<?php echo $_instance->create_time != $_instance->update_time ? 'fontHighLight' : '' ?> ">      
-        <?php echo Time::timeAgoInWords($_instance->update_time, array('short'=>true) )?>
+        <?php echo Time::niceShort($_instance->update_time) ?>
       </span>
     </td>     
   </tr>
@@ -42,15 +42,4 @@
   }
 ?> 
   </tbody>
-  <?php 
-  if( $pagination ){
-  ?>
-  <tfoot>
-    <tr class="hover_none">
-      <td colspan="6" class='taR ipagination  p5P pr20P'><?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?></td>
-    </tr>
-  </tfoot>
-  <?php 
-  }
-  ?>
-  </table>
+</table>

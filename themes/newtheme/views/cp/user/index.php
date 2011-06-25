@@ -8,7 +8,6 @@
       <?php echo $this->renderPartial('_left'); ?>
     </div>
 
-    <?php echo $this->renderPartial('//layouts/flash'); ?>
     <div class='flR pr20P ipagination' >
       <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
     </div>

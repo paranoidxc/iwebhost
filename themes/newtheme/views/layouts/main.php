@@ -18,7 +18,8 @@
 
 </head>
 <body>
-  
+  <?php echo $this->renderPartial( '//layouts/flash') ?>
+
   <div id="w_top">
 		<?php 
       $_isAdmin = User::model()->findByPk(User()->id)->account_type;

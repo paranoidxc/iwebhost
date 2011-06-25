@@ -16,9 +16,6 @@
 
 	<p class="note"><?php echo Yii::t('cp','Fields with * are required.') ?></p>
   
-  <?php echo $this->renderPartial( '//layouts/flash') ?>
-
-
   <table class='w100S'>
     <thead>
       <tr>

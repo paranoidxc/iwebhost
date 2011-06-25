@@ -9,12 +9,6 @@
 )); ?>
 
 	<p class="note"><?php echo Yii::t('cp','Fields with * are required.') ?></p>
-  <?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-  <?php } ?>
-  
 	<?php echo $form->errorSummary($model); ?>
   
 	<table class='itable w100S'>

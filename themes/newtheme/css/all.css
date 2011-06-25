@@ -218,9 +218,6 @@ div.location a:hover ,
 
 
 
-.flash_suc,
-.feedback_suc,
-.feedback_on,
 div.errorSummary ,
 .note {
   color: #c36;
@@ -235,10 +232,13 @@ div.errorSummary {
 .feedback_suc,
 .feedback_on {
   color: green;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #E5E5E5;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: 5px solid #E5E5E5;
   background: #ffffcc;
-  margin-bottom: 10px;
+  position: absolute;
+  z-index: 1000000;
+  display: hide;
 }
 span.required,
 div.errorMessage,

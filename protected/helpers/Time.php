@@ -11,7 +11,8 @@ class Time {
 	* @param int $format Format of returned date
 	* @return string Formatted date string
 	*/
-	public static function nice($dateString = null, $format = 'D, M jS Y, H:i') {
+//	public static function nice($dateString = null, $format = 'D, M jS Y, H:i') {
+	public static function nice($dateString = null, $format = 'Y-m-d') {
 
 		$date = ($dateString == null) ? time() : strtotime($dateString);
 		return date($format, $date);
@@ -30,15 +31,15 @@ class Time {
 	*/
 	public static function niceShort($dateString = null) {
 		$date = ($dateString == null) ? time() : strtotime($dateString);
-		
 		$y = (self::isThisYear($date)) ? '' : ' Y';
-
 		if (self::isToday($date)) {
-			$ret = sprintf('Today, %s', date("g:i a", $date));
-		} elseif (self::wasYesterday($date)) {
-			$ret = sprintf('Yesterday, %s', date("g:i a", $date));
+			$ret = sprintf('%s', date("H:i:s", $date));
+//			$ret = sprintf('Today, %s', date("g:i a", $date));
+//		} elseif (self::wasYesterday($date)) {
+//			$ret = sprintf('Yesterday, %s', date("g:i a", $date));
 		} else {
-			$ret = date("M jS{$y}, H:i", $date);
+			//$ret = date("M jS{$y}, H:i", $date);
+			$ret = date("Y-m-d", $date);
 		}
 
 		return $ret;

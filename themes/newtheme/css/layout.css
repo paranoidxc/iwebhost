@@ -102,6 +102,10 @@
   background: #FFFFCC;
 } 
 
+#w_content .list tr.hover td {
+  background: #E3E9FF;
+}
+
 .iform .itable th ,
 .iform .itable td {
   line-height: 28px;

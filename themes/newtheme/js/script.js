@@ -90,6 +90,16 @@ $(document).ready(function(){
 		return _temp_ids;
 	}
 
+  if( $('.flash_suc').length > 0 ){ 
+    var w = ($(window).width() - $('.flash_suc').width() )/2;
+    $('.flash_suc').css({
+      'top' : 50,
+      'left' :w
+    }).show();
+    setTimeout( function(){ $('.flash_suc').hide() } ,5000  );
+  };
+  $('.list tbody tr').hover(function(){ $(this).addClass('hover'); },function(){ $(this).removeClass('hover');});
+
   $('.toggle').click(function(){
       $(this).toggleClass('on');
       $($(this).attr('rel')).toggle();

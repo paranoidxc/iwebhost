@@ -4,18 +4,6 @@
   'htmlOptions' =>array( 'enctype' => 'multipart/form-data','class' => 'iform')
   )); 
 ?>
-  <?php if(Yii::app()->user->hasFlash('success')) {?>
-    <div class="flash_suc">
-      <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-  <?php } ?>
-  
-  <?php if(Yii::app()->user->hasFlash('fail')) {?>
-    <div class="feedback">
-      <?php echo Yii::app()->user->getFlash('fail'); ?>
-    </div>
-  <?php } ?>
-
   <table class='itable w100S'>
     <tbody>
       <tr>
