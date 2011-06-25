@@ -21,7 +21,16 @@ function cs()
     // But this is faster
     return Yii::app()->getClientScript();
 }
- 
+
+function setState($name,$value) {
+  Yii::app()->user->setState($name, $value);
+}
+function getState($name) {
+  return Yii::app()->user->getState($name);
+}
+function getBackUrl() {
+  return getState('back_url');
+}
 /**
  * This is the shortcut to Yii::app()->user.
  */

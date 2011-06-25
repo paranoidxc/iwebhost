@@ -6,7 +6,7 @@
 		'class' => 'article_ajax_form'
 	)
 )); ?>
-
+  <input type="hidden" value="<?php echo getBackUrl(); ?>" name="back_url" />
 
   <?php echo $this->renderPartial('//layouts/flash'); ?>
 

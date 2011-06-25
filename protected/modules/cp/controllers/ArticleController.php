@@ -208,6 +208,11 @@ class ArticleController extends GController
 	 */
 	public function actionCreate()
 	{
+    if( !isset($_GET['rem']) ){
+      $back_url = $_POST['back_url'] ? $_POST['back_url'] : rurl();
+      setState('back_url', $back_url);
+    }
+
     $action =& $_GET['action'];
 		$model = new Article;
 		$model->category_id = $_GET['leaf_id'];
@@ -227,7 +232,7 @@ class ArticleController extends GController
 			if($model->save()){
 			  $str = Yii::t('cp','Create Success On ').Time::now();
 			  Yii::app()->user->setFlash('success',$str);
-			  $this->redirect(array('update','id'=>$model->id, 'action' => $action));	
+			  $this->redirect(array('update','id'=>$model->id, 'action' => $action,'rem' => 0,'top_leaf_id' => $top_leaf->id ));	
 			}	
 		}
     $this->path = Category::model()->getPath($model->category_id,$top_leaf->id);
@@ -241,9 +246,15 @@ class ArticleController extends GController
 	 */
 	public function actionUpdate()
 	{
+    if( !isset($_GET['rem']) ){
+      $back_url = $_POST['back_url'] ? $_POST['back_url'] : rurl();
+      setState('back_url', $back_url);
+    }
+
     $action       =& $_GET['action'];
     $top_leaf_id  =& $_GET['top_leaf_id'];
 		$model=$this->loadModel(); 
+    
 		if(isset($_POST['Article']))
 		{		  
 			$model->attributes=$_POST['Article'];
@@ -260,7 +271,7 @@ class ArticleController extends GController
         }
 			  $str = Yii::t('cp','Data saved success On ').Time::now();
 				Yii::app()->user->setFlash('success',$str);
-				$this->redirect(array('update','id'=>$model->id,'action' => $action, 'top_leaf_id' => $top_leaf_id ));	
+				$this->redirect(array('update','id'=>$model->id,'action' => $action, 'top_leaf_id' => $top_leaf_id,'rem' => 0 ));	
 			}							
 		}
     $leaf_tree =& $this->getTree($top_leaf_id);
