@@ -29,7 +29,7 @@
   		  <td>    		    
   		    <?php echo $form->textArea($sconfig,'keyword',
               array('rows'=>4, 'cols'=>100,'class'=>'itext')); ?>
-  	  	  <?php echo $form->error($sconfig,'keywords'); ?>
+  	  	  <?php echo $form->error($sconfig,'keyword'); ?>
   	  	</td>
   	  </tr>
     	  

@@ -24,7 +24,7 @@ class SettingController extends GController
 	    $_model =new Sconfig;
 	    $_model->attributes=$_POST['Sconfig'];			
 	    $model=Sconfig::model()->find();	    
-			if( strlen(CActiveForm::validate($_model)) == 2 ) {			  
+			if( strlen(CActiveForm::validate($_model)) == 2 ) {
   	    if( !$model ){
   	      $model =new Sconfig;
   	      $model->attributes=$_POST['Sconfig'];    	    
@@ -38,7 +38,7 @@ class SettingController extends GController
 	    }else{
 	      $sconfig = $_model;
 	      $str = 'Data saved fail! On '.date("Y-m-d H:i:s") ;
-  			Yii::app()->user->setFlash('fail',$str);  			
+  			Yii::app()->user->setFlash('fail',$str);
 	    }
 	  }else{
 	    $sconfig=Sconfig::model()->find();
@@ -46,9 +46,7 @@ class SettingController extends GController
 	      $sconfig=new Sconfig;
 	    }
 	  }
-	  //$this->renderPartial('_sconfig',array( 'sconfig' => $sconfig,  		),false,true);	
-
-    $this->redirect( 'index' );
+    $this->render('_sconfig', array('sconfig' => $sconfig ) );
 	}
 
   public function filters()
