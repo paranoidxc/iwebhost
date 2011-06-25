@@ -62,6 +62,11 @@ return array(
   'Normal Field'    => '普通字段',
   'Content Field'   => '内容字段',
   'Seo Field'       => 'Seo 字段',
+  'Allow Reply'     => '允许回复',
+  'User Name'       => '作者',
+
+
+
   'Extra Link'      => '图片链接',
   'Outer Link'      => '外链',
   'Inter Link'      => '内链',

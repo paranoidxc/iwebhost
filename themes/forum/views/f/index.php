@@ -58,9 +58,7 @@
 
 <div class="index_articles_wrap">  
   <a href="<?php echo url('m/index' , array('id' => $inst->auther->username )) ?>" 
-     class="author_wrap" title="<?php echo $inst->auther->username ?>" >
-     <img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" />
-  </a>
+     class="author_wrap" title="<?php echo $inst->auther->username ?>" ><img src="<?php echo $inst->auther->gravatar ?>" alt="<?php echo $inst->auther->username ?>" /></a>
   <div class='item_box'>  
     <div class="item_top"></div>
     <div class="item_arrow"></div>

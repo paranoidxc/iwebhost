@@ -188,23 +188,37 @@ div.location a:hover ,
 .itext.w100S {
   width: 99%;
 }
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+    border: none;
+}
 .isubmit {
-  /*border: 1px outset #CCC;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 14px;
   font-weight: bold;
-  padding: 3px 10px;
-  /*
-  padding: 5px 20px;
-  */
   cursor: pointer;
+  color: #676563 ;
+  background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
+  border: 1px solid #CBC9C7;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 #FFFFFF;
+  padding: 2px 16px;
+  text-shadow: 0 1px 0 #FFFFFF;
+  outline:0;
 }.isubmit:hover {
-/*  border: 1px inset #CCC; */
-}.isubmit:active {
-/*
- * border: 1px outset #F36; 
-  background: #C36;
-  color: #FFF;
- * */
+  color: #5d5b59;
+  background: -moz-linear-gradient(center top , #F6F4F2, #ECEAE8 10%, #DFDDDB 90%, #D5D3D1) repeat scroll 0 0 transparent !important;
+  border: 1px solid #B7B5B3;
+}.isubmit:active {   
+  background: -moz-linear-gradient(center top , #CECCCA, #C4C2C0 10%, #ADABA9 90%, #999795) repeat scroll 0 0 transparent !important;
+  border: 1px solid #7B7977;
+  box-shadow: 0 1px 0 #FFFFFF, 0 2px 5px rgba(0, 0, 0, 0.698) inset;
+  color: #555555;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .search_input {
