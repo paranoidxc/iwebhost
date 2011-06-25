@@ -50,6 +50,7 @@
 
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
         <div class='flR pr20P' style="margin-top: -28px;">
+          <?php echo $item_count ?> 
           <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
         </div>
         <div id="w_content">     

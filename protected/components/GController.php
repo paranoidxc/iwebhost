@@ -191,6 +191,7 @@ class GController extends Controller
     $pages =new CPagination($item_count);
     $pages->setPageSize($page_size);      
     $pagination = new CLinkPager();
+    $pagination->header='';
     $pagination->cssFile=false;
     $pagination->setPages($pages);    
     $pagination->init();      
@@ -199,7 +200,6 @@ class GController extends Controller
     $select_pagination = new  CListPager();
     $select_pagination->header = '<span>跳到:</span>';
 //    $select_pagination->htmlOptions['onchange']="";
-    
     $select_pagination->setPages($pages);    
     $select_pagination->init();    
     $list = call_user_func( array( $imodel, 'findAll') , $criteria );
@@ -207,7 +207,8 @@ class GController extends Controller
     if( !is_array($opt['tpl_params']) ){
       $opt['tpl_params'] = array();
     }
-    
+    $opt['tpl_params']['item_count']  = '第 <span class="fwB">'.($page_size*($pagination->currentPage)+1).' - '.$page_size*($pagination->currentPage+1);
+    $opt['tpl_params']['item_count'] .= '</span>，共 <span class="fwB" >'.$item_count.'</span> 条 ';
     $opt['tpl_params']['list']        = $list;
     $opt['tpl_params']['pagination']  = $pagination;
     $opt['tpl_params']['select_pagination']  = $select_pagination;
