@@ -26,24 +26,26 @@
   	<table class='itable w100S mt10P'>
     	<tbody>
     	  <tr>
-          <th width="180" class='p5P'>
-    	      <img src='<?php echo $model->thumb ?>' />
+          <th width="160" class='p5P'>
+    	      <img src='<?php echo $model->thumb ?>' class='image_border' />
           </th>
     	    <td colspan="">
     	      <div class="flL w100p ml20P p5p zoom ofA h150p dN" >
     	        <ul>
     	        <?php
     	          //echo str_replace(',','<br/>',$model->tips);
+                /*
     	          $tips = explode(',',$model->tips);
     	          foreach( $tips as $tip ){
     	            echo '<li>';
     	            echo $tip;
     	            echo '</li>';
     	          }
+                */
     	        ?>
     	        </ul>
     	      </div>  	      
-    	      <div class="flL w200p ml20P  p5p">
+    	      <div class="flL w200p p5p">
     	        <ul>
     	          <li>
     	            <span class="new_resize csP" title="<?php echo Yii::t('cp','Add') ?>" > 新尺寸(宽*高) + </span>
@@ -117,7 +119,7 @@
         <tr>
           <th></th>
           <td>
-    	      <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'ibtn blue')); ?>
+    	      <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('cp','Create') : Yii::t('cp','Save'), array( 'class' => 'isubmit')); ?>
           </td>
         </tr>
       </tfoot>

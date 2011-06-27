@@ -25,6 +25,10 @@ class API {
     return '&nbsp;&raquo;&nbsp;';
   }
 
+  public static function lc() {
+    return '&laquo;';
+  }
+ 
   public static function rc() {
     return '&raquo;';
   }

@@ -58,8 +58,6 @@ $(document).ready(function(){
   }
 
   function resize_mac_panel_wrap() {
-    console.log( $('.mac_panel_wrap').height() );
-    console.log( $('.mac_panel_wrap').innerHeight() );
     var h = $('.mac_panel_wrap').height();
 
     if( $('.mac_panel_wrap').length > 0 ){
@@ -404,7 +402,6 @@ $(document).ready(function(){
 	  var return_wrap = $('#'+wrap.find('.return_id').val()).parent();
 	  var rel_name        = wrap.find('.node_name').val();
 	  var rel_id          = wrap.find('.node_id').val();
-	  
 	  return_wrap.find('.dest_collect_name').html( rel_name );
 	  return_wrap.find('.dest_collect').show();
 	  var input_default_value = return_wrap.find('input').val();

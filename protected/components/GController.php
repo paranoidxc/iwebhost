@@ -93,9 +93,28 @@ class GController extends Controller
 			$model->attributes=$_POST['Category'];		
 			$model->update_time = date("Y-m-d H:i:s");
 			if($model->save()){
-    	    $str = Yii::t('cp','Data saved success On ').Time::now();
-					Yii::app()->user->setFlash('success',$str);
-    	    $this->redirect(array('leaf_update','cur_leaf_id'=>$model->id));
+
+		    $cmodel = Category::model();
+				$transaction = $cmodel->dbConnection->beginTransaction();				
+        try{
+          //$leaf_model = Category::model();								
+					$parent_leaf = $cmodel->find('id = :id', array( ':id'=> $_POST['Category']['parent_leaf_id']) );
+					$update_rgt = " UPDATE category SET rgt = rgt + 2 WHERE rgt > $parent_leaf->lft ";
+					$cmodel->dbConnection->createCommand($update_rgt)->execute();
+					$update_lft = " UPDATE category SET lft = lft + 2 WHERE  lft > $parent_leaf->lft ";					
+					$cmodel->dbConnection->createCommand($update_lft)->execute();					
+
+					$model->lft = $parent_leaf->lft + 1;
+					$model->rgt = $parent_leaf->lft + 2;
+					$model->save();
+					$transaction->commit();	
+        }catch(Exception $e ) {
+          $transaction->rollBack();
+        }
+
+    	  $str = Yii::t('cp','Data saved success On ').Time::now();
+				Yii::app()->user->setFlash('success',$str);
+    	  $this->redirect(array('leaf_update','top_leaf_id'=>$top_leaf->id,'cur_leaf_id' => $model->id));
 			}
 		}
     $this->render('//cp/category/create',array( 'model'=>$model,'top_leaf' => $top_leaf),false,true );

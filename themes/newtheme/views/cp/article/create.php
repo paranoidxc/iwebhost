@@ -3,11 +3,15 @@
   <div id="w_right">  
     <div id="w_location" >  
       <div class='location'>
-        <a class='' href="<?php echo getState('back_url'); ?>">返回列表</a>
+        <a class='' href="<?php echo getState('back_url'); ?>"><?php echo API::lc();?>返回列表</a>
       </div>
-      <span class="control_tree" >栏目类别</span>
       <?php echo $this->renderPartial( '//layouts/_location',array('action' => $action) ) ?>
       <span class='action on'>新建内容</span>
+
+      <div class='flR'>
+        <span class="control_tree" >栏目类别</span>
+      </div>
+
     </div>
 
     <div id="w_content">
