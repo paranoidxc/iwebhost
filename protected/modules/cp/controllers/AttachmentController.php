@@ -134,7 +134,32 @@ class AttachmentController extends GController
 	  $model->attributes=$ati;
 	  if($model->save()){
 	    if( $is_image ){
-	      
+	      $model->tips  = str_pad($w, 4, "_", STR_PAD_LEFT).'*'. str_pad($h,4,"_", STR_PAD_RIGHT).',';
+        foreach( API::$ATT_IMG_AUTO_SIZE as $k=>$v ) {
+          $file_path = $put_file_to_dir.$time.'_'.$v.'.'.$file_extension;
+          list($dw , $dh ) = explode('_',$v);
+          if( $w > $dw && $h > $dh ) {
+            if( ( $h/$w )  > ($dh/$dw) ){
+              if( $k=='thumb') {
+                $image->resize($dw*1.2, $dh*1.2,Image::WIDTH)->crop($dw,$dh,'20','center');
+              }else{
+                $image->resize($dw, $dh,Image::WIDTH);
+              }
+            }else{
+              if( $k=='thumb') {
+                $image->resize($dw*1.2, $dh*1.2,Image::HEIGHT)->crop($dw,$dh,'20','center');
+              }else{
+                $image->resize($dw, $dh,Image::HEIGHT);
+              }
+            }
+            $model->tips  .= str_pad($dw, 4, "_", STR_PAD_LEFT).'*'. str_pad($dh,4,"_", STR_PAD_RIGHT).',';
+          }
+          $image->save($file_path);          	            
+        }
+        $model->save();
+        rename($put_file_to_dir.$file_name, $put_file_to_dir.$time.'_'.$w.'_'.$h.'.'.$file_extension );
+
+        /*
 	      $file_path_l = $put_file_to_dir.$time.'_800_600'.'.'.$file_extension;
         $file_path_t = $put_file_to_dir.$time.'_160_120'.'.'.$file_extension;
         $file_path_g = $put_file_to_dir.$time.'_48_48'.'.'.$file_extension;        
@@ -159,6 +184,7 @@ class AttachmentController extends GController
         $model->tips .= '__48*48__,';
         $model->save();
         rename($put_file_to_dir.$file_name, $put_file_to_dir.$time.'_'.$w.'_'.$h.'.'.$file_extension );
+        */
       }
 	  }
 	 
