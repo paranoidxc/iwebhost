@@ -1,4 +1,6 @@
 <div class='mac_panel_wrap w600P' >
+  <div class='panel_inner'>
+
   <div class='categorys-primary'>请选择...<span class='action_normal wrap_cld flR'>关闭</span></div>
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
   <div class='p5P' >
@@ -49,4 +51,5 @@
     <?php echo CHtml::submitButton( Yii::t('cp', 'Submit'), array( 'class' => 'ibtn att_return_submit')); ?> 
   </div>   
 
+  </div>
 </div>
