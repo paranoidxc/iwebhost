@@ -52,9 +52,20 @@
         </div>
 
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
-        <div class='flR pr20P' style="margin-top: -28px;">
-          <?php echo $item_count ?> 
-          <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+        <div class='flR pr20P w_pagin'>
+          <table>
+            <tr>
+              <td class='vaM taL pr2P'>
+                <?php echo $item_count ?> 
+              </td>
+              <td class='vaM taL pr2P'>
+                <?php $pagination->run() ?>
+              </td>
+              <td class='vaM taL'>
+                <?php $select_pagination->run() ?>
+              </td>
+            </tr>
+          </table>
         </div>
         <div id="w_content">     
           <form action="<?php echo url('/cp/article/batch') ?>" method="post" class='batch_form' >

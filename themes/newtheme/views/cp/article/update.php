@@ -9,7 +9,7 @@
       <span class='action on'>编辑内容 # <?php echo $model->id ;?> - <?php echo cnSubstr($model->title,0,20) ?></span>
       
       <div class='flR'>
-        <span class="control_tree" >栏目类别</span>
+        <span class="control_tree toggle" rel="#w_tree_wrap">栏目类别</span>
       </div>
 
     </div><!-- w_location end -->

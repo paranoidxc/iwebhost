@@ -28,7 +28,7 @@
 
 #w_middle{
   
-  } #w_location { 
+  } /*#w_location { 
     color: #00C;
     text-decoration: none;
     background: -moz-linear-gradient(center top , #FFFEFC, #F6F4F2 10%, #E9E7E5 90%, #DFDDDB) repeat scroll 0 0 transparent !important;
@@ -40,7 +40,7 @@
     margin-left: 0 ;
     border-bottom: 1px solid #C8C8C8;
     background: url(bgs/tree-top-on.jpg) repeat-x 0 0;
-  }*  html #w_location { 
+  }*/*  html #w_location { 
     margin-left: -3px;
   } #w_action {
     height: 30px;
@@ -67,6 +67,7 @@
   position: absolute;
   right: 0;
   top: 56px;
+  top: 60px;
   padding: 1px;
 }
 #w_content .list  {

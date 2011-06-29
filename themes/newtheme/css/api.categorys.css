@@ -9,6 +9,8 @@ div.location {
   text-indent: 10px ;
   text-shadow: 0 1px 0 #FFFFFF;
   margin-right: 5px;
+  height: 30px;
+  line-height: 30px;
 }
 div.w_title ,
 div.wrap_title {
@@ -19,6 +21,7 @@ div.location {
   float: left;  
   white-space: nowrap;
 }
+div#w_location,
 div.w_title,
 div.wrap_title,
 .categorys-primary {

@@ -48,8 +48,8 @@ div.location a:visited,
   cursor: pointer;
   text-decoration: none;
   padding: 0 5px;
-  line-height: 20px;
-  height: 20px;
+  line-height: 24px;
+  height: 24px;
   display: inline-block;
   margin-right: 5px;
   margin-top: 3px;
@@ -166,8 +166,7 @@ div.location a:hover ,
   display: block;
 }
 .settings div ul li a:hover {
-  background: #000;
-  color: #FFF;
+  background: #E3E9FF;
 }
 /*
 .settings div ul li a.menu-top:hover { 
@@ -191,19 +190,6 @@ div.location a:hover ,
 
 #w_tree_wrap .w_inner,
 .mac_panel_wrap {
-  /*
-  border: 6px solid #CCC;
-  -moz-background-clip: padding;     
-  -webkit-background-clip: padding;
-  background-clip: padding-box;     
-  border: 8px solid rgba(0,0,0,0.3);
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  background: #FFF;
-  border-radius: 4px;
-  */
-
   z-index: 1000000;
   padding: 5px;
   background: url(bgs/wrap_alpha.png) repeat 0 0;
@@ -376,7 +362,7 @@ div.errorSummary ul li {
   font-weight: bold;
 }
 
-#w_tree_wrap.show {
+#w_tree_wrap {
   position: absolute;
   background:#FFF;
   top:26px;
@@ -548,7 +534,6 @@ div.errorSummary ul li {
     margin: auto;    
     overflow: hidden;
   }
-
 
 .mceStatusbar.mceFirst.mceLast {
   line-height: 16px;
