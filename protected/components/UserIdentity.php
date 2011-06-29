@@ -33,8 +33,9 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;			
 			$record->current_login_time 	= Time::now();
 			$record->login_count 			= $record->login_count +1;
-			$record->current_ip 			= API::get_ip();
-			$record->save();
+			$record->current_ip 			= API::get_ip(); 
+      $record->login_token = md5( $record->id.time().mt_rand() );
+      $record->save(false);
 			Yii::app()->user->setState('current_user',$record);
 		}
 		return !$this->errorCode;

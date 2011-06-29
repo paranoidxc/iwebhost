@@ -22,7 +22,7 @@
 
   <div id="w_top">
 		<?php 
-      $_isAdmin = User::model()->findByPk(User()->id)->account_type;
+      $_isAdmin =& $this->iuser->account_type;
       $_isAdmin = $_isAdmin != 1 ? false : true;
       $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
