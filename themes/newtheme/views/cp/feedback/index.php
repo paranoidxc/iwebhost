@@ -23,8 +23,15 @@
     </div>
     
     <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
-    <div class='flR pr20P' style="margin-top: -28px;">
-      <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+
+   <div class='flR pr20P ipagination' > 
+      <table>
+        <tr>
+          <td class='vaM taL pr2P'><?php echo $item_count ?></td>
+          <td class='vaM taL pr2P'><?php $pagination->run() ?></td>
+          <td class='vaM taL'><?php $select_pagination->run() ?></td>
+        </tr>
+      </table>
     </div>
  
       <div id="w_content">

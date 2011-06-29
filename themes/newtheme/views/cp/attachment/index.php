@@ -38,9 +38,12 @@
           <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
         </div><!-- w_location end -->
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
-        <div class='flR pr20P ipagination' style="margin-top: -28px;">
-            <?php echo $item_count ?>
-            <?php $pagination->run() ?>&nbsp;<?php $select_pagination->run() ?>
+        <div class='flR pr20P w_pagin'>
+          <table> 
+            <td class='vaM taL pr2P'><?php echo $item_count ?></td>
+            <td class='vaM taL pr2P'><?php $pagination->run() ?></td>
+            <td class='vaM taL pr2P'><?php $select_pagination->run() ?></td>
+          </table>
         </div>
         <div id="w_content">
           <?php echo $this->renderPartial('_form', array('cur_leaf'=>$cur_leaf)); ?>
