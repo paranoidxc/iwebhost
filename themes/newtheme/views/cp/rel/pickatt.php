@@ -1,7 +1,7 @@
 <div class='mac_panel_wrap w600P' >
   <div class='panel_inner'>
 
-  <div class='categorys-primary'>请选择...<span class='action_normal wrap_cld flR'>关闭</span></div>
+  <div class='wrap_title'>请选择...<span class='action_normal wrap_cld flR'>关闭</span></div>
   <input type="hidden" class='ele_refresh_url' value="<?php echo CController::createUrl('rel/pickAtt', array('keyword' => '')) ?>" />
   <div class='p5P' >
     <form action="<?php echo CController::createUrl('rel/pickAtt') ?>" method="get" class="att_search_form">    
@@ -10,25 +10,6 @@
   </div>
 
 <input type="hidden" class="return_id" value="<?php echo $return_id;?>" />
-<style>
-  .att_pick_ul {    
-    text-align: center;     
-    width: 546px;
-    margin: auto;
-  }
-  .atm_photos .att_pick_li div {    
-    height: 118px;  
-    margin-bottom: 1px;
-  }
-  
-  .att_pick_li span {
-    width: 130px;
-    height: 16px;
-    display: block;
-    margin: auto;    
-    overflow: hidden;
-  }
-</style>
 
 <div class="search_result_wrap">
   <?php $this->renderPartial('_att',array( 'atts' => $atts,'pagination' => $pagination, 'select_pagination' => $select_pagination) ); ?>

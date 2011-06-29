@@ -1,5 +1,6 @@
 <div id="m_middle">
-  <?php echo $this->renderPartial( '_left',array('div_id' => 'tree_left','action' => $action, 'leaf_tree' => $leaf_tree),false,true) ?>
+  <?php echo $this->renderPartial( '_left',array('div_id' => 'tree_left','action' => $action,
+        'div_id' => 'w_tree_wrap', 'leaf_tree' => $leaf_tree),false,true) ?>
   <div id="w_right">  
     <div id="w_location" >  
       <div class='location'>

@@ -1,6 +1,6 @@
-<div class="categorys-primary">
-  <span class="unselectable" id="sub-tree-header">栏目类别<?php echo API::rchart()?></span>
-</div>
+  <p class='signal'></p>
+  <div class='w_inner'>
+  <div class="w_title">栏目类别<?php echo API::rchart()?></div>
 <?php
 	echo "<ul class='api_categorys_ul' id='top_tree' >";
 		$temp_depth = 0;			
@@ -82,3 +82,4 @@
 		}
 		echo "</li>\r\n</ul>";	
 ?>
+</div>

@@ -10,10 +10,13 @@
 
       <div class='settings'>
         <span class='handle'>settings...</span>
-        <div>
-          <ul>
-            <li><a href="#" class='action-btn confirm' type='delete'>删除</a></li>
-          </ul>
+        <div class="w_settings">
+          <p></p>
+          <div>
+            <ul>
+              <li><a href="#" class='action-btn confirm' type='delete'>删除</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <?php echo $this->renderPartial( '_left' ) ?>

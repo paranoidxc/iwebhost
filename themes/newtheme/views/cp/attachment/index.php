@@ -14,22 +14,25 @@
           <span class='flL csP item-all'>全选</span>
           <div class='settings'>
             <span class='handle'>settings...</span>
-            <div>
-              <ul>
-                <li><a href="#" class='menu-top action-btn confirm' type='delete'>删除</a></li>
-                <li><a href="#" class='pick move' uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />移动</a></li>
+            <div class="w_settings">
+              <p></p>
+              <div>
+                <ul>
+                  <li><a href="#" class='menu-top action-btn confirm' type='delete'>删除</a></li>
+                  <li><a href="#" class='pick move' uri="<?php echo url('/cp/attachment/move',array('top_leaf_id' => $top_leaf->id ) ) ?>" />移动</a></li>
 
-                <li class='iline'></li>
-                <li>
-                  <a href="<?php echo url('/cp/attachment/leaf_create',
-                      array('top_leaf_id' => $top_leaf->id ,'parent_leaf_id' => $cur_leaf->id ) ) ?>" >添加子类别</a>
-                </li>
-                <li>
-                  <a class="menu-bottom"
-                      href="<?php echo url('/cp/attachment/leaf_update',
-                      array('top_leaf_id' => $top_leaf->id ,'cur_leaf_id' => $cur_leaf->id ) ) ?>" >修改当前类别</a>
-                </li>
-              </ul>
+                  <li class='iline'></li>
+                  <li>
+                    <a href="<?php echo url('/cp/attachment/leaf_create',
+                        array('top_leaf_id' => $top_leaf->id ,'parent_leaf_id' => $cur_leaf->id ) ) ?>" >添加子类别</a>
+                  </li>
+                  <li>
+                    <a class="menu-bottom"
+                        href="<?php echo url('/cp/attachment/leaf_update',
+                        array('top_leaf_id' => $top_leaf->id ,'cur_leaf_id' => $cur_leaf->id ) ) ?>" >修改当前类别</a>
+                  </li>
+                </ul>
+                </div>
             </div>
           </div><!-- settings end-->
           <span class='flR csP toggle' rel="#attachment_form">上载附件</span>

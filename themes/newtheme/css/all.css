@@ -80,8 +80,8 @@ div.location a:hover ,
   display: inline-block;
   width: 10px;
   height: 10px;
-  margin-top: 8px;
-  margin-right: 8px;
+  margin-top: 10px;
+  margin-right: 10px;
   cursor: pointer;
   background: url(bgs/cld.png) no-repeat -120px top;
 }
@@ -104,18 +104,50 @@ div.location a:hover ,
   float: left;
   top: -1px;
 }
-.settings div {
+.w_settings  { 
   display: none;
+}
+.settings .w_settings { 
   position: absolute;
-  left: 0;
+  top: 20px;
+  left: -95px;
   width: 200px;
+  z-index: 1009 !important;
+}
+.settings .w_settings div { 
+  background: url(bgs/wrap_alpha.png) repeat 0 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #666;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px #666;
+  -moz-border-radius: 5px;
+  -moz-box-shadow: 0 0 5px #666;
+  padding: 5px;
+  /*
   background: #FFF;
   border:2px solid #EFEFEF;  
   background: none repeat scroll 0 0 #FFFFFF !important;
   border: 1px solid #CCC;
   border-radius: 4px 4px 4px 4px !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
-  z-index: 1009 !important;
+  padding: 5px;
+  */
+}
+#w_tree_wrap p.signal,
+.settings .w_settings p {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 90px;
+  background: url(bgs/wrap_alpha.png) repeat 0 0;
+}
+#w_tree_wrap p.signal {
+  margin-left: 450px;
+}
+
+.settings .w_settings ul {
+  background: #FFF;
 }
 .settings div ul li a:visited,
 .settings div ul li a,
@@ -137,6 +169,7 @@ div.location a:hover ,
   background: #000;
   color: #FFF;
 }
+/*
 .settings div ul li a.menu-top:hover { 
   border-radius: 4px 4px 0 0px !important;
 }
@@ -144,6 +177,7 @@ div.location a:hover ,
 .settings div ul li a.menu-bottom:hover {
   border-radius: 0 0 4px 4px !important;
 }
+*/
 
 .settings .handle {
   cursor: pointer;
@@ -155,8 +189,8 @@ div.location a:hover ,
   text-indent: -111000px;
 }
 
+#w_tree_wrap .w_inner,
 .mac_panel_wrap {
-
   /*
   border: 6px solid #CCC;
   -moz-background-clip: padding;     
@@ -172,7 +206,7 @@ div.location a:hover ,
 
   z-index: 1000000;
   padding: 5px;
-  background: black;
+  background: url(bgs/wrap_alpha.png) repeat 0 0;
   border-radius: 5px;
   box-shadow: 0 0 5px #666;
   -khtml-border-radius: 5px;
@@ -182,6 +216,9 @@ div.location a:hover ,
   -moz-box-shadow: 0 0 5px #666;
 }
 
+.wrap_footer {
+  background:#FFF;
+}
 .panel_inner {
   background: #FFF;
   border: 1px solid #666;
@@ -339,24 +376,21 @@ div.errorSummary ul li {
   font-weight: bold;
 }
 
-#tree_left.show {
+#w_tree_wrap.show {
   position: absolute;
   background:#FFF;
   top:26px;
-  left: 1px;
-  border:4px solid #EDF0F9;
-  border-top: none;
+  right: 10px;
   width:500px;
-  height: 400px;
-  overflow: auto;
+  z-index: 1009;
   z-index:10000000;
-  margin-left:10px; 
+}
+
+#w_tree_wrap #top_tree {
   background: #FFF;
-  background: none repeat scroll 0 0 #FFFFFF !important;
-  border: 1px solid #CCC;
-  border-radius: 4px 4px 4px 4px !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
-  z-index: 1009 !important;
+  overflow: auto;
+  height: 440px;
+  margin-bottom: 0px;
 }
 .orgin_thumbnail,
 .orgin_thumbnail {
@@ -497,6 +531,25 @@ div.errorSummary ul li {
 .stared {
   background-position: -17px -160px;
 }
+  .att_pick_ul {    
+    text-align: center;     
+    width: 546px;
+    margin: auto;
+  }
+  .atm_photos .att_pick_li div {    
+    height: 118px;  
+    margin-bottom: 1px;
+  }
+  
+  .att_pick_li span {
+    width: 130px;
+    height: 16px;
+    display: block;
+    margin: auto;    
+    overflow: hidden;
+  }
+
+
 .mceStatusbar.mceFirst.mceLast {
   line-height: 16px;
 }

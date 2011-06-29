@@ -1,4 +1,6 @@
 div.categorys-primary ,
+div.w_title ,
+div.wrap_title ,
 div.location {
   color: #646464 ;
   font-size: 14px;
@@ -8,10 +10,17 @@ div.location {
   text-shadow: 0 1px 0 #FFFFFF;
   margin-right: 5px;
 }
+div.w_title ,
+div.wrap_title {
+  height: 30px;
+  line-height: 30px;
+}
 div.location {
   float: left;  
   white-space: nowrap;
 }
+div.w_title,
+div.wrap_title,
 .categorys-primary {
   background: #DFDDDB  url('bgs/tree-top-on.jpg') repeat-x 0 0;
   display: block ;
