@@ -23,8 +23,7 @@
     </div>
     
     <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
-
-   <div class='flR pr20P ipagination' > 
+    <div class='flR pr20P ipagination' > 
       <table>
         <tr>
           <td class='vaM taL pr2P'><?php echo $item_count ?></td>

@@ -26,6 +26,10 @@ ul.yiiPager {
   top: 0px;
   display: inline-block;
 }
+
+.ipagination ul.yiiPager {
+  top: 5px;
+}
 ul.yiiPager li
 {
   float: left;

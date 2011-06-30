@@ -7,8 +7,8 @@
       </div>
       <?php echo $this->renderPartial('_left'); ?>
     </div>
-
-    <div class='flR pr20P ipagination' > 
+    <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
+    <div class='flR pr20P w_pagin' > 
       <table>
         <tr>
           <td class='vaM taL pr2P'><?php echo $item_count ?></td>
@@ -17,7 +17,6 @@
         </tr>
       </table>
     </div>
-    <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
 
     <div id="w_content">
       <form action="<?php echo url('cp/user/batch') ?>" method="post"  class='batch_form'> 
