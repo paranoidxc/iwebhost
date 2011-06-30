@@ -82,7 +82,18 @@ class ArticleController extends GController
 
     $is_include = true;
     if( strlen( $cur_leaf_id) > 0 ){
-      $criteria->condition  .= ' AND find_in_set(category_id, :category_id)';
+      $mul_category =  ManyCategoryArticle::model()->findAllByAttributes( array('category_id' => $cur_leaf->id) ); 
+      $all_articles = '';
+      foreach( $mul_category as $_mc ){
+        $all_articles .= $_mc->article_id.',';
+      }
+
+      $criteria->condition  .= ' AND find_in_set(category_id, :category_id) ';
+      if( $all_articles != '' ) {
+        $criteria->condition  .= ' OR find_in_set(id,:all_articles)';
+        $criteria->params[':all_articles'] = $all_articles;
+      }
+
       if( $is_include ){
         $leafs = Category::model()->findAll( array( 
           'select' => 'id, name',
