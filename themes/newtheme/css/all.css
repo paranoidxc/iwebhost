@@ -109,38 +109,50 @@ div.location a:hover ,
 }
 .settings .w_settings { 
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: -95px;
   width: 200px;
   z-index: 1009 !important;
 }
 .settings .w_settings div { 
-  background: url(bgs/wrap_alpha.png) repeat 0 0;
+  background: url(bgs/square.gif) repeat 0 0;
+  background: url(bgs/square.png) repeat 0 0;
   border-radius: 5px;
+  /*
   box-shadow: 0 0 5px #666;
+  -webkit-box-shadow: 0 0 5px #666;
+  -moz-box-shadow: 0 0 5px #666;
+  */
   -khtml-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -webkit-box-shadow: 0 0 5px #666;
   -moz-border-radius: 5px;
-  -moz-box-shadow: 0 0 5px #666;
   padding: 5px;
-  /*
-  background: #FFF;
-  border:2px solid #EFEFEF;  
-  background: none repeat scroll 0 0 #FFFFFF !important;
-  border: 1px solid #CCC;
-  border-radius: 4px 4px 4px 4px !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
-  padding: 5px;
-  */
 }
+#w_tree_wrap {
+  position: absolute;
+  top:26px;
+  right: 10px;
+  width:500px;
+  z-index: 1009;
+  z-index:10000000;
+}
+
+#w_tree_wrap #top_tree {
+  background: #FFF;
+  overflow: auto;
+  height: 440px;
+  margin-bottom: 0px;
+}
+
+
 #w_tree_wrap p.signal,
 .settings .w_settings p {
   display: block;
   width: 20px;
   height: 20px;
   margin-left: 90px;
-  background: url(bgs/wrap_alpha.png) repeat 0 0;
+  background: url(bgs/arrow.gif) repeat 0 0;
+  background: url(bgs/arrow.png) repeat 0 0;
 }
 #w_tree_wrap p.signal {
   margin-left: 450px;
@@ -192,7 +204,8 @@ div.location a:hover ,
 .mac_panel_wrap {
   z-index: 1000000;
   padding: 5px;
-  background: url(bgs/wrap_alpha.png) repeat 0 0;
+  background: url(bgs/square.gif) repeat 0 0;
+  background: transparent url(bgs/square.png) repeat 0 0;
   border-radius: 5px;
   box-shadow: 0 0 5px #666;
   -khtml-border-radius: 5px;
@@ -362,22 +375,6 @@ div.errorSummary ul li {
   font-weight: bold;
 }
 
-#w_tree_wrap {
-  position: absolute;
-  background:#FFF;
-  top:26px;
-  right: 10px;
-  width:500px;
-  z-index: 1009;
-  z-index:10000000;
-}
-
-#w_tree_wrap #top_tree {
-  background: #FFF;
-  overflow: auto;
-  height: 440px;
-  margin-bottom: 0px;
-}
 .orgin_thumbnail,
 .orgin_thumbnail {
   display: inline-block;
