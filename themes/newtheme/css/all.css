@@ -180,23 +180,13 @@ div.location a:hover ,
 .settings div ul li a:hover {
   background: #E3E9FF;
 }
-/*
-.settings div ul li a.menu-top:hover { 
-  border-radius: 4px 4px 0 0px !important;
-}
-
-.settings div ul li a.menu-bottom:hover {
-  border-radius: 0 0 4px 4px !important;
-}
-*/
-
 .settings .handle {
   cursor: pointer;
   background: url(/images/setting.png) no-repeat 0 0;
   display: inline-block;
   width: 18px;
   height: 16px;
-  margin-top: 4px;
+  margin-top: 8px;
   text-indent: -111000px;
 }
 
