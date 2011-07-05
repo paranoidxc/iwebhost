@@ -395,7 +395,7 @@ div.errorSummary ul li {
 .unlink_dest ,
 .unlink_default {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
   width: 14px;
   height: 14px;
@@ -408,9 +408,9 @@ div.errorSummary ul li {
 .unlink_default_collect,
 .unlink_collect {  
   width: 14px;
-  height: 14px;
+  height: 20px;
   display: inline-block;
-  background:  url(bgs/close_a.png) no-repeat;
+  background:  url(bgs/close_a.png) no-repeat 0 50%;
   text-indent: -10000px;
   cursor: pointer;  
 }
@@ -442,6 +442,14 @@ div.errorSummary ul li {
   padding: 5px;
   margin-right: 10px;
   position: relative;
+}
+.mul_collect,
+.dest_mul_collect,
+.origin_collect,
+.dest_collect {
+  padding: 0 5px;
+  line-height: 20px;
+  margin: 5px  10px 5px 0;
 }
 
 .mul_collect,
