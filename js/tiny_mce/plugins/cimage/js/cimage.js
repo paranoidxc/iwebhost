@@ -6,14 +6,9 @@ var CimageDialog = {
 	},
  	insert : function(file,title) {
 		var ed = tinyMCEPopup.editor, dom = ed.dom;
-    tinyMCEPopup.execCommand('mceInsertContent', false, dom.createHTML('img', {
-			src : file,
-			alt : title,
-			title : title,
-			border : 0
-		}));
+    var h = "<p><img src='"+file+"' title='"+title+"' alt='"+title+"'/></p>";
+    tinyMCEPopup.execCommand('mceInsertContent', false, h );
 	}
-
 };
 
 tinyMCEPopup.onInit.add(CimageDialog.init, CimageDialog);
