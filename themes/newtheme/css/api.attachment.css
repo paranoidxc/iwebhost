@@ -21,13 +21,16 @@
   display: block;
 }
 .atm_photos li img{
-  border: 1px solid #313131;
   padding: 1px;
   margin-top: 8px;  
   max-width: 130px; 
   max-height: 90px; 
   /*height: 103px;*/
 }
+.panel_inner .atm_photos li img{
+  border: 1px solid #313131;
+}
+
 .atm_photos li p {  
   width: 135px; 
   text-align: left;

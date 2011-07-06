@@ -4,13 +4,12 @@
     foreach($list as $t){
       echo '<li>';
       if( $t->is_image() ){
-      echo '<div class="thumb_wrap">';
+      echo '<div class="thumb_wrap" title="'.$t->screen_name.'">';
       echo "<a class='lightbox zoom_photo' href='$t->image' >";
-      echo '<img src="'.$t->thumb.'" alt=""  /> ';
+      echo '<img src="'.$t->thumb.'" alt="" class="image_border" /> ';
       echo '</a>';
       echo '</div>';
       echo '<p >';
-      echo "<p>";
       echo '<input type="checkbox" class="item-sep" name="ids[]" value="'.$t->id.'"  >';
       echo '<span class="crP atts"
               data = "'.$t->id.'"
@@ -21,7 +20,9 @@
       echo '</span>';
       echo '</p>';
       }else{        
+        echo '<div class="thumb_wrap h110P" title="'.$t->screen_name.'">';
         echo '<img src="/default_image/unknown.png" alt="" /> ';        
+        echo '</div>';
         echo "<p rel_href='".CController::createUrl('attachment/update',array( 'ajax' => 'ajax' , 'id' => $t->id ))."' >"; 
         echo '<input type="checkbox" class="item-sep" name="ids[]" value="'.$t->id.'"  >';
         echo '<span class="crP atts content_item"
