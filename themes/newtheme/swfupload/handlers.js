@@ -14,7 +14,7 @@ The FileProgress class is not part of SWFUpload.
 function fileQueued(file) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
-		progress.setStatus("Pending...");
+		progress.setStatus("准备上载...");
 		progress.toggleCancel(true, this);
 
 	} catch (ex) {
@@ -84,7 +84,7 @@ function uploadStart(file) {
 		we can do is say we are uploading.
 		 */
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
-		progress.setStatus("Uploading...");
+		progress.setStatus("正在上载...");
 		progress.toggleCancel(true, this);
 	}
 	catch (ex) {}
@@ -98,7 +98,7 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setProgress(percent);
-		progress.setStatus("Uploading...");
+		progress.setStatus("正在上载...");
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -108,7 +108,7 @@ function pickatt_uploadSuccess(file, serverData) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setComplete();
-		progress.setStatus("Complete.");
+		progress.setStatus("上载完成.");
 		progress.toggleCancel(false);    
 		$('.swfloadstatus').hide();		
     var that = $('.att_search_form');
@@ -131,7 +131,7 @@ function uploadSuccess(file, serverData) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setComplete();
-		progress.setStatus("Complete.");
+		progress.setStatus("上载完成.");
 		progress.toggleCancel(false);
 
 	} catch (ex) {

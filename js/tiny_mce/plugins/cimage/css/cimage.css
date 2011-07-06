@@ -80,6 +80,9 @@ input, select, textarea {
   width: 98%;
   padding: 4px;
   margin: 1px;
+  border: 1px solid #666;
+  padding: 4px 2px;
+  border-color: #666 #CCC #CCC #666;
 }
 .search_input:focus {
   margin: 0px;
