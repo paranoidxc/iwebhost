@@ -120,6 +120,15 @@ input, select, textarea {
   display: block;
 }
 
+.atm_photos li span {
+  display: block;
+  overflow: hidden;
+  line-height: 16px;
+  height: 16px;
+  width: 140px;
+  padding: 0 10px;
+  text-align: left;
+}
 
 /*
 .ipagination {
