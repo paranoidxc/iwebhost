@@ -216,3 +216,18 @@ function pickimage_uploadStart(file){
   $('#fsUploadProgress').show();
   $('.progressWrapper').show();
 }
+function pickimage_queueComplete(numFilesUploaded) {
+	var status = document.getElementById("divStatus");
+	status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";
+  $('.swfloadstatus').hide();		
+  var that = $('.att_search_form');
+  var url = that.attr('action')+'?keyword=';
+  $.ajax({
+    type: that.attr('method'),
+    cache: false,
+    url: url,
+    success:function(html){
+      $('.search_result_wrap').html(html);
+    }
+  });
+}

@@ -77,11 +77,13 @@ input, select, textarea {
 
 .search_input {
   font-size: 14px;
-  width: 90%;
+  width: 98%;
   padding: 4px;
+  margin: 1px;
 }
 .search_input:focus {
   margin: 0px;
+  margin: 0;
   border: 2px solid #73A6FF;
 }
 .atm_photos li img {

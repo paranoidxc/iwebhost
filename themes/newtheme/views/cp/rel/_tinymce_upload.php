@@ -20,7 +20,7 @@
 	var swfu;		
 	var settings = {		
 		flash_url : "<?php echo API::get_theme_baseurl(); ?>/swfupload/swfupload.swf",
-    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '' ) ) ?>",    
+    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '30' ) ) ?>",    
     button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 		custom_settings : {
 				progressTarget : "fsUploadProgress",
@@ -35,14 +35,14 @@
 
 		// The event handler functions are defined in handlers.js
 		upload_start_handler : pickimage_uploadStart,
-		upload_success_handler : pickatt_uploadSuccess,			
+		upload_success_handler : uploadSuccess,			
     upload_progress_handler : uploadProgress,
 		upload_error_handler : uploadError,
 		upload_complete_handler : uploadComplete,
     file_queued_handler : fileQueued,
     file_dialog_complete_handler : fileDialogComplete,			
 	  file_queue_error_handler : fileQueueError,
-
+    queue_complete_handler : pickimage_queueComplete,
 	};
 	swfu = new SWFUpload(settings);	  
 </script>

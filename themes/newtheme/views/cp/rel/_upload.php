@@ -2,7 +2,7 @@
 	var swfu;		
 	var settings = {		
 		flash_url : "<?php echo API::get_theme_baseurl(); ?>/swfupload/swfupload.swf",
-    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '' ) ) ?>",    
+    upload_url: "<?php echo CController::createurl('attachment/upload',array( 'category_id' => '30' ) ) ?>",    
     button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 		custom_settings : {
 				progressTarget : "fsUploadProgress",
