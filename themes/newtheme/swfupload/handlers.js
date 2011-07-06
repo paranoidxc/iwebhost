@@ -209,3 +209,10 @@ function cpqueueComplete(numFilesUploaded) {
 	status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";
   window.location.href = window.location.href ;
 }
+
+
+function pickimage_uploadStart(file){
+  $('.swfloadstatus').show();
+  $('#fsUploadProgress').show();
+  $('.progressWrapper').show();
+}

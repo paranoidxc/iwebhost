@@ -24,6 +24,9 @@ body {
 .mceActionPanel {
 	padding-top: 5px;
 }
+.flR {
+  float: right;
+}
 .dN {
   display: none;
 }
@@ -40,7 +43,9 @@ body {
   height: 60px;
 }
 .pr10P {
+  /*
   padding-right: 10px;
+  */
 }
 .pt10P {
   padding-top: 10px;
