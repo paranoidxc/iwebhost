@@ -8,7 +8,7 @@
   margin: 5px;  
   opacity: 0.9;
 }
-.atm_photos li:hover{
+.atm_photos li:hover {
    opacity: 1;
 }
 .atm_photos li.select {
