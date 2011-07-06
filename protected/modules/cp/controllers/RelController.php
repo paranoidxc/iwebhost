@@ -20,6 +20,7 @@ class RelController extends Controller
 		}else{
 		  $partial_tpl = 'pickimage';
 		}
+    $criteria->order =' c_time DESC';
 		
 		$item_count = Attachment::model()->count($criteria);    
     $page_size = 10;          
@@ -61,6 +62,7 @@ class RelController extends Controller
 		  //$atts = Attachment::model()->findAll();      
 		  //$this->renderPartial('pickatt',array('return_id' => $return_id,'atts' => $atts ,'rtype' => $rtype ),false,true);
 		}
+    $criteria->order =' c_time DESC';
 		
 		
 		$item_count = Attachment::model()->count($criteria);    

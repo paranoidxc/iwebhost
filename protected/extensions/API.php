@@ -1,7 +1,7 @@
 <?php
 class API {  
   public static $IMAGE_EXTENSION  = array("jpg", "jpeg", "png", "gif");      
-  public static $ATT_IMG_AUTO_SIZE = array('800_600','600_400', 'thubm' => '160_120','40_40');
+  public static $ATT_IMG_AUTO_SIZE = array('800_600','600_400', 'thubm' => '160_120','48_48');
 
   public static function isaction($uri) {
     $r = '';
