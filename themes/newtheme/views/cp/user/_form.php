@@ -21,15 +21,38 @@
           <?php echo $form->error($model,'username'); ?>
         </td>
       </tr>
-      
       <tr>
         <th><?php echo $form->labelEx($model,'password'); ?></th>
         <td>
+        <?php
+        if( $model->isNewRecord ) {
+        ?>
           <?php echo $form->textField($model,'password',array('size'=>60,'maxlength'=>128,'class'=>'itext ipwd'  )); ?>
           <?php echo $form->error($model,'password'); ?>
+        <?php
+          }else{
+        ?>
+          <p><?php echo $model->password; ?></p>
+        <?php
+        }
+        ?>
         </td>
       </tr>
-      
+      <?php
+        if( !$model->isNewRecord ){
+      ?>
+      <tr>
+        <th><?php echo $form->labelEx($model,'npassword'); ?></th>
+        <td>
+          <?php echo $form->textField($model,'npassword',array('size'=>60,'maxlength'=>128,'class'=>'itext ipwd'  )); ?>
+          <?php echo $form->error($model,'npassword'); ?>
+          如需修改密码请填写
+        </td>
+      </tr>
+      <?php
+        }
+      ?>
+            
       <tr>
         <th><?php echo $form->labelEx($model,'email'); ?></th>
         <td>

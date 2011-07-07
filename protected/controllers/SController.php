@@ -21,6 +21,8 @@ class SController extends Controller {
 	    $model->attributes=$_POST['User'];
 			$model->c_time = Time::now();
 			if($model->save()){			  
+        $model->password = md5(sha1(SECRET.$model->password) );
+        $model->save(false);
 			  $str = '用户注册成功,请试着登录下!';
 				Yii::app()->user->setFlash('success',$str);
 			  $this->redirect( array( 'signin' ));
@@ -53,7 +55,7 @@ class SController extends Controller {
 		    Yii::app()->user->returnUrl = $_SERVER['HTTP_REFERER'];
     }
 		if(isset($_POST['LoginForm']))
-		{		  
+		{
 			$model->attributes=$_POST['LoginForm'];		
 			if($model->validate() && $model->login()){
 			  Yii::app()->request->redirect(Yii::app()->user->returnUrl);					  
@@ -65,7 +67,7 @@ class SController extends Controller {
 	}
 	
 	public function actionSignout(){
-	  $user = Yii::app()->user->getState('current_user');	  
+    $user = User::model()->findByPk( User()->id );
 	  if( $user ){
   		$user->last_logout_time = Time::now();
   		$user->last_ip = API::get_ip();

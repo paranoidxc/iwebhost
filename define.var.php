@@ -24,4 +24,6 @@ define("AVATAR_WIDTH", 80);
 define("AVATAR_HEIGHT", 80);
 define("AVATAR_PREFIX", 'source_');
 
+define("SECRET", 'ihuangxc');
+
 define("ADMIN_URL", "/index.php?r=admin/Dashboard/index");

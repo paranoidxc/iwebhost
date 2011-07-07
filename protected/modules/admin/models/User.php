@@ -12,6 +12,7 @@
  */
 class User extends CActiveRecord
 {  
+  public $npassword;
   public function __get($name)
   {    
     $getter='get'.$name;
@@ -100,10 +101,12 @@ class User extends CActiveRecord
 			array('email','unique'),
 			array('email','email'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
-			array('username,password', 'length', 'min'=>5),
+			array('username,password,npassword', 'length', 'min'=>5),
 			array('username, email', 'length', 'max'=>30),
 			array('sign', 'length', 'max'=>500),
-			array('password', 'length', 'max'=>30),
+			array('password', 'length', 'max'=>32),
+
+      array('npassword', 'match', 'pattern'=>'/^([a-zA-Z0-9_])+$/','on' => 'ad_update', 'message' => '字符范围26个英文字符(a-z),数字(0-9)和下划线(_)'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, password, email, parent_id', 'safe', 'on'=>'search'),
@@ -163,6 +166,7 @@ class User extends CActiveRecord
   		'last_logout_time'    => Yii::t('cp','Last Logout Time'),
   		'sign'                => Yii::t('cp','Sign'),
   		'avatar'              => Yii::t('cp','Avatar'),
+  		'npassword'           => '新密码',
 			'parent_id'           => 'Parent',
 		);
 	}

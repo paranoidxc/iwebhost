@@ -55,9 +55,11 @@ class UserController extends GController
 			$model->attributes=$_POST['User'];
 			$model->c_time = Time::now();
 			if($model->save()){
-			    $str = '用户 '.$model->username.' 已新建 '.Time::now();
-			    Yii::app()->user->setFlash('success',$str);
-		      $this->redirect(array('update','id'=>$model->id));
+        $model->password = md5(sha1(SECRET.$model->password));
+        $model->save(false);
+	      $str = '用户 '.$model->username.' 已新建 '.Time::now();
+			  Yii::app()->user->setFlash('success',$str);
+		    $this->redirect(array('update','id'=>$model->id));
 			}
 		}
     $this->render('create',array( 'model'=>$model,)); 
@@ -70,6 +72,7 @@ class UserController extends GController
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
+    $model->setScenario('ad_update');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -79,6 +82,8 @@ class UserController extends GController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save()){
+        $model->password = md5(sha1(SECRET.$model->npassword));
+        $model->save(false);
 				$str = '用户 '.$model->username.' 已更新 ' .Time::now();
   			Yii::app()->user->setFlash('success',$str);
  				$this->redirect(array('update','id'=>$model->id));	

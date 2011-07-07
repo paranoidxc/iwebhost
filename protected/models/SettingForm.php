@@ -39,7 +39,7 @@ class SettingForm extends CFormModel
     }else {
       $record->sign     = $this->sign;
       if( strlen($this->password) > 0 ) {
-        $record->password = $this->password;
+        $record->password = md5(sha1(SECRET.$this->password));
       }
       if( $this->avatar ) {
         $name = md5($record->id).'.'.strtolower($this->avatar->getExtensionName());

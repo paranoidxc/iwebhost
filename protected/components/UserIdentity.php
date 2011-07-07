@@ -25,7 +25,7 @@ class UserIdentity extends CUserIdentity
     }
 		if( $record == null ) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
-		} else if ( $record-> password != $this->password ) {
+		} else if ( $record->password != md5(sha1(SECRET.$this->password)) ) {
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		} else {
       $this->username = $record->username;
@@ -35,6 +35,7 @@ class UserIdentity extends CUserIdentity
 			$record->login_count 			= $record->login_count +1;
 			$record->current_ip 			= API::get_ip(); 
       $record->login_token = md5( $record->id.time().mt_rand() );
+      
       $record->save(false);
 			Yii::app()->user->setState('current_user',$record);
 		}
