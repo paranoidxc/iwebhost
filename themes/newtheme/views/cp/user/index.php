@@ -24,22 +24,21 @@
         <table class='list'>
           <thead>
             <tr>
-              <th class='vaM w20P taC pr2P pl2P'><input type='checkbox' class="item-all" /></th>
+              <th class='w20P taC pr2P pl2P'></th>
               <th class='w80P taC'><?php echo Yii::t('cp','Sid') ?></th>
               <th class='w160P taL'><span class="radius4 filter"><?php echo Yii::t('cp','Account') ?></span></th>
               <th class='w160P taL'><?php echo Yii::t('cp','Password') ?></th>
               <th class='taL' ><span class="radius4 filter"><?php echo Yii::t('cp','Email') ?></span></th>
-            </tr>
-          </thead>      
-
-          <tbody class="">
+           </tr>
+          </thead>
+          <tbody>
           <?php  
             foreach( $list as $user ) {
           ?>
             <tr>
               <td class='vaM w20P taC pr2P pl2P'><input type='checkbox' name="ids[]" value="<?php echo $user->id; ?>" class="item-sep" /></td>
               <td class='w80P taC'><?php echo $user->id; ?></td>
-              <td class="w160P vaM  content_item">
+              <td class="w160P vaM  content_item fwB">
               <?php 
               if( $user->is_forever ) {
                 echo '<span class="forever" title="can\'t be delete">*';        

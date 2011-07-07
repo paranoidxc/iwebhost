@@ -9,7 +9,7 @@
       <td class='w80P taC'><?php echo $_instance->id; ?></td>
       <td class='w80P taL'><?php echo $_instance->itype; ?></td>
       <td class="w160P taL"><?php echo $_instance->email; ?></td>
-      <td class="w160P taL vaM " >
+      <td class="w160P taL vaM fwB" >
         <a href="<?php echo url('cp/feedback/update', array('id' => $_instance->id ) )?>"><?php echo $_instance->question; ?></a>
       </td>
       <td class='w100P taL'><?php echo Time::timeAgoInWords($_instance->q_time,array('short'=>true)) ;?></td>
