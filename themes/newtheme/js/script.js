@@ -304,10 +304,19 @@ $(document).ready(function(){
 	  var wrap = getPanel($(this));
 	  wrap.find('li.active').removeClass('active');	  
 	  $(this).addClass('active');	  
-	  wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
-	  wrap.find('.rel_imagerange').html( $(this).find('select').html() ).show();
+    if( $(this).attr('isimage') == 1 ){
+	    $('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
+	    $('.rel_imagerange').html( $(this).find('select').html() ).show();
+    }else{
+	    $('.rel_gavatar').attr('src', $(this).attr('rel_default_image') ).attr('title',$(this).attr('rel_screen_name')).show();
+      $('.rel_imagerange').hide();
+    }
+	  //wrap.find('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
+	  //wrap.find('.rel_imagerange').html( $(this).find('select').html() ).show();
+    //
 	  wrap.find('.rel_id').val( $(this).attr('rel_id') );	  
 	  wrap.find('.rel_screen_name').val( $(this).attr('rel_screen_name') );
+    wrap.find('.screen_name').html( $(this).attr('rel_screen_name') ).attr('title', $(this).attr('rel_screen_name') );
 	  wrap.find('.rel_path').val( $(this).attr('rel_path') );
 	  wrap.find('.rel_extension').val( $(this).attr('rel_extension') );
     wrap.find('.wrap_footer').slideDown();

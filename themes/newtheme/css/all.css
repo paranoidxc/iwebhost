@@ -375,6 +375,7 @@ div.errorSummary ul li {
   padding: 1px;
   border: 1px solid #313131;
   border-color: #313131 #313131 #131313 #131313;
+  height: 48px;
 }
 
 .pick {

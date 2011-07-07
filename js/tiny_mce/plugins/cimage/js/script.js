@@ -13,9 +13,7 @@ $(document).ready(function(){
 	  $('.rel_id').val( $(this).attr('rel_id') );	  
 	  $('.rel_path').val( $(this).attr('rel_path') );
 	  $('.rel_screen_name').val( $(this).attr('rel_screen_name') );
-	  
-    $('.screen_name').html( $(this).attr('rel_screen_name') );
-
+    $('.screen_name').html( $(this).attr('rel_screen_name') ).attr('title', $(this).attr('rel_screen_name') );
 	  $('.rel_extension').val( $(this).attr('rel_extension') );
     $('.wrap_footer').slideDown();
 	});

@@ -20,7 +20,9 @@
 </div>
 
   <div class="taR lh60P h60P pr10P pt10P dN wrap_footer">
-    <img src="" alt="" class="dN vaM image_border rel_gavatar" />
+    <span class='screen_name' style='display:inline-block; width: 300px;height: 60px;
+    line-height:60px; float: left; overflow: hidden;'></span>
+    <img src="" alt="" class="dN vaM image_border rel_gavatar" style="height: 48px" />
     <input type="hidden" class="rel_id" value="" size="5" />
     <input type="hidden" class="rel_screen_name" value="" size="40"/>
     <input type="hidden" class="rel_path" value="" />
