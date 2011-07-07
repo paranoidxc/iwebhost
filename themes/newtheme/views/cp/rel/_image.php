@@ -8,10 +8,17 @@
         rel_screen_name="<?php echo $t->screen_name; ?>"          
         rel_path="<?php echo $t->path; ?>"
         rel_gavatar="<?php echo $t->gavatar; ?>"
-        rel_extension="<?php echo $t->extension; ?>"  >
+        rel_extension="<?php echo $t->extension; ?>"
+        rel_default_image= '/default_image/unknown.png'
+        isimage='<?php echo $t->is_image() ? 1: 0?>' >
         <?php echo $t->imageRange; ?>
         <div>        
-          <img href="<?php echo $t->image; ?>" class="zoom_photo" src='<?php echo $t->thumb; ?>' alt='<?php echo $t->screen_name; ?>' />
+        <?php if( $t->is_image() ) { ?>
+          <img href="<?php echo $t->image; ?>" class="zoom_photo image_border" src='<?php echo $t->thumb; ?>'
+              alt='<?php echo $t->screen_name; ?>' />
+        <?php }else{ ?>
+          <img src='/default_image/unknown.png' alt='<?php echo $t->screen_name; ?>' />
+        <?php } ?>
         </div>
         <span><?php echo $t->screen_name ?></span>
       </li>

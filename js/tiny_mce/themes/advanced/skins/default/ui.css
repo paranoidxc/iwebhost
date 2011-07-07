@@ -212,5 +212,7 @@
 .defaultSkin span.mce_restoredraft {background-position:-20px -40px}
 .defaultSkin span.mce_spellchecker {background-position:-540px -20px}
 
-.defaultSkin span.mce_cimage {background-position:-380px 0px}
+.defaultSkin span.mce_cimage { 
+  background: url(img/sprite2.png) no-repeat 1px -87px;
+}
 

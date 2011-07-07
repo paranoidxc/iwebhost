@@ -1,13 +1,18 @@
 $(document).ready(function(){
     
   $('.rpick').live('click',function(){	  
-    $('li.active').removeClass('active');	  
+    $('li.active').removeClass('active');
 	  $(this).addClass('active');	  
-	  $('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
-	  $('.rel_imagerange').html( $(this).find('select').html() ).show();
+    if( $(this).attr('isimage') == 1 ){
+	    $('.rel_gavatar').attr('src', $(this).attr('rel_gavatar') ).attr('title',$(this).attr('rel_screen_name')).show();
+	    $('.rel_imagerange').html( $(this).find('select').html() ).show();
+    }else{
+	    $('.rel_gavatar').attr('src', $(this).attr('rel_default_image') ).attr('title',$(this).attr('rel_screen_name')).show();
+      $('.rel_imagerange').hide();
+    }
 	  $('.rel_id').val( $(this).attr('rel_id') );	  
-	  $('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  $('.rel_path').val( $(this).attr('rel_path') );
+	  $('.rel_screen_name').val( $(this).attr('rel_screen_name') );
 	  $('.rel_extension').val( $(this).attr('rel_extension') );
     $('.wrap_footer').slideDown();
 	});
@@ -22,7 +27,20 @@ $(document).ready(function(){
 	  var rtype           = $('.rtype').val();
 	  var upfiles_dir     = $('.upfiles_dir').val();
     var rel_imagerange  = $('.rel_imagerange').val();
-    CimageDialog.insert( upfiles_dir+rel_path+rel_imagerange+'.'+rel_extension , rel_screen_name);
+    var filetype='png,jpg,jpeg,gif';
+    var html = '<p>';
+    if( filetype.indexOf( rel_extension ) == -1 ) {
+      var file = upfiles_dir+rel_path+'.'+rel_extension
+      html += "<em>文件: <a href='"+file+"' title='"+rel_screen_name+"' target='_blank'>";
+      html += '点击下载文件';
+      html += "</a></em";
+    }else {
+      var file = upfiles_dir+rel_path+rel_imagerange+'.'+rel_extension;
+      html += "<img src='"+file+"' title='"+rel_screen_name+"' alt='"+rel_screen_name+"'/>";
+    }
+    html += '</p>';
+//    CimageDialog.insert( upfiles_dir+rel_path+rel_imagerange+'.'+rel_extension , rel_screen_name);
+    CimageDialog.insert( html );
 	});
 
 
