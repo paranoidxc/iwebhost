@@ -9,15 +9,17 @@
         rel_path="<?php echo $t->path; ?>"
         rel_gavatar="<?php echo $t->gavatar; ?>"
         rel_extension="<?php echo $t->extension; ?>"
-        rel_default_image= '/default_image/unknown.png'
-        isimage='<?php echo $t->is_image() ? 1: 0?>' >
+        rel_default_image="<?php echo $t->v_ext_image; ?>"
+        isimage='<?php echo $t->is_image() ? 1: 0?>'
+        title="<?php echo $t->screen_name; ?>"
+        >
         <?php echo $t->imageRange; ?>
         <div>        
         <?php if( $t->is_image() ) { ?>
           <img href="<?php echo $t->image; ?>" class="zoom_photo image_border" src='<?php echo $t->thumb; ?>'
               alt='<?php echo $t->screen_name; ?>' />
         <?php }else{ ?>
-          <img src='/default_image/unknown.png' alt='<?php echo $t->screen_name; ?>' />
+          <img src='<?php echo $t->v_ext_image?>' alt='<?php echo $t->screen_name; ?>' />
         <?php } ?>
         </div>
         <span><?php echo $t->screen_name ?></span>

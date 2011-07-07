@@ -13,6 +13,9 @@ $(document).ready(function(){
 	  $('.rel_id').val( $(this).attr('rel_id') );	  
 	  $('.rel_path').val( $(this).attr('rel_path') );
 	  $('.rel_screen_name').val( $(this).attr('rel_screen_name') );
+	  
+    $('.screen_name').html( $(this).attr('rel_screen_name') );
+
 	  $('.rel_extension').val( $(this).attr('rel_extension') );
     $('.wrap_footer').slideDown();
 	});
@@ -31,9 +34,9 @@ $(document).ready(function(){
     var html = '<p>';
     if( filetype.indexOf( rel_extension ) == -1 ) {
       var file = upfiles_dir+rel_path+'.'+rel_extension
-      html += "<em>文件: <a href='"+file+"' title='"+rel_screen_name+"' target='_blank'>";
-      html += '点击下载文件';
-      html += "</a></em";
+      html += "<strong>文件类型: "+rel_extension+" <a href='"+file+"' title='"+rel_screen_name+"' target='_blank'>";
+      html += '点击下载该文件';
+      html += "</a></strong>";
     }else {
       var file = upfiles_dir+rel_path+rel_imagerange+'.'+rel_extension;
       html += "<img src='"+file+"' title='"+rel_screen_name+"' alt='"+rel_screen_name+"'/>";

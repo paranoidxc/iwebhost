@@ -36,6 +36,15 @@ class Attachment extends CActiveRecord
       
     return parent::__get($name);
   }
+
+  public function getV_ext_image() {
+    $r = '/default_image/'.strtolower($this->extension).'.png';
+    if( file_exists( WEBSITE_DIR.$r ) ) {
+      return $r;
+    }else {
+      return '/default_image/unknown.png';
+    }
+  }
   
   public function getImageRange( $opt=array() ){
     //$ele = $opt['type'];
