@@ -8,7 +8,7 @@
 </div>
 
 <div class="bgTips p5P">
-<?php $this->renderPartial('_tinymce_upload'); ?>
+<?php $this->renderPartial('_tinymce_upload') ?>
 </div>
 
 <div class=" taR lh60P h60P pr10P pt10P dN wrap_footer">

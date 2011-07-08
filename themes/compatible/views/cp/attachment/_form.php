@@ -6,19 +6,17 @@
             type="button"
             value="<?php echo Yii::t('cp','Cancel All Uploads') ?>" onclick="swfu.cancelQueue();"
             disabled="disabled"
-            class='ibtn blue'
-            style="margin-top: 6px;"/>
+            />
     </div>
     <div id="divStatus" class='dN' >0 <?php echo Yii::t('cp','Files Uploaded') ?></div>
     <p class="progress dN" ><?php echo Yii::t('cp','Upload Queue') ?></p>
     <div class="fieldset flash" id="fsUploadProgress">
-      <span class="legend dN">Upload Queue</span>
+      <span class="legend dN">文件上载队列</span>
     </div>
   </form>  
 </div>
 
-      
-      <script type="text/javascript">
+<script type="text/javascript">
 		var swfu;
 		//window.onload = function() {
 			var settings = {
@@ -40,9 +38,9 @@
 				debug: false,
 
 				// Button settings
-				button_image_url: "/default_image/XPButtonUploadText_61x22.png",				
-				button_width: "61",
-				button_height: "22",
+				button_image_url: "/default_image/swf_upload_bg.jpg",				
+				button_width: "110",
+				button_height: "32",
 				button_placeholder_id: "spanButtonPlaceHolder",
 				button_text: '<span class="theFont"></span>',
 				button_text_style: ".theFont { font-size: 16; }",

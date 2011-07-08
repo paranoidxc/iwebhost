@@ -123,6 +123,9 @@ FileProgress.prototype.setStatus = function (status) {
 // Show/Hide the cancel button
 FileProgress.prototype.toggleCancel = function (show, swfUploadInstance) {
 	this.fileProgressElement.childNodes[0].style.visibility = show ? "visible" : "hidden";
+  if( $('.swfloadstatus').length > 0 ) {
+    $('.swfloadstatus').hide();
+  }
 	if (swfUploadInstance) {
 		var fileID = this.fileProgressID;
 		this.fileProgressElement.childNodes[0].onclick = function () {

@@ -3,12 +3,17 @@
   height: 1%;
   overflow: hidden;
   float: right;
-  width: 200px;
   margin-top: 20px;
-  padding: 20px 30px 10px 20px;
   background: #FFF;
   border: 1px solid #ccc;
   border-color: #CCC #666 #666 #CCC;
+  padding: 2px;
+  width: 242px;
+}
+#sign_in .sign_w {
+  width: 200px;
+  padding: 20px 30px 10px 20px;
+  background: #FAF9F8;
 }
 
 #sign_in fieldset {
@@ -16,7 +21,7 @@
 }
 #sign_in label {
   display: block;
-  font-weight: bold;
+  margin-bottom: 2px;
 }
 #sign_in label.irem {
   display: inline;
@@ -41,26 +46,28 @@
 	'id'=>'login-form',
 	'enableAjaxValidation'=>true,
 )); ?>
-  <fieldset>
-    <?php echo $form->labelEx($model,'username'); ?>
-    <?php echo $form->textField($model,'username', array('class' => 'itext') ); ?>
-    <?php echo $form->error($model,'username'); ?>
-  </fieldset>
-  
-  <fieldset>
-    <?php echo $form->labelEx($model,'password'); ?>
-    <?php echo $form->passwordField($model,'password',array('class' => 'ipwd') ); ?>
-    <?php echo $form->error($model,'password'); ?>		
-  </fieldset>
-  
-  <fieldset>
-    <?php echo $form->checkBox($model,'rememberMe'); ?>
-   	<?php echo $form->label($model,'rememberMe', array('class' => 'irem' )); ?>
-    <?php echo $form->error($model,'rememberMe'); ?>		
-  </fieldset>
+  <div class='sign_w'>
+    <fieldset>
+      <?php echo $form->labelEx($model,'username'); ?>
+      <?php echo $form->textField($model,'username', array('class' => 'itext') ); ?>
+      <?php echo $form->error($model,'username'); ?>
+    </fieldset>
+    
+    <fieldset>
+      <?php echo $form->labelEx($model,'password'); ?>
+      <?php echo $form->passwordField($model,'password',array('class' => 'ipwd') ); ?>
+      <?php echo $form->error($model,'password'); ?>		
+    </fieldset>
+    
+    <fieldset>
+      <?php echo $form->checkBox($model,'rememberMe'); ?>
+      <?php echo $form->label($model,'rememberMe', array('class' => 'irem' )); ?>
+      <?php echo $form->error($model,'rememberMe'); ?>		
+    </fieldset>
 
-  <fieldset>
-  	    	<?php echo CHtml::submitButton(Yii::t('cp','Login'), array('class'=>'') ); ?>
-  </fieldset>
+    <fieldset>
+            <?php echo CHtml::submitButton(Yii::t('cp','Login'), array('class'=>'') ); ?>
+    </fieldset>
+  </div>
 <?php $this->endWidget(); ?>
 </div>

@@ -6,7 +6,8 @@
 <?php  
   $theme_baseurl = API::get_theme_baseurl();  
 	$baseUrl = Yii::app()->baseUrl; 
-	$cs = Yii::app()->getClientScript();
+	$cs = Yii::app()->getClientScript();	
+//  $cs->registerCoreScript('jquery');  
 ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
   

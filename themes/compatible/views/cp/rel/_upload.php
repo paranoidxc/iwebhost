@@ -10,9 +10,9 @@
 			},
 		debug: false,
 		// Button settings
-		button_image_url: "/default_image/XPButtonUploadText_61x22.png",				
-		button_width: "61",
-		button_height: "22",
+		button_image_url: "/default_image/swf_upload_bg.jpg",				
+		button_width: "110",
+		button_height: "32",
 		button_placeholder_id: "spanButtonPlaceHolder",
 		// The event handler functions are defined in handlers.js
 		upload_start_handler : pickatt_uploadStart,
@@ -23,9 +23,9 @@
 </script>
 <div id="" >
   <form id="form1" action="index.php" method="post" enctype="multipart/form-data">		  
-    <div class='lh20P'>
-      <span id="spanButtonPlaceHolder">Upload Attachment</span>      
-      <span class='swfloadstatus dN fwB'>Uploading...</span>
+    <div class='lh32P'>
+      <span id="spanButtonPlaceHolder">本地上载</span>      
+      <span class='swfloadstatus dN fwB'>上载中...</span>
       <input id="btnCancel" 
             type="button"
             value="Cancel All Uploads" onclick="swfu.cancelQueue();"
@@ -33,9 +33,9 @@
   	        style="display: none; margin-left: 2px; font-size: 8pt; height: 29px; " />
   	  <span class="ele_refresh flR csP radius4"><?php echo Yii::t('cp','Refresh') ?></span>
     </div>
-    <div id="divStatus" class='dN' >0 Files Uploaded</div>
+    <div id="divStatus" class='dN' >0 个文件已上载.</div>
     <div class="fieldset flash dN" id="fsUploadProgress">
-      <span class="legend">Upload Queue</span>
+      <span class="legend">文件上载队列</span>
     </div>
   </form>  
 </div>

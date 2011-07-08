@@ -174,3 +174,6 @@ a.progressCancel:hover {
 .swfupload {
 	vertical-align: top;
 }
+#ibtnCancel {
+  height: 32px;
+}
