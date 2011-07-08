@@ -1,0 +1,76 @@
+.ipagination {
+  line-height: 30px;
+  height: 30px;
+}
+/*
+.ipagination span {
+  margin: 0;
+  padding: 0;
+  line-height: 16px;
+  height: 16px;
+  display: inline-block;
+}
+*/
+
+.w_pagin {
+  margin-top: -23px;
+}
+.w_pagin span {
+  display: inline-block;
+  padding: 2px 6px;
+  height: 16px;
+  line-height: 16px;
+}
+ul.yiiPager {
+  position: relative;
+  top: 0px;
+  display: inline-block;
+}
+
+.ipagination ul.yiiPager {
+  top: 5px;
+}
+ul.yiiPager li
+{
+  float: left;
+  border: 1px solid #efefef;
+  border-color: #efefef #ccc #ccc #efefef;   
+}
+ul.yiiPager .hidden a:hover,
+ul.yiiPager a:link,
+ul.yiiPager a:visited {  
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 6px ;
+  height: 16px;
+  line-height: 16px;
+  margin: 0;
+  display: block;
+  text-decoration:none;
+  border: 1px solid #313131;
+  border-color: #fff;
+  color: #666666; 
+  background: #efefef  no-repeat 0 50%;
+}
+
+ul.yiiPager .page a {
+ font-weight: normal;
+ background: #efefef no-repeat 0 50%;
+}
+ul.yiiPager a:hover { color: #313131;
+}
+
+ul.yiiPager .selected a {  
+ font-weight:bold;
+ color: #313131;
+}
+ul.yiiPager .hidden a:hover,
+ul.yiiPager .hidden a {
+  cursor: text;
+  color: #999; 
+}
+
+ul.yiiPager .first,
+ul.yiiPager .last {
+ display:none;
+}

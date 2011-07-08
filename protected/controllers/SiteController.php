@@ -66,6 +66,36 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+	
+  public function actionIlogin()
+	{
+    if( !User()->isGuest && User::model()->findByPk(User()->id)->account_type == 1 ) {
+      $this->redirect(ADMIN_URL);
+      exit;
+    }
+		$model=new LoginForm;
+
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid			
+			if($model->validate() && $model->login())
+			  //$this->redirect( array( 'admin/category/iroot' ));
+        $this->redirect(ADMIN_URL);
+				//$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('login',array('model'=>$model));
+	}
+
 	/**
 	 * Displays the login page
 	 */

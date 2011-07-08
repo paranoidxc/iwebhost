@@ -39,6 +39,8 @@ foreach( $bg_url as $url ) {
 
 $bg_url = array(
     '/cp/',
+    'index.php?r=site/ilogin',
+    '/site/ilogin',
 );
 
 foreach( $bg_url as $url ) {
