@@ -47,7 +47,17 @@
             </div>
           </div><!-- settings end-->
           <div class='flR'>
-          <a class='action' href="<?echo url('/cp/article/create', array('action' => action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>
+            <a class='action <?php echo API::isaction( array( 'is_star=1','is_star/1/') ) ?>'
+                href="<?php echo url('cp/article/'.action(),array('is_star' => 1,'top_leaf_id' =>
+                $top_leaf->id,'category_id' => $cur_leaf->id ) ) ?>" >重点</a>
+
+            <a class='action <?php echo API::isaction( array( 'is_star=0','is_star/0/') ) ?>'
+                href="<?php echo url('cp/article/'.action(),array('is_star' => 0,'top_leaf_id' =>
+                $top_leaf->id,'category_id' => $cur_leaf->id ) ) ?>" >非重点</a>
+
+            <a class='action'
+              href="<?echo url('/cp/article/create',
+              array('action' => action(),'top_leaf_id' => $top_leaf->id, 'leaf_id' => $cur_leaf->id) ) ?>" >新建内容</a>
           </div>
         </div>
 

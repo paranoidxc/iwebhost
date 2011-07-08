@@ -41,8 +41,6 @@ class ArticleController extends GController
     $this->actionIndex($top_leaf_id,$cur_leaf_id);
   }
 
-
-
   public function actionInnode() {
     $top_leaf_id = 206;
     $cur_leaf_id = $_GET['category_id'] ? $_GET['category_id'] : $top_leaf_id;
@@ -109,6 +107,16 @@ class ArticleController extends GController
         $criteria->params[':category_id'] = $cur_leaf_id;  
       }
     }
+
+
+    $_is_star =& str_replace('.html','', $_GET['is_star']);
+    if( $_is_star == 0 ) {
+      $criteria->condition .= " AND is_star = 0 ";
+    }elseif( $_is_star == 1 ){
+      $criteria->condition .= " AND is_star = 1 ";
+    }
+	  $opt['tpl_params']['is_star']  = $_is_star;
+
 
     $criteria->order        = 'update_time DESC';
 	  $opt['criteria']        =  $criteria;

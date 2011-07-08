@@ -408,6 +408,13 @@ class AttachmentController extends GController
         $criteria->params[':category_id'] = $cur_leaf_id;  
       }
     }
+ 
+    
+    $_ext =& str_replace('.html','',$_GET['ext']);
+    $opt['tpl_params']['ext'] =& $_ext;
+    if( $_ext == "image" ) {
+      $criteria->condition .= " AND find_in_set(extension,'jpg,jpeg,png,gif') ";
+    }
 
     $criteria->order =' c_time DESC ';
     $leaf_tree =& $this->getTree($top_leaf_id);

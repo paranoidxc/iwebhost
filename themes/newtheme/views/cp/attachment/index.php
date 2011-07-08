@@ -35,7 +35,13 @@
                 </div>
             </div>
           </div><!-- settings end-->
-          <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
+          <div class='flR'>
+            <a href="<?php echo url('cp/attachment/index?ext=image') ?>"
+             title="文件扩展名为: <?php echo join(' , ',API::$IMAGE_EXTENSION)?>"
+             class='action <?php echo API::isaction( array( 'ext=image','ext/image/') ) ?>'>图像文件</a>
+           <span class='flR csP toggle' rel="#attachment_form">上载附件</span>
+          </div>
+
         </div><!-- w_location end -->
         <?php echo $this->renderPartial( '_search',array('keyword' => $keyword),false,true) ?>
         <div class='flR pr20P w_pagin'>

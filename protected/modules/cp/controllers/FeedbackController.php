@@ -75,23 +75,20 @@ class FeedbackController extends GController
     $criteria->condition = ' 1=1 ';
 		if( isset($_GET['keyword']) || !empty($_GET['keyword']) || strlen($_GET['keyword']) >0  ){
 		  $keyword              = trim($_GET['keyword']);			  
-      $criteria->condition  = 'question like :keyword OR answer like :keyword';
+      $criteria->condition  .= ' AND question like :keyword ';
       $criteria->params     = array(':keyword'=>"%$keyword%"); 
       $opt['tpl_params']['keyword'] = $_REQUEST['keyword'];
 	  }
 	  $criteria->order      = 'a_time DESC';
-    if( isset($_GET['is_answer']) && !empty($_GET['is_answer']) ) {
-      if( $_GET['is_answer'] == 0 ){
-        $criteria->condition .= " AND answer = '' ";
-      }else{
-        $criteria->condition .= " AND answer != '' ";
-      }
-//      $criteria->params[':is_answer'] =& $_GET['is_answer'];
-      $opt['tpl_params']['is_answer'] =& $_GET['is_answer'];
+    $_is_answer =& str_replace('.html','',$_GET['is_answer']);
+    $opt['tpl_params']['is_answer'] =& $_is_answer;
+    if( $_is_answer == "1" ) {
+      $criteria->condition .= " AND answer != '' ";
+    }elseif( $_is_answer == "0" ) {
+      $criteria->condition .= " AND answer = '' ";
     }
-    
-    $opt['criteria'] =  $criteria;
 
+    $opt['criteria'] =  $criteria;
 	  parent::actionIndex($opt);
 	}
   

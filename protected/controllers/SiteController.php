@@ -103,9 +103,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{		
-    echo '----';
-    echo User()->id;
-		$user = Yii::app()->user->getState('current_user');
+		$user = User::model()->findByPk( User()->id );
 		$user->last_logout_time = Time::now();
 		$user->last_ip = API::get_ip();
 		$user->save();

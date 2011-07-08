@@ -196,10 +196,11 @@ class GController extends Controller
       $tpl_params['id_end'] =& $_GET['id_end'];
     }
 
-    if( isset($_GET['account_type']) && !empty($_GET['account_type']) ) {
+    //if( isset($_GET['account_type']) && !empty($_GET['account_type']) ) {
+    if( strlen( $_GET['account_type'] ) > 0 ) {
       $criteria->condition .= " AND account_type = :account_type ";
-      $criteria->params[':account_type'] =& $_GET['account_type'];
-      $tpl_params['account_type'] =& $_GET['account_type'];
+      $criteria->params[':account_type'] =& str_replace('.html','', $_GET['account_type']);
+      $tpl_params['account_type'] =& str_replace('.html','',$_GET['account_type']);
     }
 
     $tpl_params['is_hide_adv'] =& $_GET['is_hide_adv'];
