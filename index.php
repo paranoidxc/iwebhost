@@ -43,7 +43,7 @@ $bg_url = array(
 
 foreach( $bg_url as $url ) {
   if( strpos($_SERVER['REQUEST_URI'], $url ) !== false ) {
-    $bg_config=dirname(__FILE__).'/protected/config/newtheme_config.php';
+    $bg_config=dirname(__FILE__).'/protected/config/compatible_config.php';
     require_once $bg_config;
     break;
   }

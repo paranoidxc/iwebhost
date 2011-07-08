@@ -1,6 +1,6 @@
 <?php
   return $sep_config_ar = array(  
-	  'theme'=>'newtheme',
+	  'theme'=>'compatible',
 
     'components'=>array(
   		'urlManager'=>array(
